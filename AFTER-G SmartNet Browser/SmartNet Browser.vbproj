@@ -254,6 +254,12 @@
     <Compile Include="NewBrowserForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NewHistoryForm.Designer.vb">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewHistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PasswordCrypt.vb" />
     <Compile Include="PreventTabsCloseForm.Designer.vb">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
@@ -454,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewBrowserForm.resx">
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewHistoryForm.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>

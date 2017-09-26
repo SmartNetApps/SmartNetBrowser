@@ -487,9 +487,6 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
 
         Try
-
-
-
             My.Settings.Favorites.Add(WB.Url.ToString)
             URLBox.Items.Add(WB.Url.ToString)
             My.Settings.Save()
@@ -1632,7 +1629,16 @@ Public Class CustomBrowser
                     If e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:") Then
 
                     Else
+
+                        'Ajout d'une entrée dans la base de données Historique
                         My.Settings.History.Add(Me.Url.ToString)
+                        Dim NouvelleEntreeHistorique As BrowserHistoryDataSet.HistoryRow
+                        NouvelleEntreeHistorique = BrowserForm.BrowserHistoryDataSet.History.NewHistoryRow()
+
+                        NouvelleEntreeHistorique.PageName = Me.DocumentTitle.ToString
+                        NouvelleEntreeHistorique.PageURL = e.Uri.ToString
+
+
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
                 End If

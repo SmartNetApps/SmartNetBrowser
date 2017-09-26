@@ -385,9 +385,9 @@ Partial Public Class BrowserHistoryDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddHistoryRow(ByVal PageID As String, ByVal PageName As String, ByVal PageURL As String) As HistoryRow
+        Public Overloads Function AddHistoryRow(ByVal PageName As String, ByVal PageURL As String) As HistoryRow
             Dim rowHistoryRow As HistoryRow = CType(Me.NewRow,HistoryRow)
-            Dim columnValuesArray() As Object = New Object() {PageID, PageName, PageURL}
+            Dim columnValuesArray() As Object = New Object() {Nothing, PageName, PageURL}
             rowHistoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowHistoryRow)
             Return rowHistoryRow
@@ -395,7 +395,7 @@ Partial Public Class BrowserHistoryDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByPageID(ByVal PageID As String) As HistoryRow
+        Public Function FindByPageID(ByVal PageID As Integer) As HistoryRow
             Return CType(Me.Rows.Find(New Object() {PageID}),HistoryRow)
         End Function
         
@@ -424,13 +424,16 @@ Partial Public Class BrowserHistoryDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnPageID = New Global.System.Data.DataColumn("PageID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnPageID = New Global.System.Data.DataColumn("PageID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPageID)
             Me.columnPageName = New Global.System.Data.DataColumn("PageName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPageName)
             Me.columnPageURL = New Global.System.Data.DataColumn("PageURL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPageURL)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPageID}, true))
+            Me.columnPageID.AutoIncrement = true
+            Me.columnPageID.AutoIncrementSeed = -1
+            Me.columnPageID.AutoIncrementStep = -1
             Me.columnPageID.AllowDBNull = false
             Me.columnPageID.Unique = true
         End Sub
@@ -579,9 +582,9 @@ Partial Public Class BrowserHistoryDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property PageID() As String
+        Public Property PageID() As Integer
             Get
-                Return CType(Me(Me.tableHistory.PageIDColumn),String)
+                Return CType(Me(Me.tableHistory.PageIDColumn),Integer)
             End Get
             Set
                 Me(Me.tableHistory.PageIDColumn) = value

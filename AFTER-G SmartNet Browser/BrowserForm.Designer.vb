@@ -123,6 +123,8 @@ Partial Class BrowserForm
         Me.SearchBoxLabel = New System.Windows.Forms.Label()
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
+        Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BrowserHistoryDataSet = New SmartNet_Browser.BrowserHistoryDataSet()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,19 +141,21 @@ Partial Class BrowserForm
         Me.BrowserContextMenuStrip.SuspendLayout()
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
         '
-        resources.ApplyResources(Me.MainToolbar, "MainToolbar")
         Me.MainToolbar.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.MainToolbar, "MainToolbar")
         Me.MainToolbar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainMenu})
         Me.MainToolbar.Name = "MainToolbar"
         '
         'MainMenu
         '
-        resources.ApplyResources(Me.MainMenu, "MainMenu")
         Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.AtteindreLeSiteToolStripMenuItem, Me.FermerSmartNetBrowserToolStripMenuItem})
+        resources.ApplyResources(Me.MainMenu, "MainMenu")
         Me.MainMenu.Name = "MainMenu"
         '
         'NewTabToolStripMenuItem
@@ -166,8 +170,8 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator1
         '
-        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         '
         'OpenPageToolStripMenuItem
         '
@@ -191,9 +195,9 @@ Partial Class BrowserForm
         '
         'ÉditionSubMenu
         '
-        resources.ApplyResources(Me.ÉditionSubMenu, "ÉditionSubMenu")
         Me.ÉditionSubMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CouperToolStripMenuItem, Me.CopierToolStripMenuItem, Me.CollerToolStripMenuItem, Me.SélectionnerToutToolStripMenuItem, Me.ToolStripSeparator9, Me.RechercherDansLaPageToolStripMenuItem})
         Me.ÉditionSubMenu.Name = "ÉditionSubMenu"
+        resources.ApplyResources(Me.ÉditionSubMenu, "ÉditionSubMenu")
         '
         'CouperToolStripMenuItem
         '
@@ -217,89 +221,89 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator9
         '
-        resources.ApplyResources(Me.ToolStripSeparator9, "ToolStripSeparator9")
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        resources.ApplyResources(Me.ToolStripSeparator9, "ToolStripSeparator9")
         '
         'RechercherDansLaPageToolStripMenuItem
         '
-        resources.ApplyResources(Me.RechercherDansLaPageToolStripMenuItem, "RechercherDansLaPageToolStripMenuItem")
         Me.RechercherDansLaPageToolStripMenuItem.Name = "RechercherDansLaPageToolStripMenuItem"
+        resources.ApplyResources(Me.RechercherDansLaPageToolStripMenuItem, "RechercherDansLaPageToolStripMenuItem")
         '
         'ZoomToolStripMenuItem
         '
-        resources.ApplyResources(Me.ZoomToolStripMenuItem, "ZoomToolStripMenuItem")
         Me.ZoomToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Zoom50, Me.Zoom75, Me.Zoom100, Me.Zoom125, Me.Zoom150, Me.Zoom175, Me.Zoom200, Me.Zoom250, Me.Zoom300, Me.Zoom400, Me.ToolStripSeparator8, Me.ZoomPlusButton, Me.ZoomMinusButton})
+        resources.ApplyResources(Me.ZoomToolStripMenuItem, "ZoomToolStripMenuItem")
         Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
         '
         'Zoom50
         '
-        resources.ApplyResources(Me.Zoom50, "Zoom50")
         Me.Zoom50.Name = "Zoom50"
+        resources.ApplyResources(Me.Zoom50, "Zoom50")
         '
         'Zoom75
         '
-        resources.ApplyResources(Me.Zoom75, "Zoom75")
         Me.Zoom75.Name = "Zoom75"
+        resources.ApplyResources(Me.Zoom75, "Zoom75")
         '
         'Zoom100
         '
-        resources.ApplyResources(Me.Zoom100, "Zoom100")
         Me.Zoom100.Name = "Zoom100"
+        resources.ApplyResources(Me.Zoom100, "Zoom100")
         '
         'Zoom125
         '
-        resources.ApplyResources(Me.Zoom125, "Zoom125")
         Me.Zoom125.Name = "Zoom125"
+        resources.ApplyResources(Me.Zoom125, "Zoom125")
         '
         'Zoom150
         '
-        resources.ApplyResources(Me.Zoom150, "Zoom150")
         Me.Zoom150.Name = "Zoom150"
+        resources.ApplyResources(Me.Zoom150, "Zoom150")
         '
         'Zoom175
         '
-        resources.ApplyResources(Me.Zoom175, "Zoom175")
         Me.Zoom175.Name = "Zoom175"
+        resources.ApplyResources(Me.Zoom175, "Zoom175")
         '
         'Zoom200
         '
-        resources.ApplyResources(Me.Zoom200, "Zoom200")
         Me.Zoom200.Name = "Zoom200"
+        resources.ApplyResources(Me.Zoom200, "Zoom200")
         '
         'Zoom250
         '
-        resources.ApplyResources(Me.Zoom250, "Zoom250")
         Me.Zoom250.Name = "Zoom250"
+        resources.ApplyResources(Me.Zoom250, "Zoom250")
         '
         'Zoom300
         '
-        resources.ApplyResources(Me.Zoom300, "Zoom300")
         Me.Zoom300.Name = "Zoom300"
+        resources.ApplyResources(Me.Zoom300, "Zoom300")
         '
         'Zoom400
         '
-        resources.ApplyResources(Me.Zoom400, "Zoom400")
         Me.Zoom400.Name = "Zoom400"
+        resources.ApplyResources(Me.Zoom400, "Zoom400")
         '
         'ToolStripSeparator8
         '
-        resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         '
         'ZoomPlusButton
         '
-        resources.ApplyResources(Me.ZoomPlusButton, "ZoomPlusButton")
         Me.ZoomPlusButton.Name = "ZoomPlusButton"
+        resources.ApplyResources(Me.ZoomPlusButton, "ZoomPlusButton")
         '
         'ZoomMinusButton
         '
-        resources.ApplyResources(Me.ZoomMinusButton, "ZoomMinusButton")
         Me.ZoomMinusButton.Name = "ZoomMinusButton"
+        resources.ApplyResources(Me.ZoomMinusButton, "ZoomMinusButton")
         '
         'ToolStripSeparator2
         '
-        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         '
         'TéléchargerCetteVidéoToolStripMenuItem
         '
@@ -308,13 +312,13 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator6
         '
-        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
         '
         'FavorisSubMenu
         '
-        resources.ApplyResources(Me.FavorisSubMenu, "FavorisSubMenu")
         Me.FavorisSubMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AfficherLesFavorisToolStripMenuItem, Me.AjouterCettePageDansLesFavorisToolStripMenuItem})
+        resources.ApplyResources(Me.FavorisSubMenu, "FavorisSubMenu")
         Me.FavorisSubMenu.Name = "FavorisSubMenu"
         '
         'AfficherLesFavorisToolStripMenuItem
@@ -334,8 +338,8 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator4
         '
-        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         '
         'PleinÉcranToolStripMenuItem
         '
@@ -349,8 +353,8 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator3
         '
-        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
         '
         'ParamètresToolStripMenuItem
         '
@@ -359,29 +363,29 @@ Partial Class BrowserForm
         '
         'SupportToolStripMenuItem
         '
-        resources.ApplyResources(Me.SupportToolStripMenuItem, "SupportToolStripMenuItem")
         Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem, Me.EnvoyerVosCommentairesToolStripMenuItem})
+        resources.ApplyResources(Me.SupportToolStripMenuItem, "SupportToolStripMenuItem")
         Me.SupportToolStripMenuItem.Name = "SupportToolStripMenuItem"
         '
         'CentreDaideEnLigneToolStripMenuItem
         '
-        resources.ApplyResources(Me.CentreDaideEnLigneToolStripMenuItem, "CentreDaideEnLigneToolStripMenuItem")
         Me.CentreDaideEnLigneToolStripMenuItem.Name = "CentreDaideEnLigneToolStripMenuItem"
+        resources.ApplyResources(Me.CentreDaideEnLigneToolStripMenuItem, "CentreDaideEnLigneToolStripMenuItem")
         '
         'ContacterLéquipeToolStripMenuItem
         '
-        resources.ApplyResources(Me.ContacterLéquipeToolStripMenuItem, "ContacterLéquipeToolStripMenuItem")
         Me.ContacterLéquipeToolStripMenuItem.Name = "ContacterLéquipeToolStripMenuItem"
+        resources.ApplyResources(Me.ContacterLéquipeToolStripMenuItem, "ContacterLéquipeToolStripMenuItem")
         '
         'ToolStripSeparator5
         '
-        resources.ApplyResources(Me.ToolStripSeparator5, "ToolStripSeparator5")
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        resources.ApplyResources(Me.ToolStripSeparator5, "ToolStripSeparator5")
         '
         'ÀProposDeSmartNetBrowserToolStripMenuItem
         '
-        resources.ApplyResources(Me.ÀProposDeSmartNetBrowserToolStripMenuItem, "ÀProposDeSmartNetBrowserToolStripMenuItem")
         Me.ÀProposDeSmartNetBrowserToolStripMenuItem.Name = "ÀProposDeSmartNetBrowserToolStripMenuItem"
+        resources.ApplyResources(Me.ÀProposDeSmartNetBrowserToolStripMenuItem, "ÀProposDeSmartNetBrowserToolStripMenuItem")
         '
         'EnvoyerVosCommentairesToolStripMenuItem
         '
@@ -390,8 +394,8 @@ Partial Class BrowserForm
         '
         'NouvelleVersionDisponibleSubMenu
         '
-        resources.ApplyResources(Me.NouvelleVersionDisponibleSubMenu, "NouvelleVersionDisponibleSubMenu")
         Me.NouvelleVersionDisponibleSubMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TéléchargerLaVersionXXXXToolStripMenuItem})
+        resources.ApplyResources(Me.NouvelleVersionDisponibleSubMenu, "NouvelleVersionDisponibleSubMenu")
         Me.NouvelleVersionDisponibleSubMenu.Name = "NouvelleVersionDisponibleSubMenu"
         '
         'TéléchargerLaVersionXXXXToolStripMenuItem
@@ -401,8 +405,8 @@ Partial Class BrowserForm
         '
         'AtteindreLeSiteToolStripMenuItem
         '
-        resources.ApplyResources(Me.AtteindreLeSiteToolStripMenuItem, "AtteindreLeSiteToolStripMenuItem")
         Me.AtteindreLeSiteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AFTERGServicesWebToolStripMenuItem, Me.AFTERGAppsToolStripMenuItem, Me.MenuPrincipalToolStripMenuItem})
+        resources.ApplyResources(Me.AtteindreLeSiteToolStripMenuItem, "AtteindreLeSiteToolStripMenuItem")
         Me.AtteindreLeSiteToolStripMenuItem.Name = "AtteindreLeSiteToolStripMenuItem"
         '
         'AFTERGServicesWebToolStripMenuItem
@@ -412,8 +416,8 @@ Partial Class BrowserForm
         '
         'AFTERGAppsToolStripMenuItem
         '
-        resources.ApplyResources(Me.AFTERGAppsToolStripMenuItem, "AFTERGAppsToolStripMenuItem")
         Me.AFTERGAppsToolStripMenuItem.Name = "AFTERGAppsToolStripMenuItem"
+        resources.ApplyResources(Me.AFTERGAppsToolStripMenuItem, "AFTERGAppsToolStripMenuItem")
         '
         'MenuPrincipalToolStripMenuItem
         '
@@ -427,36 +431,36 @@ Partial Class BrowserForm
         '
         'HomepageButton
         '
-        resources.ApplyResources(Me.HomepageButton, "HomepageButton")
         Me.HomepageButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.HomepageButton, "HomepageButton")
         Me.HomepageButton.Name = "HomepageButton"
         Me.HomepageButton.TabStop = False
         '
         'PreviouspageButton
         '
-        resources.ApplyResources(Me.PreviouspageButton, "PreviouspageButton")
         Me.PreviouspageButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.PreviouspageButton, "PreviouspageButton")
         Me.PreviouspageButton.Name = "PreviouspageButton"
         Me.PreviouspageButton.TabStop = False
         '
         'NextpageButton
         '
-        resources.ApplyResources(Me.NextpageButton, "NextpageButton")
         Me.NextpageButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.NextpageButton, "NextpageButton")
         Me.NextpageButton.Name = "NextpageButton"
         Me.NextpageButton.TabStop = False
         '
         'FaviconBox
         '
-        resources.ApplyResources(Me.FaviconBox, "FaviconBox")
         Me.FaviconBox.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.FaviconBox, "FaviconBox")
         Me.FaviconBox.Name = "FaviconBox"
         Me.FaviconBox.TabStop = False
         '
         'URLBox
         '
-        resources.ApplyResources(Me.URLBox, "URLBox")
         Me.URLBox.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox
+        resources.ApplyResources(Me.URLBox, "URLBox")
         Me.URLBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.URLBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.URLBox.FormattingEnabled = True
@@ -533,14 +537,14 @@ Partial Class BrowserForm
         '
         'BrowserContextMenuStrip
         '
-        resources.ApplyResources(Me.BrowserContextMenuStrip, "BrowserContextMenuStrip")
         Me.BrowserContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OuvrirLeLienToolStripMenuItem, Me.OuvrirDansUnNouvelOngletToolStripMenuItem, Me.CopierLadresseDuLienToolStripMenuItem, Me.AjouterLeLienAuxFavorisToolStripMenuItem, Me.LinkToolStripSeparator, Me.EnregistrerLimageToolStripMenuItem, Me.CopierLadresseDeLimageToolStripMenuItem, Me.AfficherLimageToolStripMenuItem, Me.ImageToolStripSeparator, Me.CouperToolStripMenuItem1, Me.CopierToolStripMenuItem1, Me.CollerToolStripMenuItem1, Me.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem, Me.EditionToolStripSeparator, Me.ActualiserLaPageToolStripMenuItem, Me.ToolStripSeparator7, Me.PropriétésToolStripMenuItem, Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem})
         Me.BrowserContextMenuStrip.Name = "BrowserContextMenuStrip"
+        resources.ApplyResources(Me.BrowserContextMenuStrip, "BrowserContextMenuStrip")
         '
         'OuvrirLeLienToolStripMenuItem
         '
-        resources.ApplyResources(Me.OuvrirLeLienToolStripMenuItem, "OuvrirLeLienToolStripMenuItem")
         Me.OuvrirLeLienToolStripMenuItem.Name = "OuvrirLeLienToolStripMenuItem"
+        resources.ApplyResources(Me.OuvrirLeLienToolStripMenuItem, "OuvrirLeLienToolStripMenuItem")
         '
         'OuvrirDansUnNouvelOngletToolStripMenuItem
         '
@@ -559,8 +563,8 @@ Partial Class BrowserForm
         '
         'LinkToolStripSeparator
         '
-        resources.ApplyResources(Me.LinkToolStripSeparator, "LinkToolStripSeparator")
         Me.LinkToolStripSeparator.Name = "LinkToolStripSeparator"
+        resources.ApplyResources(Me.LinkToolStripSeparator, "LinkToolStripSeparator")
         '
         'EnregistrerLimageToolStripMenuItem
         '
@@ -579,8 +583,8 @@ Partial Class BrowserForm
         '
         'ImageToolStripSeparator
         '
-        resources.ApplyResources(Me.ImageToolStripSeparator, "ImageToolStripSeparator")
         Me.ImageToolStripSeparator.Name = "ImageToolStripSeparator"
+        resources.ApplyResources(Me.ImageToolStripSeparator, "ImageToolStripSeparator")
         '
         'CouperToolStripMenuItem1
         '
@@ -604,8 +608,8 @@ Partial Class BrowserForm
         '
         'EditionToolStripSeparator
         '
-        resources.ApplyResources(Me.EditionToolStripSeparator, "EditionToolStripSeparator")
         Me.EditionToolStripSeparator.Name = "EditionToolStripSeparator"
+        resources.ApplyResources(Me.EditionToolStripSeparator, "EditionToolStripSeparator")
         '
         'ActualiserLaPageToolStripMenuItem
         '
@@ -614,18 +618,18 @@ Partial Class BrowserForm
         '
         'ToolStripSeparator7
         '
-        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
         '
         'PropriétésToolStripMenuItem
         '
-        resources.ApplyResources(Me.PropriétésToolStripMenuItem, "PropriétésToolStripMenuItem")
         Me.PropriétésToolStripMenuItem.Name = "PropriétésToolStripMenuItem"
+        resources.ApplyResources(Me.PropriétésToolStripMenuItem, "PropriétésToolStripMenuItem")
         '
         'AfficherLeCodeSourceDeLaPageToolStripMenuItem
         '
-        resources.ApplyResources(Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem, "AfficherLeCodeSourceDeLaPageToolStripMenuItem")
         Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem.Name = "AfficherLeCodeSourceDeLaPageToolStripMenuItem"
+        resources.ApplyResources(Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem, "AfficherLeCodeSourceDeLaPageToolStripMenuItem")
         '
         'SaveImageDialog
         '
@@ -684,6 +688,16 @@ Partial Class BrowserForm
         Me.StatusLabel.BackColor = System.Drawing.SystemColors.Control
         Me.StatusLabel.Name = "StatusLabel"
         '
+        'HistoryBindingSource
+        '
+        Me.HistoryBindingSource.DataSource = Me.BrowserHistoryDataSet
+        Me.HistoryBindingSource.Position = 0
+        '
+        'BrowserHistoryDataSet
+        '
+        Me.BrowserHistoryDataSet.DataSetName = "BrowserHistoryDataSet"
+        Me.BrowserHistoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -728,6 +742,8 @@ Partial Class BrowserForm
         Me.BrowserContextMenuStrip.ResumeLayout(False)
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -832,4 +848,6 @@ Partial Class BrowserForm
     Friend WithEvents RechercherDansLaPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents HistoryBindingSource As BindingSource
+    Friend WithEvents BrowserHistoryDataSet As BrowserHistoryDataSet
 End Class
