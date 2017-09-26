@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5A24503-7B29-4DDB-9458-305348CADF43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SmartNet_Browser.My.MyApplication</StartupObject>
+    <RootNamespace>SmartNet_Browser</RootNamespace>
+    <AssemblyName>smartnetbrowser</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publier\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>smartnetbrowser.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>smartnetbrowser.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SmartNetBrowserIcone.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta Release|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Beta Release\</OutputPath>
+    <DocumentationFile>smartnetbrowser.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Beta Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckofx-Core, Version=45.0.32.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx45.45.0.32\lib\net45\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms, Version=45.0.32.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx45.45.0.32\lib\net45\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.Designer.vb">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdBlockerWhitelistForm.Designer.vb">
+      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdBlockerWhitelistForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BrowserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowserForm.Designer.vb">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowserHistoryDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
+      <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeChildrenProtectionPasswordForm.Designer.vb">
+      <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeChildrenProtectionPasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
+      <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateChildrenProtectionPasswordForm.Designer.vb">
+      <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CreateChildrenProtectionPasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloadForm.Designer.vb">
+      <DependentUpon>DownloadForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterBrowserSettingsSecurityForm.Designer.vb">
+      <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EnterBrowserSettingsSecurityForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterChildrenProtectionForm.Designer.vb">
+      <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EnterChildrenProtectionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExceptionForm.Designer.vb">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoritesForm.Designer.vb">
+      <DependentUpon>FavoritesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FavoritesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstStartForm.Designer.vb">
+      <DependentUpon>FirstStartForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FirstStartForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryForm.Designer.vb">
+      <DependentUpon>HistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseForm.Designer.vb">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NewBrowserForm.Designer.vb">
+      <DependentUpon>NewBrowserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewBrowserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordCrypt.vb" />
+    <Compile Include="PreventTabsCloseForm.Designer.vb">
+      <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PreventTabsCloseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertiesForm.Designer.vb">
+      <DependentUpon>PropertiesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PropertiesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchTextInPageForm.Designer.vb">
+      <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTextInPageForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsCustomSearchForm.Designer.vb">
+      <DependentUpon>SettingsCustomSearchForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsCustomSearchForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.vb">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SourceCodeForm.Designer.vb">
+      <DependentUpon>SourceCodeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SourceCodeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdaterForm.Designer.vb">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdaterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAgentChangeForm.Designer.vb">
+      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserAgentChangeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutForm.en.resx">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutForm.fr.resx">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdBlockerWhitelistForm.en.resx">
+      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdBlockerWhitelistForm.fr.resx">
+      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdBlockerWhitelistForm.resx">
+      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowserForm.en.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowserForm.fr-DJ.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowserForm.fr-FR.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowserForm.fr.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowserForm.resx">
+      <DependentUpon>BrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.en.resx">
+      <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.fr.resx">
+      <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.resx">
+      <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.en.resx">
+      <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.fr.resx">
+      <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.resx">
+      <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.en.resx">
+      <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.fr.resx">
+      <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.resx">
+      <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.en.resx">
+      <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.fr.resx">
+      <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.resx">
+      <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadForm.en.resx">
+      <DependentUpon>DownloadForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadForm.fr.resx">
+      <DependentUpon>DownloadForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadForm.resx">
+      <DependentUpon>DownloadForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.en.resx">
+      <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.fr.resx">
+      <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.resx">
+      <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterChildrenProtectionForm.en.resx">
+      <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterChildrenProtectionForm.fr.resx">
+      <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterChildrenProtectionForm.resx">
+      <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionForm.en.resx">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionForm.fr.resx">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionForm.resx">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoritesForm.en.resx">
+      <DependentUpon>FavoritesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoritesForm.fr.resx">
+      <DependentUpon>FavoritesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoritesForm.resx">
+      <DependentUpon>FavoritesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstStartForm.en.resx">
+      <DependentUpon>FirstStartForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstStartForm.fr.resx">
+      <DependentUpon>FirstStartForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstStartForm.resx">
+      <DependentUpon>FirstStartForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryForm.en.resx">
+      <DependentUpon>HistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryForm.fr.resx">
+      <DependentUpon>HistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryForm.resx">
+      <DependentUpon>HistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.en.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.fr.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBrowserForm.resx">
+      <DependentUpon>NewBrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
+      <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreventTabsCloseForm.fr.resx">
+      <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreventTabsCloseForm.resx">
+      <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertiesForm.en.resx">
+      <DependentUpon>PropertiesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertiesForm.fr.resx">
+      <DependentUpon>PropertiesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertiesForm.resx">
+      <DependentUpon>PropertiesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchTextInPageForm.en.resx">
+      <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchTextInPageForm.fr.resx">
+      <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchTextInPageForm.resx">
+      <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsCustomSearchForm.en.resx">
+      <DependentUpon>SettingsCustomSearchForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsCustomSearchForm.fr.resx">
+      <DependentUpon>SettingsCustomSearchForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsCustomSearchForm.resx">
+      <DependentUpon>SettingsCustomSearchForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.en.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.fr-FR.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.fr.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceCodeForm.en.resx">
+      <DependentUpon>SourceCodeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceCodeForm.fr.resx">
+      <DependentUpon>SourceCodeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourceCodeForm.resx">
+      <DependentUpon>SourceCodeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdaterForm.en.resx">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdaterForm.fr.resx">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdaterForm.resx">
+      <DependentUpon>UpdaterForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAgentChangeForm.en.resx">
+      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAgentChangeForm.fr.resx">
+      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAgentChangeForm.resx">
+      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BrowserHistoryDataSet.xsc">
+      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BrowserHistoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BrowserHistoryDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="BrowserHistoryDataSet.xss">
+      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Firefox\omni.ja" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\breakpadinjector.dll" />
+    <Content Include="Firefox\d3dcompiler_47.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\icudt56.dll" />
+    <Content Include="Firefox\icuin56.dll" />
+    <Content Include="Firefox\icuuc56.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\sandboxbroker.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
+    <Content Include="SmartNetBrowserIcone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\Geckofx45.45.0.32\build\Geckofx45.targets" Condition="Exists('..\packages\Geckofx45.45.0.32\build\Geckofx45.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Geckofx45.45.0.32\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx45.45.0.32\build\Geckofx45.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
