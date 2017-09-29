@@ -518,7 +518,12 @@ Public Class BrowserForm
 
     Private Sub ShowFavorites(sender As Object, e As EventArgs) Handles AfficherLesFavorisToolStripMenuItem.Click
         Try
-            FavoritesForm.Show()
+            If My.Settings.HistoryFavoritesSecurity = True Then
+                EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
+                EnterBrowserSettingsSecurityForm.ShowDialog()
+            Else
+                FavoritesForm.Show()
+            End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -530,7 +535,12 @@ Public Class BrowserForm
 
     Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
         Try
-            HistoryForm.Show()
+            If My.Settings.HistoryFavoritesSecurity = True Then
+                EnterBrowserSettingsSecurityForm.SecurityMode = "History"
+                EnterBrowserSettingsSecurityForm.ShowDialog()
+            Else
+                HistoryForm.Show()
+            End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -543,6 +553,7 @@ Public Class BrowserForm
     Private Sub Settings(sender As Object, e As EventArgs) Handles ParamètresToolStripMenuItem.Click
         Try
             If My.Settings.BrowserSettingsSecurity = True Then
+                EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
                 SettingsForm.ShowDialog()

@@ -420,4 +420,12 @@ StopVersionChecking:
         My.Settings.Save()
         Me.Close()
     End Sub
+
+    Private Sub HistoryFavoritesSecurityCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles HistoryFavoritesSecurityCheckBox.CheckedChanged
+        If HistoryFavoritesSecurityCheckBox.Checked = True Then
+            My.Settings.HistoryFavoritesSecurity = True
+        Else
+            My.Settings.HistoryFavoritesSecurity = False
+        End If
+    End Sub
 End Class

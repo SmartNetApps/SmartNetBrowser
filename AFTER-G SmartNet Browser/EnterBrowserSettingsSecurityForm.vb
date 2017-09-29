@@ -1,9 +1,18 @@
 ﻿Imports System.ComponentModel
 
 Public Class EnterBrowserSettingsSecurityForm
+    Public SecurityMode As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         If BrowserForm.GetSHA512(PasswordTextBox.Text) = My.Settings.BrowserSettingsSecurityPassword Then
-            SettingsForm.Show()
+            If SecurityMode = "Settings" Then
+                SettingsForm.Show()
+            End If
+            If SecurityMode = "History" Then
+                HistoryForm.Show()
+            End If
+            If SecurityMode = "Favorites" Then
+                FavoritesForm.Show()
+            End If
             Me.Close()
         Else
             MsgBox("Mot de passe incorrect", MsgBoxStyle.Critical, "SmartNet Browser Protection des paramètres - Saisie du mot de passe")

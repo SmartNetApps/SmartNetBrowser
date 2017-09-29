@@ -346,6 +346,18 @@ Namespace My
                 Return CType(Me("BrowserHistoryConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property HistoryFavoritesSecurity() As Boolean
+            Get
+                Return CType(Me("HistoryFavoritesSecurity"),Boolean)
+            End Get
+            Set
+                Me("HistoryFavoritesSecurity") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

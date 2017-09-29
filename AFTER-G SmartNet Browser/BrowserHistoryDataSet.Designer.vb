@@ -436,6 +436,8 @@ Partial Public Class BrowserHistoryDataSet
             Me.columnPageID.AutoIncrementStep = -1
             Me.columnPageID.AllowDBNull = false
             Me.columnPageID.Unique = true
+            Me.columnPageName.Caption = "Nom de la page"
+            Me.columnPageURL.Caption = "Adresse"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

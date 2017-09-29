@@ -84,5 +84,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BrowserHistory.mdf;Integrated Security=True;Connect Timeout=30</Value>
     </Setting>
+    <Setting Name="HistoryFavoritesSecurity" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
