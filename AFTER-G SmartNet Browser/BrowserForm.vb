@@ -1525,6 +1525,10 @@ Public Class BrowserForm
         Dim PageTitle As String = WB.DocumentTitle
         Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : http://quentinpugeat.wixsite.com/apps/browser)")
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        NewHistoryForm.Show()
+    End Sub
 End Class
 
 Public Class CustomBrowser
@@ -1631,13 +1635,12 @@ Public Class CustomBrowser
                     Else
 
                         'Ajout d'une entrée dans la base de données Historique
-                        My.Settings.History.Add(Me.Url.ToString)
+                        'My.Settings.History.Add(Me.Url.ToString)
                         Dim NouvelleEntreeHistorique As BrowserHistoryDataSet.HistoryRow
                         NouvelleEntreeHistorique = BrowserForm.BrowserHistoryDataSet.History.NewHistoryRow()
-
                         NouvelleEntreeHistorique.PageName = Me.DocumentTitle.ToString
                         NouvelleEntreeHistorique.PageURL = e.Uri.ToString
-
+                        BrowserForm.BrowserHistoryDataSet.History.Rows.Add(NouvelleEntreeHistorique)
 
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If

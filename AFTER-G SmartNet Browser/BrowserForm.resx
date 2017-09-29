@@ -2042,7 +2042,7 @@
     <value>-4, 2</value>
   </data>
   <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 24</value>
+    <value>36, 24</value>
   </data>
   <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2057,7 +2057,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="HomepageButton.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2108,7 +2108,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;HomepageButton.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="PreviouspageButton.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2166,7 +2166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PreviouspageButton.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="NextpageButton.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2224,7 +2224,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NextpageButton.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="FaviconBox.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2274,7 +2274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FaviconBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="URLBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -2304,7 +2304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;URLBox.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="SearchBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2334,7 +2334,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="RefreshButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2394,7 +2394,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;RefreshButton.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="StopButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2449,7 +2449,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StopButton.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="GoButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2507,7 +2507,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;GoButton.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="SearchButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2581,7 +2581,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="CloseTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2637,7 +2637,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CloseTabButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="NewTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2691,7 +2691,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NewTabButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="UpdateNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>142, 8</value>
@@ -2793,7 +2793,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PreviousPageButtonDisabled.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="NextPageButtonDisabled.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2847,7 +2847,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NextPageButtonDisabled.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>679, 8</value>
@@ -3104,33 +3104,33 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB2
-        BgAAAk1TRnQBSQFMAwEBAAFkAQABZAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CVwFeAdECAAF/Af4CAAF4Af8CSwGoAf8CmQHMAf8CAAF4Af8CAAF4
-        Af8CAAF4Af8CAAF4Af8CAAF4Af8CAAF4Af8CAAF4Af8CAAF/Af4CVgFdAdIDIAEvwAACVwFeAdECAAF4
-        Af8CRAGlAf8CUwGsAf8CAAGCAf8CZwG2Af8CPAGhAf8CAAF4Af8CAAF4Af8CAAF4Af8CAAF4Af8CAAF4
-        Af8CAAF4Af8CAAF4Af8CAAF4Af8CVgFdAdLCAAF/Af4CTQGpAf8CKAGXAf8CCAGGAf8ClgHKAf8CJgGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CSwGoAf8CAAF4Af8CAAF4Af8CAAF4Af8CAAF4Af8CAAF/
-        Af7CAAF4Af8CZgG2Af8CAAGAAf8CAAF4Af8CawG4Af8CGQGPAf8CtgHaAf8CawG4Af8CaAG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CBgGFAf8CAAF4Af8CAAF4Af8CAAF4Af/AAAIZAY8B/wIUAY0B/wJtAbkB/wJn
-        AbYB/wJdAbEB/wJ4Ab8B/wIvAZoB/wJfAbIB/wJbAbAB/wIMAYgB/wLEAeIB/wJMAagB/wKzAdkB/wIA
-        AXgB/wIAAXgB/wIAAXgB/8AAArAB1wH/AjEBmwH/AgABeAH/AhABigH/AncBvgH/AvIB+QH/Ar4B3gH/
-        AtgB6wH/AtcB6wH/Ar4B3gH/Au4B9gH/AsMB4QH/AvEB+AH/AksBqAH/AgABeAH/AgABeAH/wAACBgGF
-        Af8CbgG6Af8C3gHuAf8CnAHNAf8CqQHUAf8CXQGxAf8CBAGEAf8CZQG1Af8CYgGzAf8CBAGEAf8CYAGz
-        Af8CaAG3Af8CIgGUAf8CrwHXAf8CAAF4Af8CAAF4Af/CAAF4Af8CAAF4Af8C1QHqAf8CWwGwAf8CswHZ
-        Af8CjAHFAf8CWwGwAf8CoQHQAf8CngHOAf8CWwGwAf8CjwHHAf8CsQHYAf8CWwGwAf8C1AHpAf8CAAF4
-        Af8CAAF4Af/CAAF4Af8CAAF4Af8C1gHqAf8CXgGxAf8CtQHaAf8CjgHGAf8CXgGxAf8CogHQAf8CoAHP
-        Af8CXgGxAf8CkAHHAf8CswHYAf8CXgGxAf8C1AHpAf8CAAF4Af8CAAF4Af/CAAF4Af8CAAF4Af8CtAHZ
-        Af8CGwGQAf8CagG4Af8CWgGwAf8CAAGCAf8CYwG0Af8CXwGyAf8CAAGCAf8CXgGyAf8CZgG2Af8CHwGS
-        Af8CsAHXAf8CAAF4Af8CAAF4Af/CAAF4Af8CAAF4Af8CUQGrAf8C8QH4Af8CyAHjAf8C7gH2Af8CwgHg
-        Af8C2gHtAf8C2QHsAf8CwgHgAf8C7wH3Af8CxwHjAf8C8gH4Af8CTQGpAf8CAAF4Af8CAAF4Af/CAAF4
-        Af8CAAF4Af8CAAGAAf8CuAHbAf8CRgGmAf8CxgHjAf8CCQGHAf8CXwGyAf8CWwGwAf8CCwGIAf8CxQHi
-        Af8CSQGnAf8CtQHaAf8CAAGAAf8CAAF4Af8CAAF4Af/CAAF4Af8CAAF4Af8CAAF4Af8CCQGHAf8CuAHb
-        Af8CzwHnAf8CrwHXAf8CaQG3Af8CZgG2Af8CsgHYAf8CzwHnAf8CtgHaAf8CBwGGAf8CAAF4Af8CAAF4
-        Af8CAAF4Af/CAAF/Af4CAAF4Af8CAAF4Af8CAAF4Af8CAAGAAf8CUQGrAf8CtAHZAf8C3gHvAf8C3gHu
-        Af8CswHZAf8CTwGqAf8CAAGAAf8CAAF4Af8CAAF4Af8CAAF4Af8CAAF/Af7AAAJXAV4B0QIAAXgB/wIA
-        AXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIA
-        AXgB/wIAAXgB/wIAAXgB/wJXAV4B0cAAAyABLwJXAV4B0QIAAX8B/gIAAXgB/wIAAXgB/wIAAXgB/wIA
-        AXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAXgB/wIAAX8B/gJXAV4B0QMgAS/AAAFC
+        BgAAAk1TRnQBSQFMAwEBAAFsAQABbAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFdAdECAAF/Af4CAAF3Af8CSgGoAf8CmQHMAf8CAAF3Af8CAAF3
+        Af8CAAF3Af8CAAF3Af8CAAF3Af8CAAF3Af8CAAF3Af8CAAF/Af4CWAFdAdIDIAEvwAACWAFdAdECAAF3
+        Af8CQwGlAf8CUgGsAf8CAAGCAf8CZgG2Af8COwGhAf8CAAF3Af8CAAF3Af8CAAF3Af8CAAF3Af8CAAF3
+        Af8CAAF3Af8CAAF3Af8CAAF3Af8CWAFdAdLCAAF/Af4CTAGpAf8CJwGXAf8CBwGGAf8ClgHKAf8CJQGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CSgGoAf8CAAF3Af8CAAF3Af8CAAF3Af8CAAF3Af8CAAF/
+        Af7CAAF3Af8CZQG2Af8CAAGAAf8CAAF3Af8CagG4Af8CGAGPAf8CtgHaAf8CagG4Af8CZwG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CBQGFAf8CAAF3Af8CAAF3Af8CAAF3Af/AAAIYAY8B/wITAY0B/wJsAbkB/wJm
+        AbYB/wJcAbEB/wJ3Ab8B/wIuAZoB/wJeAbIB/wJaAbAB/wILAYgB/wLEAeIB/wJLAagB/wKzAdkB/wIA
+        AXcB/wIAAXcB/wIAAXcB/8AAArAB1wH/AjABmwH/AgABdwH/Ag8BigH/AnYBvgH/AvIB+QH/Ar4B3gH/
+        AtgB6wH/AtcB6wH/Ar4B3gH/Au4B9gH/AsMB4QH/AvEB+AH/AkoBqAH/AgABdwH/AgABdwH/wAACBQGF
+        Af8CbQG6Af8C3gHuAf8CnAHNAf8CqQHUAf8CXAGxAf8CAwGEAf8CZAG1Af8CYQGzAf8CAwGEAf8CXwGz
+        Af8CZwG3Af8CIQGUAf8CrwHXAf8CAAF3Af8CAAF3Af/CAAF3Af8CAAF3Af8C1QHqAf8CWgGwAf8CswHZ
+        Af8CjAHFAf8CWgGwAf8CoQHQAf8CngHOAf8CWgGwAf8CjwHHAf8CsQHYAf8CWgGwAf8C1AHpAf8CAAF3
+        Af8CAAF3Af/CAAF3Af8CAAF3Af8C1gHqAf8CXQGxAf8CtQHaAf8CjgHGAf8CXQGxAf8CogHQAf8CoAHP
+        Af8CXQGxAf8CkAHHAf8CswHYAf8CXQGxAf8C1AHpAf8CAAF3Af8CAAF3Af/CAAF3Af8CAAF3Af8CtAHZ
+        Af8CGgGQAf8CaQG4Af8CWQGwAf8CAAGCAf8CYgG0Af8CXgGyAf8CAAGCAf8CXQGyAf8CZQG2Af8CHgGS
+        Af8CsAHXAf8CAAF3Af8CAAF3Af/CAAF3Af8CAAF3Af8CUAGrAf8C8QH4Af8CyAHjAf8C7gH2Af8CwgHg
+        Af8C2gHtAf8C2QHsAf8CwgHgAf8C7wH3Af8CxwHjAf8C8gH4Af8CTAGpAf8CAAF3Af8CAAF3Af/CAAF3
+        Af8CAAF3Af8CAAGAAf8CuAHbAf8CRQGmAf8CxgHjAf8CCAGHAf8CXgGyAf8CWgGwAf8CCgGIAf8CxQHi
+        Af8CSAGnAf8CtQHaAf8CAAGAAf8CAAF3Af8CAAF3Af/CAAF3Af8CAAF3Af8CAAF3Af8CCAGHAf8CuAHb
+        Af8CzwHnAf8CrwHXAf8CaAG3Af8CZQG2Af8CsgHYAf8CzwHnAf8CtgHaAf8CBgGGAf8CAAF3Af8CAAF3
+        Af8CAAF3Af/CAAF/Af4CAAF3Af8CAAF3Af8CAAF3Af8CAAGAAf8CUAGrAf8CtAHZAf8C3gHvAf8C3gHu
+        Af8CswHZAf8CTgGqAf8CAAGAAf8CAAF3Af8CAAF3Af8CAAF3Af8CAAF/Af7AAAJYAV0B0QIAAXcB/wIA
+        AXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIA
+        AXcB/wIAAXcB/wIAAXcB/wJYAV0B0cAAAyABLwJYAV0B0QIAAX8B/gIAAXcB/wIAAXcB/wIAAXcB/wIA
+        AXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAXcB/wIAAX8B/gJYAV0B0QMgAS/AAAFC
         AU0BPgcAAT4DAAEoAwABQAMAARADAAEBAQABAQUAAYAXAAP/gQAL
 </value>
   </data>
@@ -3153,7 +3153,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BrowserTabs.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="FavoritesButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -3213,7 +3213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FavoritesButton.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="LoadingGif.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3588,7 +3588,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LoadingGif.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="SearchBoxLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -3621,7 +3621,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchBoxLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="URLBoxLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3651,7 +3651,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;URLBoxLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="StatusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -3681,7 +3681,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StatusLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="HistoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 47</value>
@@ -3689,6 +3689,30 @@
   <metadata name="BrowserHistoryDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>186, 47</value>
   </metadata>
+  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>483, 3</value>
+  </data>
+  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 23</value>
+  </data>
+  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="Button1.Text" xml:space="preserve">
+    <value>Ouvrir l'historique</value>
+  </data>
+  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
+    <value>Button1</value>
+  </data>
+  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

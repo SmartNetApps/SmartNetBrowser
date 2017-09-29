@@ -125,6 +125,7 @@ Partial Class BrowserForm
         Me.StatusLabel = New System.Windows.Forms.Label()
         Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BrowserHistoryDataSet = New SmartNet_Browser.BrowserHistoryDataSet()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -698,11 +699,18 @@ Partial Class BrowserForm
         Me.BrowserHistoryDataSet.DataSetName = "BrowserHistoryDataSet"
         Me.BrowserHistoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusLabel)
         Me.Controls.Add(Me.URLBoxLabel)
         Me.Controls.Add(Me.SearchBoxLabel)
@@ -850,4 +858,5 @@ Partial Class BrowserForm
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents HistoryBindingSource As BindingSource
     Friend WithEvents BrowserHistoryDataSet As BrowserHistoryDataSet
+    Friend WithEvents Button1 As Button
 End Class

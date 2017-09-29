@@ -155,9 +155,12 @@ Public Class SettingsForm
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
+        Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+
         Try
             My.Settings.History.Clear()
             BrowserForm.URLBox.Items.Clear()
+            WB.History.Clear()
             DeleteHistoryButton.Enabled = False
             DeleteHistoryButton.Text = "Historique de navigation effacé"
         Catch ex As Exception
