@@ -56,9 +56,12 @@ Public Class SettingsForm
             BrowserSettingsSecurityCheckBox.Checked = True
             CreateBrowserSettingsSecurityPasswordForm.Close()
             ChangeBrowserSettingsSecurityPasswordButton.Enabled = True
+            HistoryFavoritesSecurityCheckBox.Enabled = True
         Else
             BrowserSettingsSecurityCheckBox.Checked = False
             ChangeBrowserSettingsSecurityPasswordButton.Enabled = False
+            HistoryFavoritesSecurityCheckBox.Enabled = False
+            HistoryFavoritesSecurityCheckBox.Checked = False
         End If
         If My.Settings.AdBlocker = True Then
             AdBlockerCheckBox.Checked = True
@@ -156,7 +159,6 @@ Public Class SettingsForm
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-
         Try
             My.Settings.History.Clear()
             BrowserForm.URLBox.Items.Clear()
@@ -231,9 +233,14 @@ Public Class SettingsForm
         If BrowserSettingsSecurityCheckBox.Checked = True Then
             If My.Settings.BrowserSettingsSecurity = False Then
                 CreateBrowserSettingsSecurityPasswordForm.ShowDialog()
+            Else
+                ChangeBrowserSettingsSecurityPasswordButton.Enabled = True
+                HistoryFavoritesSecurityCheckBox.Enabled = True
             End If
         Else
             ChangeBrowserSettingsSecurityPasswordButton.Enabled = False
+            HistoryFavoritesSecurityCheckBox.Enabled = False
+            HistoryFavoritesSecurityCheckBox.Checked = False
         End If
     End Sub
 

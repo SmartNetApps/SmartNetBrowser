@@ -52,6 +52,7 @@ Partial Class SettingsForm
         Me.PrivateBrowsingCheckBox = New System.Windows.Forms.CheckBox()
         Me.SecurityTabPage = New System.Windows.Forms.TabPage()
         Me.BrowserSettingsSecurityGroupBox = New System.Windows.Forms.GroupBox()
+        Me.HistoryFavoritesSecurityCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ChangeBrowserSettingsSecurityPasswordButton = New System.Windows.Forms.Button()
         Me.BrowserSettingsSecurityCheckBox = New System.Windows.Forms.CheckBox()
@@ -89,7 +90,6 @@ Partial Class SettingsForm
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.AbortButton = New System.Windows.Forms.Button()
-        Me.HistoryFavoritesSecurityCheckBox = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.AutresOptionsGroupBox.SuspendLayout()
@@ -334,6 +334,12 @@ Partial Class SettingsForm
         resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Name = "BrowserSettingsSecurityGroupBox"
         Me.BrowserSettingsSecurityGroupBox.TabStop = False
+        '
+        'HistoryFavoritesSecurityCheckBox
+        '
+        resources.ApplyResources(Me.HistoryFavoritesSecurityCheckBox, "HistoryFavoritesSecurityCheckBox")
+        Me.HistoryFavoritesSecurityCheckBox.Name = "HistoryFavoritesSecurityCheckBox"
+        Me.HistoryFavoritesSecurityCheckBox.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -581,12 +587,6 @@ Partial Class SettingsForm
         resources.ApplyResources(Me.AbortButton, "AbortButton")
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
-        '
-        'HistoryFavoritesSecurityCheckBox
-        '
-        resources.ApplyResources(Me.HistoryFavoritesSecurityCheckBox, "HistoryFavoritesSecurityCheckBox")
-        Me.HistoryFavoritesSecurityCheckBox.Name = "HistoryFavoritesSecurityCheckBox"
-        Me.HistoryFavoritesSecurityCheckBox.UseVisualStyleBackColor = True
         '
         'SettingsForm
         '

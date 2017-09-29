@@ -822,14 +822,14 @@
     <value>6, 21</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 38</value>
+    <value>542, 38</value>
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
-    <value>La sécurité du navigateur empêche toute personne étrangère au système de modifier les
-paramètres de SmartNet Browser</value>
+    <value>La sécurité du navigateur empêche toute personne étrangère au système d'accéder aux
+paramètres et aux données personnelles.</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
@@ -844,7 +844,7 @@ paramètres de SmartNet Browser</value>
     <value>1</value>
   </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 110</value>
+    <value>9, 112</value>
   </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 26</value>

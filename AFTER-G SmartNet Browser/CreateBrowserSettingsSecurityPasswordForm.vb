@@ -9,6 +9,7 @@ Public Class CreateBrowserSettingsSecurityPasswordForm
             My.Settings.BrowserSettingsSecurity = True
             SettingsForm.BrowserSettingsSecurityCheckBox.Checked = True
             SettingsForm.ChangeBrowserSettingsSecurityPasswordButton.Enabled = True
+            SettingsForm.HistoryFavoritesSecurityCheckBox.Enabled = True
             Me.Close()
         End If
     End Sub
@@ -17,6 +18,7 @@ Public Class CreateBrowserSettingsSecurityPasswordForm
         My.Settings.BrowserSettingsSecurity = False
         SettingsForm.BrowserSettingsSecurityCheckBox.Checked = False
         SettingsForm.ChangeBrowserSettingsSecurityPasswordButton.Enabled = False
+        SettingsForm.HistoryFavoritesSecurityCheckBox.Enabled = False
         Me.Close()
     End Sub
 

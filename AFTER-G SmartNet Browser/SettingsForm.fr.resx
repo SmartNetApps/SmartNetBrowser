@@ -132,21 +132,15 @@
         L/snOwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 38</value>
-  </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>La sécurité du navigateur empêche toute personne étrangère au système de modifier les
 paramètres de SmartNet Browser.</value>
   </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 123</value>
+    <value>9, 111</value>
   </data>
   <data name="BrowserSettingsSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 197</value>
-  </data>
-  <data name="BrowserSettingsSecurityGroupBox.Text" xml:space="preserve">
-    <value>Sécurité du navigateur</value>
+    <value>573, 144</value>
   </data>
   <data name="ChangeUserAgentLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 15</value>
