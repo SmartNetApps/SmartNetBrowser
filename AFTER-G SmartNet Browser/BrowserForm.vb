@@ -131,23 +131,23 @@ Public Class BrowserForm
                         My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                         Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                     Else
-                        My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                        Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
+                        My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
+                        Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                     End If
                 Else
                     Gecko.GeckoPreferences.User("general.useragent.override") = My.Settings.UserAgent
+                    End If
+                    If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
+                        Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
+                        My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
+                    End If
+                    If My.Settings.BrowserSettingsSecurityPassword.Length <> 128 And My.Settings.BrowserSettingsSecurityPassword.Length <> 0 Then
+                        Dim OriginalPassword As String = My.Settings.BrowserSettingsSecurityPassword
+                        My.Settings.BrowserSettingsSecurityPassword = GetSHA512(OriginalPassword)
+                    End If
+                    My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                    FirstStartForm.Show()
                 End If
-                If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
-                    Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
-                    My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
-                End If
-                If My.Settings.BrowserSettingsSecurityPassword.Length <> 128 And My.Settings.BrowserSettingsSecurityPassword.Length <> 0 Then
-                    Dim OriginalPassword As String = My.Settings.BrowserSettingsSecurityPassword
-                    My.Settings.BrowserSettingsSecurityPassword = GetSHA512(OriginalPassword)
-                End If
-                My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                FirstStartForm.Show()
-            End If
                 Dim NewBrowser As New CustomBrowser
             AddTab(My.Settings.Homepage, BrowserTabs)
             For Each item In My.Settings.Favorites
@@ -919,10 +919,12 @@ Public Class BrowserForm
                 Else
                     My.Settings.Save()
                     Application.Exit()
+                    End
                 End If
             Else
                 My.Settings.Save()
                 Application.Exit()
+                End
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -1554,8 +1556,8 @@ Public Class CustomBrowser
                 My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                 Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             Else
-                My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
+                My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
+                Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             End If
         Else
             Gecko.GeckoPreferences.User("general.useragent.override") = My.Settings.UserAgent

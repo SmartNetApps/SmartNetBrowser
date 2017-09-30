@@ -127,13 +127,17 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Several tabs are still opened. Are you sure that you want to close them ?</value>
   </data>
-  <data name="PreventTabsCloseCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 29</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DontAskAgainCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="PreventTabsCloseCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="DontAskAgainCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="DontAskAgainCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 19</value>
   </data>
-  <data name="PreventTabsCloseCheckBox.Text" xml:space="preserve">
+  <data name="DontAskAgainCheckBox.Text" xml:space="preserve">
     <value>Don't warn me again next time</value>
   </data>
   <data name="CloseTabsButton.Text" xml:space="preserve">

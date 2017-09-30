@@ -24,7 +24,7 @@ Partial Class PreventTabsCloseForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PreventTabsCloseForm))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PreventTabsCloseCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DontAskAgainCheckBox = New System.Windows.Forms.CheckBox()
         Me.CloseTabsButton = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -34,11 +34,11 @@ Partial Class PreventTabsCloseForm
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
-        'PreventTabsCloseCheckBox
+        'DontAskAgainCheckBox
         '
-        resources.ApplyResources(Me.PreventTabsCloseCheckBox, "PreventTabsCloseCheckBox")
-        Me.PreventTabsCloseCheckBox.Name = "PreventTabsCloseCheckBox"
-        Me.PreventTabsCloseCheckBox.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.DontAskAgainCheckBox, "DontAskAgainCheckBox")
+        Me.DontAskAgainCheckBox.Name = "DontAskAgainCheckBox"
+        Me.DontAskAgainCheckBox.UseVisualStyleBackColor = True
         '
         'CloseTabsButton
         '
@@ -61,7 +61,7 @@ Partial Class PreventTabsCloseForm
         Me.CancelButton = Me.CloseButton
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.CloseTabsButton)
-        Me.Controls.Add(Me.PreventTabsCloseCheckBox)
+        Me.Controls.Add(Me.DontAskAgainCheckBox)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -76,7 +76,7 @@ Partial Class PreventTabsCloseForm
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents PreventTabsCloseCheckBox As CheckBox
+    Friend WithEvents DontAskAgainCheckBox As CheckBox
     Friend WithEvents CloseTabsButton As Button
     Friend WithEvents CloseButton As Button
 End Class

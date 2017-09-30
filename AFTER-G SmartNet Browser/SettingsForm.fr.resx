@@ -132,10 +132,6 @@
         L/snOwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>La sécurité du navigateur empêche toute personne étrangère au système de modifier les
-paramètres de SmartNet Browser.</value>
-  </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 111</value>
   </data>
