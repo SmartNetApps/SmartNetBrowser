@@ -9,6 +9,8 @@ Public Class BrowserForm
     Public WithEvents CurrentDocument As Gecko.GeckoDocument
     Public MousePoint As Point
     Public Ele As Gecko.GeckoElement
+    Public MessageBarAction As String
+    Public MessageBarButtonLink As String
 
     Public Function GetSHA512(ByVal str As String) As String
         'desc   : Encrypt a strin using the SHA512 algorithm
@@ -106,6 +108,8 @@ Public Class BrowserForm
             Dim NewTab As New TabPage
             NewBrowser.Tag = NewTab
             NewTab.Tag = NewBrowser
+            ImageList1.Images.Add(FaviconBox.InitialImage)
+            BrowserTabs.ImageList.Images.Add(FaviconBox.InitialImage)
             TabControl.TabPages.Add(NewTab)
             NewTab.Controls.Add(NewBrowser)
             NewBrowser.Dock = DockStyle.Fill
@@ -117,6 +121,33 @@ Public Class BrowserForm
                 ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
                 ExceptionForm.ShowDialog()
             End If
+        End Try
+    End Sub
+
+    Public Sub CheckFavicon()
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Try
+            If WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
+                FaviconBox.Image = FaviconBox.InitialImage
+                BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
+                BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+            Else
+                Dim url As Uri = New Uri(WB.Url.ToString)
+                If url.HostNameType = UriHostNameType.Dns Then
+                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
+                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
+                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Dim stream As System.IO.Stream = response.GetResponseStream()
+                    Dim favicon = Image.FromStream(stream)
+                    FaviconBox.Image = favicon
+                    BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
+                    BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+                End If
+            End If
+        Catch ex As Exception
+            FaviconBox.Image = FaviconBox.ErrorImage
+            BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
+            BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
         End Try
     End Sub
 
@@ -159,6 +190,7 @@ Public Class BrowserForm
             For Each item3 In My.Settings.SearchHistory
                 SearchBox.Items.Add(item3)
             Next
+
             AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
             URLBox.Select(0, 0)
         Catch ex As Exception
@@ -239,7 +271,7 @@ Public Class BrowserForm
     Private Sub NewTabOpen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewTabButton.Click, NewTabToolStripMenuItem.Click
         Try
             AddTab(My.Settings.Homepage, BrowserTabs)
-            BrowserTabs.ImageList.Images.Add(FaviconBox.ErrorImage)
+
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -257,7 +289,6 @@ Public Class BrowserForm
                 Me.Close()
             Else
                 BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
-                'WB = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
                 CurrentDocument = WB.Document
                 Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
                 Dim TP As TabPage = CType(WB.Tag, TabPage)
@@ -266,7 +297,7 @@ Public Class BrowserForm
                 Else
                     TP.Text = WB.DocumentTitle
                 End If
-                If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+                If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                     URLBox.Text = ""
                 Else
                     URLBox.Text = WB.Url.ToString
@@ -286,29 +317,7 @@ Public Class BrowserForm
                 ExceptionForm.ShowDialog()
             End If
         End Try
-        Try
-            If WB.Url.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
-                FaviconBox.Image = FaviconBox.InitialImage
-                BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
-            Else
-                Dim url As Uri = New Uri(WB.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    FaviconBox.Image = favicon
-                    BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                    BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
-                End If
-            End If
-        Catch ex As Exception
-            FaviconBox.Image = FaviconBox.ErrorImage
-            BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-            BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
-        End Try
+        CheckFavicon()
     End Sub
 
     Private Sub GoButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoButton.Click
@@ -631,7 +640,7 @@ Public Class BrowserForm
 
     Private Sub SupportCenterNavigating(sender As Object, e As EventArgs) Handles CentreDaideEnLigneToolStripMenuItem.Click
         Try
-            AddTab("http://quentinpugeat.wixsite.com/apps/support-browser", BrowserTabs)
+            AddTab("https://quentinpugeat.wixsite.com/apps/support-browser", BrowserTabs)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -643,7 +652,7 @@ Public Class BrowserForm
 
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
         Try
-            AddTab("http://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
+            AddTab("https://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -938,40 +947,10 @@ Public Class BrowserForm
     Private Sub ActiveTabChange(sender As Object, e As EventArgs) Handles BrowserTabs.SelectedIndexChanged
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If WB.Url.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
-                FaviconBox.Image = FaviconBox.InitialImage
-                BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
-            Else
-                Dim url As Uri = New Uri(WB.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    FaviconBox.Image = favicon
-                    BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                    BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
-                End If
-            End If
-        Catch ex As Exception
-            FaviconBox.Image = FaviconBox.ErrorImage
-            BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-            BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
-        End Try
-        Try
-            If WB.CanGoBack = True Then
-                PreviouspageButton.Visible = True
-            Else
-                PreviouspageButton.Visible = False
-            End If
-            If WB.CanGoForward = True Then
-                NextpageButton.Visible = True
-            Else
-                NextpageButton.Visible = False
-            End If
-            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+            CheckFavicon()
+            PreviouspageButton.Visible = WB.CanGoBack
+            NextpageButton.Visible = WB.CanGoForward
+            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                 URLBox.Text = ""
             Else
                 URLBox.Text = WB.Url.ToString
@@ -991,7 +970,7 @@ Public Class BrowserForm
                     BrowserTabs.SelectedTab.Text = WB.DocumentTitle
                 End If
             End If
-            If WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video") And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
+            If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
                 TéléchargerCetteVidéoToolStripMenuItem.Visible = True
                 ToolStripSeparator6.Visible = True
             Else
@@ -1004,6 +983,10 @@ Public Class BrowserForm
                 FavoritesButton.Image = FavoritesButton.InitialImage
             End If
             LoadingGif.Visible = False
+            MessageBarPictureBox.Visible = False
+            MessageBarButton.Visible = False
+            MessageBarCloseButton.Visible = False
+            MessageBarLabel.Visible = False
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1030,29 +1013,6 @@ Public Class BrowserForm
     Private Sub FaviconBox_Click(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         'WB.ShowPageProperties()
-        Try
-            If WB.Url.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
-                PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.InitialImage
-                BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
-            Else
-                Dim url As Uri = New Uri(WB.Document.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    PropertiesForm.FaviconBox.Image = favicon
-                    BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                    BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
-                End If
-            End If
-        Catch ex As Exception
-            PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.ErrorImage
-            BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-            BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
-        End Try
         Try
             If WB.DocumentTitle = "" Then
                 PropertiesForm.PageNameLabel.Text = "Page sans nom"
@@ -1339,32 +1299,20 @@ Public Class BrowserForm
 
     Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGServicesWebToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("http://quentinpugeat.wixsite.com/lesiteofficiel")
+        WB.Navigate("https://quentinpugeat.wixsite.com/lesiteofficiel")
     End Sub
 
     Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGAppsToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("http://quentinpugeat.wixsite.com/apps")
+        WB.Navigate("https://quentinpugeat.wixsite.com/apps")
     End Sub
 
     Private Sub MainMenu_Click(sender As Object, e As EventArgs) Handles MainMenu.DropDownOpening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If WB.CanCutSelection = True Then
-                CouperToolStripMenuItem.Enabled = True
-            Else
-                CouperToolStripMenuItem.Enabled = False
-            End If
-            If WB.CanCopySelection = True Then
-                CopierToolStripMenuItem.Enabled = True
-            Else
-                CopierToolStripMenuItem.Enabled = False
-            End If
-            If WB.CanPaste = True Then
-                CollerToolStripMenuItem.Enabled = True
-            Else
-                CollerToolStripMenuItem.Enabled = False
-            End If
+            CouperToolStripMenuItem.Enabled = WB.CanCutSelection
+            CopierToolStripMenuItem.Enabled = WB.CanCopySelection
+            CollerToolStripMenuItem.Enabled = WB.CanPaste
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1378,51 +1326,22 @@ Public Class BrowserForm
     Private Sub BrowserContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles BrowserContextMenuStrip.Opening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If WB.CanCopyImageLocation = True Then
-                CopierLadresseDeLimageToolStripMenuItem.Visible = True
-                EnregistrerLimageToolStripMenuItem.Visible = True
-                AfficherLimageToolStripMenuItem.Visible = True
-                ImageToolStripSeparator.Visible = True
-            Else
-                CopierLadresseDeLimageToolStripMenuItem.Visible = False
-                EnregistrerLimageToolStripMenuItem.Visible = False
-                AfficherLimageToolStripMenuItem.Visible = False
-                ImageToolStripSeparator.Visible = False
-            End If
-            If WB.CanCopyLinkLocation = True Then
-                CopierLadresseDuLienToolStripMenuItem.Visible = True
-                OuvrirLeLienToolStripMenuItem.Visible = True
-                OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = True
-                AjouterLeLienAuxFavorisToolStripMenuItem.Visible = True
-                LinkToolStripSeparator.Visible = True
-            Else
-                CopierLadresseDuLienToolStripMenuItem.Visible = False
-                OuvrirLeLienToolStripMenuItem.Visible = False
-                OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = False
-                AjouterLeLienAuxFavorisToolStripMenuItem.Visible = False
-                LinkToolStripSeparator.Visible = False
-            End If
-            If WB.CanCutSelection = True Then
-                EditionToolStripSeparator.Visible = True
-                CouperToolStripMenuItem1.Visible = True
-            Else
-                CouperToolStripMenuItem1.Visible = False
-                EditionToolStripSeparator.Visible = False
-            End If
-            If WB.CanPaste = True Then
-                CollerToolStripMenuItem1.Visible = True
+            CopierLadresseDeLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+            EnregistrerLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+            AfficherLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+            ImageToolStripSeparator.Visible = WB.CanCopyImageLocation
+            CopierLadresseDuLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+            OuvrirLeLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+            OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+            AjouterLeLienAuxFavorisToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+            LinkToolStripSeparator.Visible = WB.CanCopyLinkLocation
+            CouperToolStripMenuItem1.Visible = WB.CanCutSelection
+            CollerToolStripMenuItem1.Visible = WB.CanPaste
+            CopierToolStripMenuItem1.Visible = WB.CanCopySelection
+            LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = WB.CanCopySelection
+            If WB.CanCutSelection = True Or WB.CanPaste = True Or WB.CanCopySelection = True Then
                 EditionToolStripSeparator.Visible = True
             Else
-                CollerToolStripMenuItem1.Visible = False
-                EditionToolStripSeparator.Visible = False
-            End If
-            If WB.CanCopySelection = True Then
-                CopierToolStripMenuItem1.Visible = True
-                LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = True
-                EditionToolStripSeparator.Visible = True
-            Else
-                CopierToolStripMenuItem1.Visible = False
-                LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = False
                 EditionToolStripSeparator.Visible = False
             End If
             Ele = CurrentDocument.ElementFromPoint(Me.MousePoint.X, Me.MousePoint.Y)
@@ -1536,11 +1455,31 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim Link As String = WB.Url.ToString
         Dim PageTitle As String = WB.DocumentTitle
-        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : http://quentinpugeat.wixsite.com/apps/browser)")
+        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : https://quentinpugeat.wixsite.com/apps/browser)")
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         NewHistoryForm.Show()
+    End Sub
+
+    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton.Click
+        MessageBarButton.Visible = False
+        MessageBarLabel.Visible = False
+        MessageBarPictureBox.Visible = False
+        MessageBarCloseButton.Visible = False
+    End Sub
+
+    Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton.Click
+        Select Case MessageBarAction
+            Case "OpenPopup"
+                AddTab(MessageBarButtonLink, BrowserTabs)
+            Case Else
+                MsgBox("Ce bouton ne peut rien faire. Voir le support pour plus de détails.", MsgBoxStyle.Information, "SmartNet Browser")
+        End Select
+        MessageBarPictureBox.Visible = False
+        MessageBarButton.Visible = False
+        MessageBarCloseButton.Visible = False
+        MessageBarLabel.Visible = False
     End Sub
 End Class
 
@@ -1609,7 +1548,7 @@ Public Class CustomBrowser
                 BrowserForm.LoadingGif.Visible = False
                 BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = True
                 BrowserForm.CurrentDocument = Me.Document
-                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                     BrowserForm.URLBox.Text = ""
                 Else
                     BrowserForm.URLBox.Text = Me.Url.ToString
@@ -1629,13 +1568,13 @@ Public Class CustomBrowser
         If e.Uri.ToString <> "about:blank" Then
             Try
                 BrowserForm.CurrentDocument = Me.Document
-                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                     BrowserForm.URLBox.Text = ""
                 Else
                     BrowserForm.URLBox.Text = Me.Url.ToString
                 End If
                 BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
-                If Me.Url.ToString.Contains("www.youtube.com/watch?v=") Or Me.Url.ToString.Contains("dailymotion.com/video") And Not Me.Url.ToString.Contains("www.clipconverter.cc") Then
+                If (Me.Url.ToString.Contains("www.youtube.com/watch?v=") Or Me.Url.ToString.Contains("dailymotion.com/video")) And Not Me.Url.ToString.Contains("www.clipconverter.cc") Then
                     BrowserForm.TéléchargerCetteVidéoToolStripMenuItem.Visible = True
                     BrowserForm.ToolStripSeparator6.Visible = True
                 Else
@@ -1643,18 +1582,14 @@ Public Class CustomBrowser
                     BrowserForm.ToolStripSeparator6.Visible = False
                 End If
                 If My.Settings.PrivateBrowsing = False Then
-                    If e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:") Then
-
-                    Else
-
+                    If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
                         'Ajout d'une entrée dans la base de données Historique
-                        'My.Settings.History.Add(Me.Url.ToString)
+                        My.Settings.History.Add(Me.Url.ToString)
                         Dim NouvelleEntreeHistorique As BrowserHistoryDataSet.HistoryRow
                         NouvelleEntreeHistorique = BrowserForm.BrowserHistoryDataSet.History.NewHistoryRow()
                         NouvelleEntreeHistorique.PageName = Me.DocumentTitle.ToString
                         NouvelleEntreeHistorique.PageURL = e.Uri.ToString
                         BrowserForm.BrowserHistoryDataSet.History.Rows.Add(NouvelleEntreeHistorique)
-
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
                 End If
@@ -1663,35 +1598,13 @@ Public Class CustomBrowser
                 Else
                     BrowserForm.FavoritesButton.Image = BrowserForm.FavoritesButton.InitialImage
                 End If
+                BrowserForm.CheckFavicon()
             Catch ex As Exception
                 If My.Settings.DisplayExceptions = True Then
                     ExceptionForm.MessageTextBox.Text = ex.Message
                     ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
                     ExceptionForm.ShowDialog()
                 End If
-            End Try
-            Try
-                If e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:") Then
-                    BrowserForm.FaviconBox.Image = BrowserForm.FaviconBox.InitialImage
-                    BrowserForm.BrowserTabs.SelectedTab.ImageIndex = BrowserForm.BrowserTabs.SelectedIndex
-                    BrowserForm.BrowserTabs.ImageList.Images.Item(BrowserForm.BrowserTabs.SelectedIndex) = BrowserForm.FaviconBox.InitialImage
-                Else
-                    Dim url As Uri = New Uri(Me.Document.Url.ToString)
-                    If url.HostNameType = UriHostNameType.Dns Then
-                        Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                        Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                        Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                        Dim stream As System.IO.Stream = response.GetResponseStream()
-                        Dim favicon = Image.FromStream(stream)
-                        BrowserForm.FaviconBox.Image = favicon
-                        BrowserForm.BrowserTabs.ImageList.Images.Item(BrowserForm.BrowserTabs.SelectedIndex) = favicon
-                        BrowserForm.BrowserTabs.SelectedTab.ImageIndex = BrowserForm.BrowserTabs.SelectedIndex
-                    End If
-                End If
-            Catch ex As Exception
-                BrowserForm.FaviconBox.Image = BrowserForm.FaviconBox.ErrorImage
-                BrowserForm.BrowserTabs.SelectedTab.ImageIndex = BrowserForm.BrowserTabs.SelectedIndex
-                BrowserForm.BrowserTabs.ImageList.Images.Item(BrowserForm.BrowserTabs.SelectedIndex) = BrowserForm.FaviconBox.ErrorImage
             End Try
         End If
     End Sub
@@ -1735,8 +1648,12 @@ Public Class CustomBrowser
             BrowserForm.GoButton.Visible = False
             BrowserForm.LoadingGif.Visible = True
             BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = False
+            BrowserForm.MessageBarButton.Visible = False
+            BrowserForm.MessageBarLabel.Visible = False
+            BrowserForm.MessageBarPictureBox.Visible = False
+            BrowserForm.MessageBarCloseButton.Visible = False
             BrowserForm.CurrentDocument = Me.Document
-            If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("http://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+            If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                 BrowserForm.URLBox.Text = ""
             Else
                 BrowserForm.URLBox.Text = Me.Url.ToString
@@ -1752,6 +1669,8 @@ Public Class CustomBrowser
             Dim NewTab As New TabPage
             NewBrowser.Tag = NewTab
             NewTab.Tag = NewBrowser
+            BrowserForm.ImageList1.Images.Add(BrowserForm.FaviconBox.InitialImage)
+            BrowserForm.BrowserTabs.ImageList.Images.Add(BrowserForm.FaviconBox.InitialImage)
             TabControl.TabPages.Add(NewTab)
             NewTab.Controls.Add(NewBrowser)
             NewBrowser.Dock = DockStyle.Fill
@@ -1769,16 +1688,28 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
         Try
             e.Cancel = True
+            Dim block = False
             Dim target As String = e.Uri
-            AddTab(target, BrowserForm.BrowserTabs)
             Dim AdsDomainsFile As New WebClient
             Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
             Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
             For I = 0 To AdsDomainsList.Count - 1
                 If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
-                    BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
+                    block = True
                 End If
             Next
+            If block = True Then
+                BrowserForm.MessageBarLabel.Text = "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire."
+                BrowserForm.MessageBarButton.Text = "Ouvrir quand même"
+                BrowserForm.MessageBarAction = "OpenPopup"
+                BrowserForm.MessageBarButtonLink = target
+                BrowserForm.MessageBarButton.Visible = True
+                BrowserForm.MessageBarLabel.Visible = True
+                BrowserForm.MessageBarPictureBox.Visible = True
+                BrowserForm.MessageBarCloseButton.Visible = True
+            Else
+                AddTab(target, BrowserForm.BrowserTabs)
+            End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1788,20 +1719,24 @@ Public Class CustomBrowser
                 MsgBox("Un problème est survenu avec le bloqueur de Pop-Ups.", MsgBoxStyle.Exclamation, "SmartNet AdsBlocker")
             End If
             Dim target As String = e.Uri
-            NewBrowserForm.GeckoWebBrowser1.Navigate(target)
-            NewBrowserForm.Show()
+            Dim block2 = False
             Dim AdsDomainsFile As New WebClient
             Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
             Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
             For I = 0 To AdsDomainsList.Count - 1
                 If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
-                    NewBrowserForm.Close()
+                    block2 = True
                 End If
             Next
+            If block2 = False Then
+                NewBrowserForm.GeckoWebBrowser1.Navigate(target)
+                NewBrowserForm.Show()
+            End If
         End Try
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
+        Dim block = False
         Try
             If My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
                 If My.Settings.AdBlocker = True Then
@@ -1810,9 +1745,12 @@ Public Class CustomBrowser
                     Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
                     For I = 0 To AdsDomainsList.Count - 1
                         If e.Uri.ToString.Contains(AdsDomainsList.Item(I)) Then
-                            e.Cancel = True
+                            block = True
                         End If
                     Next
+                    If block = True Then
+                        e.Cancel = True
+                    End If
                 End If
             End If
         Catch ex As Exception
@@ -1828,52 +1766,22 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
         Try
-            If Me.CanCopyImageLocation = True Then
-                BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = True
-                BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = True
-                BrowserForm.AfficherLimageToolStripMenuItem.Visible = True
-                BrowserForm.ImageToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = False
-                BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = False
-                BrowserForm.AfficherLimageToolStripMenuItem.Visible = False
-                BrowserForm.ImageToolStripSeparator.Visible = False
-            End If
-            If CanCopyLinkLocation = True Then
-                BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = True
-                BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = True
-                BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = True
-                BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = True
-                BrowserForm.LinkToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = False
-                BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = False
-                BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = False
-                BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = False
-                BrowserForm.LinkToolStripSeparator.Visible = False
-            End If
-            If CanCutSelection = True Then
-                BrowserForm.EditionToolStripSeparator.Visible = True
-                BrowserForm.CouperToolStripMenuItem1.Visible = True
-            Else
-                BrowserForm.CouperToolStripMenuItem1.Visible = False
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            If CanPaste = True Then
-                BrowserForm.CollerToolStripMenuItem1.Visible = True
+            BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
+            BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
+            BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
+            BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
+            BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
+            BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
+            If CanCutSelection Or CanPaste Or CanCopySelection Then
                 BrowserForm.EditionToolStripSeparator.Visible = True
             Else
-                BrowserForm.CollerToolStripMenuItem1.Visible = False
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            If CanCopySelection = True Then
-                'CopySelection()
-                BrowserForm.CopierToolStripMenuItem1.Visible = True
-                BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = True
-                BrowserForm.EditionToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierToolStripMenuItem1.Visible = False
-                BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = False
                 BrowserForm.EditionToolStripSeparator.Visible = False
             End If
             BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)
@@ -1940,11 +1848,7 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_CanGoBackChanged(sender As Object, e As EventArgs) Handles Me.CanGoBackChanged
         Try
-            If Me.CanGoBack = True Then
-                BrowserForm.PreviouspageButton.Visible = True
-            Else
-                BrowserForm.PreviouspageButton.Visible = False
-            End If
+            BrowserForm.PreviouspageButton.Visible = CanGoBack
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1956,11 +1860,7 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_CanGoForwardChanged(sender As Object, e As EventArgs) Handles Me.CanGoForwardChanged
         Try
-            If Me.CanGoForward = True Then
-                BrowserForm.NextpageButton.Visible = True
-            Else
-                BrowserForm.NextpageButton.Visible = False
-            End If
+            BrowserForm.NextpageButton.Visible = CanGoForward
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1972,51 +1872,22 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.GeckoContextMenuEventArgs) Handles Me.ShowContextMenu
         Try
-            If Me.CanCopyImageLocation = True Then
-                BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = True
-                BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = True
-                BrowserForm.AfficherLimageToolStripMenuItem.Visible = True
-                BrowserForm.ImageToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = False
-                BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = False
-                BrowserForm.AfficherLimageToolStripMenuItem.Visible = False
-                BrowserForm.ImageToolStripSeparator.Visible = False
-            End If
-            If CanCopyLinkLocation = True Then
-                BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = True
-                BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = True
-                BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = True
-                BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = True
-                BrowserForm.LinkToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = False
-                BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = False
-                BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = False
-                BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = False
-                BrowserForm.LinkToolStripSeparator.Visible = False
-            End If
-            If CanCutSelection = True Then
-                BrowserForm.EditionToolStripSeparator.Visible = True
-                BrowserForm.CouperToolStripMenuItem1.Visible = True
-            Else
-                BrowserForm.CouperToolStripMenuItem1.Visible = False
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            If CanPaste = True Then
-                BrowserForm.CollerToolStripMenuItem1.Visible = True
+            BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
+            BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
+            BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
+            BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
+            BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
+            BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
+            BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
+            BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
+            If CanCutSelection Or CanPaste Or CanCopySelection Then
                 BrowserForm.EditionToolStripSeparator.Visible = True
             Else
-                BrowserForm.CollerToolStripMenuItem1.Visible = False
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            If CanCopySelection = True Then
-                BrowserForm.CopierToolStripMenuItem1.Visible = True
-                BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = True
-                BrowserForm.EditionToolStripSeparator.Visible = True
-            Else
-                BrowserForm.CopierToolStripMenuItem1.Visible = False
-                BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = False
                 BrowserForm.EditionToolStripSeparator.Visible = False
             End If
             BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)

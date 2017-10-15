@@ -99,7 +99,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "http://quentinpugeat.wixsite.com/smartnetbrowserhome"
+        HomepageURLBox.Text = "https://quentinpugeat.wixsite.com/smartnetbrowserhome"
     End Sub
 
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
@@ -154,7 +154,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
-        BrowserForm.AddTab("http://quentinpugeat.wixsite.com/apps/support-browser-2", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/support-browser-2", BrowserForm.BrowserTabs)
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
@@ -286,6 +286,7 @@ Public Class SettingsForm
             Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/support-status.txt")
             If VersionActuelle > DerniereVersion Then
                 MsgBox("Il semblerait que vous utilisez une version de SmartNet Browser non publique, réservée aux développeurs du logiciel. Cette utilisation n'est pas autorisée, veuillez retélécharger le logiciel sur SmartNet Apps. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Utilisation non autorisée")
+                GoTo StopVersionChecking
             End If
             If NTActualVersion < MiniNTVersion Then
                 MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour à été désactivée.", MsgBoxStyle.Exclamation, "Avertissement")
@@ -303,6 +304,7 @@ Public Class SettingsForm
                     UpdaterForm.ShowDialog()
                 Else
                     BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+                    MsgBox("Vous utilisez dejà la dernière version de SmartNet Browser.", MsgBoxStyle.Information, "SmartNet Apps Updater")
                     GoTo StopVersionChecking
                 End If
             Else

@@ -126,6 +126,10 @@ Partial Class BrowserForm
         Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BrowserHistoryDataSet = New SmartNet_Browser.BrowserHistoryDataSet()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.MessageBarPictureBox = New System.Windows.Forms.PictureBox()
+        Me.MessageBarLabel = New System.Windows.Forms.Label()
+        Me.MessageBarButton = New System.Windows.Forms.Button()
+        Me.MessageBarCloseButton = New System.Windows.Forms.Button()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,6 +148,7 @@ Partial Class BrowserForm
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
@@ -705,18 +710,48 @@ Partial Class BrowserForm
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'MessageBarPictureBox
+        '
+        resources.ApplyResources(Me.MessageBarPictureBox, "MessageBarPictureBox")
+        Me.MessageBarPictureBox.BackColor = System.Drawing.Color.DarkOrange
+        Me.MessageBarPictureBox.Name = "MessageBarPictureBox"
+        Me.MessageBarPictureBox.TabStop = False
+        '
+        'MessageBarLabel
+        '
+        resources.ApplyResources(Me.MessageBarLabel, "MessageBarLabel")
+        Me.MessageBarLabel.BackColor = System.Drawing.Color.DarkOrange
+        Me.MessageBarLabel.ForeColor = System.Drawing.Color.White
+        Me.MessageBarLabel.Name = "MessageBarLabel"
+        '
+        'MessageBarButton
+        '
+        resources.ApplyResources(Me.MessageBarButton, "MessageBarButton")
+        Me.MessageBarButton.BackColor = System.Drawing.Color.Transparent
+        Me.MessageBarButton.Name = "MessageBarButton"
+        Me.MessageBarButton.UseVisualStyleBackColor = True
+        '
+        'MessageBarCloseButton
+        '
+        resources.ApplyResources(Me.MessageBarCloseButton, "MessageBarCloseButton")
+        Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
+        Me.MessageBarCloseButton.UseVisualStyleBackColor = True
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.MessageBarCloseButton)
+        Me.Controls.Add(Me.MessageBarButton)
+        Me.Controls.Add(Me.MessageBarLabel)
+        Me.Controls.Add(Me.MessageBarPictureBox)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusLabel)
         Me.Controls.Add(Me.URLBoxLabel)
         Me.Controls.Add(Me.SearchBoxLabel)
         Me.Controls.Add(Me.LoadingGif)
         Me.Controls.Add(Me.FaviconBox)
-        Me.Controls.Add(Me.BrowserTabs)
         Me.Controls.Add(Me.NewTabButton)
         Me.Controls.Add(Me.CloseTabButton)
         Me.Controls.Add(Me.SearchButton)
@@ -732,6 +767,7 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.PreviousPageButtonDisabled)
         Me.Controls.Add(Me.URLBox)
         Me.Controls.Add(Me.MainToolbar)
+        Me.Controls.Add(Me.BrowserTabs)
         Me.Name = "BrowserForm"
         Me.MainToolbar.ResumeLayout(False)
         Me.MainToolbar.PerformLayout()
@@ -752,6 +788,7 @@ Partial Class BrowserForm
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -859,4 +896,8 @@ Partial Class BrowserForm
     Friend WithEvents HistoryBindingSource As BindingSource
     Friend WithEvents BrowserHistoryDataSet As BrowserHistoryDataSet
     Friend WithEvents Button1 As Button
+    Friend WithEvents MessageBarPictureBox As PictureBox
+    Friend WithEvents MessageBarLabel As Label
+    Friend WithEvents MessageBarButton As Button
+    Friend WithEvents MessageBarCloseButton As Button
 End Class

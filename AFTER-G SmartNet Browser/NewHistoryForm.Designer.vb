@@ -81,6 +81,9 @@ Partial Class NewHistoryForm
         'HistoryDataGridView
         '
         Me.HistoryDataGridView.AllowUserToAddRows = False
+        Me.HistoryDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.HistoryDataGridView.AutoGenerateColumns = False
         Me.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.HistoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
@@ -94,21 +97,21 @@ Partial Class NewHistoryForm
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "PageID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "PageID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "#"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "PageName"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "PageName"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nom"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "PageURL"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "PageURL"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Adresse"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
