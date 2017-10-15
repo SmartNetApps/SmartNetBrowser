@@ -61,6 +61,7 @@ Namespace My
                 Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/support-status.txt")
                 If VersionActuelle > DerniereVersion Then
                     MsgBox("Il semblerait que vous utilisez une version de SmartNet Browser non publique, réservée aux développeurs du logiciel. Cette utilisation n'est pas autorisée, veuillez retélécharger le logiciel sur SmartNet Apps. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Utilisation non autorisée")
+                    GoTo StopVersionChecking
                 End If
                 If My.Settings.AutoUpdates = True Then
                     If NTActualVersion < MiniNTVersion Then

@@ -333,7 +333,7 @@ StopVersionChecking:
         If MsgBox("Êtes-vous sûr(e) de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", MsgBoxStyle.OkCancel, "Réinitialisation de SmartNet Browser") = MsgBoxResult.Ok Then
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
-            My.Settings.Homepage = "http://quentinpugeat.wixsite.com/smartnetbrowserhome"
+            My.Settings.Homepage = "https://quentinpugeat.wixsite.com/smartnetbrowserhome"
             My.Settings.Favorites.Clear()
             My.Settings.SearchHistory.Clear()
             My.Settings.PreventMultipleTabsClose = True
@@ -367,7 +367,7 @@ StopVersionChecking:
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ChangeUserAgentLinkLabel.LinkClicked
-        UserAgentChangeForm.UserAgentRichTextBox.Text = My.Settings.UserAgent
+        UserAgentChangeForm.UserAgentRichTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
         UserAgentChangeForm.ShowDialog()
     End Sub
 

@@ -33,71 +33,54 @@ Public Class BrowserForm
     Private Sub HomepageButton_MouseEnter(sender As Object, e As EventArgs) Handles HomepageButton.MouseEnter
         HomepageButton.Image = HomepageButton.InitialImage
     End Sub
-
     Private Sub HomepageButton_MouseLeave(sender As Object, e As EventArgs) Handles HomepageButton.MouseLeave
         HomepageButton.Image = HomepageButton.ErrorImage
     End Sub
-
     Private Sub PreviouspageButton_MouseEnter(sender As Object, e As EventArgs) Handles PreviouspageButton.MouseEnter
         PreviouspageButton.Image = PreviouspageButton.InitialImage
     End Sub
-
     Private Sub PreviouspageButton_MouseLeave(sender As Object, e As EventArgs) Handles PreviouspageButton.MouseLeave
         PreviouspageButton.Image = PreviouspageButton.ErrorImage
     End Sub
-
     Private Sub NextpageButton_MouseEnter(sender As Object, e As EventArgs) Handles NextpageButton.MouseEnter
         NextpageButton.Image = NextpageButton.InitialImage
     End Sub
-
     Private Sub NextpageButton_MouseLeave(sender As Object, e As EventArgs) Handles NextpageButton.MouseLeave
         NextpageButton.Image = NextpageButton.ErrorImage
     End Sub
-
     Private Sub RefreshButton_MouseEnter(sender As Object, e As EventArgs) Handles RefreshButton.MouseEnter
         RefreshButton.Image = RefreshButton.InitialImage
     End Sub
-
     Private Sub RefreshButton_MouseLeave(sender As Object, e As EventArgs) Handles RefreshButton.MouseLeave
         RefreshButton.Image = RefreshButton.ErrorImage
     End Sub
-
     Private Sub StopButton_MouseEnter(sender As Object, e As EventArgs) Handles StopButton.MouseEnter
         StopButton.Image = StopButton.InitialImage
     End Sub
-
     Private Sub StopButton_MouseLeave(sender As Object, e As EventArgs) Handles StopButton.MouseLeave
         StopButton.Image = StopButton.ErrorImage
     End Sub
-
     Private Sub GoButton_MouseEnter(sender As Object, e As EventArgs) Handles GoButton.MouseEnter
         GoButton.Image = GoButton.InitialImage
     End Sub
-
     Private Sub GoButton_MouseLeave(sender As Object, e As EventArgs) Handles GoButton.MouseLeave
         GoButton.Image = GoButton.ErrorImage
     End Sub
-
     Private Sub SearchButton_MouseEnter(sender As Object, e As EventArgs) Handles SearchButton.MouseEnter
         SearchButton.Image = SearchButton.InitialImage
     End Sub
-
     Private Sub SearchButton_MouseLeave(sender As Object, e As EventArgs) Handles SearchButton.MouseLeave
         SearchButton.Image = SearchButton.ErrorImage
     End Sub
-
     Private Sub CloseTabButton_MouseEnter(sender As Object, e As EventArgs) Handles CloseTabButton.MouseEnter
         CloseTabButton.Image = CloseTabButton.InitialImage
     End Sub
-
     Private Sub CloseTabButton_MouseLeave(sender As Object, e As EventArgs) Handles CloseTabButton.MouseLeave
         CloseTabButton.Image = CloseTabButton.ErrorImage
     End Sub
-
     Private Sub NewTabButton_MouseEnter(sender As Object, e As EventArgs) Handles NewTabButton.MouseEnter
         NewTabButton.Image = NewTabButton.InitialImage
     End Sub
-
     Private Sub NewTabButton_MouseLeave(sender As Object, e As EventArgs) Handles NewTabButton.MouseLeave
         NewTabButton.Image = NewTabButton.ErrorImage
     End Sub
@@ -152,34 +135,22 @@ Public Class BrowserForm
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
-        'InitializeComponent()
         Try
             If My.Settings.FirstStart = True And My.Settings.FirstStartFromReset = False Then
                 My.Settings.Upgrade()
                 My.Settings.Reload()
-                If My.Settings.UserAgent = "" Then
-                    If Environment.Is64BitOperatingSystem = True Then
-                        My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                        Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                    Else
-                        My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                        Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
-                    End If
-                Else
-                    Gecko.GeckoPreferences.User("general.useragent.override") = My.Settings.UserAgent
-                    End If
-                    If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
-                        Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
-                        My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
-                    End If
-                    If My.Settings.BrowserSettingsSecurityPassword.Length <> 128 And My.Settings.BrowserSettingsSecurityPassword.Length <> 0 Then
-                        Dim OriginalPassword As String = My.Settings.BrowserSettingsSecurityPassword
-                        My.Settings.BrowserSettingsSecurityPassword = GetSHA512(OriginalPassword)
-                    End If
-                    My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                    FirstStartForm.Show()
+                If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
+                    Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
+                    My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
                 End If
-                Dim NewBrowser As New CustomBrowser
+                If My.Settings.BrowserSettingsSecurityPassword.Length <> 128 And My.Settings.BrowserSettingsSecurityPassword.Length <> 0 Then
+                    Dim OriginalPassword As String = My.Settings.BrowserSettingsSecurityPassword
+                    My.Settings.BrowserSettingsSecurityPassword = GetSHA512(OriginalPassword)
+                End If
+                My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                FirstStartForm.Show()
+            End If
+            Dim NewBrowser As New CustomBrowser
             AddTab(My.Settings.Homepage, BrowserTabs)
             For Each item In My.Settings.Favorites
                 URLBox.Items.Add(item)
@@ -271,7 +242,6 @@ Public Class BrowserForm
     Private Sub NewTabOpen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewTabButton.Click, NewTabToolStripMenuItem.Click
         Try
             AddTab(My.Settings.Homepage, BrowserTabs)
-
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1492,10 +1462,8 @@ Public Class CustomBrowser
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         If My.Settings.UserAgent = "" Then
             If Environment.Is64BitOperatingSystem = True Then
-                My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                 Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             Else
-                My.Settings.UserAgent = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
                 Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             End If
         Else
