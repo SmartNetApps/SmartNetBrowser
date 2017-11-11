@@ -124,8 +124,6 @@ Partial Class BrowserForm
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
         Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BrowserHistoryDataSet = New SmartNet_Browser.BrowserHistoryDataSet()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MessageBarPictureBox = New System.Windows.Forms.PictureBox()
         Me.MessageBarLabel = New System.Windows.Forms.Label()
         Me.MessageBarButton = New System.Windows.Forms.Button()
@@ -147,7 +145,6 @@ Partial Class BrowserForm
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -155,6 +152,7 @@ Partial Class BrowserForm
         '
         Me.MainToolbar.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.MainToolbar, "MainToolbar")
+        Me.MainToolbar.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MainToolbar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainMenu})
         Me.MainToolbar.Name = "MainToolbar"
         '
@@ -543,6 +541,7 @@ Partial Class BrowserForm
         '
         'BrowserContextMenuStrip
         '
+        Me.BrowserContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.BrowserContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OuvrirLeLienToolStripMenuItem, Me.OuvrirDansUnNouvelOngletToolStripMenuItem, Me.CopierLadresseDuLienToolStripMenuItem, Me.AjouterLeLienAuxFavorisToolStripMenuItem, Me.LinkToolStripSeparator, Me.EnregistrerLimageToolStripMenuItem, Me.CopierLadresseDeLimageToolStripMenuItem, Me.AfficherLimageToolStripMenuItem, Me.ImageToolStripSeparator, Me.CouperToolStripMenuItem1, Me.CopierToolStripMenuItem1, Me.CollerToolStripMenuItem1, Me.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem, Me.EditionToolStripSeparator, Me.ActualiserLaPageToolStripMenuItem, Me.ToolStripSeparator7, Me.PropriétésToolStripMenuItem, Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem})
         Me.BrowserContextMenuStrip.Name = "BrowserContextMenuStrip"
         resources.ApplyResources(Me.BrowserContextMenuStrip, "BrowserContextMenuStrip")
@@ -694,22 +693,6 @@ Partial Class BrowserForm
         Me.StatusLabel.BackColor = System.Drawing.SystemColors.Control
         Me.StatusLabel.Name = "StatusLabel"
         '
-        'HistoryBindingSource
-        '
-        Me.HistoryBindingSource.DataSource = Me.BrowserHistoryDataSet
-        Me.HistoryBindingSource.Position = 0
-        '
-        'BrowserHistoryDataSet
-        '
-        Me.BrowserHistoryDataSet.DataSetName = "BrowserHistoryDataSet"
-        Me.BrowserHistoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Button1
-        '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'MessageBarPictureBox
         '
         resources.ApplyResources(Me.MessageBarPictureBox, "MessageBarPictureBox")
@@ -746,7 +729,6 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.MessageBarButton)
         Me.Controls.Add(Me.MessageBarLabel)
         Me.Controls.Add(Me.MessageBarPictureBox)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusLabel)
         Me.Controls.Add(Me.URLBoxLabel)
         Me.Controls.Add(Me.SearchBoxLabel)
@@ -787,7 +769,6 @@ Partial Class BrowserForm
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BrowserHistoryDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -894,8 +875,6 @@ Partial Class BrowserForm
     Friend WithEvents EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents HistoryBindingSource As BindingSource
-    Friend WithEvents BrowserHistoryDataSet As BrowserHistoryDataSet
-    Friend WithEvents Button1 As Button
     Friend WithEvents MessageBarPictureBox As PictureBox
     Friend WithEvents MessageBarLabel As Label
     Friend WithEvents MessageBarButton As Button

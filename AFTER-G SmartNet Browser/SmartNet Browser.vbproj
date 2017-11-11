@@ -99,6 +99,9 @@
     <OutputPath>bin\x86\Beta Release\</OutputPath>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Geckofx-Core, Version=45.0.32.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx45.45.0.32\lib\net45\Geckofx-Core.dll</HintPath>
@@ -155,11 +158,6 @@
     <Compile Include="BrowserForm.Designer.vb">
       <DependentUpon>BrowserForm.vb</DependentUpon>
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BrowserHistoryDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
@@ -252,12 +250,6 @@
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
     </Compile>
     <Compile Include="NewBrowserForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewHistoryForm.Designer.vb">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="NewHistoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PasswordCrypt.vb" />
@@ -461,9 +453,6 @@
     <EmbeddedResource Include="NewBrowserForm.resx">
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewHistoryForm.resx">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -541,16 +530,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BrowserHistoryDataSet.xsc">
-      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BrowserHistoryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BrowserHistoryDataSet.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="BrowserHistoryDataSet.xss">
-      <DependentUpon>BrowserHistoryDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Firefox\omni.ja" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
