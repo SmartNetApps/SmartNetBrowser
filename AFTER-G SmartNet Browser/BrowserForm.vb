@@ -272,7 +272,7 @@ Public Class BrowserForm
                 Else
                     URLBox.Text = WB.Url.ToString
                 End If
-                If WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video") And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
+                If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
                     TéléchargerCetteVidéoToolStripMenuItem.Visible = True
                     ToolStripSeparator6.Visible = True
                 Else
@@ -406,7 +406,7 @@ Public Class BrowserForm
     Private Sub MenuPrincipalNavigating(sender As Object, e As EventArgs) Handles MenuPrincipalToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            WB.Navigate("http://quentinpugeat.wixsite.com/smartnetbrowserhome")
+            WB.Navigate("https://quentinpugeat.wixsite.com/smartnetbrowserhome")
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -458,7 +458,6 @@ Public Class BrowserForm
                 ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
                 ExceptionForm.ShowDialog()
             End If
-
         End Try
     End Sub
 
@@ -1022,11 +1021,12 @@ Public Class BrowserForm
     Private Sub OuvrirLeLienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirLeLienToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            Dim ClipboardOriginalData As IDataObject = Clipboard.GetDataObject
+            Dim ClipboardOriginalData As IDataObject
+            ClipboardOriginalData = Clipboard.GetDataObject
             WB.CopyLinkLocation()
             Dim Link As String = Clipboard.GetText
-            WB.Navigate(Link)
             Clipboard.SetDataObject(ClipboardOriginalData, True)
+            WB.Navigate(Link)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1041,11 +1041,12 @@ Public Class BrowserForm
     Public Sub OuvrirDansUnNouvelOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirDansUnNouvelOngletToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            Dim ClipboardOriginalData As IDataObject = Clipboard.GetDataObject
+            Dim ClipboardOriginalData As IDataObject
+            ClipboardOriginalData = Clipboard.GetDataObject
             WB.CopyLinkLocation()
             Dim Link As String = Clipboard.GetText
-            AddTab(Link, BrowserTabs)
             Clipboard.SetDataObject(ClipboardOriginalData, True)
+            AddTab(Link, BrowserTabs)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1075,10 +1076,12 @@ Public Class BrowserForm
     Private Sub AjouterLeLienAuxFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterLeLienAuxFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            Dim ClipboardOriginalData As IDataObject = Clipboard.GetDataObject
+            Dim ClipboardOriginalData As IDataObject
+            ClipboardOriginalData = Clipboard.GetDataObject
             WB.CopyLinkLocation()
             Dim Link As String = Clipboard.GetText
             Clipboard.SetDataObject(ClipboardOriginalData, True)
+
             My.Settings.Favorites.Add(Link)
             URLBox.Items.Add(Link)
             My.Settings.Save()
@@ -1110,7 +1113,13 @@ Public Class BrowserForm
     Private Sub EnregistrerLimageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnregistrerLimageToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            Dim ImageSource As String = Ele.GetAttribute("src")
+            Dim ClipboardActualData As IDataObject
+            ClipboardActualData = Clipboard.GetDataObject
+            WB.CopyImageLocation()
+            Dim ImageSource As String = Clipboard.GetText
+            Clipboard.SetDataObject(ClipboardActualData, True)
+
+            'Dim ImageSource As String = Ele.GetAttribute("src")
             Dim FileExtension As String = ImageSource.Substring(ImageSource.LastIndexOf(".") + 1)
             Dim FileName As String = ImageSource.Substring(ImageSource.LastIndexOf("/") + 1)
             Dim ImageDownloader As New WebClient
@@ -1147,7 +1156,14 @@ Public Class BrowserForm
     Private Sub AfficherLimageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLimageToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            WB.Navigate(Ele.GetAttribute("src"))
+            Dim ClipboardActualData As IDataObject
+            ClipboardActualData = Clipboard.GetDataObject
+            WB.CopyImageLocation()
+            Dim ImageSource As String = Clipboard.GetText
+            Clipboard.SetDataObject(ClipboardActualData, True)
+
+
+            WB.Navigate(ImageSource) 'Ele.GetAttribute("src")
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1175,7 +1191,8 @@ Public Class BrowserForm
 
     Private Sub LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Dim ClipboardActualData As IDataObject = Clipboard.GetDataObject
+        Dim ClipboardActualData As IDataObject
+        ClipboardActualData = Clipboard.GetDataObject
         WB.CopySelection()
         Dim Selection As String = Clipboard.GetText
         Clipboard.SetDataObject(ClipboardActualData, True)
@@ -1314,7 +1331,6 @@ Public Class BrowserForm
             Else
                 EditionToolStripSeparator.Visible = False
             End If
-            Ele = CurrentDocument.ElementFromPoint(Me.MousePoint.X, Me.MousePoint.Y)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1743,7 +1759,6 @@ Public Class CustomBrowser
             Else
                 BrowserForm.EditionToolStripSeparator.Visible = False
             End If
-            BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)
             BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -1757,12 +1772,8 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_DomMouseMove(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomMouseMove
         Try
             BrowserForm.MousePoint = New Point(e.ClientX, e.ClientY)
+            BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
         End Try
     End Sub
 
@@ -1849,7 +1860,6 @@ Public Class CustomBrowser
             Else
                 BrowserForm.EditionToolStripSeparator.Visible = False
             End If
-            BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)
             BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
