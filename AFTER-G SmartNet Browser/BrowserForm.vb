@@ -150,7 +150,6 @@ Public Class BrowserForm
                 My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
                 FirstStartForm.Show()
             End If
-            Dim NewBrowser As New CustomBrowser
             AddTab(My.Settings.Homepage, BrowserTabs)
             For Each item In My.Settings.Favorites
                 URLBox.Items.Add(item)
@@ -192,44 +191,21 @@ Public Class BrowserForm
         End Try
     End Sub
     Private Sub GoForward(sender As Object, e As EventArgs) Handles NextpageButton.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        If WB.CanGoForward = True Then
             WB.GoForward()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        End If
     End Sub
-
     Private Sub GoBack(sender As Object, e As EventArgs) Handles PreviouspageButton.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        If WB.CanGoBack = True Then
             WB.GoBack()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        End If
     End Sub
-
     Private Sub RefreshPage(sender As Object, e As EventArgs) Handles RefreshButton.Click, ActualiserLaPageToolStripMenuItem.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            WB.Reload()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        WB.Reload()
     End Sub
-
     Private Sub StopPage(sender As Object, e As EventArgs) Handles StopButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Stop()
@@ -240,15 +216,7 @@ Public Class BrowserForm
     End Sub
 
     Private Sub NewTabOpen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewTabButton.Click, NewTabToolStripMenuItem.Click
-        Try
-            AddTab(My.Settings.Homepage, BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        AddTab(My.Settings.Homepage, BrowserTabs)
     End Sub
 
     Private Sub CloseTab(sender As Object, e As EventArgs) Handles CloseTabButton.Click, CloseTabToolStripMenuItem.Click
@@ -291,46 +259,21 @@ Public Class BrowserForm
     End Sub
 
     Private Sub GoButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoButton.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            WB.Navigate(Me.URLBox.Text)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        WB.Navigate(Me.URLBox.Text)
     End Sub
-
     Private Sub URLBoxKeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles URLBox.KeyDown
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If e.KeyCode = Keys.Enter Then
-                WB.Navigate(URLBox.Text)
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If e.KeyCode = Keys.Enter Then
+            WB.Navigate(URLBox.Text)
+        End If
     End Sub
 
     Private Sub URLBox_KeyPress(sender As Object, e As EventArgs) Handles URLBox.KeyPress
-        Try
-            StopButton.Visible = False
-            RefreshButton.Visible = False
-            GoButton.Visible = True
-            LoadingGif.Visible = False
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        StopButton.Visible = False
+        RefreshButton.Visible = False
+        GoButton.Visible = True
+        LoadingGif.Visible = False
     End Sub
 
     Private Sub SavePageAs(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
@@ -347,7 +290,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub OpenDocument(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -362,7 +304,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub PrintPreview(sender As Object, e As EventArgs) Handles AperçuAvantImpressionToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -378,42 +319,22 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
-        Try
-            AboutForm.ShowDialog()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
-    End Sub
-
     Private Sub HomeNavigating(sender As Object, e As EventArgs) Handles HomepageButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            WB.Navigate(My.Settings.Homepage)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        WB.Navigate(My.Settings.Homepage)
     End Sub
 
     Private Sub MenuPrincipalNavigating(sender As Object, e As EventArgs) Handles MenuPrincipalToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            WB.Navigate("https://quentinpugeat.wixsite.com/smartnetbrowserhome")
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        WB.Navigate("https://quentinpugeat.wixsite.com/smartnetbrowserhome")
+    End Sub
+    Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGServicesWebToolStripMenuItem.Click
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        WB.Navigate("https://quentinpugeat.wixsite.com/lesiteofficiel")
+    End Sub
+    Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGAppsToolStripMenuItem.Click
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        WB.Navigate("https://quentinpugeat.wixsite.com/apps")
     End Sub
 
     Private Sub Cut(sender As Object, e As EventArgs) Handles CouperToolStripMenuItem.Click, CouperToolStripMenuItem1.Click
@@ -430,7 +351,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Copy(sender As Object, e As EventArgs) Handles CopierToolStripMenuItem.Click, CopierToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -445,7 +365,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Paste(sender As Object, e As EventArgs) Handles CollerToolStripMenuItem.Click, CollerToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -510,7 +429,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
         Try
             If My.Settings.HistoryFavoritesSecurity = True Then
@@ -528,7 +446,7 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub Settings(sender As Object, e As EventArgs) Handles ParamètresToolStripMenuItem.Click
+    Private Sub GoToSettings(sender As Object, e As EventArgs) Handles ParamètresToolStripMenuItem.Click
         Try
             If My.Settings.BrowserSettingsSecurity = True Then
                 EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
@@ -546,28 +464,11 @@ Public Class BrowserForm
     End Sub
 
     Private Sub DownloadUpdateButton_Click(sender As Object, e As EventArgs) Handles TéléchargerLaVersionXXXXToolStripMenuItem.Click
-        Try
-            UpdaterForm.ShowDialog()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        UpdaterForm.ShowDialog()
     End Sub
-
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles UpdateNotifyIcon.MouseDoubleClick
-        Try
-            UpdaterForm.Show()
-            UpdateNotifyIcon.Visible = False
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        UpdaterForm.Show()
+        UpdateNotifyIcon.Visible = False
     End Sub
 
     Private Sub PleinÉcranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PleinÉcranToolStripMenuItem.Click
@@ -589,7 +490,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub QuitterLePleinÉcranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterLePleinÉcranToolStripMenuItem.Click
         Try
             Me.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
@@ -608,108 +508,64 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SupportCenterNavigating(sender As Object, e As EventArgs) Handles CentreDaideEnLigneToolStripMenuItem.Click
-        Try
-            AddTab("https://quentinpugeat.wixsite.com/apps/support-browser", BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        AddTab("https://quentinpugeat.wixsite.com/apps/support-browser", BrowserTabs)
     End Sub
-
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        Try
-            AddTab("https://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        AddTab("https://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
+    End Sub
+    Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
+        AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)
+    End Sub
+    Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
+        AboutForm.ShowDialog()
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If My.Settings.SearchEngine = 1 Then
+        Select Case My.Settings.SearchEngine
+            Case 1
                 WB.Navigate("https://www.google.fr/search?q=" + SearchBox.Text)
-            End If
-            If My.Settings.SearchEngine = 2 Then
+            Case 2
                 WB.Navigate("https://www.bing.com/search?q=" + SearchBox.Text)
-            End If
-            If My.Settings.SearchEngine = 3 Then
+            Case 3
                 WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + SearchBox.Text)
-            End If
-            If My.Settings.SearchEngine = 4 Then
+            Case 4
                 WB.Navigate("https://duckduckgo.com/?q=" + SearchBox.Text)
-            End If
-            If My.Settings.SearchEngine = 5 Then
+            Case 5
                 WB.Navigate("https://www.qwant.com/?q=" + SearchBox.Text)
-            End If
-            If My.Settings.SearchEngine = 0 Then
+            Case 0
                 WB.Navigate(My.Settings.CustomSearchURL + SearchBox.Text)
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue pendant la redirection vers les résultats de recherche. Code d'erreur : SEARCH_VIEWING_ERROR", MsgBoxStyle.Critical, "Rechercher sur Internet")
-            End If
-        End Try
-        Try
+        End Select
+
+        If My.Settings.PrivateBrowsing = False Then
+            SearchBox.Items.Add(SearchBox.Text)
+            My.Settings.SearchHistory.Add(SearchBox.Text)
+        End If
+    End Sub
+    Private Sub SearchBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles SearchBox.KeyDown
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        If e.KeyCode = Keys.Enter Then
+            Select Case My.Settings.SearchEngine
+                Case 1
+                    WB.Navigate("https://www.google.fr/search?q=" + SearchBox.Text)
+                Case 2
+                    WB.Navigate("https://www.bing.com/search?q=" + SearchBox.Text)
+                Case 3
+                    WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + SearchBox.Text)
+                Case 4
+                    WB.Navigate("https://duckduckgo.com/?q=" + SearchBox.Text)
+                Case 5
+                    WB.Navigate("https://www.qwant.com/?q=" + SearchBox.Text)
+                Case 0
+                    WB.Navigate(My.Settings.CustomSearchURL + SearchBox.Text)
+            End Select
+
             If My.Settings.PrivateBrowsing = False Then
                 SearchBox.Items.Add(SearchBox.Text)
                 My.Settings.SearchHistory.Add(SearchBox.Text)
             End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
-    End Sub
-    Private Sub SearchBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles SearchBox.KeyDown
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If e.KeyCode = Keys.Enter Then
-                If My.Settings.SearchEngine = 1 Then
-                    WB.Navigate("https://www.google.fr/search?q=" + SearchBox.Text)
-                End If
-                If My.Settings.SearchEngine = 2 Then
-                    WB.Navigate("https://www.bing.com/search?q=" + SearchBox.Text)
-                End If
-                If My.Settings.SearchEngine = 3 Then
-                    WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + SearchBox.Text)
-                End If
-                If My.Settings.SearchEngine = 4 Then
-                    WB.Navigate("https://duckduckgo.com/?q=" + SearchBox.Text)
-                End If
-                If My.Settings.SearchEngine = 5 Then
-                    WB.Navigate("https://www.qwant.com/?q=" + SearchBox.Text)
-                End If
-                If My.Settings.SearchEngine = 0 Then
-                    WB.Navigate(My.Settings.CustomSearchURL + SearchBox.Text)
-                End If
-                If My.Settings.PrivateBrowsing = False Then
-                    SearchBox.Items.Add(SearchBox.Text)
-                    My.Settings.SearchHistory.Add(SearchBox.Text)
-                End If
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue pendant la redirection vers les résultats de recherche. Code d'erreur : SEARCH_VIEWING_ERROR", MsgBoxStyle.Critical, "Rechercher sur Internet")
-            End If
-        End Try
+        End If
+
     End Sub
 
     Private Sub Zoom_100(sender As Object, e As EventArgs) Handles Zoom100.Click
@@ -724,7 +580,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_50(sender As Object, e As EventArgs) Handles Zoom50.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -737,7 +592,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_75(sender As Object, e As EventArgs) Handles Zoom75.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -750,7 +604,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_125(sender As Object, e As EventArgs) Handles Zoom125.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -763,7 +616,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_150(sender As Object, e As EventArgs) Handles Zoom150.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -776,7 +628,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_175(sender As Object, e As EventArgs) Handles Zoom175.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -789,7 +640,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_200(sender As Object, e As EventArgs) Handles Zoom200.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -802,7 +652,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_250(sender As Object, e As EventArgs) Handles Zoom250.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -815,7 +664,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_300(sender As Object, e As EventArgs) Handles Zoom300.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -828,7 +676,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub Zoom_400(sender As Object, e As EventArgs) Handles Zoom400.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -841,7 +688,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub ZoomPlusButton_Click(sender As Object, e As EventArgs) Handles ZoomPlusButton.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -854,7 +700,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub ZoomMinusButton_Click(sender As Object, e As EventArgs) Handles ZoomMinusButton.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -888,7 +733,6 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub SmartNetBrowserClosingWithButton(sender As Object, e As EventArgs) Handles FermerSmartNetBrowserToolStripMenuItem.Click
         Try
             If BrowserTabs.TabPages.Count > 1 Then
@@ -966,56 +810,36 @@ Public Class BrowserForm
     End Sub
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
-        Try
-            AddTab("http://www.clipconverter.cc/?ref=addon&url=" + URLBox.Text, BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("La redirection vers le service de téléchargement a échoué à cause d'une erreur. Merci de réessayer. Code d'erreur : CLIPCONVERTER_REDIRECT_ERROR", MsgBoxStyle.Critical, "Télécharger la vidéo")
-            End If
-        End Try
+        AddTab("http://www.clipconverter.cc/?ref=addon&url=" + URLBox.Text, BrowserTabs)
     End Sub
 
-    Private Sub FaviconBox_Click(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
+    Private Sub ShowProperties(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         'WB.ShowPageProperties()
-        Try
-            If WB.DocumentTitle = "" Then
-                PropertiesForm.PageNameLabel.Text = "Page sans nom"
-            Else
-                PropertiesForm.PageNameLabel.Text = WB.DocumentTitle
-            End If
-            PropertiesForm.PageURLTextBox.Text = WB.Url.ToString
-            PropertiesForm.PageTypeLabel.Text = "Type : Page Web"
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("htm") Then
+        Dim PageFormat As String = WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1)
+        If WB.DocumentTitle = "" Then
+            PropertiesForm.PageNameLabel.Text = "Page sans nom"
+        Else
+            PropertiesForm.PageNameLabel.Text = WB.DocumentTitle
+        End If
+        PropertiesForm.PageURLTextBox.Text = WB.Url.ToString
+        Select Case PageFormat
+            Case "htm"
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web HTML"
-            End If
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("xml") Then
+            Case "xml"
                 PropertiesForm.PageTypeLabel.Text = "Type : Fichier XML"
-            End If
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("jpg") Then
+            Case "jpg"
                 PropertiesForm.PageTypeLabel.Text = "Type : Image JPEG"
-            End If
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("png") Then
+            Case "png"
                 PropertiesForm.PageTypeLabel.Text = "Type : Image PNG"
-            End If
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("bmp") Then
+            Case "bmp"
                 PropertiesForm.PageTypeLabel.Text = "Type : Image bitmap"
-            End If
-            If WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1).Contains("svg") Then
+            Case "svg"
                 PropertiesForm.PageTypeLabel.Text = "Type : Image SVG"
-            End If
-            PropertiesForm.ShowDialog()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+            Case Else
+                PropertiesForm.PageTypeLabel.Text = "Type : Page Web"
+        End Select
+        PropertiesForm.ShowDialog()
     End Sub
 
     Private Sub OuvrirLeLienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirLeLienToolStripMenuItem.Click
@@ -1240,17 +1064,6 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
-        Try
-            AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
-    End Sub
 
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -1284,15 +1097,7 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGServicesWebToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("https://quentinpugeat.wixsite.com/lesiteofficiel")
-    End Sub
 
-    Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGAppsToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("https://quentinpugeat.wixsite.com/apps")
-    End Sub
 
     Private Sub MainMenu_Click(sender As Object, e As EventArgs) Handles MainMenu.DropDownOpening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -1341,66 +1146,30 @@ Public Class BrowserForm
     End Sub
 
     Private Sub URLBox_TextChanged(sender As Object, e As EventArgs) Handles URLBox.TextChanged
-        Try
-            If URLBox.Text = "" Then
-                URLBoxLabel.Visible = True
-            Else
-                URLBoxLabel.Visible = False
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If URLBox.Text = "" Then
+            URLBoxLabel.Visible = True
+        Else
+            URLBoxLabel.Visible = False
+        End If
     End Sub
-
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged
-        Try
-            If SearchBox.Text = "" Then
-                SearchBoxLabel.Visible = True
-            Else
-                SearchBoxLabel.Visible = False
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If SearchBox.Text = "" Then
+            SearchBoxLabel.Visible = True
+        Else
+            SearchBoxLabel.Visible = False
+        End If
     End Sub
-
     Private Sub URLBoxLabel_Click(sender As Object, e As EventArgs) Handles URLBoxLabel.Click
-        Try
-            URLBox.Focus()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        URLBox.Focus()
     End Sub
-
     Private Sub SearchBoxLabel_Click(sender As Object, e As EventArgs) Handles SearchBoxLabel.Click
-        Try
-            SearchBox.Focus()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        SearchBox.Focus()
     End Sub
 
     Private Sub SélectionnerToutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SélectionnerToutToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.SelectAll()
     End Sub
-
     Private Sub RechercherDansLaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RechercherDansLaPageToolStripMenuItem.Click
         SearchTextInPageForm.Show()
     End Sub
@@ -1408,31 +1177,25 @@ Public Class BrowserForm
     Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If e.KeyCode = Keys.BrowserBack Then
-                WB.GoBack()
-            End If
-            If e.KeyCode = Keys.BrowserFavorites Then
-                FavoritesForm.Show()
-            End If
-            If e.KeyCode = Keys.BrowserForward Then
-                WB.GoForward()
-            End If
-            If e.KeyCode = Keys.BrowserHome Then
-                AddTab(My.Settings.Homepage, BrowserTabs)
-            End If
-            If e.KeyCode = Keys.BrowserRefresh Then
-                WB.Reload()
-            End If
-            If e.KeyCode = Keys.BrowserSearch Then
-                SearchBox.Focus()
-                SearchBoxLabel.Visible = False
-            End If
-            If e.KeyCode = Keys.BrowserStop Then
-                WB.Stop()
-            End If
-            If e.KeyCode = Keys.Print Then
-                WB.Navigate("javascript:print()")
-            End If
+            Select Case e.KeyCode
+                Case Keys.BrowserBack
+                    WB.GoBack()
+                Case Keys.BrowserFavorites
+                    FavoritesForm.Show()
+                Case Keys.BrowserForward
+                    WB.GoForward()
+                Case Keys.BrowserHome
+                    AddTab(My.Settings.Homepage, BrowserTabs)
+                Case Keys.BrowserRefresh
+                    WB.Reload()
+                Case Keys.BrowserSearch
+                    SearchBox.Focus()
+                    SearchBoxLabel.Visible = False
+                Case Keys.BrowserStop
+                    WB.Stop()
+                Case Keys.Print
+                    WB.Navigate("javascript.print()")
+            End Select
         Catch ex As Exception
         End Try
     End Sub
@@ -1490,57 +1253,43 @@ Public Class CustomBrowser
     Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If e.KeyCode = Keys.BrowserBack Then
-                WB.GoBack()
-            End If
-            If e.KeyCode = Keys.BrowserFavorites Then
-                FavoritesForm.Show()
-            End If
-            If e.KeyCode = Keys.BrowserForward Then
-                WB.GoForward()
-            End If
-            If e.KeyCode = Keys.BrowserHome Then
-                AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
-            End If
-            If e.KeyCode = Keys.BrowserRefresh Then
-                WB.Reload()
-            End If
-            If e.KeyCode = Keys.BrowserSearch Then
-                BrowserForm.SearchBox.Focus()
-                BrowserForm.SearchBoxLabel.Visible = False
-            End If
-            If e.KeyCode = Keys.BrowserStop Then
-                WB.Stop()
-            End If
-            If e.KeyCode = Keys.Print Then
-                WB.Navigate("javascript:print()")
-            End If
+            Select Case e.KeyCode
+                Case Keys.BrowserBack
+                    WB.GoBack()
+                Case Keys.BrowserFavorites
+                    FavoritesForm.Show()
+                Case Keys.BrowserForward
+                    WB.GoForward()
+                Case Keys.BrowserHome
+                    AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
+                Case Keys.BrowserRefresh
+                    WB.Reload()
+                Case Keys.BrowserSearch
+                    BrowserForm.SearchBox.Focus()
+                    BrowserForm.SearchBoxLabel.Visible = False
+                Case Keys.BrowserStop
+                    WB.Stop()
+                Case Keys.Print
+                    WB.Navigate("javascript.print()")
+            End Select
         Catch ex As Exception
         End Try
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
         If e.Uri.ToString <> "about:blank" Then
-            Try
-                BrowserForm.StopButton.Visible = False
-                BrowserForm.RefreshButton.Visible = True
-                BrowserForm.GoButton.Visible = False
-                BrowserForm.LoadingGif.Visible = False
-                BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = True
-                BrowserForm.CurrentDocument = Me.Document
-                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
-                    BrowserForm.URLBox.Text = ""
-                Else
-                    BrowserForm.URLBox.Text = Me.Url.ToString
-                End If
-                BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
-            Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                End If
-            End Try
+            BrowserForm.StopButton.Visible = False
+            BrowserForm.RefreshButton.Visible = True
+            BrowserForm.GoButton.Visible = False
+            BrowserForm.LoadingGif.Visible = False
+            BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = True
+            BrowserForm.CurrentDocument = Me.Document
+            If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+                BrowserForm.URLBox.Text = ""
+            Else
+                BrowserForm.URLBox.Text = Me.Url.ToString
+            End If
+            BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
         End If
     End Sub
 
@@ -1563,7 +1312,6 @@ Public Class CustomBrowser
                 End If
                 If My.Settings.PrivateBrowsing = False Then
                     If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
-                        'Ajout d'une entrée dans la base de données Historique
                         My.Settings.History.Add(Me.Url.ToString)
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
