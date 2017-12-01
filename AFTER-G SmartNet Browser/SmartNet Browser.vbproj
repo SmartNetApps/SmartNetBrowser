@@ -550,6 +550,7 @@
     <None Include="SmartNetBrowserSignatureDeNomFort.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="COPYING.txt" />
     <Content Include="Firefox\AccessibleMarshal.dll" />
     <Content Include="Firefox\breakpadinjector.dll" />
     <Content Include="Firefox\d3dcompiler_47.dll" />
@@ -569,6 +570,7 @@
     <Content Include="Firefox\sandboxbroker.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
+    <Content Include="README.txt" />
     <Content Include="SmartNetBrowserIcone.ico" />
   </ItemGroup>
   <ItemGroup>
