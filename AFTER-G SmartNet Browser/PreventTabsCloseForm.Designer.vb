@@ -48,8 +48,8 @@ Partial Class PreventTabsCloseForm
         '
         'CloseButton
         '
-        resources.ApplyResources(Me.CloseButton, "CloseButton")
         Me.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.CloseButton, "CloseButton")
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.UseVisualStyleBackColor = True
         '

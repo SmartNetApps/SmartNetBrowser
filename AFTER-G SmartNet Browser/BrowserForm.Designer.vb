@@ -123,11 +123,10 @@ Partial Class BrowserForm
         Me.SearchBoxLabel = New System.Windows.Forms.Label()
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
-        Me.HistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MessageBarPictureBox = New System.Windows.Forms.PictureBox()
         Me.MessageBarLabel = New System.Windows.Forms.Label()
         Me.MessageBarButton = New System.Windows.Forms.Button()
-        Me.MessageBarCloseButton = New System.Windows.Forms.Button()
+        Me.MessageBarCloseButton = New System.Windows.Forms.PictureBox()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,15 +143,14 @@ Partial Class BrowserForm
         Me.BrowserContextMenuStrip.SuspendLayout()
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MessageBarCloseButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
         '
         Me.MainToolbar.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.MainToolbar, "MainToolbar")
-        Me.MainToolbar.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MainToolbar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainMenu})
         Me.MainToolbar.Name = "MainToolbar"
         '
@@ -435,8 +433,8 @@ Partial Class BrowserForm
         '
         'HomepageButton
         '
-        Me.HomepageButton.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.HomepageButton, "HomepageButton")
+        Me.HomepageButton.BackColor = System.Drawing.Color.White
         Me.HomepageButton.Name = "HomepageButton"
         Me.HomepageButton.TabStop = False
         '
@@ -480,22 +478,22 @@ Partial Class BrowserForm
         '
         'RefreshButton
         '
-        resources.ApplyResources(Me.RefreshButton, "RefreshButton")
         Me.RefreshButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.RefreshButton, "RefreshButton")
         Me.RefreshButton.Name = "RefreshButton"
         Me.RefreshButton.TabStop = False
         '
         'StopButton
         '
-        resources.ApplyResources(Me.StopButton, "StopButton")
         Me.StopButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.StopButton, "StopButton")
         Me.StopButton.Name = "StopButton"
         Me.StopButton.TabStop = False
         '
         'GoButton
         '
-        resources.ApplyResources(Me.GoButton, "GoButton")
         Me.GoButton.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.GoButton, "GoButton")
         Me.GoButton.Name = "GoButton"
         Me.GoButton.TabStop = False
         '
@@ -541,7 +539,6 @@ Partial Class BrowserForm
         '
         'BrowserContextMenuStrip
         '
-        Me.BrowserContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.BrowserContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OuvrirLeLienToolStripMenuItem, Me.OuvrirDansUnNouvelOngletToolStripMenuItem, Me.CopierLadresseDuLienToolStripMenuItem, Me.AjouterLeLienAuxFavorisToolStripMenuItem, Me.LinkToolStripSeparator, Me.EnregistrerLimageToolStripMenuItem, Me.CopierLadresseDeLimageToolStripMenuItem, Me.AfficherLimageToolStripMenuItem, Me.ImageToolStripSeparator, Me.CouperToolStripMenuItem1, Me.CopierToolStripMenuItem1, Me.CollerToolStripMenuItem1, Me.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem, Me.EditionToolStripSeparator, Me.ActualiserLaPageToolStripMenuItem, Me.ToolStripSeparator7, Me.PropriétésToolStripMenuItem, Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem})
         Me.BrowserContextMenuStrip.Name = "BrowserContextMenuStrip"
         resources.ApplyResources(Me.BrowserContextMenuStrip, "BrowserContextMenuStrip")
@@ -717,8 +714,9 @@ Partial Class BrowserForm
         'MessageBarCloseButton
         '
         resources.ApplyResources(Me.MessageBarCloseButton, "MessageBarCloseButton")
+        Me.MessageBarCloseButton.BackColor = System.Drawing.Color.DarkOrange
         Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
-        Me.MessageBarCloseButton.UseVisualStyleBackColor = True
+        Me.MessageBarCloseButton.TabStop = False
         '
         'BrowserForm
         '
@@ -768,8 +766,8 @@ Partial Class BrowserForm
         Me.BrowserContextMenuStrip.ResumeLayout(False)
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MessageBarCloseButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -874,9 +872,8 @@ Partial Class BrowserForm
     Friend WithEvents RechercherDansLaPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents HistoryBindingSource As BindingSource
     Friend WithEvents MessageBarPictureBox As PictureBox
     Friend WithEvents MessageBarLabel As Label
     Friend WithEvents MessageBarButton As Button
-    Friend WithEvents MessageBarCloseButton As Button
+    Friend WithEvents MessageBarCloseButton As PictureBox
 End Class
