@@ -283,12 +283,6 @@
     <Compile Include="SettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SourceCodeForm.Designer.vb">
-      <DependentUpon>SourceCodeForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SourceCodeForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UpdaterForm.Designer.vb">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </Compile>
@@ -500,15 +494,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SourceCodeForm.en.resx">
-      <DependentUpon>SourceCodeForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SourceCodeForm.fr.resx">
-      <DependentUpon>SourceCodeForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SourceCodeForm.resx">
-      <DependentUpon>SourceCodeForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdaterForm.en.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>

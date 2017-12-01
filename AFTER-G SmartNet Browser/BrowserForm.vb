@@ -1000,8 +1000,7 @@ Public Class BrowserForm
     Private Sub AfficherLeCodeSourceDeLaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLeCodeSourceDeLaPageToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            SourceCodeForm.GeckoWebBrowser1.Navigate(WB.Url.ToString)
-            SourceCodeForm.Show()
+            AddTab("view-source:" & WB.Url.ToString, BrowserTabs)
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
