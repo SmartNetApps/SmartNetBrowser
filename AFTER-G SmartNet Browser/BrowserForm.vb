@@ -114,6 +114,7 @@ Public Class BrowserForm
                 FaviconBox.Image = FaviconBox.InitialImage
                 BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
                 BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+                PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(WB.Url.ToString)
                 If url.HostNameType = UriHostNameType.Dns Then
@@ -125,12 +126,14 @@ Public Class BrowserForm
                     FaviconBox.Image = favicon
                     BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
                     BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+                    PropertiesForm.FaviconBox.Image = favicon
                 End If
             End If
         Catch ex As Exception
             FaviconBox.Image = FaviconBox.ErrorImage
             BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
             BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+            PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.ErrorImage
         End Try
     End Sub
 
@@ -839,6 +842,7 @@ Public Class BrowserForm
             Case Else
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web"
         End Select
+        CheckFavicon()
         PropertiesForm.ShowDialog()
     End Sub
 
@@ -998,18 +1002,8 @@ Public Class BrowserForm
     End Sub
 
     Private Sub AfficherLeCodeSourceDeLaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLeCodeSourceDeLaPageToolStripMenuItem.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            AddTab("view-source:" & WB.Url.ToString, BrowserTabs)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue lors de la restitution du code source de la page. Merci de réessayer. Code d'erreur : SOURCECODE_DISPLAY_ERROR", MsgBoxStyle.Critical, "Afficher le code source de la page")
-            End If
-        End Try
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        AddTab("view-source:" & WB.Url.ToString, BrowserTabs)
     End Sub
 
     Private Sub LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Click
@@ -1020,34 +1014,20 @@ Public Class BrowserForm
         Dim Selection As String = Clipboard.GetText
         Clipboard.SetDataObject(ClipboardActualData, True)
 
-        Try
-            If My.Settings.SearchEngine = 1 Then
-                WB.Navigate("https://www.google.fr/search?q=" + Selection.ToString)
-            End If
-            If My.Settings.SearchEngine = 2 Then
-                WB.Navigate("https://www.bing.com/search?q=" + Selection.ToString)
-            End If
-            If My.Settings.SearchEngine = 3 Then
-                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + Selection.ToString)
-            End If
-            If My.Settings.SearchEngine = 4 Then
-                WB.Navigate("https://duckduckgo.com/?q=" + Selection.ToString)
-            End If
-            If My.Settings.SearchEngine = 5 Then
-                WB.Navigate("https://www.qwant.com/?q=" + Selection.ToString)
-            End If
-            If My.Settings.SearchEngine = 0 Then
-                WB.Navigate(My.Settings.CustomSearchURL + Selection.ToString)
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue pendant la redirection vers les résultats de recherche. Code d'erreur : SEARCH_SELECTION_ERROR", MsgBoxStyle.Critical, "Rechercher sur Internet")
-            End If
-        End Try
+        Select Case My.Settings.SearchEngine
+            Case 1
+                WB.Navigate("https://www.google.fr/search?q=" + Selection)
+            Case 2
+                WB.Navigate("https://www.bing.com/search?q=" + Selection)
+            Case 3
+                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + Selection)
+            Case 4
+                WB.Navigate("https://duckduckgo.com/?q=" + Selection)
+            Case 5
+                WB.Navigate("https://www.qwant.com/?q=" + Selection)
+            Case 0
+                WB.Navigate(My.Settings.CustomSearchURL + Selection)
+        End Select
 
         Try
             If My.Settings.PrivateBrowsing = False Then
