@@ -549,6 +549,13 @@
     <None Include="SmartNetBrowserSignatureDeNomFort.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AntiMalware\fr.html" />
+    <Content Include="AntiMalware\style.css" />
+    <Content Include="AntiMalware\warning_shield.png" />
+    <Content Include="ChildGuard\en.html" />
+    <Content Include="ChildGuard\fr.html" />
+    <Content Include="ChildGuard\parentalcontrol-icon.png" />
+    <Content Include="ChildGuard\style.css" />
     <Content Include="COPYING.txt" />
     <Content Include="Firefox\AccessibleMarshal.dll" />
     <Content Include="Firefox\breakpadinjector.dll" />
