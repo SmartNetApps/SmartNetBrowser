@@ -234,26 +234,6 @@ Public Class BrowserForm
             Else
                 My.Settings.LastClosedTab = WB.Url.ToString
                 BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
-                CurrentDocument = WB.Document
-                Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
-                Dim TP As TabPage = CType(WB.Tag, TabPage)
-                If WB.DocumentTitle.Length > 30 Then
-                    TP.Text = WB.DocumentTitle.Substring(0, 29) & "..."
-                Else
-                    TP.Text = WB.DocumentTitle
-                End If
-                If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
-                    URLBox.Text = ""
-                Else
-                    URLBox.Text = WB.Url.ToString
-                End If
-                If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
-                    TéléchargerCetteVidéoToolStripMenuItem.Visible = True
-                    ToolStripSeparator6.Visible = True
-                Else
-                    TéléchargerCetteVidéoToolStripMenuItem.Visible = False
-                    ToolStripSeparator6.Visible = False
-                End If
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -262,7 +242,6 @@ Public Class BrowserForm
                 ExceptionForm.ShowDialog()
             End If
         End Try
-        CheckFavicon()
     End Sub
 
     Private Sub GoButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoButton.Click
@@ -777,7 +756,6 @@ Public Class BrowserForm
             Else
                 URLBox.Text = WB.Url.ToString
             End If
-            Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
             CurrentDocument = WB.Document
             If WB.DocumentTitle = "" Then
                 If WB.Url.ToString.Length > 30 Then
@@ -785,12 +763,14 @@ Public Class BrowserForm
                 Else
                     BrowserTabs.SelectedTab.Text = WB.Url.ToString
                 End If
+                Me.Text = WB.Url.ToString + " - SmartNet Browser"
             Else
                 If WB.DocumentTitle.Length > 30 Then
                     BrowserTabs.SelectedTab.Text = WB.DocumentTitle.Substring(0, 29) & "..."
                 Else
                     BrowserTabs.SelectedTab.Text = WB.DocumentTitle
                 End If
+                Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
             End If
             If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
                 TéléchargerCetteVidéoToolStripMenuItem.Visible = True
@@ -1231,12 +1211,10 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
-
     Private Sub RouvrirLeDernierOngletFerméToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RouvrirLeDernierOngletFerméToolStripMenuItem.Click
         AddTab(My.Settings.LastClosedTab, BrowserTabs)
         My.Settings.LastClosedTab = ""
     End Sub
-
     Private Sub TabsContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles TabsContextMenuStrip.Opening
         If My.Settings.LastClosedTab = "" Then
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = False
@@ -1244,7 +1222,6 @@ Public Class BrowserForm
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = True
         End If
     End Sub
-
     Private Sub BrowserTabs_MouseClick(sender As Object, e As MouseEventArgs) Handles BrowserTabs.MouseClick
         Dim i As Integer = 0
         If e.Button = MouseButtons.Right Then
