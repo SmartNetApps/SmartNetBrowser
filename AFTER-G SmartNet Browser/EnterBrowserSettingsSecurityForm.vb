@@ -4,15 +4,16 @@ Public Class EnterBrowserSettingsSecurityForm
     Public SecurityMode As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         If BrowserForm.GetSHA512(PasswordTextBox.Text) = My.Settings.BrowserSettingsSecurityPassword Then
-            If SecurityMode = "Settings" Then
-                SettingsForm.Show()
-            End If
-            If SecurityMode = "History" Then
-                HistoryForm.Show()
-            End If
-            If SecurityMode = "Favorites" Then
-                FavoritesForm.Show()
-            End If
+            Select Case SecurityMode
+                Case "Settings"
+                    SettingsForm.Show()
+                Case "History"
+                    HistoryForm.Show()
+                Case "Favorites"
+                    FavoritesForm.Show()
+                Case Else
+                    MsgBox("Un problème est survenu, réessayez.")
+            End Select
             Me.Close()
         Else
             MsgBox("Mot de passe incorrect", MsgBoxStyle.Critical, "SmartNet Browser Protection des paramètres - Saisie du mot de passe")

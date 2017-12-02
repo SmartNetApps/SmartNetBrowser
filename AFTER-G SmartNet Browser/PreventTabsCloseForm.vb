@@ -14,7 +14,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles CloseTabsButton.Click
         Me.Close()
         My.Settings.Save()
-        'Application.Exit()
         Try
             End
         Catch ex As Exception

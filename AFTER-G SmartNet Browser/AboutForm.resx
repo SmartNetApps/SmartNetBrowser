@@ -163,15 +163,18 @@
         j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="LinkLabel5.Text" xml:space="preserve">
     <value>https://www.mozilla.org/en-US/MPL/2.0/</value>
+  </data>
+  <data name="GeckoFXLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 243</value>
   </data>
   <data name="LinkLabel3.Text" xml:space="preserve">
     <value>Licence</value>
@@ -179,13 +182,19 @@
   <data name="&gt;&gt;PictureBox3.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LinkLabel4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;PictureBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;LicenseLinkLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="LinkLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 15</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -234,14 +243,14 @@
         j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;LicensePictureBox.Name" xml:space="preserve">
+    <value>LicensePictureBox</value>
   </data>
   <data name="LinkLabel5.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
+  </data>
+  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;PictureBox4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -303,8 +312,14 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>697, 311</value>
   </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>© 2015 - 2017, Quentin Pugeat</value>
+  <data name="LicenseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 280</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureBox6.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="PictureBox5.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -327,6 +342,9 @@ distribué selon ses termes et conditions, consultables sur</value>
   </data>
   <data name="&gt;&gt;LinkLabel5.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;PictureBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6065,14 +6083,23 @@ distribué selon ses termes et conditions, consultables sur</value>
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
+  </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="PictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>AutoSize</value>
   </data>
   <data name="PictureBox3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;LinkLabel5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;LinkLabel4.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -6082,6 +6109,12 @@ distribué selon ses termes et conditions, consultables sur</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.Name" xml:space="preserve">
+    <value>LicenseLinkLabel</value>
+  </data>
+  <data name="ClipconverterLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 209</value>
   </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 194</value>
@@ -6113,11 +6146,14 @@ distribué selon ses termes et conditions, consultables sur</value>
   <data name="LinkLabel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
   <data name="LinkLabel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>347, 209</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
     <value>Naviguez avec une fluidité et une aisance exceptionnelle avec SmartNet Browser.
@@ -6127,20 +6163,23 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 19</value>
   </data>
+  <data name="ClipconverterLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="PictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 194</value>
-  </data>
   <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
     <value>9</value>
+  </data>
+  <data name="LicensePictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 280</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutForm</value>
@@ -6148,26 +6187,29 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;PictureBox6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 61</value>
+  <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11pt</value>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox4.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="LinkLabel4.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6245,6 +6287,9 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
@@ -6260,11 +6305,84 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="LinkLabel1.Text" xml:space="preserve">
     <value>Page d'accueil de l'application</value>
   </data>
-  <data name="LinkLabel3.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="PictureBox3.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AAAASUVORK5CYII=
+</value>
   </data>
-  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="PictureBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 194</value>
   </data>
   <data name="PictureBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 264</value>
@@ -6274,6 +6392,9 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   </data>
   <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LinkLabel5.Name" xml:space="preserve">
+    <value>LinkLabel5</value>
   </data>
   <data name="RichTextBox1.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
     <value>None</value>
@@ -6299,13 +6420,16 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="&gt;&gt;LinkLabel1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="GeckoFXLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
   <data name="&gt;&gt;LinkLabel3.Name" xml:space="preserve">
     <value>LinkLabel3</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
   <data name="LinkLabel1.Size" type="System.Drawing.Size, System.Drawing">
@@ -6930,6 +7054,12 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;HomepageLinkLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="LinkLabel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>203, 280</value>
   </data>
@@ -7072,6 +7202,9 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
         gg==
 </value>
   </data>
+  <data name="HomepageLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 280</value>
+  </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>373, 30</value>
   </data>
@@ -7094,9 +7227,6 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
     <value>GeckoFX, par TomHindle
 distribué selon les termes de la Mozilla Public License, consultable sur</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -7118,8 +7248,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="&gt;&gt;PictureBox3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 61</value>
   </data>
   <data name="LinkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -7127,8 +7257,11 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 189</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 15</value>
+  </data>
+  <data name="&gt;&gt;PictureBox5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -8400,8 +8533,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="&gt;&gt;LinkLabel1.Name" xml:space="preserve">
     <value>LinkLabel1</value>
   </data>
-  <data name="&gt;&gt;PictureBox6.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Name" xml:space="preserve">
+    <value>GeckoFXLinkLabel</value>
   </data>
   <data name="PictureBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 30</value>
@@ -8412,8 +8545,11 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
-  <data name="LinkLabel5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>© 2015 - 2017, Quentin Pugeat</value>
   </data>
   <data name="PictureBox3.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8491,11 +8627,26 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Name" xml:space="preserve">
+    <value>HomepageLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Name" xml:space="preserve">
+    <value>ClipconverterLinkLabel</value>
+  </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="LinkLabel5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 20</value>
@@ -8503,81 +8654,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="PictureBox3.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;LinkLabel5.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -8585,20 +8663,29 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="&gt;&gt;RichTextBox1.Name" xml:space="preserve">
     <value>RichTextBox1</value>
   </data>
+  <data name="LinkLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 243</value>
+  </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Logiciels tiers</value>
   </data>
-  <data name="&gt;&gt;LinkLabel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;GeckoFXLinkLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LicensePictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;PictureBox3.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 15</value>
+  <data name="&gt;&gt;LinkLabel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LinkLabel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 15</value>
+  <data name="LinkLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;LinkLabel4.Name" xml:space="preserve">
     <value>LinkLabel4</value>
@@ -8609,13 +8696,16 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="PictureBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 15</value>
   </data>
-  <data name="&gt;&gt;LinkLabel5.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;LicenseLinkLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;RichTextBox1.ZOrder" xml:space="preserve">
@@ -8624,14 +8714,14 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="LinkLabel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 243</value>
+  <data name="&gt;&gt;LicensePictureBox.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;LinkLabel5.Name" xml:space="preserve">
-    <value>LinkLabel5</value>
+  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;PictureBox6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="PictureBox4.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -3,24 +3,21 @@ Imports System.Net
 Public Class SettingsForm
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HomepageURLBox.Text = My.Settings.Homepage
-        If My.Settings.SearchEngine = 1 Then
-            RadioButton1.Checked = True
-        End If
-        If My.Settings.SearchEngine = 2 Then
-            RadioButton2.Checked = True
-        End If
-        If My.Settings.SearchEngine = 3 Then
-            RadioButton3.Checked = True
-        End If
-        If My.Settings.SearchEngine = 4 Then
-            RadioButton4.Checked = True
-        End If
-        If My.Settings.SearchEngine = 5 Then
-            RadioButton5.Checked = True
-        End If
-        If My.Settings.SearchEngine = 0 Then
-            RadioButton0.Checked = True
-        End If
+        Select Case My.Settings.SearchEngine
+            Case 1
+                RadioButton1.Checked = True
+            Case 2
+                RadioButton2.Checked = True
+            Case 3
+                RadioButton3.Checked = True
+            Case 4
+                RadioButton4.Checked = True
+            Case 5
+                RadioButton5.Checked = True
+            Case 0
+                RadioButton0.Checked = True
+        End Select
+
         If My.Settings.PreventMultipleTabsClose = True Then
             PreventMultipleTabsCloseCheckBox.Checked = True
         Else

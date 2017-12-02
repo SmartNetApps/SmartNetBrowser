@@ -23,45 +23,45 @@ Partial Class AdBlockerWhitelistForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdBlockerWhitelistForm))
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.WhitelistRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.SaveButton = New System.Windows.Forms.Button()
+        Me.CancelButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'RichTextBox1
+        'WhitelistRichTextBox
         '
-        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.RichTextBox1.DetectUrls = False
-        Me.RichTextBox1.Name = "RichTextBox1"
+        resources.ApplyResources(Me.WhitelistRichTextBox, "WhitelistRichTextBox")
+        Me.WhitelistRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.WhitelistRichTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.WhitelistRichTextBox.DetectUrls = False
+        Me.WhitelistRichTextBox.Name = "WhitelistRichTextBox"
         '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
-        'Button1
+        'SaveButton
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.SaveButton, "SaveButton")
+        Me.SaveButton.Name = "SaveButton"
+        Me.SaveButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'CancelButton
         '
-        resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.Name = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CancelButton, "CancelButton")
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.UseVisualStyleBackColor = True
         '
         'AdBlockerWhitelistForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.WhitelistRichTextBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -73,8 +73,8 @@ Partial Class AdBlockerWhitelistForm
 
     End Sub
 
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents WhitelistRichTextBox As RichTextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents SaveButton As Button
+    Friend WithEvents CancelButton As Button
 End Class

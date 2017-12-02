@@ -30,18 +30,18 @@ Partial Class AboutForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.HomepageLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.LicenseLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.LicensePictureBox = New System.Windows.Forms.PictureBox()
+        Me.ClipconverterLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
+        Me.GeckoFXLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LicensePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,39 +90,39 @@ Partial Class AboutForm
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.TabStop = False
         '
-        'LinkLabel1
+        'HomepageLinkLabel
         '
-        resources.ApplyResources(Me.LinkLabel1, "LinkLabel1")
-        Me.LinkLabel1.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel1.BackColor = System.Drawing.Color.White
-        Me.LinkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.HomepageLinkLabel, "HomepageLinkLabel")
+        Me.HomepageLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        Me.HomepageLinkLabel.BackColor = System.Drawing.Color.White
+        Me.HomepageLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
+        Me.HomepageLinkLabel.Name = "HomepageLinkLabel"
+        Me.HomepageLinkLabel.TabStop = True
+        Me.HomepageLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
         '
-        'LinkLabel3
+        'LicenseLinkLabel
         '
-        resources.ApplyResources(Me.LinkLabel3, "LinkLabel3")
-        Me.LinkLabel3.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel3.BackColor = System.Drawing.Color.White
-        Me.LinkLabel3.LinkColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel3.Name = "LinkLabel3"
-        Me.LinkLabel3.TabStop = True
-        Me.LinkLabel3.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.LicenseLinkLabel, "LicenseLinkLabel")
+        Me.LicenseLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        Me.LicenseLinkLabel.BackColor = System.Drawing.Color.White
+        Me.LicenseLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
+        Me.LicenseLinkLabel.Name = "LicenseLinkLabel"
+        Me.LicenseLinkLabel.TabStop = True
+        Me.LicenseLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
         '
-        'PictureBox3
+        'LicensePictureBox
         '
-        resources.ApplyResources(Me.PictureBox3, "PictureBox3")
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.TabStop = False
+        resources.ApplyResources(Me.LicensePictureBox, "LicensePictureBox")
+        Me.LicensePictureBox.BackColor = System.Drawing.Color.White
+        Me.LicensePictureBox.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.LicensePictureBox.Name = "LicensePictureBox"
+        Me.LicensePictureBox.TabStop = False
         '
-        'LinkLabel4
+        'ClipconverterLinkLabel
         '
-        resources.ApplyResources(Me.LinkLabel4, "LinkLabel4")
-        Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.TabStop = True
+        resources.ApplyResources(Me.ClipconverterLinkLabel, "ClipconverterLinkLabel")
+        Me.ClipconverterLinkLabel.Name = "ClipconverterLinkLabel"
+        Me.ClipconverterLinkLabel.TabStop = True
         '
         'PictureBox4
         '
@@ -136,11 +136,11 @@ Partial Class AboutForm
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.TabStop = False
         '
-        'LinkLabel5
+        'GeckoFXLinkLabel
         '
-        resources.ApplyResources(Me.LinkLabel5, "LinkLabel5")
-        Me.LinkLabel5.Name = "LinkLabel5"
-        Me.LinkLabel5.TabStop = True
+        resources.ApplyResources(Me.GeckoFXLinkLabel, "GeckoFXLinkLabel")
+        Me.GeckoFXLinkLabel.Name = "GeckoFXLinkLabel"
+        Me.GeckoFXLinkLabel.TabStop = True
         '
         'Label1
         '
@@ -159,13 +159,13 @@ Partial Class AboutForm
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.LinkLabel5)
+        Me.Controls.Add(Me.GeckoFXLinkLabel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox4)
-        Me.Controls.Add(Me.LinkLabel4)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.LinkLabel3)
-        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Me.ClipconverterLinkLabel)
+        Me.Controls.Add(Me.LicensePictureBox)
+        Me.Controls.Add(Me.LicenseLinkLabel)
+        Me.Controls.Add(Me.HomepageLinkLabel)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label5)
@@ -182,7 +182,7 @@ Partial Class AboutForm
         Me.ShowInTaskbar = False
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LicensePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -198,13 +198,13 @@ Partial Class AboutForm
     Friend WithEvents Label5 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents LinkLabel3 As LinkLabel
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents HomepageLinkLabel As LinkLabel
+    Friend WithEvents LicenseLinkLabel As LinkLabel
+    Friend WithEvents LicensePictureBox As PictureBox
+    Friend WithEvents ClipconverterLinkLabel As LinkLabel
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents LinkLabel5 As LinkLabel
+    Friend WithEvents GeckoFXLinkLabel As LinkLabel
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox6 As PictureBox
 End Class
