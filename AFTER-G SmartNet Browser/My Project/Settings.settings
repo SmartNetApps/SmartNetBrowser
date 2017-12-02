@@ -62,7 +62,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Homepage" Type="(Web Service URL)" Scope="User">
-      <Value Profile="(Default)">http://quentinpugeat.wixsite.com/smartnetbrowserhome</Value>
+      <Value Profile="(Default)">https://quentinpugeat.wixsite.com/smartnetbrowserhome</Value>
     </Setting>
     <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -78,6 +78,9 @@
     </Setting>
     <Setting Name="HistoryFavoritesSecurity" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LastClosedTab" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

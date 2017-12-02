@@ -117,6 +117,9 @@ Partial Class BrowserForm
         Me.SaveImageDialog = New System.Windows.Forms.SaveFileDialog()
         Me.SavePageDialog = New System.Windows.Forms.SaveFileDialog()
         Me.BrowserTabs = New System.Windows.Forms.TabControl()
+        Me.TabsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.FermerCetOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RouvrirLeDernierOngletFerméToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FavoritesButton = New System.Windows.Forms.PictureBox()
         Me.LoadingGif = New System.Windows.Forms.PictureBox()
@@ -141,6 +144,7 @@ Partial Class BrowserForm
         CType(Me.PreviousPageButtonDisabled, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NextPageButtonDisabled, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BrowserContextMenuStrip.SuspendLayout()
+        Me.TabsContextMenuStrip.SuspendLayout()
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -649,6 +653,24 @@ Partial Class BrowserForm
         Me.BrowserTabs.Name = "BrowserTabs"
         Me.BrowserTabs.SelectedIndex = 0
         '
+        'TabsContextMenuStrip
+        '
+        Me.TabsContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FermerCetOngletToolStripMenuItem, Me.RouvrirLeDernierOngletFerméToolStripMenuItem})
+        Me.TabsContextMenuStrip.Name = "TabsContextMenuStrip"
+        resources.ApplyResources(Me.TabsContextMenuStrip, "TabsContextMenuStrip")
+        '
+        'FermerCetOngletToolStripMenuItem
+        '
+        Me.FermerCetOngletToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._0
+        Me.FermerCetOngletToolStripMenuItem.Name = "FermerCetOngletToolStripMenuItem"
+        resources.ApplyResources(Me.FermerCetOngletToolStripMenuItem, "FermerCetOngletToolStripMenuItem")
+        '
+        'RouvrirLeDernierOngletFerméToolStripMenuItem
+        '
+        Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._01
+        Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Name = "RouvrirLeDernierOngletFerméToolStripMenuItem"
+        resources.ApplyResources(Me.RouvrirLeDernierOngletFerméToolStripMenuItem, "RouvrirLeDernierOngletFerméToolStripMenuItem")
+        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -764,6 +786,7 @@ Partial Class BrowserForm
         CType(Me.PreviousPageButtonDisabled, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NextPageButtonDisabled, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BrowserContextMenuStrip.ResumeLayout(False)
+        Me.TabsContextMenuStrip.ResumeLayout(False)
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -876,4 +899,7 @@ Partial Class BrowserForm
     Friend WithEvents MessageBarLabel As Label
     Friend WithEvents MessageBarButton As Button
     Friend WithEvents MessageBarCloseButton As PictureBox
+    Friend WithEvents TabsContextMenuStrip As ContextMenuStrip
+    Friend WithEvents FermerCetOngletToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RouvrirLeDernierOngletFerméToolStripMenuItem As ToolStripMenuItem
 End Class

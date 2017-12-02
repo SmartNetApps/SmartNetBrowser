@@ -577,6 +577,8 @@
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
     <Content Include="README.txt" />
+    <None Include="Resources\0.png" />
+    <None Include="Resources\01.png" />
     <Content Include="SmartNetBrowserIcone.ico" />
   </ItemGroup>
   <ItemGroup>

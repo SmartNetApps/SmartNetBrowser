@@ -11,6 +11,7 @@ Public Class BrowserForm
     Public Ele As Gecko.GeckoElement
     Public MessageBarAction As String
     Public MessageBarButtonLink As String
+    Dim tabPageIndex As Integer = 0
 
     Public Function GetSHA512(ByVal str As String) As String
         'desc   : Encrypt a strin using the SHA512 algorithm
@@ -93,6 +94,8 @@ Public Class BrowserForm
             NewTab.Tag = NewBrowser
             ImageList1.Images.Add(FaviconBox.InitialImage)
             BrowserTabs.ImageList.Images.Add(FaviconBox.InitialImage)
+            NewTab.ContextMenuStrip = TabsContextMenuStrip
+            NewTab.ContextMenuStrip.Tag = NewTab
             TabControl.TabPages.Add(NewTab)
             NewTab.Controls.Add(NewBrowser)
             NewBrowser.Dock = DockStyle.Fill
@@ -229,6 +232,7 @@ Public Class BrowserForm
             If BrowserTabs.TabPages.Count = 1 Then
                 Me.Close()
             Else
+                My.Settings.LastClosedTab = WB.Url.ToString
                 BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
                 CurrentDocument = WB.Document
                 Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
@@ -723,9 +727,11 @@ Public Class BrowserForm
                     e.Cancel = True
                     PreventTabsCloseForm.ShowDialog()
                 Else
+                    My.Settings.LastClosedTab = ""
                     My.Settings.Save()
                 End If
             Else
+                My.Settings.LastClosedTab = ""
                 My.Settings.Save()
             End If
         Catch ex As Exception
@@ -1204,6 +1210,52 @@ Public Class BrowserForm
         MessageBarButton.Visible = False
         MessageBarCloseButton.Visible = False
         MessageBarLabel.Visible = False
+    End Sub
+
+    Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
+        Dim tabPageToRemove As TabPage = BrowserTabs.TabPages.Item(tabPageIndex)
+        Dim WB As CustomBrowser = CType(tabPageToRemove.Tag, CustomBrowser)
+        Try
+            WB.Navigate("about:blank")
+            If BrowserTabs.TabPages.Count = 1 Then
+                Me.Close()
+            Else
+                My.Settings.LastClosedTab = WB.Url.ToString
+                BrowserTabs.TabPages.Remove(tabPageToRemove)
+            End If
+        Catch ex As Exception
+            If My.Settings.DisplayExceptions = True Then
+                ExceptionForm.MessageTextBox.Text = ex.Message
+                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
+                ExceptionForm.ShowDialog()
+            End If
+        End Try
+    End Sub
+
+    Private Sub RouvrirLeDernierOngletFerméToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RouvrirLeDernierOngletFerméToolStripMenuItem.Click
+        AddTab(My.Settings.LastClosedTab, BrowserTabs)
+        My.Settings.LastClosedTab = ""
+    End Sub
+
+    Private Sub TabsContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles TabsContextMenuStrip.Opening
+        If My.Settings.LastClosedTab = "" Then
+            RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = False
+        Else
+            RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = True
+        End If
+    End Sub
+
+    Private Sub BrowserTabs_MouseClick(sender As Object, e As MouseEventArgs) Handles BrowserTabs.MouseClick
+        Dim i As Integer = 0
+        If e.Button = MouseButtons.Right Then
+            While i <= BrowserTabs.TabPages.Count - 1
+                If BrowserTabs.GetTabRect(i).Contains(e.Location) Then
+                    tabPageIndex = i
+                End If
+                i += 1
+            End While
+            TabsContextMenuStrip.Show(MousePosition)
+        End If
     End Sub
 End Class
 

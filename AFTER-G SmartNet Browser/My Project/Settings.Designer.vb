@@ -287,7 +287,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://quentinpugeat.wixsite.com/smartnetbrowserhome")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://quentinpugeat.wixsite.com/smartnetbrowserhome")>  _
         Public Property Homepage() As String
             Get
                 Return CType(Me("Homepage"),String)
@@ -345,6 +345,18 @@ Namespace My
             End Get
             Set
                 Me("HistoryFavoritesSecurity") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl)>  _
+        Public Property LastClosedTab() As String
+            Get
+                Return CType(Me("LastClosedTab"),String)
+            End Get
+            Set
+                Me("LastClosedTab") = value
             End Set
         End Property
     End Class
