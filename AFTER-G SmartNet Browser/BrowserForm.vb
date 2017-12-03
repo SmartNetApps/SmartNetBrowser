@@ -1062,8 +1062,6 @@ Public Class BrowserForm
         End Try
     End Sub
 
-
-
     Private Sub MainMenu_Click(sender As Object, e As EventArgs) Handles MainMenu.DropDownOpening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try

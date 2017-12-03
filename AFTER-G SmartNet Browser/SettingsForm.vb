@@ -350,7 +350,7 @@ StopVersionChecking:
             My.Settings.DeleteCookiesWhileClosing = False
             My.Settings.UserAgent = ""
             My.Settings.FirstStartFromReset = True
-            My.Settings.UserAgentLanguage = "fr"
+            My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             Gecko.CookieManager.RemoveAll()
             My.Settings.Save()
             Application.Restart()

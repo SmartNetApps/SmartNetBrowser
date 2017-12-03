@@ -12,11 +12,7 @@
         Me.Close()
     End Sub
 
-    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LicenseLinkLabel.LinkClicked
-        LicenseForm.ShowDialog()
-    End Sub
-
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles LicensePictureBox.Click
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As EventArgs) Handles LicenseLinkLabel.LinkClicked, LicensePictureBox.Click
         LicenseForm.ShowDialog()
     End Sub
 
@@ -27,6 +23,11 @@
 
     Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GeckoFXLinkLabel.LinkClicked
         BrowserForm.AddTab("https://www.mozilla.org/en-US/MPL/2.0/", BrowserForm.BrowserTabs)
+        Me.Close()
+    End Sub
+
+    Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
+        BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/whatsnew-smartnetbrowser", BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
 End Class

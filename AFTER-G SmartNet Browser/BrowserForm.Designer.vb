@@ -117,10 +117,10 @@ Partial Class BrowserForm
         Me.SaveImageDialog = New System.Windows.Forms.SaveFileDialog()
         Me.SavePageDialog = New System.Windows.Forms.SaveFileDialog()
         Me.BrowserTabs = New System.Windows.Forms.TabControl()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TabsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FermerCetOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FavoritesButton = New System.Windows.Forms.PictureBox()
         Me.LoadingGif = New System.Windows.Forms.PictureBox()
         Me.SearchBoxLabel = New System.Windows.Forms.Label()
@@ -653,6 +653,12 @@ Partial Class BrowserForm
         Me.BrowserTabs.Name = "BrowserTabs"
         Me.BrowserTabs.SelectedIndex = 0
         '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Logo 16x16.png")
+        '
         'TabsContextMenuStrip
         '
         Me.TabsContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FermerCetOngletToolStripMenuItem, Me.RouvrirLeDernierOngletFerméToolStripMenuItem})
@@ -670,12 +676,6 @@ Partial Class BrowserForm
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._01
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Name = "RouvrirLeDernierOngletFerméToolStripMenuItem"
         resources.ApplyResources(Me.RouvrirLeDernierOngletFerméToolStripMenuItem, "RouvrirLeDernierOngletFerméToolStripMenuItem")
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Logo 16x16.png")
         '
         'FavoritesButton
         '
