@@ -26,7 +26,7 @@ Partial Class AdBlockerWhitelistForm
         Me.WhitelistRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SaveButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.AbortButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'WhitelistRichTextBox
@@ -48,17 +48,17 @@ Partial Class AdBlockerWhitelistForm
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.UseVisualStyleBackColor = True
         '
-        'CancelButton
+        'AbortButton
         '
-        resources.ApplyResources(Me.CancelButton, "CancelButton")
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.AbortButton, "AbortButton")
+        Me.AbortButton.Name = "AbortButton"
+        Me.AbortButton.UseVisualStyleBackColor = True
         '
         'AdBlockerWhitelistForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.AbortButton)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.WhitelistRichTextBox)
@@ -76,5 +76,5 @@ Partial Class AdBlockerWhitelistForm
     Friend WithEvents WhitelistRichTextBox As RichTextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents SaveButton As Button
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents AbortButton As Button
 End Class

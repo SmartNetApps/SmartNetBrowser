@@ -10,7 +10,7 @@
         Me.Close()
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
         Me.Close()
     End Sub
 End Class

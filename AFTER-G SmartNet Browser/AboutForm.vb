@@ -1,10 +1,6 @@
 ﻿Public Class AboutForm
     Private Sub AboutForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If My.Application.Info.Version.Revision > 0 Then
-            Label2.Text = "Version " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString + " avec correctif " + My.Application.Info.Version.Revision.ToString
-        Else
-            Label2.Text = "Version " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString
-        End If
+        Label2.Text = "Version " + My.Application.Info.Version.ToString
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HomepageLinkLabel.LinkClicked
