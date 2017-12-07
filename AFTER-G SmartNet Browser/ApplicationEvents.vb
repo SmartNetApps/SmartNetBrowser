@@ -31,24 +31,20 @@ Namespace My
                     MsgBox("Votre ordinateur est configuré pour afficher une résolution inférieure à 1024x768 pixels. Certaines pages Web peuvent ne pas s'afficher correctement. Pour configurer la résolution, faites un clic droit sur le Bureau et sélectionnez ""Résolution d'écran"" ou ""Paramètres d'affichage"". Poussez le curseur vers la droite (ou le haut) jusqu'à 1024x768 ou plus.", CType(MessageBoxIcon.Exclamation, MsgBoxStyle), "Problème avec la résolution d'écran")
                 End If
                 Gecko.Xpcom.Initialize("Firefox")
-                If My.Settings.SearchEngine = 1 Then
-                    BrowserForm.SearchBoxLabel.Text = "Google"
-                End If
-                If My.Settings.SearchEngine = 2 Then
-                    BrowserForm.SearchBoxLabel.Text = "Bing"
-                End If
-                If My.Settings.SearchEngine = 3 Then
-                    BrowserForm.SearchBoxLabel.Text = "Yahoo!"
-                End If
-                If My.Settings.SearchEngine = 4 Then
-                    BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
-                End If
-                If My.Settings.SearchEngine = 5 Then
-                    BrowserForm.SearchBoxLabel.Text = "Qwant"
-                End If
-                If My.Settings.SearchEngine = 0 Then
-                    BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
-                End If
+                Select Case My.Settings.SearchEngine
+                    Case 1
+                        BrowserForm.SearchBoxLabel.Text = "Google"
+                    Case 2
+                        BrowserForm.SearchBoxLabel.Text = "Bing"
+                    Case 3
+                        BrowserForm.SearchBoxLabel.Text = "Yahoo!"
+                    Case 4
+                        BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
+                    Case 5
+                        BrowserForm.SearchBoxLabel.Text = "Qwant"
+                    Case 0
+                        BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
+                End Select
             Catch ex As Exception
             End Try
             Try

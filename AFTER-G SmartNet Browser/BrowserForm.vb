@@ -4,6 +4,7 @@ Imports Gecko.Events
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Data.OleDb
+Imports Microsoft.Win32
 
 Public Class BrowserForm
     Public WithEvents CurrentDocument As Gecko.GeckoDocument
@@ -145,6 +146,12 @@ Public Class BrowserForm
             If My.Settings.FirstStart = True And My.Settings.FirstStartFromReset = False Then
                 My.Settings.Upgrade()
                 My.Settings.Reload()
+                Dim DownloadFolderrKey As RegistryKey = Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
+                If DownloadFolderrKey Is Nothing Then
+                    My.Settings.DefaultDownloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+                Else
+                    My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString
+                End If
                 If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
                     Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
                     My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
@@ -181,11 +188,11 @@ Public Class BrowserForm
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent)
         Try
             Dim ie As New WebBrowser
-            ie.Navigate(e.Url)
-            'DownloadForm.FileNameLabel.Text = e.Url.ToString.Substring(e.Url.ToString.LastIndexOf("/") + 1)
-            'DownloadForm.URLLabel.Text = "À partir de : " + e.Url.ToString
-            'DownloadForm.DownloadLink = e.Url.ToString
-            'DownloadForm.Show()
+            'ie.Navigate(e.Url)
+            DownloadForm.FileNameLabel.Text = e.Url.Substring(e.Url.LastIndexOf("/") + 1)
+            DownloadForm.URLLabel.Text = "À partir de : " + e.Url
+            DownloadForm.DownloadLink = e.Url
+            DownloadForm.Show()
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message

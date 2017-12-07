@@ -1,5 +1,7 @@
 ﻿Imports System.IO.File
 Imports System.Net
+Imports Microsoft.Win32
+
 Public Class SettingsForm
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HomepageURLBox.Text = My.Settings.Homepage
@@ -17,17 +19,8 @@ Public Class SettingsForm
             Case 0
                 RadioButton0.Checked = True
         End Select
-
-        If My.Settings.PreventMultipleTabsClose = True Then
-            PreventMultipleTabsCloseCheckBox.Checked = True
-        Else
-            PreventMultipleTabsCloseCheckBox.Checked = False
-        End If
-        If My.Settings.DeleteCookiesWhileClosing = True Then
-            EraseCookiesCheckBox.Checked = True
-        Else
-            EraseCookiesCheckBox.Checked = False
-        End If
+        PreventMultipleTabsCloseCheckBox.Checked = My.Settings.PreventMultipleTabsClose
+        EraseCookiesCheckBox.Checked = My.Settings.DeleteCookiesWhileClosing
         If My.Settings.PrivateBrowsing = False Then
             PrivateBrowsingCheckBox.Checked = True
         Else
@@ -68,16 +61,8 @@ Public Class SettingsForm
             PopUpsBlockerCheckBox.Enabled = False
             PopUpsBlockerCheckBox.Checked = False
         End If
-        If My.Settings.PopUpBlocker = True Then
-            PopUpsBlockerCheckBox.Checked = True
-        Else
-            PopUpsBlockerCheckBox.Checked = False
-        End If
-        If My.Settings.AutoUpdates = True Then
-            AutoUpdateCheckBox.Checked = True
-        Else
-            AutoUpdateCheckBox.Checked = False
-        End If
+        PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
+        AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
         If My.Application.Info.Version.Revision > 0 Then
             VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString + " avec correctif " + My.Application.Info.Version.Revision.ToString
         Else
@@ -85,13 +70,10 @@ Public Class SettingsForm
         End If
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
-        If My.Settings.DisplayExceptions = True Then
-            DisplayExceptionsCheckBox.Checked = True
-        Else
-            DisplayExceptionsCheckBox.Checked = False
-        End If
+        DisplayExceptionsCheckBox.Checked = My.Settings.DisplayExceptions
         UserAgentTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
+        DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         Me.CenterToScreen()
     End Sub
 
@@ -352,6 +334,12 @@ StopVersionChecking:
             My.Settings.FirstStartFromReset = True
             My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             Gecko.CookieManager.RemoveAll()
+            Dim DownloadFolderrKey As RegistryKey = Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
+            If DownloadFolderrKey Is Nothing Then
+                My.Settings.DefaultDownloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+            Else
+                My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString
+            End If
             My.Settings.Save()
             Application.Restart()
             End
@@ -374,55 +362,23 @@ StopVersionChecking:
 
     Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         My.Settings.Homepage = HomepageURLBox.Text
-        If PopUpsBlockerCheckBox.Checked = True Then
-            My.Settings.PopUpBlocker = True
-        Else
-            My.Settings.PopUpBlocker = False
-        End If
-        If EraseCookiesCheckBox.Checked = True Then
-            My.Settings.DeleteCookiesWhileClosing = True
-        Else
-            My.Settings.DeleteCookiesWhileClosing = False
-        End If
-        If BrowserSettingsSecurityCheckBox.Checked = True Then
-            My.Settings.BrowserSettingsSecurity = True
-        Else
-            My.Settings.BrowserSettingsSecurity = False
-        End If
-        If ChildrenProtectionCheckBox.Checked = True Then
-            My.Settings.ChildrenProtection = True
-        Else
-            My.Settings.ChildrenProtection = False
-        End If
-        If DisplayExceptionsCheckBox.Checked = True Then
-            My.Settings.DisplayExceptions = True
-        Else
-            My.Settings.DisplayExceptions = False
-        End If
-        If AdBlockerCheckBox.Checked = True Then
-            My.Settings.AdBlocker = True
-        Else
-            My.Settings.AdBlocker = False
-        End If
-        If PreventMultipleTabsCloseCheckBox.Checked = True Then
-            My.Settings.PreventMultipleTabsClose = True
-        Else
-            My.Settings.PreventMultipleTabsClose = False
-        End If
+        My.Settings.PopUpBlocker = PopUpsBlockerCheckBox.Checked
+        My.Settings.DeleteCookiesWhileClosing = EraseCookiesCheckBox.Checked
+        My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
+        My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
+        My.Settings.DisplayExceptions = DisplayExceptionsCheckBox.Checked
+        My.Settings.AdBlocker = AdBlockerCheckBox.Checked
+        My.Settings.PreventMultipleTabsClose = PreventMultipleTabsCloseCheckBox.Checked
         If PrivateBrowsingCheckBox.Checked = True Then
             My.Settings.PrivateBrowsing = False
         Else
             My.Settings.PrivateBrowsing = True
         End If
-        If AutoUpdateCheckBox.Checked = True Then
-            My.Settings.AutoUpdates = True
-        Else
-            My.Settings.AutoUpdates = False
-        End If
-        Dim NewLanguage As String = LanguagesComboBox.Text.Split(" "c)(0)
-        My.Settings.UserAgentLanguage = NewLanguage
+        My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
+        My.Settings.UserAgentLanguage = LanguagesComboBox.Text.Split(" "c)(0)
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
+        My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
         My.Settings.Save()
         Me.Close()
     End Sub
@@ -432,6 +388,12 @@ StopVersionChecking:
             My.Settings.HistoryFavoritesSecurity = True
         Else
             My.Settings.HistoryFavoritesSecurity = False
+        End If
+    End Sub
+
+    Private Sub SetDefaultDownloadFolderButton_Click(sender As Object, e As EventArgs) Handles SetDefaultDownloadFolderButton.Click
+        If DefaultDownloadFolderBrowserDialog.ShowDialog() = DialogResult.OK Then
+            DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         End If
     End Sub
 End Class

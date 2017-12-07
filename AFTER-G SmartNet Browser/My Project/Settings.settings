@@ -82,5 +82,8 @@
     <Setting Name="LastClosedTab" Type="(Web Service URL)" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="DefaultDownloadFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
