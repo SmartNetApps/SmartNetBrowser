@@ -124,6 +124,9 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Welcome.</value>
   </data>
+  <data name="HomepageGroupBox.Text" xml:space="preserve">
+    <value>Startpage</value>
+  </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 19</value>
   </data>
@@ -133,8 +136,11 @@
   <data name="Label3.Text" xml:space="preserve">
     <value>Enter the address of the page you want to display while starting SmartNet Browser.</value>
   </data>
-  <data name="HomepageGroupBox.Text" xml:space="preserve">
-    <value>Startpage</value>
+  <data name="HomepageURLBox.Text" xml:space="preserve">
+    <value>https://quentinpugeat.wixsite.com/smartnetbrowserhome</value>
+  </data>
+  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
+    <value>Search engine</value>
   </data>
   <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>253, 66</value>
@@ -154,11 +160,14 @@
   <data name="Label4.Text" xml:space="preserve">
     <value>Choose the search engine you want to use with the search box.</value>
   </data>
-  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
-    <value>Search engine</value>
+  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>530, 353</value>
   </data>
   <data name="Button1.Text" xml:space="preserve">
     <value>Start</value>
+  </data>
+  <data name="SmartNetSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 85</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>420, 15</value>
@@ -3945,6 +3954,9 @@
         11UAvbfpyHOgv8P6u+d4v/7v65j2HN+ewF3qN+z5Pfpt+o36rfrNBPOIiIhZ1/2//w9ZgTtP6/2CSwAA
         AABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>624, 385</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

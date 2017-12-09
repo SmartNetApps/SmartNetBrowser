@@ -58,10 +58,10 @@ Partial Class FirstStartForm
         '
         'HomepageGroupBox
         '
-        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Controls.Add(Me.Label3)
         Me.HomepageGroupBox.Controls.Add(Me.HomepageURLBox)
         Me.HomepageGroupBox.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Name = "HomepageGroupBox"
         Me.HomepageGroupBox.TabStop = False
         '
@@ -77,7 +77,6 @@ Partial Class FirstStartForm
         '
         'SearchEngineGroupBox
         '
-        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Controls.Add(Me.Label6)
         Me.SearchEngineGroupBox.Controls.Add(Me.Label4)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
@@ -86,6 +85,7 @@ Partial Class FirstStartForm
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton1)
         Me.SearchEngineGroupBox.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Name = "SearchEngineGroupBox"
         Me.SearchEngineGroupBox.TabStop = False
         '
@@ -139,11 +139,11 @@ Partial Class FirstStartForm
         '
         'SmartNetSecurityGroupBox
         '
-        resources.ApplyResources(Me.SmartNetSecurityGroupBox, "SmartNetSecurityGroupBox")
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.Label2)
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.Label5)
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.AdBlockerCheckBox)
         Me.SmartNetSecurityGroupBox.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.SmartNetSecurityGroupBox, "SmartNetSecurityGroupBox")
         Me.SmartNetSecurityGroupBox.Name = "SmartNetSecurityGroupBox"
         Me.SmartNetSecurityGroupBox.TabStop = False
         '
@@ -165,15 +165,15 @@ Partial Class FirstStartForm
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.BackColor = System.Drawing.Color.Maroon
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.BackColor = System.Drawing.Color.Maroon
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '

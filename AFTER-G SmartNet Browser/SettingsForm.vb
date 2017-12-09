@@ -264,7 +264,7 @@ Public Class SettingsForm
             Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-version.txt"))
             Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/support-status.txt")
             If VersionActuelle > DerniereVersion Then
-                MsgBox("Il semblerait que vous utilisez une version de SmartNet Browser non publiée. Vous pourriez trouver des beugs ou incohérences, mais merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
+                MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez me contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
                 GoTo StopVersionChecking
             End If
             If NTActualVersion < MiniNTVersion Then
