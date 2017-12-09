@@ -16,7 +16,6 @@ Public Class DownloadForm
             SaveAsButton.Visible = False
             SaveButton.Visible = False
             DownloadFolder = SaveAsDialog.FileName.Substring(0, SaveAsDialog.FileName.Length - SaveAsDialog.FileName.Substring(SaveAsDialog.FileName.LastIndexOf("\") + 1).Length)
-            'MsgBox(DownloadFolder, MsgBoxStyle.OkOnly, "DownloadFolder")
             AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted
             AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
             Downloader.DownloadFileAsync(New Uri(DownloadLink), SaveAsDialog.FileName)
@@ -50,7 +49,6 @@ Public Class DownloadForm
         SaveAsButton.Visible = False
         SaveButton.Visible = False
         DownloadFolder = My.Settings.DefaultDownloadFolder
-        MsgBox(DownloadFolder, MsgBoxStyle.OkOnly, "DownloadFolder")
         AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
