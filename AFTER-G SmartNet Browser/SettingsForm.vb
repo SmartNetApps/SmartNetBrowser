@@ -80,11 +80,9 @@ Public Class SettingsForm
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
         HomepageURLBox.Text = "https://quentinpugeat.wixsite.com/smartnetbrowserhome"
     End Sub
-
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
     End Sub
-
     Private Sub ActualPageURLHomepageButton_Click(sender As Object, e As EventArgs) Handles ActualPageURLHomepageButton.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         HomepageURLBox.Text = WB.Url.ToString
@@ -94,34 +92,28 @@ Public Class SettingsForm
         My.Settings.SearchEngine = 1
         BrowserForm.SearchBoxLabel.Text = "Google"
     End Sub
-
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         My.Settings.SearchEngine = 2
         BrowserForm.SearchBoxLabel.Text = "Bing"
     End Sub
-
     Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
         My.Settings.SearchEngine = 3
         BrowserForm.SearchBoxLabel.Text = "Yahoo!"
     End Sub
-
     Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
         My.Settings.SearchEngine = 4
         BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
     End Sub
-
     Private Sub RadioButton5_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton5.CheckedChanged
         My.Settings.SearchEngine = 5
         BrowserForm.SearchBoxLabel.Text = "Qwant"
     End Sub
-
     Private Sub RadioButton0_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton0.CheckedChanged
         BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
         If My.Settings.CustomSearchURL = "" Then
             SettingsCustomSearchForm.Show()
         End If
     End Sub
-
     Private Sub CustomSearchSettingsButton_Click(sender As Object, e As EventArgs) Handles CustomSearchSettingsButton.Click
         SettingsCustomSearchForm.Show()
     End Sub
@@ -131,7 +123,6 @@ Public Class SettingsForm
             MsgBox("Avertissement : Ceci n'est pas une fonction de navigation privée. Les cookies et le cache du navigateur seront toujours enregistrés.", MsgBoxStyle.Information, "SmartNet Browser : Gestion de l'historique")
         End If
     End Sub
-
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
         BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/support-browser-2", BrowserForm.BrowserTabs)
     End Sub
@@ -150,7 +141,6 @@ Public Class SettingsForm
             DeleteHistoryButton.Text = "Effacer tout l'historique de navigation"
         End Try
     End Sub
-
     Private Sub DeleteCookiesButton_Click(sender As Object, e As EventArgs) Handles DeleteCookiesButton.Click
         Try
             Gecko.CookieManager.RemoveAll()
@@ -162,7 +152,6 @@ Public Class SettingsForm
             DeleteCookiesButton.Text = "Effacer les cookies"
         End Try
     End Sub
-
     Private Sub DeleteTemporaryInternetFilesButton_Click(sender As Object, e As EventArgs) Handles DeleteTemporaryInternetFilesButton.Click
         Try
             Gecko.Cache.CacheService.Clear(Gecko.Cache.CacheStoragePolicy.Anywhere)
@@ -174,7 +163,6 @@ Public Class SettingsForm
             DeleteTemporaryInternetFilesButton.Text = "Effacer le cache"
         End Try
     End Sub
-
     Private Sub DeleteSearchHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteSearchHistoryButton.Click
         Try
             My.Settings.SearchHistory.Clear()
