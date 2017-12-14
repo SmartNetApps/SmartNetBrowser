@@ -6,11 +6,12 @@ Public Class DownloadForm
     Public DownloadFolder As String
     Dim Downloader As New WebClient
     Private Sub DownloadButton_Click(sender As Object, e As EventArgs) Handles SaveAsButton.Click
-        Dim SaveAsDialog As New SaveFileDialog
-        SaveAsDialog.FileName = FileNameLabel.Text
-        SaveAsDialog.Filter = "Fichier|*." + FileNameLabel.Text.ToString.Substring(FileNameLabel.Text.ToString.LastIndexOf(".") + 1)
-        SaveAsDialog.DefaultExt = FileNameLabel.Text.ToString.Substring(FileNameLabel.Text.ToString.LastIndexOf(".") + 1)
-        SaveAsDialog.Title = "Télécharger le fichier..."
+        Dim SaveAsDialog As New SaveFileDialog With {
+            .FileName = FileNameLabel.Text,
+            .Filter = "Fichier|*." + FileNameLabel.Text.ToString.Substring(FileNameLabel.Text.ToString.LastIndexOf(".") + 1),
+            .DefaultExt = FileNameLabel.Text.ToString.Substring(FileNameLabel.Text.ToString.LastIndexOf(".") + 1),
+            .Title = "Télécharger le fichier..."
+        }
         If SaveAsDialog.ShowDialog = DialogResult.OK Then
             ProgressBar1.Visible = True
             SaveAsButton.Visible = False
@@ -19,6 +20,9 @@ Public Class DownloadForm
             AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted
             AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
             Downloader.DownloadFileAsync(New Uri(DownloadLink), SaveAsDialog.FileName)
+            If My.Settings.PrivateBrowsing = False Then
+                My.Settings.DownloadHistory.Add(DownloadLink)
+            End If
         End If
     End Sub
     Private Sub Downloader_DownloadFileCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
@@ -52,5 +56,8 @@ Public Class DownloadForm
         AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
+        If My.Settings.PrivateBrowsing = False Then
+            My.Settings.DownloadHistory.Add(DownloadLink)
+        End If
     End Sub
 End Class

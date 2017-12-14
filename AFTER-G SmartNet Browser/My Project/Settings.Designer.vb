@@ -371,6 +371,17 @@ Namespace My
                 Me("DefaultDownloadFolder") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DownloadHistory() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("DownloadHistory"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("DownloadHistory") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
