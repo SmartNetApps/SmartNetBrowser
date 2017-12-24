@@ -137,7 +137,7 @@ An all-in-one browser : ads blocker, parental control, videos downloading...
 Enjoy all its awesome features with some clicks.</value>
   </data>
   <data name="HomepageLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 281</value>
+    <value>150, 280</value>
   </data>
   <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 15</value>
@@ -146,7 +146,7 @@ Enjoy all its awesome features with some clicks.</value>
     <value>Software homepage</value>
   </data>
   <data name="LicenseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>412, 281</value>
+    <value>369, 280</value>
   </data>
   <data name="LicenseLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 15</value>
@@ -1006,7 +1006,7 @@ distributed according to the Mozilla Public License, available on</value>
 </value>
   </data>
   <data name="LicensePictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 281</value>
+    <value>412, 280</value>
   </data>
   <data name="LicensePictureBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 15</value>
@@ -2337,13 +2337,22 @@ distributed according to the Mozilla Public License, available on</value>
 </value>
   </data>
   <data name="ReleaseNotesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 281</value>
+    <value>277, 280</value>
   </data>
   <data name="ReleaseNotesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 15</value>
   </data>
   <data name="ReleaseNotesLinkLabel.Text" xml:space="preserve">
     <value>Release notes</value>
+  </data>
+  <data name="GitHubLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, 280</value>
+  </data>
+  <data name="GitHubLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="GitHubLinkLabel.Text" xml:space="preserve">
+    <value>Source code</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

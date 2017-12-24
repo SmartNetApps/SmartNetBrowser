@@ -40,6 +40,7 @@ Partial Class AboutForm
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.ReleaseNotesLinkLabel = New System.Windows.Forms.LinkLabel()
+        Me.GitHubLinkLabel = New System.Windows.Forms.LinkLabel()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LicensePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,10 +175,21 @@ Partial Class AboutForm
         Me.ReleaseNotesLinkLabel.TabStop = True
         Me.ReleaseNotesLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
         '
+        'GitHubLinkLabel
+        '
+        resources.ApplyResources(Me.GitHubLinkLabel, "GitHubLinkLabel")
+        Me.GitHubLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        Me.GitHubLinkLabel.BackColor = System.Drawing.Color.White
+        Me.GitHubLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
+        Me.GitHubLinkLabel.Name = "GitHubLinkLabel"
+        Me.GitHubLinkLabel.TabStop = True
+        Me.GitHubLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack
+        '
         'AboutForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.GitHubLinkLabel)
         Me.Controls.Add(Me.ReleaseNotesLinkLabel)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.GeckoFXLinkLabel)
@@ -229,4 +241,5 @@ Partial Class AboutForm
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents ReleaseNotesLinkLabel As LinkLabel
+    Friend WithEvents GitHubLinkLabel As LinkLabel
 End Class

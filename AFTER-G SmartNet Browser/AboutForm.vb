@@ -26,4 +26,9 @@
         BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/whatsnew-smartnetbrowser", BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
+
+    Private Sub GitHubLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GitHubLinkLabel.LinkClicked
+        BrowserForm.AddTab("https://github.com/RNbowKing/SmartNetBrowser", BrowserForm.BrowserTabs)
+        Me.Close()
+    End Sub
 End Class
