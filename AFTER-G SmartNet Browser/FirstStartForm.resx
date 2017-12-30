@@ -149,54 +149,6 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>HomepageGroupBox</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;HomepageURLBox.Name" xml:space="preserve">
-    <value>HomepageURLBox</value>
-  </data>
-  <data name="&gt;&gt;HomepageURLBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HomepageURLBox.Parent" xml:space="preserve">
-    <value>HomepageGroupBox</value>
-  </data>
-  <data name="&gt;&gt;HomepageURLBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="HomepageGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 82</value>
-  </data>
-  <data name="HomepageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 76</value>
-  </data>
-  <data name="HomepageGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="HomepageGroupBox.Text" xml:space="preserve">
-    <value>Page de démarrage</value>
-  </data>
-  <data name="&gt;&gt;HomepageGroupBox.Name" xml:space="preserve">
-    <value>HomepageGroupBox</value>
-  </data>
-  <data name="&gt;&gt;HomepageGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HomepageGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;HomepageGroupBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -248,113 +200,29 @@
   <data name="&gt;&gt;HomepageURLBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
+  <data name="HomepageGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 82</value>
   </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="HomepageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 76</value>
   </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+  <data name="HomepageGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;RadioButton5.Name" xml:space="preserve">
-    <value>RadioButton5</value>
+  <data name="HomepageGroupBox.Text" xml:space="preserve">
+    <value>Page de démarrage</value>
   </data>
-  <data name="&gt;&gt;RadioButton5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;HomepageGroupBox.Name" xml:space="preserve">
+    <value>HomepageGroupBox</value>
   </data>
-  <data name="&gt;&gt;RadioButton5.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;RadioButton5.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;RadioButton4.Name" xml:space="preserve">
-    <value>RadioButton4</value>
-  </data>
-  <data name="&gt;&gt;RadioButton4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton4.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;RadioButton4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Name" xml:space="preserve">
-    <value>RadioButton3</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Name" xml:space="preserve">
-    <value>RadioButton2</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Name" xml:space="preserve">
-    <value>RadioButton1</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="SearchEngineGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 164</value>
-  </data>
-  <data name="SearchEngineGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 92</value>
-  </data>
-  <data name="SearchEngineGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
-    <value>Moteur de recherche</value>
-  </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.Name" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
-  </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;HomepageGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;HomepageGroupBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;HomepageGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -546,6 +414,30 @@ Paramètres.</value>
   <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="SearchEngineGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 164</value>
+  </data>
+  <data name="SearchEngineGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 92</value>
+  </data>
+  <data name="SearchEngineGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
+    <value>Moteur de recherche</value>
+  </data>
+  <data name="&gt;&gt;SearchEngineGroupBox.Name" xml:space="preserve">
+    <value>SearchEngineGroupBox</value>
+  </data>
+  <data name="&gt;&gt;SearchEngineGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchEngineGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>530, 368</value>
   </data>
@@ -569,66 +461,6 @@ Paramètres.</value>
   </data>
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>SmartNetSecurityGroupBox</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>SmartNetSecurityGroupBox</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;AdBlockerCheckBox.Name" xml:space="preserve">
-    <value>AdBlockerCheckBox</value>
-  </data>
-  <data name="&gt;&gt;AdBlockerCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AdBlockerCheckBox.Parent" xml:space="preserve">
-    <value>SmartNetSecurityGroupBox</value>
-  </data>
-  <data name="&gt;&gt;AdBlockerCheckBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="SmartNetSecurityGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 262</value>
-  </data>
-  <data name="SmartNetSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 100</value>
-  </data>
-  <data name="SmartNetSecurityGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="SmartNetSecurityGroupBox.Text" xml:space="preserve">
-    <value>SmartNet Security</value>
-  </data>
-  <data name="&gt;&gt;SmartNetSecurityGroupBox.Name" xml:space="preserve">
-    <value>SmartNetSecurityGroupBox</value>
-  </data>
-  <data name="&gt;&gt;SmartNetSecurityGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SmartNetSecurityGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SmartNetSecurityGroupBox.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -711,6 +543,30 @@ paramètres)</value>
   </data>
   <data name="&gt;&gt;AdBlockerCheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="SmartNetSecurityGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 262</value>
+  </data>
+  <data name="SmartNetSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 100</value>
+  </data>
+  <data name="SmartNetSecurityGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="SmartNetSecurityGroupBox.Text" xml:space="preserve">
+    <value>SmartNet Security</value>
+  </data>
+  <data name="&gt;&gt;SmartNetSecurityGroupBox.Name" xml:space="preserve">
+    <value>SmartNetSecurityGroupBox</value>
+  </data>
+  <data name="&gt;&gt;SmartNetSecurityGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SmartNetSecurityGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SmartNetSecurityGroupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBox1.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
@@ -4530,7 +4386,7 @@ paramètres)</value>
     <value>0</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>en</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

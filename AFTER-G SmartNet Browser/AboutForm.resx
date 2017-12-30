@@ -189,11 +189,17 @@
   <data name="ClipconverterLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 15</value>
   </data>
+  <data name="LicenseLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;LicenseLinkLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;HomepageLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ClipconverterLinkLabel.Text" xml:space="preserve">
+    <value>http://www.clipconverter.cc/terms</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;ClipconverterLinkLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -249,8 +255,8 @@
         j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;LicensePictureBox.Name" xml:space="preserve">
+    <value>LicensePictureBox</value>
   </data>
   <data name="GitHubLinkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -944,11 +950,8 @@ distribué selon ses termes et conditions, consultables sur</value>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 228</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>À propos de SmartNet Browser</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="PictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -962,8 +965,8 @@ distribué selon ses termes et conditions, consultables sur</value>
   <data name="&gt;&gt;PictureBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 79</value>
+  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -977,10 +980,8 @@ distribué selon ses termes et conditions, consultables sur</value>
   <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>Naviguez avec une fluidité et une aisance exceptionnelle avec SmartNet Browser.
-Un navigateur tout-en un : blocage de publicités, contrôle parental, téléchargement de vidéos...
-Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
+  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-27, -27</value>
   </data>
   <data name="&gt;&gt;PictureBox5.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -6713,14 +6714,17 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
   </data>
   <data name="&gt;&gt;LicenseLinkLabel.Name" xml:space="preserve">
     <value>LicenseLinkLabel</value>
   </data>
-  <data name="LicenseLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="LicenseLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ClipconverterLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>348, 209</value>
@@ -6740,8 +6744,8 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="HomepageLinkLabel.Text" xml:space="preserve">
     <value>Page Web de l'application</value>
   </data>
-  <data name="PictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6751,6 +6755,9 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   </data>
   <data name="PictureBox6.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LicensePictureBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6803,8 +6810,8 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="ClipconverterLinkLabel.Text" xml:space="preserve">
-    <value>http://www.clipconverter.cc/terms</value>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;ReleaseNotesLinkLabel.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -6857,9 +6864,6 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="PictureBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 264</value>
   </data>
-  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-27, -27</value>
-  </data>
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -6896,8 +6900,8 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="GitHubLinkLabel.Text" xml:space="preserve">
     <value>Code source</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>À propos de SmartNet Browser</value>
   </data>
   <data name="&gt;&gt;HomepageLinkLabel.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -6911,8 +6915,8 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="&gt;&gt;GitHubLinkLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;LicensePictureBox.Name" xml:space="preserve">
-    <value>LicensePictureBox</value>
+  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="PictureBox4.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6976,9 +6980,6 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 41</value>
-  </data>
-  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
   </data>
   <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7056,9 +7057,6 @@ Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>373, 30</value>
   </data>
-  <data name="LicenseLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -7084,8 +7082,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="LicensePictureBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 15</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 79</value>
   </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -7093,8 +7091,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="PictureBox4.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="PictureBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 228</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 171</value>
@@ -7125,6 +7123,11 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   </data>
   <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>Naviguez avec une fluidité et une aisance exceptionnelle avec SmartNet Browser.
+Un navigateur tout-en un : blocage de publicités, contrôle parental, téléchargement de vidéos...
+Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   </data>
   <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8438,6 +8441,9 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>697, 311</value>
   </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Logiciels tiers</value>
   </data>
@@ -8456,8 +8462,8 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   <data name="GitHubLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 15</value>
   </data>
-  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 15</value>
   </data>
   <data name="GitHubLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -8488,12 +8494,6 @@ distribué selon les termes de la Mozilla Public License, consultable sur</value
   </data>
   <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 15</value>
-  </data>
-  <data name="PictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 228</value>
   </data>
   <data name="&gt;&gt;PictureBox6.Parent" xml:space="preserve">
     <value>$this</value>
