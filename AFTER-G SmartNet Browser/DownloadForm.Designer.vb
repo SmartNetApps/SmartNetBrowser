@@ -31,6 +31,7 @@ Partial Class DownloadForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.SaveButton = New System.Windows.Forms.Button()
+        Me.OpenButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'SaveAsButton
@@ -76,10 +77,17 @@ Partial Class DownloadForm
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.UseVisualStyleBackColor = True
         '
+        'OpenButton
+        '
+        resources.ApplyResources(Me.OpenButton, "OpenButton")
+        Me.OpenButton.Name = "OpenButton"
+        Me.OpenButton.UseVisualStyleBackColor = True
+        '
         'DownloadForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.OpenButton)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.URLLabel)
@@ -106,4 +114,5 @@ Partial Class DownloadForm
     Friend WithEvents Label2 As Label
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents SaveButton As Button
+    Friend WithEvents OpenButton As Button
 End Class

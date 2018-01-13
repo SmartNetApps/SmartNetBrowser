@@ -160,6 +160,12 @@
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="OpenButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 114</value>
+  </data>
+  <data name="OpenButton.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABABIAICAQAAEABADoAgAAJgEAABAQEAABAAQAKAEAAA4EAAAwMAAAAQAIAKgOAAA2BQAAICAAAAEA

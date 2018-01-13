@@ -13,7 +13,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Naviguez plus rapidement et plus facilement avec SmartNet Browser !")>
 <Assembly: AssemblyCompany("Quentin Pugeat")>
 <Assembly: AssemblyProduct("SmartNet Browser")>
-<Assembly: AssemblyCopyright("© Quentin Pugeat 2015-2017")>
+<Assembly: AssemblyCopyright("© Quentin Pugeat 2015-2018")>
 <Assembly: AssemblyTrademark("SmartNet Apps")>
 
 <Assembly: ComVisible(False)>
