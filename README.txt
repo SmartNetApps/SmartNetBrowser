@@ -1,11 +1,11 @@
-Vous trouverez de l'aide pour SmartNet Browser sur le site internet SmartNet Apps, à l'adresse
+Vous trouverez de l'aide pour SmartNet Browser sur le site internet SmartNet Apps, Ã  l'adresse
 https://quentinpugeat.wixsite.com/apps/support-browser
 
-Copyright 2015-2017 Quentin Pugeat
+Copyright 2015-2018 Quentin Pugeat
 SmartNet Apps
 
-SmartNet Browser est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
+SmartNet Browser est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiÃ©e par la Free Software Foundation ; soit la version 3 de la licence, soit (Ã  votre grÃ©) toute version ultÃ©rieure.
 
-SmartNet Browser est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER. Consultez la GNU General Public License pour plus de détails.
+SmartNet Browser est distribuÃ© dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans mÃªme la garantie tacite de QUALITÃ‰ MARCHANDE ou d'ADÃ‰QUATION Ã  UN BUT PARTICULIER. Consultez la GNU General Public License pour plus de dÃ©tails.
 
-Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>
+Vous devez avoir reÃ§u une copie de la GNU General Public License en mÃªme temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>
