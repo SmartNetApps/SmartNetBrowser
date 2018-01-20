@@ -85,6 +85,11 @@ Public Class BrowserForm
         NewTabButton.Image = NewTabButton.ErrorImage
     End Sub
 
+    ''' <summary>
+    ''' Ajoute un nouvel onglet
+    ''' </summary>
+    ''' <param name="URL">URL de la page qui sera chargée dans le nouvel onglet</param>
+    ''' <param name="TabControl">Dispositif d'onglets dans lequel sera ajouté l'onglet</param>
     Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl)
         Try
             Dim NewBrowser As New CustomBrowser
@@ -109,6 +114,9 @@ Public Class BrowserForm
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert
+    ''' </summary>
     Public Sub CheckFavicon()
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -185,7 +193,7 @@ Public Class BrowserForm
 
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent)
         Try
-            Dim ie As New WebBrowser
+            'Dim ie As New WebBrowser
             'ie.Navigate(e.Url)
             DownloadForm.FileNameLabel.Text = e.Url.Substring(e.Url.LastIndexOf("/") + 1)
             DownloadForm.URLLabel.Text = "À partir de : " + e.Url
