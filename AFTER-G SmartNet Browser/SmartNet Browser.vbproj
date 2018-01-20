@@ -202,6 +202,9 @@
     <Compile Include="CreateChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CustomBrowser.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DownloadForm.Designer.vb">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </Compile>
@@ -238,6 +241,7 @@
     <Compile Include="FirstStartForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Webpage.vb" />
     <Compile Include="HistoryForm.Designer.vb">
       <DependentUpon>HistoryForm.vb</DependentUpon>
     </Compile>

@@ -382,6 +382,17 @@ Namespace My
                 Me("DownloadHistory") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NewHistory() As Object
+            Get
+                Return CType(Me("NewHistory"),Object)
+            End Get
+            Set
+                Me("NewHistory") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
