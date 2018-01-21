@@ -12,23 +12,16 @@ Public Class BrowserForm
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
 
-    Public Function GetSHA512(ByVal str As String) As String
-        'desc   : Encrypt a strin using the SHA512 algorithm
-        Dim UE As UnicodeEncoding = New UnicodeEncoding
-        Dim HashValue As Byte()
-        'convert the string to Byte
-        Dim MessageBytes As Byte() = UE.GetBytes(str)
-        Dim SHhash As SHA512Managed = New SHA512Managed
-        Dim strHex As String = ""
-
-        'create the hash table using the SHA512 algorithm
-        HashValue = SHhash.ComputeHash(MessageBytes)
-        'convert the hash table to a string
-        For Each b As Byte In HashValue
-            strHex += String.Format("{0:x2}", b)
-        Next
-        Return strHex
-    End Function
+    ''' <summary>
+    ''' Ajouter un site internet à l'historique de navigation
+    ''' </summary>
+    ''' <param name="NewPage">Page web à ajouter</param>
+    Public Sub AddInHistory(NewPage As Webpage)
+        Dim history As List(Of Webpage) = CType(My.Settings.NewHistory, List(Of Webpage))
+        history.Add(NewPage)
+        My.Settings.NewHistory = history
+        My.Settings.Save()
+    End Sub
 
     Private Sub HomepageButton_MouseEnter(sender As Object, e As EventArgs) Handles HomepageButton.MouseEnter
         HomepageButton.Image = HomepageButton.InitialImage
@@ -147,6 +140,56 @@ Public Class BrowserForm
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Favicon de la page actuellement ouverte
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function CurrentPageFavicon() As Image
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Try
+            If WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
+                Return FaviconBox.InitialImage
+            Else
+                Dim url As Uri = New Uri(WB.Url.ToString)
+                If url.HostNameType = UriHostNameType.Dns Then
+                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
+                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
+                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Dim stream As System.IO.Stream = response.GetResponseStream()
+                    Dim favicon = Image.FromStream(stream)
+                    Return favicon
+                Else
+                    Return FaviconBox.ErrorImage
+                End If
+            End If
+        Catch ex As Exception
+            Return FaviconBox.ErrorImage
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Retourne une chaîne après cryptage en SHA512.
+    ''' </summary>
+    ''' <param name="str"></param>
+    ''' <returns></returns>
+    Public Function GetSHA512(ByVal str As String) As String
+        'desc   : Encrypt a strin using the SHA512 algorithm
+        Dim UE As UnicodeEncoding = New UnicodeEncoding
+        Dim HashValue As Byte()
+        'convert the string to Byte
+        Dim MessageBytes As Byte() = UE.GetBytes(str)
+        Dim SHhash As SHA512Managed = New SHA512Managed
+        Dim strHex As String = ""
+
+        'create the hash table using the SHA512 algorithm
+        HashValue = SHhash.ComputeHash(MessageBytes)
+        'convert the hash table to a string
+        For Each b As Byte In HashValue
+            strHex += String.Format("{0:x2}", b)
+        Next
+        Return strHex
+    End Function
+
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             If My.Settings.FirstStart = True And My.Settings.FirstStartFromReset = False Then
@@ -156,7 +199,7 @@ Public Class BrowserForm
                 If DownloadFolderrKey Is Nothing Then
                     My.Settings.DefaultDownloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
                 Else
-                    My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString
+                    My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString()
                 End If
                 If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
                     Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
@@ -170,14 +213,25 @@ Public Class BrowserForm
                 FirstStartForm.Show()
             End If
             AddTab(My.Settings.Homepage, BrowserTabs)
-            For Each item In My.Settings.Favorites
-                URLBox.Items.Add(item)
+            For Each favorite In My.Settings.Favorites
+                URLBox.Items.Add(favorite)
             Next
-            For Each item2 In My.Settings.History
-                URLBox.Items.Add(item2)
+
+            'For Each historyentry In My.Settings.History
+            'URLBox.Items.Add(historyentry)
+            'Next
+            If CType(My.Settings.NewHistory, List(Of Webpage)).Count = 0 Then
+                For Each historyentry In My.Settings.History
+                    AddInHistory(New Webpage(historyentry))
+                Next
+            End If
+
+            For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
+                URLBox.Items.Add(NewHistoryEntry)
             Next
-            For Each item3 In My.Settings.SearchHistory
-                SearchBox.Items.Add(item3)
+
+            For Each SearchHistoryentry In My.Settings.SearchHistory
+                SearchBox.Items.Add(SearchHistoryentry)
             Next
 
             AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
@@ -435,6 +489,7 @@ Public Class BrowserForm
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
                 HistoryForm.Show()
+                NewHistoryForm.Show()
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then

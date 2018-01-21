@@ -241,6 +241,12 @@
     <Compile Include="FirstStartForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NewHistoryForm.Designer.vb">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewHistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Webpage.vb" />
     <Compile Include="HistoryForm.Designer.vb">
       <DependentUpon>HistoryForm.vb</DependentUpon>
@@ -468,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewBrowserForm.resx">
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewHistoryForm.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>

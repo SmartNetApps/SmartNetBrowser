@@ -3,6 +3,9 @@ Imports Gecko.Events
 
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
+
+    Dim CurrentWebpage As Webpage
+
     Public Sub New()
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
@@ -67,6 +70,9 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
+        CurrentWebpage.ChangeName(Me.DocumentTitle)
+        CurrentWebpage.ChangeURL(Me.Url.ToString())
+        CurrentWebpage.ChangeFavicon(BrowserForm.CurrentPageFavicon())
         If e.Uri.ToString <> "about:blank" Then
             Try
                 BrowserForm.CurrentDocument = Me.Document
@@ -86,6 +92,7 @@ Public Class CustomBrowser
                 If My.Settings.PrivateBrowsing = False Then
                     If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
                         My.Settings.History.Add(Me.Url.ToString)
+                        BrowserForm.AddInHistory(CurrentWebpage)
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
                 End If
