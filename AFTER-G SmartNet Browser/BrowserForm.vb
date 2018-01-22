@@ -17,7 +17,9 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="NewPage">Page web à ajouter</param>
     Public Sub AddInHistory(NewPage As Webpage)
-        CType(My.Settings.NewHistory, List(Of Webpage)).Add(NewPage)
+        Dim Historique As New List(Of Webpage)(CType(My.Settings.NewHistory, List(Of Webpage)))
+        Historique.Add(NewPage)
+        My.Settings.NewHistory = Historique
         My.Settings.Save()
     End Sub
 
