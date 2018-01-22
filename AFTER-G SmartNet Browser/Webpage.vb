@@ -11,8 +11,21 @@
     Public Sub New(uRL As String)
         Me.name = "(Page sans nom)"
         Me.URL = uRL
-        Me.favicon = Nothing
+        Me.favicon = BrowserForm.FaviconBox.ErrorImage
     End Sub
+
+    ''' <summary>
+    ''' Nouvelle page
+    ''' </summary>
+    ''' <param name="NewName">Nom de la page</param>
+    ''' <param name="uRL">Adresse de la page</param>
+    ''' <param name="favicon">Favicon de la page</param>
+    Public Sub New(NewName As String, uRL As String, favicon As Image)
+        Me.name = NewName
+        Me.URL = uRL
+        Me.favicon = favicon
+    End Sub
+
 
     ''' <summary>
     ''' Changer le nom de la page

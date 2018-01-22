@@ -17,9 +17,7 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="NewPage">Page web à ajouter</param>
     Public Sub AddInHistory(NewPage As Webpage)
-        Dim history As List(Of Webpage) = CType(My.Settings.NewHistory, List(Of Webpage))
-        history.Add(NewPage)
-        My.Settings.NewHistory = history
+        CType(My.Settings.NewHistory, List(Of Webpage)).Add(NewPage)
         My.Settings.Save()
     End Sub
 
@@ -227,7 +225,7 @@ Public Class BrowserForm
             End If
 
             For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
-                URLBox.Items.Add(NewHistoryEntry)
+                URLBox.Items.Add(NewHistoryEntry.GetURL())
             Next
 
             For Each SearchHistoryentry In My.Settings.SearchHistory
@@ -488,6 +486,7 @@ Public Class BrowserForm
                 EnterBrowserSettingsSecurityForm.SecurityMode = "History"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
+                'TODO Retirer la fenêtre obsolète
                 HistoryForm.Show()
                 NewHistoryForm.Show()
             End If

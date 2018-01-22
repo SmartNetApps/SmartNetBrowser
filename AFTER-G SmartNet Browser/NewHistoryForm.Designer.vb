@@ -28,10 +28,10 @@ Partial Class NewHistoryForm
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(444, 238)
+        Me.ListBox1.Location = New System.Drawing.Point(12, 12)
         Me.ListBox1.MultiColumn = True
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
+        Me.ListBox1.Size = New System.Drawing.Size(699, 537)
         Me.ListBox1.TabIndex = 0
         '
         'NewHistoryForm
