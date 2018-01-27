@@ -14,8 +14,7 @@
             FaviconImageList.Images.Add(Historique(index).GetFavicon())
             element = HistoryListView.Items.Add(Historique(index).GetName())
             element.SubItems.Add(Historique(index).GetURL())
-            HistoryListView.SmallImageList = FaviconImageList
-            HistoryListView.LargeImageList = FaviconImageList
+            element.ImageIndex = index
         Next
     End Sub
 
