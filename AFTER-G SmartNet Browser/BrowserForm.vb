@@ -11,6 +11,7 @@ Public Class BrowserForm
     Public MessageBarAction As String
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
+    Dim Historique As List(Of Webpage) = CType(My.Settings.NewHistory, List(Of Webpage))
 
     Public Sub New()
         InitializeComponent()
@@ -21,7 +22,6 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="NewPage">Page web à ajouter</param>
     Public Sub AddInHistory(NewPage As Webpage)
-        Dim Historique As New List(Of Webpage)(CType(My.Settings.NewHistory, List(Of Webpage)))
         Historique.Add(NewPage)
         My.Settings.NewHistory = Historique
         My.Settings.Save()
@@ -224,11 +224,7 @@ Public Class BrowserForm
             'For Each historyentry In My.Settings.History
             'URLBox.Items.Add(historyentry)
             'Next
-            If CType(My.Settings.NewHistory, List(Of Webpage)).Count = 0 Then
-                For Each historyentry In My.Settings.History
-                    AddInHistory(New Webpage(historyentry))
-                Next
-            End If
+
 
             For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
                 URLBox.Items.Add(NewHistoryEntry.GetURL())
@@ -492,8 +488,8 @@ Public Class BrowserForm
                 EnterBrowserSettingsSecurityForm.SecurityMode = "History"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
-                'TODO Retirer la fenêtre obsolète
-                HistoryForm.Show()
+                'TODO: Retirer la fenêtre obsolète
+                'HistoryForm.Show()
                 NewHistoryForm.Show()
             End If
         Catch ex As Exception

@@ -26,27 +26,39 @@ Namespace My
         End Sub
 
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
+            If My.Settings.NewHistory Is Nothing Then
+                My.Settings.NewHistory = New List(Of Webpage)
+                For Each historyentry In My.Settings.History
+                    BrowserForm.AddInHistory(New Webpage(historyentry))
+                Next
+                My.Settings.History.Clear()
+            End If
+            If Screen.PrimaryScreen.Bounds.Width < 1024 Or Screen.PrimaryScreen.Bounds.Height < 768 Then
+                MsgBox("Votre ordinateur est configuré pour afficher une résolution inférieure à 1024x768 pixels. Certaines pages Web peuvent ne pas s'afficher correctement. Pour configurer la résolution, faites un clic droit sur le Bureau et sélectionnez ""Résolution d'écran"" ou ""Paramètres d'affichage"". Poussez le curseur vers la droite (ou le haut) jusqu'à 1024x768 ou plus.", CType(MessageBoxIcon.Exclamation, MsgBoxStyle), "Problème avec la résolution d'écran")
+            End If
             Try
-                If Screen.PrimaryScreen.Bounds.Width < 1024 Or Screen.PrimaryScreen.Bounds.Height < 768 Then
-                    MsgBox("Votre ordinateur est configuré pour afficher une résolution inférieure à 1024x768 pixels. Certaines pages Web peuvent ne pas s'afficher correctement. Pour configurer la résolution, faites un clic droit sur le Bureau et sélectionnez ""Résolution d'écran"" ou ""Paramètres d'affichage"". Poussez le curseur vers la droite (ou le haut) jusqu'à 1024x768 ou plus.", CType(MessageBoxIcon.Exclamation, MsgBoxStyle), "Problème avec la résolution d'écran")
-                End If
                 Gecko.Xpcom.Initialize("Firefox")
-                Select Case My.Settings.SearchEngine
-                    Case 1
-                        BrowserForm.SearchBoxLabel.Text = "Google"
-                    Case 2
-                        BrowserForm.SearchBoxLabel.Text = "Bing"
-                    Case 3
-                        BrowserForm.SearchBoxLabel.Text = "Yahoo!"
-                    Case 4
-                        BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
-                    Case 5
-                        BrowserForm.SearchBoxLabel.Text = "Qwant"
-                    Case 0
-                        BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
-                End Select
             Catch ex As Exception
+                If My.Settings.DisplayExceptions = True Then
+                    ExceptionForm.MessageTextBox.Text = ex.Message
+                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
+                    ExceptionForm.ShowDialog()
+                End If
             End Try
+            Select Case My.Settings.SearchEngine
+                Case 1
+                    BrowserForm.SearchBoxLabel.Text = "Google"
+                Case 2
+                    BrowserForm.SearchBoxLabel.Text = "Bing"
+                Case 3
+                    BrowserForm.SearchBoxLabel.Text = "Yahoo!"
+                Case 4
+                    BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
+                Case 5
+                    BrowserForm.SearchBoxLabel.Text = "Qwant"
+                Case 0
+                    BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
+            End Select
             Try
                 Dim MiniNTVersionChecker As New WebClient
                 Dim NTActualVersion As Version = Environment.OSVersion.Version
@@ -86,7 +98,13 @@ Namespace My
                 End If
 StopVersionChecking:
             Catch ex As Exception
-                MsgBox("La connexion à SmartNet Apps Updater a échoué : " + ex.Message, MsgBoxStyle.Critical, "SmartNet Apps Updater")
+                If My.Settings.DisplayExceptions = True Then
+                    ExceptionForm.MessageTextBox.Text = ex.Message
+                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
+                    ExceptionForm.ShowDialog()
+                Else
+                    MsgBox("La connexion à SmartNet Apps Updater a échoué : " + ex.Message, MsgBoxStyle.Critical, "SmartNet Apps Updater")
+                End If
             End Try
         End Sub
 

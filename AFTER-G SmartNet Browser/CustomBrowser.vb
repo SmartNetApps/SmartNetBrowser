@@ -91,8 +91,8 @@ Public Class CustomBrowser
                 End If
                 If My.Settings.PrivateBrowsing = False Then
                     If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
-                        'TODO Retirer l'historique obsolète
-                        My.Settings.History.Add(Me.Url.ToString)
+                        'TODO: Retirer l'historique obsolète
+                        'My.Settings.History.Add(Me.Url.ToString)
                         BrowserForm.AddInHistory(CurrentWebpage)
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
