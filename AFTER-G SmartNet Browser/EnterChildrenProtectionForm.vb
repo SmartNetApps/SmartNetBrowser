@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class EnterChildrenProtectionForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         If BrowserForm.GetSHA512(PasswordTextBox.Text) = My.Settings.ChildrenProtectionPassword Then
             My.Settings.ChildrenProtection = False

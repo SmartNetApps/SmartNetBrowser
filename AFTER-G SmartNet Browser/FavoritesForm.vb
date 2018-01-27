@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class FavoritesForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub DeleteFavorite_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
         My.Settings.Favorites.Remove(CType(ListBox1.SelectedItem, String))
         ListBox1.Items.Remove(ListBox1.SelectedItem)

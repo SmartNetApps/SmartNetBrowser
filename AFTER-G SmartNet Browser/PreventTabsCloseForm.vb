@@ -1,4 +1,8 @@
 ﻿Public Class PreventTabsCloseForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles DontAskAgainCheckBox.CheckedChanged
         If DontAskAgainCheckBox.Checked = True Then
             My.Settings.PreventMultipleTabsClose = False

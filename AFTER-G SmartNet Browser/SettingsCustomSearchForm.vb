@@ -1,4 +1,8 @@
 ﻿Public Class SettingsCustomSearchForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub MyBase_FormClosing(sender As Object, e As EventArgs) Handles MyBase.FormClosing
         If TextBox2.Text = "" Then
             Select Case My.Settings.SearchEngine

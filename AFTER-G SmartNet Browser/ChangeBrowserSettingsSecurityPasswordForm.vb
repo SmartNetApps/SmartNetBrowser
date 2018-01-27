@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class ChangeBrowserSettingsSecurityPasswordForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub SavePasswordButton_Click(sender As Object, e As EventArgs) Handles SavePasswordButton.Click
         If BrowserForm.GetSHA512(ActualPasswordTextBox.Text) = My.Settings.BrowserSettingsSecurityPassword Then
             If NewPasswordTextBox.Text = "" Then

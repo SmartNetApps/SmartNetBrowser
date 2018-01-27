@@ -1,4 +1,8 @@
 ﻿Public Class NewBrowserForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As Gecko.Events.GeckoDocumentCompletedEventArgs) Handles GeckoWebBrowser1.DocumentCompleted
         Try
             Dim url As Uri = New Uri(GeckoWebBrowser1.Document.Url.ToString)

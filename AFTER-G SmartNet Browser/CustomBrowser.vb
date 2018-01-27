@@ -6,7 +6,7 @@ Public Class CustomBrowser
     Dim CurrentWebpage As Webpage
 
     Public Sub New()
-        CurrentWebpage = New Webpage("http://127.0.0.1/")
+        CurrentWebpage = New Webpage("about:blank")
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage

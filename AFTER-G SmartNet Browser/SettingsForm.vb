@@ -3,6 +3,10 @@ Imports System.Net
 Imports Microsoft.Win32
 
 Public Class SettingsForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HomepageURLBox.Text = My.Settings.Homepage
         Select Case My.Settings.SearchEngine

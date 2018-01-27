@@ -1,4 +1,8 @@
 ﻿Public Class SearchTextInPageForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Dim Elem_Iner_Txt() As String
     Dim ComboDbl_time As Double
     Dim DoNotEnter1A As Boolean

@@ -2,6 +2,10 @@
 Imports System.Net
 
 Public Class DownloadForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Public DownloadLink As String
     Public DownloadFolder As String
     Dim Downloader As New WebClient

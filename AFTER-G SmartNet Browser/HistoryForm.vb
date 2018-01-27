@@ -1,4 +1,8 @@
 ﻿Public Class HistoryForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub Formhistorique_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For Each item In My.Settings.History
             BrowsingHistoryListBox.Items.Add(item)

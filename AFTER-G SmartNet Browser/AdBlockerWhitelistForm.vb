@@ -1,4 +1,9 @@
 ﻿Public Class AdBlockerWhitelistForm
+
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub AdBlockerWhitelistForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         WhitelistRichTextBox.Text = My.Settings.AllowAdsSites
     End Sub

@@ -1,4 +1,8 @@
 ﻿Public Class ExceptionForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub ForceCloseButton_Click(sender As Object, e As EventArgs) Handles ForceCloseButton.Click
         Me.Close()
         My.Settings.Save()

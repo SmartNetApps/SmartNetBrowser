@@ -1,4 +1,7 @@
 ﻿Public Class FirstStartForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         If RadioButton1.Checked = True Then

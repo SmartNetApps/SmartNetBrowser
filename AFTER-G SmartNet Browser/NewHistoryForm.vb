@@ -1,6 +1,9 @@
 ﻿Public Class NewHistoryForm
-
     Dim Historique As List(Of Webpage)
+
+    Public Sub New()
+        InitializeComponent()
+    End Sub
 
     Private Sub NewHistoryForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         HistoryListView.Items.Clear()

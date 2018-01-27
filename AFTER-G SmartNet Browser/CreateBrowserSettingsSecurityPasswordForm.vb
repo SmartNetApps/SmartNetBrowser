@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class CreateBrowserSettingsSecurityPasswordForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         If NewPasswordTextBox.Text = "" Then
             MsgBox("Vous n'avez rien tapé dans la case du nouveau mot de passe.", MsgBoxStyle.Information, "SmartNet Browser Protection des paramètres - Créer un mot de passe")

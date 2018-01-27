@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class ChangeChildrenProtectionPasswordForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub SavePasswordButton_Click(sender As Object, e As EventArgs) Handles SavePasswordButton.Click
         If BrowserForm.GetSHA512(ActualPasswordTextBox.Text) = My.Settings.ChildrenProtectionPassword Then
             If NewPasswordTextBox.Text = "" Then

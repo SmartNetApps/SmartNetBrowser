@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class EnterBrowserSettingsSecurityForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Public SecurityMode As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         If BrowserForm.GetSHA512(PasswordTextBox.Text) = My.Settings.BrowserSettingsSecurityPassword Then

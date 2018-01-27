@@ -1,5 +1,9 @@
 ﻿Imports System.Net
 Public Class UpdaterForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub DownloadButton_Click(sender As Object, e As EventArgs) Handles DownloadButton.Click
         Try
             If MsgBox("Le navigateur se fermera tout seul pour procéder à la mise à jour. Cliquez sur Annuler pour retourner en arrière et enregistrer votre travail. Pour commencer la mise à jour, cliquez sur OK.", MsgBoxStyle.OkCancel, "SmartNet Apps Updater") = MsgBoxResult.Ok Then

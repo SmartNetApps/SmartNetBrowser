@@ -1,6 +1,10 @@
 ﻿Imports System.ComponentModel
 
 Public Class CreateChildrenProtectionPasswordForm
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
         My.Settings.ChildrenProtection = False
         SettingsForm.ChangeChildrenProtectionPasswordButton.Enabled = False

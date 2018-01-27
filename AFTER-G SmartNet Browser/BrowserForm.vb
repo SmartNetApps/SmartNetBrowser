@@ -12,6 +12,10 @@ Public Class BrowserForm
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
 
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     ''' <summary>
     ''' Ajouter un site internet à l'historique de navigation
     ''' </summary>
