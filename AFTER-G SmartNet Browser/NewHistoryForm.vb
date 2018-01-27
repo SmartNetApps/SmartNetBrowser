@@ -16,6 +16,8 @@
             element.SubItems.Add(Historique(index).GetURL())
             element.ImageIndex = index
         Next
+        HistoryListView.SmallImageList = FaviconImageList
+        HistoryListView.LargeImageList = FaviconImageList
     End Sub
 
     Private Sub HistoryListView_DoubleClick(sender As Object, e As EventArgs) Handles HistoryListView.DoubleClick
