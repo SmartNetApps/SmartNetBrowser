@@ -4,8 +4,10 @@ Imports Gecko.Events
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
     Dim CurrentWebpage As Webpage
+    Dim FirstTimeNavigated As Boolean
 
     Public Sub New()
+        FirstTimeNavigated = True
         CurrentWebpage = New Webpage("about:blank")
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
@@ -72,7 +74,7 @@ Public Class CustomBrowser
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
         CurrentWebpage.ChangeName(Me.DocumentTitle)
         CurrentWebpage.ChangeURL(Me.Url.ToString())
-        CurrentWebpage.ChangeFavicon(BrowserForm.CurrentPageFavicon())
+        CurrentWebpage.ChangeFavicon(CurrentPageFavicon())
         If e.Uri.ToString <> "about:blank" Then
             Try
                 BrowserForm.CurrentDocument = Me.Document
@@ -93,7 +95,12 @@ Public Class CustomBrowser
                     If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
                         'TODO: Retirer l'historique obsolète
                         'My.Settings.History.Add(Me.Url.ToString)
-                        BrowserForm.AddInHistory(CurrentWebpage)
+                        If FirstTimeNavigated = True Then
+                            BrowserForm.AddInHistory(CurrentWebpage)
+                            FirstTimeNavigated = False
+                        Else
+                            FirstTimeNavigated = True
+                        End If
                         BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                     End If
                 End If
@@ -402,4 +409,30 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_DomClick(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomClick
         BrowserForm.URLBox.Select(0, 0)
     End Sub
+
+    ''' <summary>
+    ''' Favicon de la page actuellement chargée
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function CurrentPageFavicon() As Image
+        Try
+            If Me.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or Me.Url.ToString.Contains("about:") Then
+                Return BrowserForm.FaviconBox.InitialImage
+            Else
+                Dim url As Uri = New Uri(Me.Url.ToString)
+                If url.HostNameType = UriHostNameType.Dns Then
+                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
+                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
+                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Dim stream As System.IO.Stream = response.GetResponseStream()
+                    Dim favicon = Image.FromStream(stream)
+                    Return favicon
+                Else
+                    Return BrowserForm.FaviconBox.ErrorImage
+                End If
+            End If
+        Catch ex As Exception
+            Return BrowserForm.FaviconBox.ErrorImage
+        End Try
+    End Function
 End Class

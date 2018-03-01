@@ -27,6 +27,8 @@ Partial Class NewHistoryForm
         Me.TitleColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.URLColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FaviconImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.DeleteButton = New System.Windows.Forms.Button()
+        Me.OpenPageButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'HistoryListView
@@ -36,10 +38,11 @@ Partial Class NewHistoryForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.HistoryListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.TitleColumnHeader, Me.URLColumnHeader})
         Me.HistoryListView.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HistoryListView.FullRowSelect = True
         Me.HistoryListView.LargeImageList = Me.FaviconImageList
         Me.HistoryListView.Location = New System.Drawing.Point(0, 0)
         Me.HistoryListView.Name = "HistoryListView"
-        Me.HistoryListView.Size = New System.Drawing.Size(635, 407)
+        Me.HistoryListView.Size = New System.Drawing.Size(791, 456)
         Me.HistoryListView.SmallImageList = Me.FaviconImageList
         Me.HistoryListView.StateImageList = Me.FaviconImageList
         Me.HistoryListView.TabIndex = 1
@@ -49,12 +52,12 @@ Partial Class NewHistoryForm
         'TitleColumnHeader
         '
         Me.TitleColumnHeader.Text = "Titre"
-        Me.TitleColumnHeader.Width = 166
+        Me.TitleColumnHeader.Width = 409
         '
         'URLColumnHeader
         '
         Me.URLColumnHeader.Text = "Adresse"
-        Me.URLColumnHeader.Width = 174
+        Me.URLColumnHeader.Width = 345
         '
         'FaviconImageList
         '
@@ -62,12 +65,34 @@ Partial Class NewHistoryForm
         Me.FaviconImageList.ImageSize = New System.Drawing.Size(16, 16)
         Me.FaviconImageList.TransparentColor = System.Drawing.Color.Transparent
         '
+        'DeleteButton
+        '
+        Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DeleteButton.Location = New System.Drawing.Point(563, 465)
+        Me.DeleteButton.Name = "DeleteButton"
+        Me.DeleteButton.Size = New System.Drawing.Size(217, 31)
+        Me.DeleteButton.TabIndex = 2
+        Me.DeleteButton.Text = "Supprimer l'entrée sélectionnée"
+        Me.DeleteButton.UseVisualStyleBackColor = True
+        '
+        'OpenPageButton
+        '
+        Me.OpenPageButton.Location = New System.Drawing.Point(434, 465)
+        Me.OpenPageButton.Name = "OpenPageButton"
+        Me.OpenPageButton.Size = New System.Drawing.Size(123, 31)
+        Me.OpenPageButton.TabIndex = 3
+        Me.OpenPageButton.Text = "Ouvrir la page"
+        Me.OpenPageButton.UseVisualStyleBackColor = True
+        '
         'NewHistoryForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(635, 445)
+        Me.ClientSize = New System.Drawing.Size(792, 506)
+        Me.Controls.Add(Me.OpenPageButton)
+        Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.HistoryListView)
+        Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "NewHistoryForm"
         Me.Text = "Nouvel historique (expérimental) - SmartNet Browser"
         Me.ResumeLayout(False)
@@ -78,4 +103,6 @@ Partial Class NewHistoryForm
     Friend WithEvents TitleColumnHeader As ColumnHeader
     Friend WithEvents URLColumnHeader As ColumnHeader
     Friend WithEvents FaviconImageList As ImageList
+    Friend WithEvents DeleteButton As Button
+    Friend WithEvents OpenPageButton As Button
 End Class

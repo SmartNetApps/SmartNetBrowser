@@ -141,7 +141,7 @@
     <value>325, 24</value>
   </data>
   <data name="NewTabToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvel onglet</value>
+    <value>Nouvel ongle&amp;t</value>
   </data>
   <data name="CloseTabToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -160,7 +160,7 @@
     <value>325, 24</value>
   </data>
   <data name="CloseTabToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fermer cet onglet</value>
+    <value>&amp;Fermer cet onglet</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
@@ -181,7 +181,7 @@
     <value>325, 24</value>
   </data>
   <data name="OpenPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ouvrir un document...</value>
+    <value>&amp;Ouvrir un document...</value>
   </data>
   <data name="SavePageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -199,7 +199,7 @@
     <value>325, 24</value>
   </data>
   <data name="SavePageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Enregistrer la page sous...</value>
+    <value>&amp;Enregistrer la page sous...</value>
   </data>
   <data name="AperçuAvantImpressionToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -217,7 +217,7 @@
     <value>325, 24</value>
   </data>
   <data name="AperçuAvantImpressionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Imprimer la page</value>
+    <value>Im&amp;primer la page</value>
   </data>
   <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -249,7 +249,7 @@
     <value>283, 24</value>
   </data>
   <data name="CouperToolStripMenuItem.Text" xml:space="preserve">
-    <value>Couper                              Ctrl+X</value>
+    <value>&amp;Couper                              Ctrl+X</value>
   </data>
   <data name="CopierToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -264,7 +264,7 @@
     <value>283, 24</value>
   </data>
   <data name="CopierToolStripMenuItem.Text" xml:space="preserve">
-    <value>Copier                               Ctrl+C</value>
+    <value>Co&amp;pier                               Ctrl+C</value>
   </data>
   <data name="CollerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -279,7 +279,7 @@
     <value>283, 24</value>
   </data>
   <data name="CollerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Coller                                Ctrl+V</value>
+    <value>C&amp;oller                                Ctrl+V</value>
   </data>
   <data name="SélectionnerToutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -299,7 +299,7 @@
     <value>283, 24</value>
   </data>
   <data name="SélectionnerToutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sélectionner tout</value>
+    <value>Sélectionner &amp;tout</value>
   </data>
   <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 6</value>
@@ -311,22 +311,22 @@
     <value>283, 24</value>
   </data>
   <data name="RechercherDansLaPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Rechercher dans la page...</value>
+    <value>Recherc&amp;her dans la page...</value>
   </data>
   <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
   <data name="ÉditionSubMenu.Text" xml:space="preserve">
-    <value>Édition</value>
+    <value>Éditio&amp;n</value>
   </data>
   <data name="Zoom50.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom50.Text" xml:space="preserve">
     <value>50 %</value>
   </data>
   <data name="Zoom75.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom75.Text" xml:space="preserve">
     <value>75 %</value>
@@ -335,73 +335,73 @@
     <value>Ctrl+0</value>
   </data>
   <data name="Zoom100.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom100.Text" xml:space="preserve">
-    <value>100 %</value>
+    <value>100 % (&amp;normal)</value>
   </data>
   <data name="Zoom125.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom125.Text" xml:space="preserve">
     <value>125 %</value>
   </data>
   <data name="Zoom150.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom150.Text" xml:space="preserve">
     <value>150 %</value>
   </data>
   <data name="Zoom175.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom175.Text" xml:space="preserve">
     <value>175 %</value>
   </data>
   <data name="Zoom200.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom200.Text" xml:space="preserve">
     <value>200 %</value>
   </data>
   <data name="Zoom250.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom250.Text" xml:space="preserve">
     <value>250 %</value>
   </data>
   <data name="Zoom300.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom300.Text" xml:space="preserve">
     <value>300 %</value>
   </data>
   <data name="Zoom400.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="Zoom400.Text" xml:space="preserve">
     <value>400 %</value>
   </data>
   <data name="ToolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 6</value>
+    <value>263, 6</value>
   </data>
   <data name="ZoomPlusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+Oemplus</value>
   </data>
   <data name="ZoomPlusButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="ZoomPlusButton.Text" xml:space="preserve">
-    <value>Zoom +</value>
+    <value>Zoom &amp;avant</value>
   </data>
   <data name="ZoomMinusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+OemMinus</value>
   </data>
   <data name="ZoomMinusButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 24</value>
+    <value>266, 24</value>
   </data>
   <data name="ZoomMinusButton.Text" xml:space="preserve">
-    <value>Zoom -</value>
+    <value>Zoom a&amp;rrière</value>
   </data>
   <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -418,7 +418,7 @@
     <value>325, 24</value>
   </data>
   <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
-    <value>Zoom</value>
+    <value>&amp;Zoom</value>
   </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
@@ -516,7 +516,7 @@
     <value>325, 24</value>
   </data>
   <data name="AfficherLhistoriqueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Historique</value>
+    <value>&amp;Historique</value>
   </data>
   <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
@@ -537,7 +537,7 @@
     <value>325, 24</value>
   </data>
   <data name="PleinÉcranToolStripMenuItem.Text" xml:space="preserve">
-    <value>Plein écran</value>
+    <value>&amp;Plein écran</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="QuitterLePleinÉcranToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
@@ -559,7 +559,7 @@
     <value>325, 24</value>
   </data>
   <data name="QuitterLePleinÉcranToolStripMenuItem.Text" xml:space="preserve">
-    <value>Quitter le plein écran</value>
+    <value>Quitter le &amp;plein écran</value>
   </data>
   <data name="QuitterLePleinÉcranToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -588,7 +588,7 @@
     <value>277, 24</value>
   </data>
   <data name="CentreDaideEnLigneToolStripMenuItem.Text" xml:space="preserve">
-    <value>Centre d'aide en ligne...</value>
+    <value>Centre d'&amp;aide en ligne...</value>
   </data>
   <data name="ContacterLéquipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 24</value>
@@ -603,7 +603,7 @@
     <value>277, 24</value>
   </data>
   <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
-    <value>À propos de SmartNet Browser...</value>
+    <value>À &amp;propos de SmartNet Browser...</value>
   </data>
   <data name="EnvoyerVosCommentairesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -689,7 +689,7 @@
   <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="AFTERGServicesWebToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="QuentinPugeatLeSiteOfficielToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wAAADsABataJCQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAoZJREFUOE99kl1I
@@ -706,16 +706,16 @@
         K2Mnyh8orSi/pzrsaNe1uE9XO3qPmp2O6mP95WS3Z+/8G6JfH4Bw7P3UzXEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AFTERGServicesWebToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="QuentinPugeatLeSiteOfficielToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 24</value>
   </data>
-  <data name="AFTERGServicesWebToolStripMenuItem.Text" xml:space="preserve">
+  <data name="QuentinPugeatLeSiteOfficielToolStripMenuItem.Text" xml:space="preserve">
     <value>Quentin Pugeat, le site officiel</value>
   </data>
-  <data name="AFTERGAppsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SmartNetAppsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 24</value>
   </data>
-  <data name="AFTERGAppsToolStripMenuItem.Text" xml:space="preserve">
+  <data name="SmartNetAppsToolStripMenuItem.Text" xml:space="preserve">
     <value>SmartNet Apps</value>
   </data>
   <data name="MenuPrincipalToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -2021,7 +2021,7 @@
     <value>325, 24</value>
   </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fermer SmartNet Browser</value>
+    <value>&amp;Quitter SmartNet Browser</value>
   </data>
   <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt</value>
@@ -2042,7 +2042,7 @@
     <value>-4, 1</value>
   </data>
   <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 24</value>
+    <value>36, 24</value>
   </data>
   <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3098,33 +3098,33 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        BgAAAk1TRnQBSQFMAwEBAAHMAQABzAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFrAf8CPgGoAf8CmQHMAf8CAAFrAf8CAAFr
-        Af8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFr
-        Af8CNwGlAf8CRgGsAf8CAAGCAf8CWgG2Af8CLwGhAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFr
-        Af8CAAFrAf8CAAFrAf8CAAFrAf8CWQFdAdLCAAF/Af4CQAGpAf8CGwGXAf8CAAGGAf8ClgHKAf8CGQGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CPgGoAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAF/
-        Af7CAAFrAf8CWQG2Af8CAAGAAf8CAAFrAf8CXgG4Af8CDAGPAf8CtgHaAf8CXgG4Af8CWwG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFrAf8CAAFrAf8CAAFrAf/AAAIMAY8B/wIHAY0B/wJgAbkB/wJa
-        AbYB/wJQAbEB/wJrAb8B/wIiAZoB/wJSAbIB/wJOAbAB/wIAAYgB/wLEAeIB/wI/AagB/wKzAdkB/wIA
-        AWsB/wIAAWsB/wIAAWsB/8AAArAB1wH/AiQBmwH/AgABawH/AgMBigH/AmoBvgH/AvIB+QH/Ar4B3gH/
-        AtgB6wH/AtcB6wH/Ar4B3gH/Au4B9gH/AsMB4QH/AvEB+AH/Aj4BqAH/AgABawH/AgABawH/wgABhQH/
-        AmEBugH/At4B7gH/ApwBzQH/AqkB1AH/AlABsQH/AgABhAH/AlgBtQH/AlUBswH/AgABhAH/AlMBswH/
-        AlsBtwH/AhUBlAH/Aq8B1wH/AgABawH/AgABawH/wgABawH/AgABawH/AtUB6gH/Ak4BsAH/ArMB2QH/
-        AowBxQH/Ak4BsAH/AqEB0AH/Ap4BzgH/Ak4BsAH/Ao8BxwH/ArEB2AH/Ak4BsAH/AtQB6QH/AgABawH/
-        AgABawH/wgABawH/AgABawH/AtYB6gH/AlEBsQH/ArUB2gH/Ao4BxgH/AlEBsQH/AqIB0AH/AqABzwH/
-        AlEBsQH/ApABxwH/ArMB2AH/AlEBsQH/AtQB6QH/AgABawH/AgABawH/wgABawH/AgABawH/ArQB2QH/
-        Ag4BkAH/Al0BuAH/Ak0BsAH/AgABggH/AlYBtAH/AlIBsgH/AgABggH/AlEBsgH/AlkBtgH/AhIBkgH/
-        ArAB1wH/AgABawH/AgABawH/wgABawH/AgABawH/AkQBqwH/AvEB+AH/AsgB4wH/Au4B9gH/AsIB4AH/
-        AtoB7QH/AtkB7AH/AsIB4AH/Au8B9wH/AscB4wH/AvIB+AH/AkABqQH/AgABawH/AgABawH/wgABawH/
-        AgABawH/AgABgAH/ArgB2wH/AjkBpgH/AsYB4wH/AgABhwH/AlIBsgH/Ak4BsAH/AgABiAH/AsUB4gH/
-        AjwBpwH/ArUB2gH/AgABgAH/AgABawH/AgABawH/wgABawH/AgABawH/AgABawH/AgABhwH/ArgB2wH/
-        As8B5wH/Aq8B1wH/AlwBtwH/AlkBtgH/ArIB2AH/As8B5wH/ArYB2gH/AgABhgH/AgABawH/AgABawH/
-        AgABawH/wgABfwH+AgABawH/AgABawH/AgABawH/AgABgAH/AkQBqwH/ArQB2QH/At4B7wH/At4B7gH/
-        ArMB2QH/AkIBqgH/AgABgAH/AgABawH/AgABawH/AgABawH/AgABfwH+wAACWAFcAdECAAFrAf8CAAFr
-        Af8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFr
-        Af8CAAFrAf8CAAFrAf8CWAFcAdHAAAMgAS8CWAFcAdECAAF/Af4CAAFrAf8CAAFrAf8CAAFrAf8CAAFr
-        Af8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAFrAf8CAAF/Af4CWAFcAdEDIAEvwAABQgFN
+        BgAAAk1TRnQBSQFMAwEBAAHUAQAB1AEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFqAf8CPQGoAf8CmQHMAf8CAAFqAf8CAAFq
+        Af8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFq
+        Af8CNgGlAf8CRQGsAf8CAAGCAf8CWQG2Af8CLgGhAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFq
+        Af8CAAFqAf8CAAFqAf8CAAFqAf8CWQFdAdLCAAF/Af4CPwGpAf8CGgGXAf8CAAGGAf8ClgHKAf8CGAGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CPQGoAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAF/
+        Af7CAAFqAf8CWAG2Af8CAAGAAf8CAAFqAf8CXQG4Af8CCwGPAf8CtgHaAf8CXQG4Af8CWgG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFqAf8CAAFqAf8CAAFqAf/AAAILAY8B/wIGAY0B/wJfAbkB/wJZ
+        AbYB/wJPAbEB/wJqAb8B/wIhAZoB/wJRAbIB/wJNAbAB/wIAAYgB/wLEAeIB/wI+AagB/wKzAdkB/wIA
+        AWoB/wIAAWoB/wIAAWoB/8AAArAB1wH/AiMBmwH/AgABagH/AgIBigH/AmkBvgH/AvIB+QH/Ar4B3gH/
+        AtgB6wH/AtcB6wH/Ar4B3gH/Au4B9gH/AsMB4QH/AvEB+AH/Aj0BqAH/AgABagH/AgABagH/wgABhQH/
+        AmABugH/At4B7gH/ApwBzQH/AqkB1AH/Ak8BsQH/AgABhAH/AlcBtQH/AlQBswH/AgABhAH/AlIBswH/
+        AloBtwH/AhQBlAH/Aq8B1wH/AgABagH/AgABagH/wgABagH/AgABagH/AtUB6gH/Ak0BsAH/ArMB2QH/
+        AowBxQH/Ak0BsAH/AqEB0AH/Ap4BzgH/Ak0BsAH/Ao8BxwH/ArEB2AH/Ak0BsAH/AtQB6QH/AgABagH/
+        AgABagH/wgABagH/AgABagH/AtYB6gH/AlABsQH/ArUB2gH/Ao4BxgH/AlABsQH/AqIB0AH/AqABzwH/
+        AlABsQH/ApABxwH/ArMB2AH/AlABsQH/AtQB6QH/AgABagH/AgABagH/wgABagH/AgABagH/ArQB2QH/
+        Ag0BkAH/AlwBuAH/AkwBsAH/AgABggH/AlUBtAH/AlEBsgH/AgABggH/AlABsgH/AlgBtgH/AhEBkgH/
+        ArAB1wH/AgABagH/AgABagH/wgABagH/AgABagH/AkMBqwH/AvEB+AH/AsgB4wH/Au4B9gH/AsIB4AH/
+        AtoB7QH/AtkB7AH/AsIB4AH/Au8B9wH/AscB4wH/AvIB+AH/Aj8BqQH/AgABagH/AgABagH/wgABagH/
+        AgABagH/AgABgAH/ArgB2wH/AjgBpgH/AsYB4wH/AgABhwH/AlEBsgH/Ak0BsAH/AgABiAH/AsUB4gH/
+        AjsBpwH/ArUB2gH/AgABgAH/AgABagH/AgABagH/wgABagH/AgABagH/AgABagH/AgABhwH/ArgB2wH/
+        As8B5wH/Aq8B1wH/AlsBtwH/AlgBtgH/ArIB2AH/As8B5wH/ArYB2gH/AgABhgH/AgABagH/AgABagH/
+        AgABagH/wgABfwH+AgABagH/AgABagH/AgABagH/AgABgAH/AkMBqwH/ArQB2QH/At4B7wH/At4B7gH/
+        ArMB2QH/AkEBqgH/AgABgAH/AgABagH/AgABagH/AgABagH/AgABfwH+wAACWAFcAdECAAFqAf8CAAFq
+        Af8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFq
+        Af8CAAFqAf8CAAFqAf8CWAFcAdHAAAMgAS8CWAFcAdECAAF/Af4CAAFqAf8CAAFqAf8CAAFqAf8CAAFq
+        Af8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAFqAf8CAAF/Af4CWAFcAdEDIAEvwAABQgFN
         AT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGAFwAD/4EACw==
 </value>
   </data>
@@ -9888,16 +9888,16 @@
   <data name="&gt;&gt;AtteindreLeSiteToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AFTERGServicesWebToolStripMenuItem.Name" xml:space="preserve">
-    <value>AFTERGServicesWebToolStripMenuItem</value>
+  <data name="&gt;&gt;QuentinPugeatLeSiteOfficielToolStripMenuItem.Name" xml:space="preserve">
+    <value>QuentinPugeatLeSiteOfficielToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;AFTERGServicesWebToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;QuentinPugeatLeSiteOfficielToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AFTERGAppsToolStripMenuItem.Name" xml:space="preserve">
-    <value>AFTERGAppsToolStripMenuItem</value>
+  <data name="&gt;&gt;SmartNetAppsToolStripMenuItem.Name" xml:space="preserve">
+    <value>SmartNetAppsToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;AFTERGAppsToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;SmartNetAppsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MenuPrincipalToolStripMenuItem.Name" xml:space="preserve">

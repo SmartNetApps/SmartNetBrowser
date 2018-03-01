@@ -75,8 +75,8 @@ Partial Class BrowserForm
         Me.NouvelleVersionDisponibleSubMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AtteindreLeSiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AFTERGServicesWebToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AFTERGAppsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuentinPugeatLeSiteOfficielToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SmartNetAppsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuPrincipalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HomepageButton = New System.Windows.Forms.PictureBox()
@@ -411,19 +411,19 @@ Partial Class BrowserForm
         '
         'AtteindreLeSiteToolStripMenuItem
         '
-        Me.AtteindreLeSiteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AFTERGServicesWebToolStripMenuItem, Me.AFTERGAppsToolStripMenuItem, Me.MenuPrincipalToolStripMenuItem})
+        Me.AtteindreLeSiteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuentinPugeatLeSiteOfficielToolStripMenuItem, Me.SmartNetAppsToolStripMenuItem, Me.MenuPrincipalToolStripMenuItem})
         resources.ApplyResources(Me.AtteindreLeSiteToolStripMenuItem, "AtteindreLeSiteToolStripMenuItem")
         Me.AtteindreLeSiteToolStripMenuItem.Name = "AtteindreLeSiteToolStripMenuItem"
         '
-        'AFTERGServicesWebToolStripMenuItem
+        'QuentinPugeatLeSiteOfficielToolStripMenuItem
         '
-        resources.ApplyResources(Me.AFTERGServicesWebToolStripMenuItem, "AFTERGServicesWebToolStripMenuItem")
-        Me.AFTERGServicesWebToolStripMenuItem.Name = "AFTERGServicesWebToolStripMenuItem"
+        resources.ApplyResources(Me.QuentinPugeatLeSiteOfficielToolStripMenuItem, "QuentinPugeatLeSiteOfficielToolStripMenuItem")
+        Me.QuentinPugeatLeSiteOfficielToolStripMenuItem.Name = "QuentinPugeatLeSiteOfficielToolStripMenuItem"
         '
-        'AFTERGAppsToolStripMenuItem
+        'SmartNetAppsToolStripMenuItem
         '
-        Me.AFTERGAppsToolStripMenuItem.Name = "AFTERGAppsToolStripMenuItem"
-        resources.ApplyResources(Me.AFTERGAppsToolStripMenuItem, "AFTERGAppsToolStripMenuItem")
+        Me.SmartNetAppsToolStripMenuItem.Name = "SmartNetAppsToolStripMenuItem"
+        resources.ApplyResources(Me.SmartNetAppsToolStripMenuItem, "SmartNetAppsToolStripMenuItem")
         '
         'MenuPrincipalToolStripMenuItem
         '
@@ -884,8 +884,8 @@ Partial Class BrowserForm
     Friend WithEvents URLBoxLabel As Label
     Friend WithEvents StatusLabel As Label
     Friend WithEvents AtteindreLeSiteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AFTERGServicesWebToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AFTERGAppsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuentinPugeatLeSiteOfficielToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SmartNetAppsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuPrincipalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents ZoomPlusButton As ToolStripMenuItem

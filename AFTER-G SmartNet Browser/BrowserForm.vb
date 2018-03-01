@@ -11,10 +11,15 @@ Public Class BrowserForm
     Public MessageBarAction As String
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
-    Dim Historique As List(Of Webpage) = CType(My.Settings.NewHistory, List(Of Webpage))
+    Dim Historique As List(Of Webpage)
 
     Public Sub New()
         InitializeComponent()
+        If My.Settings.NewHistory Is Nothing Then
+            Historique = New List(Of Webpage)
+        Else
+            Historique = CType(My.Settings.NewHistory, List(Of Webpage))
+        End If
     End Sub
 
     ''' <summary>
@@ -115,33 +120,10 @@ Public Class BrowserForm
     ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert
     ''' </summary>
     Public Sub CheckFavicon()
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
-                FaviconBox.Image = FaviconBox.InitialImage
-                BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.InitialImage
-                BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.InitialImage
-            Else
-                Dim url As Uri = New Uri(WB.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    FaviconBox.Image = favicon
-                    BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = favicon
-                    BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-                    PropertiesForm.FaviconBox.Image = favicon
-                End If
-            End If
-        Catch ex As Exception
-            FaviconBox.Image = FaviconBox.ErrorImage
-            BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = FaviconBox.ErrorImage
-            BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-            PropertiesForm.FaviconBox.Image = PropertiesForm.FaviconBox.ErrorImage
-        End Try
+        FaviconBox.Image = CurrentPageFavicon()
+        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = CurrentPageFavicon()
+        BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
+        PropertiesForm.FaviconBox.Image = CurrentPageFavicon()
     End Sub
 
     ''' <summary>
@@ -224,7 +206,6 @@ Public Class BrowserForm
             'For Each historyentry In My.Settings.History
             'URLBox.Items.Add(historyentry)
             'Next
-
 
             For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
                 URLBox.Items.Add(NewHistoryEntry.GetURL())
@@ -381,11 +362,11 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Navigate("https://quentinpugeat.wixsite.com/smartnetbrowserhome")
     End Sub
-    Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGServicesWebToolStripMenuItem.Click
+    Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuentinPugeatLeSiteOfficielToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Navigate("https://quentinpugeat.wixsite.com/lesiteofficiel")
     End Sub
-    Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AFTERGAppsToolStripMenuItem.Click
+    Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SmartNetAppsToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Navigate("https://quentinpugeat.wixsite.com/apps")
     End Sub
