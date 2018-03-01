@@ -342,6 +342,7 @@ Public Class CustomBrowser
                         TP.Text = Me.DocumentTitle
                     End If
                 End If
+                TP.ToolTipText = Me.DocumentTitle
             Catch ex As Exception
                 If My.Settings.DisplayExceptions = True Then
                     ExceptionForm.MessageTextBox.Text = ex.Message
