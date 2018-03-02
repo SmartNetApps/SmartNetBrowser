@@ -364,7 +364,7 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
             If SavePageDialog.ShowDialog = DialogResult.OK Then
-                WB.SaveDocument(SavePageDialog.OpenFile.ToString)
+                WB.SaveDocument(SavePageDialog.FileName)
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
