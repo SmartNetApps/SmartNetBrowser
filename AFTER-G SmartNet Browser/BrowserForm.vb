@@ -3,7 +3,6 @@ Imports System.Net
 Imports System.Security.Cryptography
 Imports System.Text
 Imports Microsoft.Win32
-
 Public Class BrowserForm
     Public WithEvents CurrentDocument As Gecko.GeckoDocument
     Public MousePoint As Point
@@ -88,7 +87,7 @@ Public Class BrowserForm
     End Sub
 
     ''' <summary>
-    ''' Ajoute un nouvel onglet
+    ''' Ajoute un nouvel onglet.
     ''' </summary>
     ''' <param name="URL">URL de la page qui sera chargée dans le nouvel onglet</param>
     ''' <param name="TabControl">Dispositif d'onglets dans lequel sera ajouté l'onglet</param>
@@ -117,7 +116,7 @@ Public Class BrowserForm
     End Sub
 
     ''' <summary>
-    ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert
+    ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert.
     ''' </summary>
     Public Sub CheckFavicon()
         FaviconBox.Image = CurrentPageFavicon()
@@ -127,7 +126,7 @@ Public Class BrowserForm
     End Sub
 
     ''' <summary>
-    ''' Favicon de la page actuellement ouverte
+    ''' Favicon de la page actuellement ouverte.
     ''' </summary>
     ''' <returns></returns>
     Public Function CurrentPageFavicon() As Image
@@ -175,6 +174,58 @@ Public Class BrowserForm
         Next
         Return strHex
     End Function
+
+    ''' <summary>
+    ''' Ferme SmartNet Browser.
+    ''' </summary>
+    Public Sub CloseSmartNetBrowser()
+        Try
+            If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
+                If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
+                    My.Settings.LastClosedTab = ""
+                    My.Settings.Save()
+                    End
+                End If
+            Else
+                My.Settings.LastClosedTab = ""
+                My.Settings.Save()
+                End
+            End If
+        Catch ex As Exception
+            If My.Settings.DisplayExceptions = True Then
+                ExceptionForm.MessageTextBox.Text = ex.Message
+                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
+                ExceptionForm.ShowDialog()
+            End If
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Déclenche le chargement d'une recherche dans l'onglet actif.
+    ''' </summary>
+    ''' <param name="keywords">Mots-clés de la recherche</param>
+    Public Sub OpenSearchResults(keywords As String)
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Select Case My.Settings.SearchEngine
+            Case 1
+                WB.Navigate("https://www.google.fr/search?q=" + keywords)
+            Case 2
+                WB.Navigate("https://www.bing.com/search?q=" + keywords)
+            Case 3
+                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + keywords)
+            Case 4
+                WB.Navigate("https://duckduckgo.com/?q=" + keywords)
+            Case 5
+                WB.Navigate("https://www.qwant.com/?q=" + keywords)
+            Case 0
+                WB.Navigate(My.Settings.CustomSearchURL + keywords)
+        End Select
+
+        If My.Settings.PrivateBrowsing = False Then
+            SearchBox.Items.Add(keywords)
+            My.Settings.SearchHistory.Add(keywords)
+        End If
+    End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
@@ -228,8 +279,6 @@ Public Class BrowserForm
 
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent)
         Try
-            'Dim ie As New WebBrowser
-            'ie.Navigate(e.Url)
             DownloadForm.FileNameLabel.Text = e.Url.Substring(e.Url.LastIndexOf("/") + 1)
             DownloadForm.URLLabel.Text = "À partir de : " + e.Url
             DownloadForm.DownloadLink = e.Url
@@ -244,6 +293,7 @@ Public Class BrowserForm
             End If
         End Try
     End Sub
+
     Private Sub GoForward(sender As Object, e As EventArgs) Handles NextpageButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         If WB.CanGoForward = True Then
@@ -557,51 +607,12 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Select Case My.Settings.SearchEngine
-            Case 1
-                WB.Navigate("https://www.google.fr/search?q=" + SearchBox.Text)
-            Case 2
-                WB.Navigate("https://www.bing.com/search?q=" + SearchBox.Text)
-            Case 3
-                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + SearchBox.Text)
-            Case 4
-                WB.Navigate("https://duckduckgo.com/?q=" + SearchBox.Text)
-            Case 5
-                WB.Navigate("https://www.qwant.com/?q=" + SearchBox.Text)
-            Case 0
-                WB.Navigate(My.Settings.CustomSearchURL + SearchBox.Text)
-        End Select
-
-        If My.Settings.PrivateBrowsing = False Then
-            SearchBox.Items.Add(SearchBox.Text)
-            My.Settings.SearchHistory.Add(SearchBox.Text)
-        End If
+        OpenSearchResults(SearchBox.Text)
     End Sub
     Private Sub SearchBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles SearchBox.KeyDown
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         If e.KeyCode = Keys.Enter Then
-            Select Case My.Settings.SearchEngine
-                Case 1
-                    WB.Navigate("https://www.google.fr/search?q=" + SearchBox.Text)
-                Case 2
-                    WB.Navigate("https://www.bing.com/search?q=" + SearchBox.Text)
-                Case 3
-                    WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + SearchBox.Text)
-                Case 4
-                    WB.Navigate("https://duckduckgo.com/?q=" + SearchBox.Text)
-                Case 5
-                    WB.Navigate("https://www.qwant.com/?q=" + SearchBox.Text)
-                Case 0
-                    WB.Navigate(My.Settings.CustomSearchURL + SearchBox.Text)
-            End Select
-
-            If My.Settings.PrivateBrowsing = False Then
-                SearchBox.Items.Add(SearchBox.Text)
-                My.Settings.SearchHistory.Add(SearchBox.Text)
-            End If
+            OpenSearchResults(SearchBox.Text)
         End If
-
     End Sub
 
     Private Sub Zoom_100(sender As Object, e As EventArgs) Handles Zoom100.Click
@@ -750,47 +761,13 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SmartNetBrowserClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        Try
-            If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
-                e.Cancel = True
-                If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
-                    My.Settings.LastClosedTab = ""
-                    My.Settings.Save()
-                    End
-                End If
-            Else
-                My.Settings.LastClosedTab = ""
-                My.Settings.Save()
-                End
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
+            e.Cancel = True
+        End If
+        CloseSmartNetBrowser()
     End Sub
     Private Sub SmartNetBrowserClosingWithButton(sender As Object, e As EventArgs) Handles FermerSmartNetBrowserToolStripMenuItem.Click
-        Try
-            If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
-                If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
-                    My.Settings.LastClosedTab = ""
-                    My.Settings.Save()
-                    End
-                End If
-            Else
-                My.Settings.LastClosedTab = ""
-                My.Settings.Save()
-                End
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        CloseSmartNetBrowser()
     End Sub
 
     Private Sub ActiveTabChange(sender As Object, e As EventArgs) Handles BrowserTabs.SelectedIndexChanged
