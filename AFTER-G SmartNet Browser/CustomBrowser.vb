@@ -15,7 +15,7 @@ Public Class CustomBrowser
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         If My.Settings.UserAgent = "" Then
             If Environment.Is64BitOperatingSystem = True Then
-                Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
+                Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             Else
                 Gecko.GeckoPreferences.User("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:45.0) Gecko/20100101 Firefox/45.0  SmartNet/" + My.Application.Info.Version.ToString
             End If
@@ -27,6 +27,45 @@ Public Class CustomBrowser
         Gecko.GeckoPreferences.Default("media.mediasource.ignore_codecs") = True
         Gecko.GeckoPreferences.Default("extensions.blocklist.enabled") = False
     End Sub
+
+    ''' <summary>
+    ''' Indique si la page ou le cadre est une publicité.
+    ''' </summary>
+    ''' <param name="url">URL de la page ou du cadre.</param>
+    ''' <returns></returns>
+    Public Function IsAdvertisement(url As String) As Boolean
+        Dim ad As Boolean = False
+        Dim target As String = url
+        Dim AdsDomainsFile As New WebClient
+        Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
+        Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
+        For I = 0 To AdsDomainsList.Count - 1
+            If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
+                ad = True
+            End If
+        Next
+        Return ad
+    End Function
+
+    ''' <summary>
+    ''' Indique si la page est dangereuse pour les enfants.
+    ''' </summary>
+    ''' <param name="url">URL de la page à tester</param>
+    ''' <returns></returns>
+    Public Function IsDangerousForChildren(url As String) As Boolean
+        Dim dangerous As Boolean = False
+        If My.Settings.ChildrenProtection = True Then
+            Dim AdultDomainsFile As New WebClient
+            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/ChildrenProtection.txt")
+            Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
+            For I = 0 To AdultDomainsList.Count - 1
+                If url.Contains(AdultDomainsList.Item(I)) Then
+                    dangerous = True
+                End If
+            Next
+        End If
+        Return dangerous
+    End Function
 
     Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -93,8 +132,6 @@ Public Class CustomBrowser
                 End If
                 If My.Settings.PrivateBrowsing = False Then
                     If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
-                        'TODO: Retirer l'historique obsolète
-                        'My.Settings.History.Add(Me.Url.ToString)
                         If FirstTimeNavigated = True Then
                             BrowserForm.AddInHistory(CurrentWebpage)
                             FirstTimeNavigated = False
@@ -123,16 +160,14 @@ Public Class CustomBrowser
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         If e.Uri.ToString <> "about:blank" Then
             Try
-                If My.Settings.ChildrenProtection = True Then
-                    Dim AdultDomainsFile As New WebClient
-                    Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/ChildrenProtection.txt")
-                    Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
-                    For I = 0 To AdultDomainsList.Count - 1
-                        If e.Uri.ToString.Contains(AdultDomainsList.Item(I)) Then
-                            Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                If IsDangerousForChildren(e.Uri.ToString()) = True Then
+                    Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                    Select Case Language
+                        Case "fr"
                             Me.Navigate(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
-                        End If
-                    Next
+                        Case Else
+                            Me.Navigate(My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+                    End Select
                 End If
             Catch ex As Exception
                 If My.Settings.DisplayExceptions = True Then
@@ -174,6 +209,11 @@ Public Class CustomBrowser
 
     End Sub
 
+    ''' <summary>
+    ''' Ajoute un nouvel onglet dans le système d'onglets spécifié.
+    ''' </summary>
+    ''' <param name="URL">URL de la page à afficher</param>
+    ''' <param name="TabControl">Système d'onglets dans lequel s'ajoute l'onglet</param>
     Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl)
         Try
             Dim NewBrowser As New CustomBrowser
@@ -199,27 +239,17 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
         Try
             e.Cancel = True
-            Dim block = False
-            Dim target As String = e.Uri
-            Dim AdsDomainsFile As New WebClient
-            Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
-            Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-            For I = 0 To AdsDomainsList.Count - 1
-                If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
-                    block = True
-                End If
-            Next
-            If block = True Then
+            If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
                 BrowserForm.MessageBarLabel.Text = "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire."
                 BrowserForm.MessageBarButton.Text = "Ouvrir quand même"
                 BrowserForm.MessageBarAction = "OpenPopup"
-                BrowserForm.MessageBarButtonLink = target
+                BrowserForm.MessageBarButtonLink = e.Uri
                 BrowserForm.MessageBarButton.Visible = True
                 BrowserForm.MessageBarLabel.Visible = True
                 BrowserForm.MessageBarPictureBox.Visible = True
                 BrowserForm.MessageBarCloseButton.Visible = True
             Else
-                AddTab(target, BrowserForm.BrowserTabs)
+                AddTab(e.Uri, BrowserForm.BrowserTabs)
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -229,40 +259,16 @@ Public Class CustomBrowser
             Else
                 MsgBox("Un problème est survenu avec le bloqueur de Pop-Ups.", MsgBoxStyle.Exclamation, "SmartNet AdsBlocker")
             End If
-            Dim target As String = e.Uri
-            Dim block2 = False
-            Dim AdsDomainsFile As New WebClient
-            Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
-            Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-            For I = 0 To AdsDomainsList.Count - 1
-                If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
-                    block2 = True
-                End If
-            Next
-            If block2 = False Then
-                NewBrowserForm.GeckoWebBrowser1.Navigate(target)
+            If IsAdvertisement(e.Uri) = False Then
+                NewBrowserForm.GeckoWebBrowser1.Navigate(e.Uri)
                 NewBrowserForm.Show()
             End If
         End Try
     End Sub
-
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
-        Dim block = False
         Try
-            If My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
-                If My.Settings.AdBlocker = True Then
-                    Dim AdsDomainsFile As New WebClient
-                    Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
-                    Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-                    For I = 0 To AdsDomainsList.Count - 1
-                        If e.Uri.ToString.Contains(AdsDomainsList.Item(I)) Then
-                            block = True
-                        End If
-                    Next
-                    If block = True Then
-                        e.Cancel = True
-                    End If
-                End If
+            If My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) = True Then
+                e.Cancel = True
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -276,33 +282,25 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
-        Try
-            BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
-            BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
-            BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
-            BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
-            BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
-            BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-            If CanCutSelection Or CanPaste Or CanCopySelection Then
-                BrowserForm.EditionToolStripSeparator.Visible = True
-            Else
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
+        BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
+        BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
+        BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
+        BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
+        BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
+        If CanCutSelection Or CanPaste Or CanCopySelection Then
+            BrowserForm.EditionToolStripSeparator.Visible = True
+        Else
+            BrowserForm.EditionToolStripSeparator.Visible = False
+        End If
+        BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
     Private Sub CustomBrowser_DomMouseMove(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomMouseMove
@@ -314,15 +312,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_StatusTextChanged(sender As Object, e As EventArgs) Handles Me.StatusTextChanged
-        Try
-            BrowserForm.StatusLabel.Text = Me.StatusText
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        BrowserForm.StatusLabel.Text = Me.StatusText
     End Sub
 
     Private Sub CustomBrowser_DocumentTitleChanged(sender As Object, e As EventArgs) Handles Me.DocumentTitleChanged
@@ -354,61 +344,36 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_CanGoBackChanged(sender As Object, e As EventArgs) Handles Me.CanGoBackChanged
-        Try
-            BrowserForm.PreviouspageButton.Visible = CanGoBack
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        BrowserForm.PreviouspageButton.Visible = CanGoBack
     End Sub
-
     Private Sub CustomBrowser_CanGoForwardChanged(sender As Object, e As EventArgs) Handles Me.CanGoForwardChanged
-        Try
-            BrowserForm.NextpageButton.Visible = CanGoForward
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        BrowserForm.NextpageButton.Visible = CanGoForward
     End Sub
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.GeckoContextMenuEventArgs) Handles Me.ShowContextMenu
-        Try
-            BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
-            BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
-            BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
-            BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
-            BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
-            BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
-            BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
-            BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-            If CanCutSelection Or CanPaste Or CanCopySelection Then
-                BrowserForm.EditionToolStripSeparator.Visible = True
-            Else
-                BrowserForm.EditionToolStripSeparator.Visible = False
-            End If
-            BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
+        BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
+        BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
+        BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
+        BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
+        BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
+        BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
+        BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
+        If CanCutSelection Or CanPaste Or CanCopySelection Then
+            BrowserForm.EditionToolStripSeparator.Visible = True
+        Else
+            BrowserForm.EditionToolStripSeparator.Visible = False
+        End If
+        BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
     Private Sub CustomBrowser_DomClick(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomClick
-        BrowserForm.URLBox.Select(0, 0)
+        BrowserForm.BrowserTabs.SelectedTab.Focus()
     End Sub
 
     ''' <summary>

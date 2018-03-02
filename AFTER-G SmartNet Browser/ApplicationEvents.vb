@@ -28,9 +28,9 @@ Namespace My
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
             If My.Settings.NewHistory Is Nothing Then
                 My.Settings.NewHistory = New List(Of Webpage)
-                For Each historyentry In My.Settings.History
-                    BrowserForm.AddInHistory(New Webpage(historyentry))
-                Next
+                'For Each historyentry In My.Settings.History
+                '    BrowserForm.AddInHistory(New Webpage(historyentry))
+                'Next
                 My.Settings.History.Clear()
                 My.Settings.Save()
             End If
