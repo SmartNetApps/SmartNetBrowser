@@ -29,6 +29,7 @@ Partial Class NewHistoryForm
         Me.FaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.OpenPageButton = New System.Windows.Forms.Button()
+        Me.OpenOldHistoryButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'HistoryListView
@@ -84,11 +85,21 @@ Partial Class NewHistoryForm
         Me.OpenPageButton.Text = "Ouvrir la page"
         Me.OpenPageButton.UseVisualStyleBackColor = True
         '
+        'OpenOldHistoryButton
+        '
+        Me.OpenOldHistoryButton.Location = New System.Drawing.Point(254, 465)
+        Me.OpenOldHistoryButton.Name = "OpenOldHistoryButton"
+        Me.OpenOldHistoryButton.Size = New System.Drawing.Size(174, 31)
+        Me.OpenOldHistoryButton.TabIndex = 4
+        Me.OpenOldHistoryButton.Text = "Ouvrir l'ancien historique"
+        Me.OpenOldHistoryButton.UseVisualStyleBackColor = True
+        '
         'NewHistoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(792, 506)
+        Me.Controls.Add(Me.OpenOldHistoryButton)
         Me.Controls.Add(Me.OpenPageButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.HistoryListView)
@@ -105,4 +116,5 @@ Partial Class NewHistoryForm
     Friend WithEvents FaviconImageList As ImageList
     Friend WithEvents DeleteButton As Button
     Friend WithEvents OpenPageButton As Button
+    Friend WithEvents OpenOldHistoryButton As Button
 End Class

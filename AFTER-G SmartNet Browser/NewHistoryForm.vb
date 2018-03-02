@@ -38,4 +38,9 @@
         WB.Navigate(HistoryListView.SelectedItems.Item(0).SubItems(1).Text)
         Me.Close()
     End Sub
+
+    Private Sub OpenOldHistoryButton_Click(sender As Object, e As EventArgs) Handles OpenOldHistoryButton.Click
+        HistoryForm.Show()
+        Me.Close()
+    End Sub
 End Class

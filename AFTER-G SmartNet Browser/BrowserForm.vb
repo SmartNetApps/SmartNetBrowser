@@ -423,50 +423,25 @@ Public Class BrowserForm
 
     Private Sub Cut(sender As Object, e As EventArgs) Handles CouperToolStripMenuItem.Click, CouperToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If WB.CanCutSelection = True Then
-                WB.CutSelection()
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If WB.CanCutSelection = True Then
+            WB.CutSelection()
+        End If
     End Sub
     Private Sub Copy(sender As Object, e As EventArgs) Handles CopierToolStripMenuItem.Click, CopierToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If WB.CanCopySelection = True Then
-                WB.CopySelection()
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If WB.CanCopySelection = True Then
+            WB.CopySelection()
+        End If
     End Sub
     Private Sub Paste(sender As Object, e As EventArgs) Handles CollerToolStripMenuItem.Click, CollerToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If WB.CanPaste Then
-                WB.Paste()
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        If WB.CanPaste Then
+            WB.Paste()
+        End If
     End Sub
 
     Private Sub AddFavorite(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-
         Try
             My.Settings.Favorites.Add(WB.Url.ToString)
             URLBox.Items.Add(WB.Url.ToString)
@@ -481,13 +456,13 @@ Public Class BrowserForm
                 ExceptionForm.MessageTextBox.Text = ex.Message
                 ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
                 ExceptionForm.ShowDialog()
-                If My.Settings.Favorites.Contains(WB.ToString) Then
+                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
                     FavoritesButton.Image = FavoritesButton.ErrorImage
                 Else
                     FavoritesButton.Image = FavoritesButton.InitialImage
                 End If
             Else
-                If My.Settings.Favorites.Contains(WB.ToString) Then
+                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
                     FavoritesButton.Image = FavoritesButton.ErrorImage
                 Else
                     FavoritesButton.Image = FavoritesButton.InitialImage
@@ -519,8 +494,6 @@ Public Class BrowserForm
                 EnterBrowserSettingsSecurityForm.SecurityMode = "History"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
-                'TODO: Retirer la fenêtre obsolète
-                'HistoryForm.Show()
                 NewHistoryForm.Show()
             End If
         Catch ex As Exception
@@ -804,7 +777,7 @@ Public Class BrowserForm
                 TéléchargerCetteVidéoToolStripMenuItem.Visible = False
                 ToolStripSeparator6.Visible = False
             End If
-            If My.Settings.Favorites.Contains(WB.ToString) Then
+            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
                 FavoritesButton.Image = FavoritesButton.ErrorImage
             Else
                 FavoritesButton.Image = FavoritesButton.InitialImage
@@ -829,7 +802,6 @@ Public Class BrowserForm
 
     Private Sub ShowProperties(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        'WB.ShowPageProperties()
         Dim PageFormat As String = WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1)
         If WB.DocumentTitle = "" Then
             PropertiesForm.PageNameLabel.Text = "Page sans nom"
@@ -840,6 +812,10 @@ Public Class BrowserForm
         Select Case PageFormat
             Case "htm"
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web HTML"
+            Case "php"
+                PropertiesForm.PageTypeLabel.Text = "Type : Page Web PHP"
+            Case "css"
+                PropertiesForm.PageTypeLabel.Text = "Type : Feuille de style CSS"
             Case "xml"
                 PropertiesForm.PageTypeLabel.Text = "Type : Fichier XML"
             Case "jpg"
@@ -850,6 +826,8 @@ Public Class BrowserForm
                 PropertiesForm.PageTypeLabel.Text = "Type : Image bitmap"
             Case "svg"
                 PropertiesForm.PageTypeLabel.Text = "Type : Image SVG"
+            Case "mp4"
+                PropertiesForm.PageTypeLabel.Text = "Type : Vidéo MP4"
             Case Else
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web"
         End Select
@@ -898,18 +876,10 @@ Public Class BrowserForm
     End Sub
 
     Private Sub CopierLadresseDuLienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopierLadresseDuLienToolStripMenuItem.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            If WB.CanCopyLinkLocation = True Then
-                WB.CopyLinkLocation()
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        If WB.CanCopyLinkLocation = True Then
+            WB.CopyLinkLocation()
+        End If
     End Sub
 
     Private Sub AjouterLeLienAuxFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterLeLienAuxFavorisToolStripMenuItem.Click
@@ -980,16 +950,10 @@ Public Class BrowserForm
     End Sub
 
     Private Sub CopierLadresseDeLimageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopierLadresseDeLimageToolStripMenuItem.Click
-        Try
-            Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        If WB.CanCopyImageLocation = True Then
             WB.CopyImageLocation()
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        End If
     End Sub
 
     Private Sub AfficherLimageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLimageToolStripMenuItem.Click
@@ -1000,7 +964,6 @@ Public Class BrowserForm
             WB.CopyImageLocation()
             Dim ImageSource As String = Clipboard.GetText
             Clipboard.SetDataObject(ClipboardActualData, True)
-
 
             WB.Navigate(ImageSource) 'Ele.GetAttribute("src")
         Catch ex As Exception
@@ -1020,38 +983,11 @@ Public Class BrowserForm
     Private Sub LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim ClipboardActualData As IDataObject
-        ClipboardActualData = Clipboard.GetDataObject
+        ClipboardActualData = Clipboard.GetDataObject()
         WB.CopySelection()
-        Dim Selection As String = Clipboard.GetText
+        Dim Selection As String = Clipboard.GetText()
         Clipboard.SetDataObject(ClipboardActualData, True)
-
-        Select Case My.Settings.SearchEngine
-            Case 1
-                WB.Navigate("https://www.google.fr/search?q=" + Selection)
-            Case 2
-                WB.Navigate("https://www.bing.com/search?q=" + Selection)
-            Case 3
-                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + Selection)
-            Case 4
-                WB.Navigate("https://duckduckgo.com/?q=" + Selection)
-            Case 5
-                WB.Navigate("https://www.qwant.com/?q=" + Selection)
-            Case 0
-                WB.Navigate(My.Settings.CustomSearchURL + Selection)
-        End Select
-
-        Try
-            If My.Settings.PrivateBrowsing = False Then
-                SearchBox.Items.Add(WB.CopySelection.ToString)
-                My.Settings.SearchHistory.Add(WB.CopySelection.ToString)
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        OpenSearchResults(Selection)
     End Sub
 
 
@@ -1089,50 +1025,33 @@ Public Class BrowserForm
 
     Private Sub MainMenu_Click(sender As Object, e As EventArgs) Handles MainMenu.DropDownOpening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            CouperToolStripMenuItem.Enabled = WB.CanCutSelection
-            CopierToolStripMenuItem.Enabled = WB.CanCopySelection
-            CollerToolStripMenuItem.Enabled = WB.CanPaste
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        CouperToolStripMenuItem.Enabled = WB.CanCutSelection
+        CopierToolStripMenuItem.Enabled = WB.CanCopySelection
+        CollerToolStripMenuItem.Enabled = WB.CanPaste
     End Sub
     Public Link As String
 
     Private Sub BrowserContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles BrowserContextMenuStrip.Opening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            CopierLadresseDeLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-            EnregistrerLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-            AfficherLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-            ImageToolStripSeparator.Visible = WB.CanCopyImageLocation
-            CopierLadresseDuLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-            OuvrirLeLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-            OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-            AjouterLeLienAuxFavorisToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-            LinkToolStripSeparator.Visible = WB.CanCopyLinkLocation
-            CouperToolStripMenuItem1.Visible = WB.CanCutSelection
-            CollerToolStripMenuItem1.Visible = WB.CanPaste
-            CopierToolStripMenuItem1.Visible = WB.CanCopySelection
-            LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = WB.CanCopySelection
-            If WB.CanCutSelection = True Or WB.CanPaste = True Or WB.CanCopySelection = True Then
-                EditionToolStripSeparator.Visible = True
-            Else
-                EditionToolStripSeparator.Visible = False
-            End If
-        Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
-        End Try
+        CopierLadresseDeLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+        EnregistrerLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+        AfficherLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+        ImageToolStripSeparator.Visible = WB.CanCopyImageLocation
+        CopierLadresseDuLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+        OuvrirLeLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+        OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+        AjouterLeLienAuxFavorisToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+        LinkToolStripSeparator.Visible = WB.CanCopyLinkLocation
+        CouperToolStripMenuItem1.Visible = WB.CanCutSelection
+        CollerToolStripMenuItem1.Visible = WB.CanPaste
+        CopierToolStripMenuItem1.Visible = WB.CanCopySelection
+        LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = WB.CanCopySelection
+        If WB.CanCutSelection = True Or WB.CanPaste = True Or WB.CanCopySelection = True Then
+            EditionToolStripSeparator.Visible = True
+        Else
+            EditionToolStripSeparator.Visible = False
+        End If
     End Sub
-
     Private Sub URLBox_TextChanged(sender As Object, e As EventArgs) Handles URLBox.TextChanged
         If URLBox.Text = "" Then
             URLBoxLabel.Visible = True
@@ -1201,7 +1120,6 @@ Public Class BrowserForm
         MessageBarPictureBox.Visible = False
         MessageBarCloseButton.Visible = False
     End Sub
-
     Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton.Click
         Select Case MessageBarAction
             Case "OpenPopup"
