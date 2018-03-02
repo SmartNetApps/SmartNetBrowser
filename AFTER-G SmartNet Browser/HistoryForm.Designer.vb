@@ -39,6 +39,7 @@ Partial Class HistoryForm
         Me.RemoveSelectedDownload = New System.Windows.Forms.Button()
         Me.DeleteAllDownloadHistoryButton = New System.Windows.Forms.Button()
         Me.DownloadHistoryListBox = New System.Windows.Forms.ListBox()
+        Me.OpenNewHistoryButton = New System.Windows.Forms.Button()
         Me.HistoryTabControl.SuspendLayout()
         Me.BrowsingHistoryTabPage.SuspendLayout()
         Me.SearchHistoryTabPage.SuspendLayout()
@@ -80,6 +81,7 @@ Partial Class HistoryForm
         '
         'BrowsingHistoryTabPage
         '
+        Me.BrowsingHistoryTabPage.Controls.Add(Me.OpenNewHistoryButton)
         Me.BrowsingHistoryTabPage.Controls.Add(Me.DisplaySelectedBrowsingButton)
         Me.BrowsingHistoryTabPage.Controls.Add(Me.BrowsingHistoryListBox)
         Me.BrowsingHistoryTabPage.Controls.Add(Me.RemoveSelectedBrowsingButton)
@@ -156,6 +158,12 @@ Partial Class HistoryForm
         Me.DownloadHistoryListBox.FormattingEnabled = True
         Me.DownloadHistoryListBox.Name = "DownloadHistoryListBox"
         '
+        'OpenNewHistoryButton
+        '
+        resources.ApplyResources(Me.OpenNewHistoryButton, "OpenNewHistoryButton")
+        Me.OpenNewHistoryButton.Name = "OpenNewHistoryButton"
+        Me.OpenNewHistoryButton.UseVisualStyleBackColor = True
+        '
         'HistoryForm
         '
         resources.ApplyResources(Me, "$this")
@@ -188,4 +196,5 @@ Partial Class HistoryForm
     Friend WithEvents RemoveSelectedDownload As Button
     Friend WithEvents DeleteAllDownloadHistoryButton As Button
     Friend WithEvents DownloadHistoryListBox As ListBox
+    Friend WithEvents OpenNewHistoryButton As Button
 End Class

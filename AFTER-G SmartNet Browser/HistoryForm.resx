@@ -148,7 +148,7 @@
     <value>BrowsingHistoryTabPage</value>
   </data>
   <data name="&gt;&gt;BrowsingHistoryListBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="DeleteAllBrowsingHistoryButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -175,7 +175,7 @@
     <value>BrowsingHistoryTabPage</value>
   </data>
   <data name="&gt;&gt;DeleteAllBrowsingHistoryButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="RemoveSelectedBrowsingButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -202,7 +202,7 @@
     <value>BrowsingHistoryTabPage</value>
   </data>
   <data name="&gt;&gt;RemoveSelectedBrowsingButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="DisplaySelectedBrowsingButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -229,6 +229,30 @@
     <value>BrowsingHistoryTabPage</value>
   </data>
   <data name="&gt;&gt;DisplaySelectedBrowsingButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="OpenNewHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 301</value>
+  </data>
+  <data name="OpenNewHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 26</value>
+  </data>
+  <data name="OpenNewHistoryButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="OpenNewHistoryButton.Text" xml:space="preserve">
+    <value>Nouvel historique</value>
+  </data>
+  <data name="&gt;&gt;OpenNewHistoryButton.Name" xml:space="preserve">
+    <value>OpenNewHistoryButton</value>
+  </data>
+  <data name="&gt;&gt;OpenNewHistoryButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenNewHistoryButton.Parent" xml:space="preserve">
+    <value>BrowsingHistoryTabPage</value>
+  </data>
+  <data name="&gt;&gt;OpenNewHistoryButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="BrowsingHistoryTabPage.Location" type="System.Drawing.Point, System.Drawing">
@@ -258,6 +282,18 @@
   <data name="&gt;&gt;BrowsingHistoryTabPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="OpenSearchResultsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>589, 301</value>
+  </data>
+  <data name="OpenSearchResultsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 26</value>
+  </data>
+  <data name="OpenSearchResultsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="OpenSearchResultsButton.Text" xml:space="preserve">
+    <value>Lancer la recherche</value>
+  </data>
   <data name="&gt;&gt;OpenSearchResultsButton.Name" xml:space="preserve">
     <value>OpenSearchResultsButton</value>
   </data>
@@ -269,6 +305,18 @@
   </data>
   <data name="&gt;&gt;OpenSearchResultsButton.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="DeleteSelectedSearchButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>427, 301</value>
+  </data>
+  <data name="DeleteSelectedSearchButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 26</value>
+  </data>
+  <data name="DeleteSelectedSearchButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="DeleteSelectedSearchButton.Text" xml:space="preserve">
+    <value>Supprimer la sélection</value>
   </data>
   <data name="&gt;&gt;DeleteSelectedSearchButton.Name" xml:space="preserve">
     <value>DeleteSelectedSearchButton</value>
@@ -282,6 +330,18 @@
   <data name="&gt;&gt;DeleteSelectedSearchButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="DeleteAllSearchHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>235, 301</value>
+  </data>
+  <data name="DeleteAllSearchHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 26</value>
+  </data>
+  <data name="DeleteAllSearchHistoryButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DeleteAllSearchHistoryButton.Text" xml:space="preserve">
+    <value>Supprimer tout l'historique</value>
+  </data>
   <data name="&gt;&gt;DeleteAllSearchHistoryButton.Name" xml:space="preserve">
     <value>DeleteAllSearchHistoryButton</value>
   </data>
@@ -293,6 +353,24 @@
   </data>
   <data name="&gt;&gt;DeleteAllSearchHistoryButton.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="SearchHistoryListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="SearchHistoryListBox.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="SearchHistoryListBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="SearchHistoryListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="SearchHistoryListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>728, 292</value>
+  </data>
+  <data name="SearchHistoryListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;SearchHistoryListBox.Name" xml:space="preserve">
     <value>SearchHistoryListBox</value>
@@ -485,108 +563,6 @@
   </data>
   <data name="&gt;&gt;HistoryTabControl.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="OpenSearchResultsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 301</value>
-  </data>
-  <data name="OpenSearchResultsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 26</value>
-  </data>
-  <data name="OpenSearchResultsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="OpenSearchResultsButton.Text" xml:space="preserve">
-    <value>Lancer la recherche</value>
-  </data>
-  <data name="&gt;&gt;OpenSearchResultsButton.Name" xml:space="preserve">
-    <value>OpenSearchResultsButton</value>
-  </data>
-  <data name="&gt;&gt;OpenSearchResultsButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OpenSearchResultsButton.Parent" xml:space="preserve">
-    <value>SearchHistoryTabPage</value>
-  </data>
-  <data name="&gt;&gt;OpenSearchResultsButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="DeleteSelectedSearchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 301</value>
-  </data>
-  <data name="DeleteSelectedSearchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 26</value>
-  </data>
-  <data name="DeleteSelectedSearchButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="DeleteSelectedSearchButton.Text" xml:space="preserve">
-    <value>Supprimer la sélection</value>
-  </data>
-  <data name="&gt;&gt;DeleteSelectedSearchButton.Name" xml:space="preserve">
-    <value>DeleteSelectedSearchButton</value>
-  </data>
-  <data name="&gt;&gt;DeleteSelectedSearchButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DeleteSelectedSearchButton.Parent" xml:space="preserve">
-    <value>SearchHistoryTabPage</value>
-  </data>
-  <data name="&gt;&gt;DeleteSelectedSearchButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="DeleteAllSearchHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 301</value>
-  </data>
-  <data name="DeleteAllSearchHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 26</value>
-  </data>
-  <data name="DeleteAllSearchHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="DeleteAllSearchHistoryButton.Text" xml:space="preserve">
-    <value>Supprimer tout l'historique</value>
-  </data>
-  <data name="&gt;&gt;DeleteAllSearchHistoryButton.Name" xml:space="preserve">
-    <value>DeleteAllSearchHistoryButton</value>
-  </data>
-  <data name="&gt;&gt;DeleteAllSearchHistoryButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DeleteAllSearchHistoryButton.Parent" xml:space="preserve">
-    <value>SearchHistoryTabPage</value>
-  </data>
-  <data name="&gt;&gt;DeleteAllSearchHistoryButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="SearchHistoryListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="SearchHistoryListBox.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="SearchHistoryListBox.ItemHeight" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="SearchHistoryListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="SearchHistoryListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>728, 292</value>
-  </data>
-  <data name="SearchHistoryListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SearchHistoryListBox.Name" xml:space="preserve">
-    <value>SearchHistoryListBox</value>
-  </data>
-  <data name="&gt;&gt;SearchHistoryListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SearchHistoryListBox.Parent" xml:space="preserve">
-    <value>SearchHistoryTabPage</value>
-  </data>
-  <data name="&gt;&gt;SearchHistoryListBox.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

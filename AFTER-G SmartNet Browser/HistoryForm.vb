@@ -135,4 +135,9 @@
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Navigate(DownloadHistoryListBox.SelectedItem.ToString)
     End Sub
+
+    Private Sub OpenNewHistoryButton_Click(sender As Object, e As EventArgs) Handles OpenNewHistoryButton.Click
+        NewHistoryForm.Show()
+        Me.Close()
+    End Sub
 End Class

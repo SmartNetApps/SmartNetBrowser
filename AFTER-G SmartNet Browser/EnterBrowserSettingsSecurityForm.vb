@@ -12,7 +12,7 @@ Public Class EnterBrowserSettingsSecurityForm
                 Case "Settings"
                     SettingsForm.Show()
                 Case "History"
-                    HistoryForm.Show()
+                    NewHistoryForm.Show()
                 Case "Favorites"
                     FavoritesForm.Show()
                 Case Else

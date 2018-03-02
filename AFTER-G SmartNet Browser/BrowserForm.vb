@@ -27,6 +27,7 @@ Public Class BrowserForm
     ''' <param name="NewPage">Page web à ajouter</param>
     Public Sub AddInHistory(NewPage As Webpage)
         Historique.Add(NewPage)
+        My.Settings.History.Add(NewPage.GetURL())
         My.Settings.NewHistory = Historique
         My.Settings.Save()
     End Sub

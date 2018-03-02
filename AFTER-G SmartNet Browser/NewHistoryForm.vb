@@ -26,10 +26,6 @@
         Me.Close()
     End Sub
 
-    Private Sub HistoryListView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HistoryListView.SelectedIndexChanged
-
-    End Sub
-
     Private Sub OpenPageButton_Click(sender As Object, e As EventArgs) Handles OpenPageButton.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         For Each Item In HistoryListView.SelectedItems
