@@ -751,17 +751,17 @@ Public Class BrowserForm
 
     Private Sub SmartNetBrowserClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Try
-            If BrowserTabs.TabPages.Count > 1 Then
-                If My.Settings.PreventMultipleTabsClose = True Then
-                    e.Cancel = True
-                    PreventTabsCloseForm.ShowDialog()
-                Else
+            If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
+                e.Cancel = True
+                If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
                     My.Settings.LastClosedTab = ""
                     My.Settings.Save()
+                    End
                 End If
             Else
                 My.Settings.LastClosedTab = ""
                 My.Settings.Save()
+                End
             End If
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
@@ -773,17 +773,15 @@ Public Class BrowserForm
     End Sub
     Private Sub SmartNetBrowserClosingWithButton(sender As Object, e As EventArgs) Handles FermerSmartNetBrowserToolStripMenuItem.Click
         Try
-            If BrowserTabs.TabPages.Count > 1 Then
-                If My.Settings.PreventMultipleTabsClose = True Then
-                    PreventTabsCloseForm.ShowDialog()
-                Else
+            If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
+                If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
+                    My.Settings.LastClosedTab = ""
                     My.Settings.Save()
-                    Application.Exit()
                     End
                 End If
             Else
+                My.Settings.LastClosedTab = ""
                 My.Settings.Save()
-                Application.Exit()
                 End
             End If
         Catch ex As Exception

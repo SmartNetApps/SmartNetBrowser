@@ -12,17 +12,12 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
+        Me.DialogResult = DialogResult.No
         Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles CloseTabsButton.Click
-        My.Settings.LastClosedTab = ""
+        Me.DialogResult = DialogResult.Yes
         Me.Close()
-        My.Settings.Save()
-        Try
-            End
-        Catch ex As Exception
-        End Try
-
     End Sub
 End Class
