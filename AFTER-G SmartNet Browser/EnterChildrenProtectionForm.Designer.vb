@@ -48,6 +48,7 @@ Partial Class EnterChildrenProtectionForm
         '
         'AbortButton
         '
+        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.AbortButton, "AbortButton")
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
@@ -57,6 +58,7 @@ Partial Class EnterChildrenProtectionForm
         Me.AcceptButton = Me.OKButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.AbortButton
         Me.Controls.Add(Me.AbortButton)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.PasswordTextBox)

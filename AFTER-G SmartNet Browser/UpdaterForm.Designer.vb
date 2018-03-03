@@ -37,10 +37,10 @@ Partial Class UpdaterForm
         '
         'RichTextBox1
         '
-        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
         Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow
+        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
         Me.RichTextBox1.Name = "RichTextBox1"
         '
         'DownloadButton
@@ -51,6 +51,7 @@ Partial Class UpdaterForm
         '
         'CloseButton
         '
+        Me.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.CloseButton, "CloseButton")
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.UseVisualStyleBackColor = True
@@ -62,8 +63,10 @@ Partial Class UpdaterForm
         '
         'UpdaterForm
         '
+        Me.AcceptButton = Me.DownloadButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.CloseButton
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.DownloadButton)

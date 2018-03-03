@@ -36,7 +36,8 @@ Partial Class NewBrowserForm
         Me.URLBox.Location = New System.Drawing.Point(28, 4)
         Me.URLBox.Name = "URLBox"
         Me.URLBox.Size = New System.Drawing.Size(905, 23)
-        Me.URLBox.TabIndex = 0
+        Me.URLBox.TabIndex = 2
+        Me.URLBox.TabStop = False
         '
         'FaviconBox
         '
@@ -54,7 +55,7 @@ Partial Class NewBrowserForm
         Me.GeckoWebBrowser1.Location = New System.Drawing.Point(0, 33)
         Me.GeckoWebBrowser1.Name = "GeckoWebBrowser1"
         Me.GeckoWebBrowser1.Size = New System.Drawing.Size(939, 462)
-        Me.GeckoWebBrowser1.TabIndex = 3
+        Me.GeckoWebBrowser1.TabIndex = 1
         Me.GeckoWebBrowser1.UseHttpActivityObserver = False
         '
         'NewBrowserForm

@@ -38,7 +38,7 @@
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartButton.Click
         My.Settings.FirstStart = False
         My.Settings.Homepage = HomepageURLBox.Text
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -51,6 +51,12 @@
             My.Settings.AdBlocker = True
         Else
             My.Settings.AdBlocker = False
+        End If
+    End Sub
+
+    Private Sub FirstStartForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
         End If
     End Sub
 End Class

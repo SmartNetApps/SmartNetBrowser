@@ -25,9 +25,9 @@ Partial Class UserAgentChangeForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserAgentChangeForm))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.UserAgentRichTextBox = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.OKButton = New System.Windows.Forms.Button()
         Me.ReturnToDefaultButton = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.AbortButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -37,16 +37,16 @@ Partial Class UserAgentChangeForm
         '
         'UserAgentRichTextBox
         '
-        resources.ApplyResources(Me.UserAgentRichTextBox, "UserAgentRichTextBox")
         Me.UserAgentRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.UserAgentRichTextBox.DetectUrls = False
+        resources.ApplyResources(Me.UserAgentRichTextBox, "UserAgentRichTextBox")
         Me.UserAgentRichTextBox.Name = "UserAgentRichTextBox"
         '
-        'Button1
+        'OKButton
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.OKButton, "OKButton")
+        Me.OKButton.Name = "OKButton"
+        Me.OKButton.UseVisualStyleBackColor = True
         '
         'ReturnToDefaultButton
         '
@@ -54,19 +54,22 @@ Partial Class UserAgentChangeForm
         Me.ReturnToDefaultButton.Name = "ReturnToDefaultButton"
         Me.ReturnToDefaultButton.UseVisualStyleBackColor = True
         '
-        'Button3
+        'AbortButton
         '
-        resources.ApplyResources(Me.Button3, "Button3")
-        Me.Button3.Name = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.AbortButton, "AbortButton")
+        Me.AbortButton.Name = "AbortButton"
+        Me.AbortButton.UseVisualStyleBackColor = True
         '
         'UserAgentChangeForm
         '
+        Me.AcceptButton = Me.OKButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.AbortButton
         Me.Controls.Add(Me.ReturnToDefaultButton)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.AbortButton)
+        Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.UserAgentRichTextBox)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -81,7 +84,7 @@ Partial Class UserAgentChangeForm
 
     Friend WithEvents Label1 As Label
     Friend WithEvents UserAgentRichTextBox As RichTextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents OKButton As Button
     Friend WithEvents ReturnToDefaultButton As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents AbortButton As Button
 End Class

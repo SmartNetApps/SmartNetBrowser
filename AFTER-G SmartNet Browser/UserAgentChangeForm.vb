@@ -17,11 +17,11 @@
         Me.Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         My.Settings.UserAgent = UserAgentRichTextBox.Text
         Gecko.GeckoPreferences.User("general.useragent.override") = UserAgentRichTextBox.Text
         SettingsForm.UserAgentTextBox.Text = UserAgentRichTextBox.Text

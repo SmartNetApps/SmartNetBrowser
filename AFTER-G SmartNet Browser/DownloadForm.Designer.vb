@@ -43,6 +43,7 @@ Partial Class DownloadForm
         'AbortButton
         '
         resources.ApplyResources(Me.AbortButton, "AbortButton")
+        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
         '
@@ -87,6 +88,7 @@ Partial Class DownloadForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.AbortButton
         Me.Controls.Add(Me.OpenButton)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.Label2)

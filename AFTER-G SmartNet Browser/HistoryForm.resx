@@ -136,7 +136,7 @@
     <value>728, 292</value>
   </data>
   <data name="BrowsingHistoryListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;BrowsingHistoryListBox.Name" xml:space="preserve">
     <value>BrowsingHistoryListBox</value>
@@ -160,7 +160,7 @@
     <value>164, 26</value>
   </data>
   <data name="DeleteAllBrowsingHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="DeleteAllBrowsingHistoryButton.Text" xml:space="preserve">
     <value>Effacer tout l'historique</value>
@@ -187,7 +187,7 @@
     <value>189, 26</value>
   </data>
   <data name="RemoveSelectedBrowsingButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="RemoveSelectedBrowsingButton.Text" xml:space="preserve">
     <value>Retirer l'entrée séléctionnée</value>
@@ -214,7 +214,7 @@
     <value>195, 26</value>
   </data>
   <data name="DisplaySelectedBrowsingButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="DisplaySelectedBrowsingButton.Text" xml:space="preserve">
     <value>Afficher la page séléctionnée</value>
@@ -238,7 +238,7 @@
     <value>130, 26</value>
   </data>
   <data name="OpenNewHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="OpenNewHistoryButton.Text" xml:space="preserve">
     <value>Nouvel historique</value>
@@ -289,7 +289,7 @@
     <value>139, 26</value>
   </data>
   <data name="OpenSearchResultsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="OpenSearchResultsButton.Text" xml:space="preserve">
     <value>Lancer la recherche</value>
@@ -313,7 +313,7 @@
     <value>156, 26</value>
   </data>
   <data name="DeleteSelectedSearchButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="DeleteSelectedSearchButton.Text" xml:space="preserve">
     <value>Supprimer la sélection</value>
@@ -337,7 +337,7 @@
     <value>186, 26</value>
   </data>
   <data name="DeleteAllSearchHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="DeleteAllSearchHistoryButton.Text" xml:space="preserve">
     <value>Supprimer tout l'historique</value>
@@ -370,7 +370,7 @@
     <value>728, 292</value>
   </data>
   <data name="SearchHistoryListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;SearchHistoryListBox.Name" xml:space="preserve">
     <value>SearchHistoryListBox</value>
@@ -418,7 +418,7 @@
     <value>201, 26</value>
   </data>
   <data name="DownloadAgainButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="DownloadAgainButton.Text" xml:space="preserve">
     <value>Télécharger une nouvelle fois</value>
@@ -442,7 +442,7 @@
     <value>133, 26</value>
   </data>
   <data name="RemoveSelectedDownload.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="RemoveSelectedDownload.Text" xml:space="preserve">
     <value>Retirer la sélection</value>
@@ -466,7 +466,7 @@
     <value>161, 26</value>
   </data>
   <data name="DeleteAllDownloadHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="DeleteAllDownloadHistoryButton.Text" xml:space="preserve">
     <value>Effacer tout l'historique</value>
@@ -499,7 +499,7 @@
     <value>728, 292</value>
   </data>
   <data name="DownloadHistoryListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;DownloadHistoryListBox.Name" xml:space="preserve">
     <value>DownloadHistoryListBox</value>
@@ -550,7 +550,7 @@
     <value>742, 363</value>
   </data>
   <data name="HistoryTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;HistoryTabControl.Name" xml:space="preserve">
     <value>HistoryTabControl</value>

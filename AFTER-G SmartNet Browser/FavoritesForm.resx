@@ -150,7 +150,7 @@
     <value>174, 26</value>
   </data>
   <data name="GoToFavoriteButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="GoToFavoriteButton.Text" xml:space="preserve">
     <value>Naviguer vers ce favori</value>
@@ -174,7 +174,7 @@
     <value>140, 26</value>
   </data>
   <data name="DeleteButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="DeleteButton.Text" xml:space="preserve">
     <value>Supprimer ce favori</value>
@@ -5915,10 +5915,6 @@
         AAAAAAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AIABAADAAwAA4AcAAA==
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Favoris - SmartNet Browser</value>

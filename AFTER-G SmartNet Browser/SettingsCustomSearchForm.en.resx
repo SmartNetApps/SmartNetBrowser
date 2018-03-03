@@ -133,9 +133,6 @@
   <data name="Label2.Text" xml:space="preserve">
     <value>URL of the engine</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 15</value>
-  </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>+keywords</value>
   </data>

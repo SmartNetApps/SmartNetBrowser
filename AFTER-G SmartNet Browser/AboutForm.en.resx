@@ -117,9 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Third party software</value>
@@ -127,9 +134,15 @@
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>333, 30</value>
   </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>ClipConverter : © 2016 Clip Converter
 distributed according to its terms and conditions, available on</value>
+  </data>
+  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
     <value>Browse the web easily and faster than ever with SmartNet Browser.
@@ -142,6 +155,9 @@ All its awesome features are just some clicks away.</value>
   <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 15</value>
   </data>
+  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="HomepageLinkLabel.Text" xml:space="preserve">
     <value>Software homepage</value>
   </data>
@@ -151,17 +167,29 @@ All its awesome features are just some clicks away.</value>
   <data name="LicenseLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 15</value>
   </data>
+  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="LicenseLinkLabel.Text" xml:space="preserve">
     <value>License</value>
   </data>
   <data name="ClipconverterLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>359, 209</value>
   </data>
+  <data name="ClipconverterLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="GeckoFXLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>384, 243</value>
   </data>
+  <data name="GeckoFXLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>342, 30</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>GeckoFX, by TomHindle
@@ -2342,6 +2370,9 @@ distributed according to the Mozilla Public License, available on</value>
   <data name="ReleaseNotesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 15</value>
   </data>
+  <data name="ReleaseNotesLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="ReleaseNotesLinkLabel.Text" xml:space="preserve">
     <value>Release notes</value>
   </data>
@@ -2350,6 +2381,9 @@ distributed according to the Mozilla Public License, available on</value>
   </data>
   <data name="GitHubLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 15</value>
+  </data>
+  <data name="GitHubLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="GitHubLinkLabel.Text" xml:space="preserve">
     <value>Source code</value>

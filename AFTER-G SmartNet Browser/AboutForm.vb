@@ -36,4 +36,10 @@
         BrowserForm.AddTab("https://github.com/RNbowKing/SmartNetBrowser", BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
+
+    Private Sub AboutForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+        End If
+    End Sub
 End Class

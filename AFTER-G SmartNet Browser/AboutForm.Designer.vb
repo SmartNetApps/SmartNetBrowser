@@ -71,19 +71,19 @@ Partial Class AboutForm
         '
         'RichTextBox1
         '
-        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
         Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.RichTextBox1.DetectUrls = False
+        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.TabStop = False
         '
         'HomepageLinkLabel
         '
-        resources.ApplyResources(Me.HomepageLinkLabel, "HomepageLinkLabel")
         Me.HomepageLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.HomepageLinkLabel, "HomepageLinkLabel")
         Me.HomepageLinkLabel.BackColor = System.Drawing.Color.White
         Me.HomepageLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.HomepageLinkLabel.Name = "HomepageLinkLabel"
@@ -92,8 +92,8 @@ Partial Class AboutForm
         '
         'LicenseLinkLabel
         '
-        resources.ApplyResources(Me.LicenseLinkLabel, "LicenseLinkLabel")
         Me.LicenseLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.LicenseLinkLabel, "LicenseLinkLabel")
         Me.LicenseLinkLabel.BackColor = System.Drawing.Color.White
         Me.LicenseLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.LicenseLinkLabel.Name = "LicenseLinkLabel"
@@ -102,8 +102,8 @@ Partial Class AboutForm
         '
         'ClipconverterLinkLabel
         '
-        resources.ApplyResources(Me.ClipconverterLinkLabel, "ClipconverterLinkLabel")
         Me.ClipconverterLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.ClipconverterLinkLabel, "ClipconverterLinkLabel")
         Me.ClipconverterLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.ClipconverterLinkLabel.Name = "ClipconverterLinkLabel"
         Me.ClipconverterLinkLabel.TabStop = True
@@ -111,8 +111,8 @@ Partial Class AboutForm
         '
         'GeckoFXLinkLabel
         '
-        resources.ApplyResources(Me.GeckoFXLinkLabel, "GeckoFXLinkLabel")
         Me.GeckoFXLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.GeckoFXLinkLabel, "GeckoFXLinkLabel")
         Me.GeckoFXLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.GeckoFXLinkLabel.Name = "GeckoFXLinkLabel"
         Me.GeckoFXLinkLabel.TabStop = True
@@ -137,11 +137,11 @@ Partial Class AboutForm
         '
         'LicensePictureBox
         '
-        resources.ApplyResources(Me.LicensePictureBox, "LicensePictureBox")
         Me.LicensePictureBox.BackColor = System.Drawing.Color.White
         Me.LicensePictureBox.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LicensePictureBox.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
         Me.LicensePictureBox.Image = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
+        resources.ApplyResources(Me.LicensePictureBox, "LicensePictureBox")
         Me.LicensePictureBox.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
         Me.LicensePictureBox.Name = "LicensePictureBox"
         Me.LicensePictureBox.TabStop = False
@@ -160,15 +160,15 @@ Partial Class AboutForm
         '
         'PictureBox6
         '
-        resources.ApplyResources(Me.PictureBox6, "PictureBox6")
         Me.PictureBox6.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.PictureBox6, "PictureBox6")
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.TabStop = False
         '
         'ReleaseNotesLinkLabel
         '
-        resources.ApplyResources(Me.ReleaseNotesLinkLabel, "ReleaseNotesLinkLabel")
         Me.ReleaseNotesLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.ReleaseNotesLinkLabel, "ReleaseNotesLinkLabel")
         Me.ReleaseNotesLinkLabel.BackColor = System.Drawing.Color.White
         Me.ReleaseNotesLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.ReleaseNotesLinkLabel.Name = "ReleaseNotesLinkLabel"
@@ -177,8 +177,8 @@ Partial Class AboutForm
         '
         'GitHubLinkLabel
         '
-        resources.ApplyResources(Me.GitHubLinkLabel, "GitHubLinkLabel")
         Me.GitHubLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.GitHubLinkLabel, "GitHubLinkLabel")
         Me.GitHubLinkLabel.BackColor = System.Drawing.Color.White
         Me.GitHubLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.GitHubLinkLabel.Name = "GitHubLinkLabel"

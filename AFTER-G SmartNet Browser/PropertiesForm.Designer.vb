@@ -29,22 +29,22 @@ Partial Class PropertiesForm
         Me.PageTypeLabel = New System.Windows.Forms.Label()
         Me.PageURLTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CloseButton = New System.Windows.Forms.Button()
         CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FaviconBox
         '
-        resources.ApplyResources(Me.FaviconBox, "FaviconBox")
         Me.FaviconBox.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.FaviconBox, "FaviconBox")
         Me.FaviconBox.Name = "FaviconBox"
         Me.FaviconBox.TabStop = False
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
@@ -61,30 +61,33 @@ Partial Class PropertiesForm
         '
         'PageURLTextBox
         '
-        resources.ApplyResources(Me.PageURLTextBox, "PageURLTextBox")
         Me.PageURLTextBox.BackColor = System.Drawing.SystemColors.Control
         Me.PageURLTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PageURLTextBox.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.PageURLTextBox.DetectUrls = False
+        resources.ApplyResources(Me.PageURLTextBox, "PageURLTextBox")
         Me.PageURLTextBox.Name = "PageURLTextBox"
         Me.PageURLTextBox.ReadOnly = True
+        Me.PageURLTextBox.TabStop = False
         '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
-        'Button1
+        'CloseButton
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.CloseButton, "CloseButton")
+        Me.CloseButton.Name = "CloseButton"
+        Me.CloseButton.UseVisualStyleBackColor = True
         '
         'PropertiesForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Button1)
+        Me.CancelButton = Me.CloseButton
+        Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.PageURLTextBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PageTypeLabel)
@@ -107,6 +110,6 @@ Partial Class PropertiesForm
     Friend WithEvents PageTypeLabel As Label
     Friend WithEvents PageURLTextBox As RichTextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents CloseButton As Button
     Friend WithEvents FaviconBox As PictureBox
 End Class

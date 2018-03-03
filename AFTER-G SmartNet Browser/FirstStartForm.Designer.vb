@@ -35,7 +35,7 @@ Partial Class FirstStartForm
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.StartButton = New System.Windows.Forms.Button()
         Me.SmartNetSecurityGroupBox = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -131,11 +131,11 @@ Partial Class FirstStartForm
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'Button1
+        'StartButton
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.StartButton, "StartButton")
+        Me.StartButton.Name = "StartButton"
+        Me.StartButton.UseVisualStyleBackColor = True
         '
         'SmartNetSecurityGroupBox
         '
@@ -179,12 +179,13 @@ Partial Class FirstStartForm
         '
         'FirstStartForm
         '
+        Me.AcceptButton = Me.StartButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.SmartNetSecurityGroupBox)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.SearchEngineGroupBox)
         Me.Controls.Add(Me.HomepageGroupBox)
         Me.Controls.Add(Me.Label1)
@@ -217,7 +218,7 @@ Partial Class FirstStartForm
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents Button1 As Button
+    Friend WithEvents StartButton As Button
     Friend WithEvents SmartNetSecurityGroupBox As GroupBox
     Friend WithEvents AdBlockerCheckBox As CheckBox
     Friend WithEvents Label3 As Label

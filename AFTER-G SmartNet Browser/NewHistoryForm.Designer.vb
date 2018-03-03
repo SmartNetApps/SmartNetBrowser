@@ -72,7 +72,7 @@ Partial Class NewHistoryForm
         Me.DeleteButton.Location = New System.Drawing.Point(563, 465)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(217, 31)
-        Me.DeleteButton.TabIndex = 2
+        Me.DeleteButton.TabIndex = 4
         Me.DeleteButton.Text = "Supprimer l'entrée sélectionnée"
         Me.DeleteButton.UseVisualStyleBackColor = True
         '
@@ -90,7 +90,7 @@ Partial Class NewHistoryForm
         Me.OpenOldHistoryButton.Location = New System.Drawing.Point(254, 465)
         Me.OpenOldHistoryButton.Name = "OpenOldHistoryButton"
         Me.OpenOldHistoryButton.Size = New System.Drawing.Size(174, 31)
-        Me.OpenOldHistoryButton.TabIndex = 4
+        Me.OpenOldHistoryButton.TabIndex = 2
         Me.OpenOldHistoryButton.Text = "Ouvrir l'ancien historique"
         Me.OpenOldHistoryButton.UseVisualStyleBackColor = True
         '

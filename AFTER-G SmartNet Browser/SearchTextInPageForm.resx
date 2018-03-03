@@ -117,22 +117,193 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label1A.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TextBox1A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
   </data>
-  <data name="Button1A.TabIndex" type="System.Int32, mscorlib">
+  <data name="TextBox1A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TextBox1A.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TextBox1A.Name" xml:space="preserve">
+    <value>TextBox1A</value>
+  </data>
+  <data name="&gt;&gt;TextBox1A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox1A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TextBox1A.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="TextBox3A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 144</value>
+  <data name="Label1A.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 77</value>
+  </data>
+  <data name="Label1A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 15</value>
+  </data>
+  <data name="Label1A.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label1A.Text" xml:space="preserve">
+    <value>Entrez du texte, deux caractères minimum</value>
+  </data>
+  <data name="&gt;&gt;Label1A.Name" xml:space="preserve">
+    <value>Label1A</value>
+  </data>
+  <data name="&gt;&gt;Label1A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1A.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Button3A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 101</value>
+  </data>
+  <data name="Button3A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 23</value>
+  </data>
+  <data name="Button3A.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Button3A.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="&gt;&gt;Button3A.Name" xml:space="preserve">
+    <value>Button3A</value>
   </data>
   <data name="&gt;&gt;Button3A.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;Button3A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button3A.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="TextBox2A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 144</value>
+  </data>
+  <data name="TextBox2A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 23</value>
+  </data>
+  <data name="TextBox2A.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="TextBox2A.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TextBox2A.Name" xml:space="preserve">
+    <value>TextBox2A</value>
+  </data>
+  <data name="&gt;&gt;TextBox2A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox2A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TextBox2A.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TextBox3A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 144</value>
+  </data>
+  <data name="TextBox3A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 23</value>
+  </data>
   <data name="TextBox3A.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="TextBox3A.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TextBox3A.Name" xml:space="preserve">
+    <value>TextBox3A</value>
+  </data>
+  <data name="&gt;&gt;TextBox3A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox3A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TextBox3A.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ComboBox1A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 41</value>
+  </data>
+  <data name="ComboBox1A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 23</value>
+  </data>
+  <data name="ComboBox1A.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ComboBox1A.Text" xml:space="preserve">
+    <value>Double-clic pour changer la couleur du surlignage</value>
+  </data>
+  <data name="&gt;&gt;ComboBox1A.Name" xml:space="preserve">
+    <value>ComboBox1A</value>
+  </data>
+  <data name="&gt;&gt;ComboBox1A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBox1A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ComboBox1A.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Button1A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 101</value>
+  </data>
+  <data name="Button1A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="Button1A.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Button1A.Text" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="&gt;&gt;Button1A.Name" xml:space="preserve">
+    <value>Button1A</value>
+  </data>
+  <data name="&gt;&gt;Button1A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button1A.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button1A.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Button2A.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 101</value>
+  </data>
+  <data name="Button2A.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="Button2A.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Button2A.Text" xml:space="preserve">
+    <value>Chercher</value>
+  </data>
+  <data name="&gt;&gt;Button2A.Name" xml:space="preserve">
+    <value>Button2A</value>
+  </data>
+  <data name="&gt;&gt;Button2A.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button2A.Parent" xml:space="preserve">
     <value>$this</value>
@@ -140,113 +311,17 @@
   <data name="&gt;&gt;Button2A.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Label1A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox1A.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>
-  <data name="Button2A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="Button1A.Text" xml:space="preserve">
-    <value>Effacer</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TextBox2A.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ComboBox1A.Text" xml:space="preserve">
-    <value>Double-clic pour changer la couleur du surlignage</value>
-  </data>
-  <data name="Label1A.Text" xml:space="preserve">
-    <value>Entrez du texte, deux caractères minimum</value>
-  </data>
-  <data name="Button3A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 101</value>
-  </data>
-  <data name="&gt;&gt;TextBox3A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button3A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TextBox2A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TextBox1A.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;TextBox2A.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Label1A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 15</value>
-  </data>
-  <data name="Button1A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="Button2A.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;TextBox2A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>401, 136</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;Button1A.Name" xml:space="preserve">
-    <value>Button1A</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button2A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox2A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 144</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1A.Name" xml:space="preserve">
-    <value>ComboBox1A</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1A.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Button3A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 23</value>
-  </data>
-  <data name="Label1A.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Button2A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 101</value>
-  </data>
-  <data name="TextBox2A.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ComboBox1A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 41</value>
-  </data>
-  <data name="&gt;&gt;Label1A.Name" xml:space="preserve">
-    <value>Label1A</value>
-  </data>
-  <data name="TextBox2A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 23</value>
-  </data>
-  <data name="&gt;&gt;Button2A.Name" xml:space="preserve">
-    <value>Button2A</value>
-  </data>
-  <data name="&gt;&gt;Label1A.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;TextBox3A.Name" xml:space="preserve">
-    <value>TextBox3A</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5961,91 +6036,13 @@
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
-  <data name="&gt;&gt;ComboBox1A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox3A.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TextBox3A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 23</value>
-  </data>
-  <data name="ComboBox1A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 23</value>
-  </data>
-  <data name="&gt;&gt;TextBox3A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TextBox1A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="ComboBox1A.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Button3A.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Label1A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Button1A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox1A.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox2A.Name" xml:space="preserve">
-    <value>TextBox2A</value>
-  </data>
-  <data name="&gt;&gt;Button3A.Name" xml:space="preserve">
-    <value>Button3A</value>
-  </data>
-  <data name="&gt;&gt;TextBox1A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Button2A.Text" xml:space="preserve">
-    <value>Chercher</value>
-  </data>
-  <data name="&gt;&gt;Button1A.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TextBox3A.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Rechercher sur la page...</value>
-  </data>
-  <data name="&gt;&gt;Button1A.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;TextBox1A.Name" xml:space="preserve">
-    <value>TextBox1A</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>401, 136</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SearchTextInPageForm</value>
   </data>
-  <data name="Button1A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 101</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TextBox1A.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 23</value>
-  </data>
-  <data name="Label1A.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 77</value>
-  </data>
-  <data name="&gt;&gt;Button3A.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Button3A.Text" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
 </root>

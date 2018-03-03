@@ -29,6 +29,7 @@ Partial Class HistoryForm
         Me.DisplaySelectedBrowsingButton = New System.Windows.Forms.Button()
         Me.HistoryTabControl = New System.Windows.Forms.TabControl()
         Me.BrowsingHistoryTabPage = New System.Windows.Forms.TabPage()
+        Me.OpenNewHistoryButton = New System.Windows.Forms.Button()
         Me.SearchHistoryTabPage = New System.Windows.Forms.TabPage()
         Me.OpenSearchResultsButton = New System.Windows.Forms.Button()
         Me.DeleteSelectedSearchButton = New System.Windows.Forms.Button()
@@ -39,7 +40,6 @@ Partial Class HistoryForm
         Me.RemoveSelectedDownload = New System.Windows.Forms.Button()
         Me.DeleteAllDownloadHistoryButton = New System.Windows.Forms.Button()
         Me.DownloadHistoryListBox = New System.Windows.Forms.ListBox()
-        Me.OpenNewHistoryButton = New System.Windows.Forms.Button()
         Me.HistoryTabControl.SuspendLayout()
         Me.BrowsingHistoryTabPage.SuspendLayout()
         Me.SearchHistoryTabPage.SuspendLayout()
@@ -89,6 +89,12 @@ Partial Class HistoryForm
         resources.ApplyResources(Me.BrowsingHistoryTabPage, "BrowsingHistoryTabPage")
         Me.BrowsingHistoryTabPage.Name = "BrowsingHistoryTabPage"
         Me.BrowsingHistoryTabPage.UseVisualStyleBackColor = True
+        '
+        'OpenNewHistoryButton
+        '
+        resources.ApplyResources(Me.OpenNewHistoryButton, "OpenNewHistoryButton")
+        Me.OpenNewHistoryButton.Name = "OpenNewHistoryButton"
+        Me.OpenNewHistoryButton.UseVisualStyleBackColor = True
         '
         'SearchHistoryTabPage
         '
@@ -157,12 +163,6 @@ Partial Class HistoryForm
         resources.ApplyResources(Me.DownloadHistoryListBox, "DownloadHistoryListBox")
         Me.DownloadHistoryListBox.FormattingEnabled = True
         Me.DownloadHistoryListBox.Name = "DownloadHistoryListBox"
-        '
-        'OpenNewHistoryButton
-        '
-        resources.ApplyResources(Me.OpenNewHistoryButton, "OpenNewHistoryButton")
-        Me.OpenNewHistoryButton.Name = "OpenNewHistoryButton"
-        Me.OpenNewHistoryButton.UseVisualStyleBackColor = True
         '
         'HistoryForm
         '

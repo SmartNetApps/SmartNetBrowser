@@ -33,6 +33,7 @@ Partial Class ChangeBrowserSettingsSecurityPasswordForm
         '
         'KeepCurrentSettingsButton
         '
+        Me.KeepCurrentSettingsButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.KeepCurrentSettingsButton, "KeepCurrentSettingsButton")
         Me.KeepCurrentSettingsButton.Name = "KeepCurrentSettingsButton"
         Me.KeepCurrentSettingsButton.UseVisualStyleBackColor = True
@@ -67,8 +68,10 @@ Partial Class ChangeBrowserSettingsSecurityPasswordForm
         '
         'ChangeBrowserSettingsSecurityPasswordForm
         '
+        Me.AcceptButton = Me.SavePasswordButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.KeepCurrentSettingsButton
         Me.Controls.Add(Me.KeepCurrentSettingsButton)
         Me.Controls.Add(Me.SavePasswordButton)
         Me.Controls.Add(Me.NewPasswordTextBox)

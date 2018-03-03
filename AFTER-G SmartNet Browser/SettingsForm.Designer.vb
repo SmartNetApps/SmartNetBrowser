@@ -120,32 +120,32 @@ Partial Class SettingsForm
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.Général)
         Me.TabControl1.Controls.Add(Me.Confidentialité)
         Me.TabControl1.Controls.Add(Me.SecurityTabPage)
         Me.TabControl1.Controls.Add(Me.AdBlockerTabPage)
         Me.TabControl1.Controls.Add(Me.MisesàJour)
         Me.TabControl1.Controls.Add(Me.Avancé)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'Général
         '
-        resources.ApplyResources(Me.Général, "Général")
         Me.Général.Controls.Add(Me.DownloadsGroupBox)
         Me.Général.Controls.Add(Me.AutresOptionsGroupBox)
         Me.Général.Controls.Add(Me.SearchEngineGroupBox)
         Me.Général.Controls.Add(Me.HomepageGroupBox)
+        resources.ApplyResources(Me.Général, "Général")
         Me.Général.Name = "Général"
         Me.Général.UseVisualStyleBackColor = True
         '
         'DownloadsGroupBox
         '
-        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Controls.Add(Me.Label5)
         Me.DownloadsGroupBox.Controls.Add(Me.SetDefaultDownloadFolderButton)
         Me.DownloadsGroupBox.Controls.Add(Me.DefaultDownloadFolderTextBox)
+        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Name = "DownloadsGroupBox"
         Me.DownloadsGroupBox.TabStop = False
         '
@@ -167,8 +167,8 @@ Partial Class SettingsForm
         '
         'AutresOptionsGroupBox
         '
-        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Controls.Add(Me.PreventMultipleTabsCloseCheckBox)
+        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Name = "AutresOptionsGroupBox"
         Me.AutresOptionsGroupBox.TabStop = False
         '
@@ -182,7 +182,6 @@ Partial Class SettingsForm
         '
         'SearchEngineGroupBox
         '
-        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
         Me.SearchEngineGroupBox.Controls.Add(Me.CustomSearchSettingsButton)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton0)
@@ -190,6 +189,7 @@ Partial Class SettingsForm
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton3)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton1)
+        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Name = "SearchEngineGroupBox"
         Me.SearchEngineGroupBox.TabStop = False
         '
@@ -243,11 +243,11 @@ Partial Class SettingsForm
         '
         'HomepageGroupBox
         '
-        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Controls.Add(Me.WhitePageHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.ActualPageURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.MenuURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.HomepageURLBox)
+        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Name = "HomepageGroupBox"
         Me.HomepageGroupBox.TabStop = False
         '
@@ -276,19 +276,19 @@ Partial Class SettingsForm
         '
         'Confidentialité
         '
-        resources.ApplyResources(Me.Confidentialité, "Confidentialité")
         Me.Confidentialité.Controls.Add(Me.DeleteDataGroupBox)
         Me.Confidentialité.Controls.Add(Me.HistoryGroupBox)
+        resources.ApplyResources(Me.Confidentialité, "Confidentialité")
         Me.Confidentialité.Name = "Confidentialité"
         Me.Confidentialité.UseVisualStyleBackColor = True
         '
         'DeleteDataGroupBox
         '
-        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteSearchHistoryButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteTemporaryInternetFilesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteCookiesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteHistoryButton)
+        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Name = "DeleteDataGroupBox"
         Me.DeleteDataGroupBox.TabStop = False
         '
@@ -318,17 +318,17 @@ Partial Class SettingsForm
         '
         'HistoryGroupBox
         '
-        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Controls.Add(Me.CookiesLinkLabel)
         Me.HistoryGroupBox.Controls.Add(Me.EraseCookiesCheckBox)
         Me.HistoryGroupBox.Controls.Add(Me.PrivateBrowsingCheckBox)
+        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Name = "HistoryGroupBox"
         Me.HistoryGroupBox.TabStop = False
         '
         'CookiesLinkLabel
         '
-        resources.ApplyResources(Me.CookiesLinkLabel, "CookiesLinkLabel")
         Me.CookiesLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.CookiesLinkLabel, "CookiesLinkLabel")
         Me.CookiesLinkLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CookiesLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.CookiesLinkLabel.Name = "CookiesLinkLabel"
@@ -351,19 +351,19 @@ Partial Class SettingsForm
         '
         'SecurityTabPage
         '
-        resources.ApplyResources(Me.SecurityTabPage, "SecurityTabPage")
         Me.SecurityTabPage.Controls.Add(Me.BrowserSettingsSecurityGroupBox)
         Me.SecurityTabPage.Controls.Add(Me.ChildrenProtectionGroupBox)
+        resources.ApplyResources(Me.SecurityTabPage, "SecurityTabPage")
         Me.SecurityTabPage.Name = "SecurityTabPage"
         Me.SecurityTabPage.UseVisualStyleBackColor = True
         '
         'BrowserSettingsSecurityGroupBox
         '
-        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.HistoryFavoritesSecurityCheckBox)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.Label4)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.ChangeBrowserSettingsSecurityPasswordButton)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.BrowserSettingsSecurityCheckBox)
+        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Name = "BrowserSettingsSecurityGroupBox"
         Me.BrowserSettingsSecurityGroupBox.TabStop = False
         '
@@ -392,11 +392,11 @@ Partial Class SettingsForm
         '
         'ChildrenProtectionGroupBox
         '
-        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildGuardProblemSignalementButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.Label3)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChangeChildrenProtectionPasswordButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildrenProtectionCheckBox)
+        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Name = "ChildrenProtectionGroupBox"
         Me.ChildrenProtectionGroupBox.TabStop = False
         '
@@ -425,11 +425,11 @@ Partial Class SettingsForm
         '
         'AdBlockerTabPage
         '
-        resources.ApplyResources(Me.AdBlockerTabPage, "AdBlockerTabPage")
         Me.AdBlockerTabPage.Controls.Add(Me.AdsBlockerProblemSignalementButton)
         Me.AdBlockerTabPage.Controls.Add(Me.PopUpsBlockerCheckBox)
         Me.AdBlockerTabPage.Controls.Add(Me.EditWhitelistButton)
         Me.AdBlockerTabPage.Controls.Add(Me.AdBlockerCheckBox)
+        resources.ApplyResources(Me.AdBlockerTabPage, "AdBlockerTabPage")
         Me.AdBlockerTabPage.Name = "AdBlockerTabPage"
         Me.AdBlockerTabPage.UseVisualStyleBackColor = True
         '
@@ -459,17 +459,17 @@ Partial Class SettingsForm
         '
         'MisesàJour
         '
-        resources.ApplyResources(Me.MisesàJour, "MisesàJour")
         Me.MisesàJour.Controls.Add(Me.UpdatesGroupBox)
         Me.MisesàJour.Controls.Add(Me.AutoUpdateGroupBox)
+        resources.ApplyResources(Me.MisesàJour, "MisesàJour")
         Me.MisesàJour.Name = "MisesàJour"
         Me.MisesàJour.UseVisualStyleBackColor = True
         '
         'UpdatesGroupBox
         '
-        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Controls.Add(Me.CheckUpdatesNowButton)
         Me.UpdatesGroupBox.Controls.Add(Me.VersionActuelleLabel)
+        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Name = "UpdatesGroupBox"
         Me.UpdatesGroupBox.TabStop = False
         '
@@ -486,8 +486,8 @@ Partial Class SettingsForm
         '
         'AutoUpdateGroupBox
         '
-        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Controls.Add(Me.AutoUpdateCheckBox)
+        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Name = "AutoUpdateGroupBox"
         Me.AutoUpdateGroupBox.TabStop = False
         '
@@ -501,20 +501,20 @@ Partial Class SettingsForm
         '
         'Avancé
         '
-        resources.ApplyResources(Me.Avancé, "Avancé")
         Me.Avancé.Controls.Add(Me.LanguageGroupBox)
         Me.Avancé.Controls.Add(Me.DevelopmentGroupBox)
         Me.Avancé.Controls.Add(Me.FirstStartDialogButton)
         Me.Avancé.Controls.Add(Me.RepareBrowserGroupBox)
         Me.Avancé.Controls.Add(Me.SettingsSavesGroupBox)
+        resources.ApplyResources(Me.Avancé, "Avancé")
         Me.Avancé.Name = "Avancé"
         Me.Avancé.UseVisualStyleBackColor = True
         '
         'LanguageGroupBox
         '
-        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Controls.Add(Me.Label1)
         Me.LanguageGroupBox.Controls.Add(Me.LanguagesComboBox)
+        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Name = "LanguageGroupBox"
         Me.LanguageGroupBox.TabStop = False
         '
@@ -525,25 +525,25 @@ Partial Class SettingsForm
         '
         'LanguagesComboBox
         '
-        resources.ApplyResources(Me.LanguagesComboBox, "LanguagesComboBox")
         Me.LanguagesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.LanguagesComboBox, "LanguagesComboBox")
         Me.LanguagesComboBox.Items.AddRange(New Object() {resources.GetString("LanguagesComboBox.Items"), resources.GetString("LanguagesComboBox.Items1"), resources.GetString("LanguagesComboBox.Items2"), resources.GetString("LanguagesComboBox.Items3"), resources.GetString("LanguagesComboBox.Items4"), resources.GetString("LanguagesComboBox.Items5"), resources.GetString("LanguagesComboBox.Items6"), resources.GetString("LanguagesComboBox.Items7"), resources.GetString("LanguagesComboBox.Items8"), resources.GetString("LanguagesComboBox.Items9"), resources.GetString("LanguagesComboBox.Items10"), resources.GetString("LanguagesComboBox.Items11"), resources.GetString("LanguagesComboBox.Items12"), resources.GetString("LanguagesComboBox.Items13"), resources.GetString("LanguagesComboBox.Items14"), resources.GetString("LanguagesComboBox.Items15"), resources.GetString("LanguagesComboBox.Items16"), resources.GetString("LanguagesComboBox.Items17"), resources.GetString("LanguagesComboBox.Items18"), resources.GetString("LanguagesComboBox.Items19"), resources.GetString("LanguagesComboBox.Items20"), resources.GetString("LanguagesComboBox.Items21"), resources.GetString("LanguagesComboBox.Items22"), resources.GetString("LanguagesComboBox.Items23"), resources.GetString("LanguagesComboBox.Items24"), resources.GetString("LanguagesComboBox.Items25"), resources.GetString("LanguagesComboBox.Items26"), resources.GetString("LanguagesComboBox.Items27"), resources.GetString("LanguagesComboBox.Items28"), resources.GetString("LanguagesComboBox.Items29"), resources.GetString("LanguagesComboBox.Items30"), resources.GetString("LanguagesComboBox.Items31"), resources.GetString("LanguagesComboBox.Items32"), resources.GetString("LanguagesComboBox.Items33"), resources.GetString("LanguagesComboBox.Items34"), resources.GetString("LanguagesComboBox.Items35"), resources.GetString("LanguagesComboBox.Items36"), resources.GetString("LanguagesComboBox.Items37"), resources.GetString("LanguagesComboBox.Items38"), resources.GetString("LanguagesComboBox.Items39"), resources.GetString("LanguagesComboBox.Items40"), resources.GetString("LanguagesComboBox.Items41"), resources.GetString("LanguagesComboBox.Items42"), resources.GetString("LanguagesComboBox.Items43"), resources.GetString("LanguagesComboBox.Items44"), resources.GetString("LanguagesComboBox.Items45"), resources.GetString("LanguagesComboBox.Items46"), resources.GetString("LanguagesComboBox.Items47"), resources.GetString("LanguagesComboBox.Items48"), resources.GetString("LanguagesComboBox.Items49"), resources.GetString("LanguagesComboBox.Items50"), resources.GetString("LanguagesComboBox.Items51"), resources.GetString("LanguagesComboBox.Items52"), resources.GetString("LanguagesComboBox.Items53"), resources.GetString("LanguagesComboBox.Items54"), resources.GetString("LanguagesComboBox.Items55"), resources.GetString("LanguagesComboBox.Items56"), resources.GetString("LanguagesComboBox.Items57"), resources.GetString("LanguagesComboBox.Items58"), resources.GetString("LanguagesComboBox.Items59"), resources.GetString("LanguagesComboBox.Items60"), resources.GetString("LanguagesComboBox.Items61"), resources.GetString("LanguagesComboBox.Items62"), resources.GetString("LanguagesComboBox.Items63"), resources.GetString("LanguagesComboBox.Items64"), resources.GetString("LanguagesComboBox.Items65"), resources.GetString("LanguagesComboBox.Items66"), resources.GetString("LanguagesComboBox.Items67"), resources.GetString("LanguagesComboBox.Items68"), resources.GetString("LanguagesComboBox.Items69"), resources.GetString("LanguagesComboBox.Items70"), resources.GetString("LanguagesComboBox.Items71"), resources.GetString("LanguagesComboBox.Items72"), resources.GetString("LanguagesComboBox.Items73"), resources.GetString("LanguagesComboBox.Items74"), resources.GetString("LanguagesComboBox.Items75"), resources.GetString("LanguagesComboBox.Items76"), resources.GetString("LanguagesComboBox.Items77"), resources.GetString("LanguagesComboBox.Items78"), resources.GetString("LanguagesComboBox.Items79"), resources.GetString("LanguagesComboBox.Items80"), resources.GetString("LanguagesComboBox.Items81"), resources.GetString("LanguagesComboBox.Items82"), resources.GetString("LanguagesComboBox.Items83"), resources.GetString("LanguagesComboBox.Items84"), resources.GetString("LanguagesComboBox.Items85"), resources.GetString("LanguagesComboBox.Items86"), resources.GetString("LanguagesComboBox.Items87"), resources.GetString("LanguagesComboBox.Items88"), resources.GetString("LanguagesComboBox.Items89"), resources.GetString("LanguagesComboBox.Items90"), resources.GetString("LanguagesComboBox.Items91"), resources.GetString("LanguagesComboBox.Items92"), resources.GetString("LanguagesComboBox.Items93"), resources.GetString("LanguagesComboBox.Items94"), resources.GetString("LanguagesComboBox.Items95"), resources.GetString("LanguagesComboBox.Items96"), resources.GetString("LanguagesComboBox.Items97"), resources.GetString("LanguagesComboBox.Items98"), resources.GetString("LanguagesComboBox.Items99"), resources.GetString("LanguagesComboBox.Items100"), resources.GetString("LanguagesComboBox.Items101"), resources.GetString("LanguagesComboBox.Items102"), resources.GetString("LanguagesComboBox.Items103"), resources.GetString("LanguagesComboBox.Items104"), resources.GetString("LanguagesComboBox.Items105"), resources.GetString("LanguagesComboBox.Items106"), resources.GetString("LanguagesComboBox.Items107"), resources.GetString("LanguagesComboBox.Items108"), resources.GetString("LanguagesComboBox.Items109"), resources.GetString("LanguagesComboBox.Items110"), resources.GetString("LanguagesComboBox.Items111"), resources.GetString("LanguagesComboBox.Items112"), resources.GetString("LanguagesComboBox.Items113"), resources.GetString("LanguagesComboBox.Items114"), resources.GetString("LanguagesComboBox.Items115"), resources.GetString("LanguagesComboBox.Items116"), resources.GetString("LanguagesComboBox.Items117"), resources.GetString("LanguagesComboBox.Items118"), resources.GetString("LanguagesComboBox.Items119"), resources.GetString("LanguagesComboBox.Items120"), resources.GetString("LanguagesComboBox.Items121"), resources.GetString("LanguagesComboBox.Items122"), resources.GetString("LanguagesComboBox.Items123"), resources.GetString("LanguagesComboBox.Items124"), resources.GetString("LanguagesComboBox.Items125"), resources.GetString("LanguagesComboBox.Items126"), resources.GetString("LanguagesComboBox.Items127"), resources.GetString("LanguagesComboBox.Items128"), resources.GetString("LanguagesComboBox.Items129"), resources.GetString("LanguagesComboBox.Items130"), resources.GetString("LanguagesComboBox.Items131"), resources.GetString("LanguagesComboBox.Items132"), resources.GetString("LanguagesComboBox.Items133"), resources.GetString("LanguagesComboBox.Items134"), resources.GetString("LanguagesComboBox.Items135"), resources.GetString("LanguagesComboBox.Items136"), resources.GetString("LanguagesComboBox.Items137"), resources.GetString("LanguagesComboBox.Items138"), resources.GetString("LanguagesComboBox.Items139"), resources.GetString("LanguagesComboBox.Items140"), resources.GetString("LanguagesComboBox.Items141"), resources.GetString("LanguagesComboBox.Items142"), resources.GetString("LanguagesComboBox.Items143"), resources.GetString("LanguagesComboBox.Items144"), resources.GetString("LanguagesComboBox.Items145"), resources.GetString("LanguagesComboBox.Items146"), resources.GetString("LanguagesComboBox.Items147"), resources.GetString("LanguagesComboBox.Items148"), resources.GetString("LanguagesComboBox.Items149"), resources.GetString("LanguagesComboBox.Items150"), resources.GetString("LanguagesComboBox.Items151"), resources.GetString("LanguagesComboBox.Items152"), resources.GetString("LanguagesComboBox.Items153"), resources.GetString("LanguagesComboBox.Items154"), resources.GetString("LanguagesComboBox.Items155"), resources.GetString("LanguagesComboBox.Items156"), resources.GetString("LanguagesComboBox.Items157"), resources.GetString("LanguagesComboBox.Items158"), resources.GetString("LanguagesComboBox.Items159"), resources.GetString("LanguagesComboBox.Items160"), resources.GetString("LanguagesComboBox.Items161"), resources.GetString("LanguagesComboBox.Items162"), resources.GetString("LanguagesComboBox.Items163"), resources.GetString("LanguagesComboBox.Items164"), resources.GetString("LanguagesComboBox.Items165"), resources.GetString("LanguagesComboBox.Items166"), resources.GetString("LanguagesComboBox.Items167"), resources.GetString("LanguagesComboBox.Items168"), resources.GetString("LanguagesComboBox.Items169"), resources.GetString("LanguagesComboBox.Items170"), resources.GetString("LanguagesComboBox.Items171"), resources.GetString("LanguagesComboBox.Items172")})
         Me.LanguagesComboBox.Name = "LanguagesComboBox"
         '
         'DevelopmentGroupBox
         '
-        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
         Me.DevelopmentGroupBox.Controls.Add(Me.ChangeUserAgentLinkLabel)
         Me.DevelopmentGroupBox.Controls.Add(Me.UserAgentTextBox)
         Me.DevelopmentGroupBox.Controls.Add(Me.Label2)
         Me.DevelopmentGroupBox.Controls.Add(Me.DisplayExceptionsCheckBox)
+        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
         Me.DevelopmentGroupBox.Name = "DevelopmentGroupBox"
         Me.DevelopmentGroupBox.TabStop = False
         '
         'ChangeUserAgentLinkLabel
         '
-        resources.ApplyResources(Me.ChangeUserAgentLinkLabel, "ChangeUserAgentLinkLabel")
         Me.ChangeUserAgentLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText
+        resources.ApplyResources(Me.ChangeUserAgentLinkLabel, "ChangeUserAgentLinkLabel")
         Me.ChangeUserAgentLinkLabel.LinkColor = System.Drawing.SystemColors.ControlText
         Me.ChangeUserAgentLinkLabel.Name = "ChangeUserAgentLinkLabel"
         Me.ChangeUserAgentLinkLabel.TabStop = True
@@ -551,11 +551,11 @@ Partial Class SettingsForm
         '
         'UserAgentTextBox
         '
-        resources.ApplyResources(Me.UserAgentTextBox, "UserAgentTextBox")
         Me.UserAgentTextBox.BackColor = System.Drawing.Color.White
         Me.UserAgentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.UserAgentTextBox.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.UserAgentTextBox.DetectUrls = False
+        resources.ApplyResources(Me.UserAgentTextBox, "UserAgentTextBox")
         Me.UserAgentTextBox.Name = "UserAgentTextBox"
         Me.UserAgentTextBox.ReadOnly = True
         '
@@ -578,8 +578,8 @@ Partial Class SettingsForm
         '
         'RepareBrowserGroupBox
         '
-        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Controls.Add(Me.RepareBrowserButton)
+        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Name = "RepareBrowserGroupBox"
         Me.RepareBrowserGroupBox.TabStop = False
         '
@@ -591,8 +591,8 @@ Partial Class SettingsForm
         '
         'SettingsSavesGroupBox
         '
-        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Controls.Add(Me.ImportSettingsButton)
+        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Name = "SettingsSavesGroupBox"
         Me.SettingsSavesGroupBox.TabStop = False
         '
@@ -608,10 +608,6 @@ Partial Class SettingsForm
         Me.OKButton.Name = "OKButton"
         Me.OKButton.UseVisualStyleBackColor = True
         '
-        'FolderBrowserDialog1
-        '
-        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.DefaultExt = "Fichier de configuration|*.config"
@@ -620,18 +616,17 @@ Partial Class SettingsForm
         '
         'AbortButton
         '
+        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.AbortButton, "AbortButton")
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
         '
-        'DefaultDownloadFolderBrowserDialog
-        '
-        resources.ApplyResources(Me.DefaultDownloadFolderBrowserDialog, "DefaultDownloadFolderBrowserDialog")
-        '
         'SettingsForm
         '
+        Me.AcceptButton = Me.OKButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.AbortButton
         Me.Controls.Add(Me.AbortButton)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.TabControl1)
