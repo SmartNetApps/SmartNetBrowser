@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _0() As System.Drawing.Bitmap
+        Friend ReadOnly Property CloseTabBlack() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("0", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("CloseTabBlack", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -73,9 +73,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _01() As System.Drawing.Bitmap
+        Friend ReadOnly Property ErrorFavicon() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("01", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("ErrorFavicon", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -83,9 +83,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property gplv3_127x51() As System.Drawing.Bitmap
+        Friend ReadOnly Property GPLv3Logo() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("gplv3-127x51", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("GPLv3Logo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -93,9 +93,19 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Mozilla_Foundation_Logo() As System.Drawing.Bitmap
+        Friend ReadOnly Property MozillaFoundationLogo() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Mozilla Foundation Logo", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("MozillaFoundationLogo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property NewTabBlack() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("NewTabBlack", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

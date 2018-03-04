@@ -139,10 +139,10 @@ Partial Class AboutForm
         '
         Me.LicensePictureBox.BackColor = System.Drawing.Color.White
         Me.LicensePictureBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LicensePictureBox.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
-        Me.LicensePictureBox.Image = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
+        Me.LicensePictureBox.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
+        Me.LicensePictureBox.Image = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
         resources.ApplyResources(Me.LicensePictureBox, "LicensePictureBox")
-        Me.LicensePictureBox.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.gplv3_127x51
+        Me.LicensePictureBox.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
         Me.LicensePictureBox.Name = "LicensePictureBox"
         Me.LicensePictureBox.TabStop = False
         '

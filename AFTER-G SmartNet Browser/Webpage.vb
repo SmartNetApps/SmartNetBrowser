@@ -11,7 +11,7 @@
     Public Sub New(uRL As String)
         Me.name = New String("(Page sans nom)".ToCharArray())
         Me.URL = New String(uRL.ToCharArray())
-        Me.favicon = BrowserForm.FaviconBox.ErrorImage
+        Me.favicon = My.Resources.ErrorFavicon
     End Sub
 
     ''' <summary>

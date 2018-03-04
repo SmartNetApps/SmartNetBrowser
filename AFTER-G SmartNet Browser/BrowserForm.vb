@@ -14,8 +14,13 @@ Public Class BrowserForm
 
     Public Sub New()
         InitializeComponent()
+        Historique = New List(Of Webpage)
         If My.Settings.NewHistory Is Nothing Then
-            Historique = New List(Of Webpage)
+            For Each historyentry In My.Settings.History
+                AddInHistory(New Webpage(historyentry), False)
+            Next
+            My.Settings.NewHistory = Historique
+            My.Settings.Save()
         Else
             Historique = CType(My.Settings.NewHistory, List(Of Webpage))
         End If
@@ -25,10 +30,15 @@ Public Class BrowserForm
     ''' Ajouter un site internet à l'historique de navigation
     ''' </summary>
     ''' <param name="NewPage">Page web à ajouter</param>
-    Public Sub AddInHistory(NewPage As Webpage)
-        Historique.Add(NewPage)
-        My.Settings.History.Add(NewPage.GetURL())
-        My.Settings.NewHistory = Historique
+    Public Sub AddInHistory(NewPage As Webpage, Optional AddInOldHistory As Boolean = True)
+        Historique = CType(My.Settings.NewHistory, List(Of Webpage))
+        If Not (Historique Is Nothing) Then
+            Historique.Add(NewPage)
+            My.Settings.NewHistory = Historique
+        End If
+        If AddInOldHistory = True Then
+            My.Settings.History.Add(NewPage.GetURL())
+        End If
         My.Settings.Save()
     End Sub
 
@@ -226,6 +236,25 @@ Public Class BrowserForm
             SearchBox.Items.Add(keywords)
             My.Settings.SearchHistory.Add(keywords)
         End If
+    End Sub
+
+    Public Sub UpdateLabels()
+        Select Case My.Settings.SearchEngine
+            Case 1
+                SearchBoxLabel.Text = "Google"
+            Case 2
+                SearchBoxLabel.Text = "Bing"
+            Case 3
+                SearchBoxLabel.Text = "Yahoo!"
+            Case 4
+                SearchBoxLabel.Text = "DuckDuckGo"
+            Case 5
+                SearchBoxLabel.Text = "Qwant"
+            Case 0
+                SearchBoxLabel.Text = My.Settings.CustomSearchName
+            Case Else
+                SearchBoxLabel.Text = "Rechercher"
+        End Select
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load

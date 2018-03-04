@@ -39,4 +39,10 @@
         End If
         TextBox2.Text = My.Settings.CustomSearchURL
     End Sub
+
+    Private Sub SettingsCustomSearchForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown, TextBox1.KeyDown, TextBox2.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+        End If
+    End Sub
 End Class

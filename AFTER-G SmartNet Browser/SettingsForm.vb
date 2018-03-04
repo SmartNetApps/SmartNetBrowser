@@ -184,7 +184,6 @@ Public Class SettingsForm
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ChangeChildrenProtectionPasswordButton.Click
         ChangeChildrenProtectionPasswordForm.ShowDialog()
     End Sub
-
     Private Sub ChildrenProtectionCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ChildrenProtectionCheckBox.CheckedChanged
         If ChildrenProtectionCheckBox.Checked = True Then
             If My.Settings.ChildrenProtection = False Then
@@ -200,7 +199,6 @@ Public Class SettingsForm
     Private Sub ChangeBrowserSettingsSecurityPasswordButton_Click(sender As Object, e As EventArgs) Handles ChangeBrowserSettingsSecurityPasswordButton.Click
         ChangeBrowserSettingsSecurityPasswordForm.ShowDialog()
     End Sub
-
     Private Sub BrowserSettingsSecurityCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles BrowserSettingsSecurityCheckBox.CheckedChanged
         If BrowserSettingsSecurityCheckBox.Checked = True Then
             If My.Settings.BrowserSettingsSecurity = False Then
@@ -229,9 +227,8 @@ Public Class SettingsForm
             PopUpsBlockerCheckBox.Checked = False
         End If
     End Sub
-
     Private Sub EditWhitelistButton_Click(sender As Object, e As EventArgs) Handles EditWhitelistButton.Click
-        AdBlockerWhitelistForm.Show()
+        AdBlockerWhitelistForm.ShowDialog()
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
@@ -353,12 +350,12 @@ StopVersionChecking:
     Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
         Me.Close()
     End Sub
-
     Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
         My.Settings.Homepage = HomepageURLBox.Text
         My.Settings.PopUpBlocker = PopUpsBlockerCheckBox.Checked
         My.Settings.DeleteCookiesWhileClosing = EraseCookiesCheckBox.Checked
         My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
+        My.Settings.HistoryFavoritesSecurity = HistoryFavoritesSecurityCheckBox.Checked
         My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
         My.Settings.DisplayExceptions = DisplayExceptionsCheckBox.Checked
         My.Settings.AdBlocker = AdBlockerCheckBox.Checked
@@ -375,14 +372,6 @@ StopVersionChecking:
         My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
         My.Settings.Save()
         Me.Close()
-    End Sub
-
-    Private Sub HistoryFavoritesSecurityCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles HistoryFavoritesSecurityCheckBox.CheckedChanged
-        If HistoryFavoritesSecurityCheckBox.Checked = True Then
-            My.Settings.HistoryFavoritesSecurity = True
-        Else
-            My.Settings.HistoryFavoritesSecurity = False
-        End If
     End Sub
 
     Private Sub SetDefaultDownloadFolderButton_Click(sender As Object, e As EventArgs) Handles SetDefaultDownloadFolderButton.Click

@@ -667,13 +667,11 @@ Partial Class BrowserForm
         '
         'FermerCetOngletToolStripMenuItem
         '
-        Me.FermerCetOngletToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._0
         Me.FermerCetOngletToolStripMenuItem.Name = "FermerCetOngletToolStripMenuItem"
         resources.ApplyResources(Me.FermerCetOngletToolStripMenuItem, "FermerCetOngletToolStripMenuItem")
         '
         'RouvrirLeDernierOngletFerméToolStripMenuItem
         '
-        Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._01
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Name = "RouvrirLeDernierOngletFerméToolStripMenuItem"
         resources.ApplyResources(Me.RouvrirLeDernierOngletFerméToolStripMenuItem, "RouvrirLeDernierOngletFerméToolStripMenuItem")
         '

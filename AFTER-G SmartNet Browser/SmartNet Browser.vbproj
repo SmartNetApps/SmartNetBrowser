@@ -241,6 +241,11 @@
     <Compile Include="FirstStartForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="NewHistoryForm.Designer.vb">
       <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </Compile>
@@ -264,11 +269,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -471,9 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="NewBrowserForm.resx">
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
@@ -596,10 +596,11 @@
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
     <Content Include="README.txt" />
-    <None Include="Resources\0.png" />
-    <None Include="Resources\01.png" />
-    <None Include="Resources\gplv3-127x51.png" />
-    <None Include="Resources\Mozilla Foundation Logo.png" />
+    <None Include="Resources\CloseTabBlack.png" />
+    <None Include="Resources\NewTabBlack.png" />
+    <None Include="Resources\ErrorFavicon.png" />
+    <None Include="Resources\GPLv3Logo.png" />
+    <None Include="Resources\MozillaFoundationLogo.png" />
     <Content Include="SmartNetBrowserIcone.ico" />
   </ItemGroup>
   <ItemGroup>
