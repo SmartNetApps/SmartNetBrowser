@@ -186,6 +186,15 @@
   <data name="Général.Text" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="DoNotTrackCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 23</value>
+  </data>
+  <data name="DoNotTrackCheckBox.Text" xml:space="preserve">
+    <value>Enable "Do Not Track"</value>
+  </data>
+  <data name="TrackingGroupBox.Text" xml:space="preserve">
+    <value>Tracking</value>
+  </data>
   <data name="DeleteSearchHistoryButton.Text" xml:space="preserve">
     <value>Delete search history</value>
   </data>
