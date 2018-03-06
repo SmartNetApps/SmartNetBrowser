@@ -95,6 +95,8 @@ Partial Class SettingsForm
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.AbortButton = New System.Windows.Forms.Button()
         Me.DefaultDownloadFolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
+        Me.TrackingGroupBox = New System.Windows.Forms.GroupBox()
+        Me.DoNotTrackCheckBox = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -116,6 +118,7 @@ Partial Class SettingsForm
         Me.DevelopmentGroupBox.SuspendLayout()
         Me.RepareBrowserGroupBox.SuspendLayout()
         Me.SettingsSavesGroupBox.SuspendLayout()
+        Me.TrackingGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -276,6 +279,7 @@ Partial Class SettingsForm
         '
         'Confidentialité
         '
+        Me.Confidentialité.Controls.Add(Me.TrackingGroupBox)
         Me.Confidentialité.Controls.Add(Me.DeleteDataGroupBox)
         Me.Confidentialité.Controls.Add(Me.HistoryGroupBox)
         resources.ApplyResources(Me.Confidentialité, "Confidentialité")
@@ -621,6 +625,19 @@ Partial Class SettingsForm
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
         '
+        'TrackingGroupBox
+        '
+        Me.TrackingGroupBox.Controls.Add(Me.DoNotTrackCheckBox)
+        resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
+        Me.TrackingGroupBox.Name = "TrackingGroupBox"
+        Me.TrackingGroupBox.TabStop = False
+        '
+        'DoNotTrackCheckBox
+        '
+        resources.ApplyResources(Me.DoNotTrackCheckBox, "DoNotTrackCheckBox")
+        Me.DoNotTrackCheckBox.Name = "DoNotTrackCheckBox"
+        Me.DoNotTrackCheckBox.UseVisualStyleBackColor = True
+        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -669,6 +686,8 @@ Partial Class SettingsForm
         Me.DevelopmentGroupBox.PerformLayout()
         Me.RepareBrowserGroupBox.ResumeLayout(False)
         Me.SettingsSavesGroupBox.ResumeLayout(False)
+        Me.TrackingGroupBox.ResumeLayout(False)
+        Me.TrackingGroupBox.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -745,4 +764,6 @@ Partial Class SettingsForm
     Friend WithEvents SetDefaultDownloadFolderButton As Button
     Friend WithEvents DefaultDownloadFolderTextBox As TextBox
     Friend WithEvents DefaultDownloadFolderBrowserDialog As FolderBrowserDialog
+    Friend WithEvents TrackingGroupBox As GroupBox
+    Friend WithEvents DoNotTrackCheckBox As CheckBox
 End Class

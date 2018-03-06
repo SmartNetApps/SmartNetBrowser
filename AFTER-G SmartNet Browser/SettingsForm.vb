@@ -38,6 +38,7 @@ Public Class SettingsForm
         DeleteTemporaryInternetFilesButton.Text = "Effacer le cache"
         DeleteSearchHistoryButton.Enabled = True
         DeleteSearchHistoryButton.Text = "Effacer l'historique des recherches"
+        DoNotTrackCheckBox.Checked = My.Settings.DoNotTrack
         If My.Settings.ChildrenProtection = True Then
             ChildrenProtectionCheckBox.Checked = True
             ChangeChildrenProtectionPasswordButton.Enabled = True
@@ -370,6 +371,8 @@ StopVersionChecking:
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
+        My.Settings.DoNotTrack = DoNotTrackCheckBox.Checked
+        Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
         My.Settings.Save()
         Me.Close()
     End Sub
