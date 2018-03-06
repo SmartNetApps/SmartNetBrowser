@@ -194,6 +194,9 @@
   <data name="&gt;&gt;HomepageURLBox.Name" xml:space="preserve">
     <value>HomepageURLBox</value>
   </data>
+  <data name="&gt;&gt;DeleteCookiesButton.Parent" xml:space="preserve">
+    <value>DeleteDataGroupBox</value>
+  </data>
   <data name="AutoUpdateGroupBox.Text" xml:space="preserve">
     <value>Vérification automatique des mises à jour</value>
   </data>
@@ -239,6 +242,9 @@
   <data name="ChangeChildrenProtectionPasswordButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;DeleteTemporaryInternetFilesButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;LanguagesComboBox.Name" xml:space="preserve">
     <value>LanguagesComboBox</value>
   </data>
@@ -263,9 +269,6 @@
   <data name="AutresOptionsGroupBox.Text" xml:space="preserve">
     <value>Autres options</value>
   </data>
-  <data name="&gt;&gt;SetDefaultDownloadFolderButton.Name" xml:space="preserve">
-    <value>SetDefaultDownloadFolderButton</value>
-  </data>
   <data name="RadioButton0.Text" xml:space="preserve">
     <value>Moteur personnalisé</value>
   </data>
@@ -283,6 +286,9 @@
   </data>
   <data name="VersionActuelleLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 22</value>
+  </data>
+  <data name="RadioButton0.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;AutoUpdateGroupBox.Parent" xml:space="preserve">
     <value>MisesàJour</value>
@@ -369,8 +375,8 @@
   <data name="AdBlockerTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;AdBlockerCheckBox.Parent" xml:space="preserve">
-    <value>AdBlockerTabPage</value>
+  <data name="HistoryGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 7</value>
   </data>
   <data name="AutoUpdateGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -383,6 +389,9 @@
   </data>
   <data name="&gt;&gt;AdBlockerTabPage.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;DefaultDownloadFolderBrowserDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LanguageGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -407,12 +416,6 @@
   </data>
   <data name="&gt;&gt;AutresOptionsGroupBox.Parent" xml:space="preserve">
     <value>Général</value>
-  </data>
-  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="LanguagesComboBox.Items172" xml:space="preserve">
-    <value>zu - Zulu</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>Demander aux sites Web d'afficher leurs pages dans cette langue :
@@ -464,11 +467,11 @@
     <value>La sécurité du navigateur empêche toute personne étrangère au système d'accéder aux
 paramètres et aux données personnelles.</value>
   </data>
+  <data name="LanguagesComboBox.Items18" xml:space="preserve">
+    <value>ar-ye - العربية / اليمن</value>
+  </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="LanguagesComboBox.Items39" xml:space="preserve">
-    <value>en-bz - English/Belize</value>
   </data>
   <data name="&gt;&gt;SecurityTabPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6240,9 +6243,6 @@ paramètres et aux données personnelles.</value>
   <data name="HomepageGroupBox.Text" xml:space="preserve">
     <value>Page d'accueil</value>
   </data>
-  <data name="&gt;&gt;HistoryFavoritesSecurityCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;OKButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -6252,8 +6252,8 @@ paramètres et aux données personnelles.</value>
   <data name="CookiesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>321, 48</value>
   </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;FirstStartDialogButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RadioButton1.Text" xml:space="preserve">
     <value>Google</value>
@@ -6279,6 +6279,9 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;PreventMultipleTabsCloseCheckBox.Name" xml:space="preserve">
     <value>PreventMultipleTabsCloseCheckBox</value>
   </data>
+  <data name="AutoUpdateGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>573, 61</value>
+  </data>
   <data name="&gt;&gt;AdBlockerTabPage.Parent" xml:space="preserve">
     <value>TabControl1</value>
   </data>
@@ -6294,11 +6297,11 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;ChangeChildrenProtectionPasswordButton.Name" xml:space="preserve">
     <value>ChangeChildrenProtectionPasswordButton</value>
   </data>
-  <data name="PreventMultipleTabsCloseCheckBox.Text" xml:space="preserve">
-    <value>M'avertir avant de fermer plusieurs onglets</value>
-  </data>
   <data name="AbortButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;AbortButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;SetDefaultDownloadFolderButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6363,12 +6366,6 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;Avancé.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;DownloadsGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="CheckUpdatesNowButton.Text" xml:space="preserve">
-    <value>Vérifier les mises à jour maintenant</value>
-  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 17</value>
   </data>
@@ -6381,14 +6378,11 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;ChildGuardProblemSignalementButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="SetDefaultDownloadFolderButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 27</value>
   </data>
-  <data name="&gt;&gt;RadioButton5.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
+  <data name="Général.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
   </data>
   <data name="OpenFileDialog1.Title" xml:space="preserve">
     <value>Importer un fichier de configuration</value>
@@ -6438,8 +6432,8 @@ paramètres et aux données personnelles.</value>
   <data name="RadioButton3.Text" xml:space="preserve">
     <value>Yahoo!</value>
   </data>
-  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
-    <value>Signaler une faille dans SmartNet AdsBlocker...</value>
+  <data name="&gt;&gt;RadioButton5.Name" xml:space="preserve">
+    <value>RadioButton5</value>
   </data>
   <data name="OKButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -6462,8 +6456,8 @@ paramètres et aux données personnelles.</value>
   <data name="LanguagesComboBox.Items162" xml:space="preserve">
     <value>uz - O'zbekiston</value>
   </data>
-  <data name="SetDefaultDownloadFolderButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="LanguagesComboBox.Items172" xml:space="preserve">
+    <value>zu - Zulu</value>
   </data>
   <data name="LanguagesComboBox.Items142" xml:space="preserve">
     <value>sd - سنڌي</value>
@@ -6534,9 +6528,6 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;BrowserSettingsSecurityGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;PopUpsBlockerCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;SettingsSavesGroupBox.Parent" xml:space="preserve">
     <value>Avancé</value>
   </data>
@@ -6552,14 +6543,11 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;RepareBrowserButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ChildGuardProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 26</value>
-  </data>
   <data name="OKButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>515, 438</value>
   </data>
-  <data name="ChangeUserAgentLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="LanguagesComboBox.Items4" xml:space="preserve">
+    <value>ar-bh - العربي / البحرين</value>
   </data>
   <data name="LanguagesComboBox.Items81" xml:space="preserve">
     <value>fy - Frysk</value>
@@ -6573,9 +6561,6 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;Confidentialité.Name" xml:space="preserve">
     <value>Confidentialité</value>
   </data>
-  <data name="&gt;&gt;RepareBrowserButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ChildrenProtectionCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>205, 23</value>
   </data>
@@ -6584,6 +6569,9 @@ paramètres et aux données personnelles.</value>
   </data>
   <data name="EraseCookiesCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="ChangeUserAgentLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;ImportSettingsButton.Parent" xml:space="preserve">
     <value>SettingsSavesGroupBox</value>
@@ -6627,8 +6615,8 @@ paramètres et aux données personnelles.</value>
   <data name="&gt;&gt;HomepageGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AutoUpdateCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;RadioButton0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DisplayExceptionsCheckBox.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -6655,9 +6643,6 @@ choquer les plus jeunes.</value>
   <data name="DeleteSearchHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 26</value>
   </data>
-  <data name="&gt;&gt;MisesàJour.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="TrackingGroupBox.Text" xml:space="preserve">
     <value>Pistage</value>
   </data>
@@ -6667,17 +6652,20 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items86" xml:space="preserve">
     <value>ha - Hausa</value>
   </data>
-  <data name="&gt;&gt;DisplayExceptionsCheckBox.Parent" xml:space="preserve">
-    <value>DevelopmentGroupBox</value>
-  </data>
   <data name="LanguagesComboBox.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="PopUpsBlockerCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;RadioButton5.Parent" xml:space="preserve">
+    <value>SearchEngineGroupBox</value>
+  </data>
   <data name="LanguagesComboBox.Items70" xml:space="preserve">
     <value>es-ve - Español/Venezuela</value>
+  </data>
+  <data name="AutoUpdateCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 19</value>
@@ -6690,6 +6678,9 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;TrackingGroupBox.Parent" xml:space="preserve">
     <value>Confidentialité</value>
+  </data>
+  <data name="SettingsSavesGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;RadioButton2.Name" xml:space="preserve">
     <value>RadioButton2</value>
@@ -6754,8 +6745,8 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;RepareBrowserButton.Parent" xml:space="preserve">
     <value>RepareBrowserGroupBox</value>
   </data>
-  <data name="LanguagesComboBox.Items18" xml:space="preserve">
-    <value>ar-ye - العربية / اليمن</value>
+  <data name="&gt;&gt;RepareBrowserButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DevelopmentGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6787,8 +6778,8 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items15" xml:space="preserve">
     <value>ar-sa - عربي / المملكة العربية السعودية</value>
   </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="DoNotTrackCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 23</value>
   </data>
   <data name="&gt;&gt;BrowserSettingsSecurityGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6844,14 +6835,11 @@ choquer les plus jeunes.</value>
   <data name="RadioButton5.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;FirstStartDialogButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;FolderBrowserDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PreventMultipleTabsCloseCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;RadioButton5.Name" xml:space="preserve">
-    <value>RadioButton5</value>
   </data>
   <data name="&gt;&gt;Confidentialité.Parent" xml:space="preserve">
     <value>TabControl1</value>
@@ -6874,11 +6862,11 @@ choquer les plus jeunes.</value>
   <data name="ChildrenProtectionCheckBox.Text" xml:space="preserve">
     <value>Activer SmartNet ChildGuard</value>
   </data>
-  <data name="AutoUpdateCheckBox.Text" xml:space="preserve">
-    <value>Recevoir automatiquement les mises à jour (recommandé)</value>
-  </data>
   <data name="&gt;&gt;AutoUpdateCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LanguagesComboBox.Items148" xml:space="preserve">
+    <value>sq - shqiptar</value>
   </data>
   <data name="&gt;&gt;RadioButton4.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6946,9 +6934,6 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items84" xml:space="preserve">
     <value>gl - Gallego</value>
   </data>
-  <data name="&gt;&gt;DevelopmentGroupBox.Name" xml:space="preserve">
-    <value>DevelopmentGroupBox</value>
-  </data>
   <data name="&gt;&gt;MisesàJour.Name" xml:space="preserve">
     <value>MisesàJour</value>
   </data>
@@ -6957,9 +6942,6 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;EditWhitelistButton.Name" xml:space="preserve">
     <value>EditWhitelistButton</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>545, 38</value>
   </data>
   <data name="MisesàJour.Size" type="System.Drawing.Size, System.Drawing">
     <value>589, 405</value>
@@ -6988,6 +6970,9 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;DeleteDataGroupBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;MenuURLHomepageButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;ChildGuardProblemSignalementButton.Parent" xml:space="preserve">
     <value>ChildrenProtectionGroupBox</value>
   </data>
@@ -7015,14 +7000,17 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;SecurityTabPage.Name" xml:space="preserve">
     <value>SecurityTabPage</value>
   </data>
+  <data name="LanguagesComboBox.Items158" xml:space="preserve">
+    <value>tl - Tagalog</value>
+  </data>
   <data name="&gt;&gt;AdBlockerCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;DefaultDownloadFolderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;PopUpsBlockerCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PrivateBrowsingCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 25</value>
@@ -7135,14 +7123,11 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items75" xml:space="preserve">
     <value>fr-ca - Français/Canada</value>
   </data>
-  <data name="&gt;&gt;DefaultDownloadFolderTextBox.Parent" xml:space="preserve">
-    <value>DownloadsGroupBox</value>
+  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;SecurityTabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="LanguagesComboBox.Items67" xml:space="preserve">
-    <value>es-py - Español/Paraguay</value>
+  <data name="&gt;&gt;MisesàJour.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;VersionActuelleLabel.Name" xml:space="preserve">
     <value>VersionActuelleLabel</value>
@@ -7210,8 +7195,8 @@ choquer les plus jeunes.</value>
   <data name="CustomSearchSettingsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 27</value>
   </data>
-  <data name="HistoryGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
+  <data name="&gt;&gt;DownloadsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CheckUpdatesNowButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -7221,9 +7206,6 @@ choquer les plus jeunes.</value>
   </data>
   <data name="MenuURLHomepageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 26</value>
-  </data>
-  <data name="LanguagesComboBox.Items37" xml:space="preserve">
-    <value>en - English</value>
   </data>
   <data name="SecurityTabPage.Text" xml:space="preserve">
     <value>Sécurité</value>
@@ -7255,11 +7237,11 @@ choquer les plus jeunes.</value>
   <data name="RadioButton2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ChildrenProtectionCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
   </data>
-  <data name="RepareBrowserButton.Text" xml:space="preserve">
-    <value>Réinitialiser le navigateur (redémarrage du logiciel)</value>
+  <data name="&gt;&gt;HistoryFavoritesSecurityCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;CustomSearchSettingsButton.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -7272,9 +7254,6 @@ choquer les plus jeunes.</value>
   </data>
   <data name="AdBlockerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="LanguagesComboBox.Items129" xml:space="preserve">
-    <value>ny - Chichewa</value>
   </data>
   <data name="&gt;&gt;Général.Parent" xml:space="preserve">
     <value>TabControl1</value>
@@ -7318,20 +7297,23 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;CookiesLinkLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>DownloadsGroupBox</value>
+  </data>
   <data name="&gt;&gt;DeleteSearchHistoryButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="AutresOptionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>573, 53</value>
   </data>
-  <data name="LanguagesComboBox.Items4" xml:space="preserve">
-    <value>ar-bh - العربي / البحرين</value>
-  </data>
   <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>573, 142</value>
   </data>
   <data name="HomepageURLBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="LanguagesComboBox.Items9" xml:space="preserve">
+    <value>ar-kw - العربية / الكويت</value>
   </data>
   <data name="&gt;&gt;AutresOptionsGroupBox.Name" xml:space="preserve">
     <value>AutresOptionsGroupBox</value>
@@ -7399,11 +7381,11 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;ChildGuardProblemSignalementButton.Name" xml:space="preserve">
     <value>ChildGuardProblemSignalementButton</value>
   </data>
-  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="UpdatesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="DoNotTrackCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 25</value>
   </data>
   <data name="&gt;&gt;HomepageGroupBox.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -7416,6 +7398,9 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;SetDefaultDownloadFolderButton.Parent" xml:space="preserve">
     <value>DownloadsGroupBox</value>
+  </data>
+  <data name="ChildrenProtectionGroupBox.Text" xml:space="preserve">
+    <value>Sécurité des enfants</value>
   </data>
   <data name="RadioButton2.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 54</value>
@@ -7441,8 +7426,8 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;AdsBlockerProblemSignalementButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;AbortButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="LanguagesComboBox.Items22" xml:space="preserve">
+    <value>bn - বাঙালি</value>
   </data>
   <data name="LanguagesComboBox.Items23" xml:space="preserve">
     <value>br - Brezhoneg</value>
@@ -7465,6 +7450,9 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items25" xml:space="preserve">
     <value>ca - Català</value>
   </data>
+  <data name="LanguagesComboBox.Items67" xml:space="preserve">
+    <value>es-py - Español/Paraguay</value>
+  </data>
   <data name="UpdatesGroupBox.Text" xml:space="preserve">
     <value>Gérer les mises à jour</value>
   </data>
@@ -7476,9 +7464,6 @@ choquer les plus jeunes.</value>
   </data>
   <data name="RepareBrowserGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 69</value>
-  </data>
-  <data name="Général.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
   </data>
   <data name="RepareBrowserButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>331, 26</value>
@@ -7597,8 +7582,8 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;HistoryFavoritesSecurityCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;DefaultDownloadFolderTextBox.Parent" xml:space="preserve">
+    <value>DownloadsGroupBox</value>
   </data>
   <data name="DeleteCookiesButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 26</value>
@@ -7642,6 +7627,9 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;EditWhitelistButton.Parent" xml:space="preserve">
     <value>AdBlockerTabPage</value>
   </data>
+  <data name="Général.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
   <data name="&gt;&gt;RadioButton4.Parent" xml:space="preserve">
     <value>SearchEngineGroupBox</value>
   </data>
@@ -7663,19 +7651,10 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;ChildrenProtectionCheckBox.Name" xml:space="preserve">
     <value>ChildrenProtectionCheckBox</value>
   </data>
-  <data name="LanguagesComboBox.Items22" xml:space="preserve">
-    <value>bn - বাঙালি</value>
-  </data>
   <data name="&gt;&gt;RepareBrowserGroupBox.Name" xml:space="preserve">
     <value>RepareBrowserGroupBox</value>
   </data>
   <data name="&gt;&gt;TrackingGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DownloadsGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DisplayExceptionsCheckBox.Text" xml:space="preserve">
@@ -7690,6 +7669,9 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;DeleteSearchHistoryButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;AbortButton.Name" xml:space="preserve">
+    <value>AbortButton</value>
+  </data>
   <data name="VersionActuelleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -7701,6 +7683,9 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;AutoUpdateGroupBox.Name" xml:space="preserve">
     <value>AutoUpdateGroupBox</value>
+  </data>
+  <data name="SetDefaultDownloadFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="DeleteSearchHistoryButton.Text" xml:space="preserve">
     <value>Effacer l'historique des recherches</value>
@@ -7735,14 +7720,14 @@ choquer les plus jeunes.</value>
   <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>572, 55</value>
   </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;PrivateBrowsingCheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="ChangeChildrenProtectionPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 85</value>
@@ -7779,6 +7764,9 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;RepareBrowserButton.Name" xml:space="preserve">
     <value>RepareBrowserButton</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="LanguagesComboBox.Items6" xml:space="preserve">
     <value>ar-eg - عربي / مصر</value>
@@ -7824,6 +7812,9 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;ActualPageURLHomepageButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="BrowserSettingsSecurityCheckBox.Text" xml:space="preserve">
+    <value>Protéger les paramètres du navigateur</value>
+  </data>
   <data name="&gt;&gt;Général.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -7863,14 +7854,14 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items" xml:space="preserve">
     <value>af - Afrikaans</value>
   </data>
-  <data name="&gt;&gt;UpdatesGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="AutoUpdateGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
   </data>
   <data name="AdBlockerTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
   </data>
-  <data name="&gt;&gt;FolderBrowserDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;SecurityTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TrackingGroupBox.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -7905,11 +7896,11 @@ choquer les plus jeunes.</value>
   <data name="HistoryFavoritesSecurityCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="SettingsSavesGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;SetDefaultDownloadFolderButton.Name" xml:space="preserve">
+    <value>SetDefaultDownloadFolderButton</value>
   </data>
-  <data name="&gt;&gt;DeleteTemporaryInternetFilesButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;ChangeChildrenProtectionPasswordButton.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -7923,11 +7914,11 @@ choquer les plus jeunes.</value>
   <data name="ChildGuardProblemSignalementButton.Text" xml:space="preserve">
     <value>Signaler une faille dans SmartNet ChildGuard...</value>
   </data>
-  <data name="&gt;&gt;MenuURLHomepageButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="AutoUpdateCheckBox.Text" xml:space="preserve">
+    <value>Recevoir automatiquement les mises à jour (recommandé)</value>
   </data>
-  <data name="DoNotTrackCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 23</value>
+  <data name="&gt;&gt;DownloadsGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="AbortButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 26</value>
@@ -7953,6 +7944,9 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;UserAgentTextBox.Parent" xml:space="preserve">
     <value>DevelopmentGroupBox</value>
   </data>
+  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
+    <value>Signaler une faille dans SmartNet AdsBlocker...</value>
+  </data>
   <data name="&gt;&gt;OpenFileDialog1.Name" xml:space="preserve">
     <value>OpenFileDialog1</value>
   </data>
@@ -7964,6 +7958,9 @@ choquer les plus jeunes.</value>
   </data>
   <data name="&gt;&gt;RadioButton4.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="LanguagesComboBox.Items30" xml:space="preserve">
+    <value>de - Deutsch</value>
   </data>
   <data name="&gt;&gt;HomepageURLBox.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -7989,20 +7986,20 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items168" xml:space="preserve">
     <value>zh-cn - 中文(简体)</value>
   </data>
-  <data name="LanguagesComboBox.Items148" xml:space="preserve">
-    <value>sq - shqiptar</value>
+  <data name="&gt;&gt;AdBlockerCheckBox.Parent" xml:space="preserve">
+    <value>AdBlockerTabPage</value>
   </data>
-  <data name="LanguagesComboBox.Items158" xml:space="preserve">
-    <value>tl - Tagalog</value>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;EditWhitelistButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AutoUpdateGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 61</value>
+  <data name="ChildGuardProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 26</value>
   </data>
-  <data name="AutoUpdateGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
+  <data name="RepareBrowserButton.Text" xml:space="preserve">
+    <value>Réinitialiser le navigateur (redémarrage du logiciel)</value>
   </data>
   <data name="ChildrenProtectionGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -8028,14 +8025,14 @@ choquer les plus jeunes.</value>
   <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>573, 62</value>
   </data>
-  <data name="RadioButton0.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="LanguagesComboBox.Items39" xml:space="preserve">
+    <value>en-bz - English/Belize</value>
   </data>
   <data name="&gt;&gt;DoNotTrackCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="AdBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 6</value>
+  <data name="&gt;&gt;DevelopmentGroupBox.Name" xml:space="preserve">
+    <value>DevelopmentGroupBox</value>
   </data>
   <data name="LanguagesComboBox.Items32" xml:space="preserve">
     <value>de-ch - Deutsch/Schweiz</value>
@@ -8043,8 +8040,8 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items33" xml:space="preserve">
     <value>de-de - Deutsch/Deutschland</value>
   </data>
-  <data name="LanguagesComboBox.Items30" xml:space="preserve">
-    <value>de - Deutsch</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>545, 38</value>
   </data>
   <data name="LanguagesComboBox.Items31" xml:space="preserve">
     <value>de-at - Deutsch/Österreich</value>
@@ -8052,8 +8049,8 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items36" xml:space="preserve">
     <value>el - ελληνικά</value>
   </data>
-  <data name="LanguagesComboBox.Items9" xml:space="preserve">
-    <value>ar-kw - العربية / الكويت</value>
+  <data name="LanguagesComboBox.Items37" xml:space="preserve">
+    <value>en - English</value>
   </data>
   <data name="LanguagesComboBox.Items34" xml:space="preserve">
     <value>de-li - Deutsch/Liechtenstein</value>
@@ -8061,14 +8058,17 @@ choquer les plus jeunes.</value>
   <data name="LanguagesComboBox.Items35" xml:space="preserve">
     <value>de-lu - Deutsch/Luxemburg</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 21</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="ActualPageURLHomepageButton.Text" xml:space="preserve">
     <value>Page actuelle</value>
   </data>
-  <data name="Général.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="LanguagesComboBox.Items27" xml:space="preserve">
+    <value>cs - český</value>
+  </data>
+  <data name="CheckUpdatesNowButton.Text" xml:space="preserve">
+    <value>Vérifier les mises à jour maintenant</value>
   </data>
   <data name="&gt;&gt;WhitePageHomepageButton.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -8121,14 +8121,14 @@ choquer les plus jeunes.</value>
   <data name="AutoUpdateCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="DoNotTrackCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 25</value>
+  <data name="ChildrenProtectionCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;HistoryGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>DownloadsGroupBox</value>
+  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;OKButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -8136,8 +8136,8 @@ choquer les plus jeunes.</value>
   <data name="HomepageGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 7</value>
   </data>
-  <data name="BrowserSettingsSecurityCheckBox.Text" xml:space="preserve">
-    <value>Protéger les paramètres du navigateur</value>
+  <data name="LanguagesComboBox.Items129" xml:space="preserve">
+    <value>ny - Chichewa</value>
   </data>
   <data name="LanguagesComboBox.Items139" xml:space="preserve">
     <value>ro-ro - Românesc/România</value>
@@ -8160,11 +8160,11 @@ choquer les plus jeunes.</value>
   <data name="&gt;&gt;Confidentialité.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AbortButton.Name" xml:space="preserve">
-    <value>AbortButton</value>
+  <data name="&gt;&gt;DisplayExceptionsCheckBox.Parent" xml:space="preserve">
+    <value>DevelopmentGroupBox</value>
   </data>
-  <data name="ChildrenProtectionGroupBox.Text" xml:space="preserve">
-    <value>Sécurité des enfants</value>
+  <data name="&gt;&gt;UpdatesGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="DeleteDataGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -8175,11 +8175,11 @@ choquer les plus jeunes.</value>
   <data name="DisplayExceptionsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>540, 23</value>
   </data>
-  <data name="&gt;&gt;DeleteCookiesButton.Parent" xml:space="preserve">
-    <value>DeleteDataGroupBox</value>
+  <data name="AdBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
   </data>
-  <data name="LanguagesComboBox.Items27" xml:space="preserve">
-    <value>cs - český</value>
+  <data name="PreventMultipleTabsCloseCheckBox.Text" xml:space="preserve">
+    <value>M'avertir avant de fermer plusieurs onglets</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>597, 435</value>
@@ -8196,19 +8196,16 @@ choquer les plus jeunes.</value>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
+  <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>188, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="DefaultDownloadFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>330, 17</value>
-  </metadata>
-  <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>188, 17</value>
   </metadata>
 </root>

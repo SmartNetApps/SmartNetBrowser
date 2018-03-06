@@ -285,13 +285,15 @@ Public Class BrowserForm
                 URLBox.Items.Add(favorite)
             Next
 
-            'For Each historyentry In My.Settings.History
-            'URLBox.Items.Add(historyentry)
-            'Next
-
-            For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
-                URLBox.Items.Add(NewHistoryEntry.GetURL())
-            Next
+            If Not (My.Settings.NewHistory Is Nothing) Then
+                For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
+                    URLBox.Items.Add(NewHistoryEntry.GetURL())
+                Next
+            Else
+                For Each historyentry In My.Settings.History
+                    URLBox.Items.Add(historyentry)
+                Next
+            End If
 
             For Each SearchHistoryentry In My.Settings.SearchHistory
                 SearchBox.Items.Add(SearchHistoryentry)
