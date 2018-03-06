@@ -30,6 +30,7 @@ Public Class BrowserForm
     ''' Ajouter un site internet à l'historique de navigation
     ''' </summary>
     ''' <param name="NewPage">Page web à ajouter</param>
+    ''' <param name="AddInOldHistory">Ajouter la page dans l'ancien historique</param>
     Public Sub AddInHistory(NewPage As Webpage, Optional AddInOldHistory As Boolean = True)
         Historique = CType(My.Settings.NewHistory, List(Of Webpage))
         If Not (Historique Is Nothing) Then
