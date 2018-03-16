@@ -405,6 +405,29 @@ Namespace My
                 Me("DoNotTrack") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property CorrectlyClosed() As Boolean
+            Get
+                Return CType(Me("CorrectlyClosed"),Boolean)
+            End Get
+            Set
+                Me("CorrectlyClosed") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ListOfTabs() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("ListOfTabs"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("ListOfTabs") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

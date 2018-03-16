@@ -1,8 +1,8 @@
 ﻿Public Class Webpage
 
-    Dim name As String
-    Dim URL As String
-    Dim favicon As Image
+    Public name As String
+    Public URL As String
+    Public favicon As Image
 
     ''' <summary>
     ''' Nouvelle page
@@ -79,7 +79,7 @@
     End Sub
 
     Public Overrides Function ToString() As String
-        Return MyBase.ToString()
+        Return name + "," + URL
     End Function
 
     Public Overrides Function Equals(obj As Object) As Boolean

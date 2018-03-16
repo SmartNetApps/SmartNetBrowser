@@ -14,16 +14,6 @@ Public Class BrowserForm
 
     Public Sub New()
         InitializeComponent()
-        Historique = New List(Of Webpage)
-        If My.Settings.NewHistory Is Nothing Then
-            For Each historyentry In My.Settings.History
-                AddInHistory(New Webpage(historyentry), False)
-            Next
-            My.Settings.NewHistory = Historique
-            My.Settings.Save()
-        Else
-            Historique = CType(My.Settings.NewHistory, List(Of Webpage))
-        End If
     End Sub
 
     ''' <summary>
@@ -36,10 +26,15 @@ Public Class BrowserForm
         If Not (Historique Is Nothing) Then
             Historique.Add(NewPage)
             My.Settings.NewHistory = Historique
+        Else
+            Historique = New List(Of Webpage)
+            Historique.Add(NewPage)
+            My.Settings.NewHistory = Historique
         End If
         If AddInOldHistory = True Then
             My.Settings.History.Add(NewPage.GetURL())
         End If
+        URLBox.Items.Add(NewPage.GetURL())
         My.Settings.Save()
     End Sub
 
@@ -96,6 +91,18 @@ Public Class BrowserForm
     End Sub
     Private Sub NewTabButton_MouseLeave(sender As Object, e As EventArgs) Handles NewTabButton.MouseLeave
         NewTabButton.Image = NewTabButton.ErrorImage
+    End Sub
+
+    ''' <summary>
+    ''' Actualise la liste des onglets pour le garde fou.
+    ''' </summary>
+    Public Sub RefreshListOfTabs()
+        Dim WB As CustomBrowser
+        My.Settings.ListOfTabs.Clear()
+        For Each onglet In BrowserTabs.TabPages
+            WB = CType(onglet.Tag, CustomBrowser)
+            My.Settings.ListOfTabs.Add(WB.Url.ToString())
+        Next
     End Sub
 
     ''' <summary>
@@ -195,11 +202,13 @@ Public Class BrowserForm
             If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
                 If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
                     My.Settings.LastClosedTab = ""
+                    My.Settings.CorrectlyClosed = True
                     My.Settings.Save()
                     End
                 End If
             Else
                 My.Settings.LastClosedTab = ""
+                My.Settings.CorrectlyClosed = True
                 My.Settings.Save()
                 End
             End If
@@ -280,11 +289,17 @@ Public Class BrowserForm
                 My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
                 FirstStartForm.Show()
             End If
-            AddTab(My.Settings.Homepage, BrowserTabs)
             For Each favorite In My.Settings.Favorites
                 URLBox.Items.Add(favorite)
             Next
 
+            Historique = New List(Of Webpage)
+            If My.Settings.NewHistory Is Nothing Then
+                My.Settings.NewHistory = New List(Of Webpage)
+                For Each historyentry In My.Settings.History
+                    AddInHistory(New Webpage(historyentry), False)
+                Next
+            End If
             If Not (My.Settings.NewHistory Is Nothing) Then
                 For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
                     URLBox.Items.Add(NewHistoryEntry.GetURL())
@@ -301,6 +316,19 @@ Public Class BrowserForm
 
             AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
             URLBox.Select(0, 0)
+
+            If My.Settings.CorrectlyClosed = False Then
+                If MsgBox("SmartNet Browser n'a pas été fermé correctement la dernière fois. Voulez-vous restaurer votre dernière session ?", MsgBoxStyle.YesNo, "SmartNet Browser") = MsgBoxResult.Yes Then
+                    Dim listOfTabs As Specialized.StringCollection = My.Settings.ListOfTabs
+                    For index = 0 To listOfTabs.Count - 1
+                        AddTab(listOfTabs.Item(index), BrowserTabs)
+                    Next
+                End If
+            Else
+                AddTab(My.Settings.Homepage, BrowserTabs)
+            End If
+            My.Settings.CorrectlyClosed = False
+
         Catch ex As Exception
             If My.Settings.DisplayExceptions = True Then
                 ExceptionForm.MessageTextBox.Text = ex.Message
@@ -1207,6 +1235,10 @@ Public Class BrowserForm
             End While
             TabsContextMenuStrip.Show(MousePosition)
         End If
+    End Sub
+
+    Private Sub GardeFouTimer_Tick(sender As Object, e As EventArgs) Handles GardeFouTimer.Tick
+        RefreshListOfTabs()
     End Sub
 End Class
 

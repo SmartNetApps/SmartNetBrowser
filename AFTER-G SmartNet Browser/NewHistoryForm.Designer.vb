@@ -23,6 +23,7 @@ Partial Class NewHistoryForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(NewHistoryForm))
         Me.HistoryListView = New System.Windows.Forms.ListView()
         Me.TitleColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.URLColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -43,7 +44,7 @@ Partial Class NewHistoryForm
         Me.HistoryListView.LargeImageList = Me.FaviconImageList
         Me.HistoryListView.Location = New System.Drawing.Point(0, 0)
         Me.HistoryListView.Name = "HistoryListView"
-        Me.HistoryListView.Size = New System.Drawing.Size(791, 456)
+        Me.HistoryListView.Size = New System.Drawing.Size(800, 434)
         Me.HistoryListView.SmallImageList = Me.FaviconImageList
         Me.HistoryListView.StateImageList = Me.FaviconImageList
         Me.HistoryListView.TabIndex = 1
@@ -69,7 +70,7 @@ Partial Class NewHistoryForm
         'DeleteButton
         '
         Me.DeleteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DeleteButton.Location = New System.Drawing.Point(563, 465)
+        Me.DeleteButton.Location = New System.Drawing.Point(572, 443)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(217, 31)
         Me.DeleteButton.TabIndex = 4
@@ -78,7 +79,8 @@ Partial Class NewHistoryForm
         '
         'OpenPageButton
         '
-        Me.OpenPageButton.Location = New System.Drawing.Point(434, 465)
+        Me.OpenPageButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenPageButton.Location = New System.Drawing.Point(443, 443)
         Me.OpenPageButton.Name = "OpenPageButton"
         Me.OpenPageButton.Size = New System.Drawing.Size(123, 31)
         Me.OpenPageButton.TabIndex = 3
@@ -87,7 +89,8 @@ Partial Class NewHistoryForm
         '
         'OpenOldHistoryButton
         '
-        Me.OpenOldHistoryButton.Location = New System.Drawing.Point(254, 465)
+        Me.OpenOldHistoryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenOldHistoryButton.Location = New System.Drawing.Point(263, 443)
         Me.OpenOldHistoryButton.Name = "OpenOldHistoryButton"
         Me.OpenOldHistoryButton.Size = New System.Drawing.Size(174, 31)
         Me.OpenOldHistoryButton.TabIndex = 2
@@ -98,12 +101,13 @@ Partial Class NewHistoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(792, 506)
+        Me.ClientSize = New System.Drawing.Size(801, 484)
         Me.Controls.Add(Me.OpenOldHistoryButton)
         Me.Controls.Add(Me.OpenPageButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.HistoryListView)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "NewHistoryForm"
         Me.Text = "Nouvel historique (expérimental) - SmartNet Browser"
         Me.ResumeLayout(False)

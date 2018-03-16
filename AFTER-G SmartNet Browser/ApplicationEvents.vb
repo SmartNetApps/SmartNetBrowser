@@ -22,6 +22,7 @@ Namespace My
                 BrowserForm.StatusLabel.Text = "Effacement des cookies..."
             End If
             Gecko.Xpcom.Shutdown()
+            My.Settings.CorrectlyClosed = True
             My.Settings.Save()
         End Sub
 

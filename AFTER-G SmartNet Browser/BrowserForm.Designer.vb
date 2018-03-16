@@ -130,6 +130,7 @@ Partial Class BrowserForm
         Me.MessageBarLabel = New System.Windows.Forms.Label()
         Me.MessageBarButton = New System.Windows.Forms.Button()
         Me.MessageBarCloseButton = New System.Windows.Forms.PictureBox()
+        Me.GardeFouTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -738,6 +739,10 @@ Partial Class BrowserForm
         Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
         Me.MessageBarCloseButton.TabStop = False
         '
+        'GardeFouTimer
+        '
+        Me.GardeFouTimer.Interval = 1000
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -900,4 +905,5 @@ Partial Class BrowserForm
     Friend WithEvents TabsContextMenuStrip As ContextMenuStrip
     Friend WithEvents FermerCetOngletToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RouvrirLeDernierOngletFerméToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GardeFouTimer As Timer
 End Class

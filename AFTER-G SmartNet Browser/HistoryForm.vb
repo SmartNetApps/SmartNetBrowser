@@ -91,7 +91,7 @@
     End Sub
 
     Private Sub DeleteSelectedSearchButton_Click(sender As Object, e As EventArgs) Handles DeleteSelectedSearchButton.Click
-        My.Settings.SearchHistory.Remove(SearchHistoryListBox.SelectedItem.ToString)
+        My.Settings.SearchHistory.Remove(SearchHistoryListBox.SelectedItem.ToString())
         SearchHistoryListBox.Items.Remove(SearchHistoryListBox.SelectedItem)
         BrowserForm.SearchBox.Items.Remove(SearchHistoryListBox.SelectedItem)
         If SearchHistoryListBox.Items.Count = 0 Then
