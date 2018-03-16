@@ -26,6 +26,7 @@ Public Class CustomBrowser
         Gecko.GeckoPreferences.Default("media.mediasource.enabled") = True
         Gecko.GeckoPreferences.Default("media.mediasource.ignore_codecs") = True
         Gecko.GeckoPreferences.Default("extensions.blocklist.enabled") = False
+        Gecko.GeckoPreferences.Default("dom.disable_beforeunload") = True
         Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
     End Sub
 
