@@ -75,7 +75,6 @@ Public Class SettingsForm
         End If
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
-        DisplayExceptionsCheckBox.Checked = My.Settings.DisplayExceptions
         UserAgentTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
         DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
@@ -315,7 +314,6 @@ StopVersionChecking:
             My.Settings.AutoUpdates = True
             My.Settings.AdBlocker = False
             My.Settings.PopUpBlocker = False
-            My.Settings.DisplayExceptions = False
             My.Settings.AllowAdsSites = "quentinpugeat.wixsite.com"
             My.Settings.ChildrenProtection = False
             My.Settings.ChildrenProtectionPassword = ""
@@ -358,7 +356,6 @@ StopVersionChecking:
         My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
         My.Settings.HistoryFavoritesSecurity = HistoryFavoritesSecurityCheckBox.Checked
         My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
-        My.Settings.DisplayExceptions = DisplayExceptionsCheckBox.Checked
         My.Settings.AdBlocker = AdBlockerCheckBox.Checked
         My.Settings.PreventMultipleTabsClose = PreventMultipleTabsCloseCheckBox.Checked
         If PrivateBrowsingCheckBox.Checked = True Then

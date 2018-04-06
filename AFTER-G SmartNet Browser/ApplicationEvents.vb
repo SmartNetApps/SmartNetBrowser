@@ -33,11 +33,7 @@ Namespace My
             Try
                 Gecko.Xpcom.Initialize("Firefox")
             Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                End If
+                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
             BrowserForm.UpdateLabels()
             Try
@@ -79,25 +75,13 @@ Namespace My
                 End If
 StopVersionChecking:
             Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                Else
-                    MsgBox("La connexion à SmartNet Apps Updater a échoué : " + ex.Message, MsgBoxStyle.Critical, "SmartNet Apps Updater")
-                End If
+                BrowserForm.DisplayMessageBar("Impossible de rechercher les mises à jour en raison d'une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End Sub
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
-            If My.Settings.DisplayExceptions = True Then
-                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", e.Exception)
-                'ExceptionForm.MessageTextBox.Text = e.Exception.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & e.Exception.Source & vbCrLf & e.Exception.GetType.ToString & vbCrLf & e.Exception.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                e.ExitApplication = False
-            End If
+            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", e.Exception)
+            e.ExitApplication = False
         End Sub
     End Class
 End Namespace
