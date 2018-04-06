@@ -186,10 +186,12 @@ Public Class CustomBrowser
             BrowserForm.GoButton.Visible = False
             BrowserForm.LoadingGif.Visible = True
             BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = False
-            'BrowserForm.MessageBarButton1.Visible = False
-            'BrowserForm.MessageBarLabel1.Visible = False
-            'BrowserForm.MessageBarPictureBox.Visible = False
-            'BrowserForm.MessageBarCloseButton1.Visible = False
+            BrowserForm.MessageBarButton1.Visible = False
+            BrowserForm.MessageBarLabel1.Visible = False
+            BrowserForm.MessageBarPictureBox.Visible = False
+            BrowserForm.MessageBarCloseButton1.Visible = False
+            BrowserForm.MessageBarButton1.Enabled = False
+            BrowserForm.MessageBarCloseButton1.Enabled = False
             BrowserForm.CurrentDocument = Me.Document
             If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
                 BrowserForm.URLBox.Text = ""

@@ -737,7 +737,6 @@ Partial Class BrowserForm
         resources.ApplyResources(Me.MessageBarCloseButton1, "MessageBarCloseButton1")
         Me.MessageBarCloseButton1.BackColor = System.Drawing.Color.DarkOrange
         Me.MessageBarCloseButton1.Name = "MessageBarCloseButton1"
-        Me.MessageBarCloseButton1.TabStop = True
         '
         'GardeFouTimer
         '

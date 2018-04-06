@@ -286,6 +286,12 @@ Public Class BrowserForm
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
+        MessageBarButton1.Visible = False
+        MessageBarLabel1.Visible = False
+        MessageBarPictureBox.Visible = False
+        MessageBarCloseButton1.Visible = False
+        MessageBarButton1.Enabled = False
+        MessageBarCloseButton1.Enabled = False
         Try
             If My.Settings.FirstStart = True And My.Settings.FirstStartFromReset = False Then
                 My.Settings.Upgrade()
@@ -1071,6 +1077,8 @@ Public Class BrowserForm
         MessageBarLabel1.Visible = False
         MessageBarPictureBox.Visible = False
         MessageBarCloseButton1.Visible = False
+        MessageBarButton1.Enabled = False
+        MessageBarCloseButton1.Enabled = False
     End Sub
     Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton1.Click
         Select Case MessageBarAction
