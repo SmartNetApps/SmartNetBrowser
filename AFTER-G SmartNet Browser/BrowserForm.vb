@@ -11,9 +11,11 @@ Public Class BrowserForm
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
     Dim Historique As List(Of Webpage)
+    Public lastClosedTab As String
 
     Public Sub New()
         InitializeComponent()
+        Historique = New List(Of Webpage)
     End Sub
 
     ''' <summary>
@@ -223,13 +225,11 @@ Public Class BrowserForm
         Try
             If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
                 If PreventTabsCloseForm.ShowDialog() = DialogResult.Yes Then
-                    My.Settings.LastClosedTab = ""
                     My.Settings.CorrectlyClosed = True
                     My.Settings.Save()
                     End
                 End If
             Else
-                My.Settings.LastClosedTab = ""
                 My.Settings.CorrectlyClosed = True
                 My.Settings.Save()
                 End
@@ -317,20 +317,15 @@ Public Class BrowserForm
                 URLBox.Items.Add(favorite)
             Next
 
-            Historique = New List(Of Webpage)
             If My.Settings.NewHistory Is Nothing Then
                 My.Settings.NewHistory = New List(Of Webpage)
                 For Each historyentry In My.Settings.History
                     AddInHistory(New Webpage(historyentry), False)
-                Next
-            End If
-            If Not (My.Settings.NewHistory Is Nothing) Then
-                For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
-                    URLBox.Items.Add(NewHistoryEntry.GetURL())
+                    URLBox.Items.Add(historyentry)
                 Next
             Else
-                For Each historyentry In My.Settings.History
-                    URLBox.Items.Add(historyentry)
+                For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
+                    URLBox.Items.Add(NewHistoryEntry.GetURL())
                 Next
             End If
 
@@ -350,7 +345,7 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent)
+    Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent) 'Handles Gecko.LauncherDialog.Download
         Try
             DownloadForm.FileNameLabel.Text = e.Url.Substring(e.Url.LastIndexOf("/") + 1)
             DownloadForm.URLLabel.Text = "À partir de : " + e.Url
@@ -397,7 +392,7 @@ Public Class BrowserForm
             If BrowserTabs.TabPages.Count = 1 Then
                 Me.Close()
             Else
-                My.Settings.LastClosedTab = WB.Url.ToString
+                lastClosedTab = WB.Url.ToString
                 BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
             End If
         Catch ex As Exception
@@ -1099,6 +1094,8 @@ Public Class BrowserForm
         MessageBarButton1.Visible = False
         MessageBarCloseButton1.Visible = False
         MessageBarLabel1.Visible = False
+        MessageBarButton1.Enabled = False
+        MessageBarCloseButton1.Enabled = False
     End Sub
 
     Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
@@ -1109,7 +1106,7 @@ Public Class BrowserForm
             If BrowserTabs.TabPages.Count = 1 Then
                 Me.Close()
             Else
-                My.Settings.LastClosedTab = WB.Url.ToString
+                lastClosedTab = WB.Url.ToString
                 BrowserTabs.TabPages.Remove(tabPageToRemove)
             End If
         Catch ex As Exception
@@ -1117,11 +1114,11 @@ Public Class BrowserForm
         End Try
     End Sub
     Private Sub RouvrirLeDernierOngletFerméToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RouvrirLeDernierOngletFerméToolStripMenuItem.Click
-        AddTab(My.Settings.LastClosedTab, BrowserTabs)
-        My.Settings.LastClosedTab = ""
+        AddTab(lastClosedTab, BrowserTabs)
+        lastClosedTab = ""
     End Sub
     Private Sub TabsContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles TabsContextMenuStrip.Opening
-        If My.Settings.LastClosedTab = "" Then
+        If lastClosedTab = "" Then
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = False
         Else
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = True
