@@ -127,12 +127,7 @@ Public Class BrowserForm
             BrowserTabs.SelectedTab = NewTab
             'NewBrowser.Focus()
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -241,12 +236,7 @@ Public Class BrowserForm
                 End
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -352,12 +342,7 @@ Public Class BrowserForm
             End If
             My.Settings.CorrectlyClosed = False
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -368,14 +353,7 @@ Public Class BrowserForm
             DownloadForm.DownloadLink = e.Url
             DownloadForm.Show()
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue lors du téléchargement. Merci de réessayer. Code d'erreur : DOWNLOAD_ERROR", MsgBoxStyle.Critical, "Téléchargement du fichier")
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : DOWNLOAD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -419,12 +397,7 @@ Public Class BrowserForm
                 BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -453,12 +426,7 @@ Public Class BrowserForm
                 WB.SaveDocument(SavePageDialog.FileName)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub OpenDocument(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
@@ -468,12 +436,7 @@ Public Class BrowserForm
                 WB.Navigate(OpenFileDialog1.FileName)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub PrintPreview(sender As Object, e As EventArgs) Handles AperçuAvantImpressionToolStripMenuItem.Click
@@ -481,14 +444,7 @@ Public Class BrowserForm
         Try
             WB.Navigate("javascript:print()")
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue lors du lancement de l'impression. Veuillez réessayer. Code d'erreur : JAVASCRIPT_PRINT_ERROR", MsgBoxStyle.Critical, "Impression de la page")
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : JAVASCRIPT_PRINT_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -517,14 +473,8 @@ Public Class BrowserForm
                 WB.CutSelection()
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
-
     End Sub
     Private Sub Copy(sender As Object, e As EventArgs) Handles CopierToolStripMenuItem.Click, CopierToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -551,23 +501,11 @@ Public Class BrowserForm
                 FavoritesButton.Image = FavoritesButton.InitialImage
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                    FavoritesButton.Image = FavoritesButton.ErrorImage
-                Else
-                    FavoritesButton.Image = FavoritesButton.InitialImage
-                End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
+                FavoritesButton.Image = FavoritesButton.ErrorImage
             Else
-                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                    FavoritesButton.Image = FavoritesButton.ErrorImage
-                Else
-                    FavoritesButton.Image = FavoritesButton.InitialImage
-                    MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
-                End If
+                FavoritesButton.Image = FavoritesButton.InitialImage
             End If
         End Try
     End Sub
@@ -581,12 +519,7 @@ Public Class BrowserForm
                 FavoritesForm.Show()
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
@@ -598,12 +531,7 @@ Public Class BrowserForm
                 NewHistoryForm.Show()
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -616,12 +544,7 @@ Public Class BrowserForm
                 SettingsForm.ShowDialog()
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -645,12 +568,7 @@ Public Class BrowserForm
             QuitterLePleinÉcranToolStripMenuItem.Visible = True
             QuitterLePleinÉcranToolStripMenuItem.Enabled = True
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub QuitterLePleinÉcranToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterLePleinÉcranToolStripMenuItem.Click
@@ -662,12 +580,7 @@ Public Class BrowserForm
             QuitterLePleinÉcranToolStripMenuItem.Visible = False
             QuitterLePleinÉcranToolStripMenuItem.Enabled = False
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -698,12 +611,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(1.0F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_50(sender As Object, e As EventArgs) Handles Zoom50.Click
@@ -711,12 +619,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(0.5F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_75(sender As Object, e As EventArgs) Handles Zoom75.Click
@@ -724,12 +627,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(0.75F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_125(sender As Object, e As EventArgs) Handles Zoom125.Click
@@ -737,12 +635,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(1.25F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_150(sender As Object, e As EventArgs) Handles Zoom150.Click
@@ -750,12 +643,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(1.5F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_175(sender As Object, e As EventArgs) Handles Zoom175.Click
@@ -763,12 +651,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(1.75F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_200(sender As Object, e As EventArgs) Handles Zoom200.Click
@@ -776,12 +659,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(2.0F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_250(sender As Object, e As EventArgs) Handles Zoom250.Click
@@ -789,12 +667,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(2.5F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_300(sender As Object, e As EventArgs) Handles Zoom300.Click
@@ -802,12 +675,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(3.0F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub Zoom_400(sender As Object, e As EventArgs) Handles Zoom400.Click
@@ -815,12 +683,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(4.0F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub ZoomPlusButton_Click(sender As Object, e As EventArgs) Handles ZoomPlusButton.Click
@@ -828,12 +691,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(WB.GetDocShellAttribute.GetContentViewerAttribute.GetFullZoomAttribute + 0.25F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub ZoomMinusButton_Click(sender As Object, e As EventArgs) Handles ZoomMinusButton.Click
@@ -841,12 +699,7 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             WB.GetDocShellAttribute.GetContentViewerAttribute.SetFullZoomAttribute(WB.GetDocShellAttribute.GetContentViewerAttribute.GetFullZoomAttribute - 0.25F)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -905,12 +758,7 @@ Public Class BrowserForm
             MessageBarCloseButton.Visible = False
             MessageBarLabel.Visible = False
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -963,14 +811,7 @@ Public Class BrowserForm
             Clipboard.SetDataObject(ClipboardOriginalData, True)
             WB.Navigate(Link)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Erreur lors de l'ouverture du lien. Veuillez réessayer. Code d'erreur : LINK_OPENING_ERROR", MsgBoxStyle.Critical, "Ouvrir le lien")
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : LINK_OPENING_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -984,14 +825,7 @@ Public Class BrowserForm
             Clipboard.SetDataObject(ClipboardOriginalData, True)
             AddTab(Link, BrowserTabs)
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Erreur lors de l'ouverture du lien. Veuillez réessayer. Code d'erreur : LINK_OPENING_INNEWTAB_ERROR", MsgBoxStyle.Critical, "Ouvrir le lien")
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : LINK_OPENING_INNEWTAB_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -1020,22 +854,11 @@ Public Class BrowserForm
                 MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : LINK_FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-                If My.Settings.Favorites.Contains(Link) Then
-                    MsgBox("Le favori est enregistré.", CType(MessageBoxIcon.Asterisk, MsgBoxStyle), "SmartNet Browser")
-                Else
-                    MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : LINK_FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
-                End If
+
+            If My.Settings.Favorites.Contains(Link) Then
+                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. Votre favori s'est tout de même enregistré.", "OpenExceptionForm", "Voir les détails", "", ex)
             Else
-                If My.Settings.Favorites.Contains(Link) Then
-                    MsgBox("Le favori est enregistré.", CType(MessageBoxIcon.Asterisk, MsgBoxStyle), "SmartNet Browser")
-                Else
-                    MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : LINK_FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
-                End If
+                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : LINK_FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             End If
         End Try
     End Sub
@@ -1060,14 +883,8 @@ Public Class BrowserForm
                 ImageDownloader.DownloadFile(ImageSource, SaveImageDialog.FileName.ToString)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Erreur lors de l'enregistrement de l'image. Veuillez réessayer. Code d'erreur : IMAGE_SAVING_ERROR", MsgBoxStyle.Critical, "Ouvrir le lien")
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : IMAGE_SAVING_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+
         End Try
     End Sub
 
@@ -1089,12 +906,7 @@ Public Class BrowserForm
 
             WB.Navigate(ImageSource) 'Ele.GetAttribute("src")
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -1131,18 +943,12 @@ Public Class BrowserForm
                 End If
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
+            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
+                FavoritesButton.Image = FavoritesButton.ErrorImage
+                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. Votre favori est enregistré.", "OpenExceptionForm", "Voir les détails", "", ex)
             Else
-                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                    FavoritesButton.Image = FavoritesButton.ErrorImage
-                Else
-                    FavoritesButton.Image = FavoritesButton.InitialImage
-                    MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
-                End If
+                FavoritesButton.Image = FavoritesButton.InitialImage
+                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             End If
         End Try
     End Sub
@@ -1251,7 +1057,7 @@ Public Class BrowserForm
         MessageBarAction = action
         MessageBarButton.Text = buttonText
         MessageBarButtonLink = buttonLink
-        If ex IsNot Nothing  Then
+        If ex IsNot Nothing Then
             ExceptionForm.MessageTextBox.Text = ex.Message
             ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
         End If
@@ -1299,12 +1105,7 @@ Public Class BrowserForm
                 BrowserTabs.TabPages.Remove(tabPageToRemove)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-                'ExceptionForm.MessageTextBox.Text = ex.Message
-                'ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                'ExceptionForm.ShowDialog()
-            End If
+            DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
     Private Sub RouvrirLeDernierOngletFerméToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RouvrirLeDernierOngletFerméToolStripMenuItem.Click

@@ -150,11 +150,7 @@ Public Class CustomBrowser
                 End If
                 BrowserForm.CheckFavicon()
             Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                End If
+                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End If
     End Sub
@@ -172,13 +168,7 @@ Public Class CustomBrowser
                     End Select
                 End If
             Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                Else
-                    MsgBox("Une erreur est survenue avec SmartNet ChildGuard. Code d'erreur : CHILDGUARD_ERROR", MsgBoxStyle.Critical, "SmartNet ChildGuard")
-                End If
+                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
             If e.Uri.ToString.Contains("window.close") Then
                 If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
@@ -230,11 +220,7 @@ Public Class CustomBrowser
             NewBrowser.Navigate(URL)
             TabControl.SelectedTab = NewTab
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            End If
+            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -247,13 +233,7 @@ Public Class CustomBrowser
                 AddTab(e.Uri, BrowserForm.BrowserTabs)
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Un problème est survenu avec le bloqueur de Pop-Ups.", MsgBoxStyle.Exclamation, "SmartNet AdsBlocker")
-            End If
+            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             If IsAdvertisement(e.Uri) = False Then
                 NewBrowserForm.GeckoWebBrowser1.Navigate(e.Uri)
                 NewBrowserForm.Show()
@@ -266,13 +246,7 @@ Public Class CustomBrowser
                 e.Cancel = True
             End If
         Catch ex As Exception
-            If My.Settings.DisplayExceptions = True Then
-                ExceptionForm.MessageTextBox.Text = ex.Message
-                ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                ExceptionForm.ShowDialog()
-            Else
-                MsgBox("Une erreur est survenue avec le bloqueur de publicités. Code d'erreur : ADSBLOCKER_ERROR", MsgBoxStyle.Critical, "SmartNet AdsBlocker")
-            End If
+            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : ADSBLOCKER_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -329,11 +303,7 @@ Public Class CustomBrowser
                 End If
                 TP.ToolTipText = Me.DocumentTitle
             Catch ex As Exception
-                If My.Settings.DisplayExceptions = True Then
-                    ExceptionForm.MessageTextBox.Text = ex.Message
-                    ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
-                    ExceptionForm.ShowDialog()
-                End If
+                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End If
     End Sub

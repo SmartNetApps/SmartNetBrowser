@@ -730,6 +730,7 @@ Partial Class BrowserForm
         resources.ApplyResources(Me.MessageBarButton, "MessageBarButton")
         Me.MessageBarButton.BackColor = System.Drawing.Color.Transparent
         Me.MessageBarButton.Name = "MessageBarButton"
+        Me.MessageBarButton.TabStop = False
         Me.MessageBarButton.UseVisualStyleBackColor = True
         '
         'MessageBarCloseButton
