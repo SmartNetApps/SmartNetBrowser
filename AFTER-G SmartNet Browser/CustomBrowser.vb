@@ -242,14 +242,7 @@ Public Class CustomBrowser
         Try
             e.Cancel = True
             If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
-                BrowserForm.MessageBarLabel.Text = "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire."
-                BrowserForm.MessageBarButton.Text = "Ouvrir quand même"
-                BrowserForm.MessageBarAction = "OpenPopup"
-                BrowserForm.MessageBarButtonLink = e.Uri
-                BrowserForm.MessageBarButton.Visible = True
-                BrowserForm.MessageBarLabel.Visible = True
-                BrowserForm.MessageBarPictureBox.Visible = True
-                BrowserForm.MessageBarCloseButton.Visible = True
+                BrowserForm.DisplayMessageBar("SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
             Else
                 AddTab(e.Uri, BrowserForm.BrowserTabs)
             End If

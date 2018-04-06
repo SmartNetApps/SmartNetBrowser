@@ -1,8 +1,34 @@
-﻿Public Class Webpage
+﻿Imports System.Net
+
+<Serializable()> Public Class Webpage
 
     Public name As String
     Public URL As String
     Public favicon As Image
+
+    Public Sub New()
+        name = New String("(Page sans nom)".ToCharArray())
+        Me.URL = New String("about:blank".ToCharArray())
+        Try
+            If Me.URL.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or Me.URL.Contains(My.Application.Info.DirectoryPath) Or Me.URL.Contains("about:") Then
+                Me.favicon = BrowserForm.FaviconBox.InitialImage
+            Else
+                Dim iurl As Uri = New Uri(Me.URL)
+                If iurl.HostNameType = UriHostNameType.Dns Then
+                    Dim iconURL = "http://" & iurl.Host & "/favicon.ico"
+                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
+                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Dim stream As System.IO.Stream = response.GetResponseStream()
+                    Dim Newfavicon = Image.FromStream(stream)
+                    Me.favicon = Newfavicon
+                Else
+                    Me.favicon = BrowserForm.FaviconBox.ErrorImage
+                End If
+            End If
+        Catch ex As Exception
+            Me.favicon = BrowserForm.FaviconBox.ErrorImage
+        End Try
+    End Sub
 
     ''' <summary>
     ''' Nouvelle page
@@ -11,7 +37,25 @@
     Public Sub New(uRL As String)
         Me.name = New String("(Page sans nom)".ToCharArray())
         Me.URL = New String(uRL.ToCharArray())
-        Me.favicon = My.Resources.ErrorFavicon
+        Try
+            If Me.URL.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or Me.URL.Contains(My.Application.Info.DirectoryPath) Or Me.URL.Contains("about:") Then
+                Me.favicon = BrowserForm.FaviconBox.InitialImage
+            Else
+                Dim iurl As Uri = New Uri(Me.URL)
+                If iurl.HostNameType = UriHostNameType.Dns Then
+                    Dim iconURL = "http://" & iurl.Host & "/favicon.ico"
+                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
+                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                    Dim stream As System.IO.Stream = response.GetResponseStream()
+                    Dim Newfavicon = Image.FromStream(stream)
+                    Me.favicon = Newfavicon
+                Else
+                    Me.favicon = BrowserForm.FaviconBox.ErrorImage
+                End If
+            End If
+        Catch ex As Exception
+            Me.favicon = BrowserForm.FaviconBox.ErrorImage
+        End Try
     End Sub
 
     ''' <summary>
