@@ -3815,127 +3815,151 @@
   <data name="&gt;&gt;MessageBarPictureBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="MessageBarLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="MessageBarLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="MessageBarLabel.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="MessageBarLabel1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="MessageBarLabel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="MessageBarLabel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 62</value>
   </data>
-  <data name="MessageBarLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 15</value>
+  <data name="MessageBarLabel1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>500, 15</value>
   </data>
-  <data name="MessageBarLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="MessageBarLabel1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>25, 15</value>
+  </data>
+  <data name="MessageBarLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 15</value>
+  </data>
+  <data name="MessageBarLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="MessageBarLabel.Text" xml:space="preserve">
-    <value>MessageBarLabel</value>
+  <data name="MessageBarLabel1.Text" xml:space="preserve">
+    <value>MessageBarLabel1</value>
   </data>
-  <data name="MessageBarLabel.Visible" type="System.Boolean, mscorlib">
+  <data name="MessageBarLabel1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;MessageBarLabel.Name" xml:space="preserve">
-    <value>MessageBarLabel</value>
+  <data name="&gt;&gt;MessageBarLabel1.Name" xml:space="preserve">
+    <value>MessageBarLabel1</value>
   </data>
-  <data name="&gt;&gt;MessageBarLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarLabel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MessageBarLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarLabel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;MessageBarLabel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarLabel1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="MessageBarButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="MessageBarButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="MessageBarButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="MessageBarButton1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MessageBarButton1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="MessageBarButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="MessageBarButton1.Location" type="System.Drawing.Point, System.Drawing">
     <value>739, 56</value>
   </data>
-  <data name="MessageBarButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="MessageBarButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>200, 26</value>
   </data>
-  <data name="MessageBarButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="MessageBarButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="MessageBarButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="MessageBarButton1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="MessageBarButton.Text" xml:space="preserve">
+  <data name="MessageBarButton1.Text" xml:space="preserve">
     <value>MessageBarButton</value>
   </data>
-  <data name="MessageBarButton.Visible" type="System.Boolean, mscorlib">
+  <data name="MessageBarButton1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;MessageBarButton.Name" xml:space="preserve">
-    <value>MessageBarButton</value>
+  <data name="&gt;&gt;MessageBarButton1.Name" xml:space="preserve">
+    <value>MessageBarButton1</value>
   </data>
-  <data name="&gt;&gt;MessageBarButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarButton1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MessageBarButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarButton1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;MessageBarButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarButton1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="MessageBarCloseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="MessageBarCloseButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="MessageBarCloseButton.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
-        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
-        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
-        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="MessageBarCloseButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
-        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
-        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
-        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="MessageBarCloseButton.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
-        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
-        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
-        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="MessageBarCloseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>941, 54</value>
-  </data>
-  <data name="MessageBarCloseButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="MessageBarCloseButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="MessageBarCloseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="MessageBarCloseButton.Visible" type="System.Boolean, mscorlib">
+  <data name="MessageBarCloseButton1.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;MessageBarCloseButton.Name" xml:space="preserve">
-    <value>MessageBarCloseButton</value>
+  <data name="MessageBarCloseButton1.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
+        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
+        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
+        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="&gt;&gt;MessageBarCloseButton.Type" xml:space="preserve">
+  <data name="MessageBarCloseButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
+        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
+        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
+        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="MessageBarCloseButton1.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPpZPB
+        DYAwDAM7AAMwArszBA+GYATGADsiKEASgrBkqU197qdthwZ4gnvZ5ergESYj4mKFN3iBsxLCM8wsGSnh
+        zRyooxILq8lKmJA9uJd48CWTlbzCqqikBKu8EusUVkUlJZj6VRDB6rTEg7n3Zo+SCOY8OxO9BqA0U33K
+        Xok85S+fyZacn4niovqdmWEWTGs7lK53MbnsbfEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="MessageBarCloseButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>941, 54</value>
+  </data>
+  <data name="MessageBarCloseButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="MessageBarCloseButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="MessageBarCloseButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="MessageBarCloseButton1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="MessageBarCloseButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="MessageBarCloseButton1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;MessageBarCloseButton1.Name" xml:space="preserve">
+    <value>MessageBarCloseButton1</value>
+  </data>
+  <data name="&gt;&gt;MessageBarCloseButton1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MessageBarCloseButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarCloseButton1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;MessageBarCloseButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarCloseButton1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <metadata name="GardeFouTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

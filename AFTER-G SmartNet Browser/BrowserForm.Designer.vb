@@ -127,9 +127,9 @@ Partial Class BrowserForm
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
         Me.MessageBarPictureBox = New System.Windows.Forms.PictureBox()
-        Me.MessageBarLabel = New System.Windows.Forms.Label()
-        Me.MessageBarButton = New System.Windows.Forms.Button()
-        Me.MessageBarCloseButton = New System.Windows.Forms.PictureBox()
+        Me.MessageBarLabel1 = New System.Windows.Forms.Label()
+        Me.MessageBarButton1 = New System.Windows.Forms.Button()
+        Me.MessageBarCloseButton1 = New System.Windows.Forms.PictureBox()
         Me.GardeFouTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,7 +149,7 @@ Partial Class BrowserForm
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MessageBarCloseButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
@@ -718,27 +718,26 @@ Partial Class BrowserForm
         Me.MessageBarPictureBox.Name = "MessageBarPictureBox"
         Me.MessageBarPictureBox.TabStop = False
         '
-        'MessageBarLabel
+        'MessageBarLabel1
         '
-        resources.ApplyResources(Me.MessageBarLabel, "MessageBarLabel")
-        Me.MessageBarLabel.BackColor = System.Drawing.Color.DarkOrange
-        Me.MessageBarLabel.ForeColor = System.Drawing.Color.White
-        Me.MessageBarLabel.Name = "MessageBarLabel"
+        resources.ApplyResources(Me.MessageBarLabel1, "MessageBarLabel1")
+        Me.MessageBarLabel1.BackColor = System.Drawing.Color.DarkOrange
+        Me.MessageBarLabel1.ForeColor = System.Drawing.Color.White
+        Me.MessageBarLabel1.Name = "MessageBarLabel1"
         '
-        'MessageBarButton
+        'MessageBarButton1
         '
-        resources.ApplyResources(Me.MessageBarButton, "MessageBarButton")
-        Me.MessageBarButton.BackColor = System.Drawing.Color.Transparent
-        Me.MessageBarButton.Name = "MessageBarButton"
-        Me.MessageBarButton.TabStop = False
-        Me.MessageBarButton.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.MessageBarButton1, "MessageBarButton1")
+        Me.MessageBarButton1.BackColor = System.Drawing.Color.Transparent
+        Me.MessageBarButton1.Name = "MessageBarButton1"
+        Me.MessageBarButton1.UseVisualStyleBackColor = True
         '
-        'MessageBarCloseButton
+        'MessageBarCloseButton1
         '
-        resources.ApplyResources(Me.MessageBarCloseButton, "MessageBarCloseButton")
-        Me.MessageBarCloseButton.BackColor = System.Drawing.Color.DarkOrange
-        Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
-        Me.MessageBarCloseButton.TabStop = False
+        resources.ApplyResources(Me.MessageBarCloseButton1, "MessageBarCloseButton1")
+        Me.MessageBarCloseButton1.BackColor = System.Drawing.Color.DarkOrange
+        Me.MessageBarCloseButton1.Name = "MessageBarCloseButton1"
+        Me.MessageBarCloseButton1.TabStop = True
         '
         'GardeFouTimer
         '
@@ -749,9 +748,9 @@ Partial Class BrowserForm
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.Controls.Add(Me.MessageBarCloseButton)
-        Me.Controls.Add(Me.MessageBarButton)
-        Me.Controls.Add(Me.MessageBarLabel)
+        Me.Controls.Add(Me.MessageBarCloseButton1)
+        Me.Controls.Add(Me.MessageBarButton1)
+        Me.Controls.Add(Me.MessageBarLabel1)
         Me.Controls.Add(Me.MessageBarPictureBox)
         Me.Controls.Add(Me.StatusLabel)
         Me.Controls.Add(Me.URLBoxLabel)
@@ -794,7 +793,7 @@ Partial Class BrowserForm
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MessageBarCloseButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -900,9 +899,9 @@ Partial Class BrowserForm
     Friend WithEvents EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents MessageBarPictureBox As PictureBox
-    Friend WithEvents MessageBarLabel As Label
-    Friend WithEvents MessageBarButton As Button
-    Friend WithEvents MessageBarCloseButton As PictureBox
+    Friend WithEvents MessageBarLabel1 As Label
+    Friend WithEvents MessageBarButton1 As Button
+    Friend WithEvents MessageBarCloseButton1 As PictureBox
     Friend WithEvents TabsContextMenuStrip As ContextMenuStrip
     Friend WithEvents FermerCetOngletToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RouvrirLeDernierOngletFerméToolStripMenuItem As ToolStripMenuItem

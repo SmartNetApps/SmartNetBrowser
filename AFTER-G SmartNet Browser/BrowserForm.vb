@@ -125,7 +125,6 @@ Public Class BrowserForm
             NewBrowser.Dock = DockStyle.Fill
             NewBrowser.Navigate(URL)
             BrowserTabs.SelectedTab = NewTab
-            'NewBrowser.Focus()
         Catch ex As Exception
             DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
@@ -337,9 +336,8 @@ Public Class BrowserForm
 
             If My.Settings.CorrectlyClosed = False Then
                 DisplayMessageBar("SmartNet Browser n'a pas été fermé correctement la dernière fois.", "RestorePreviousSession", "Restaurer la session")
-            Else
-                AddTab(My.Settings.Homepage, BrowserTabs)
             End If
+            AddTab(My.Settings.Homepage, BrowserTabs)
             My.Settings.CorrectlyClosed = False
         Catch ex As Exception
             DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
@@ -754,9 +752,9 @@ Public Class BrowserForm
             End If
             LoadingGif.Visible = False
             MessageBarPictureBox.Visible = False
-            MessageBarButton.Visible = False
-            MessageBarCloseButton.Visible = False
-            MessageBarLabel.Visible = False
+            MessageBarButton1.Visible = False
+            MessageBarCloseButton1.Visible = False
+            MessageBarLabel1.Visible = False
         Catch ex As Exception
             DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
@@ -1053,26 +1051,28 @@ Public Class BrowserForm
     ''' <param name="buttonLink">Lien à ouvrir par le bouton.</param>
     ''' <param name="ex">Exception à traiter par la barre de message.</param>
     Public Sub DisplayMessageBar(message As String, action As String, buttonText As String, Optional buttonLink As String = "about:blank", Optional ex As Exception = Nothing)
-        MessageBarLabel.Text = message
+        MessageBarLabel1.Text = message
         MessageBarAction = action
-        MessageBarButton.Text = buttonText
+        MessageBarButton1.Text = buttonText
         MessageBarButtonLink = buttonLink
         If ex IsNot Nothing Then
             ExceptionForm.MessageTextBox.Text = ex.Message
             ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
         End If
         MessageBarPictureBox.Visible = True
-        MessageBarButton.Visible = True
-        MessageBarCloseButton.Visible = True
-        MessageBarLabel.Visible = True
+        MessageBarButton1.Visible = True
+        MessageBarCloseButton1.Visible = True
+        MessageBarLabel1.Visible = True
+        MessageBarButton1.Enabled = True
+        MessageBarCloseButton1.Enabled = True
     End Sub
-    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton.Click
-        MessageBarButton.Visible = False
-        MessageBarLabel.Visible = False
+    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton1.Click
+        MessageBarButton1.Visible = False
+        MessageBarLabel1.Visible = False
         MessageBarPictureBox.Visible = False
-        MessageBarCloseButton.Visible = False
+        MessageBarCloseButton1.Visible = False
     End Sub
-    Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton.Click
+    Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton1.Click
         Select Case MessageBarAction
             Case "OpenPopup"
                 AddTab(MessageBarButtonLink, BrowserTabs)
@@ -1088,9 +1088,9 @@ Public Class BrowserForm
                 MsgBox("Ce bouton ne peut rien faire. Voir le support pour plus de détails.", MsgBoxStyle.Information, "SmartNet Browser")
         End Select
         MessageBarPictureBox.Visible = False
-        MessageBarButton.Visible = False
-        MessageBarCloseButton.Visible = False
-        MessageBarLabel.Visible = False
+        MessageBarButton1.Visible = False
+        MessageBarCloseButton1.Visible = False
+        MessageBarLabel1.Visible = False
     End Sub
 
     Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
