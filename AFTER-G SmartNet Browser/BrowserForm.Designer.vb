@@ -20,6 +20,9 @@ Partial Class BrowserForm
     'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
     'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
     'Ne la modifiez pas à l'aide de l'éditeur de code.
+    ''' <summary>
+    ''' Procédure requise pour le concepteur Windows Forms.
+    ''' </summary>
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()

@@ -396,12 +396,12 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ListOfTabs() As Global.System.Collections.Specialized.StringCollection
+        Public Property LastSessionListOfTabs() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("ListOfTabs"),Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("LastSessionListOfTabs"),Global.System.Collections.Specialized.StringCollection)
             End Get
             Set
-                Me("ListOfTabs") = value
+                Me("LastSessionListOfTabs") = value
             End Set
         End Property
     End Class

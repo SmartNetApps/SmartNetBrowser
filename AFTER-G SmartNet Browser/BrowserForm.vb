@@ -29,8 +29,7 @@ Public Class BrowserForm
             Historique.Add(NewPage)
             My.Settings.NewHistory = Historique
         Else
-            Historique = New List(Of Webpage)
-            Historique.Add(NewPage)
+            Historique = New List(Of Webpage) From {NewPage}
             My.Settings.NewHistory = Historique
         End If
         If AddInOldHistory = True Then
@@ -100,10 +99,10 @@ Public Class BrowserForm
     ''' </summary>
     Public Sub RefreshListOfTabs()
         Dim WB As CustomBrowser
-        My.Settings.ListOfTabs.Clear()
+        My.Settings.LastSessionListOfTabs.Clear()
         For Each onglet In BrowserTabs.TabPages
             WB = CType(onglet.Tag, CustomBrowser)
-            My.Settings.ListOfTabs.Add(WB.Url.ToString())
+            My.Settings.LastSessionListOfTabs.Add(WB.Url.ToString())
         Next
     End Sub
 
@@ -431,7 +430,7 @@ Public Class BrowserForm
     Private Sub OpenDocument(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            If OpenFileDialog1.ShowDialog <> DialogResult.Cancel Then
                 WB.Navigate(OpenFileDialog1.FileName)
             End If
         Catch ex As Exception
@@ -1080,7 +1079,7 @@ Public Class BrowserForm
             Case "OpenPopup"
                 AddTab(MessageBarButtonLink, BrowserTabs)
             Case "RestorePreviousSession"
-                Dim listOfTabs As Specialized.StringCollection = My.Settings.ListOfTabs
+                Dim listOfTabs As Specialized.StringCollection = My.Settings.LastSessionListOfTabs
                 For index = 0 To listOfTabs.Count - 1
                     AddTab(listOfTabs.Item(index), BrowserTabs)
                 Next
