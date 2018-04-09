@@ -12,7 +12,10 @@ Namespace My
     Partial Friend Class MyApplication
         Private Sub MyApplication_NetworkAvailabilityChanged(sender As Object, e As NetworkAvailableEventArgs) Handles Me.NetworkAvailabilityChanged
             If e.IsNetworkAvailable = False Then
-                MsgBox("Il semblerait que SmartNet Browser n'arrive plus à se connecter. Veuillez vérifier votre connexion réseau. Vérifiez que votre pare-feu et votre antivirus autorisent SmartNet Browser à se connecter à Internet.", MsgBoxStyle.Critical, "Connexion Internet indisponible :(")
+                'MsgBox("Il semblerait que SmartNet Browser n'arrive plus à se connecter. Veuillez vérifier votre connexion réseau. Vérifiez que votre pare-feu et votre antivirus autorisent SmartNet Browser à se connecter à Internet.", MsgBoxStyle.Critical, "Connexion Internet indisponible :(")
+                BrowserForm.DisplayMessageBar("Critical", "SmartNet Browser ne parvient pas à se connecter à Internet. Veuillez vérifier les paramètres réseau de votre ordinateur.", "OpenInternetSettings", "Ouvrir les paramètres Windows", "", Nothing)
+            Else
+                CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser).Refresh()
             End If
         End Sub
 
@@ -33,7 +36,7 @@ Namespace My
             Try
                 Gecko.Xpcom.Initialize("Firefox")
             Catch ex As Exception
-                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
             BrowserForm.UpdateLabels()
             Try
@@ -75,12 +78,12 @@ Namespace My
                 End If
 StopVersionChecking:
             Catch ex As Exception
-                BrowserForm.DisplayMessageBar("Impossible de rechercher les mises à jour en raison d'une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+                BrowserForm.DisplayMessageBar("Warning", "Impossible de rechercher les mises à jour en raison d'une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End Sub
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
-            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", e.Exception)
+            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", e.Exception)
             e.ExitApplication = False
         End Sub
     End Class

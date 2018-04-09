@@ -9,8 +9,7 @@
         HistoryListView.Items.Clear()
         FaviconImageList.Images.Clear()
         If Not (My.Settings.NewHistory Is Nothing) Then
-            Historique = New List(Of Webpage)
-            Historique = (CType(My.Settings.NewHistory, List(Of Webpage)))
+            Historique = BrowserForm.Historique
             For index = 0 To Historique.Count - 1
                 Dim element As New ListViewItem
                 FaviconImageList.Images.Add(Historique(index).GetFavicon())

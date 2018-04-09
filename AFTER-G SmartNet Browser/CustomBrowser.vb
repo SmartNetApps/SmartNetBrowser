@@ -150,7 +150,7 @@ Public Class CustomBrowser
                 End If
                 BrowserForm.CheckFavicon()
             Catch ex As Exception
-                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End If
     End Sub
@@ -168,7 +168,7 @@ Public Class CustomBrowser
                     End Select
                 End If
             Catch ex As Exception
-                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
             If e.Uri.ToString.Contains("window.close") Then
                 If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
@@ -222,7 +222,7 @@ Public Class CustomBrowser
             NewBrowser.Navigate(URL)
             TabControl.SelectedTab = NewTab
         Catch ex As Exception
-            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -230,12 +230,12 @@ Public Class CustomBrowser
         Try
             e.Cancel = True
             If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
-                BrowserForm.DisplayMessageBar("SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
+                BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
             Else
                 AddTab(e.Uri, BrowserForm.BrowserTabs)
             End If
         Catch ex As Exception
-            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             If IsAdvertisement(e.Uri) = False Then
                 NewBrowserForm.GeckoWebBrowser1.Navigate(e.Uri)
                 NewBrowserForm.Show()
@@ -248,7 +248,7 @@ Public Class CustomBrowser
                 e.Cancel = True
             End If
         Catch ex As Exception
-            BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne. (Code d'erreur : ADSBLOCKER_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : ADSBLOCKER_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
 
@@ -305,7 +305,7 @@ Public Class CustomBrowser
                 End If
                 TP.ToolTipText = Me.DocumentTitle
             Catch ex As Exception
-                BrowserForm.DisplayMessageBar("SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
         End If
     End Sub
