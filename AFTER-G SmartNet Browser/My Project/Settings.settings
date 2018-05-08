@@ -59,16 +59,16 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Homepage" Type="(Web Service URL)" Scope="User">
-      <Value Profile="(Default)">https://quentinpugeat.wixsite.com/smartnetbrowserhome</Value>
+      <Value Profile="(Default)">http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/</Value>
     </Setting>
     <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;http://quentinpugeat.wixsite.com/smartnetbrowserhome&lt;/string&gt;
+  &lt;string&gt;http://quentinpugeat.pagesperso-orange.fr&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="AllowAdsSites" Type="System.String" Scope="User">
-      <Value Profile="(Default)">quentinpugeat.wixsite.com</Value>
+      <Value Profile="(Default)">http://quentinpugeat.pagesperso-orange.fr</Value>
     </Setting>
     <Setting Name="UserAgentLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">fr</Value>

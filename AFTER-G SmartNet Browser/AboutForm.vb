@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HomepageLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/browser", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser", BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
 
@@ -28,7 +28,7 @@
     End Sub
 
     Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/whatsnew-smartnetbrowser", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/releasenotes.html", BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
 

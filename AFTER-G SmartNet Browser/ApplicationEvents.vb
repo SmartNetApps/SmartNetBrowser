@@ -12,7 +12,6 @@ Namespace My
     Partial Friend Class MyApplication
         Private Sub MyApplication_NetworkAvailabilityChanged(sender As Object, e As NetworkAvailableEventArgs) Handles Me.NetworkAvailabilityChanged
             If e.IsNetworkAvailable = False Then
-                'MsgBox("Il semblerait que SmartNet Browser n'arrive plus à se connecter. Veuillez vérifier votre connexion réseau. Vérifiez que votre pare-feu et votre antivirus autorisent SmartNet Browser à se connecter à Internet.", MsgBoxStyle.Critical, "Connexion Internet indisponible :(")
                 BrowserForm.DisplayMessageBar("Critical", "SmartNet Browser ne parvient pas à se connecter à Internet. Veuillez vérifier les paramètres réseau de votre ordinateur.", "OpenInternetSettings", "Ouvrir les paramètres Windows", "", Nothing)
             Else
                 CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser).Refresh()
@@ -42,11 +41,11 @@ Namespace My
             Try
                 Dim MiniNTVersionChecker As New WebClient
                 Dim NTActualVersion As Version = Environment.OSVersion.Version
-                Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/MinimumNTVersion.txt"))
+                Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
                 Dim MAJ As New WebClient
                 Dim VersionActuelle As Version = My.Application.Info.Version
-                Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-version.txt"))
-                Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/support-status.txt")
+                Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt"))
+                Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/support-status.txt")
                 If VersionActuelle > DerniereVersion Then
                     MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, mais merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
                     BrowserForm.EnvoyerVosCommentairesToolStripMenuItem.Enabled = False

@@ -148,7 +148,7 @@ Public Class BrowserForm
     Public Function CurrentPageFavicon() As Image
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
+            If WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
                 Return FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(WB.Url.ToString)
@@ -174,7 +174,7 @@ Public Class BrowserForm
     ''' <returns></returns>
     Public Function PageFavicon(pURL As String) As Image
         Try
-            If pURL.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or pURL.Contains(My.Application.Info.DirectoryPath) Or pURL.Contains("about:") Then
+            If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath) Or pURL.Contains("about:") Then
                 Return FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(pURL)
@@ -456,15 +456,15 @@ Public Class BrowserForm
 
     Private Sub MenuPrincipalNavigating(sender As Object, e As EventArgs) Handles MenuPrincipalToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("https://quentinpugeat.wixsite.com/smartnetbrowserhome")
+        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")
     End Sub
     Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuentinPugeatLeSiteOfficielToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("https://quentinpugeat.wixsite.com/lesiteofficiel")
+        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/")
     End Sub
     Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SmartNetAppsToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("https://quentinpugeat.wixsite.com/apps")
+        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/")
     End Sub
 
     Private Sub Cut(sender As Object, e As EventArgs) Handles CouperToolStripMenuItem.Click, CouperToolStripMenuItem1.Click
@@ -586,7 +586,7 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SupportCenterNavigating(sender As Object, e As EventArgs) Handles CentreDaideEnLigneToolStripMenuItem.Click
-        AddTab("https://quentinpugeat.wixsite.com/apps/support-browser", BrowserTabs)
+        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/", BrowserTabs)
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
         AddTab("https://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
@@ -720,7 +720,7 @@ Public Class BrowserForm
             CheckFavicon()
             PreviouspageButton.Visible = WB.CanGoBack
             NextpageButton.Visible = WB.CanGoForward
-            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Then
                 URLBox.Text = ""
             Else
                 URLBox.Text = WB.Url.ToString
@@ -1042,7 +1042,7 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim Link As String = WB.Url.ToString
         Dim PageTitle As String = WB.DocumentTitle
-        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : https://quentinpugeat.wixsite.com/apps/browser)")
+        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser)")
     End Sub
 
     ''' <summary>

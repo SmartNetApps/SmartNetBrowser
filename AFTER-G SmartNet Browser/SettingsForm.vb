@@ -82,7 +82,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "https://quentinpugeat.wixsite.com/smartnetbrowserhome"
+        HomepageURLBox.Text = "http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/"
     End Sub
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
@@ -128,7 +128,7 @@ Public Class SettingsForm
         End If
     End Sub
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://quentinpugeat.wixsite.com/apps/support-browser-2", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support", BrowserForm.BrowserTabs)
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
@@ -237,7 +237,7 @@ Public Class SettingsForm
         End If
         Dim MiniNTVersionChecker As New WebClient
         Dim NTActualVersion As Version = Environment.OSVersion.Version
-        Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/MinimumNTVersion.txt"))
+        Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
         If NTActualVersion < MiniNTVersion And AutoUpdateCheckBox.Checked = True Then
             MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", MsgBoxStyle.Critical, "Impossible de continuer")
             AutoUpdateCheckBox.Checked = False
@@ -248,11 +248,11 @@ Public Class SettingsForm
         Try
             Dim MiniNTVersionChecker As New WebClient
             Dim NTActualVersion As Version = Environment.OSVersion.Version
-            Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/MinimumNTVersion.txt"))
+            Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
             Dim MAJ As New WebClient
             Dim VersionActuelle As Version = My.Application.Info.Version
-            Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-version.txt"))
-            Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/support-status.txt")
+            Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt"))
+            Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/support-status.txt")
             If VersionActuelle > DerniereVersion Then
                 MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez me contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
                 GoTo StopVersionChecking
@@ -303,7 +303,7 @@ StopVersionChecking:
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
             My.Settings.NewHistory.Clear()
-            My.Settings.Homepage = "https://quentinpugeat.wixsite.com/smartnetbrowserhome"
+            My.Settings.Homepage = "http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/"
             My.Settings.Favorites.Clear()
             My.Settings.SearchHistory.Clear()
             My.Settings.PreventMultipleTabsClose = True

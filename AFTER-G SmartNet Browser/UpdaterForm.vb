@@ -15,8 +15,8 @@ Public Class UpdaterForm
                 Dim MAJ2 As New WebClient
                 AddHandler MAJ2.DownloadProgressChanged, AddressOf MAJ2_ProgressChanged
                 AddHandler MAJ2.DownloadFileCompleted, AddressOf MAJ2_DownloadCompleted
-                Dim DownloadLink As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-download.txt")
-                Dim NewVersionNumber As String = NewVersion.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-version.txt")
+                Dim DownloadLink As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/download.txt")
+                Dim NewVersionNumber As String = NewVersion.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt")
                 MAJ2.DownloadFileAsync(New Uri(DownloadLink), My.Computer.FileSystem.SpecialDirectories.Temp + "\smartnetbrowser-update-" + NewVersionNumber + ".exe")
             End If
         Catch ex As Exception
@@ -34,7 +34,7 @@ Public Class UpdaterForm
 
     Private Sub MAJ2_DownloadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
         Dim NewVersion As New WebClient
-        Dim NewVersionNumber As String = NewVersion.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-version.txt")
+        Dim NewVersionNumber As String = NewVersion.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt")
         Process.Start(My.Computer.FileSystem.SpecialDirectories.Temp + "\smartnetbrowser-update-" + NewVersionNumber + ".exe", "/SILENT /NOCANCEL /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS")
         Me.Close()
         Application.Exit()
@@ -46,7 +46,7 @@ Public Class UpdaterForm
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim MAJ As New WebClient
-        Dim Nouveautes As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/downloads/smartnet-browser/smartnetbrowser-nouveautes.txt")
+        Dim Nouveautes As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/releasenotes.txt")
         RichTextBox1.Text = Nouveautes
     End Sub
 End Class
