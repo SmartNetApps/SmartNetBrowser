@@ -118,35 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="ClipconverterLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="GeckoFXLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PictureBox5.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -853,51 +826,6 @@
 </value>
   </data>
   <data name="PictureBox4.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="PictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAkZSURBVGhD1ZoL
@@ -2311,12 +2239,6 @@
         11UAvbfpyHOgv8P6u+d4v/7v65j2HN+ewF3qN+z5Pfpt+o36rfrNBPOIiIhZ1/2//w9ZgTtP6/2CSwAA
         AABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="GitHubLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

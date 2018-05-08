@@ -347,12 +347,6 @@
     <EmbeddedResource Include="BrowserForm.en.resx">
       <DependentUpon>BrowserForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BrowserForm.fr-DJ.resx">
-      <DependentUpon>BrowserForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BrowserForm.fr-FR.resx">
-      <DependentUpon>BrowserForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BrowserForm.fr.resx">
       <DependentUpon>BrowserForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -387,9 +381,6 @@
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.en.resx">
-      <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.fo.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.fr.resx">
@@ -479,6 +470,12 @@
     <EmbeddedResource Include="NewBrowserForm.resx">
       <DependentUpon>NewBrowserForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewHistoryForm.en.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewHistoryForm.fr.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewHistoryForm.resx">
       <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -522,9 +519,6 @@
       <DependentUpon>SettingsCustomSearchForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.en.resx">
-      <DependentUpon>SettingsForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.fr-FR.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.fr.resx">
