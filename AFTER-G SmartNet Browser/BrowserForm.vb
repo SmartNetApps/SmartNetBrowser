@@ -720,7 +720,7 @@ Public Class BrowserForm
             CheckFavicon()
             PreviouspageButton.Visible = WB.CanGoBack
             NextpageButton.Visible = WB.CanGoForward
-            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Then
+            If Not (WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")) Then
                 URLBox.Text = ""
             Else
                 URLBox.Text = WB.Url.ToString

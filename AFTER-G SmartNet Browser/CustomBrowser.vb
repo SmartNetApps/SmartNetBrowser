@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System.IO
+Imports System.Net
 Imports Gecko.Events
 
 Public Class CustomBrowser
@@ -39,7 +40,7 @@ Public Class CustomBrowser
         Dim ad As Boolean = False
         Dim target As String = url
         Dim AdsDomainsFile As New WebClient
-        Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/AdsDomains.txt")
+        Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
         Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
         For I = 0 To AdsDomainsList.Count - 1
             If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
@@ -58,7 +59,7 @@ Public Class CustomBrowser
         Dim dangerous As Boolean = False
         If My.Settings.ChildrenProtection = True Then
             Dim AdultDomainsFile As New WebClient
-            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetbrowser/ChildrenProtection.txt")
+            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/ChildrenProtection.txt")
             Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
             For I = 0 To AdultDomainsList.Count - 1
                 If url.Contains(AdultDomainsList.Item(I)) Then
@@ -103,9 +104,7 @@ Public Class CustomBrowser
             BrowserForm.LoadingGif.Visible = False
             BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = True
             BrowserForm.CurrentDocument = Me.Document
-            If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
-                BrowserForm.URLBox.Text = ""
-            Else
+            If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage")) Then
                 BrowserForm.URLBox.Text = Me.Url.ToString
             End If
             BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
@@ -119,7 +118,7 @@ Public Class CustomBrowser
         If e.Uri.ToString <> "about:blank" Then
             Try
                 BrowserForm.CurrentDocument = Me.Document
-                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
+                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Then
                     BrowserForm.URLBox.Text = ""
                 Else
                     BrowserForm.URLBox.Text = Me.Url.ToString
@@ -133,7 +132,7 @@ Public Class CustomBrowser
                     BrowserForm.ToolStripSeparator6.Visible = False
                 End If
                 If My.Settings.PrivateBrowsing = False Then
-                    If Not (e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("about:")) Then
+                    If Not (e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
                         If FirstTimeNavigated = True Then
                             BrowserForm.AddInHistory(CurrentWebpage)
                             FirstTimeNavigated = False
@@ -160,12 +159,11 @@ Public Class CustomBrowser
             Try
                 If IsDangerousForChildren(e.Uri.ToString()) = True Then
                     Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                    Select Case Language
-                        Case "fr"
-                            Me.Navigate(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
-                        Case Else
-                            Me.Navigate(My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
-                    End Select
+                    If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
+                        Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+                    Else
+                        Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+                    End If
                 End If
             Catch ex As Exception
                 BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
@@ -193,9 +191,7 @@ Public Class CustomBrowser
             BrowserForm.MessageBarButton1.Enabled = False
             BrowserForm.MessageBarCloseButton1.Enabled = False
             BrowserForm.CurrentDocument = Me.Document
-            If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath) Or e.Uri.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Then
-                BrowserForm.URLBox.Text = ""
-            Else
+            If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage")) Then
                 BrowserForm.URLBox.Text = Me.Url.ToString
             End If
             BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
@@ -349,7 +345,7 @@ Public Class CustomBrowser
     ''' <returns></returns>
     Public Function CurrentPageFavicon() As Image
         Try
-            If Me.Url.ToString.Contains("https://quentinpugeat.wixsite.com/smartnetbrowserhome") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or Me.Url.ToString.Contains("about:") Then
+            If Me.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then
                 Return BrowserForm.FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(Me.Url.ToString)
@@ -380,6 +376,7 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
         Console.WriteLine("Erreur de navigation. Code : " + e.ErrorCode.ToString())
+        BrowserForm.URLBox.Text = e.Uri
         If e.ErrorCode = -2142568418 Then
             Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
         End If
