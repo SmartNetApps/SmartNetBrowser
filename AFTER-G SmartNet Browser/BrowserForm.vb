@@ -148,7 +148,7 @@ Public Class BrowserForm
     Public Function CurrentPageFavicon() As Image
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
-            If WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("about:") Then
+            If WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("about:") Then
                 Return FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(WB.Url.ToString)
@@ -174,7 +174,7 @@ Public Class BrowserForm
     ''' <returns></returns>
     Public Function PageFavicon(pURL As String) As Image
         Try
-            If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath) Or pURL.Contains("about:") Then
+            If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or pURL.Contains("about:") Then
                 Return FaviconBox.InitialImage
             Else
                 Dim url As Uri = New Uri(pURL)
@@ -720,7 +720,7 @@ Public Class BrowserForm
             CheckFavicon()
             PreviouspageButton.Visible = WB.CanGoBack
             NextpageButton.Visible = WB.CanGoForward
-            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Then
+            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Then
                 URLBox.Text = ""
             Else
                 URLBox.Text = WB.Url.ToString

@@ -389,6 +389,9 @@
     <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomBrowser.resx">
+      <DependentUpon>CustomBrowser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DownloadForm.en.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </EmbeddedResource>

@@ -368,4 +368,24 @@ Public Class CustomBrowser
             Return BrowserForm.FaviconBox.ErrorImage
         End Try
     End Function
+
+    Private Sub InitializeComponent()
+        Me.SuspendLayout()
+        '
+        'CustomBrowser
+        '
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
+        Console.WriteLine("Erreur de navigation. Code : " + e.ErrorCode.ToString())
+        If e.ErrorCode = -2142568418 Then
+            Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
+        End If
+    End Sub
+
+    Private Sub CustomBrowser_NSSError(sender As Object, e As GeckoNSSErrorEventArgs) Handles MyBase.NSSError
+        'e.ErrorCode = Gecko.NSSErrors.
+    End Sub
 End Class
