@@ -132,6 +132,7 @@ Partial Class AboutForm
         'PictureBox4
         '
         resources.ApplyResources(Me.PictureBox4, "PictureBox4")
+        Me.PictureBox4.Image = Global.SmartNet_Browser.My.Resources.Resources.Logo_ClipConverter_cc
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.TabStop = False
         '
@@ -154,6 +155,7 @@ Partial Class AboutForm
         '
         'PictureBox1
         '
+        Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources.logo1024
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False

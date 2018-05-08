@@ -66,7 +66,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>SmartNetBrowserIcone.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Logo\SmartNetBrowserIcone.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -626,8 +626,14 @@
     <Content Include="Resources\FavoritesButton\FavoritesYellow.png" />
     <Content Include="Resources\GoButton\GoBlack.png" />
     <Content Include="Resources\GoButton\GoBlue.png" />
+    <Content Include="Resources\GPLv3Logo.png" />
     <Content Include="Resources\HomepageButton\HomeBlack.png" />
     <Content Include="Resources\HomepageButton\HomeBlue.png" />
+    <Content Include="Resources\Logo ClipConverter.cc.png" />
+    <Content Include="Resources\Logo\logo1024.png" />
+    <Content Include="Resources\Logo\logo16.png" />
+    <Content Include="Resources\Logo\logo32.png" />
+    <Content Include="Resources\Logo\SmartNetBrowserIcone.ico" />
     <Content Include="Resources\MainMenuButton\MenuBlack.png" />
     <Content Include="Resources\MainMenuButton\MenuWhite.png" />
     <Content Include="Resources\MainMenu\Afficher l%27historique.png" />
@@ -650,6 +656,7 @@
     <Content Include="Resources\MainMenu\Quitter le plein écran.png" />
     <Content Include="Resources\MainMenu\Télécharger cette vidéo.png" />
     <Content Include="Resources\MainMenu\Zoom.png" />
+    <Content Include="Resources\MozillaFoundationLogo.png" />
     <Content Include="Resources\NewTabButton\NewTabBlack.png" />
     <Content Include="Resources\NewTabButton\NewTabGreen.png" />
     <Content Include="Resources\NextpageButton\NextBlack.png" />
@@ -664,7 +671,6 @@
     <Content Include="Resources\SearchButton\SearchBlue.png" />
     <Content Include="Resources\StopButton\StopBlack.png" />
     <Content Include="Resources\StopButton\StopRed.png" />
-    <Content Include="SmartNetBrowserIcone.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

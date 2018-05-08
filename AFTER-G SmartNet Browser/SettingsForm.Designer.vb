@@ -204,6 +204,7 @@ Partial Class SettingsForm
         '
         'CustomSearchSettingsButton
         '
+        Me.CustomSearchSettingsButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Paramètres
         resources.ApplyResources(Me.CustomSearchSettingsButton, "CustomSearchSettingsButton")
         Me.CustomSearchSettingsButton.Name = "CustomSearchSettingsButton"
         Me.CustomSearchSettingsButton.UseVisualStyleBackColor = True

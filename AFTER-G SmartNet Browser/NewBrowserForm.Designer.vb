@@ -41,6 +41,9 @@ Partial Class NewBrowserForm
         '
         'FaviconBox
         '
+        Me.FaviconBox.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.ErrorFavicon
+        Me.FaviconBox.Image = Global.SmartNet_Browser.My.Resources.Resources.ErrorFavicon
+        Me.FaviconBox.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.logo16
         Me.FaviconBox.Location = New System.Drawing.Point(6, 7)
         Me.FaviconBox.Name = "FaviconBox"
         Me.FaviconBox.Size = New System.Drawing.Size(16, 16)

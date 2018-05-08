@@ -173,6 +173,9 @@ Partial Class FirstStartForm
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Maroon
+        Me.PictureBox2.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.logo1024
+        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.logo1024
+        Me.PictureBox2.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.logo1024
         resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False

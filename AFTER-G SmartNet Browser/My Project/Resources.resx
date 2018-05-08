@@ -268,4 +268,25 @@
   <data name="Zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\mainmenu\zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GPLv3Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\gplv3logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo1024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\logo1024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\logo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\logo32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_ClipConverter_cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo clipconverter.cc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MozillaFoundationLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mozillafoundationlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SmartNetBrowserIcone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\smartnetbrowsericone.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
