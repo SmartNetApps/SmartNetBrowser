@@ -386,6 +386,6 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_NSSError(sender As Object, e As GeckoNSSErrorEventArgs) Handles MyBase.NSSError
-        'e.ErrorCode = Gecko.NSSErrors.
+        Console.WriteLine("Erreur de certificat. Code : " + e.ErrorCode.ToString())
     End Sub
 End Class
