@@ -117,95 +117,327 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="PictureBox5.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 41</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 19</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Version X.X.X.X</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 61</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 15</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>© 2015 - 2018, Quentin Pugeat</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="LicensePictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 171</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 20</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Logiciels tiers</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 194</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>305, 30</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>ClipConverter : © 2018 Clip Converter
+distribué selon ses termes et conditions, consultables sur</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="RichTextBox1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 79</value>
+  </data>
+  <data name="RichTextBox1.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="RichTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>530, 84</value>
+  </data>
+  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>Naviguez avec une fluidité et une aisance exceptionnelle avec SmartNet Browser.
+Un navigateur tout-en un : blocage de publicités, contrôle parental, téléchargement de vidéos...
+Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
   </data>
   <data name="&gt;&gt;RichTextBox1.Name" xml:space="preserve">
     <value>RichTextBox1</value>
   </data>
-  <data name="GeckoFXLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>416, 243</value>
+  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="HomepageLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HomepageLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RichTextBox1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="HomepageLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 280</value>
   </data>
-  <data name="ClipconverterLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 15</value>
+  <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 15</value>
+  </data>
+  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="HomepageLinkLabel.Text" xml:space="preserve">
+    <value>Page Web de l'application</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Name" xml:space="preserve">
+    <value>HomepageLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;HomepageLinkLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="LicenseLinkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;PictureBox5.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="LicenseLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="GitHubLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 280</value>
-  </data>
-  <data name="&gt;&gt;ClipconverterLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LicenseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 280</value>
   </data>
   <data name="LicenseLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 15</value>
   </data>
-  <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LicenseLinkLabel.Text" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.Name" xml:space="preserve">
+    <value>LicenseLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LicenseLinkLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ClipconverterLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ClipconverterLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClipconverterLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 209</value>
+  </data>
+  <data name="ClipconverterLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 15</value>
+  </data>
+  <data name="ClipconverterLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ClipconverterLinkLabel.Text" xml:space="preserve">
+    <value>http://www.clipconverter.cc/terms</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Name" xml:space="preserve">
+    <value>ClipconverterLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ClipconverterLinkLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GeckoFXLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GeckoFXLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GeckoFXLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 243</value>
+  </data>
+  <data name="GeckoFXLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 15</value>
+  </data>
+  <data name="GeckoFXLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="GeckoFXLinkLabel.Text" xml:space="preserve">
+    <value>https://www.mozilla.org/en-US/MPL/2.0/</value>
+  </data>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Name" xml:space="preserve">
+    <value>GeckoFXLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GeckoFXLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GeckoFXLinkLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 228</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 30</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>GeckoFX, par TomHindle
+distribué selon les termes de la Mozilla Public License, consultable sur</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="PictureBox5.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -251,15 +483,6 @@
         ij1PJF5IMCycZ+Kkx3VE/XmGf7XHJOI8w3khzjVxvongWRQR5x8iziMR/WPEPJgTc4vzC2tibf35hb1h
         j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="&gt;&gt;LicensePictureBox.Name" xml:space="preserve">
-    <value>LicensePictureBox</value>
-  </data>
-  <data name="GitHubLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="PictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -874,78 +1097,438 @@
         e9+691737r3Xvfuvde9+691737r3Xvfuvde9+691737r3Xvfuvde9+691737r3Xvfuvdf//Z
 </value>
   </data>
-  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="PictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="PictureBox5.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAkZSURBVGhD1ZoL
+        UFTnFccXRHmDCgjyWhYQxLEZ2yZNjHWsTYmmWDsmBVogiRphRm3VyNCxqZQmURMzdtQkIyGIESWSLCYL
+        i0FggeW5KG8BoxAdqROv9a3AN77GsefAd3EPWZe7D9bxP/Ob69n73XPO/9773d37oezhw4cjWEuQyw54
+        EWgE+vi/7fjucRPUeOSFBFbSvXv3Fjx48OAYICD379//fUZGhj3fPW4iXkhguezAxBKgHUBDIk+vMaVS
+        OeHu3btxd+7c6YKtoA989goMefpuxZaWlom3b99OAXoAwQAv4RitVuuAJ4AfZnURLyQwQ+fPn3ceHBxM
+        A/47MDAgGAL2fQasQCD+882bN5/t7+/3vn79uica5qksFvFCAhN19epVj1u3bm0DBDPoBIPFwNpr167N
+        u3DhgrelV5N4IYEJgis19caNG5mAYCXUYDDu8uXL03kJk0W8kECi4EoFXLlyJQe2wjhQeunSpcWQ352X
+        kyzihQQSBEXD4awqYSuMM1vhrgjgZSWJeCHBGBIEQQ5zoQC2NtHFixeVUG8mLz+miBcSGNG5c+ec4Axu
+        BgQbU9LX1zeLt2FUxAsJjKi3t9cDzH0KCE8A9dmzZ4N5K48V8UKCMXTmzJmXgHZAeAJ8furUKaMPFOKF
+        BBIEyV87ffp0R09Pj/AESDb2hU68kECiuru7l548ebIFEGwJ1G3r6OiYzdv4iYgXEpigzs7O6BMnTuhg
+        K9iYD+GqufA2iIgXEpio9vb2eW1tbVrYCibyPdAI1MHx9bBtAn4ADI0dzQ+tra2/5C0QES8kMENNTU2z
+        4QyqAcEI9cA7MPZ12MYCzzc2Nj6DxyLHjx+fA5/NB+Kam5vfgO0GIBtoAH6SD8Zs1ul0zryFEREvJDBT
+        0GQINJcPTQqGgH2x8AN3Eh8uRXYNDQ3TIG8UHLsYcuwA+vRydtTX1/vzsSMiXkhggbAQNJINCKOBfQv5
+        MLOk0Wg8IcdcyKXUy/vK6Ldy4oUEFgpeJL2hgZ0AmhmhpqYmxhpLAxUVFb51dXXZmBO26Wq1mjxEiBcS
+        WEF4dsHIltraWkHEWsZQkN8LcrYCx9Eo/3hIxAsJrCS4cm7V1dUbgR8BAdBf87CLLG/1n1HRbtIvd31B
+        /s2Qs9BsY3Jt++RZ2u7FPDRJJSUljlD4T1VVVd9VVlZG8o8hp9YpqrLr05lVXb0zqzuX8Y9NEt6CeGeY
+        O8fsoio74yLL2n6Mqjgxn39mkvBVH3DTb2C6usUlXN30dehhHYs82nY+Stu1mu+yWMQLCUYJGlig+LqW
+        RRxtyYfQKstnaCzsG92hkPwahrlnHGn6X2Rlexrssjg/8UKCUZKrGkPkeZW9oQW1gxGa1h3hcHvxXWYL
+        jSmUNYcgL0NCvqxiYYUNV2HevSfLsmzFinghwSiFHzzmIT+g2RW8v5xBM3DlmtURJU3P+Si1brIMrQMf
+        ZpLkX2idFPnaXMw5Qq6GwckbiChp2Y3G+VCTRbyQwICC8jR/DNz73QDAgg+Ws1BV3UCoWlcaptatCi1u
+        mD1drfVGowg2DRMLl9Ae3VY4v+BXh++BMlccE6aqCZLnaUox32jkhypYWLHuC8zJjzZJxAsJDMg/vzTI
+        P6voWEBWERMJ2lfC5PkVTPENzBNVXVuoqjY3tLB2r6Ko/n0gKbSwJkZRVBcdoqpZpFDVv6YorH8bxmXi
+        OMW3tafweP18+gTllmLOouCiGgVvQbKIFxIYUkaGQ0BmYbL/J4eZIQIyVXC2i1lgTjEL2l/CgvPKmPzL
+        cjj7GgBuM/h3cO5RFpRzZGhcwB6VwTz6BGYXsRBllUb+bXUU70KSiBcSPEZ+e4/IfXfmN/vtzGc2Yw8Y
+        PFRWF1RQ/ixvY0wRLyQwIt+defG+Hx24BjBb4bcrnwXmFrcH5JXij+gxvw6IFxIY0ZQspafP1n1ZPlty
+        mC2Ztj2XTf9c9X3AweLfDD2IjIh4IcEY8vlof5h3xmctXv/KYrbE+/1s5runQOe97/AM3opBES8kkKAp
+        6Z/MnfrOx10AsyVe/85kXru/+gNvw6CIFxJIlOc/di+ckrajc3Laf5gN6Zq6NcfoijDxQgIT5LZh+3yP
+        ddu0Hus/YOON+/oPzrhv3L4Eyhp9gBAvJDBR7mu3Rbivee9joB9g48Lqd7vd1m6R9HpDvJDAHCWlurq+
+        tTnJdVV6kWtKOrMqyenNrqvflbxeQryQwAI5pWQEO725KdF5+aa9Lss39QHMQupdVqUbXD98nIgXElhD
+        b66f7JD49xccEzYud0pI3eWcmKp0SkztAfqdEjcOwpaNSUJq2aTEtJG3bqkiXkhgZXmtXOnutXKt/8TY
+        9XMcYtf92iH+r/Md4//2smPculrH+HXsMRQ4JqWa/AMYRbyQwEYCk7kTX13DRuPw6pps2bINT+6P6xYp
+        JcUFjOU5LE1hj0genLA0+cNZb709lY8yS8QLCaQLv08QfKnE328iGIvgGzaCr/sidrLYWOcJy9Z8NSFm
+        JRtmRb99zIp0WXSSK+xH6ecS60gS8UKCR81iQ7jWjgv/WNAN8AA8gckAnll8y/UBpgG4vucH4G2Ea+oi
+        uHYoEgj4yZalTrNfklxov+gNBtyyX/z6P7kpr6H9w7kwJ+bGGlgLa2Jt7AF7wfHYG/aIvQ6dBOKFBMMD
+        MQkWwL/5hgH4dMKfMj8D5gA/B/AxjDwH/Ap4HngBmMt5UY95esyV+fjPsYtZobSLThDso/+SJpPL8X8F
+        YC48DnNgLsyJucU6WBNrYw/YC/aEvWGP2Cv2PIl4IYFMhgspeMbwIPzL4S8ALIQN4triAgC/MJHfAr8D
+        ojkvA4v0wIVWcYvgajCySBadECtbGJ8A5xpz4rHiMZhDzIe5sYZYD2vjeOwFe8LesEfsFXt2IV5IMDwP
+        8HLjbYC3TggQDohXDRM9A+DZQzA5vuEieIax4GjwKuhfTUS8GuJ+cSx+LubD3GIdrIm1xauFPWFv2CP2
+        ij1PJF5IMCycZ+Kkx3VE/XmGf7XHJOI8w3khzjVxvongWRQR5x8iziMR/WPEPJgTc4vzC2tibf35hb1h
+        j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="PictureBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 228</value>
+  </data>
+  <data name="PictureBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="PictureBox5.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;PictureBox5.Name" xml:space="preserve">
+    <value>PictureBox5</value>
+  </data>
+  <data name="&gt;&gt;PictureBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureBox5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PictureBox4.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAkZSURBVGhD1ZoL
+        UFTnFccXRHmDCgjyWhYQxLEZ2yZNjHWsTYmmWDsmBVogiRphRm3VyNCxqZQmURMzdtQkIyGIESWSLCYL
+        i0FggeW5KG8BoxAdqROv9a3AN77GsefAd3EPWZe7D9bxP/Ob69n73XPO/9773d37oezhw4cjWEuQyw54
+        EWgE+vi/7fjucRPUeOSFBFbSvXv3Fjx48OAYICD379//fUZGhj3fPW4iXkhguezAxBKgHUBDIk+vMaVS
+        OeHu3btxd+7c6YKtoA989goMefpuxZaWlom3b99OAXoAwQAv4RitVuuAJ4AfZnURLyQwQ+fPn3ceHBxM
+        A/47MDAgGAL2fQasQCD+882bN5/t7+/3vn79uica5qksFvFCAhN19epVj1u3bm0DBDPoBIPFwNpr167N
+        u3DhgrelV5N4IYEJgis19caNG5mAYCXUYDDu8uXL03kJk0W8kECi4EoFXLlyJQe2wjhQeunSpcWQ352X
+        kyzihQQSBEXD4awqYSuMM1vhrgjgZSWJeCHBGBIEQQ5zoQC2NtHFixeVUG8mLz+miBcSGNG5c+ec4Axu
+        BgQbU9LX1zeLt2FUxAsJjKi3t9cDzH0KCE8A9dmzZ4N5K48V8UKCMXTmzJmXgHZAeAJ8furUKaMPFOKF
+        BBIEyV87ffp0R09Pj/AESDb2hU68kECiuru7l548ebIFEGwJ1G3r6OiYzdv4iYgXEpigzs7O6BMnTuhg
+        K9iYD+GqufA2iIgXEpio9vb2eW1tbVrYCibyPdAI1MHx9bBtAn4ADI0dzQ+tra2/5C0QES8kMENNTU2z
+        4QyqAcEI9cA7MPZ12MYCzzc2Nj6DxyLHjx+fA5/NB+Kam5vfgO0GIBtoAH6SD8Zs1ul0zryFEREvJDBT
+        0GQINJcPTQqGgH2x8AN3Eh8uRXYNDQ3TIG8UHLsYcuwA+vRydtTX1/vzsSMiXkhggbAQNJINCKOBfQv5
+        MLOk0Wg8IcdcyKXUy/vK6Ldy4oUEFgpeJL2hgZ0AmhmhpqYmxhpLAxUVFb51dXXZmBO26Wq1mjxEiBcS
+        WEF4dsHIltraWkHEWsZQkN8LcrYCx9Eo/3hIxAsJrCS4cm7V1dUbgR8BAdBf87CLLG/1n1HRbtIvd31B
+        /s2Qs9BsY3Jt++RZ2u7FPDRJJSUljlD4T1VVVd9VVlZG8o8hp9YpqrLr05lVXb0zqzuX8Y9NEt6CeGeY
+        O8fsoio74yLL2n6Mqjgxn39mkvBVH3DTb2C6usUlXN30dehhHYs82nY+Stu1mu+yWMQLCUYJGlig+LqW
+        RRxtyYfQKstnaCzsG92hkPwahrlnHGn6X2Rlexrssjg/8UKCUZKrGkPkeZW9oQW1gxGa1h3hcHvxXWYL
+        jSmUNYcgL0NCvqxiYYUNV2HevSfLsmzFinghwSiFHzzmIT+g2RW8v5xBM3DlmtURJU3P+Si1brIMrQMf
+        ZpLkX2idFPnaXMw5Qq6GwckbiChp2Y3G+VCTRbyQwICC8jR/DNz73QDAgg+Ws1BV3UCoWlcaptatCi1u
+        mD1drfVGowg2DRMLl9Ae3VY4v+BXh++BMlccE6aqCZLnaUox32jkhypYWLHuC8zJjzZJxAsJDMg/vzTI
+        P6voWEBWERMJ2lfC5PkVTPENzBNVXVuoqjY3tLB2r6Ko/n0gKbSwJkZRVBcdoqpZpFDVv6YorH8bxmXi
+        OMW3tafweP18+gTllmLOouCiGgVvQbKIFxIYUkaGQ0BmYbL/J4eZIQIyVXC2i1lgTjEL2l/CgvPKmPzL
+        cjj7GgBuM/h3cO5RFpRzZGhcwB6VwTz6BGYXsRBllUb+bXUU70KSiBcSPEZ+e4/IfXfmN/vtzGc2Yw8Y
+        PFRWF1RQ/ixvY0wRLyQwIt+defG+Hx24BjBb4bcrnwXmFrcH5JXij+gxvw6IFxIY0ZQspafP1n1ZPlty
+        mC2Ztj2XTf9c9X3AweLfDD2IjIh4IcEY8vlof5h3xmctXv/KYrbE+/1s5runQOe97/AM3opBES8kkKAp
+        6Z/MnfrOx10AsyVe/85kXru/+gNvw6CIFxJIlOc/di+ckrajc3Laf5gN6Zq6NcfoijDxQgIT5LZh+3yP
+        ddu0Hus/YOON+/oPzrhv3L4Eyhp9gBAvJDBR7mu3Rbivee9joB9g48Lqd7vd1m6R9HpDvJDAHCWlurq+
+        tTnJdVV6kWtKOrMqyenNrqvflbxeQryQwAI5pWQEO725KdF5+aa9Lss39QHMQupdVqUbXD98nIgXElhD
+        b66f7JD49xccEzYud0pI3eWcmKp0SkztAfqdEjcOwpaNSUJq2aTEtJG3bqkiXkhgZXmtXOnutXKt/8TY
+        9XMcYtf92iH+r/Md4//2smPculrH+HXsMRQ4JqWa/AMYRbyQwEYCk7kTX13DRuPw6pps2bINT+6P6xYp
+        JcUFjOU5LE1hj0genLA0+cNZb709lY8yS8QLCaQLv08QfKnE328iGIvgGzaCr/sidrLYWOcJy9Z8NSFm
+        JRtmRb99zIp0WXSSK+xH6ecS60gS8UKCR81iQ7jWjgv/WNAN8AA8gckAnll8y/UBpgG4vucH4G2Ea+oi
+        uHYoEgj4yZalTrNfklxov+gNBtyyX/z6P7kpr6H9w7kwJ+bGGlgLa2Jt7AF7wfHYG/aIvQ6dBOKFBMMD
+        MQkWwL/5hgH4dMKfMj8D5gA/B/AxjDwH/Ap4HngBmMt5UY95esyV+fjPsYtZobSLThDso/+SJpPL8X8F
+        YC48DnNgLsyJucU6WBNrYw/YC/aEvWGP2Cv2PIl4IYFMhgspeMbwIPzL4S8ALIQN4triAgC/MJHfAr8D
+        ojkvA4v0wIVWcYvgajCySBadECtbGJ8A5xpz4rHiMZhDzIe5sYZYD2vjeOwFe8LesEfsFXt2IV5IMDwP
+        8HLjbYC3TggQDohXDRM9A+DZQzA5vuEieIax4GjwKuhfTUS8GuJ+cSx+LubD3GIdrIm1xauFPWFv2CP2
+        ij1PJF5IMCycZ+Kkx3VE/XmGf7XHJOI8w3khzjVxvongWRQR5x8iziMR/WPEPJgTc4vzC2tibf35hb1h
+        j9jr0AOGeCGBNIlPqcc9DUWwoBQMHaufGyXpyUi8kECangJjD2X/BzQ1dHl848hlAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="PictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox4.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="PictureBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 194</value>
+  </data>
+  <data name="PictureBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.Name" xml:space="preserve">
+    <value>PictureBox4</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PictureBox4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 30</value>
+  <data name="&gt;&gt;PictureBox4.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>697, 311</value>
+  <data name="LicensePictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="LicenseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>390, 280</value>
+  <data name="LicensePictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>433, 280</value>
   </data>
-  <data name="&gt;&gt;HomepageLinkLabel.Parent" xml:space="preserve">
+  <data name="LicensePictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="LicensePictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="LicensePictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.Name" xml:space="preserve">
+    <value>LicensePictureBox</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LicensePictureBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        gg==
+</value>
+  </data>
+  <data name="PictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 12</value>
+  </data>
+  <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 26</value>
+  </data>
+  <data name="PictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
+    <value>PictureBox2</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-27, -27</value>
+  </data>
+  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 189</value>
+  </data>
+  <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="PictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 264</value>
+  </data>
+  <data name="PictureBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 47</value>
+  </data>
+  <data name="PictureBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;PictureBox6.Name" xml:space="preserve">
+    <value>PictureBox6</value>
+  </data>
+  <data name="&gt;&gt;PictureBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox6.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox6.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="PictureBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>ClipConverter : © 2018 Clip Converter
-distribué selon ses termes et conditions, consultables sur</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 228</value>
-  </data>
-  <data name="PictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="HomepageLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ReleaseNotesLinkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="PictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="ReleaseNotesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 280</value>
   </data>
-  <data name="&gt;&gt;PictureBox5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ReleaseNotesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 15</value>
   </data>
-  <data name="HomepageLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="ReleaseNotesLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="ReleaseNotesLinkLabel.Text" xml:space="preserve">
+    <value>Notes de version</value>
   </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
+  <data name="&gt;&gt;ReleaseNotesLinkLabel.Name" xml:space="preserve">
+    <value>ReleaseNotesLinkLabel</value>
   </data>
-  <data name="PictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;ReleaseNotesLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ReleaseNotesLinkLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-27, -27</value>
+  <data name="&gt;&gt;ReleaseNotesLinkLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;PictureBox5.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="GitHubLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GitHubLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GitHubLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>499, 280</value>
+  </data>
+  <data name="GitHubLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 15</value>
+  </data>
+  <data name="GitHubLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="GitHubLinkLabel.Text" xml:space="preserve">
+    <value>Code source</value>
+  </data>
+  <data name="&gt;&gt;GitHubLinkLabel.Name" xml:space="preserve">
+    <value>GitHubLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;GitHubLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GitHubLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GitHubLinkLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>697, 311</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6660,599 +7243,16 @@ distribué selon ses termes et conditions, consultables sur</value>
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
-  <data name="PictureBox4.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="GitHubLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;LicensePictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="PictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;LicenseLinkLabel.Name" xml:space="preserve">
-    <value>LicenseLinkLabel</value>
-  </data>
-  <data name="LicenseLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;ReleaseNotesLinkLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ClipconverterLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>348, 209</value>
-  </data>
-  <data name="&gt;&gt;ClipconverterLinkLabel.Name" xml:space="preserve">
-    <value>ClipconverterLinkLabel</value>
-  </data>
-  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;PictureBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PictureBox4.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="HomepageLinkLabel.Text" xml:space="preserve">
-    <value>Page Web de l'application</value>
-  </data>
-  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GeckoFXLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 15</value>
-  </data>
-  <data name="PictureBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 194</value>
-  </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LicensePictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;GitHubLinkLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;ReleaseNotesLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 19</value>
-  </data>
-  <data name="ClipconverterLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="PictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 194</value>
-  </data>
-  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="LicensePictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>433, 280</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AboutForm</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PictureBox6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="ClipconverterLinkLabel.Text" xml:space="preserve">
-    <value>http://www.clipconverter.cc/terms</value>
-  </data>
-  <data name="&gt;&gt;HomepageLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ReleaseNotesLinkLabel.Name" xml:space="preserve">
-    <value>ReleaseNotesLinkLabel</value>
-  </data>
-  <data name="&gt;&gt;GeckoFXLinkLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PictureBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GeckoFXLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;LicenseLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ClipconverterLinkLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="GeckoFXLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;GeckoFXLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="HomepageLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 15</value>
-  </data>
-  <data name="&gt;&gt;PictureBox6.Name" xml:space="preserve">
-    <value>PictureBox6</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="PictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 264</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RichTextBox1.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="PictureBox5.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="&gt;&gt;ReleaseNotesLinkLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="PictureBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>697, 47</value>
-  </data>
-  <data name="&gt;&gt;PictureBox5.Name" xml:space="preserve">
-    <value>PictureBox5</value>
-  </data>
-  <data name="GeckoFXLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="GitHubLinkLabel.Text" xml:space="preserve">
-    <value>Code source</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HomepageLinkLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="LicenseLinkLabel.Text" xml:space="preserve">
-    <value>Licence</value>
-  </data>
-  <data name="&gt;&gt;GitHubLinkLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="LicenseLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="PictureBox4.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Version X.X.X.X</value>
-  </data>
-  <data name="&gt;&gt;PictureBox4.Name" xml:space="preserve">
-    <value>PictureBox4</value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 41</value>
-  </data>
-  <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        gg==
-</value>
-  </data>
-  <data name="HomepageLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 280</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 30</value>
-  </data>
-  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
-    <value>PictureBox2</value>
-  </data>
-  <data name="PictureBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>GeckoFX, par TomHindle
-distribué selon les termes de la Mozilla Public License, consultable sur</value>
-  </data>
-  <data name="LicensePictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 15</value>
-  </data>
-  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 79</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="PictureBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="PictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 228</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 171</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 26</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 61</value>
-  </data>
-  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 189</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
-  </data>
-  <data name="ClipconverterLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>Naviguez avec une fluidité et une aisance exceptionnelle avec SmartNet Browser.
-Un navigateur tout-en un : blocage de publicités, contrôle parental, téléchargement de vidéos...
-Profitez de toutes ses fonctionnalités géniales en quelques clics.</value>
-  </data>
-  <data name="PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 12</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;GeckoFXLinkLabel.Name" xml:space="preserve">
-    <value>GeckoFXLinkLabel</value>
-  </data>
-  <data name="PictureBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="RichTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 84</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>© 2015 - 2018, Quentin Pugeat</value>
-  </data>
-  <data name="&gt;&gt;HomepageLinkLabel.Name" xml:space="preserve">
-    <value>HomepageLinkLabel</value>
-  </data>
-  <data name="GeckoFXLinkLabel.Text" xml:space="preserve">
-    <value>https://www.mozilla.org/en-US/MPL/2.0/</value>
-  </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;GitHubLinkLabel.Name" xml:space="preserve">
-    <value>GitHubLinkLabel</value>
-  </data>
-  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11pt</value>
-  </data>
-  <data name="HomepageLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 20</value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.Text" xml:space="preserve">
-    <value>Notes de version</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>À propos de SmartNet Browser</value>
   </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AboutForm</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Logiciels tiers</value>
-  </data>
-  <data name="&gt;&gt;GeckoFXLinkLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="LicensePictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 15</value>
-  </data>
-  <data name="&gt;&gt;LicenseLinkLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ClipconverterLinkLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="GitHubLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 15</value>
-  </data>
-  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="GitHubLinkLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 15</value>
-  </data>
-  <data name="&gt;&gt;LicenseLinkLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;GitHubLinkLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;LicensePictureBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="ReleaseNotesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 280</value>
-  </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LicensePictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ClipconverterLinkLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>
