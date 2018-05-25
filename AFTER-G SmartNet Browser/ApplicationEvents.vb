@@ -83,6 +83,7 @@ StopVersionChecking:
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
             BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", e.Exception)
+            Console.WriteLine(e.Exception.Message)
             e.ExitApplication = False
         End Sub
     End Class

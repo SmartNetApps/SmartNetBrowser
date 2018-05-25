@@ -576,7 +576,7 @@ Public Class BrowserForm
         AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/", BrowserTabs)
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        AddTab("https://quentinpugeat.wixsite.com/lesiteofficiel/contact", BrowserTabs)
+        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/contact", BrowserTabs)
     End Sub
     Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
         AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)

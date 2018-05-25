@@ -201,6 +201,24 @@
   <data name="MenuURLHomepageButton.Text" xml:space="preserve">
     <value>SmartNet Browser Start Page</value>
   </data>
+  <data name="RadioButtonBlockAllCookies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 23</value>
+  </data>
+  <data name="RadioButtonBlockAllCookies.Text" xml:space="preserve">
+    <value>Block all cookies</value>
+  </data>
+  <data name="RadioButtonBlockThirdPartyCookies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 23</value>
+  </data>
+  <data name="RadioButtonBlockThirdPartyCookies.Text" xml:space="preserve">
+    <value>Block cookies from third parties</value>
+  </data>
+  <data name="RadioButtonAcceptAllCookies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 23</value>
+  </data>
+  <data name="RadioButtonAcceptAllCookies.Text" xml:space="preserve">
+    <value>Accept all cookies</value>
+  </data>
   <data name="TrackingGroupBox.Text" xml:space="preserve">
     <value>Tracking</value>
   </data>
@@ -380,12 +398,6 @@ shock them.</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Browser UserAgent</value>
-  </data>
-  <data name="DisplayExceptionsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 23</value>
-  </data>
-  <data name="DisplayExceptionsCheckBox.Text" xml:space="preserve">
-    <value>Display MS .NET Framework exceptions messages</value>
   </data>
   <data name="FirstStartDialogButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>223, 26</value>

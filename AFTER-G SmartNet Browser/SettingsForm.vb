@@ -75,6 +75,20 @@ Public Class SettingsForm
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
         DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         Me.CenterToScreen()
+        Select Case CType(Gecko.GeckoPreferences.User("network.cookie.cookieBehavior"), Int32)
+            Case 0
+                RadioButtonAcceptAllCookies.Checked = True
+                RadioButtonBlockThirdPartyCookies.Checked = False
+                RadioButtonBlockAllCookies.Checked = False
+            Case 1
+                RadioButtonAcceptAllCookies.Checked = False
+                RadioButtonBlockThirdPartyCookies.Checked = True
+                RadioButtonBlockAllCookies.Checked = False
+            Case 2
+                RadioButtonAcceptAllCookies.Checked = False
+                RadioButtonBlockThirdPartyCookies.Checked = False
+                RadioButtonBlockAllCookies.Checked = True
+        End Select
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
@@ -377,5 +391,17 @@ StopVersionChecking:
         If DefaultDownloadFolderBrowserDialog.ShowDialog() = DialogResult.OK Then
             DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         End If
+    End Sub
+
+    Private Sub RadioButtonAcceptAllCookies_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAcceptAllCookies.CheckedChanged
+        Gecko.GeckoPreferences.User("network.cookie.cookieBehavior") = 0
+    End Sub
+
+    Private Sub RadioButtonBlockThirdPartyCookies_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonBlockThirdPartyCookies.CheckedChanged
+        Gecko.GeckoPreferences.User("network.cookie.cookieBehavior") = 1
+    End Sub
+
+    Private Sub RadioButtonBlockAllCookies_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonBlockAllCookies.CheckedChanged
+        Gecko.GeckoPreferences.User("network.cookie.cookieBehavior") = 2
     End Sub
 End Class
