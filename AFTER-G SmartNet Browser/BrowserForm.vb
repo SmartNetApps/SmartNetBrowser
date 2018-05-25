@@ -454,19 +454,6 @@ Public Class BrowserForm
         WB.Navigate(My.Settings.Homepage)
     End Sub
 
-    Private Sub MenuPrincipalNavigating(sender As Object, e As EventArgs) Handles MenuPrincipalToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")
-    End Sub
-    Private Sub AFTERGServicesWebToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuentinPugeatLeSiteOfficielToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/")
-    End Sub
-    Private Sub AFTERGAppsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SmartNetAppsToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/")
-    End Sub
-
     Private Sub Cut(sender As Object, e As EventArgs) Handles CouperToolStripMenuItem.Click, CouperToolStripMenuItem1.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
@@ -1160,6 +1147,11 @@ Public Class BrowserForm
 
     Private Sub GardeFouTimer_Tick(sender As Object, e As EventArgs) Handles GardeFouTimer.Tick
         RefreshListOfTabs()
+    End Sub
+
+    Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString(), BrowserTabs)
     End Sub
 End Class
 

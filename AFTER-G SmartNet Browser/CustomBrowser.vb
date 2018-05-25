@@ -342,7 +342,7 @@ Public Class CustomBrowser
     ''' <summary>
     ''' Favicon de la page actuellement chargée
     ''' </summary>
-    ''' <returns></returns>
+    ''' <returns>Favicon de la page actuellement chargée</returns>
     Public Function CurrentPageFavicon() As Image
         Try
             If Me.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then

@@ -77,10 +77,6 @@ Partial Class BrowserForm
         Me.EnvoyerVosCommentairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NouvelleVersionDisponibleSubMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AtteindreLeSiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QuentinPugeatLeSiteOfficielToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SmartNetAppsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuPrincipalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HomepageButton = New System.Windows.Forms.PictureBox()
         Me.PreviouspageButton = New System.Windows.Forms.PictureBox()
@@ -134,6 +130,8 @@ Partial Class BrowserForm
         Me.MessageBarButton1 = New System.Windows.Forms.Button()
         Me.MessageBarCloseButton1 = New System.Windows.Forms.PictureBox()
         Me.GardeFouTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.SignalerUnSiteMalveillantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -164,7 +162,7 @@ Partial Class BrowserForm
         '
         'MainMenu
         '
-        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.AtteindreLeSiteToolStripMenuItem, Me.FermerSmartNetBrowserToolStripMenuItem})
+        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
         resources.ApplyResources(Me.MainMenu, "MainMenu")
         Me.MainMenu.Name = "MainMenu"
         '
@@ -391,7 +389,7 @@ Partial Class BrowserForm
         '
         'SupportToolStripMenuItem
         '
-        Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem, Me.EnvoyerVosCommentairesToolStripMenuItem})
+        Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem, Me.EnvoyerVosCommentairesToolStripMenuItem, Me.ToolStripSeparator10, Me.SignalerUnSiteMalveillantToolStripMenuItem})
         Me.SupportToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Aide
         Me.SupportToolStripMenuItem.Name = "SupportToolStripMenuItem"
         resources.ApplyResources(Me.SupportToolStripMenuItem, "SupportToolStripMenuItem")
@@ -432,27 +430,6 @@ Partial Class BrowserForm
         '
         resources.ApplyResources(Me.TéléchargerLaVersionXXXXToolStripMenuItem, "TéléchargerLaVersionXXXXToolStripMenuItem")
         Me.TéléchargerLaVersionXXXXToolStripMenuItem.Name = "TéléchargerLaVersionXXXXToolStripMenuItem"
-        '
-        'AtteindreLeSiteToolStripMenuItem
-        '
-        Me.AtteindreLeSiteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuentinPugeatLeSiteOfficielToolStripMenuItem, Me.SmartNetAppsToolStripMenuItem, Me.MenuPrincipalToolStripMenuItem})
-        resources.ApplyResources(Me.AtteindreLeSiteToolStripMenuItem, "AtteindreLeSiteToolStripMenuItem")
-        Me.AtteindreLeSiteToolStripMenuItem.Name = "AtteindreLeSiteToolStripMenuItem"
-        '
-        'QuentinPugeatLeSiteOfficielToolStripMenuItem
-        '
-        Me.QuentinPugeatLeSiteOfficielToolStripMenuItem.Name = "QuentinPugeatLeSiteOfficielToolStripMenuItem"
-        resources.ApplyResources(Me.QuentinPugeatLeSiteOfficielToolStripMenuItem, "QuentinPugeatLeSiteOfficielToolStripMenuItem")
-        '
-        'SmartNetAppsToolStripMenuItem
-        '
-        Me.SmartNetAppsToolStripMenuItem.Name = "SmartNetAppsToolStripMenuItem"
-        resources.ApplyResources(Me.SmartNetAppsToolStripMenuItem, "SmartNetAppsToolStripMenuItem")
-        '
-        'MenuPrincipalToolStripMenuItem
-        '
-        resources.ApplyResources(Me.MenuPrincipalToolStripMenuItem, "MenuPrincipalToolStripMenuItem")
-        Me.MenuPrincipalToolStripMenuItem.Name = "MenuPrincipalToolStripMenuItem"
         '
         'FermerSmartNetBrowserToolStripMenuItem
         '
@@ -808,6 +785,16 @@ Partial Class BrowserForm
         '
         Me.GardeFouTimer.Interval = 1000
         '
+        'SignalerUnSiteMalveillantToolStripMenuItem
+        '
+        Me.SignalerUnSiteMalveillantToolStripMenuItem.Name = "SignalerUnSiteMalveillantToolStripMenuItem"
+        resources.ApplyResources(Me.SignalerUnSiteMalveillantToolStripMenuItem, "SignalerUnSiteMalveillantToolStripMenuItem")
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -951,10 +938,6 @@ Partial Class BrowserForm
     Friend WithEvents SearchBoxLabel As Label
     Friend WithEvents URLBoxLabel As Label
     Friend WithEvents StatusLabel As Label
-    Friend WithEvents AtteindreLeSiteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents QuentinPugeatLeSiteOfficielToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SmartNetAppsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuPrincipalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents ZoomPlusButton As ToolStripMenuItem
     Friend WithEvents ZoomMinusButton As ToolStripMenuItem
@@ -971,4 +954,6 @@ Partial Class BrowserForm
     Friend WithEvents FermerCetOngletToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RouvrirLeDernierOngletFerméToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GardeFouTimer As Timer
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents SignalerUnSiteMalveillantToolStripMenuItem As ToolStripMenuItem
 End Class

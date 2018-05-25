@@ -68,11 +68,7 @@ Public Class SettingsForm
         End If
         PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
         AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
-        If My.Application.Info.Version.Revision > 0 Then
-            VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString + " avec correctif " + My.Application.Info.Version.Revision.ToString
-        Else
-            VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString
-        End If
+        VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
         UserAgentTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
@@ -232,16 +228,19 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
-        If AutoUpdateCheckBox.Checked = False And My.Settings.AutoUpdates = True Then
-            MsgBox("Avertissement : Les mises à jour automatiques permettent au navigateur de recevoir les dernières fonctionnalités et les corrections de bugs dès qu'elles sont disponibles. Si vous désactivez les mises à jour automatiques, vous acceptez que des bugs puissent être présents dans le logiciel et que ceux-ci ne soient pas corrigés. Ceci est vivement déconseillé.", MsgBoxStyle.Exclamation, "Désactiver SmartNet Apps Updater")
-        End If
-        Dim MiniNTVersionChecker As New WebClient
-        Dim NTActualVersion As Version = Environment.OSVersion.Version
-        Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
-        If NTActualVersion < MiniNTVersion And AutoUpdateCheckBox.Checked = True Then
-            MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", MsgBoxStyle.Critical, "Impossible de continuer")
-            AutoUpdateCheckBox.Checked = False
-        End If
+        Try
+            If AutoUpdateCheckBox.Checked = False And My.Settings.AutoUpdates = True Then
+                MsgBox("Avertissement : Les mises à jour automatiques permettent au navigateur de recevoir les dernières fonctionnalités et les corrections de bugs dès qu'elles sont disponibles. Si vous désactivez les mises à jour automatiques, vous acceptez que des bugs puissent être présents dans le logiciel et que ceux-ci ne soient pas corrigés. Ceci est vivement déconseillé.", MsgBoxStyle.Exclamation, "Désactiver SmartNet Apps Updater")
+            End If
+            Dim MiniNTVersionChecker As New WebClient
+            Dim NTActualVersion As Version = Environment.OSVersion.Version
+            Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
+            If NTActualVersion < MiniNTVersion And AutoUpdateCheckBox.Checked = True Then
+                MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", MsgBoxStyle.Critical, "Impossible de continuer")
+                AutoUpdateCheckBox.Checked = False
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
