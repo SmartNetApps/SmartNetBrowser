@@ -56,118 +56,89 @@ Public Class CustomBrowser
     ''' <param name="url">URL de la page à tester</param>
     ''' <returns></returns>
     Public Function IsDangerousForChildren(url As String) As Boolean
-        Dim dangerous As Boolean = False
-        If My.Settings.ChildrenProtection = True Then
-            Dim AdultDomainsFile As New WebClient
-            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/ChildrenProtection.txt")
-            Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
-            For I = 0 To AdultDomainsList.Count - 1
-                If url.Contains(AdultDomainsList.Item(I)) Then
-                    dangerous = True
-                End If
-            Next
-        End If
-        Return dangerous
+        Try
+            Dim dangerous As Boolean = False
+            If My.Settings.ChildrenProtection = True Then
+                Dim AdultDomainsFile As New WebClient
+                Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/ChildrenProtection.txt")
+                Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
+                For I = 0 To AdultDomainsList.Count - 1
+                    If url.Contains(AdultDomainsList.Item(I)) Then
+                        dangerous = True
+                    End If
+                Next
+            End If
+            Return dangerous
+        Catch ex As Exception
+            BrowserForm.DisplayMessageBar("Critical", "SmartNet ChildGuard a rencontré une erreur inattendue. (CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+            Return True
+        End Try
     End Function
 
-    'Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-    '    Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-    '    Try
-    '        Select Case e.KeyCode
-    '            Case Keys.BrowserBack
-    '                WB.GoBack()
-    '            Case Keys.BrowserFavorites
-    '                FavoritesForm.Show()
-    '            Case Keys.BrowserForward
-    '                WB.GoForward()
-    '            Case Keys.BrowserHome
-    '                AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
-    '            Case Keys.BrowserRefresh
-    '                WB.Reload()
-    '            Case Keys.BrowserSearch
-    '                BrowserForm.SearchBox.Focus()
-    '                BrowserForm.SearchBoxLabel.Visible = False
-    '            Case Keys.BrowserStop
-    '                WB.Stop()
-    '            Case Keys.Print
-    '                WB.Navigate("javascript.print()")
-    '        End Select
-    '    Catch ex As Exception
-    '    End Try
-    'End Sub
+    Private Sub CustomBrowser_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Try
+            Select Case e.KeyCode
+                Case Keys.F5
+                    Reload()
+                Case Keys.BrowserBack
+                    GoBack()
+                Case Keys.BrowserFavorites
+                    FavoritesForm.Show()
+                Case Keys.BrowserForward
+                    GoForward()
+                Case Keys.BrowserHome
+                    AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
+                Case Keys.BrowserRefresh
+                    Reload()
+                Case Keys.BrowserSearch
+                    BrowserForm.SearchBox.Focus()
+                    BrowserForm.SearchBoxLabel.Visible = False
+                Case Keys.BrowserStop
+                    Me.Stop()
+                Case Keys.Print
+                    Navigate("javascript.print()")
+            End Select
+        Catch ex As Exception
+        End Try
+    End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
         If e.Uri.ToString <> "about:blank" Then
-            BrowserForm.StopButton.Visible = False
-            BrowserForm.RefreshButton.Visible = True
-            BrowserForm.GoButton.Visible = False
-            BrowserForm.LoadingGif.Visible = False
-            BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = True
-            BrowserForm.CurrentDocument = Me.Document
-            If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage")) Then
-                BrowserForm.URLBox.Text = Me.Url.ToString
-            End If
-            BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
+            BrowserForm.UpdateInterface()
         End If
     End Sub
-
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
         CurrentWebpage.ChangeName(Me.DocumentTitle)
         CurrentWebpage.ChangeURL(Me.Url.ToString())
         CurrentWebpage.ChangeFavicon(CurrentPageFavicon())
         If e.Uri.ToString <> "about:blank" Then
-            Try
-                BrowserForm.CurrentDocument = Me.Document
-                If e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Then
-                    BrowserForm.URLBox.Text = ""
-                Else
-                    BrowserForm.URLBox.Text = Me.Url.ToString
-                End If
-                BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
-                If (Me.Url.ToString.Contains("www.youtube.com/watch?v=") Or Me.Url.ToString.Contains("dailymotion.com/video")) And Not Me.Url.ToString.Contains("www.clipconverter.cc") Then
-                    BrowserForm.TéléchargerCetteVidéoToolStripMenuItem.Visible = True
-                    BrowserForm.ToolStripSeparator6.Visible = True
-                Else
-                    BrowserForm.TéléchargerCetteVidéoToolStripMenuItem.Visible = False
-                    BrowserForm.ToolStripSeparator6.Visible = False
-                End If
-                If My.Settings.PrivateBrowsing = False Then
-                    If Not (e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
-                        If FirstTimeNavigated = True Then
-                            BrowserForm.AddInHistory(CurrentWebpage)
-                            FirstTimeNavigated = False
-                        Else
-                            FirstTimeNavigated = True
-                        End If
-                        BrowserForm.URLBox.Items.Add(Me.Url.ToString)
+            BrowserForm.CurrentDocument = Me.Document
+            BrowserForm.UpdateInterface()
+            BrowserForm.CheckFavicon()
+            If My.Settings.PrivateBrowsing = False Then
+                If Not (e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
+                    If FirstTimeNavigated = True Then
+                        BrowserForm.AddInHistory(CurrentWebpage)
+                        FirstTimeNavigated = False
+                    Else
+                        FirstTimeNavigated = True
                     End If
+                    BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                 End If
-                If My.Settings.Favorites.Contains(e.Uri.ToString) Then
-                    BrowserForm.FavoritesButton.Image = My.Resources.FavoritesBlue
-                Else
-                    BrowserForm.FavoritesButton.Image = My.Resources.FavoritesOutline
-                End If
-                BrowserForm.CheckFavicon()
-            Catch ex As Exception
-                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-            End Try
+            End If
         End If
     End Sub
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         If e.Uri.ToString <> "about:blank" Then
-            Try
-                If IsDangerousForChildren(e.Uri.ToString()) = True Then
-                    Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                    If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
-                        Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
-                    Else
-                        Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
-                    End If
+            If IsDangerousForChildren(e.Uri.ToString()) = True Then
+                Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+                Else
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
                 End If
-            Catch ex As Exception
-                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-            End Try
+            End If
             If e.Uri.ToString.Contains("window.close") Then
                 If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
                     BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
@@ -179,24 +150,11 @@ Public Class CustomBrowser
                     End If
                 End If
             End If
-            BrowserForm.StopButton.Visible = True
-            BrowserForm.RefreshButton.Visible = False
-            BrowserForm.GoButton.Visible = False
-            BrowserForm.LoadingGif.Visible = True
-            BrowserForm.AperçuAvantImpressionToolStripMenuItem.Enabled = False
-            BrowserForm.MessageBarButton1.Visible = False
-            BrowserForm.MessageBarLabel1.Visible = False
-            BrowserForm.MessageBarPictureBox.Visible = False
-            BrowserForm.MessageBarCloseButton1.Visible = False
-            BrowserForm.MessageBarButton1.Enabled = False
-            BrowserForm.MessageBarCloseButton1.Enabled = False
+            BrowserForm.UpdateInterface()
+            BrowserForm.CheckFavicon()
+            BrowserForm.CloseMessageBar()
             BrowserForm.CurrentDocument = Me.Document
-            If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage")) Then
-                BrowserForm.URLBox.Text = Me.Url.ToString
-            End If
-            BrowserForm.Text = Me.DocumentTitle.ToString + " - SmartNet Browser"
         End If
-
     End Sub
 
     ''' <summary>
@@ -223,29 +181,18 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
-        Try
-            e.Cancel = True
-            If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
-                BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
-            Else
-                AddTab(e.Uri, BrowserForm.BrowserTabs)
-            End If
-        Catch ex As Exception
-            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-            If IsAdvertisement(e.Uri) = False Then
-                NewBrowserForm.GeckoWebBrowser1.Navigate(e.Uri)
-                NewBrowserForm.Show()
-            End If
-        End Try
+        e.Cancel = True
+        If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False Then
+            BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
+        Else
+            AddTab(e.Uri, BrowserForm.BrowserTabs)
+        End If
     End Sub
+
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
-        Try
-            If My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) = True Then
-                e.Cancel = True
-            End If
-        Catch ex As Exception
-            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : ADSBLOCKER_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        If My.Settings.AllowAdsSites.Contains(Me.Url.Host.ToString) = False And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) = True Then
+            e.Cancel = True
+        End If
     End Sub
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
@@ -283,26 +230,20 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_DocumentTitleChanged(sender As Object, e As EventArgs) Handles Me.DocumentTitleChanged
-        If Me.Url.ToString <> "about:blank" Then
-            Try
-                Dim TP As TabPage = CType(Me.Tag, TabPage)
-                If Me.DocumentTitle = "" Then
-                    If Me.Url.ToString.Length > 30 Then
-                        TP.Text = Me.Url.ToString.Substring(0, 29) & "..."
-                    Else
-                        TP.Text = Me.Url.ToString
-                    End If
-                Else
-                    If Me.DocumentTitle.Length > 30 Then
-                        TP.Text = Me.DocumentTitle.Substring(0, 29) & "..."
-                    Else
-                        TP.Text = Me.DocumentTitle
-                    End If
-                End If
-                TP.ToolTipText = Me.DocumentTitle
-            Catch ex As Exception
-                BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-            End Try
+        If DocumentTitle = "" Then
+            If Url.ToString.Length > 30 Then
+                BrowserForm.BrowserTabs.SelectedTab.Text = Url.ToString.Substring(0, 29) & "..."
+            Else
+                BrowserForm.BrowserTabs.SelectedTab.Text = Url.ToString
+            End If
+            Me.Text = Url.ToString + " - SmartNet Browser"
+        Else
+            If DocumentTitle.Length > 30 Then
+                BrowserForm.BrowserTabs.SelectedTab.Text = DocumentTitle.Substring(0, 29) & "..."
+            Else
+                BrowserForm.BrowserTabs.SelectedTab.Text = DocumentTitle
+            End If
+            Me.Text = DocumentTitle.ToString + " - SmartNet Browser"
         End If
     End Sub
 
@@ -335,9 +276,9 @@ Public Class CustomBrowser
         BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
-    Private Sub CustomBrowser_DomClick(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomClick
-        BrowserForm.BrowserTabs.SelectedTab.Focus()
-    End Sub
+    'Private Sub CustomBrowser_DomClick(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomClick
+    '    BrowserForm.BrowserTabs.SelectedTab.Focus()
+    'End Sub
 
     ''' <summary>
     ''' Favicon de la page actuellement chargée
@@ -346,7 +287,7 @@ Public Class CustomBrowser
     Public Function CurrentPageFavicon() As Image
         Try
             If Me.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then
-                Return BrowserForm.FaviconBox.InitialImage
+                Return My.Resources.logo32
             Else
                 Dim url As Uri = New Uri(Me.Url.ToString)
                 If url.HostNameType = UriHostNameType.Dns Then
@@ -357,11 +298,11 @@ Public Class CustomBrowser
                     Dim favicon = Image.FromStream(stream)
                     Return favicon
                 Else
-                    Return BrowserForm.FaviconBox.ErrorImage
+                    Return My.Resources.ErrorFavicon
                 End If
             End If
         Catch ex As Exception
-            Return BrowserForm.FaviconBox.ErrorImage
+            Return My.Resources.ErrorFavicon
         End Try
     End Function
 

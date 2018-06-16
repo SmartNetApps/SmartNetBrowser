@@ -632,7 +632,8 @@ Partial Class BrowserForm
         'StatusLabel
         '
         resources.ApplyResources(Me.StatusLabel, "StatusLabel")
-        Me.StatusLabel.BackColor = System.Drawing.SystemColors.Control
+        Me.StatusLabel.BackColor = System.Drawing.SystemColors.Window
+        Me.StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.StatusLabel.Name = "StatusLabel"
         '
         'MessageBarPictureBox
@@ -796,6 +797,7 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.BrowserTabs)
         Me.Controls.Add(Me.RefreshButton)
         Me.Controls.Add(Me.MainToolbar)
+        Me.KeyPreview = True
         Me.Name = "BrowserForm"
         Me.MainToolbar.ResumeLayout(False)
         Me.MainToolbar.PerformLayout()

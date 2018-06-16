@@ -17,7 +17,6 @@ Public Class BrowserForm
         InitializeComponent()
         Historique = New List(Of Webpage)
     End Sub
-
     ''' <summary>
     ''' Ajouter un site internet à l'historique de navigation
     ''' </summary>
@@ -216,10 +215,12 @@ Public Class BrowserForm
             StopButton.Visible = True
             RefreshButton.Visible = False
             LoadingGif.Visible = True
+            AperçuAvantImpressionToolStripMenuItem.Enabled = False
         Else
             StopButton.Visible = False
             RefreshButton.Visible = True
             LoadingGif.Visible = False
+            AperçuAvantImpressionToolStripMenuItem.Enabled = True
         End If
 
         PreviouspageButton.Enabled = WB.CanGoBack
@@ -864,10 +865,19 @@ Public Class BrowserForm
         End If
     End Sub
     Private Sub URLBox_TextChanged(sender As Object, e As EventArgs) Handles URLBox.TextChanged
-        UpdateInterface()
+        GoButton.Visible = True
+        If URLBox.Text = "" Then
+            URLBoxLabel.Visible = True
+        Else
+            URLBoxLabel.Visible = False
+        End If
     End Sub
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged
-        UpdateInterface()
+        If SearchBox.Text = "" Then
+            SearchBoxLabel.Visible = True
+        Else
+            SearchBoxLabel.Visible = False
+        End If
     End Sub
     Private Sub URLBoxLabel_Click(sender As Object, e As EventArgs) Handles URLBoxLabel.Click
         URLBox.Focus()
@@ -884,31 +894,33 @@ Public Class BrowserForm
         SearchTextInPageForm.Show()
     End Sub
 
-    'Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-    '    Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-    '    Try
-    '        Select Case e.KeyCode
-    '            Case Keys.BrowserBack
-    '                WB.GoBack()
-    '            Case Keys.BrowserFavorites
-    '                FavoritesForm.Show()
-    '            Case Keys.BrowserForward
-    '                WB.GoForward()
-    '            Case Keys.BrowserHome
-    '                AddTab(My.Settings.Homepage, BrowserTabs)
-    '            Case Keys.BrowserRefresh
-    '                WB.Reload()
-    '            Case Keys.BrowserSearch
-    '                SearchBox.Focus()
-    '                SearchBoxLabel.Visible = False
-    '            Case Keys.BrowserStop
-    '                WB.Stop()
-    '            Case Keys.Print
-    '                WB.Navigate("javascript.print()")
-    '        End Select
-    '    Catch ex As Exception
-    '    End Try
-    'End Sub
+    Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Try
+            Select Case e.KeyCode
+                Case Keys.F5
+                    WB.Reload()
+                Case Keys.BrowserBack
+                    WB.GoBack()
+                Case Keys.BrowserFavorites
+                    FavoritesForm.Show()
+                Case Keys.BrowserForward
+                    WB.GoForward()
+                Case Keys.BrowserHome
+                    AddTab(My.Settings.Homepage, BrowserTabs)
+                Case Keys.BrowserRefresh
+                    WB.Reload()
+                Case Keys.BrowserSearch
+                    SearchBox.Focus()
+                    SearchBoxLabel.Visible = False
+                Case Keys.BrowserStop
+                    WB.Stop()
+                Case Keys.Print
+                    WB.Navigate("javascript.print()")
+            End Select
+        Catch ex As Exception
+        End Try
+    End Sub
     Private Sub EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim Link As String = WB.Url.ToString()
