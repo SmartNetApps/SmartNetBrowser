@@ -215,21 +215,80 @@ Public Class BrowserForm
         If WB.IsBusy Then
             StopButton.Visible = True
             RefreshButton.Visible = False
+            LoadingGif.Visible = True
+        Else
+            StopButton.Visible = False
+            RefreshButton.Visible = True
+            LoadingGif.Visible = False
         End If
 
         PreviouspageButton.Enabled = WB.CanGoBack
         NextpageButton.Enabled = WB.CanGoForward
+
+        If Not (WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")) Then
+            URLBox.Text = ""
+        Else
+            URLBox.Text = WB.Url.ToString
+        End If
+
+        If WB.DocumentTitle = "" Then
+            If WB.Url.ToString.Length > 30 Then
+                BrowserTabs.SelectedTab.Text = WB.Url.ToString.Substring(0, 29) & "..."
+            Else
+                BrowserTabs.SelectedTab.Text = WB.Url.ToString
+            End If
+            Me.Text = WB.Url.ToString + " - SmartNet Browser"
+        Else
+            If WB.DocumentTitle.Length > 30 Then
+                BrowserTabs.SelectedTab.Text = WB.DocumentTitle.Substring(0, 29) & "..."
+            Else
+                BrowserTabs.SelectedTab.Text = WB.DocumentTitle
+            End If
+            Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
+        End If
+
+        If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
+            TéléchargerCetteVidéoToolStripMenuItem.Visible = True
+            ToolStripSeparator6.Visible = True
+        Else
+            TéléchargerCetteVidéoToolStripMenuItem.Visible = False
+            ToolStripSeparator6.Visible = False
+        End If
+
+        CouperToolStripMenuItem.Enabled = WB.CanCutSelection
+        CopierToolStripMenuItem.Enabled = WB.CanCopySelection
+        CollerToolStripMenuItem.Enabled = WB.CanPaste
+
+        If URLBox.Text = "" Then
+            URLBoxLabel.Visible = True
+        Else
+            URLBoxLabel.Visible = False
+        End If
+        If SearchBox.Text = "" Then
+            SearchBoxLabel.Visible = True
+        Else
+            SearchBoxLabel.Visible = False
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Ajoute une page dans les favoris de l'utilisateur.
+    ''' </summary>
+    ''' <param name="pURL">URL de la page à ajouter</param>
+    Public Sub AddFavorite(pURL As String)
+        Try
+            My.Settings.Favorites.Add(pURL)
+            URLBox.Items.Add(pURL)
+            My.Settings.Save()
+            UpdateInterface()
+        Catch ex As Exception
+            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
+            UpdateInterface()
+        End Try
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
-        'TODO: CloseMessageBar() pour remplacer ce morceau de code
-        MessageBarButton1.Visible = False
-        MessageBarLabel1.Visible = False
-        MessageBarPictureBox.Visible = False
-        MessageBarCloseButton1.Visible = False
-        MessageBarButton1.Enabled = False
-        MessageBarCloseButton1.Enabled = False
-        'Fin du morceau de code à remplacer
+        CloseMessageBar()
 
         If My.Settings.FirstStart = True Then
             If My.Settings.FirstStartFromReset = False Then
@@ -322,17 +381,13 @@ Public Class BrowserForm
 
     Private Sub CloseTab(sender As Object, e As EventArgs) Handles CloseTabButton.Click, CloseTabToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            WB.Navigate("about:blank")
-            If BrowserTabs.TabPages.Count = 1 Then
-                Me.Close()
-            Else
-                lastClosedTab = WB.Url.ToString
-                BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
-            End If
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        WB.Navigate("about:blank")
+        If BrowserTabs.TabPages.Count = 1 Then
+            CloseSmartNetBrowser()
+        Else
+            lastClosedTab = WB.Url.ToString()
+            BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
+        End If
     End Sub
 
     Private Sub GoButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoButton.Click
@@ -406,70 +461,40 @@ Public Class BrowserForm
             WB.Paste()
         End If
     End Sub
-
-    Private Sub AddFavorite(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
+    Private Sub AjouterCettePageDansLesFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            My.Settings.Favorites.Add(WB.Url.ToString)
-            URLBox.Items.Add(WB.Url.ToString)
-            My.Settings.Save()
-            If My.Settings.Favorites.Contains(WB.ToString) Then
-                FavoritesButton.Image = My.Resources.FavoritesBlue
-            Else
-                FavoritesButton.Image = My.Resources.FavoritesOutline
-            End If
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = My.Resources.FavoritesBlue
-            Else
-                FavoritesButton.Image = My.Resources.FavoritesOutline
-            End If
-        End Try
+        AddFavorite(WB.Url.ToString())
     End Sub
-
     Private Sub ShowFavorites(sender As Object, e As EventArgs) Handles AfficherLesFavorisToolStripMenuItem.Click
-        Try
-            If My.Settings.HistoryFavoritesSecurity = True Then
-                EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
-                EnterBrowserSettingsSecurityForm.ShowDialog()
-            Else
-                FavoritesForm.Show()
-            End If
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        If My.Settings.HistoryFavoritesSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            FavoritesForm.Show()
+        End If
     End Sub
     Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
-        Try
-            If My.Settings.HistoryFavoritesSecurity = True Then
-                EnterBrowserSettingsSecurityForm.SecurityMode = "History"
-                EnterBrowserSettingsSecurityForm.ShowDialog()
-            Else
-                NewHistoryForm.Show()
-            End If
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        If My.Settings.HistoryFavoritesSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "History"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            NewHistoryForm.Show()
+        End If
     End Sub
 
     Private Sub GoToSettings(sender As Object, e As EventArgs) Handles ParamètresToolStripMenuItem.Click
-        Try
-            If My.Settings.BrowserSettingsSecurity = True Then
-                EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
-                EnterBrowserSettingsSecurityForm.ShowDialog()
-            Else
-                SettingsForm.ShowDialog()
-            End If
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        If My.Settings.BrowserSettingsSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            SettingsForm.ShowDialog()
+        End If
     End Sub
 
     Private Sub DownloadUpdateButton_Click(sender As Object, e As EventArgs) Handles TéléchargerLaVersionXXXXToolStripMenuItem.Click
         UpdaterForm.ShowDialog()
     End Sub
-    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles UpdateNotifyIcon.MouseDoubleClick
+    Private Sub UpdateNotifyIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles UpdateNotifyIcon.MouseDoubleClick
         UpdaterForm.Show()
         UpdateNotifyIcon.Visible = False
     End Sub
@@ -621,63 +646,20 @@ Public Class BrowserForm
         End Try
     End Sub
 
-    Private Sub SmartNetBrowserClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If BrowserTabs.TabPages.Count > 1 And My.Settings.PreventMultipleTabsClose = True Then
-            e.Cancel = True
-        End If
+    Private Sub MyBase_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        e.Cancel = True
         CloseSmartNetBrowser()
     End Sub
-    Private Sub SmartNetBrowserClosingWithButton(sender As Object, e As EventArgs) Handles FermerSmartNetBrowserToolStripMenuItem.Click
+    Private Sub FermerSmartNetBrowserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerSmartNetBrowserToolStripMenuItem.Click
         CloseSmartNetBrowser()
     End Sub
 
     Private Sub ActiveTabChange(sender As Object, e As EventArgs) Handles BrowserTabs.SelectedIndexChanged
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            CheckFavicon()
-            PreviouspageButton.Enabled = WB.CanGoBack
-            NextpageButton.Enabled = WB.CanGoForward
-            If Not (WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")) Then
-                URLBox.Text = ""
-            Else
-                URLBox.Text = WB.Url.ToString
-            End If
-            CurrentDocument = WB.Document
-            If WB.DocumentTitle = "" Then
-                If WB.Url.ToString.Length > 30 Then
-                    BrowserTabs.SelectedTab.Text = WB.Url.ToString.Substring(0, 29) & "..."
-                Else
-                    BrowserTabs.SelectedTab.Text = WB.Url.ToString
-                End If
-                Me.Text = WB.Url.ToString + " - SmartNet Browser"
-            Else
-                If WB.DocumentTitle.Length > 30 Then
-                    BrowserTabs.SelectedTab.Text = WB.DocumentTitle.Substring(0, 29) & "..."
-                Else
-                    BrowserTabs.SelectedTab.Text = WB.DocumentTitle
-                End If
-                Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
-            End If
-            If (WB.Url.ToString.Contains("www.youtube.com/watch?v=") Or WB.Url.ToString.Contains("dailymotion.com/video")) And Not WB.Url.ToString.Contains("www.clipconverter.cc") Then
-                TéléchargerCetteVidéoToolStripMenuItem.Visible = True
-                ToolStripSeparator6.Visible = True
-            Else
-                TéléchargerCetteVidéoToolStripMenuItem.Visible = False
-                ToolStripSeparator6.Visible = False
-            End If
-            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = My.Resources.FavoritesBlue
-            Else
-                FavoritesButton.Image = My.Resources.FavoritesOutline
-            End If
-            LoadingGif.Visible = False
-            MessageBarPictureBox.Visible = False
-            MessageBarButton1.Visible = False
-            MessageBarCloseButton1.Visible = False
-            MessageBarLabel1.Visible = False
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-        End Try
+        CheckFavicon()
+        UpdateInterface()
+        CloseMessageBar()
+        CurrentDocument = WB.Document
     End Sub
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
@@ -695,6 +677,8 @@ Public Class BrowserForm
         PropertiesForm.PageURLTextBox.Text = WB.Url.ToString
         Select Case PageFormat
             Case "htm"
+                PropertiesForm.PageTypeLabel.Text = "Type : Page Web HTML"
+            Case "html"
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web HTML"
             Case "php"
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web PHP"
@@ -827,12 +811,10 @@ Public Class BrowserForm
             DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
     End Sub
-
     Private Sub AfficherLeCodeSourceDeLaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLeCodeSourceDeLaPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         AddTab("view-source:" & WB.Url.ToString, BrowserTabs)
     End Sub
-
     Private Sub LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim ClipboardActualData As IDataObject
@@ -843,39 +825,20 @@ Public Class BrowserForm
         OpenSearchResults(Selection)
     End Sub
 
-
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesForm.Show()
-            Else
-                My.Settings.Favorites.Add(WB.Url.ToString)
-                URLBox.Items.Add(WB.Url.ToString)
-                My.Settings.Save()
-                If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                    FavoritesButton.Image = My.Resources.FavoritesBlue
-                Else
-                    FavoritesButton.Image = My.Resources.FavoritesOutline
-                    MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
-                End If
-            End If
-        Catch ex As Exception
-            If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = My.Resources.FavoritesBlue
-                DisplayMessageBar("Info", "SmartNet Browser a rencontré une erreur interne. Votre favori est enregistré.", "OpenExceptionForm", "Voir les détails", "", ex)
-            Else
-                FavoritesButton.Image = My.Resources.FavoritesOutline
-                DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-            End If
-        End Try
+        If My.Settings.Favorites.Contains(WB.Url.ToString) Then
+            FavoritesForm.Show()
+        Else
+            AddFavorite(WB.Url.ToString())
+            My.Settings.Save()
+            UpdateInterface()
+        End If
     End Sub
 
     Private Sub MainMenu_Click(sender As Object, e As EventArgs) Handles MainMenu.DropDownOpening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        CouperToolStripMenuItem.Enabled = WB.CanCutSelection
-        CopierToolStripMenuItem.Enabled = WB.CanCopySelection
-        CollerToolStripMenuItem.Enabled = WB.CanPaste
+        UpdateInterface()
     End Sub
     Public Link As String
 
@@ -901,18 +864,10 @@ Public Class BrowserForm
         End If
     End Sub
     Private Sub URLBox_TextChanged(sender As Object, e As EventArgs) Handles URLBox.TextChanged
-        If URLBox.Text = "" Then
-            URLBoxLabel.Visible = True
-        Else
-            URLBoxLabel.Visible = False
-        End If
+        UpdateInterface()
     End Sub
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged
-        If SearchBox.Text = "" Then
-            SearchBoxLabel.Visible = True
-        Else
-            SearchBoxLabel.Visible = False
-        End If
+        UpdateInterface()
     End Sub
     Private Sub URLBoxLabel_Click(sender As Object, e As EventArgs) Handles URLBoxLabel.Click
         URLBox.Focus()
@@ -954,14 +909,12 @@ Public Class BrowserForm
     '    Catch ex As Exception
     '    End Try
     'End Sub
-
     Private Sub EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Dim Link As String = WB.Url.ToString
+        Dim Link As String = WB.Url.ToString()
         Dim PageTitle As String = WB.DocumentTitle
         Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser)")
     End Sub
-
     ''' <summary>
     ''' Déclenche l'affichage de la barre de message.
     ''' </summary>
@@ -1003,13 +956,21 @@ Public Class BrowserForm
         MessageBarButton1.Enabled = True
         MessageBarCloseButton1.Enabled = True
     End Sub
-    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton1.Click
+
+    ''' <summary>
+    ''' Déclenche la fermeture de la barre de message.
+    ''' </summary>
+    Public Sub CloseMessageBar()
         MessageBarButton1.Visible = False
         MessageBarLabel1.Visible = False
         MessageBarPictureBox.Visible = False
         MessageBarCloseButton1.Visible = False
         MessageBarButton1.Enabled = False
         MessageBarCloseButton1.Enabled = False
+    End Sub
+
+    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton1.Click
+        CloseMessageBar()
     End Sub
     Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton1.Click
         Select Case MessageBarAction
@@ -1028,12 +989,7 @@ Public Class BrowserForm
             Case Else
                 MsgBox("Ce bouton ne peut rien faire. Voir le support pour plus de détails.", MsgBoxStyle.Information, "SmartNet Browser")
         End Select
-        MessageBarPictureBox.Visible = False
-        MessageBarButton1.Visible = False
-        MessageBarCloseButton1.Visible = False
-        MessageBarLabel1.Visible = False
-        MessageBarButton1.Enabled = False
-        MessageBarCloseButton1.Enabled = False
+        CloseMessageBar()
     End Sub
 
     Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
@@ -1042,7 +998,7 @@ Public Class BrowserForm
         Try
             WB.Navigate("about:blank")
             If BrowserTabs.TabPages.Count = 1 Then
-                Me.Close()
+                CloseSmartNetBrowser()
             Else
                 lastClosedTab = WB.Url.ToString
                 BrowserTabs.TabPages.Remove(tabPageToRemove)
@@ -1078,7 +1034,6 @@ Public Class BrowserForm
     Private Sub GardeFouTimer_Tick(sender As Object, e As EventArgs) Handles GardeFouTimer.Tick
         RefreshListOfTabs()
     End Sub
-
     Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString(), BrowserTabs)
