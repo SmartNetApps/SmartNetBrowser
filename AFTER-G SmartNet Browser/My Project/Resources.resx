@@ -118,155 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Afficher_les_favoris" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\favorissubmenu\afficher les favoris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Afficher_l_historique" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\afficher l'historique.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Afficher_l_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\contextmenustrip\afficher l'image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Aide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\aide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ajouter_cette_page_dans_les_favoris" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\favorissubmenu\ajouter cette page dans les favoris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chargement_browserform" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\chargement browserform.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chargement_splashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\chargement splashscreen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="CloseTabBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\closetabbutton\closetabblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CloseTabButton_in_tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\closetabbutton in tab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CloseTabRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\closetabbutton\closetabred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coller" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\editionsubmenu\coller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="copier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\editionsubmenu\copier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Copier_l_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\contextmenustrip\copier l'image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="couper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\editionsubmenu\couper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Enregistrer_la_page_sous" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\enregistrer la page sous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Envoyer_par_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\envoyer par email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Envoyer_vos_commentaires" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\aidesubmenu\envoyer vos commentaires.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ErrorFavicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\errorfavicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Favoris" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\favoris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="FavoritesOutline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\favoritesbutton\favoritesoutline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FavoritesYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\favoritesbutton\favoritesyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fermer_SmartNet_Browser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\fermer smartnet browser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GoBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\gobutton\goblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GoBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\gobutton\goblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HomeBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\homepagebutton\homeblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HomeBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\homepagebutton\homeblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Imprimer_la_page" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\imprimer la page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MenuBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenubutton\menublack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MenuWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenubutton\menuwhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NewTabBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\newtabbutton\newtabblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NewTabGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\newtabbutton\newtabgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NextBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\nextpagebutton\nextblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NextBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\nextpagebutton\nextblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NextDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\nextpagebutton\nextdisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ouvrir_un_document" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\ouvrir un document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Paramètres" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\paramètres.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Plein_écran" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\plein écran.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PreviousBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\previouspagebutton\previousblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PreviousBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\previouspagebutton\previousblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PreviousDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\previouspagebutton\previousdisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Quitter_le_plein_écran" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\quitter le plein écran.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\refreshbutton\refreshblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\refreshbutton\refreshgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SearchBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\searchbutton\searchblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SearchBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\searchbutton\searchblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="selectionner_tout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\editionsubmenu\selectionner tout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StopBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\stopbutton\stopblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StopRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\stopbutton\stopred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Télécharger_cette_vidéo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\télécharger cette vidéo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\mainmenu\zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GPLv3Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\gplv3logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -288,5 +153,113 @@
   </data>
   <data name="SmartNetBrowserIcone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\logo\smartnetbrowsericone.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddFavorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\favorissubmenu\addfavorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\editionsubmenu\copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\contextmenustrip\copyimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\editionsubmenu\cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Favorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\favorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FavoritesBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\favoritesbutton\favoritesblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fullscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\fullscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FullscreenExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\fullscreenexit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\gobutton\goblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="History" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HomeBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\homepagebutton\homeblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\contextmenustrip\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenubutton\menublack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\nextpagebutton\nextblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\nextpagebutton\nextdisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\editionsubmenu\paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PreviousBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\previouspagebutton\previousblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PreviousDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\previouspagebutton\previousdisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RefreshBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\refreshbutton\refreshblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveAs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\saveas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SelectAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\editionsubmenu\selectall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendEmail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\sendemail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendFeedback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\aidesubmenu\sendfeedback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StopBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\stopbutton\stopblack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mainmenu\zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wordmark_black_36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\wordmark_black_36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wordmark_white_36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\logo\wordmark_white_36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hourglass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\firststartform\hourglass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThumbUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\firststartform\thumbup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

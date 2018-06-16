@@ -39,61 +39,6 @@ Public Class BrowserForm
         My.Settings.Save()
     End Sub
 
-    Private Sub HomepageButton_MouseEnter(sender As Object, e As EventArgs) Handles HomepageButton.MouseEnter
-        HomepageButton.Image = HomepageButton.InitialImage
-    End Sub
-    Private Sub HomepageButton_MouseLeave(sender As Object, e As EventArgs) Handles HomepageButton.MouseLeave
-        HomepageButton.Image = HomepageButton.ErrorImage
-    End Sub
-    Private Sub PreviouspageButton_MouseEnter(sender As Object, e As EventArgs) Handles PreviouspageButton.MouseEnter
-        PreviouspageButton.Image = PreviouspageButton.InitialImage
-    End Sub
-    Private Sub PreviouspageButton_MouseLeave(sender As Object, e As EventArgs) Handles PreviouspageButton.MouseLeave
-        PreviouspageButton.Image = PreviouspageButton.ErrorImage
-    End Sub
-    Private Sub NextpageButton_MouseEnter(sender As Object, e As EventArgs) Handles NextpageButton.MouseEnter
-        NextpageButton.Image = NextpageButton.InitialImage
-    End Sub
-    Private Sub NextpageButton_MouseLeave(sender As Object, e As EventArgs) Handles NextpageButton.MouseLeave
-        NextpageButton.Image = NextpageButton.ErrorImage
-    End Sub
-    Private Sub RefreshButton_MouseEnter(sender As Object, e As EventArgs) Handles RefreshButton.MouseEnter
-        RefreshButton.Image = RefreshButton.InitialImage
-    End Sub
-    Private Sub RefreshButton_MouseLeave(sender As Object, e As EventArgs) Handles RefreshButton.MouseLeave
-        RefreshButton.Image = RefreshButton.ErrorImage
-    End Sub
-    Private Sub StopButton_MouseEnter(sender As Object, e As EventArgs) Handles StopButton.MouseEnter
-        StopButton.Image = StopButton.InitialImage
-    End Sub
-    Private Sub StopButton_MouseLeave(sender As Object, e As EventArgs) Handles StopButton.MouseLeave
-        StopButton.Image = StopButton.ErrorImage
-    End Sub
-    Private Sub GoButton_MouseEnter(sender As Object, e As EventArgs) Handles GoButton.MouseEnter
-        GoButton.Image = GoButton.InitialImage
-    End Sub
-    Private Sub GoButton_MouseLeave(sender As Object, e As EventArgs) Handles GoButton.MouseLeave
-        GoButton.Image = GoButton.ErrorImage
-    End Sub
-    Private Sub SearchButton_MouseEnter(sender As Object, e As EventArgs) Handles SearchButton.MouseEnter
-        SearchButton.Image = SearchButton.InitialImage
-    End Sub
-    Private Sub SearchButton_MouseLeave(sender As Object, e As EventArgs) Handles SearchButton.MouseLeave
-        SearchButton.Image = SearchButton.ErrorImage
-    End Sub
-    Private Sub CloseTabButton_MouseEnter(sender As Object, e As EventArgs) Handles CloseTabButton.MouseEnter
-        CloseTabButton.Image = CloseTabButton.InitialImage
-    End Sub
-    Private Sub CloseTabButton_MouseLeave(sender As Object, e As EventArgs) Handles CloseTabButton.MouseLeave
-        CloseTabButton.Image = CloseTabButton.ErrorImage
-    End Sub
-    Private Sub NewTabButton_MouseEnter(sender As Object, e As EventArgs) Handles NewTabButton.MouseEnter
-        NewTabButton.Image = NewTabButton.InitialImage
-    End Sub
-    Private Sub NewTabButton_MouseLeave(sender As Object, e As EventArgs) Handles NewTabButton.MouseLeave
-        NewTabButton.Image = NewTabButton.ErrorImage
-    End Sub
-
     ''' <summary>
     ''' Actualise la liste des onglets pour le garde fou.
     ''' </summary>
@@ -292,26 +237,18 @@ Public Class BrowserForm
         MessageBarButton1.Enabled = False
         MessageBarCloseButton1.Enabled = False
         Try
-            If My.Settings.FirstStart = True And My.Settings.FirstStartFromReset = False Then
-                My.Settings.Upgrade()
-                My.Settings.Reload()
-                Dim DownloadFolderrKey As RegistryKey = Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
-                If DownloadFolderrKey Is Nothing Then
-                    My.Settings.DefaultDownloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+            If My.Settings.FirstStart = True Then
+                If My.Settings.FirstStartFromReset = False Then
+                    My.Settings.Upgrade()
+                    My.Settings.Reload()
+                    If My.Settings.FirstStart = True Then
+                        FirstStartForm.ShowDialog()
+                    End If
                 Else
-                    My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString()
+                    FirstStartForm.ShowDialog()
                 End If
-                If My.Settings.ChildrenProtectionPassword.Length <> 128 And My.Settings.ChildrenProtectionPassword.Length <> 0 Then
-                    Dim OriginalPassword As String = My.Settings.ChildrenProtectionPassword
-                    My.Settings.ChildrenProtectionPassword = GetSHA512(OriginalPassword)
-                End If
-                If My.Settings.BrowserSettingsSecurityPassword.Length <> 128 And My.Settings.BrowserSettingsSecurityPassword.Length <> 0 Then
-                    Dim OriginalPassword As String = My.Settings.BrowserSettingsSecurityPassword
-                    My.Settings.BrowserSettingsSecurityPassword = GetSHA512(OriginalPassword)
-                End If
-                My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                FirstStartForm.Show()
             End If
+
             For Each favorite In My.Settings.Favorites
                 URLBox.Items.Add(favorite)
             Next
@@ -370,7 +307,7 @@ Public Class BrowserForm
             WB.GoBack()
         End If
     End Sub
-    Private Sub RefreshPage(sender As Object, e As EventArgs) Handles RefreshButton.Click, ActualiserLaPageToolStripMenuItem.Click
+    Private Sub RefreshPage(sender As Object, e As EventArgs) Handles ActualiserLaPageToolStripMenuItem.Click, RefreshButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Reload()
     End Sub
@@ -705,8 +642,8 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
             CheckFavicon()
-            PreviouspageButton.Visible = WB.CanGoBack
-            NextpageButton.Visible = WB.CanGoForward
+            PreviouspageButton.Enabled = WB.CanGoBack
+            NextpageButton.Enabled = WB.CanGoForward
             If Not (WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")) Then
                 URLBox.Text = ""
             Else
@@ -999,31 +936,31 @@ Public Class BrowserForm
         SearchTextInPageForm.Show()
     End Sub
 
-    Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            Select Case e.KeyCode
-                Case Keys.BrowserBack
-                    WB.GoBack()
-                Case Keys.BrowserFavorites
-                    FavoritesForm.Show()
-                Case Keys.BrowserForward
-                    WB.GoForward()
-                Case Keys.BrowserHome
-                    AddTab(My.Settings.Homepage, BrowserTabs)
-                Case Keys.BrowserRefresh
-                    WB.Reload()
-                Case Keys.BrowserSearch
-                    SearchBox.Focus()
-                    SearchBoxLabel.Visible = False
-                Case Keys.BrowserStop
-                    WB.Stop()
-                Case Keys.Print
-                    WB.Navigate("javascript.print()")
-            End Select
-        Catch ex As Exception
-        End Try
-    End Sub
+    'Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    '    Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+    '    Try
+    '        Select Case e.KeyCode
+    '            Case Keys.BrowserBack
+    '                WB.GoBack()
+    '            Case Keys.BrowserFavorites
+    '                FavoritesForm.Show()
+    '            Case Keys.BrowserForward
+    '                WB.GoForward()
+    '            Case Keys.BrowserHome
+    '                AddTab(My.Settings.Homepage, BrowserTabs)
+    '            Case Keys.BrowserRefresh
+    '                WB.Reload()
+    '            Case Keys.BrowserSearch
+    '                SearchBox.Focus()
+    '                SearchBoxLabel.Visible = False
+    '            Case Keys.BrowserStop
+    '                WB.Stop()
+    '            Case Keys.Print
+    '                WB.Navigate("javascript.print()")
+    '        End Select
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
 
     Private Sub EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)

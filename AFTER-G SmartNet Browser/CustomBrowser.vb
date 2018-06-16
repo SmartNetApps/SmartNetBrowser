@@ -70,31 +70,31 @@ Public Class CustomBrowser
         Return dangerous
     End Function
 
-    Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            Select Case e.KeyCode
-                Case Keys.BrowserBack
-                    WB.GoBack()
-                Case Keys.BrowserFavorites
-                    FavoritesForm.Show()
-                Case Keys.BrowserForward
-                    WB.GoForward()
-                Case Keys.BrowserHome
-                    AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
-                Case Keys.BrowserRefresh
-                    WB.Reload()
-                Case Keys.BrowserSearch
-                    BrowserForm.SearchBox.Focus()
-                    BrowserForm.SearchBoxLabel.Visible = False
-                Case Keys.BrowserStop
-                    WB.Stop()
-                Case Keys.Print
-                    WB.Navigate("javascript.print()")
-            End Select
-        Catch ex As Exception
-        End Try
-    End Sub
+    'Private Sub BrowserForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    '    Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+    '    Try
+    '        Select Case e.KeyCode
+    '            Case Keys.BrowserBack
+    '                WB.GoBack()
+    '            Case Keys.BrowserFavorites
+    '                FavoritesForm.Show()
+    '            Case Keys.BrowserForward
+    '                WB.GoForward()
+    '            Case Keys.BrowserHome
+    '                AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
+    '            Case Keys.BrowserRefresh
+    '                WB.Reload()
+    '            Case Keys.BrowserSearch
+    '                BrowserForm.SearchBox.Focus()
+    '                BrowserForm.SearchBoxLabel.Visible = False
+    '            Case Keys.BrowserStop
+    '                WB.Stop()
+    '            Case Keys.Print
+    '                WB.Navigate("javascript.print()")
+    '        End Select
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
         If e.Uri.ToString <> "about:blank" Then
@@ -307,10 +307,10 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_CanGoBackChanged(sender As Object, e As EventArgs) Handles Me.CanGoBackChanged
-        BrowserForm.PreviouspageButton.Visible = CanGoBack
+        BrowserForm.PreviouspageButton.Enabled = CanGoBack
     End Sub
     Private Sub CustomBrowser_CanGoForwardChanged(sender As Object, e As EventArgs) Handles Me.CanGoForwardChanged
-        BrowserForm.NextpageButton.Visible = CanGoForward
+        BrowserForm.NextpageButton.Enabled = CanGoForward
     End Sub
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.GeckoContextMenuEventArgs) Handles Me.ShowContextMenu
@@ -376,10 +376,10 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
         Console.WriteLine("Erreur de navigation. Code : " + e.ErrorCode.ToString())
-        BrowserForm.URLBox.Text = e.Uri
         If e.ErrorCode = -2142568418 Then
             Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
         End If
+        BrowserForm.URLBox.Text = e.Uri
     End Sub
 
     Private Sub CustomBrowser_NSSError(sender As Object, e As GeckoNSSErrorEventArgs) Handles MyBase.NSSError

@@ -586,15 +586,6 @@
   <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt</value>
   </data>
-  <data name="MainMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACKSURBVDhPpZNBCsMwEAN98sN6ysMKgUJ/GQjkE41k
-        Kh2MBVs6MAexqz3ZDXT4hAf8FOUuO+y2Ha6WKrLbrm94MBThLjvs+tqvuDcfUE4K5zRICud5UCUeUE4K
-        5zRICud5UCUeUE4K5zRICud5UMU9PeWNoQh32RlP+Z/P9ILjS77hCVdLK7mLTus37ROYIL9ByRsAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
   <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 20</value>
   </data>
@@ -620,7 +611,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>23</value>
   </data>
   <data name="HomepageButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -649,60 +640,6 @@
   <data name="&gt;&gt;HomepageButton.ZOrder" xml:space="preserve">
     <value>21</value>
   </data>
-  <data name="PreviouspageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 0</value>
-  </data>
-  <data name="PreviouspageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="PreviouspageButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="PreviouspageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="PreviouspageButton.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Name" xml:space="preserve">
-    <value>PreviouspageButton</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="NextpageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 0</value>
-  </data>
-  <data name="NextpageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="NextpageButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="NextpageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="NextpageButton.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Name" xml:space="preserve">
-    <value>NextpageButton</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
   <data name="FaviconBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 5</value>
   </data>
@@ -725,7 +662,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FaviconBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
   <data name="URLBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -755,7 +692,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;URLBox.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>22</value>
   </data>
   <data name="SearchBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -785,79 +722,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchBox.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="RefreshButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
-  </data>
-  <data name="RefreshButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="RefreshButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="RefreshButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;RefreshButton.Name" xml:space="preserve">
-    <value>RefreshButton</value>
-  </data>
-  <data name="&gt;&gt;RefreshButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RefreshButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RefreshButton.ZOrder" xml:space="preserve">
     <value>18</value>
-  </data>
-  <data name="StopButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
-  </data>
-  <data name="StopButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="StopButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="StopButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;StopButton.Name" xml:space="preserve">
-    <value>StopButton</value>
-  </data>
-  <data name="&gt;&gt;StopButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StopButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;StopButton.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="GoButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
-  </data>
-  <data name="GoButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="GoButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="GoButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Name" xml:space="preserve">
-    <value>GoButton</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GoButton.ZOrder" xml:space="preserve">
-    <value>15</value>
   </data>
   <data name="SearchButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -884,61 +749,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="CloseTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="CloseTabButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>917, 0</value>
-  </data>
-  <data name="CloseTabButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="CloseTabButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="CloseTabButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Name" xml:space="preserve">
-    <value>CloseTabButton</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="NewTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="NewTabButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 0</value>
-  </data>
-  <data name="NewTabButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="NewTabButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="NewTabButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Name" xml:space="preserve">
-    <value>NewTabButton</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>15</value>
   </data>
   <metadata name="UpdateNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>142, 8</value>
@@ -984,54 +795,6 @@
   </data>
   <data name="OpenFileDialog1.Title" xml:space="preserve">
     <value>Ouvrir un document local</value>
-  </data>
-  <data name="PreviousPageButtonDisabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 0</value>
-  </data>
-  <data name="PreviousPageButtonDisabled.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="PreviousPageButtonDisabled.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="PreviousPageButtonDisabled.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;PreviousPageButtonDisabled.Name" xml:space="preserve">
-    <value>PreviousPageButtonDisabled</value>
-  </data>
-  <data name="&gt;&gt;PreviousPageButtonDisabled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PreviousPageButtonDisabled.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PreviousPageButtonDisabled.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="NextPageButtonDisabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 0</value>
-  </data>
-  <data name="NextPageButtonDisabled.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="NextPageButtonDisabled.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="NextPageButtonDisabled.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;NextPageButtonDisabled.Name" xml:space="preserve">
-    <value>NextPageButtonDisabled</value>
-  </data>
-  <data name="&gt;&gt;NextPageButtonDisabled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NextPageButtonDisabled.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NextPageButtonDisabled.ZOrder" xml:space="preserve">
-    <value>22</value>
   </data>
   <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>679, 8</value>
@@ -1287,35 +1050,35 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB0
-        BgAAAk1TRnQBSQFMAwEBAAEwAQEBMAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFgAf8CMwGoAf8CmQHMAf8CAAFgAf8CAAFg
-        Af8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFg
-        Af8CLAGlAf8COwGsAf8CAAGCAf8CTwG2Af8CJAGhAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFg
-        Af8CAAFgAf8CAAFgAf8CAAFgAf8CWQFdAdLCAAF/Af4CNQGpAf8CEAGXAf8CAAGGAf8ClgHKAf8CDgGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CMwGoAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAF/
-        Af7CAAFgAf8CTgG2Af8CAAGAAf8CAAFgAf8CUwG4Af8CAQGPAf8CtgHaAf8CUwG4Af8CUAG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFgAf8CAAFgAf8CAAFgAf/AAAIBAY8B/wIAAY0B/wJVAbkB/wJP
-        AbYB/wJFAbEB/wJgAb8B/wIXAZoB/wJHAbIB/wJDAbAB/wIAAYgB/wLEAeIB/wI0AagB/wKzAdkB/wIA
-        AWAB/wIAAWAB/wIAAWAB/8AAArAB1wH/AhkBmwH/AgABYAH/AgABigH/Al8BvgH/AvIB+QH/Ar4B3gH/
-        AtgB6wH/AtcB6wH/Ar4B3gH/Au4B9gH/AsMB4QH/AvEB+AH/AjMBqAH/AgABYAH/AgABYAH/wgABhQH/
-        AlYBugH/At4B7gH/ApwBzQH/AqkB1AH/AkUBsQH/AgABhAH/Ak0BtQH/AkoBswH/AgABhAH/AkgBswH/
-        AlABtwH/AgoBlAH/Aq8B1wH/AgABYAH/AgABYAH/wgABYAH/AgABYAH/AtUB6gH/AkMBsAH/ArMB2QH/
-        AowBxQH/AkMBsAH/AqEB0AH/Ap4BzgH/AkMBsAH/Ao8BxwH/ArEB2AH/AkMBsAH/AtQB6QH/AgABYAH/
-        AgABYAH/wgABYAH/AgABYAH/AtYB6gH/AkYBsQH/ArUB2gH/Ao4BxgH/AkYBsQH/AqIB0AH/AqABzwH/
-        AkYBsQH/ApABxwH/ArMB2AH/AkYBsQH/AtQB6QH/AgABYAH/AgABYAH/wgABYAH/AgABYAH/ArQB2QH/
-        AgMBkAH/AlIBuAH/AkIBsAH/AgABggH/AksBtAH/AkcBsgH/AgABggH/AkYBsgH/Ak4BtgH/AgcBkgH/
-        ArAB1wH/AgABYAH/AgABYAH/wgABYAH/AgABYAH/AjkBqwH/AvEB+AH/AsgB4wH/Au4B9gH/AsIB4AH/
-        AtoB7QH/AtkB7AH/AsIB4AH/Au8B9wH/AscB4wH/AvIB+AH/AjUBqQH/AgABYAH/AgABYAH/wgABYAH/
-        AgABYAH/AgABgAH/ArgB2wH/Ai4BpgH/AsYB4wH/AgABhwH/AkcBsgH/AkMBsAH/AgABiAH/AsUB4gH/
-        AjEBpwH/ArUB2gH/AgABgAH/AgABYAH/AgABYAH/wgABYAH/AgABYAH/AgABYAH/AgABhwH/ArgB2wH/
-        As8B5wH/Aq8B1wH/AlEBtwH/Ak4BtgH/ArIB2AH/As8B5wH/ArYB2gH/AgABhgH/AgABYAH/AgABYAH/
-        AgABYAH/wgABfwH+AgABYAH/AgABYAH/AgABYAH/AgABgAH/AjkBqwH/ArQB2QH/At4B7wH/At4B7gH/
-        ArMB2QH/AjcBqgH/AgABgAH/AgABYAH/AgABYAH/AgABYAH/AgABfwH+wAACWAFcAdECAAFgAf8CAAFg
-        Af8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFg
-        Af8CAAFgAf8CAAFgAf8CWAFcAdHAAAMgAS8CWAFcAdECAAF/Af4CAAFgAf8CAAFgAf8CAAFgAf8CAAFg
-        Af8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAFgAf8CAAF/Af4CWAFcAdEDIAEvwAABQgFN
-        AT4HAAE+AwABKAMAAUADAAEQAwABAQEAAQEFAAGAFwAD/4EACw==
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABy
+        BgAAAk1TRnQBSQFMAwEBAAFgAQEBYAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFaAf8CLQGoAf8CmQHMAf8CAAFaAf8CAAFa
+        Af8CAAFaAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFa
+        Af8CJgGlAf8CNQGsAf8CAAGCAf8CSQG2Af8CHgGhAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAFa
+        Af8CAAFaAf8CAAFaAf8CAAFaAf8CWQFdAdLCAAF/Af4CLwGpAf8CCgGXAf8CAAGGAf8ClgHKAf8CCAGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CLQGoAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAFaAf8CAAF/
+        Af7CAAFaAf8CSAG2Af8CAAGAAf8CAAFaAf8CTQG4Af8CAAGPAf8CtgHaAf8CTQG4Af8CSgG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFaAf8CAAFaAf8CAAFaAf/CAAGPAf8CAAGNAf8CTwG5Af8CSQG2
+        Af8CPwGxAf8CWgG/Af8CEQGaAf8CQQGyAf8CPQGwAf8CAAGIAf8CxAHiAf8CLgGoAf8CswHZAf8CAAFa
+        Af8CAAFaAf8CAAFaAf/AAAKwAdcB/wITAZsB/wIAAVoB/wIAAYoB/wJZAb4B/wLyAfkB/wK+Ad4B/wLY
+        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wItAagB/wIAAVoB/wIAAVoB/8IAAYUB/wJQ
+        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI/AbEB/wIAAYQB/wJHAbUB/wJEAbMB/wIAAYQB/wJCAbMB/wJK
+        AbcB/wIEAZQB/wKvAdcB/wIAAVoB/wIAAVoB/8IAAVoB/wIAAVoB/wLVAeoB/wI9AbAB/wKzAdkB/wKM
+        AcUB/wI9AbAB/wKhAdAB/wKeAc4B/wI9AbAB/wKPAccB/wKxAdgB/wI9AbAB/wLUAekB/wIAAVoB/wIA
+        AVoB/8IAAVoB/wIAAVoB/wLWAeoB/wJAAbEB/wK1AdoB/wKOAcYB/wJAAbEB/wKiAdAB/wKgAc8B/wJA
+        AbEB/wKQAccB/wKzAdgB/wJAAbEB/wLUAekB/wIAAVoB/wIAAVoB/8IAAVoB/wIAAVoB/wK0AdkB/wIA
+        AZAB/wJMAbgB/wI8AbAB/wIAAYIB/wJFAbQB/wJBAbIB/wIAAYIB/wJAAbIB/wJIAbYB/wIBAZIB/wKw
+        AdcB/wIAAVoB/wIAAVoB/8IAAVoB/wIAAVoB/wIzAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
+        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wIvAakB/wIAAVoB/wIAAVoB/8IAAVoB/wIA
+        AVoB/wIAAYAB/wK4AdsB/wIoAaYB/wLGAeMB/wIAAYcB/wJBAbIB/wI9AbAB/wIAAYgB/wLFAeIB/wIr
+        AacB/wK1AdoB/wIAAYAB/wIAAVoB/wIAAVoB/8IAAVoB/wIAAVoB/wIAAVoB/wIAAYcB/wK4AdsB/wLP
+        AecB/wKvAdcB/wJLAbcB/wJIAbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVoB/wIAAVoB/wIA
+        AVoB/8IAAX8B/gIAAVoB/wIAAVoB/wIAAVoB/wIAAYAB/wIzAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
+        AdkB/wIxAaoB/wIAAYAB/wIAAVoB/wIAAVoB/wIAAVoB/wIAAX8B/sAAAlgBXAHRAgABWgH/AgABWgH/
+        AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/
+        AgABWgH/AgABWgH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABWgH/AgABWgH/AgABWgH/AgABWgH/
+        AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABWgH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
+        BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/+BAAs=
 </value>
   </data>
   <data name="BrowserTabs.Location" type="System.Drawing.Point, System.Drawing">
@@ -1340,7 +1103,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BrowserTabs.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>24</value>
   </data>
   <metadata name="TabsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1158, 8</value>
@@ -1391,7 +1154,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FavoritesButton.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="LoadingGif.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 5</value>
@@ -1415,7 +1178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LoadingGif.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="SearchBoxLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1448,7 +1211,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SearchBoxLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="URLBoxLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1478,7 +1241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;URLBoxLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="StatusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1508,7 +1271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StatusLabel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="MessageBarPictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1538,7 +1301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MessageBarPictureBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="MessageBarLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1574,7 +1337,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MessageBarLabel1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="MessageBarButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1613,7 +1376,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MessageBarButton1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="MessageBarCloseButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1649,11 +1412,206 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;MessageBarCloseButton1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <metadata name="GardeFouTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1334, 8</value>
   </metadata>
+  <data name="RefreshButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RefreshButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="RefreshButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="RefreshButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="RefreshButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.Name" xml:space="preserve">
+    <value>RefreshButton</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="StopButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="StopButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="StopButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="StopButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="StopButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;StopButton.Name" xml:space="preserve">
+    <value>StopButton</value>
+  </data>
+  <data name="&gt;&gt;StopButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StopButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;StopButton.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="GoButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GoButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="GoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="GoButton.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="GoButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Name" xml:space="preserve">
+    <value>GoButton</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GoButton.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="NextpageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="NextpageButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="NextpageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="NextpageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="NextpageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 0</value>
+  </data>
+  <data name="NextpageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="NextpageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Name" xml:space="preserve">
+    <value>NextpageButton</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="PreviouspageButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="PreviouspageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="PreviouspageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 0</value>
+  </data>
+  <data name="PreviouspageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="PreviouspageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Name" xml:space="preserve">
+    <value>PreviouspageButton</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="NewTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="NewTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="NewTabButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>944, 0</value>
+  </data>
+  <data name="NewTabButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="NewTabButton.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.Name" xml:space="preserve">
+    <value>NewTabButton</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CloseTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="CloseTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="CloseTabButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>917, 0</value>
+  </data>
+  <data name="CloseTabButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="CloseTabButton.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.Name" xml:space="preserve">
+    <value>CloseTabButton</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -7670,6 +7628,18 @@
   <data name="&gt;&gt;EnvoyerVosCommentairesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
+    <value>ToolStripSeparator10</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Name" xml:space="preserve">
+    <value>SignalerUnSiteMalveillantToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;NouvelleVersionDisponibleSubMenu.Name" xml:space="preserve">
     <value>NouvelleVersionDisponibleSubMenu</value>
   </data>
@@ -7843,18 +7813,6 @@
   </data>
   <data name="&gt;&gt;GardeFouTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Name" xml:space="preserve">
-    <value>SignalerUnSiteMalveillantToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
-    <value>ToolStripSeparator10</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BrowserForm</value>

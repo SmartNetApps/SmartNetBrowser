@@ -75,25 +75,18 @@ Partial Class BrowserForm
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ÀProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvoyerVosCommentairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SignalerUnSiteMalveillantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NouvelleVersionDisponibleSubMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HomepageButton = New System.Windows.Forms.PictureBox()
-        Me.PreviouspageButton = New System.Windows.Forms.PictureBox()
-        Me.NextpageButton = New System.Windows.Forms.PictureBox()
         Me.FaviconBox = New System.Windows.Forms.PictureBox()
         Me.URLBox = New System.Windows.Forms.ComboBox()
         Me.SearchBox = New System.Windows.Forms.ComboBox()
-        Me.RefreshButton = New System.Windows.Forms.PictureBox()
-        Me.StopButton = New System.Windows.Forms.PictureBox()
-        Me.GoButton = New System.Windows.Forms.PictureBox()
         Me.SearchButton = New System.Windows.Forms.PictureBox()
-        Me.CloseTabButton = New System.Windows.Forms.PictureBox()
-        Me.NewTabButton = New System.Windows.Forms.PictureBox()
         Me.UpdateNotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.PreviousPageButtonDisabled = New System.Windows.Forms.PictureBox()
-        Me.NextPageButtonDisabled = New System.Windows.Forms.PictureBox()
         Me.BrowserContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OuvrirLeLienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OuvrirDansUnNouvelOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -130,27 +123,26 @@ Partial Class BrowserForm
         Me.MessageBarButton1 = New System.Windows.Forms.Button()
         Me.MessageBarCloseButton1 = New System.Windows.Forms.PictureBox()
         Me.GardeFouTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.SignalerUnSiteMalveillantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshButton = New System.Windows.Forms.PictureBox()
+        Me.StopButton = New System.Windows.Forms.PictureBox()
+        Me.GoButton = New System.Windows.Forms.PictureBox()
+        Me.NextpageButton = New System.Windows.Forms.Button()
+        Me.PreviouspageButton = New System.Windows.Forms.Button()
+        Me.NewTabButton = New System.Windows.Forms.Button()
+        Me.CloseTabButton = New System.Windows.Forms.Button()
         Me.MainToolbar.SuspendLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NextpageButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RefreshButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.StopButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GoButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CloseTabButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NewTabButton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PreviousPageButtonDisabled, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NextPageButtonDisabled, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RefreshButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StopButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GoButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
@@ -164,6 +156,7 @@ Partial Class BrowserForm
         '
         Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
         resources.ApplyResources(Me.MainMenu, "MainMenu")
+        Me.MainMenu.Image = Global.SmartNet_Browser.My.Resources.Resources.MenuBlack
         Me.MainMenu.Name = "MainMenu"
         '
         'NewTabToolStripMenuItem
@@ -185,25 +178,25 @@ Partial Class BrowserForm
         '
         'OpenPageToolStripMenuItem
         '
-        Me.OpenPageToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Ouvrir_un_document
+        Me.OpenPageToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Open
         Me.OpenPageToolStripMenuItem.Name = "OpenPageToolStripMenuItem"
         resources.ApplyResources(Me.OpenPageToolStripMenuItem, "OpenPageToolStripMenuItem")
         '
         'SavePageToolStripMenuItem
         '
-        Me.SavePageToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Enregistrer_la_page_sous
+        Me.SavePageToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.SaveAs
         Me.SavePageToolStripMenuItem.Name = "SavePageToolStripMenuItem"
         resources.ApplyResources(Me.SavePageToolStripMenuItem, "SavePageToolStripMenuItem")
         '
         'AperçuAvantImpressionToolStripMenuItem
         '
-        Me.AperçuAvantImpressionToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Imprimer_la_page
+        Me.AperçuAvantImpressionToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Print
         Me.AperçuAvantImpressionToolStripMenuItem.Name = "AperçuAvantImpressionToolStripMenuItem"
         resources.ApplyResources(Me.AperçuAvantImpressionToolStripMenuItem, "AperçuAvantImpressionToolStripMenuItem")
         '
         'EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem
         '
-        Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Envoyer_par_email
+        Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.SendEmail
         Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Name = "EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem"
         resources.ApplyResources(Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, "EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem")
         '
@@ -215,25 +208,25 @@ Partial Class BrowserForm
         '
         'CouperToolStripMenuItem
         '
-        Me.CouperToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.couper
+        Me.CouperToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Cut
         Me.CouperToolStripMenuItem.Name = "CouperToolStripMenuItem"
         resources.ApplyResources(Me.CouperToolStripMenuItem, "CouperToolStripMenuItem")
         '
         'CopierToolStripMenuItem
         '
-        Me.CopierToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.copier
+        Me.CopierToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Copy
         Me.CopierToolStripMenuItem.Name = "CopierToolStripMenuItem"
         resources.ApplyResources(Me.CopierToolStripMenuItem, "CopierToolStripMenuItem")
         '
         'CollerToolStripMenuItem
         '
-        Me.CollerToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.coller
+        Me.CollerToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Paste
         Me.CollerToolStripMenuItem.Name = "CollerToolStripMenuItem"
         resources.ApplyResources(Me.CollerToolStripMenuItem, "CollerToolStripMenuItem")
         '
         'SélectionnerToutToolStripMenuItem
         '
-        Me.SélectionnerToutToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.selectionner_tout
+        Me.SélectionnerToutToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.SelectAll
         Me.SélectionnerToutToolStripMenuItem.Name = "SélectionnerToutToolStripMenuItem"
         resources.ApplyResources(Me.SélectionnerToutToolStripMenuItem, "SélectionnerToutToolStripMenuItem")
         '
@@ -325,7 +318,7 @@ Partial Class BrowserForm
         '
         'TéléchargerCetteVidéoToolStripMenuItem
         '
-        Me.TéléchargerCetteVidéoToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Télécharger_cette_vidéo
+        Me.TéléchargerCetteVidéoToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Download
         Me.TéléchargerCetteVidéoToolStripMenuItem.Name = "TéléchargerCetteVidéoToolStripMenuItem"
         resources.ApplyResources(Me.TéléchargerCetteVidéoToolStripMenuItem, "TéléchargerCetteVidéoToolStripMenuItem")
         '
@@ -337,25 +330,25 @@ Partial Class BrowserForm
         'FavorisSubMenu
         '
         Me.FavorisSubMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AfficherLesFavorisToolStripMenuItem, Me.AjouterCettePageDansLesFavorisToolStripMenuItem})
-        Me.FavorisSubMenu.Image = Global.SmartNet_Browser.My.Resources.Resources.Favoris
+        Me.FavorisSubMenu.Image = Global.SmartNet_Browser.My.Resources.Resources.Favorites
         Me.FavorisSubMenu.Name = "FavorisSubMenu"
         resources.ApplyResources(Me.FavorisSubMenu, "FavorisSubMenu")
         '
         'AfficherLesFavorisToolStripMenuItem
         '
-        Me.AfficherLesFavorisToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.FavoritesYellow
+        Me.AfficherLesFavorisToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.FavoritesBlue
         Me.AfficherLesFavorisToolStripMenuItem.Name = "AfficherLesFavorisToolStripMenuItem"
         resources.ApplyResources(Me.AfficherLesFavorisToolStripMenuItem, "AfficherLesFavorisToolStripMenuItem")
         '
         'AjouterCettePageDansLesFavorisToolStripMenuItem
         '
-        Me.AjouterCettePageDansLesFavorisToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Ajouter_cette_page_dans_les_favoris
+        Me.AjouterCettePageDansLesFavorisToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.AddFavorite
         Me.AjouterCettePageDansLesFavorisToolStripMenuItem.Name = "AjouterCettePageDansLesFavorisToolStripMenuItem"
         resources.ApplyResources(Me.AjouterCettePageDansLesFavorisToolStripMenuItem, "AjouterCettePageDansLesFavorisToolStripMenuItem")
         '
         'AfficherLhistoriqueToolStripMenuItem
         '
-        Me.AfficherLhistoriqueToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Afficher_l_historique
+        Me.AfficherLhistoriqueToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.History
         Me.AfficherLhistoriqueToolStripMenuItem.Name = "AfficherLhistoriqueToolStripMenuItem"
         resources.ApplyResources(Me.AfficherLhistoriqueToolStripMenuItem, "AfficherLhistoriqueToolStripMenuItem")
         '
@@ -366,14 +359,14 @@ Partial Class BrowserForm
         '
         'PleinÉcranToolStripMenuItem
         '
-        Me.PleinÉcranToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Plein_écran
+        Me.PleinÉcranToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Fullscreen
         Me.PleinÉcranToolStripMenuItem.Name = "PleinÉcranToolStripMenuItem"
         resources.ApplyResources(Me.PleinÉcranToolStripMenuItem, "PleinÉcranToolStripMenuItem")
         '
         'QuitterLePleinÉcranToolStripMenuItem
         '
         resources.ApplyResources(Me.QuitterLePleinÉcranToolStripMenuItem, "QuitterLePleinÉcranToolStripMenuItem")
-        Me.QuitterLePleinÉcranToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Quitter_le_plein_écran
+        Me.QuitterLePleinÉcranToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.FullscreenExit
         Me.QuitterLePleinÉcranToolStripMenuItem.Name = "QuitterLePleinÉcranToolStripMenuItem"
         '
         'ToolStripSeparator3
@@ -383,14 +376,14 @@ Partial Class BrowserForm
         '
         'ParamètresToolStripMenuItem
         '
-        Me.ParamètresToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Paramètres
+        Me.ParamètresToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Settings
         Me.ParamètresToolStripMenuItem.Name = "ParamètresToolStripMenuItem"
         resources.ApplyResources(Me.ParamètresToolStripMenuItem, "ParamètresToolStripMenuItem")
         '
         'SupportToolStripMenuItem
         '
         Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem, Me.EnvoyerVosCommentairesToolStripMenuItem, Me.ToolStripSeparator10, Me.SignalerUnSiteMalveillantToolStripMenuItem})
-        Me.SupportToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Aide
+        Me.SupportToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Help
         Me.SupportToolStripMenuItem.Name = "SupportToolStripMenuItem"
         resources.ApplyResources(Me.SupportToolStripMenuItem, "SupportToolStripMenuItem")
         '
@@ -416,9 +409,19 @@ Partial Class BrowserForm
         '
         'EnvoyerVosCommentairesToolStripMenuItem
         '
-        Me.EnvoyerVosCommentairesToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Envoyer_vos_commentaires
+        Me.EnvoyerVosCommentairesToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.SendFeedback
         Me.EnvoyerVosCommentairesToolStripMenuItem.Name = "EnvoyerVosCommentairesToolStripMenuItem"
         resources.ApplyResources(Me.EnvoyerVosCommentairesToolStripMenuItem, "EnvoyerVosCommentairesToolStripMenuItem")
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
+        '
+        'SignalerUnSiteMalveillantToolStripMenuItem
+        '
+        Me.SignalerUnSiteMalveillantToolStripMenuItem.Name = "SignalerUnSiteMalveillantToolStripMenuItem"
+        resources.ApplyResources(Me.SignalerUnSiteMalveillantToolStripMenuItem, "SignalerUnSiteMalveillantToolStripMenuItem")
         '
         'NouvelleVersionDisponibleSubMenu
         '
@@ -433,7 +436,7 @@ Partial Class BrowserForm
         '
         'FermerSmartNetBrowserToolStripMenuItem
         '
-        Me.FermerSmartNetBrowserToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Fermer_SmartNet_Browser
+        Me.FermerSmartNetBrowserToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Close
         Me.FermerSmartNetBrowserToolStripMenuItem.Name = "FermerSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.FermerSmartNetBrowserToolStripMenuItem, "FermerSmartNetBrowserToolStripMenuItem")
         '
@@ -443,29 +446,9 @@ Partial Class BrowserForm
         Me.HomepageButton.BackColor = System.Drawing.Color.White
         Me.HomepageButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
         Me.HomepageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
-        Me.HomepageButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.HomeBlue
+        Me.HomepageButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
         Me.HomepageButton.Name = "HomepageButton"
         Me.HomepageButton.TabStop = False
-        '
-        'PreviouspageButton
-        '
-        Me.PreviouspageButton.BackColor = System.Drawing.Color.White
-        Me.PreviouspageButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.PreviousBlack
-        Me.PreviouspageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PreviousBlack
-        Me.PreviouspageButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.PreviousBlue
-        resources.ApplyResources(Me.PreviouspageButton, "PreviouspageButton")
-        Me.PreviouspageButton.Name = "PreviouspageButton"
-        Me.PreviouspageButton.TabStop = False
-        '
-        'NextpageButton
-        '
-        Me.NextpageButton.BackColor = System.Drawing.Color.White
-        Me.NextpageButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.NextBlack
-        Me.NextpageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NextBlack
-        Me.NextpageButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.NextBlue
-        resources.ApplyResources(Me.NextpageButton, "NextpageButton")
-        Me.NextpageButton.Name = "NextpageButton"
-        Me.NextpageButton.TabStop = False
         '
         'FaviconBox
         '
@@ -494,63 +477,15 @@ Partial Class BrowserForm
         Me.SearchBox.FormattingEnabled = True
         Me.SearchBox.Name = "SearchBox"
         '
-        'RefreshButton
-        '
-        Me.RefreshButton.BackColor = System.Drawing.Color.White
-        Me.RefreshButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
-        Me.RefreshButton.Image = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
-        Me.RefreshButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.RefreshGreen
-        resources.ApplyResources(Me.RefreshButton, "RefreshButton")
-        Me.RefreshButton.Name = "RefreshButton"
-        Me.RefreshButton.TabStop = False
-        '
-        'StopButton
-        '
-        Me.StopButton.BackColor = System.Drawing.Color.White
-        Me.StopButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
-        Me.StopButton.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
-        Me.StopButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.StopRed
-        resources.ApplyResources(Me.StopButton, "StopButton")
-        Me.StopButton.Name = "StopButton"
-        Me.StopButton.TabStop = False
-        '
-        'GoButton
-        '
-        Me.GoButton.BackColor = System.Drawing.Color.White
-        Me.GoButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
-        Me.GoButton.Image = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
-        Me.GoButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.GoBlue
-        resources.ApplyResources(Me.GoButton, "GoButton")
-        Me.GoButton.Name = "GoButton"
-        Me.GoButton.TabStop = False
-        '
         'SearchButton
         '
         resources.ApplyResources(Me.SearchButton, "SearchButton")
         Me.SearchButton.BackColor = System.Drawing.Color.White
         Me.SearchButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.SearchBlack
         Me.SearchButton.Image = Global.SmartNet_Browser.My.Resources.Resources.SearchBlack
-        Me.SearchButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.SearchBlue
+        Me.SearchButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.SearchBlack
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.TabStop = False
-        '
-        'CloseTabButton
-        '
-        resources.ApplyResources(Me.CloseTabButton, "CloseTabButton")
-        Me.CloseTabButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.CloseTabBlack
-        Me.CloseTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.CloseTabBlack
-        Me.CloseTabButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.CloseTabRed
-        Me.CloseTabButton.Name = "CloseTabButton"
-        Me.CloseTabButton.TabStop = False
-        '
-        'NewTabButton
-        '
-        resources.ApplyResources(Me.NewTabButton, "NewTabButton")
-        Me.NewTabButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.NewTabBlack
-        Me.NewTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NewTabBlack
-        Me.NewTabButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.NewTabGreen
-        Me.NewTabButton.Name = "NewTabButton"
-        Me.NewTabButton.TabStop = False
         '
         'UpdateNotifyIcon
         '
@@ -560,20 +495,6 @@ Partial Class BrowserForm
         'OpenFileDialog1
         '
         resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
-        '
-        'PreviousPageButtonDisabled
-        '
-        Me.PreviousPageButtonDisabled.Image = Global.SmartNet_Browser.My.Resources.Resources.PreviousDisabled
-        resources.ApplyResources(Me.PreviousPageButtonDisabled, "PreviousPageButtonDisabled")
-        Me.PreviousPageButtonDisabled.Name = "PreviousPageButtonDisabled"
-        Me.PreviousPageButtonDisabled.TabStop = False
-        '
-        'NextPageButtonDisabled
-        '
-        Me.NextPageButtonDisabled.Image = Global.SmartNet_Browser.My.Resources.Resources.NextDisabled
-        resources.ApplyResources(Me.NextPageButtonDisabled, "NextPageButtonDisabled")
-        Me.NextPageButtonDisabled.Name = "NextPageButtonDisabled"
-        Me.NextPageButtonDisabled.TabStop = False
         '
         'BrowserContextMenuStrip
         '
@@ -713,7 +634,7 @@ Partial Class BrowserForm
         '
         resources.ApplyResources(Me.FavoritesButton, "FavoritesButton")
         Me.FavoritesButton.BackColor = System.Drawing.Color.White
-        Me.FavoritesButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.FavoritesYellow
+        Me.FavoritesButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.FavoritesBlue
         Me.FavoritesButton.Image = Global.SmartNet_Browser.My.Resources.Resources.FavoritesOutline
         Me.FavoritesButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.FavoritesOutline
         Me.FavoritesButton.Name = "FavoritesButton"
@@ -721,9 +642,9 @@ Partial Class BrowserForm
         '
         'LoadingGif
         '
-        Me.LoadingGif.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.chargement_browserform
-        Me.LoadingGif.Image = Global.SmartNet_Browser.My.Resources.Resources.chargement_browserform
-        Me.LoadingGif.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.chargement_browserform
+        Me.LoadingGif.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.loading
+        Me.LoadingGif.Image = Global.SmartNet_Browser.My.Resources.Resources.loading
+        Me.LoadingGif.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.loading
         resources.ApplyResources(Me.LoadingGif, "LoadingGif")
         Me.LoadingGif.Name = "LoadingGif"
         Me.LoadingGif.TabStop = False
@@ -767,7 +688,7 @@ Partial Class BrowserForm
         'MessageBarButton1
         '
         resources.ApplyResources(Me.MessageBarButton1, "MessageBarButton1")
-        Me.MessageBarButton1.BackColor = System.Drawing.Color.Transparent
+        Me.MessageBarButton1.FlatAppearance.BorderSize = 0
         Me.MessageBarButton1.Name = "MessageBarButton1"
         Me.MessageBarButton1.UseVisualStyleBackColor = True
         '
@@ -775,9 +696,6 @@ Partial Class BrowserForm
         '
         resources.ApplyResources(Me.MessageBarCloseButton1, "MessageBarCloseButton1")
         Me.MessageBarCloseButton1.BackColor = System.Drawing.Color.DarkOrange
-        Me.MessageBarCloseButton1.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.CloseTabButton_in_tab
-        Me.MessageBarCloseButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.CloseTabButton_in_tab
-        Me.MessageBarCloseButton1.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.CloseTabButton_in_tab
         Me.MessageBarCloseButton1.Name = "MessageBarCloseButton1"
         Me.MessageBarCloseButton1.TabStop = False
         '
@@ -785,21 +703,86 @@ Partial Class BrowserForm
         '
         Me.GardeFouTimer.Interval = 1000
         '
-        'SignalerUnSiteMalveillantToolStripMenuItem
+        'RefreshButton
         '
-        Me.SignalerUnSiteMalveillantToolStripMenuItem.Name = "SignalerUnSiteMalveillantToolStripMenuItem"
-        resources.ApplyResources(Me.SignalerUnSiteMalveillantToolStripMenuItem, "SignalerUnSiteMalveillantToolStripMenuItem")
+        Me.RefreshButton.BackColor = System.Drawing.Color.White
+        Me.RefreshButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
+        Me.RefreshButton.Image = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
+        resources.ApplyResources(Me.RefreshButton, "RefreshButton")
+        Me.RefreshButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
+        Me.RefreshButton.Name = "RefreshButton"
+        Me.RefreshButton.TabStop = False
         '
-        'ToolStripSeparator10
+        'StopButton
         '
-        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
+        Me.StopButton.BackColor = System.Drawing.Color.White
+        Me.StopButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        Me.StopButton.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        resources.ApplyResources(Me.StopButton, "StopButton")
+        Me.StopButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        Me.StopButton.Name = "StopButton"
+        Me.StopButton.TabStop = False
+        '
+        'GoButton
+        '
+        Me.GoButton.BackColor = System.Drawing.Color.White
+        Me.GoButton.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
+        Me.GoButton.Image = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
+        resources.ApplyResources(Me.GoButton, "GoButton")
+        Me.GoButton.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
+        Me.GoButton.Name = "GoButton"
+        Me.GoButton.TabStop = False
+        '
+        'NextpageButton
+        '
+        resources.ApplyResources(Me.NextpageButton, "NextpageButton")
+        Me.NextpageButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.NextpageButton.FlatAppearance.BorderSize = 0
+        Me.NextpageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.NextpageButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.NextpageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NextBlack
+        Me.NextpageButton.Name = "NextpageButton"
+        Me.NextpageButton.UseVisualStyleBackColor = True
+        '
+        'PreviouspageButton
+        '
+        resources.ApplyResources(Me.PreviouspageButton, "PreviouspageButton")
+        Me.PreviouspageButton.FlatAppearance.BorderSize = 0
+        Me.PreviouspageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.PreviouspageButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.PreviouspageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PreviousBlack
+        Me.PreviouspageButton.Name = "PreviouspageButton"
+        Me.PreviouspageButton.UseVisualStyleBackColor = True
+        '
+        'NewTabButton
+        '
+        resources.ApplyResources(Me.NewTabButton, "NewTabButton")
+        Me.NewTabButton.FlatAppearance.BorderSize = 0
+        Me.NewTabButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.NewTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.NewTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NewTabBlack
+        Me.NewTabButton.Name = "NewTabButton"
+        Me.NewTabButton.UseVisualStyleBackColor = True
+        '
+        'CloseTabButton
+        '
+        resources.ApplyResources(Me.CloseTabButton, "CloseTabButton")
+        Me.CloseTabButton.FlatAppearance.BorderSize = 0
+        Me.CloseTabButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.CloseTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.CloseTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.CloseTabBlack
+        Me.CloseTabButton.Name = "CloseTabButton"
+        Me.CloseTabButton.UseVisualStyleBackColor = True
         '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.CloseTabButton)
+        Me.Controls.Add(Me.NewTabButton)
+        Me.Controls.Add(Me.PreviouspageButton)
+        Me.Controls.Add(Me.NextpageButton)
         Me.Controls.Add(Me.MessageBarCloseButton1)
         Me.Controls.Add(Me.MessageBarButton1)
         Me.Controls.Add(Me.MessageBarLabel1)
@@ -809,19 +792,13 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.SearchBoxLabel)
         Me.Controls.Add(Me.LoadingGif)
         Me.Controls.Add(Me.FaviconBox)
-        Me.Controls.Add(Me.NewTabButton)
-        Me.Controls.Add(Me.CloseTabButton)
         Me.Controls.Add(Me.SearchButton)
         Me.Controls.Add(Me.FavoritesButton)
         Me.Controls.Add(Me.GoButton)
         Me.Controls.Add(Me.SearchBox)
         Me.Controls.Add(Me.StopButton)
         Me.Controls.Add(Me.RefreshButton)
-        Me.Controls.Add(Me.NextpageButton)
-        Me.Controls.Add(Me.PreviouspageButton)
         Me.Controls.Add(Me.HomepageButton)
-        Me.Controls.Add(Me.NextPageButtonDisabled)
-        Me.Controls.Add(Me.PreviousPageButtonDisabled)
         Me.Controls.Add(Me.URLBox)
         Me.Controls.Add(Me.MainToolbar)
         Me.Controls.Add(Me.BrowserTabs)
@@ -829,23 +806,17 @@ Partial Class BrowserForm
         Me.MainToolbar.ResumeLayout(False)
         Me.MainToolbar.PerformLayout()
         CType(Me.HomepageButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PreviouspageButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NextpageButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RefreshButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.StopButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GoButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CloseTabButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NewTabButton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PreviousPageButtonDisabled, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NextPageButtonDisabled, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BrowserContextMenuStrip.ResumeLayout(False)
         Me.TabsContextMenuStrip.ResumeLayout(False)
         CType(Me.FavoritesButton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RefreshButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StopButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GoButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -854,17 +825,10 @@ Partial Class BrowserForm
     Friend WithEvents MainToolbar As MenuStrip
     Friend WithEvents MainMenu As ToolStripMenuItem
     Friend WithEvents HomepageButton As PictureBox
-    Friend WithEvents PreviouspageButton As PictureBox
-    Friend WithEvents NextpageButton As PictureBox
     Friend WithEvents FaviconBox As PictureBox
     Friend WithEvents URLBox As ComboBox
     Friend WithEvents SearchBox As ComboBox
-    Friend WithEvents RefreshButton As PictureBox
-    Friend WithEvents StopButton As PictureBox
-    Friend WithEvents GoButton As PictureBox
     Friend WithEvents SearchButton As PictureBox
-    Friend WithEvents CloseTabButton As PictureBox
-    Friend WithEvents NewTabButton As PictureBox
     Friend WithEvents UpdateNotifyIcon As NotifyIcon
     Friend WithEvents ÉditionSubMenu As ToolStripMenuItem
     Friend WithEvents CouperToolStripMenuItem As ToolStripMenuItem
@@ -897,8 +861,6 @@ Partial Class BrowserForm
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
     Friend WithEvents TéléchargerCetteVidéoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
-    Friend WithEvents PreviousPageButtonDisabled As PictureBox
-    Friend WithEvents NextPageButtonDisabled As PictureBox
     Friend WithEvents BrowserContextMenuStrip As ContextMenuStrip
     Friend WithEvents OuvrirLeLienToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OuvrirDansUnNouvelOngletToolStripMenuItem As ToolStripMenuItem
@@ -956,4 +918,11 @@ Partial Class BrowserForm
     Friend WithEvents GardeFouTimer As Timer
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents SignalerUnSiteMalveillantToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshButton As PictureBox
+    Friend WithEvents StopButton As PictureBox
+    Friend WithEvents GoButton As PictureBox
+    Friend WithEvents NextpageButton As Button
+    Friend WithEvents PreviouspageButton As Button
+    Friend WithEvents NewTabButton As Button
+    Friend WithEvents CloseTabButton As Button
 End Class

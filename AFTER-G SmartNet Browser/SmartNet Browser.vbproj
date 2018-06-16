@@ -620,63 +620,55 @@
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
     <Content Include="README.txt" />
-    <Content Include="Resources\chargement browserform.GIF" />
-    <Content Include="Resources\chargement splashscreen.GIF" />
-    <Content Include="Resources\CloseTabButton in tab.png" />
     <Content Include="Resources\CloseTabButton\CloseTabBlack.png" />
-    <Content Include="Resources\CloseTabButton\CloseTabRed.png" />
-    <Content Include="Resources\ContextMenuStrip\Afficher l%27image.png" />
-    <Content Include="Resources\ContextMenuStrip\Copier l%27image.png" />
+    <Content Include="Resources\ContextMenuStrip\CopyImage.png" />
+    <Content Include="Resources\ContextMenuStrip\Image.png" />
     <Content Include="Resources\ErrorFavicon.png" />
+    <Content Include="Resources\FavoritesButton\FavoritesBlue.png" />
     <Content Include="Resources\FavoritesButton\FavoritesOutline.png" />
-    <Content Include="Resources\FavoritesButton\FavoritesYellow.png" />
+    <Content Include="Resources\FirstStartForm\Hourglass.png" />
+    <Content Include="Resources\FirstStartForm\ThumbUp.png" />
     <Content Include="Resources\GoButton\GoBlack.png" />
-    <Content Include="Resources\GoButton\GoBlue.png" />
     <Content Include="Resources\GPLv3Logo.png" />
     <Content Include="Resources\HomepageButton\HomeBlack.png" />
-    <Content Include="Resources\HomepageButton\HomeBlue.png" />
+    <Content Include="Resources\loading.gif" />
     <Content Include="Resources\Logo ClipConverter.cc.png" />
     <Content Include="Resources\Logo\logo1024.png" />
     <Content Include="Resources\Logo\logo16.png" />
     <Content Include="Resources\Logo\logo32.png" />
     <Content Include="Resources\Logo\SmartNetBrowserIcone.ico" />
     <Content Include="Resources\MainMenuButton\MenuBlack.png" />
-    <Content Include="Resources\MainMenuButton\MenuWhite.png" />
-    <Content Include="Resources\MainMenu\Afficher l%27historique.png" />
-    <Content Include="Resources\MainMenu\Aide.png" />
-    <Content Include="Resources\MainMenu\AideSubMenu\Envoyer vos commentaires.png" />
-    <Content Include="Resources\MainMenu\EditionSubMenu\coller.png" />
-    <Content Include="Resources\MainMenu\EditionSubMenu\copier.png" />
-    <Content Include="Resources\MainMenu\EditionSubMenu\couper.png" />
-    <Content Include="Resources\MainMenu\EditionSubMenu\selectionner tout.png" />
-    <Content Include="Resources\MainMenu\Enregistrer la page sous.png" />
-    <Content Include="Resources\MainMenu\Envoyer par email.png" />
-    <Content Include="Resources\MainMenu\Favoris.png" />
-    <Content Include="Resources\MainMenu\FavorisSubMenu\Afficher les favoris.png" />
-    <Content Include="Resources\MainMenu\FavorisSubMenu\Ajouter cette page dans les favoris.png" />
-    <Content Include="Resources\MainMenu\Fermer SmartNet Browser.png" />
-    <Content Include="Resources\MainMenu\Imprimer la page.png" />
-    <Content Include="Resources\MainMenu\Ouvrir un document.png" />
-    <Content Include="Resources\MainMenu\Paramètres.png" />
-    <Content Include="Resources\MainMenu\Plein écran.png" />
-    <Content Include="Resources\MainMenu\Quitter le plein écran.png" />
-    <Content Include="Resources\MainMenu\Télécharger cette vidéo.png" />
+    <Content Include="Resources\MainMenu\AideSubMenu\SendFeedback.png" />
+    <Content Include="Resources\MainMenu\Close.png" />
+    <Content Include="Resources\MainMenu\Download.png" />
+    <Content Include="Resources\MainMenu\EditionSubMenu\Copy.png" />
+    <Content Include="Resources\MainMenu\EditionSubMenu\Cut.png" />
+    <Content Include="Resources\MainMenu\EditionSubMenu\Paste.png" />
+    <Content Include="Resources\MainMenu\EditionSubMenu\SelectAll.png" />
+    <Content Include="Resources\MainMenu\FavorisSubMenu\AddFavorite.png" />
+    <Content Include="Resources\MainMenu\FavorisSubMenu\FavoritesOutline.png" />
+    <Content Include="Resources\MainMenu\Favorites.png" />
+    <Content Include="Resources\MainMenu\Fullscreen.png" />
+    <Content Include="Resources\MainMenu\FullscreenExit.png" />
+    <Content Include="Resources\MainMenu\Help.png" />
+    <Content Include="Resources\MainMenu\History.png" />
+    <Content Include="Resources\MainMenu\Open.png" />
+    <Content Include="Resources\MainMenu\Print.png" />
+    <Content Include="Resources\MainMenu\SaveAs.png" />
+    <Content Include="Resources\MainMenu\SendEmail.png" />
+    <Content Include="Resources\MainMenu\Settings.png" />
     <Content Include="Resources\MainMenu\Zoom.png" />
     <Content Include="Resources\MozillaFoundationLogo.png" />
     <Content Include="Resources\NewTabButton\NewTabBlack.png" />
-    <Content Include="Resources\NewTabButton\NewTabGreen.png" />
     <Content Include="Resources\NextpageButton\NextBlack.png" />
-    <Content Include="Resources\NextpageButton\NextBlue.png" />
     <Content Include="Resources\NextpageButton\NextDisabled.png" />
     <Content Include="Resources\PreviouspageButton\PreviousBlack.png" />
-    <Content Include="Resources\PreviouspageButton\PreviousBlue.png" />
     <Content Include="Resources\PreviouspageButton\PreviousDisabled.png" />
     <Content Include="Resources\RefreshButton\RefreshBlack.png" />
-    <Content Include="Resources\RefreshButton\RefreshGreen.png" />
     <Content Include="Resources\SearchButton\SearchBlack.png" />
-    <Content Include="Resources\SearchButton\SearchBlue.png" />
     <Content Include="Resources\StopButton\StopBlack.png" />
-    <Content Include="Resources\StopButton\StopRed.png" />
+    <None Include="Resources\Logo\wordmark_white_36.png" />
+    <None Include="Resources\Logo\wordmark_black_36.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -693,9 +685,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\ZoomButton\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Geckofx45.45.0.34\build\Geckofx45.targets" Condition="Exists('..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
