@@ -43,9 +43,9 @@ Public Class FavoritesForm
     Private Sub FavoritesForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-            BrowserForm.FavoritesButton.Image = BrowserForm.FavoritesButton.ErrorImage
+            BrowserForm.FavoritesButton.Image = My.Resources.FavoritesBlue
         Else
-            BrowserForm.FavoritesButton.Image = BrowserForm.FavoritesButton.InitialImage
+            BrowserForm.FavoritesButton.Image = My.Resources.FavoritesOutline
         End If
     End Sub
 

@@ -2,7 +2,7 @@
 Imports System.Net
 Imports System.Security.Cryptography
 Imports System.Text
-Imports Microsoft.Win32
+
 Public Class BrowserForm
     Public WithEvents CurrentDocument As Gecko.GeckoDocument
     Public MousePoint As Point
@@ -80,38 +80,12 @@ Public Class BrowserForm
     ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert.
     ''' </summary>
     Public Sub CheckFavicon()
-        FaviconBox.Image = CurrentPageFavicon()
-        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = CurrentPageFavicon()
+        Dim WB As CustomBrowser = CType(BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        FaviconBox.Image = PageFavicon(WB.Url.ToString())
+        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = PageFavicon(WB.Url.ToString())
         BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-        PropertiesForm.FaviconBox.Image = CurrentPageFavicon()
+        PropertiesForm.FaviconBox.Image = PageFavicon(WB.Url.ToString())
     End Sub
-
-    ''' <summary>
-    ''' Favicon de la page actuellement ouverte.
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function CurrentPageFavicon() As Image
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Try
-            If WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("about:") Then
-                Return FaviconBox.InitialImage
-            Else
-                Dim url As Uri = New Uri(WB.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    Return favicon
-                Else
-                    Return FaviconBox.ErrorImage
-                End If
-            End If
-        Catch ex As Exception
-            Return FaviconBox.ErrorImage
-        End Try
-    End Function
 
     ''' <summary>
     ''' Favicon de la page passée en paramètre.
@@ -120,7 +94,7 @@ Public Class BrowserForm
     Public Function PageFavicon(pURL As String) As Image
         Try
             If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or pURL.Contains("about:") Then
-                Return FaviconBox.InitialImage
+                Return My.Resources.logo32
             Else
                 Dim url As Uri = New Uri(pURL)
                 If url.HostNameType = UriHostNameType.Dns Then
@@ -131,11 +105,11 @@ Public Class BrowserForm
                     Dim favicon = Image.FromStream(stream)
                     Return favicon
                 Else
-                    Return FaviconBox.ErrorImage
+                    Return My.Resources.ErrorFavicon
                 End If
             End If
         Catch ex As Exception
-            Return FaviconBox.ErrorImage
+            Return My.Resources.ErrorFavicon
         End Try
     End Function
 
@@ -210,7 +184,11 @@ Public Class BrowserForm
         End If
     End Sub
 
-    Public Sub UpdateLabels()
+    ''' <summary>
+    ''' Déclenche le rafraîchissement de tous les composants dynamiques de l'interface.
+    ''' </summary>
+    Public Sub UpdateInterface()
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Select Case My.Settings.SearchEngine
             Case 1
                 SearchBoxLabel.Text = "Google"
@@ -227,28 +205,45 @@ Public Class BrowserForm
             Case Else
                 SearchBoxLabel.Text = "Rechercher"
         End Select
+
+        If My.Settings.Favorites.Contains(WB.Url.ToString) Then
+            FavoritesButton.Image = My.Resources.FavoritesBlue
+        Else
+            FavoritesButton.Image = My.Resources.FavoritesOutline
+        End If
+
+        If WB.IsBusy Then
+            StopButton.Visible = True
+            RefreshButton.Visible = False
+        End If
+
+        PreviouspageButton.Enabled = WB.CanGoBack
+        NextpageButton.Enabled = WB.CanGoForward
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: CloseMessageBar() pour remplacer ce morceau de code
         MessageBarButton1.Visible = False
         MessageBarLabel1.Visible = False
         MessageBarPictureBox.Visible = False
         MessageBarCloseButton1.Visible = False
         MessageBarButton1.Enabled = False
         MessageBarCloseButton1.Enabled = False
-        Try
-            If My.Settings.FirstStart = True Then
-                If My.Settings.FirstStartFromReset = False Then
-                    My.Settings.Upgrade()
-                    My.Settings.Reload()
-                    If My.Settings.FirstStart = True Then
-                        FirstStartForm.ShowDialog()
-                    End If
-                Else
+        'Fin du morceau de code à remplacer
+
+        If My.Settings.FirstStart = True Then
+            If My.Settings.FirstStartFromReset = False Then
+                My.Settings.Upgrade()
+                My.Settings.Reload()
+                If My.Settings.FirstStart = True Then
                     FirstStartForm.ShowDialog()
                 End If
+            Else
+                FirstStartForm.ShowDialog()
             End If
+        End If
 
+        Try
             For Each favorite In My.Settings.Favorites
                 URLBox.Items.Add(favorite)
             Next
@@ -271,17 +266,18 @@ Public Class BrowserForm
             For Each SearchHistoryentry In My.Settings.SearchHistory
                 SearchBox.Items.Add(SearchHistoryentry)
             Next
-
-            AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
-
-            If My.Settings.CorrectlyClosed = False Then
-                DisplayMessageBar("Info", "SmartNet Browser n'a pas été fermé correctement la dernière fois.", "RestorePreviousSession", "Restaurer la session")
-            End If
-            AddTab(My.Settings.Homepage, BrowserTabs)
-            My.Settings.CorrectlyClosed = False
         Catch ex As Exception
             DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
         End Try
+
+        AddTab(My.Settings.Homepage, BrowserTabs)
+
+        If My.Settings.CorrectlyClosed = False Then
+            DisplayMessageBar("Info", "SmartNet Browser n'a pas été fermé correctement la dernière fois.", "RestorePreviousSession", "Restaurer la session")
+        End If
+        My.Settings.CorrectlyClosed = False
+
+        AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
     End Sub
 
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent) 'Handles Gecko.LauncherDialog.Download
@@ -351,10 +347,7 @@ Public Class BrowserForm
     End Sub
 
     Private Sub URLBox_KeyPress(sender As Object, e As EventArgs) Handles URLBox.KeyPress
-        StopButton.Visible = False
-        RefreshButton.Visible = False
         GoButton.Visible = True
-        LoadingGif.Visible = False
     End Sub
 
     Private Sub SavePageAs(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
@@ -421,16 +414,16 @@ Public Class BrowserForm
             URLBox.Items.Add(WB.Url.ToString)
             My.Settings.Save()
             If My.Settings.Favorites.Contains(WB.ToString) Then
-                FavoritesButton.Image = FavoritesButton.ErrorImage
+                FavoritesButton.Image = My.Resources.FavoritesBlue
             Else
-                FavoritesButton.Image = FavoritesButton.InitialImage
+                FavoritesButton.Image = My.Resources.FavoritesOutline
             End If
         Catch ex As Exception
             DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = FavoritesButton.ErrorImage
+                FavoritesButton.Image = My.Resources.FavoritesBlue
             Else
-                FavoritesButton.Image = FavoritesButton.InitialImage
+                FavoritesButton.Image = My.Resources.FavoritesOutline
             End If
         End Try
     End Sub
@@ -673,9 +666,9 @@ Public Class BrowserForm
                 ToolStripSeparator6.Visible = False
             End If
             If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = FavoritesButton.ErrorImage
+                FavoritesButton.Image = My.Resources.FavoritesBlue
             Else
-                FavoritesButton.Image = FavoritesButton.InitialImage
+                FavoritesButton.Image = My.Resources.FavoritesOutline
             End If
             LoadingGif.Visible = False
             MessageBarPictureBox.Visible = False
@@ -861,18 +854,18 @@ Public Class BrowserForm
                 URLBox.Items.Add(WB.Url.ToString)
                 My.Settings.Save()
                 If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                    FavoritesButton.Image = FavoritesButton.ErrorImage
+                    FavoritesButton.Image = My.Resources.FavoritesBlue
                 Else
-                    FavoritesButton.Image = FavoritesButton.InitialImage
+                    FavoritesButton.Image = My.Resources.FavoritesOutline
                     MsgBox("Désolé, une erreur est survenue, votre favori n'est pas enregistré. Code d'erreur : FAVORITE_SAVE_ERROR", MsgBoxStyle.Critical, "Enregistrer dans les favoris")
                 End If
             End If
         Catch ex As Exception
             If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-                FavoritesButton.Image = FavoritesButton.ErrorImage
+                FavoritesButton.Image = My.Resources.FavoritesBlue
                 DisplayMessageBar("Info", "SmartNet Browser a rencontré une erreur interne. Votre favori est enregistré.", "OpenExceptionForm", "Voir les détails", "", ex)
             Else
-                FavoritesButton.Image = FavoritesButton.InitialImage
+                FavoritesButton.Image = My.Resources.FavoritesOutline
                 DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
             End If
         End Try

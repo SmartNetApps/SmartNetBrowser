@@ -37,7 +37,7 @@ Namespace My
             Catch ex As Exception
                 BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
-            BrowserForm.UpdateLabels()
+            BrowserForm.UpdateInterface()
             Try
                 Dim MiniNTVersionChecker As New WebClient
                 Dim NTActualVersion As Version = Environment.OSVersion.Version

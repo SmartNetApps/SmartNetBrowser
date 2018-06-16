@@ -143,9 +143,9 @@ Public Class CustomBrowser
                     End If
                 End If
                 If My.Settings.Favorites.Contains(e.Uri.ToString) Then
-                    BrowserForm.FavoritesButton.Image = BrowserForm.FavoritesButton.ErrorImage
+                    BrowserForm.FavoritesButton.Image = My.Resources.FavoritesBlue
                 Else
-                    BrowserForm.FavoritesButton.Image = BrowserForm.FavoritesButton.InitialImage
+                    BrowserForm.FavoritesButton.Image = My.Resources.FavoritesOutline
                 End If
                 BrowserForm.CheckFavicon()
             Catch ex As Exception
@@ -375,10 +375,19 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
-        Console.WriteLine("Erreur de navigation. Code : " + e.ErrorCode.ToString())
-        If e.ErrorCode = -2142568418 Then
-            Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
-        End If
+        Select Case e.ErrorCode
+            Case -2142568446
+                BrowserForm.StopButton.Visible = False
+                BrowserForm.RefreshButton.Visible = True
+            Case -2142568418
+                If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
+                    Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
+                Else
+                    Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/en.html")
+                End If
+            Case Else
+                Console.WriteLine("Erreur de navigation inconnue sur " + e.Uri + " Code : " + e.ErrorCode.ToString())
+        End Select
         BrowserForm.URLBox.Text = e.Uri
     End Sub
 
