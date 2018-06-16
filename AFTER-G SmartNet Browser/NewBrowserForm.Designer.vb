@@ -54,7 +54,6 @@ Partial Class NewBrowserForm
         'GeckoWebBrowser1
         '
         Me.GeckoWebBrowser1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GeckoWebBrowser1.FrameEventsPropagateToMainWindow = False
         Me.GeckoWebBrowser1.Location = New System.Drawing.Point(0, 33)
         Me.GeckoWebBrowser1.Name = "GeckoWebBrowser1"
         Me.GeckoWebBrowser1.Size = New System.Drawing.Size(939, 462)
