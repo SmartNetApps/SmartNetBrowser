@@ -669,6 +669,11 @@
     <Content Include="Resources\PreviouspageButton\PreviousDisabled.png" />
     <Content Include="Resources\RefreshButton\RefreshBlack.png" />
     <Content Include="Resources\SearchButton\SearchBlack.png" />
+    <Content Include="Resources\SearchEngines\Bing.png" />
+    <Content Include="Resources\SearchEngines\DuckDuckGo.png" />
+    <Content Include="Resources\SearchEngines\Google.png" />
+    <Content Include="Resources\SearchEngines\Qwant.png" />
+    <Content Include="Resources\SearchEngines\Yahoo.png" />
     <Content Include="Resources\StopButton\StopBlack.png" />
     <None Include="Resources\Logo\wordmark_white_36.png" />
     <None Include="Resources\Logo\wordmark_black_36.png" />

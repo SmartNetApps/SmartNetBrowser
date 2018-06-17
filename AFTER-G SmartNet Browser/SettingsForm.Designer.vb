@@ -203,6 +203,8 @@ Partial Class SettingsForm
         'RadioButton5
         '
         resources.ApplyResources(Me.RadioButton5, "RadioButton5")
+        Me.RadioButton5.FlatAppearance.BorderSize = 0
+        Me.RadioButton5.Image = Global.SmartNet_Browser.My.Resources.Resources.Qwant
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.TabStop = True
         Me.RadioButton5.UseVisualStyleBackColor = True
@@ -210,6 +212,7 @@ Partial Class SettingsForm
         'CustomSearchSettingsButton
         '
         resources.ApplyResources(Me.CustomSearchSettingsButton, "CustomSearchSettingsButton")
+        Me.CustomSearchSettingsButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Settings
         Me.CustomSearchSettingsButton.Name = "CustomSearchSettingsButton"
         Me.CustomSearchSettingsButton.UseVisualStyleBackColor = True
         '
@@ -223,6 +226,8 @@ Partial Class SettingsForm
         'RadioButton4
         '
         resources.ApplyResources(Me.RadioButton4, "RadioButton4")
+        Me.RadioButton4.FlatAppearance.BorderSize = 0
+        Me.RadioButton4.Image = Global.SmartNet_Browser.My.Resources.Resources.DuckDuckGo
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.TabStop = True
         Me.RadioButton4.UseVisualStyleBackColor = True
@@ -230,6 +235,8 @@ Partial Class SettingsForm
         'RadioButton3
         '
         resources.ApplyResources(Me.RadioButton3, "RadioButton3")
+        Me.RadioButton3.FlatAppearance.BorderSize = 0
+        Me.RadioButton3.Image = Global.SmartNet_Browser.My.Resources.Resources.Yahoo
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.TabStop = True
         Me.RadioButton3.UseVisualStyleBackColor = True
@@ -237,6 +244,8 @@ Partial Class SettingsForm
         'RadioButton2
         '
         resources.ApplyResources(Me.RadioButton2, "RadioButton2")
+        Me.RadioButton2.FlatAppearance.BorderSize = 0
+        Me.RadioButton2.Image = Global.SmartNet_Browser.My.Resources.Resources.Bing
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -244,6 +253,8 @@ Partial Class SettingsForm
         'RadioButton1
         '
         resources.ApplyResources(Me.RadioButton1, "RadioButton1")
+        Me.RadioButton1.FlatAppearance.BorderSize = 0
+        Me.RadioButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.Google
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.UseVisualStyleBackColor = True

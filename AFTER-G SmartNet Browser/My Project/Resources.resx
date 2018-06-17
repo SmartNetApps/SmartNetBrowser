@@ -262,4 +262,19 @@
   <data name="ThumbUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\firststartform\thumbup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Qwant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\searchengines\qwant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\searchengines\bing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DuckDuckGo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\searchengines\duckduckgo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Google" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\searchengines\google.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yahoo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\searchengines\yahoo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

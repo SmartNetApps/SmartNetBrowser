@@ -117,233 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MainToolbar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>12, 8</value>
-  </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainToolbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;AfficherLhistoriqueToolStripMenuItem.Name" xml:space="preserve">
+    <value>AfficherLhistoriqueToolStripMenuItem</value>
   </data>
-  <data name="NewTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+T</value>
+  <data name="&gt;&gt;EnregistrerLimageToolStripMenuItem.Name" xml:space="preserve">
+    <value>EnregistrerLimageToolStripMenuItem</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="NewTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="NewTabToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nouvel ongle&amp;t</value>
-  </data>
-  <data name="NewTabToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvre un nouvel onglet</value>
-  </data>
-  <data name="CloseTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+W</value>
-  </data>
-  <data name="CloseTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="CloseTabToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Fermer cet onglet</value>
-  </data>
-  <data name="CloseTabToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ferme l'onglet actuellement visible</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 6</value>
-  </data>
-  <data name="OpenPageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+O</value>
-  </data>
-  <data name="OpenPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="OpenPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Ouvrir un document...</value>
-  </data>
-  <data name="OpenPageToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvrir un fichier local</value>
-  </data>
-  <data name="SavePageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+S</value>
-  </data>
-  <data name="SavePageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="SavePageToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Enregistrer la page sous...</value>
-  </data>
-  <data name="SavePageToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Enregistrer la page actuellement visible sur l'ordinateur</value>
-  </data>
-  <data name="AperçuAvantImpressionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+P</value>
-  </data>
-  <data name="AperçuAvantImpressionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="AperçuAvantImpressionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Im&amp;primer la page</value>
-  </data>
-  <data name="AperçuAvantImpressionToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Imprimer la page actuellement visible</value>
-  </data>
-  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Envoyer l'adresse de la page par e-mail...</value>
-  </data>
-  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Envoyer un lien vers cette page par e-mail.</value>
-  </data>
-  <data name="CouperToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 24</value>
-  </data>
-  <data name="CouperToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Couper                              Ctrl+X</value>
-  </data>
-  <data name="CouperToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Coupe le texte sélectionné</value>
-  </data>
-  <data name="CopierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 24</value>
-  </data>
-  <data name="CopierToolStripMenuItem.Text" xml:space="preserve">
-    <value>Co&amp;pier                               Ctrl+C</value>
-  </data>
-  <data name="CopierToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Copie le texte sélectionné</value>
-  </data>
-  <data name="CollerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 24</value>
-  </data>
-  <data name="CollerToolStripMenuItem.Text" xml:space="preserve">
-    <value>C&amp;oller                                Ctrl+V</value>
-  </data>
-  <data name="CollerToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Colle le texte actuellement dans le presse-papier de l'ordinateur</value>
-  </data>
-  <data name="SélectionnerToutToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+A</value>
-  </data>
-  <data name="SélectionnerToutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 24</value>
-  </data>
-  <data name="SélectionnerToutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sélectionner &amp;tout</value>
-  </data>
-  <data name="SélectionnerToutToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Sélectionne tous les éléments de la page.</value>
-  </data>
-  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 6</value>
-  </data>
-  <data name="RechercherDansLaPageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F</value>
-  </data>
-  <data name="RechercherDansLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 24</value>
-  </data>
-  <data name="RechercherDansLaPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Recherc&amp;her dans la page...</value>
-  </data>
-  <data name="RechercherDansLaPageToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Rechercher du texte dans la page et le mettre en surbrillance.</value>
-  </data>
-  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="ÉditionSubMenu.Text" xml:space="preserve">
-    <value>Éditio&amp;n</value>
-  </data>
-  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
-    <value>Outils d'édition</value>
-  </data>
-  <data name="Zoom50.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom50.Text" xml:space="preserve">
-    <value>50 %</value>
-  </data>
-  <data name="Zoom75.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom75.Text" xml:space="preserve">
-    <value>75 %</value>
-  </data>
-  <data name="Zoom100.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+0</value>
-  </data>
-  <data name="Zoom100.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom100.Text" xml:space="preserve">
-    <value>100 % (&amp;normal)</value>
-  </data>
-  <data name="Zoom125.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom125.Text" xml:space="preserve">
-    <value>125 %</value>
-  </data>
-  <data name="Zoom150.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom150.Text" xml:space="preserve">
-    <value>150 %</value>
-  </data>
-  <data name="Zoom175.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom175.Text" xml:space="preserve">
-    <value>175 %</value>
-  </data>
-  <data name="Zoom200.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom200.Text" xml:space="preserve">
-    <value>200 %</value>
-  </data>
-  <data name="Zoom250.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom250.Text" xml:space="preserve">
-    <value>250 %</value>
-  </data>
-  <data name="Zoom300.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom300.Text" xml:space="preserve">
-    <value>300 %</value>
-  </data>
-  <data name="Zoom400.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="Zoom400.Text" xml:space="preserve">
-    <value>400 %</value>
-  </data>
-  <data name="ToolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 6</value>
-  </data>
-  <data name="ZoomPlusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Oemplus</value>
-  </data>
-  <data name="ZoomPlusButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="ZoomPlusButton.Text" xml:space="preserve">
-    <value>Zoom &amp;avant</value>
-  </data>
-  <data name="ZoomMinusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+OemMinus</value>
-  </data>
-  <data name="ZoomMinusButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 24</value>
-  </data>
-  <data name="ZoomMinusButton.Text" xml:space="preserve">
-    <value>Zoom a&amp;rrière</value>
-  </data>
   <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASlJREFUOE+V
@@ -355,356 +135,328 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Zoom</value>
-  </data>
-  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 6</value>
-  </data>
-  <data name="TéléchargerCetteVidéoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="TéléchargerCetteVidéoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Télécharger ou convertir cette vidéo...</value>
-  </data>
-  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 6</value>
-  </data>
-  <data name="AfficherLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+B</value>
-  </data>
-  <data name="AfficherLesFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 24</value>
-  </data>
-  <data name="AfficherLesFavorisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher les favoris</value>
-  </data>
-  <data name="AfficherLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvre une fenêtre avec une liste de vos pages favorites.</value>
-  </data>
-  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+D</value>
-  </data>
-  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 24</value>
-  </data>
-  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ajouter cette page dans les favoris</value>
-  </data>
-  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ajoute la page dans la liste de vos favoris.</value>
-  </data>
-  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="FavorisSubMenu.Text" xml:space="preserve">
-    <value>Favoris</value>
-  </data>
-  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
-    <value>Gérer les favoris</value>
-  </data>
-  <data name="AfficherLhistoriqueToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+H</value>
-  </data>
-  <data name="AfficherLhistoriqueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="AfficherLhistoriqueToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Historique</value>
-  </data>
-  <data name="AfficherLhistoriqueToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvre une fenêtre avec vos historiques de navigation, recherche et téléchargements.</value>
-  </data>
-  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 6</value>
-  </data>
-  <data name="PleinÉcranToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F11</value>
-  </data>
-  <data name="PleinÉcranToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="PleinÉcranToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Plein écran</value>
-  </data>
-  <data name="PleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Passer en mode plein écran.</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="QuitterLePleinÉcranToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="QuitterLePleinÉcranToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F11</value>
-  </data>
-  <data name="QuitterLePleinÉcranToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="QuitterLePleinÉcranToolStripMenuItem.Text" xml:space="preserve">
-    <value>Quitter le &amp;plein écran</value>
-  </data>
-  <data name="QuitterLePleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Quitter le mode plein écran.</value>
-  </data>
-  <data name="QuitterLePleinÉcranToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 6</value>
-  </data>
-  <data name="ParamètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Paramètres</value>
-  </data>
-  <data name="ParamètresToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvre les paramètres de votre navigateur.</value>
-  </data>
-  <data name="CentreDaideEnLigneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 24</value>
-  </data>
-  <data name="CentreDaideEnLigneToolStripMenuItem.Text" xml:space="preserve">
-    <value>Centre d'&amp;aide en ligne...</value>
-  </data>
-  <data name="CentreDaideEnLigneToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Accéder au site Support de SmartNet Browser</value>
-  </data>
-  <data name="ContacterLéquipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 24</value>
-  </data>
-  <data name="ContacterLéquipeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="ContacterLéquipeToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Contacter Quentin Pugeat pour de l'aide.</value>
-  </data>
-  <data name="ToolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
-  </data>
-  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 24</value>
-  </data>
-  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
-    <value>À &amp;propos de SmartNet Browser...</value>
-  </data>
-  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Affiche les informations concernant SmartNet Browser.</value>
-  </data>
-  <data name="EnvoyerVosCommentairesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 24</value>
-  </data>
-  <data name="EnvoyerVosCommentairesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Envoyer vos commentaires</value>
-  </data>
-  <data name="EnvoyerVosCommentairesToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ouvre un formulaire pour commenter votre appréciation de SmartNet Browser.</value>
-  </data>
-  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
-  </data>
-  <data name="SignalerUnSiteMalveillantToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 24</value>
-  </data>
-  <data name="SignalerUnSiteMalveillantToolStripMenuItem.Text" xml:space="preserve">
-    <value>Signaler un site malveillant...</value>
-  </data>
-  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Aide</value>
-  </data>
-  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
-  </data>
-  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAAjVJREFUOE99j11I
-        U2EYxx/3IXMXUhdRMaJJizLowsKbMAMXa9OkedGN4dCr9kGFJBQ1OMVgFax0KSPILqQo+2I2hgtEiCBI
-        NoIsoVixnEzBakKtjTZ3/u2c87p5SvvBA+/7/D/OeekfYvvVSn57B/H6APF1z9ncItQdJ+ypZq61ORLe
-        3Lb3rS6xZWkXLOhGLzzitKIHGuwGLe/8Qpl9R5ldjvvShjPddzbxNz9cwNJyGn/zFWk481dRlT5cpIWO
-        Uywm8diqtQTstXz0zQizS7hcLnFWczsziarPJ4s0c9YihkGkijaoP70fPM0sFSSZ2K2CIxUCRa/FCY+U
-        9KuG2hd1NSh8X2RyhfUKFvIZVL+8C5p80ko80QCMRibJWa9AwPg6Bgq96BcKxuB0srWc/xU4YinQ/Y9j
-        QkEQdjtbS5jN5nJ4ZaxWK1Ml7K9+gIbTT4UCH5qb2VoiHo9Do9GUw8I5kUgwVeJQsAgaLPqEAhNUKvDJ
-        JM80EbfbXS7weDxsK5H8CagDpSf6CybBoSyVzPCdnbKCXC4HvV4Pg8EgnldjmyiFh/hp4qAofYCEvziY
-        VygL2Rt+ZpEIBoOIRCLsJuGfykI98DtPQ2gSwytk1FpbqnZrYc7Rh9zcPLNXmP+WxfnRWeg8yYL2esbG
-        YnJmN25riuka3k3UmxDpuohx7z2M9odxmQujzTmOxr6p6R1c/ACzrw1HpAjVm40jjV1eX0vvw3PHrjzo
-        OTHsbbc/ayGOk95chugPqPxeDNvC7/wAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 24</value>
-  </data>
-  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Text" xml:space="preserve">
-    <value>Télécharger la version X.X.X.X</value>
-  </data>
-  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Afficher les détails sur la mise à jour de SmartNet Browser.</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
-        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
-        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
-        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
-        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
-        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
-        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
-        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
-    <value>Mettre à jour SmartNet Browser</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
-    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="FermerSmartNetBrowserToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+F4</value>
-  </data>
-  <data name="FermerSmartNetBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>WindowsDefaultBounds</value>
   </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter SmartNet Browser</value>
   </data>
-  <data name="FermerSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Ferme SmartNet Browser.</value>
+  <data name="CopierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Co&amp;pier                               Ctrl+C</value>
   </data>
-  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NextpageButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 20</value>
+  <data name="MessageBarButton1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
-  <data name="MainMenu.ToolTipText" xml:space="preserve">
-    <value>Menu de SmartNet Browser</value>
+  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Zoom</value>
   </data>
-  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 1</value>
+  <data name="&gt;&gt;Zoom150.Name" xml:space="preserve">
+    <value>Zoom150</value>
   </data>
-  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 24</value>
-  </data>
-  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
-    <value>MainToolbar</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="FaviconBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 5</value>
-  </data>
-  <data name="FaviconBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="FaviconBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="FaviconBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;FaviconBox.Name" xml:space="preserve">
-    <value>FaviconBox</value>
-  </data>
-  <data name="&gt;&gt;FaviconBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FaviconBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;FaviconBox.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="URLBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="URLBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
-  </data>
-  <data name="URLBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Disable</value>
-  </data>
-  <data name="URLBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 0</value>
-  </data>
-  <data name="URLBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>474, 27</value>
-  </data>
-  <data name="URLBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;URLBox.Name" xml:space="preserve">
-    <value>URLBox</value>
-  </data>
-  <data name="&gt;&gt;URLBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;URLBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;URLBox.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="SearchBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="FavoritesButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
+  </data>
+  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 24</value>
+  </data>
+  <data name="MessageBarLabel1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>500, 15</value>
+  </data>
+  <data name="&gt;&gt;Zoom50.Name" xml:space="preserve">
+    <value>Zoom50</value>
+  </data>
+  <data name="&gt;&gt;UpdateNotifyIcon.Name" xml:space="preserve">
+    <value>UpdateNotifyIcon</value>
+  </data>
+  <data name="&gt;&gt;HomepageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CopierLadresseDuLienToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Zoom75.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="Zoom300.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="MessageBarButton1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="SearchBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt</value>
   </data>
-  <data name="SearchBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="MessageBarCloseButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AfficherLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAChSURBVDhPpdMx
+        DoJAEIVhLmBL7Q209QiWnAIlJt7A65h4DGovQGlia2VhKIz+L7BmF6ZwYJIv2XkwEwo2oyo88XHSzB6T
+        hgPNmg88zNDDDD3M0MMMPczQwwyHrjgOsmAU1LhF/QNLqM6I35WkuSPHGvpJ3tgi1AIN4pnfocVGQV8F
+        Tt0xqRVeGC04qPmzSiQLtPHiFL5i/mXSlZyyhJls9wU0HNs8SbO27AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="&gt;&gt;SearchButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RechercherDansLaPageToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Rechercher du texte dans la page et le mettre en surbrillance.</value>
+  </data>
+  <data name="&gt;&gt;CouperToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SélectionnerToutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sélectionner &amp;tout</value>
+  </data>
+  <data name="URLBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Disable</value>
   </data>
-  <data name="SearchBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>645, 0</value>
+  <data name="MessageBarPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 30</value>
   </data>
-  <data name="SearchBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 27</value>
+  <data name="&gt;&gt;CloseTabButton.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="SearchBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="SearchButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SearchButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="SearchButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="AfficherLhistoriqueToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Historique</value>
+  </data>
+  <data name="&gt;&gt;URLBoxLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="HomepageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>927, 0</value>
+  </data>
+  <data name="CopierLadresseDuLienToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPY4CC
+        JCB+C8RfCGBPIMYKLgLxOSCuJYBVgRgruAbE8yBMMOAFYgE8GCSPApANmATE/4D4Px4Mku8BYjhANgDk
+        101ADAoXXHgrEL8AYjhANuAbEDdDmDhBBxC/hDAhYNQAKhgA0pAIYZJnADIYeAM+AfEBIMaWmWD4EBA/
+        BWKsoAKI3wPxZzz4HRAXMzAwMAAA50NX1vT/sHgAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="&gt;&gt;SearchBox.Name" xml:space="preserve">
     <value>SearchBox</value>
   </data>
-  <data name="&gt;&gt;SearchBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;SearchButton.Name" xml:space="preserve">
+    <value>SearchButton</value>
   </data>
-  <data name="&gt;&gt;SearchBox.Parent" xml:space="preserve">
+  <data name="Zoom75.Text" xml:space="preserve">
+    <value>75 %</value>
+  </data>
+  <data name="SaveImageDialog.Title" xml:space="preserve">
+    <value>Enregistrer l'image sous...</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator5.Name" xml:space="preserve">
+    <value>ToolStripSeparator5</value>
+  </data>
+  <data name="CloseTabToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ferme l'onglet actuellement visible</value>
+  </data>
+  <data name="&gt;&gt;HomepageButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PreviouspageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Envoyer l'adresse de la page par e-mail...</value>
+  </data>
+  <data name="&gt;&gt;FavorisSubMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EditionToolStripSeparator.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;SearchBoxLabel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F11</value>
+  </data>
+  <data name="OpenPageToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvrir un fichier local</value>
+  </data>
+  <data name="Zoom100.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;QuitterLePleinÉcranToolStripMenuItem.Name" xml:space="preserve">
+    <value>QuitterLePleinÉcranToolStripMenuItem</value>
+  </data>
+  <data name="ImageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 6</value>
+  </data>
+  <data name="&gt;&gt;ZoomMinusButton.Name" xml:space="preserve">
+    <value>ZoomMinusButton</value>
+  </data>
+  <data name="MessageBarLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="URLBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 0</value>
+  </data>
+  <data name="CloseTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ajouter cette page dans les favoris</value>
+  </data>
+  <data name="&gt;&gt;CopierToolStripMenuItem1.Name" xml:space="preserve">
+    <value>CopierToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TéléchargerLaVersionXXXXToolStripMenuItem.Name" xml:space="preserve">
+    <value>TéléchargerLaVersionXXXXToolStripMenuItem</value>
+  </data>
+  <data name="RechercherDansLaPageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F</value>
+  </data>
+  <data name="Zoom150.Text" xml:space="preserve">
+    <value>150 %</value>
+  </data>
+  <data name="&gt;&gt;CouperToolStripMenuItem.Name" xml:space="preserve">
+    <value>CouperToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ContacterLéquipeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZoomPlusButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SavePageToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Enregistrer la page sous...</value>
+  </data>
+  <data name="HomepageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;GoButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CloseTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+W</value>
+  </data>
+  <data name="FermerSmartNetBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="CouperToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Coupe le texte sélectionné</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SmartNet Browser</value>
+  </data>
+  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ouvrir dans un nouvel onglet</value>
+  </data>
+  <data name="&gt;&gt;FaviconBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Afficher les détails sur la mise à jour de SmartNet Browser.</value>
+  </data>
+  <data name="&gt;&gt;SavePageDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;MessageBarLabel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;SearchBox.ZOrder" xml:space="preserve">
-    <value>20</value>
+  <data name="&gt;&gt;MessageBarLabel1.Name" xml:space="preserve">
+    <value>MessageBarLabel1</value>
   </data>
-  <metadata name="UpdateNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>142, 8</value>
-  </metadata>
-  <data name="UpdateNotifyIcon.BalloonTipText" xml:space="preserve">
-    <value>Une mise à jour est disponible pour SmartNet Browser</value>
+  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
+    <value>MainToolbar</value>
   </data>
-  <data name="UpdateNotifyIcon.BalloonTipTitle" xml:space="preserve">
-    <value>SmartNet Apps Updater</value>
+  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="AfficherLhistoriqueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ContacterLéquipeToolStripMenuItem.Name" xml:space="preserve">
+    <value>ContacterLéquipeToolStripMenuItem</value>
+  </data>
+  <data name="MessageBarCloseButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="Zoom250.Text" xml:space="preserve">
+    <value>250 %</value>
+  </data>
+  <data name="&gt;&gt;CloseTabButton.Name" xml:space="preserve">
+    <value>CloseTabButton</value>
+  </data>
+  <data name="HomepageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;RechercherDansLaPageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="LoadingGif.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
+    <value>TabsContextMenuStrip</value>
+  </data>
+  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt</value>
+  </data>
+  <data name="CouperToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 24</value>
+  </data>
+  <data name="MessageBarCloseButton1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;Zoom250.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TéléchargerCetteVidéoToolStripMenuItem.Name" xml:space="preserve">
+    <value>TéléchargerCetteVidéoToolStripMenuItem</value>
+  </data>
+  <data name="PleinÉcranToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="UpdateNotifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -730,56 +482,401 @@
         AADAAwAA8A8AAA==
 </value>
   </data>
-  <data name="UpdateNotifyIcon.Text" xml:space="preserve">
-    <value>Mise à jour disponible pour SmartNet Browser</value>
+  <data name="MainMenu.ToolTipText" xml:space="preserve">
+    <value>Menu de SmartNet Browser</value>
   </data>
-  <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>284, 10</value>
-  </metadata>
-  <data name="OpenFileDialog1.Filter" xml:space="preserve">
-    <value>Pages Web HTML|*.html|Fichiers XML|*.xml|Fichiers texte|*.txt|Tous les fichiers|*.*</value>
+  <data name="NewTabButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
   </data>
-  <data name="OpenFileDialog1.Title" xml:space="preserve">
-    <value>Ouvrir un document local</value>
+  <data name="AfficherLhistoriqueToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvre une fenêtre avec vos historiques de navigation, recherche et téléchargements.</value>
   </data>
-  <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>679, 8</value>
-  </metadata>
-  <data name="OuvrirLeLienToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
+  <data name="MessageBarLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="OuvrirLeLienToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ouvrir le lien</value>
+  <data name="&gt;&gt;LoadingGif.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAAIJJREFUOE+90jEO
-        gCAMBVAGj+u9OIIDg0dx8BgO+D+BBEtL6GKTF/GXNjEx5JyXoCINuQwsqIuGXAaW/xeg+M1lqHqqPovq
-        MJXm97JvgdSGhlwGlukC1AY7JLiBIZ98Z87+dMEBPFjYt38k1An9gJTkYMOSl320rR5q6KGGHmq4LocX
-        cPtU/YYuk0AAAAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;StatusLabel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
+  <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Paramètres</value>
   </data>
-  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ouvrir dans un nouvel onglet</value>
+  <data name="PleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Passer en mode plein écran.</value>
   </data>
-  <data name="CopierLadresseDuLienToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPY4CC
-        JCB+C8RfCGBPIMYKLgLxOSCuJYBVgRgruAbE8yBMMOAFYgE8GCSPApANmATE/4D4Px4Mku8BYjhANgDk
-        101ADAoXXHgrEL8AYjhANuAbEDdDmDhBBxC/hDAhYNQAKhgA0pAIYZJnADIYeAM+AfEBIMaWmWD4EBA/
-        BWKsoAKI3wPxZzz4HRAXMzAwMAAA50NX1vT/sHgAAAAASUVORK5CYII=
-</value>
+  <data name="FermerSmartNetBrowserToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+F4</value>
+  </data>
+  <data name="NewTabButton.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="CollerToolStripMenuItem.Text" xml:space="preserve">
+    <value>C&amp;oller                                Ctrl+V</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
+    <value>ToolStripSeparator10</value>
+  </data>
+  <data name="&gt;&gt;LinkToolStripSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CopierLadresseDuLienToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 22</value>
   </data>
+  <data name="&gt;&gt;Zoom100.Name" xml:space="preserve">
+    <value>Zoom100</value>
+  </data>
+  <data name="&gt;&gt;FavorisSubMenu.Name" xml:space="preserve">
+    <value>FavorisSubMenu</value>
+  </data>
+  <data name="&gt;&gt;URLBox.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="FaviconBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="ContacterLéquipeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 24</value>
+  </data>
+  <data name="LoadingGif.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="&gt;&gt;ImageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MessageBarLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 62</value>
+  </data>
+  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="MessageBarPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
+    <value>À &amp;propos de SmartNet Browser...</value>
+  </data>
+  <data name="&gt;&gt;AfficherLeCodeSourceDeLaPageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopierLadresseDeLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAADESURBVDhP5dO7
+        DcIwFIVhQ4EQiEdBR8EAdJR0rELNCkxBQccKUNCyCQvQoPCQqHj8x3FcgOTrniN9ih1HR1YSu6+sccU9
+        Q4ElYjp4YwstWA5QieujGa4qmCMnKrlpoO1o8gcFbdTKoU9WwShc69hj4WdlzIIZtDaF1rX2wARKsmCI
+        U5if8QxjOaKHZMEA4wQ9+1PQhQo2UIlFf+wFsUBveIdqq5YXVogFVfS5dC4sLfjoQOhgqCRXAzG6oRK9
+        kFzaAXHuA83WcTk5WKOJAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;Zoom75.Name" xml:space="preserve">
+    <value>Zoom75</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
+        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
+        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
+        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
+        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
+        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
+        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
+        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="StatusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;ImageToolStripSeparator.Name" xml:space="preserve">
+    <value>ImageToolStripSeparator</value>
+  </data>
+  <data name="GoButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 1</value>
+  </data>
+  <data name="MessageBarButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>776, 56</value>
+  </data>
+  <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Text" xml:space="preserve">
+    <value>Rouvrir le dernier onglet fermé</value>
+  </data>
+  <data name="&gt;&gt;StopButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PreviouspageButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="RefreshButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
+    <value>Outils d'édition</value>
+  </data>
+  <data name="&gt;&gt;EnregistrerLimageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TéléchargerCetteVidéoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Zoom175.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SavePageToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Enregistrer la page actuellement visible sur l'ordinateur</value>
+  </data>
+  <data name="SearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StopButton.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="Zoom150.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="SignalerUnSiteMalveillantToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 24</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SearchBoxLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;ImageList1.Name" xml:space="preserve">
+    <value>ImageList1</value>
+  </data>
+  <data name="&gt;&gt;EnvoyerVosCommentairesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PreviouspageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 20</value>
+  </data>
+  <data name="NextpageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MessageBarButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+D</value>
+  </data>
+  <data name="MessageBarButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
+  </data>
+  <data name="&gt;&gt;URLBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 6</value>
+  </data>
+  <data name="MessageBarLabel1.Text" xml:space="preserve">
+    <value>MessageBarLabel1</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="HomepageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="&gt;&gt;BrowserTabs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZoomPlusButton.Name" xml:space="preserve">
+    <value>ZoomPlusButton</value>
+  </data>
+  <data name="CopierToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="AperçuAvantImpressionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;AfficherLimageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="CollerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="CouperToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Couper</value>
+  </data>
+  <data name="&gt;&gt;SearchBoxLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 598</value>
+  </data>
+  <data name="NextpageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;SélectionnerToutToolStripMenuItem.Name" xml:space="preserve">
+    <value>SélectionnerToutToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;UpdateNotifyIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 6</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PleinÉcranToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 6</value>
+  </data>
+  <data name="&gt;&gt;SaveImageDialog.Name" xml:space="preserve">
+    <value>SaveImageDialog</value>
+  </data>
+  <data name="&gt;&gt;URLBoxLabel.Name" xml:space="preserve">
+    <value>URLBoxLabel</value>
+  </data>
+  <data name="StopButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="CouperToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;OpenPageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Zoom400.Text" xml:space="preserve">
+    <value>400 %</value>
+  </data>
+  <data name="&gt;&gt;SearchButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="FaviconBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Zoom50.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StopButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="&gt;&gt;Zoom200.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MessageBarLabel1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>25, 15</value>
+  </data>
+  <data name="&gt;&gt;HomepageButton.Name" xml:space="preserve">
+    <value>HomepageButton</value>
+  </data>
+  <data name="&gt;&gt;NouvelleVersionDisponibleSubMenu.Name" xml:space="preserve">
+    <value>NouvelleVersionDisponibleSubMenu</value>
+  </data>
   <data name="CopierLadresseDuLienToolStripMenuItem.Text" xml:space="preserve">
     <value>Copier l'adresse du lien</value>
+  </data>
+  <data name="&gt;&gt;MessageBarPictureBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;Zoom300.Name" xml:space="preserve">
+    <value>Zoom300</value>
+  </data>
+  <data name="CentreDaideEnLigneToolStripMenuItem.Text" xml:space="preserve">
+    <value>Centre d'&amp;aide en ligne...</value>
+  </data>
+  <data name="URLBoxLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 19</value>
+  </data>
+  <data name="Zoom300.Text" xml:space="preserve">
+    <value>300 %</value>
+  </data>
+  <data name="&gt;&gt;GardeFouTimer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SearchBoxLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EnregistrerLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="CouperToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAOtJREFUOE+1kmlqAkEQRif+TvQCegejEU+quOQSnsElMXE5Rgg5gMsffQ9sadtR
+        FMwHD4ZmXlX1TGWPTAN60IW6B/dEeQNT+IY1vEKaEnzCDjoehNhZ+enAAloQJ5aH8AzHOLadlQuwhLhA
+        LI/gRDbe2bHtrOyLTlSEVH6B3Hhnu4qygmIFPmAMF+U0oesPDKAMN8vGAk7xC3/gBF7naprwDn2YgVeY
+        HPD5ahHlLTj2FwTBsZV8DgVzi9hZOezBHNoQkhY5+x6ObedLe2AsEn7nWZE3cJXtrLyCKqSJd8LtPUkN
+        HNvOefJ/JMv2LvdGel2G6iUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;CollerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AfficherLimageToolStripMenuItem.Name" xml:space="preserve">
+    <value>AfficherLimageToolStripMenuItem</value>
+  </data>
+  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Text" xml:space="preserve">
+    <value>Télécharger la version X.X.X.X</value>
+  </data>
+  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="OpenPageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+O</value>
+  </data>
+  <data name="Zoom200.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;CloseTabToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopierToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;AjouterCettePageDansLesFavorisToolStripMenuItem.Name" xml:space="preserve">
+    <value>AjouterCettePageDansLesFavorisToolStripMenuItem</value>
   </data>
   <data name="AjouterLeLienAuxFavorisToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -793,833 +890,197 @@
         wLIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AjouterLeLienAuxFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="AjouterLeLienAuxFavorisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ajouter le lien aux favoris</value>
-  </data>
-  <data name="LinkToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 6</value>
-  </data>
-  <data name="EnregistrerLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACnSURBVDhPpdOx
-        DcIwEIVhiy1YKBtQQEcXGAR6xmCQrADsQAOIigL+h3yRsJ5iAid9kfV8d2mSRK1xw/NLB0zRl4av6CpO
-        iCVH9EsUqKFWM8SCjyW/Loglfy2Q9+OMfYVeUg6LDcew4Rg2DJfM3QUbPrDEJNNZmeu14Q5lKXO9Npyj
-        rAVcrw03KGsL12vDOxpE6azM9Q7+ifpUxd2JZtMqH1zDEGZS+wKlMsD1Rm4F6gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="EnregistrerLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="EnregistrerLimageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Enregistrer l'image sous...</value>
-  </data>
-  <data name="CopierLadresseDeLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAADESURBVDhP5dO7
-        DcIwFIVhQ4EQiEdBR8EAdJR0rELNCkxBQccKUNCyCQvQoPCQqHj8x3FcgOTrniN9ih1HR1YSu6+sccU9
-        Q4ElYjp4YwstWA5QieujGa4qmCMnKrlpoO1o8gcFbdTKoU9WwShc69hj4WdlzIIZtDaF1rX2wARKsmCI
-        U5if8QxjOaKHZMEA4wQ9+1PQhQo2UIlFf+wFsUBveIdqq5YXVogFVfS5dC4sLfjoQOhgqCRXAzG6oRK9
-        kFzaAXHuA83WcTk5WKOJAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="CopierLadresseDeLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="CopierLadresseDeLimageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Copier l'adresse de l'image</value>
-  </data>
-  <data name="AfficherLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAChSURBVDhPpdMx
-        DoJAEIVhLmBL7Q209QiWnAIlJt7A65h4DGovQGlia2VhKIz+L7BmF6ZwYJIv2XkwEwo2oyo88XHSzB6T
-        hgPNmg88zNDDDD3M0MMMPczQwwyHrjgOsmAU1LhF/QNLqM6I35WkuSPHGvpJ3tgi1AIN4pnfocVGQV8F
-        Tt0xqRVeGC04qPmzSiQLtPHiFL5i/mXSlZyyhJls9wU0HNs8SbO27AAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="AfficherLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="AfficherLimageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher l'image</value>
-  </data>
-  <data name="ImageToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 6</value>
-  </data>
-  <data name="CouperToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAOtJREFUOE+1kmlqAkEQRif+TvQCegejEU+quOQSnsElMXE5Rgg5gMsffQ9sadtR
-        FMwHD4ZmXlX1TGWPTAN60IW6B/dEeQNT+IY1vEKaEnzCDjoehNhZ+enAAloQJ5aH8AzHOLadlQuwhLhA
-        LI/gRDbe2bHtrOyLTlSEVH6B3Hhnu4qygmIFPmAMF+U0oesPDKAMN8vGAk7xC3/gBF7naprwDn2YgVeY
-        HPD5ahHlLTj2FwTBsZV8DgVzi9hZOezBHNoQkhY5+x6ObedLe2AsEn7nWZE3cJXtrLyCKqSJd8LtPUkN
-        HNvOefJ/JMv2LvdGel2G6iUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="CouperToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="CouperToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Couper</value>
-  </data>
-  <data name="CopierToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPY4CC
-        JCB+C8RfCGBPIMYKLgLxOSCuJYBVgRgruAbE8yBMMOAFYgE8GCSPApANmATE/4D4Px4Mku8BYjhANgDk
-        101ADAoXXHgrEL8AYjhANuAbEDdDmDhBBxC/hDAhYNQAKhgA0pAIYZJnADIYeAM+AfEBIMaWmWD4EBA/
-        BWKsoAKI3wPxZzz4HRAXMzAwMAAA50NX1vT/sHgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="CopierToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="CopierToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="CollerToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhP7dM7
-        CsJAFIXhWxkbF5GsK65Auwja2KSz0RW4DJehm0gjWggiooWP/+BkkIDDFFYhBz6YyZ17ulggQxxxQK4P
-        oSSYYOmscMPGuaKeSYEefMZ4oMIFL2eK2dddM715YgSfEqfP0daoF5o0U87Qjs9fC/oY/KCZEiyISVfQ
-        zoI59PMsIt2hHZ8MO+wjbZGamb0B261Xa4R/7gYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="CollerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="CollerToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Coller</value>
-  </data>
-  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAIQSURBVDhPjVNJ
-        ixpREE4Ok+SQGXOYi/uCG6gI7nurh0bRbhdUFARRBAUPgqgoeog448F/I84hyWnm78RLok3ATuClin4x
-        iBkyHxTdfPVq++q9V3/Q6/XYUqn0KRgM7nU6naDX64VQKLRHrt/vs/TYv9FsNrNut1tUq9XEZDKRcDgs
-        oBmNRoKcz+cToQBHj59jsVgwEHzEg+l0+kulUkkVi0UZWqFQSDEM81mlUhHsDDq5pmF/0Wg0HvFAKpV6
-        yufzV5Q+YTKZvM/lcnu5XE7a7fZmuVy+oy4Jfr9ftFqt4nQ6ZSh1gfl8zoMuYjwe/9Xtdj9QWoLBYBCi
-        0eghk8m8pdQFsDModIBCAugho7QEVDwWix1glGcTsCx75XK5Dk6n80cymTxPEAgERLPZLA4Gg2dHGI/H
-        vFarFSORyK5ard5QWgII86hQKAio/QSz3lL6hNVqpQSB9xqNhkCX90C9ljwU6/WaAQ2OuAmYdQfGA2TU
-        eNDmK/qgS9zCHQ07B6wqC7Pt8C6AJsTr9Qoej0fAfzS8UNiBxWL5Dnpladg5IPttIpH4CKvaORwOAQQT
-        cOZyuXzX6XRWsAGCncD3yHEcT8Mu0Wq1rlFptHq9frp5w+FwY7PZiFKpJFCAgLCb2Wz2hrr/DzwMo27t
-        djtB0fE7Go0eqPtlwCRwY7fYCSaB1/qTul4OTAKVt/C4vtVqNe43HEPHihmXNeUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Text" xml:space="preserve">
-    <value>Lancer une recherche avec le texte sélectionné</value>
-  </data>
-  <data name="EditionToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 6</value>
-  </data>
-  <data name="EditionToolStripSeparator.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ActualiserLaPageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAEASURBVDhPlZMt
-        EwFRFIbXx4zRRUUTzaiCYIYg+A2yIIiaKBhDEwVBEATBzxEEURAE3ufOPWaZu2v2nXnGPfee8+6562wU
-        UF3MxFHcxEUcxFRwlqqRuItXAg8xFqaF/3XaCkvciYGoelhvhJ2fxNKvnXgywVV02EhQW5BjRs6Ae1nb
-        acWmvfgy4IWxoO1/4s7xYmfQEF1RI0hRqNgZ5DxZRH5eFAhYQBYT8kuiTBBqK/5fh9QUczEkyFqM7H0w
-        nV/Fazb+qCWegql0ox03YEgYliRRbIM0YQMR0DbjaUYr0RcVT0/QNk/m/CyKwsnuzAautGZGv3BGzqc4
-        pAyfcxS9ATzjYKgehtnBAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ActualiserLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="ActualiserLaPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Actualiser la page</value>
-  </data>
-  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 6</value>
-  </data>
-  <data name="PropriétésToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="PropriétésToolStripMenuItem.Text" xml:space="preserve">
-    <value>Propriétés de la page</value>
-  </data>
-  <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 22</value>
-  </data>
-  <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher le code source de la page</value>
-  </data>
-  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 336</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
-    <value>BrowserContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <metadata name="SaveImageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>873, 8</value>
-  </metadata>
-  <data name="SaveImageDialog.Filter" xml:space="preserve">
-    <value>Toutes les images|*.jpg;*.jpeg;*.jpe*.png;*.gif;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;*.drw;*.pct;*.psp;*.psd;*.xcf;*.raw</value>
-  </data>
-  <data name="SaveImageDialog.Title" xml:space="preserve">
-    <value>Enregistrer l'image sous...</value>
-  </data>
-  <metadata name="SavePageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1019, 8</value>
-  </metadata>
-  <data name="SavePageDialog.Filter" xml:space="preserve">
-    <value>Pages Web|*.html</value>
-  </data>
-  <data name="SavePageDialog.Title" xml:space="preserve">
-    <value>Enregistrer la page sous</value>
-  </data>
-  <data name="BrowserTabs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="BrowserTabs.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>481, 11</value>
-  </metadata>
-  <data name="ImageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABy
-        BgAAAk1TRnQBSQFMAwEBAAGAAQEBgAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFWAf8CKQGoAf8CmQHMAf8CAAFWAf8CAAFW
-        Af8CAAFWAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFW
-        Af8CIgGlAf8CMQGsAf8CAAGCAf8CRQG2Af8CGgGhAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAFW
-        Af8CAAFWAf8CAAFWAf8CAAFWAf8CWQFdAdLCAAF/Af4CKwGpAf8CBgGXAf8CAAGGAf8ClgHKAf8CBAGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CKQGoAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAFWAf8CAAF/
-        Af7CAAFWAf8CRAG2Af8CAAGAAf8CAAFWAf8CSQG4Af8CAAGPAf8CtgHaAf8CSQG4Af8CRgG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFWAf8CAAFWAf8CAAFWAf/CAAGPAf8CAAGNAf8CSwG5Af8CRQG2
-        Af8COwGxAf8CVgG/Af8CDQGaAf8CPQGyAf8COQGwAf8CAAGIAf8CxAHiAf8CKgGoAf8CswHZAf8CAAFW
-        Af8CAAFWAf8CAAFWAf/AAAKwAdcB/wIPAZsB/wIAAVYB/wIAAYoB/wJVAb4B/wLyAfkB/wK+Ad4B/wLY
-        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIpAagB/wIAAVYB/wIAAVYB/8IAAYUB/wJM
-        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI7AbEB/wIAAYQB/wJDAbUB/wJAAbMB/wIAAYQB/wI+AbMB/wJG
-        AbcB/wIAAZQB/wKvAdcB/wIAAVYB/wIAAVYB/8IAAVYB/wIAAVYB/wLVAeoB/wI5AbAB/wKzAdkB/wKM
-        AcUB/wI5AbAB/wKhAdAB/wKeAc4B/wI5AbAB/wKPAccB/wKxAdgB/wI5AbAB/wLUAekB/wIAAVYB/wIA
-        AVYB/8IAAVYB/wIAAVYB/wLWAeoB/wI8AbEB/wK1AdoB/wKOAcYB/wI8AbEB/wKiAdAB/wKgAc8B/wI8
-        AbEB/wKQAccB/wKzAdgB/wI8AbEB/wLUAekB/wIAAVYB/wIAAVYB/8IAAVYB/wIAAVYB/wK0AdkB/wIA
-        AZAB/wJIAbgB/wI4AbAB/wIAAYIB/wJBAbQB/wI9AbIB/wIAAYIB/wI8AbIB/wJEAbYB/wIAAZIB/wKw
-        AdcB/wIAAVYB/wIAAVYB/8IAAVYB/wIAAVYB/wIvAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
-        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wIrAakB/wIAAVYB/wIAAVYB/8IAAVYB/wIA
-        AVYB/wIAAYAB/wK4AdsB/wIkAaYB/wLGAeMB/wIAAYcB/wI9AbIB/wI5AbAB/wIAAYgB/wLFAeIB/wIn
-        AacB/wK1AdoB/wIAAYAB/wIAAVYB/wIAAVYB/8IAAVYB/wIAAVYB/wIAAVYB/wIAAYcB/wK4AdsB/wLP
-        AecB/wKvAdcB/wJHAbcB/wJEAbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVYB/wIAAVYB/wIA
-        AVYB/8IAAX8B/gIAAVYB/wIAAVYB/wIAAVYB/wIAAYAB/wIvAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
-        AdkB/wItAaoB/wIAAYAB/wIAAVYB/wIAAVYB/wIAAVYB/wIAAX8B/sAAAlgBXAHRAgABVgH/AgABVgH/
-        AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/
-        AgABVgH/AgABVgH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABVgH/AgABVgH/AgABVgH/AgABVgH/
-        AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABVgH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
-        BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/+BAAs=
-</value>
-  </data>
-  <data name="BrowserTabs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 28</value>
-  </data>
-  <data name="BrowserTabs.ShowToolTips" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BrowserTabs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1011, 571</value>
-  </data>
-  <data name="BrowserTabs.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;BrowserTabs.Name" xml:space="preserve">
-    <value>BrowserTabs</value>
-  </data>
-  <data name="&gt;&gt;BrowserTabs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BrowserTabs.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;BrowserTabs.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <metadata name="TabsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1158, 8</value>
-  </metadata>
-  <data name="FermerCetOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 22</value>
-  </data>
-  <data name="FermerCetOngletToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fermer cet onglet</value>
-  </data>
-  <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 22</value>
-  </data>
-  <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Text" xml:space="preserve">
-    <value>Rouvrir le dernier onglet fermé</value>
-  </data>
-  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 48</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
-    <value>TabsContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="LoadingGif.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 5</value>
-  </data>
-  <data name="LoadingGif.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="LoadingGif.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="LoadingGif.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;LoadingGif.Name" xml:space="preserve">
-    <value>LoadingGif</value>
-  </data>
-  <data name="&gt;&gt;LoadingGif.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LoadingGif.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LoadingGif.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="SearchBoxLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="SearchBoxLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="SearchBoxLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Italic</value>
-  </data>
-  <data name="SearchBoxLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>649, 4</value>
-  </data>
-  <data name="SearchBoxLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 19</value>
-  </data>
-  <data name="SearchBoxLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="SearchBoxLabel.Text" xml:space="preserve">
-    <value>Rechercher...</value>
-  </data>
-  <data name="&gt;&gt;SearchBoxLabel.Name" xml:space="preserve">
-    <value>SearchBoxLabel</value>
-  </data>
-  <data name="&gt;&gt;SearchBoxLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SearchBoxLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SearchBoxLabel.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="URLBoxLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="URLBoxLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt, style=Italic</value>
-  </data>
-  <data name="URLBoxLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 4</value>
-  </data>
-  <data name="URLBoxLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 19</value>
-  </data>
-  <data name="URLBoxLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="URLBoxLabel.Text" xml:space="preserve">
-    <value>Entrer une adresse pour naviguer...</value>
-  </data>
-  <data name="&gt;&gt;URLBoxLabel.Name" xml:space="preserve">
-    <value>URLBoxLabel</value>
-  </data>
-  <data name="&gt;&gt;URLBoxLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;URLBoxLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 1</value>
   </data>
   <data name="&gt;&gt;URLBoxLabel.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="StatusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="NewTabToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nouvel ongle&amp;t</value>
   </data>
-  <data name="StatusLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="StatusLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="StatusLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 577</value>
-  </data>
-  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 15</value>
-  </data>
-  <data name="StatusLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="StatusLabel.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">
-    <value>StatusLabel</value>
-  </data>
-  <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;StatusLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="MessageBarPictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="MessageBarPictureBox.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="MessageBarPictureBox.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="MessageBarPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="MessageBarPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 30</value>
-  </data>
-  <data name="MessageBarPictureBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;FaviconBox.ZOrder" xml:space="preserve">
     <value>19</value>
-  </data>
-  <data name="&gt;&gt;MessageBarPictureBox.Name" xml:space="preserve">
-    <value>MessageBarPictureBox</value>
-  </data>
-  <data name="&gt;&gt;MessageBarPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MessageBarPictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MessageBarPictureBox.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="MessageBarLabel1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="MessageBarLabel1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="MessageBarLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 62</value>
-  </data>
-  <data name="MessageBarLabel1.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>500, 15</value>
-  </data>
-  <data name="MessageBarLabel1.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>25, 15</value>
-  </data>
-  <data name="MessageBarLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 15</value>
-  </data>
-  <data name="MessageBarLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="MessageBarLabel1.Text" xml:space="preserve">
-    <value>MessageBarLabel1</value>
-  </data>
-  <data name="&gt;&gt;MessageBarLabel1.Name" xml:space="preserve">
-    <value>MessageBarLabel1</value>
-  </data>
-  <data name="&gt;&gt;MessageBarLabel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MessageBarLabel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MessageBarLabel1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="MessageBarButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="MessageBarButton1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="MessageBarButton1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="MessageBarButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>776, 56</value>
-  </data>
-  <data name="MessageBarButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="MessageBarButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="MessageBarButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 26</value>
-  </data>
-  <data name="MessageBarButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="MessageBarButton1.Text" xml:space="preserve">
-    <value>MessageBarButton</value>
-  </data>
-  <data name="&gt;&gt;MessageBarButton1.Name" xml:space="preserve">
-    <value>MessageBarButton1</value>
-  </data>
-  <data name="&gt;&gt;MessageBarButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MessageBarButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MessageBarButton1.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="MessageBarCloseButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="MessageBarCloseButton1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="MessageBarCloseButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>978, 54</value>
-  </data>
-  <data name="MessageBarCloseButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="MessageBarCloseButton1.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="MessageBarCloseButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
-  </data>
-  <data name="MessageBarCloseButton1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="MessageBarCloseButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;MessageBarCloseButton1.Name" xml:space="preserve">
-    <value>MessageBarCloseButton1</value>
-  </data>
-  <data name="&gt;&gt;MessageBarCloseButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MessageBarCloseButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MessageBarCloseButton1.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <metadata name="GardeFouTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1334, 8</value>
-  </metadata>
-  <data name="NextpageButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="NextpageButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="NextpageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="NextpageButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="NextpageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 0</value>
-  </data>
-  <data name="NextpageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="NextpageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Name" xml:space="preserve">
-    <value>NextpageButton</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NextpageButton.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="PreviouspageButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="PreviouspageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="PreviouspageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 0</value>
-  </data>
-  <data name="PreviouspageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="PreviouspageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Name" xml:space="preserve">
-    <value>PreviouspageButton</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PreviouspageButton.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="NewTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="NewTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="NewTabButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>981, 0</value>
-  </data>
-  <data name="NewTabButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="NewTabButton.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Name" xml:space="preserve">
-    <value>NewTabButton</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NewTabButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="CloseTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="CloseTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="CloseTabButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>954, 0</value>
-  </data>
-  <data name="CloseTabButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="CloseTabButton.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Name" xml:space="preserve">
-    <value>CloseTabButton</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CloseTabButton.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="HomepageButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="HomepageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="HomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>927, 0</value>
-  </data>
-  <data name="HomepageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="HomepageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;HomepageButton.Name" xml:space="preserve">
-    <value>HomepageButton</value>
-  </data>
-  <data name="&gt;&gt;HomepageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HomepageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;HomepageButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="SearchButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="SearchButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="SearchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>901, 0</value>
-  </data>
-  <data name="SearchButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
-  </data>
-  <data name="SearchButton.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;SearchButton.Name" xml:space="preserve">
-    <value>SearchButton</value>
-  </data>
-  <data name="&gt;&gt;SearchButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SearchButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SearchButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="FavoritesButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="FavoritesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="FavoritesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>618, 0</value>
   </data>
   <data name="FavoritesButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 27</value>
   </data>
-  <data name="FavoritesButton.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
+  <data name="AfficherLesFavorisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afficher les favoris</value>
   </data>
-  <data name="&gt;&gt;FavoritesButton.Name" xml:space="preserve">
-    <value>FavoritesButton</value>
+  <data name="&gt;&gt;SélectionnerToutToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;FavoritesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="StatusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 577</value>
   </data>
-  <data name="&gt;&gt;FavoritesButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 48</value>
   </data>
-  <data name="&gt;&gt;FavoritesButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="GoButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="GoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="GoButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>571, 1</value>
-  </data>
-  <data name="GoButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 25</value>
-  </data>
-  <data name="GoButton.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Name" xml:space="preserve">
-    <value>GoButton</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GoButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GoButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="StopButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="StopButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
+  <data name="&gt;&gt;CollerToolStripMenuItem.Name" xml:space="preserve">
+    <value>CollerToolStripMenuItem</value>
   </data>
   <data name="StopButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 27</value>
   </data>
-  <data name="StopButton.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
+  <data name="SélectionnerToutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 24</value>
   </data>
-  <data name="&gt;&gt;StopButton.Name" xml:space="preserve">
-    <value>StopButton</value>
+  <data name="&gt;&gt;CopierLadresseDuLienToolStripMenuItem.Name" xml:space="preserve">
+    <value>CopierLadresseDuLienToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;StopButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="OpenPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
   </data>
-  <data name="&gt;&gt;StopButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;OpenFileDialog1.Name" xml:space="preserve">
+    <value>OpenFileDialog1</value>
   </data>
-  <data name="&gt;&gt;StopButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="AfficherLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+B</value>
   </data>
-  <data name="RefreshButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="&gt;&gt;RouvrirLeDernierOngletFerméToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MessageBarButton1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="SearchBoxLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="LoadingGif.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 5</value>
+  </data>
+  <data name="PleinÉcranToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Plein écran</value>
+  </data>
+  <data name="Zoom100.Text" xml:space="preserve">
+    <value>100 % (&amp;normal)</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 6</value>
+  </data>
+  <data name="FavoritesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="RefreshButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
+  <data name="MessageBarLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 15</value>
   </data>
-  <data name="RefreshButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 27</value>
+  <data name="&gt;&gt;LinkToolStripSeparator.Name" xml:space="preserve">
+    <value>LinkToolStripSeparator</value>
+  </data>
+  <data name="&gt;&gt;ImageToolStripSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchBoxLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="EnregistrerLimageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Enregistrer l'image sous...</value>
+  </data>
+  <data name="&gt;&gt;Zoom250.Name" xml:space="preserve">
+    <value>Zoom250</value>
+  </data>
+  <data name="FaviconBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">
+    <value>StatusLabel</value>
   </data>
   <data name="RefreshButton.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
   </data>
-  <data name="&gt;&gt;RefreshButton.Name" xml:space="preserve">
-    <value>RefreshButton</value>
+  <data name="&gt;&gt;NewTabButton.Name" xml:space="preserve">
+    <value>NewTabButton</value>
   </data>
-  <data name="&gt;&gt;RefreshButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 6</value>
   </data>
-  <data name="&gt;&gt;RefreshButton.Parent" xml:space="preserve">
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 599</value>
+  </data>
+  <data name="&gt;&gt;CollerToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ÉditionSubMenu.Name" xml:space="preserve">
+    <value>ÉditionSubMenu</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;RefreshButton.ZOrder" xml:space="preserve">
-    <value>23</value>
+  <data name="&gt;&gt;AfficherLeCodeSourceDeLaPageToolStripMenuItem.Name" xml:space="preserve">
+    <value>AfficherLeCodeSourceDeLaPageToolStripMenuItem</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="&gt;&gt;Zoom125.Name" xml:space="preserve">
+    <value>Zoom125</value>
+  </data>
+  <data name="Zoom200.Text" xml:space="preserve">
+    <value>200 %</value>
+  </data>
+  <data name="URLBoxLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;FavoritesButton.Name" xml:space="preserve">
+    <value>FavoritesButton</value>
+  </data>
+  <data name="UpdateNotifyIcon.BalloonTipTitle" xml:space="preserve">
+    <value>SmartNet Apps Updater</value>
+  </data>
+  <data name="&gt;&gt;AjouterLeLienAuxFavorisToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;Zoom75.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BrowserTabs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;SupportToolStripMenuItem.Name" xml:space="preserve">
+    <value>SupportToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;MessageBarPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EnvoyerVosCommentairesToolStripMenuItem.Name" xml:space="preserve">
+    <value>EnvoyerVosCommentairesToolStripMenuItem</value>
+  </data>
+  <data name="BrowserTabs.ShowToolTips" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>75</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 598</value>
+  <data name="MessageBarButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;OuvrirDansUnNouvelOngletToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="&gt;&gt;MessageBarCloseButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 336</value>
+  </data>
+  <data name="Zoom250.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="MessageBarCloseButton1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Name" xml:space="preserve">
+    <value>EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem</value>
+  </data>
+  <data name="HomepageButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7334,487 +6795,1026 @@
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 599</value>
+  <data name="&gt;&gt;RefreshButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>WindowsDefaultBounds</value>
+  <data name="CollerToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Colle le texte actuellement dans le presse-papier de l'ordinateur</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>SmartNet Browser</value>
+  <data name="RechercherDansLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 24</value>
   </data>
-  <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
-    <value>MainMenu</value>
+  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Envoyer un lien vers cette page par e-mail.</value>
+  </data>
+  <data name="&gt;&gt;MessageBarCloseButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ParamètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="AperçuAvantImpressionToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Imprimer la page actuellement visible</value>
+  </data>
+  <data name="URLBoxLabel.Text" xml:space="preserve">
+    <value>Entrer une adresse pour naviguer...</value>
+  </data>
+  <data name="MessageBarCloseButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="OpenFileDialog1.Filter" xml:space="preserve">
+    <value>Pages Web HTML|*.html|Fichiers XML|*.xml|Fichiers texte|*.txt|Tous les fichiers|*.*</value>
+  </data>
+  <data name="&gt;&gt;PropriétésToolStripMenuItem.Name" xml:space="preserve">
+    <value>PropriétésToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoadingGif.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ZoomMinusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+OemMinus</value>
+  </data>
+  <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vgAADr4B6kKxwAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAAjVJREFUOE99j11I
+        U2EYxx/3IXMXUhdRMaJJizLowsKbMAMXa9OkedGN4dCr9kGFJBQ1OMVgFax0KSPILqQo+2I2hgtEiCBI
+        NoIsoVixnEzBakKtjTZ3/u2c87p5SvvBA+/7/D/OeekfYvvVSn57B/H6APF1z9ncItQdJ+ypZq61ORLe
+        3Lb3rS6xZWkXLOhGLzzitKIHGuwGLe/8Qpl9R5ldjvvShjPddzbxNz9cwNJyGn/zFWk481dRlT5cpIWO
+        Uywm8diqtQTstXz0zQizS7hcLnFWczsziarPJ4s0c9YihkGkijaoP70fPM0sFSSZ2K2CIxUCRa/FCY+U
+        9KuG2hd1NSh8X2RyhfUKFvIZVL+8C5p80ko80QCMRibJWa9AwPg6Bgq96BcKxuB0srWc/xU4YinQ/Y9j
+        QkEQdjtbS5jN5nJ4ZaxWK1Ml7K9+gIbTT4UCH5qb2VoiHo9Do9GUw8I5kUgwVeJQsAgaLPqEAhNUKvDJ
+        JM80EbfbXS7weDxsK5H8CagDpSf6CybBoSyVzPCdnbKCXC4HvV4Pg8EgnldjmyiFh/hp4qAofYCEvziY
+        VygL2Rt+ZpEIBoOIRCLsJuGfykI98DtPQ2gSwytk1FpbqnZrYc7Rh9zcPLNXmP+WxfnRWeg8yYL2esbG
+        YnJmN25riuka3k3UmxDpuohx7z2M9odxmQujzTmOxr6p6R1c/ACzrw1HpAjVm40jjV1eX0vvw3PHrjzo
+        OTHsbbc/ayGOk95chugPqPxeDNvC7/wAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;AjouterCettePageDansLesFavorisToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
+    <value>Gérer les favoris</value>
+  </data>
+  <data name="&gt;&gt;FaviconBox.Name" xml:space="preserve">
+    <value>FaviconBox</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ajoute la page dans la liste de vos favoris.</value>
+  </data>
+  <data name="SearchBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="MessageBarPictureBox.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;FavoritesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CloseTabToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Fermer cet onglet</value>
+  </data>
+  <data name="OpenPageToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Ouvrir un document...</value>
+  </data>
+  <data name="AfficherLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;ÀProposDeSmartNetBrowserToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopierLadresseDeLimageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Copier l'adresse de l'image</value>
+  </data>
+  <data name="StatusLabel.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Affiche les informations concernant SmartNet Browser.</value>
+  </data>
+  <data name="&gt;&gt;CopierToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StopButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="&gt;&gt;ZoomToolStripMenuItem.Name" xml:space="preserve">
+    <value>ZoomToolStripMenuItem</value>
+  </data>
+  <data name="URLBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="CloseTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="Zoom100.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+0</value>
+  </data>
+  <data name="NextpageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="CloseTabButton.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;RouvrirLeDernierOngletFerméToolStripMenuItem.Name" xml:space="preserve">
+    <value>RouvrirLeDernierOngletFerméToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CopierToolStripMenuItem.Name" xml:space="preserve">
+    <value>CopierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FermerSmartNetBrowserToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FermerCetOngletToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 6</value>
+  </data>
+  <data name="FermerCetOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="CentreDaideEnLigneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 24</value>
+  </data>
+  <data name="&gt;&gt;AfficherLhistoriqueToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAIQSURBVDhPjVNJ
+        ixpREE4Ok+SQGXOYi/uCG6gI7nurh0bRbhdUFARRBAUPgqgoeog448F/I84hyWnm78RLok3ATuClin4x
+        iBkyHxTdfPVq++q9V3/Q6/XYUqn0KRgM7nU6naDX64VQKLRHrt/vs/TYv9FsNrNut1tUq9XEZDKRcDgs
+        oBmNRoKcz+cToQBHj59jsVgwEHzEg+l0+kulUkkVi0UZWqFQSDEM81mlUhHsDDq5pmF/0Wg0HvFAKpV6
+        yufzV5Q+YTKZvM/lcnu5XE7a7fZmuVy+oy4Jfr9ftFqt4nQ6ZSh1gfl8zoMuYjwe/9Xtdj9QWoLBYBCi
+        0eghk8m8pdQFsDModIBCAugho7QEVDwWix1glGcTsCx75XK5Dk6n80cymTxPEAgERLPZLA4Gg2dHGI/H
+        vFarFSORyK5ard5QWgII86hQKAio/QSz3lL6hNVqpQSB9xqNhkCX90C9ljwU6/WaAQ2OuAmYdQfGA2TU
+        eNDmK/qgS9zCHQ07B6wqC7Pt8C6AJsTr9Qoej0fAfzS8UNiBxWL5Dnpladg5IPttIpH4CKvaORwOAQQT
+        cOZyuXzX6XRWsAGCncD3yHEcT8Mu0Wq1rlFptHq9frp5w+FwY7PZiFKpJFCAgLCb2Wz2hrr/DzwMo27t
+        djtB0fE7Go0eqPtlwCRwY7fYCSaB1/qTul4OTAKVt/C4vtVqNe43HEPHihmXNeUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="SearchBoxLabel.Text" xml:space="preserve">
+    <value>Rechercher...</value>
+  </data>
+  <data name="MessageBarButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="FaviconBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 5</value>
+  </data>
+  <data name="ImageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABy
+        BgAAAk1TRnQBSQFMAwEBAAGIAQEBlAEBARABAAEQAQAE/wEhARAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFVAf8CKAGoAf8CmQHMAf8CAAFVAf8CAAFV
+        Af8CAAFVAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFV
+        Af8CIQGlAf8CMAGsAf8CAAGCAf8CRAG2Af8CGQGhAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAFV
+        Af8CAAFVAf8CAAFVAf8CAAFVAf8CWQFdAdLCAAF/Af4CKgGpAf8CBQGXAf8CAAGGAf8ClgHKAf8CAwGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CKAGoAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAFVAf8CAAF/
+        Af7CAAFVAf8CQwG2Af8CAAGAAf8CAAFVAf8CSAG4Af8CAAGPAf8CtgHaAf8CSAG4Af8CRQG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFVAf8CAAFVAf8CAAFVAf/CAAGPAf8CAAGNAf8CSgG5Af8CRAG2
+        Af8COgGxAf8CVQG/Af8CDAGaAf8CPAGyAf8COAGwAf8CAAGIAf8CxAHiAf8CKQGoAf8CswHZAf8CAAFV
+        Af8CAAFVAf8CAAFVAf/AAAKwAdcB/wIOAZsB/wIAAVUB/wIAAYoB/wJUAb4B/wLyAfkB/wK+Ad4B/wLY
+        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIoAagB/wIAAVUB/wIAAVUB/8IAAYUB/wJL
+        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI6AbEB/wIAAYQB/wJCAbUB/wI/AbMB/wIAAYQB/wI9AbMB/wJF
+        AbcB/wIAAZQB/wKvAdcB/wIAAVUB/wIAAVUB/8IAAVUB/wIAAVUB/wLVAeoB/wI4AbAB/wKzAdkB/wKM
+        AcUB/wI4AbAB/wKhAdAB/wKeAc4B/wI4AbAB/wKPAccB/wKxAdgB/wI4AbAB/wLUAekB/wIAAVUB/wIA
+        AVUB/8IAAVUB/wIAAVUB/wLWAeoB/wI7AbEB/wK1AdoB/wKOAcYB/wI7AbEB/wKiAdAB/wKgAc8B/wI7
+        AbEB/wKQAccB/wKzAdgB/wI7AbEB/wLUAekB/wIAAVUB/wIAAVUB/8IAAVUB/wIAAVUB/wK0AdkB/wIA
+        AZAB/wJHAbgB/wI3AbAB/wIAAYIB/wJAAbQB/wI8AbIB/wIAAYIB/wI7AbIB/wJDAbYB/wIAAZIB/wKw
+        AdcB/wIAAVUB/wIAAVUB/8IAAVUB/wIAAVUB/wIuAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
+        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wIqAakB/wIAAVUB/wIAAVUB/8IAAVUB/wIA
+        AVUB/wIAAYAB/wK4AdsB/wIjAaYB/wLGAeMB/wIAAYcB/wI8AbIB/wI4AbAB/wIAAYgB/wLFAeIB/wIm
+        AacB/wK1AdoB/wIAAYAB/wIAAVUB/wIAAVUB/8IAAVUB/wIAAVUB/wIAAVUB/wIAAYcB/wK4AdsB/wLP
+        AecB/wKvAdcB/wJGAbcB/wJDAbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVUB/wIAAVUB/wIA
+        AVUB/8IAAX8B/gIAAVUB/wIAAVUB/wIAAVUB/wIAAYAB/wIuAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
+        AdkB/wIsAaoB/wIAAYAB/wIAAVUB/wIAAVUB/wIAAVUB/wIAAX8B/sAAAlgBXAHRAgABVQH/AgABVQH/
+        AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/
+        AgABVQH/AgABVQH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABVQH/AgABVQH/AgABVQH/AgABVQH/
+        AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABVQH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
+        BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/+XAAs=
+</value>
+  </data>
+  <data name="ActualiserLaPageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Actualiser la page</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
+    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
+  </data>
+  <data name="&gt;&gt;SupportToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.Text" xml:space="preserve">
+    <value>Quitter le &amp;plein écran</value>
+  </data>
+  <data name="&gt;&gt;URLBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MainToolbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;OpenFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ActualiserLaPageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAEASURBVDhPlZMt
+        EwFRFIbXx4zRRUUTzaiCYIYg+A2yIIiaKBhDEwVBEATBzxEEURAE3ufOPWaZu2v2nXnGPfee8+6562wU
+        UF3MxFHcxEUcxFRwlqqRuItXAg8xFqaF/3XaCkvciYGoelhvhJ2fxNKvnXgywVV02EhQW5BjRs6Ae1nb
+        acWmvfgy4IWxoO1/4s7xYmfQEF1RI0hRqNgZ5DxZRH5eFAhYQBYT8kuiTBBqK/5fh9QUczEkyFqM7H0w
+        nV/Fazb+qCWegql0ox03YEgYliRRbIM0YQMR0DbjaUYr0RcVT0/QNk/m/CyKwsnuzAautGZGv3BGzqc4
+        pAyfcxS9ATzjYKgehtnBAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="URLBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AfficherLhistoriqueToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+H</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator8.Name" xml:space="preserve">
+    <value>ToolStripSeparator8</value>
+  </data>
+  <data name="NextpageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
+    <value>ToolStripSeparator4</value>
+  </data>
+  <data name="ZoomMinusButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;MessageBarButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SearchButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>901, 0</value>
+  </data>
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 6</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;BrowserTabs.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="MessageBarCloseButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>978, 54</value>
+  </data>
+  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Name" xml:space="preserve">
+    <value>SignalerUnSiteMalveillantToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ZoomToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ParamètresToolStripMenuItem.Name" xml:space="preserve">
+    <value>ParamètresToolStripMenuItem</value>
+  </data>
+  <data name="CopierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 24</value>
+  </data>
+  <data name="CloseTabButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>954, 0</value>
+  </data>
+  <data name="SélectionnerToutToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+A</value>
+  </data>
+  <data name="MessageBarLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;CloseTabToolStripMenuItem.Name" xml:space="preserve">
+    <value>CloseTabToolStripMenuItem</value>
+  </data>
+  <data name="SaveImageDialog.Filter" xml:space="preserve">
+    <value>Toutes les images|*.jpg;*.jpeg;*.jpe*.png;*.gif;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;*.drw;*.pct;*.psp;*.psd;*.xcf;*.raw</value>
+  </data>
+  <data name="ToolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 6</value>
+  </data>
+  <data name="&gt;&gt;OuvrirLeLienToolStripMenuItem.Name" xml:space="preserve">
+    <value>OuvrirLeLienToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FermerCetOngletToolStripMenuItem.Name" xml:space="preserve">
+    <value>FermerCetOngletToolStripMenuItem</value>
+  </data>
+  <data name="SélectionnerToutToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Sélectionne tous les éléments de la page.</value>
+  </data>
+  <data name="&gt;&gt;AperçuAvantImpressionToolStripMenuItem.Name" xml:space="preserve">
+    <value>AperçuAvantImpressionToolStripMenuItem</value>
+  </data>
+  <data name="URLBoxLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Italic</value>
+  </data>
+  <data name="&gt;&gt;LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Name" xml:space="preserve">
+    <value>LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ZoomMinusButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ParamètresToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvre les paramètres de votre navigateur.</value>
+  </data>
+  <data name="CloseTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="SearchBoxLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Italic</value>
+  </data>
+  <data name="OuvrirLeLienToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="OuvrirLeLienToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ouvrir le lien</value>
+  </data>
+  <data name="NewTabButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="MessageBarPictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;CollerToolStripMenuItem1.Name" xml:space="preserve">
+    <value>CollerToolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;MainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RefreshButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SavePageDialog.Title" xml:space="preserve">
+    <value>Enregistrer la page sous</value>
+  </data>
+  <data name="SearchButton.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afficher le code source de la page</value>
+  </data>
+  <data name="&gt;&gt;RefreshButton.Name" xml:space="preserve">
+    <value>RefreshButton</value>
+  </data>
+  <data name="Zoom175.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;SearchBoxLabel.Name" xml:space="preserve">
+    <value>SearchBoxLabel</value>
+  </data>
+  <data name="BrowserTabs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="CopierToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhPY4CC
+        JCB+C8RfCGBPIMYKLgLxOSCuJYBVgRgruAbE8yBMMOAFYgE8GCSPApANmATE/4D4Px4Mku8BYjhANgDk
+        101ADAoXXHgrEL8AYjhANuAbEDdDmDhBBxC/hDAhYNQAKhgA0pAIYZJnADIYeAM+AfEBIMaWmWD4EBA/
+        BWKsoAKI3wPxZzz4HRAXMzAwMAAA50NX1vT/sHgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="PropriétésToolStripMenuItem.Text" xml:space="preserve">
+    <value>Propriétés de la page</value>
+  </data>
+  <data name="&gt;&gt;Zoom175.Name" xml:space="preserve">
+    <value>Zoom175</value>
+  </data>
+  <data name="NewTabButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 0</value>
+  </data>
+  <data name="URLBoxLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 4</value>
+  </data>
+  <data name="SearchBoxLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>649, 4</value>
+  </data>
+  <data name="Zoom125.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="SearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 27</value>
+  </data>
+  <data name="&gt;&gt;Zoom150.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Quitter le mode plein écran.</value>
+  </data>
+  <data name="PreviouspageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 0</value>
+  </data>
+  <data name="SavePageDialog.Filter" xml:space="preserve">
+    <value>Pages Web|*.html</value>
+  </data>
+  <data name="&gt;&gt;NextpageButton.Name" xml:space="preserve">
+    <value>NextpageButton</value>
+  </data>
+  <data name="AjouterLeLienAuxFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="EnvoyerVosCommentairesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 24</value>
+  </data>
+  <data name="MessageBarCloseButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
+  </data>
+  <data name="&gt;&gt;SavePageDialog.Name" xml:space="preserve">
+    <value>SavePageDialog</value>
+  </data>
+  <data name="GoButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
+    <value>BrowserContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;NouvelleVersionDisponibleSubMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GoButton.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;CopierLadresseDeLimageToolStripMenuItem.Name" xml:space="preserve">
+    <value>CopierLadresseDeLimageToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;OuvrirDansUnNouvelOngletToolStripMenuItem.Name" xml:space="preserve">
+    <value>OuvrirDansUnNouvelOngletToolStripMenuItem</value>
+  </data>
+  <data name="AfficherLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvre une fenêtre avec une liste de vos pages favorites.</value>
+  </data>
+  <data name="CollerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 24</value>
+  </data>
+  <data name="&gt;&gt;AfficherLesFavorisToolStripMenuItem.Name" xml:space="preserve">
+    <value>AfficherLesFavorisToolStripMenuItem</value>
+  </data>
+  <data name="ZoomPlusButton.Text" xml:space="preserve">
+    <value>Zoom &amp;avant</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
+    <value>ToolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;BrowserTabs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>BrowserForm</value>
+  </data>
+  <data name="&gt;&gt;LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ContacterLéquipeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="&gt;&gt;SavePageToolStripMenuItem.Name" xml:space="preserve">
+    <value>SavePageToolStripMenuItem</value>
+  </data>
+  <data name="CentreDaideEnLigneToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Accéder au site Support de SmartNet Browser</value>
+  </data>
+  <data name="ActualiserLaPageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="AperçuAvantImpressionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+P</value>
+  </data>
+  <data name="&gt;&gt;LoadingGif.Name" xml:space="preserve">
+    <value>LoadingGif</value>
+  </data>
+  <data name="&gt;&gt;PleinÉcranToolStripMenuItem.Name" xml:space="preserve">
+    <value>PleinÉcranToolStripMenuItem</value>
+  </data>
+  <data name="BrowserTabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
+  </data>
+  <data name="&gt;&gt;LoadingGif.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="LoadingGif.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;MessageBarButton1.Name" xml:space="preserve">
+    <value>MessageBarButton1</value>
+  </data>
+  <data name="AfficherLesFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 24</value>
+  </data>
+  <data name="&gt;&gt;PropriétésToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenPageToolStripMenuItem.Name" xml:space="preserve">
+    <value>OpenPageToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CouperToolStripMenuItem1.Name" xml:space="preserve">
+    <value>CouperToolStripMenuItem1</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
+    <value>Mettre à jour SmartNet Browser</value>
+  </data>
+  <data name="&gt;&gt;Zoom200.Name" xml:space="preserve">
+    <value>Zoom200</value>
+  </data>
+  <data name="AfficherLimageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afficher l'image</value>
+  </data>
+  <data name="&gt;&gt;QuitterLePleinÉcranToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TéléchargerCetteVidéoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;EditionToolStripSeparator.Name" xml:space="preserve">
+    <value>EditionToolStripSeparator</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
+    <value>ToolStripSeparator3</value>
+  </data>
+  <data name="PleinÉcranToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F11</value>
+  </data>
+  <data name="&gt;&gt;SaveImageDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CopierToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Copie le texte sélectionné</value>
+  </data>
+  <data name="&gt;&gt;MessageBarCloseButton1.Name" xml:space="preserve">
+    <value>MessageBarCloseButton1</value>
+  </data>
+  <data name="&gt;&gt;URLBoxLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ContacterLéquipeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Contacter Quentin Pugeat pour de l'aide.</value>
+  </data>
+  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 6</value>
+  </data>
+  <data name="EnvoyerVosCommentairesToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvre un formulaire pour commenter votre appréciation de SmartNet Browser.</value>
+  </data>
+  <data name="EditionToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 6</value>
+  </data>
+  <data name="BrowserTabs.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RefreshButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="Zoom50.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchBox.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="PreviouspageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="CollerToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Coller</value>
+  </data>
+  <data name="AperçuAvantImpressionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Im&amp;primer la page</value>
+  </data>
+  <data name="Zoom125.Text" xml:space="preserve">
+    <value>125 %</value>
+  </data>
+  <data name="Zoom400.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;URLBox.Name" xml:space="preserve">
+    <value>URLBox</value>
+  </data>
+  <data name="&gt;&gt;EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Text" xml:space="preserve">
+    <value>Lancer une recherche avec le texte sélectionné</value>
+  </data>
+  <data name="&gt;&gt;ParamètresToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CouperToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Couper                              Ctrl+X</value>
+  </data>
+  <data name="NewTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+T</value>
+  </data>
+  <data name="NewTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="&gt;&gt;MessageBarLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ÉditionSubMenu.Text" xml:space="preserve">
+    <value>Éditio&amp;n</value>
+  </data>
+  <data name="UpdateNotifyIcon.Text" xml:space="preserve">
+    <value>Mise à jour disponible pour SmartNet Browser</value>
+  </data>
+  <data name="LinkToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 6</value>
+  </data>
+  <data name="&gt;&gt;StopButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CopierLadresseDeLimageToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NewTabToolStripMenuItem.Name" xml:space="preserve">
     <value>NewTabToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;NewTabToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MessageBarPictureBox.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
-  <data name="&gt;&gt;CloseTabToolStripMenuItem.Name" xml:space="preserve">
-    <value>CloseTabToolStripMenuItem</value>
+  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
   </data>
-  <data name="&gt;&gt;CloseTabToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
-    <value>ToolStripSeparator1</value>
+  <data name="FavoritesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>618, 0</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OpenPageToolStripMenuItem.Name" xml:space="preserve">
-    <value>OpenPageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;OpenPageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SavePageToolStripMenuItem.Name" xml:space="preserve">
-    <value>SavePageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SavePageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AperçuAvantImpressionToolStripMenuItem.Name" xml:space="preserve">
-    <value>AperçuAvantImpressionToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AperçuAvantImpressionToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Name" xml:space="preserve">
-    <value>EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ÉditionSubMenu.Name" xml:space="preserve">
-    <value>ÉditionSubMenu</value>
+  <data name="MessageBarButton1.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 26</value>
   </data>
   <data name="&gt;&gt;ÉditionSubMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CouperToolStripMenuItem.Name" xml:space="preserve">
-    <value>CouperToolStripMenuItem</value>
+  <data name="CopierLadresseDeLimageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
   </data>
-  <data name="&gt;&gt;CouperToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;MessageBarCloseButton1.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;CopierToolStripMenuItem.Name" xml:space="preserve">
-    <value>CopierToolStripMenuItem</value>
+  <data name="ZoomPlusButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Oemplus</value>
   </data>
-  <data name="&gt;&gt;CopierToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CollerToolStripMenuItem.Name" xml:space="preserve">
-    <value>CollerToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;CollerToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SélectionnerToutToolStripMenuItem.Name" xml:space="preserve">
-    <value>SélectionnerToutToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SélectionnerToutToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator9.Name" xml:space="preserve">
-    <value>ToolStripSeparator9</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RechercherDansLaPageToolStripMenuItem.Name" xml:space="preserve">
-    <value>RechercherDansLaPageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;RechercherDansLaPageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ZoomToolStripMenuItem.Name" xml:space="preserve">
-    <value>ZoomToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ZoomToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom50.Name" xml:space="preserve">
-    <value>Zoom50</value>
-  </data>
-  <data name="&gt;&gt;Zoom50.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom75.Name" xml:space="preserve">
-    <value>Zoom75</value>
-  </data>
-  <data name="&gt;&gt;Zoom75.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom100.Name" xml:space="preserve">
-    <value>Zoom100</value>
-  </data>
-  <data name="&gt;&gt;Zoom100.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom125.Name" xml:space="preserve">
-    <value>Zoom125</value>
-  </data>
-  <data name="&gt;&gt;Zoom125.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom150.Name" xml:space="preserve">
-    <value>Zoom150</value>
-  </data>
-  <data name="&gt;&gt;Zoom150.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom175.Name" xml:space="preserve">
-    <value>Zoom175</value>
-  </data>
-  <data name="&gt;&gt;Zoom175.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom200.Name" xml:space="preserve">
-    <value>Zoom200</value>
-  </data>
-  <data name="&gt;&gt;Zoom200.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom250.Name" xml:space="preserve">
-    <value>Zoom250</value>
-  </data>
-  <data name="&gt;&gt;Zoom250.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Zoom300.Name" xml:space="preserve">
-    <value>Zoom300</value>
-  </data>
-  <data name="&gt;&gt;Zoom300.Type" xml:space="preserve">
+  <data name="&gt;&gt;OuvrirLeLienToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Zoom400.Name" xml:space="preserve">
     <value>Zoom400</value>
   </data>
-  <data name="&gt;&gt;Zoom400.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator8.Name" xml:space="preserve">
-    <value>ToolStripSeparator8</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ZoomPlusButton.Name" xml:space="preserve">
-    <value>ZoomPlusButton</value>
-  </data>
-  <data name="&gt;&gt;ZoomPlusButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ZoomMinusButton.Name" xml:space="preserve">
-    <value>ZoomMinusButton</value>
-  </data>
-  <data name="&gt;&gt;ZoomMinusButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
-    <value>ToolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TéléchargerCetteVidéoToolStripMenuItem.Name" xml:space="preserve">
-    <value>TéléchargerCetteVidéoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;TéléchargerCetteVidéoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
-    <value>ToolStripSeparator6</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FavorisSubMenu.Name" xml:space="preserve">
-    <value>FavorisSubMenu</value>
-  </data>
-  <data name="&gt;&gt;FavorisSubMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AfficherLesFavorisToolStripMenuItem.Name" xml:space="preserve">
-    <value>AfficherLesFavorisToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AfficherLesFavorisToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AjouterCettePageDansLesFavorisToolStripMenuItem.Name" xml:space="preserve">
-    <value>AjouterCettePageDansLesFavorisToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AjouterCettePageDansLesFavorisToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AfficherLhistoriqueToolStripMenuItem.Name" xml:space="preserve">
-    <value>AfficherLhistoriqueToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AfficherLhistoriqueToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
-    <value>ToolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PleinÉcranToolStripMenuItem.Name" xml:space="preserve">
-    <value>PleinÉcranToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;PleinÉcranToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;QuitterLePleinÉcranToolStripMenuItem.Name" xml:space="preserve">
-    <value>QuitterLePleinÉcranToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;QuitterLePleinÉcranToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
-    <value>ToolStripSeparator3</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ParamètresToolStripMenuItem.Name" xml:space="preserve">
-    <value>ParamètresToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ParamètresToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SupportToolStripMenuItem.Name" xml:space="preserve">
-    <value>SupportToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SupportToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CentreDaideEnLigneToolStripMenuItem.Name" xml:space="preserve">
-    <value>CentreDaideEnLigneToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;CentreDaideEnLigneToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ContacterLéquipeToolStripMenuItem.Name" xml:space="preserve">
-    <value>ContacterLéquipeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ContacterLéquipeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator5.Name" xml:space="preserve">
-    <value>ToolStripSeparator5</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ÀProposDeSmartNetBrowserToolStripMenuItem.Name" xml:space="preserve">
-    <value>ÀProposDeSmartNetBrowserToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ÀProposDeSmartNetBrowserToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EnvoyerVosCommentairesToolStripMenuItem.Name" xml:space="preserve">
-    <value>EnvoyerVosCommentairesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EnvoyerVosCommentairesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
-    <value>ToolStripSeparator10</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Name" xml:space="preserve">
-    <value>SignalerUnSiteMalveillantToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;SignalerUnSiteMalveillantToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NouvelleVersionDisponibleSubMenu.Name" xml:space="preserve">
-    <value>NouvelleVersionDisponibleSubMenu</value>
-  </data>
-  <data name="&gt;&gt;NouvelleVersionDisponibleSubMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TéléchargerLaVersionXXXXToolStripMenuItem.Name" xml:space="preserve">
-    <value>TéléchargerLaVersionXXXXToolStripMenuItem</value>
+  <data name="CloseTabButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
   </data>
   <data name="&gt;&gt;TéléchargerLaVersionXXXXToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;StopButton.Name" xml:space="preserve">
+    <value>StopButton</value>
+  </data>
+  <data name="LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="NextpageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 0</value>
+  </data>
+  <data name="&gt;&gt;Zoom300.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MessageBarLabel1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
   <data name="&gt;&gt;FermerSmartNetBrowserToolStripMenuItem.Name" xml:space="preserve">
     <value>FermerSmartNetBrowserToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;FermerSmartNetBrowserToolStripMenuItem.Type" xml:space="preserve">
+  <data name="SignalerUnSiteMalveillantToolStripMenuItem.Text" xml:space="preserve">
+    <value>Signaler un site malveillant...</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Name" xml:space="preserve">
+    <value>GoButton</value>
+  </data>
+  <data name="ZoomPlusButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 24</value>
+  </data>
+  <data name="&gt;&gt;HomepageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NewTabToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;UpdateNotifyIcon.Name" xml:space="preserve">
-    <value>UpdateNotifyIcon</value>
+  <data name="&gt;&gt;CloseTabButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;UpdateNotifyIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="SavePageToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
   </data>
-  <data name="&gt;&gt;OpenFileDialog1.Name" xml:space="preserve">
-    <value>OpenFileDialog1</value>
+  <data name="BrowserTabs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1011, 571</value>
   </data>
-  <data name="&gt;&gt;OpenFileDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OuvrirLeLienToolStripMenuItem.Name" xml:space="preserve">
-    <value>OuvrirLeLienToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;OuvrirLeLienToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;CopierToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;OuvrirDansUnNouvelOngletToolStripMenuItem.Name" xml:space="preserve">
-    <value>OuvrirDansUnNouvelOngletToolStripMenuItem</value>
+  <data name="SavePageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
   </data>
-  <data name="&gt;&gt;OuvrirDansUnNouvelOngletToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 24</value>
   </data>
-  <data name="&gt;&gt;CopierLadresseDuLienToolStripMenuItem.Name" xml:space="preserve">
-    <value>CopierLadresseDuLienToolStripMenuItem</value>
+  <data name="&gt;&gt;FavoritesButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;CopierLadresseDuLienToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AjouterLeLienAuxFavorisToolStripMenuItem.Name" xml:space="preserve">
-    <value>AjouterLeLienAuxFavorisToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AjouterLeLienAuxFavorisToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LinkToolStripSeparator.Name" xml:space="preserve">
-    <value>LinkToolStripSeparator</value>
-  </data>
-  <data name="&gt;&gt;LinkToolStripSeparator.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EnregistrerLimageToolStripMenuItem.Name" xml:space="preserve">
-    <value>EnregistrerLimageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EnregistrerLimageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CopierLadresseDeLimageToolStripMenuItem.Name" xml:space="preserve">
-    <value>CopierLadresseDeLimageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;CopierLadresseDeLimageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AfficherLimageToolStripMenuItem.Name" xml:space="preserve">
-    <value>AfficherLimageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;AfficherLimageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ImageToolStripSeparator.Name" xml:space="preserve">
-    <value>ImageToolStripSeparator</value>
-  </data>
-  <data name="&gt;&gt;ImageToolStripSeparator.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CouperToolStripMenuItem1.Name" xml:space="preserve">
-    <value>CouperToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;CouperToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CopierToolStripMenuItem1.Name" xml:space="preserve">
-    <value>CopierToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;CopierToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CollerToolStripMenuItem1.Name" xml:space="preserve">
-    <value>CollerToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;CollerToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Name" xml:space="preserve">
-    <value>LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EditionToolStripSeparator.Name" xml:space="preserve">
-    <value>EditionToolStripSeparator</value>
-  </data>
-  <data name="&gt;&gt;EditionToolStripSeparator.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActualiserLaPageToolStripMenuItem.Name" xml:space="preserve">
-    <value>ActualiserLaPageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ActualiserLaPageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="GoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 25</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
     <value>ToolStripSeparator7</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
+  <data name="CollerToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACWSURBVDhP7dM7
+        CsJAFIXhWxkbF5GsK65Auwja2KSz0RW4DJehm0gjWggiooWP/+BkkIDDFFYhBz6YyZ17ulggQxxxQK4P
+        oSSYYOmscMPGuaKeSYEefMZ4oMIFL2eK2dddM715YgSfEqfP0daoF5o0U87Qjs9fC/oY/KCZEiyISVfQ
+        zoI59PMsIt2hHZ8MO+wjbZGamb0B261Xa4R/7gYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ÀProposDeSmartNetBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 24</value>
+  </data>
+  <data name="&gt;&gt;MessageBarPictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EditionToolStripSeparator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PropriétésToolStripMenuItem.Name" xml:space="preserve">
-    <value>PropriétésToolStripMenuItem</value>
+  <data name="FavorisSubMenu.Text" xml:space="preserve">
+    <value>Favoris</value>
   </data>
-  <data name="&gt;&gt;PropriétésToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;MessageBarButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SearchBoxLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 19</value>
+  </data>
+  <data name="&gt;&gt;FaviconBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vgAADr4B6kKxwAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC42/Ixj3wAAAIJJREFUOE+90jEO
+        gCAMBVAGj+u9OIIDg0dx8BgO+D+BBEtL6GKTF/GXNjEx5JyXoCINuQwsqIuGXAaW/xeg+M1lqHqqPovq
+        MJXm97JvgdSGhlwGlukC1AY7JLiBIZ98Z87+dMEBPFjYt38k1An9gJTkYMOSl320rR5q6KGGHmq4LocX
+        cPtU/YYuk0AAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;AjouterLeLienAuxFavorisToolStripMenuItem.Name" xml:space="preserve">
+    <value>AjouterLeLienAuxFavorisToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ActualiserLaPageToolStripMenuItem.Name" xml:space="preserve">
+    <value>ActualiserLaPageToolStripMenuItem</value>
+  </data>
+  <data name="EnregistrerLimageToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAACnSURBVDhPpdOx
+        DcIwEIVhiy1YKBtQQEcXGAR6xmCQrADsQAOIigL+h3yRsJ5iAid9kfV8d2mSRK1xw/NLB0zRl4av6CpO
+        iCVH9EsUqKFWM8SCjyW/Loglfy2Q9+OMfYVeUg6LDcew4Rg2DJfM3QUbPrDEJNNZmeu14Q5lKXO9Npyj
+        rAVcrw03KGsL12vDOxpE6azM9Q7+ifpUxd2JZtMqH1zDEGZS+wKlMsD1Rm4F6gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ToolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 6</value>
+  </data>
+  <data name="&gt;&gt;SearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CouperToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AfficherLeCodeSourceDeLaPageToolStripMenuItem.Name" xml:space="preserve">
-    <value>AfficherLeCodeSourceDeLaPageToolStripMenuItem</value>
+  <data name="MessageBarButton1.Text" xml:space="preserve">
+    <value>MessageBarButton</value>
   </data>
-  <data name="&gt;&gt;AfficherLeCodeSourceDeLaPageToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;AfficherLesFavorisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;SaveImageDialog.Name" xml:space="preserve">
-    <value>SaveImageDialog</value>
-  </data>
-  <data name="&gt;&gt;SaveImageDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SavePageDialog.Name" xml:space="preserve">
-    <value>SavePageDialog</value>
-  </data>
-  <data name="&gt;&gt;SavePageDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ImageList1.Name" xml:space="preserve">
-    <value>ImageList1</value>
-  </data>
-  <data name="&gt;&gt;ImageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FermerCetOngletToolStripMenuItem.Name" xml:space="preserve">
-    <value>FermerCetOngletToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;FermerCetOngletToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;Zoom125.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RouvrirLeDernierOngletFerméToolStripMenuItem.Name" xml:space="preserve">
-    <value>RouvrirLeDernierOngletFerméToolStripMenuItem</value>
+  <data name="&gt;&gt;FavoritesButton.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;RouvrirLeDernierOngletFerméToolStripMenuItem.Type" xml:space="preserve">
+  <data name="SearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>645, 0</value>
+  </data>
+  <data name="&gt;&gt;MessageBarPictureBox.Name" xml:space="preserve">
+    <value>MessageBarPictureBox</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator9.Name" xml:space="preserve">
+    <value>ToolStripSeparator9</value>
+  </data>
+  <data name="&gt;&gt;ÀProposDeSmartNetBrowserToolStripMenuItem.Name" xml:space="preserve">
+    <value>ÀProposDeSmartNetBrowserToolStripMenuItem</value>
+  </data>
+  <data name="FermerCetOngletToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fermer cet onglet</value>
+  </data>
+  <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
+    <value>MainMenu</value>
+  </data>
+  <data name="Zoom175.Text" xml:space="preserve">
+    <value>175 %</value>
+  </data>
+  <data name="&gt;&gt;Zoom100.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenFileDialog1.Title" xml:space="preserve">
+    <value>Ouvrir un document local</value>
+  </data>
+  <data name="URLBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 27</value>
+  </data>
+  <data name="&gt;&gt;CentreDaideEnLigneToolStripMenuItem.Name" xml:space="preserve">
+    <value>CentreDaideEnLigneToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;BrowserTabs.Name" xml:space="preserve">
+    <value>BrowserTabs</value>
+  </data>
+  <data name="NewTabToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ouvre un nouvel onglet</value>
+  </data>
+  <data name="FavoritesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="URLBoxLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;SavePageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GoButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="MessageBarCloseButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="MessageBarPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="FermerSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Ferme SmartNet Browser.</value>
+  </data>
+  <data name="&gt;&gt;Zoom400.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StatusLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 24</value>
+  </data>
+  <data name="OuvrirDansUnNouvelOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
+    <value>ToolStripSeparator1</value>
+  </data>
+  <data name="NextpageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 27</value>
+  </data>
+  <data name="URLBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt</value>
+  </data>
+  <data name="EnvoyerVosCommentairesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Envoyer vos commentaires</value>
+  </data>
+  <data name="&gt;&gt;NewTabButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
+    <value>ToolStripSeparator6</value>
+  </data>
+  <data name="StatusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="TéléchargerCetteVidéoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Télécharger ou convertir cette vidéo...</value>
+  </data>
+  <data name="&gt;&gt;ActualiserLaPageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UpdateNotifyIcon.BalloonTipText" xml:space="preserve">
+    <value>Une mise à jour est disponible pour SmartNet Browser</value>
+  </data>
+  <data name="StatusLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="ZoomMinusButton.Text" xml:space="preserve">
+    <value>Zoom a&amp;rrière</value>
+  </data>
+  <data name="AjouterLeLienAuxFavorisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ajouter le lien aux favoris</value>
+  </data>
+  <data name="RechercherDansLaPageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Recherc&amp;her dans la page...</value>
+  </data>
+  <data name="&gt;&gt;RechercherDansLaPageToolStripMenuItem.Name" xml:space="preserve">
+    <value>RechercherDansLaPageToolStripMenuItem</value>
+  </data>
+  <data name="Zoom50.Text" xml:space="preserve">
+    <value>50 %</value>
+  </data>
+  <data name="&gt;&gt;AperçuAvantImpressionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SearchBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;PreviouspageButton.Name" xml:space="preserve">
+    <value>PreviouspageButton</value>
+  </data>
+  <data name="QuitterLePleinÉcranToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="PropriétésToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 22</value>
+  </data>
+  <data name="&gt;&gt;CentreDaideEnLigneToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;GardeFouTimer.Name" xml:space="preserve">
     <value>GardeFouTimer</value>
   </data>
-  <data name="&gt;&gt;GardeFouTimer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="NewTabButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>BrowserForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="TabsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1158, 8</value>
+  </metadata>
+  <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>481, 11</value>
+  </metadata>
+  <metadata name="MainToolbar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>12, 8</value>
+  </metadata>
+  <metadata name="SaveImageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>873, 8</value>
+  </metadata>
+  <metadata name="SavePageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1019, 8</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>75</value>
+  </metadata>
+  <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>679, 8</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>284, 10</value>
+  </metadata>
+  <metadata name="UpdateNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 8</value>
+  </metadata>
+  <metadata name="GardeFouTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1334, 8</value>
+  </metadata>
 </root>
