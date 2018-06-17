@@ -677,10 +677,8 @@ Partial Class SettingsForm
         'AbortButton
         '
         resources.ApplyResources(Me.AbortButton, "AbortButton")
-        Me.AbortButton.BackColor = System.Drawing.SystemColors.ControlLight
         Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AbortButton.Name = "AbortButton"
-        Me.AbortButton.UseVisualStyleBackColor = False
         '
         'DefaultDownloadFolderBrowserDialog
         '
