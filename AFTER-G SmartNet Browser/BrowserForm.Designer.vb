@@ -658,6 +658,9 @@ Partial Class BrowserForm
         '
         resources.ApplyResources(Me.MessageBarCloseButton1, "MessageBarCloseButton1")
         Me.MessageBarCloseButton1.BackColor = System.Drawing.Color.DarkOrange
+        Me.MessageBarCloseButton1.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        Me.MessageBarCloseButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        Me.MessageBarCloseButton1.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
         Me.MessageBarCloseButton1.Name = "MessageBarCloseButton1"
         Me.MessageBarCloseButton1.TabStop = False
         '
