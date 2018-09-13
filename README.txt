@@ -1,5 +1,5 @@
 Vous trouverez de l'aide pour SmartNet Browser sur le site internet SmartNet Apps, à l'adresse
-https://quentinpugeat.wixsite.com/apps/support-browser
+http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/index.html
 
 Copyright 2015-2018 Quentin Pugeat
 SmartNet Apps
