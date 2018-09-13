@@ -382,11 +382,13 @@ Public Class BrowserForm
 
     Private Sub CloseTab(sender As Object, e As EventArgs) Handles CloseTabButton.Click, CloseTabToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate("about:blank")
+
         If BrowserTabs.TabPages.Count = 1 Then
+            CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser).Dispose()
             CloseSmartNetBrowser()
         Else
             lastClosedTab = WB.Url.ToString()
+            CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser).Dispose()
             BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
         End If
     End Sub
