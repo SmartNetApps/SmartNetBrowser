@@ -44,7 +44,7 @@ Public Class BrowserForm
     Public Sub RefreshListOfTabs()
         Dim WB As CustomBrowser
         My.Settings.LastSessionListOfTabs.Clear()
-        For Each onglet In BrowserTabs.TabPages
+        For Each onglet As TabPage In BrowserTabs.TabPages
             WB = CType(onglet.Tag, CustomBrowser)
             My.Settings.LastSessionListOfTabs.Add(WB.Url.ToString())
         Next
@@ -188,6 +188,8 @@ Public Class BrowserForm
     ''' </summary>
     Public Sub UpdateInterface()
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim WB2 As CustomBrowser
+
         Select Case My.Settings.SearchEngine
             Case 1
                 SearchBoxLabel.Text = "Google"
@@ -226,25 +228,32 @@ Public Class BrowserForm
         PreviouspageButton.Enabled = WB.CanGoBack
         NextpageButton.Enabled = WB.CanGoForward
 
-        If Not (WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or WB.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")) Then
+        If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Then
             URLBox.Text = ""
         Else
             URLBox.Text = WB.Url.ToString
         End If
 
-        If WB.DocumentTitle = "" Then
-            If WB.Url.ToString.Length > 30 Then
-                BrowserTabs.SelectedTab.Text = WB.Url.ToString.Substring(0, 29) & "..."
+        For Each onglet As TabPage In Me.BrowserTabs.TabPages
+            WB2 = CType(onglet.Tag, CustomBrowser)
+            If WB2.DocumentTitle = "" Or WB2.DocumentTitle Is Nothing Then
+                If WB2.Url.ToString.Length > 30 Then
+                    onglet.Text = WB2.Url.ToString.Substring(0, 29) & "..."
+                Else
+                    onglet.Text = WB2.Url.ToString
+                End If
             Else
-                BrowserTabs.SelectedTab.Text = WB.Url.ToString
+                If WB2.DocumentTitle.Length > 30 Then
+                    onglet.Text = WB2.DocumentTitle.Substring(0, 29) & "..."
+                Else
+                    onglet.Text = WB2.DocumentTitle
+                End If
             End If
+        Next
+
+        If WB.DocumentTitle = "" Then
             Me.Text = WB.Url.ToString + " - SmartNet Browser"
         Else
-            If WB.DocumentTitle.Length > 30 Then
-                BrowserTabs.SelectedTab.Text = WB.DocumentTitle.Substring(0, 29) & "..."
-            Else
-                BrowserTabs.SelectedTab.Text = WB.DocumentTitle
-            End If
             Me.Text = WB.DocumentTitle.ToString + " - SmartNet Browser"
         End If
 
@@ -534,7 +543,7 @@ Public Class BrowserForm
         AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/", BrowserTabs)
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/contact", BrowserTabs)
+        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/contact.html", BrowserTabs)
     End Sub
     Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
         AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)

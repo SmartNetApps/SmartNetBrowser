@@ -130,26 +130,26 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
-        If e.Uri.ToString <> "about:blank" Then
-            If IsDangerousForChildren(e.Uri.ToString()) = True Then
-                Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
-                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+
+        If IsDangerousForChildren(e.Uri.ToString()) = True Then
+            Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+            If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
+                Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+            Else
+                Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+            End If
+        End If
+        If e.Uri.ToString.Contains("window.close") Then
+            If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
+                BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
+            Else
+                If MsgBox("Le site Web tente de fermer la fenêtre. Voulez-vous continuer ? (Si vous cliquez sur non, vous serez redirigé vers la page d'accueil)", MsgBoxStyle.YesNo, "Fermeture de la fenêtre") = MsgBoxResult.Yes Then
+                    Application.Exit()
                 Else
-                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+                    Me.Navigate(My.Settings.Homepage)
                 End If
             End If
-            If e.Uri.ToString.Contains("window.close") Then
-                If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
-                    BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
-                Else
-                    If MsgBox("Le site Web tente de fermer la fenêtre. Voulez-vous continuer ? (Si vous cliquez sur non, vous serez redirigé vers la page d'accueil)", MsgBoxStyle.YesNo, "Fermeture de la fenêtre") = MsgBoxResult.Yes Then
-                        Application.Exit()
-                    Else
-                        Me.Navigate(My.Settings.Homepage)
-                    End If
-                End If
-            End If
+
             BrowserForm.UpdateInterface()
             BrowserForm.CheckFavicon()
             BrowserForm.CloseMessageBar()
@@ -232,18 +232,22 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_DocumentTitleChanged(sender As Object, e As EventArgs) Handles Me.DocumentTitleChanged
         If DocumentTitle = "" Then
             If Url.ToString.Length > 30 Then
-                BrowserForm.BrowserTabs.SelectedTab.Text = Url.ToString.Substring(0, 29) & "..."
+                CType(Me.Tag, TabPage).Text = Url.ToString.Substring(0, 29) & "..."
             Else
-                BrowserForm.BrowserTabs.SelectedTab.Text = Url.ToString
+                CType(Me.Tag, TabPage).Text = Url.ToString
             End If
-            Me.Text = Url.ToString + " - SmartNet Browser"
+            If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
+                BrowserForm.Text = Url.ToString + " - SmartNet Browser"
+            End If
         Else
             If DocumentTitle.Length > 30 Then
-                BrowserForm.BrowserTabs.SelectedTab.Text = DocumentTitle.Substring(0, 29) & "..."
+                CType(Me.Tag, TabPage).Text = DocumentTitle.Substring(0, 29) & "..."
             Else
-                BrowserForm.BrowserTabs.SelectedTab.Text = DocumentTitle
+                CType(Me.Tag, TabPage).Text = DocumentTitle
             End If
-            Me.Text = DocumentTitle.ToString + " - SmartNet Browser"
+            If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
+                BrowserForm.Text = DocumentTitle.ToString + " - SmartNet Browser"
+            End If
         End If
     End Sub
 
