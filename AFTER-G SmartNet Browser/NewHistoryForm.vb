@@ -30,7 +30,7 @@
 
     Private Sub OpenPageButton_Click(sender As Object, e As EventArgs) Handles OpenPageButton.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        For Each Item In HistoryListView.SelectedItems
+        For Each Item As ListViewItem In HistoryListView.SelectedItems
             BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
         Next
         WB.Navigate(HistoryListView.SelectedItems.Item(0).SubItems(1).Text)
