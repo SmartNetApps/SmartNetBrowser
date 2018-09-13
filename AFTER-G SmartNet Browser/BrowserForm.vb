@@ -43,11 +43,15 @@ Public Class BrowserForm
     ''' </summary>
     Public Sub RefreshListOfTabs()
         Dim WB As CustomBrowser
-        My.Settings.LastSessionListOfTabs.Clear()
+        Dim newList As New Specialized.StringCollection
+        'My.Settings.LastSessionListOfTabs.Clear()
         For Each onglet As TabPage In BrowserTabs.TabPages
             WB = CType(onglet.Tag, CustomBrowser)
-            My.Settings.LastSessionListOfTabs.Add(WB.Url.ToString())
+            'My.Settings.LastSessionListOfTabs.Add(WB.Url.ToString())
+            newList.Add(WB.Url.ToString())
         Next
+        My.Settings.LastSessionListOfTabs = newList
+        My.Settings.Save()
     End Sub
 
     ''' <summary>
@@ -1000,9 +1004,8 @@ Public Class BrowserForm
             Case "OpenPopup"
                 AddTab(MessageBarButtonLink, BrowserTabs)
             Case "RestorePreviousSession"
-                Dim listOfTabs As Specialized.StringCollection = My.Settings.LastSessionListOfTabs
-                For index = 0 To listOfTabs.Count - 1
-                    AddTab(listOfTabs.Item(index), BrowserTabs)
+                For Each page As String In My.Settings.LastSessionListOfTabs
+                    AddTab(page, BrowserTabs)
                 Next
                 My.Settings.CorrectlyClosed = False
             Case "OpenExceptionForm"

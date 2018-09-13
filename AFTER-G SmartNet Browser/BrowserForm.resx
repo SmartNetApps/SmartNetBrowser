@@ -124,10 +124,41 @@
   <data name="MainToolbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt</value>
+  </data>
+  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 20</value>
+  </data>
+  <data name="MainMenu.ToolTipText" xml:space="preserve">
+    <value>Menu de SmartNet Browser</value>
+  </data>
+  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 1</value>
+  </data>
+  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
+    <value>MainToolbar</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
   <data name="NewTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+T</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="NewTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
@@ -197,6 +228,15 @@
   <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Envoyer un lien vers cette page par e-mail.</value>
   </data>
+  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="ÉditionSubMenu.Text" xml:space="preserve">
+    <value>Éditio&amp;n</value>
+  </data>
+  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
+    <value>Outils d'édition</value>
+  </data>
   <data name="CouperToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 24</value>
   </data>
@@ -251,14 +291,22 @@
   <data name="RechercherDansLaPageToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Rechercher du texte dans la page et le mettre en surbrillance.</value>
   </data>
-  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASlJREFUOE+V
+        kjFOAlEQQBETGioqCwsTEjsMDY2llfEgdoTOWjottacxHoGoF7CzNMbG6Akg0UITCvC93QX+7n4gvOQl
+        fzc7M39mtlLgBO/xDT/wCc+xhmvxgzsc4RWeocl6+JrZxJUY/IJ7yVOeXbzBT2z4ooiVrBwGd/EhPS54
+        RBOVsGevHXKBz+lxwTGO0RvlcGD2LFY22Opf2Vn3sYp/eIg5nLZtiIFWNvg7O+sRyg+20uMSV+W0Q2It
+        HOAE68lTgHt2TWFvsQTXOEyPefwHTBBO2J7n15ZT/MV28hTBn8Q9uyqn7cDEa1vZ4Ck6oz7uYAl/Em/h
+        qpy2A7Nnr21lg2eZA4wmEWfhqpx2OLBLnCfYmCSGHxsUJrnFrSgmecetMYmVCa50/gH5BEYmIsx9TgAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
-  <data name="ÉditionSubMenu.Text" xml:space="preserve">
-    <value>Éditio&amp;n</value>
-  </data>
-  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
-    <value>Outils d'édition</value>
+  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Zoom</value>
   </data>
   <data name="Zoom50.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 24</value>
@@ -344,23 +392,6 @@
   <data name="ZoomMinusButton.Text" xml:space="preserve">
     <value>Zoom a&amp;rrière</value>
   </data>
-  <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASlJREFUOE+V
-        kjFOAlEQQBETGioqCwsTEjsMDY2llfEgdoTOWjottacxHoGoF7CzNMbG6Akg0UITCvC93QX+7n4gvOQl
-        fzc7M39mtlLgBO/xDT/wCc+xhmvxgzsc4RWeocl6+JrZxJUY/IJ7yVOeXbzBT2z4ooiVrBwGd/EhPS54
-        RBOVsGevHXKBz+lxwTGO0RvlcGD2LFY22Opf2Vn3sYp/eIg5nLZtiIFWNvg7O+sRyg+20uMSV+W0Q2It
-        HOAE68lTgHt2TWFvsQTXOEyPefwHTBBO2J7n15ZT/MV28hTBn8Q9uyqn7cDEa1vZ4Ck6oz7uYAl/Em/h
-        qpy2A7Nnr21lg2eZA4wmEWfhqpx2OLBLnCfYmCSGHxsUJrnFrSgmecetMYmVCa50/gH5BEYmIsx9TgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Zoom</value>
-  </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
   </data>
@@ -372,6 +403,15 @@
   </data>
   <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
+  </data>
+  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="FavorisSubMenu.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
+    <value>Gérer les favoris</value>
   </data>
   <data name="AfficherLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+B</value>
@@ -396,15 +436,6 @@
   </data>
   <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ajoute la page dans la liste de vos favoris.</value>
-  </data>
-  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="FavorisSubMenu.Text" xml:space="preserve">
-    <value>Favoris</value>
-  </data>
-  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
-    <value>Gérer les favoris</value>
   </data>
   <data name="AfficherLhistoriqueToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+H</value>
@@ -433,7 +464,6 @@
   <data name="PleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Passer en mode plein écran.</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="QuitterLePleinÉcranToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -463,6 +493,15 @@
   </data>
   <data name="ParamètresToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ouvre les paramètres de votre navigateur.</value>
+  </data>
+  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
   </data>
   <data name="CentreDaideEnLigneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 24</value>
@@ -512,14 +551,30 @@
   <data name="SignalerUnSiteMalveillantToolStripMenuItem.Text" xml:space="preserve">
     <value>Signaler un site malveillant...</value>
   </data>
-  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
+        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
+        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
+        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
+        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
+        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
+        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
+        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
-  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Aide</value>
+  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
+    <value>Mettre à jour SmartNet Browser</value>
   </data>
-  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
+  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
+    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -546,31 +601,6 @@
   <data name="TéléchargerLaVersionXXXXToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Afficher les détails sur la mise à jour de SmartNet Browser.</value>
   </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
-        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
-        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
-        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
-        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
-        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
-        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
-        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
-    <value>Mettre à jour SmartNet Browser</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
-    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+F4</value>
   </data>
@@ -582,36 +612,6 @@
   </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ferme SmartNet Browser.</value>
-  </data>
-  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
-  </data>
-  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 20</value>
-  </data>
-  <data name="MainMenu.ToolTipText" xml:space="preserve">
-    <value>Menu de SmartNet Browser</value>
-  </data>
-  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 1</value>
-  </data>
-  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 24</value>
-  </data>
-  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
-    <value>MainToolbar</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
-    <value>24</value>
   </data>
   <data name="FaviconBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>146, 6</value>
@@ -745,6 +745,15 @@
   <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>679, 8</value>
   </metadata>
+  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 336</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
+    <value>BrowserContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="OuvrirLeLienToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 22</value>
   </data>
@@ -844,15 +853,6 @@
   <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Text" xml:space="preserve">
     <value>Afficher le code source de la page</value>
   </data>
-  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 336</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
-    <value>BrowserContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <metadata name="SaveImageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>873, 8</value>
   </metadata>
@@ -942,6 +942,15 @@
   <metadata name="TabsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1158, 8</value>
   </metadata>
+  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 48</value>
+  </data>
+  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
+    <value>TabsContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="FermerCetOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 22</value>
   </data>
@@ -953,15 +962,6 @@
   </data>
   <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Text" xml:space="preserve">
     <value>Rouvrir le dernier onglet fermé</value>
-  </data>
-  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 48</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
-    <value>TabsContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LoadingGif.Location" type="System.Drawing.Point, System.Drawing">
     <value>146, 6</value>

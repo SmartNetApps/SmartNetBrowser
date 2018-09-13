@@ -666,7 +666,8 @@ Partial Class BrowserForm
         '
         'GardeFouTimer
         '
-        Me.GardeFouTimer.Interval = 1000
+        Me.GardeFouTimer.Enabled = True
+        Me.GardeFouTimer.Interval = 5000
         '
         'NextpageButton
         '
