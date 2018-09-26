@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="SmartNetSecurityGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -130,8 +133,9 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Bienvenue</value>
   </data>
-  <data name="&gt;&gt;PictureBox3.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PictureBoxWordmark.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;PictureBox3.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -152,7 +156,6 @@
   <data name="&gt;&gt;LabelTitle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBoxHomepage.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
   </data>
@@ -168,23 +171,20 @@
   <data name="RadioButton3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="PictureBoxWordmark.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Entrez l'adresse de la page qui s'affichera en premier lors de l'ouverture de SmartNet Browser.</value>
   </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PictureBoxWordmark.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
   <data name="PictureBoxHourglass.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="SearchEngineGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>168, 278</value>
-  </data>
-  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="RadioButton1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -198,6 +198,12 @@
   <data name="RadioButton2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1015, 533</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
+    <value>SearchEngineGroupBox</value>
+  </data>
   <data name="&gt;&gt;RadioButton3.Name" xml:space="preserve">
     <value>RadioButton3</value>
   </data>
@@ -205,7 +211,7 @@
     <value>704, 68</value>
   </data>
   <data name="HomepageURLBox.Text" xml:space="preserve">
-    <value>http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/</value>
+    <value>http://homepage.quentinpugeat.fr/</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -219,14 +225,14 @@
   <data name="LabelSubtitle.Text" xml:space="preserve">
     <value>Choisissez vos paramètres ci-dessous, puis cliquez sur "Suivant" pour terminer la configuration de votre navigateur.</value>
   </data>
-  <data name="&gt;&gt;LabelSubtitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;NextButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;AdBlockerCheckBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;NextButton.Name" xml:space="preserve">
-    <value>NextButton</value>
+  <data name="&gt;&gt;LabelState.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="LabelState.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -239,6 +245,9 @@
   </data>
   <data name="RadioButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 19</value>
+  </data>
+  <data name="RadioButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 43</value>
   </data>
   <data name="&gt;&gt;PictureBox3.Name" xml:space="preserve">
     <value>PictureBox3</value>
@@ -5971,9 +5980,6 @@
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
-  </data>
   <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
@@ -5985,6 +5991,9 @@
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="HomepageURLBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>547, 23</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
@@ -6010,9 +6019,6 @@
   <data name="PictureBoxHomepage.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 25</value>
   </data>
-  <data name="&gt;&gt;SmartNetSecurityGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="AdBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 43</value>
   </data>
@@ -6021,9 +6027,6 @@
   </data>
   <data name="AdBlockerCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="&gt;&gt;HomepageGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6058,17 +6061,20 @@
   <data name="SmartNetSecurityGroupBox.Text" xml:space="preserve">
     <value>SmartNet AdsBlocker</value>
   </data>
-  <data name="&gt;&gt;SearchEngineGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="RadioButton4.Text" xml:space="preserve">
     <value>DuckDuckGo</value>
+  </data>
+  <data name="&gt;&gt;HomepageGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="RadioButton4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Choisissez le moteur de recherche qui s'affichera quand vous taperez une requête dans la barre de recherche.</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
@@ -6082,8 +6088,8 @@
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 25</value>
   </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 25</value>
+  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
+    <value>Moteur de recherche</value>
   </data>
   <data name="&gt;&gt;RadioButton2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6102,9 +6108,6 @@
   </data>
   <data name="&gt;&gt;HomepageGroupBox.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="HomepageURLBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -6145,9 +6148,6 @@
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RadioButton2.Text" xml:space="preserve">
-    <value>Bing</value>
-  </data>
   <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -6168,9 +6168,6 @@
   </data>
   <data name="&gt;&gt;RadioButton5.Name" xml:space="preserve">
     <value>RadioButton5</value>
-  </data>
-  <data name="&gt;&gt;LabelSubtitle.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;AdBlockerCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6247,6 +6244,9 @@
   <data name="PictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="RadioButton5.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 43</value>
   </data>
@@ -6258,9 +6258,6 @@
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FirstStartForm</value>
-  </data>
-  <data name="PictureBox3.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
     <value>PictureBox2</value>
@@ -6283,26 +6280,26 @@
   <data name="RadioButton5.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="AdBlockerCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="PictureBox2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>SearchEngineGroupBox</value>
   </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PictureBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>1015, 49</value>
   </data>
-  <data name="RadioButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>310, 43</value>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 25</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;LabelSubtitle.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="PictureBoxWordmark.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -6316,11 +6313,17 @@
   <data name="&gt;&gt;PictureBoxHomepage.Name" xml:space="preserve">
     <value>PictureBoxHomepage</value>
   </data>
+  <data name="HomepageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 75</value>
+  </data>
+  <data name="HomepageGroupBox.Text" xml:space="preserve">
+    <value>Page de démarrage</value>
+  </data>
   <data name="LabelSubtitle.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;HomepageGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;SearchEngineGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PictureBoxHomepage.Parent" xml:space="preserve">
     <value>HomepageGroupBox</value>
@@ -6337,14 +6340,14 @@
   <data name="&gt;&gt;PictureBoxWordmark.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;NextButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
   </data>
   <data name="&gt;&gt;HomepageURLBox.Parent" xml:space="preserve">
     <value>HomepageGroupBox</value>
   </data>
-  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
-    <value>SearchEngineGroupBox</value>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="LabelState.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
@@ -6352,8 +6355,8 @@
   <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="HomepageURLBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 23</value>
+  <data name="&gt;&gt;RadioButton5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RadioButton3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -6361,7 +6364,7 @@
   <data name="LabelSubtitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>983, 24</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+  <data name="HomepageURLBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;PictureBoxHomepage.ZOrder" xml:space="preserve">
@@ -6373,11 +6376,11 @@
   <data name="&gt;&gt;SearchEngineGroupBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Entrez l'adresse de la page qui s'affichera en premier lors de l'ouverture de SmartNet Browser.</value>
+  <data name="RadioButton2.Text" xml:space="preserve">
+    <value>Bing</value>
   </data>
-  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;LabelSubtitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PictureBox3.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -6397,11 +6400,8 @@
   <data name="AdBlockerCheckBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="AdBlockerCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;PictureBoxHomepage.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6415,8 +6415,8 @@
   <data name="RadioButton2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="PictureBoxWordmark.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="PictureBoxWordmark.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
     <value>SmartNetSecurityGroupBox</value>
@@ -6424,10 +6424,10 @@
   <data name="&gt;&gt;LabelSubtitle.Name" xml:space="preserve">
     <value>LabelSubtitle</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1015, 533</value>
+  <data name="PictureBox3.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
-  <data name="&gt;&gt;LabelState.Parent" xml:space="preserve">
+  <data name="&gt;&gt;SmartNetSecurityGroupBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="RadioButton4.AutoSize" type="System.Boolean, mscorlib">
@@ -6439,8 +6439,8 @@
   <data name="&gt;&gt;LabelState.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Choisissez le moteur de recherche qui s'affichera quand vous taperez une requête dans la barre de recherche.</value>
+  <data name="&gt;&gt;NextButton.Name" xml:space="preserve">
+    <value>NextButton</value>
   </data>
   <data name="RadioButton3.Location" type="System.Drawing.Point, System.Drawing">
     <value>243, 43</value>
@@ -6451,11 +6451,11 @@
   <data name="&gt;&gt;HomepageGroupBox.Name" xml:space="preserve">
     <value>HomepageGroupBox</value>
   </data>
-  <data name="SearchEngineGroupBox.Text" xml:space="preserve">
-    <value>Moteur de recherche</value>
+  <data name="&gt;&gt;PictureBox3.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="HomepageGroupBox.Text" xml:space="preserve">
-    <value>Page de démarrage</value>
+  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>496, 15</value>
@@ -6472,8 +6472,8 @@
   <data name="LabelTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 24pt</value>
   </data>
-  <data name="&gt;&gt;RadioButton5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="PictureBoxWordmark.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
   </data>
   <data name="PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 25</value>
@@ -6520,8 +6520,8 @@
   <data name="&gt;&gt;RadioButton4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="HomepageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 75</value>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="RadioButton3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

@@ -67,9 +67,9 @@ Public Class FirstStartForm
                 LabelState.Text = "Définition des paramètres par défaut pour le téléchargement de fichiers..."
                 Dim DownloadFolderrKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
                 If DownloadFolderrKey Is Nothing Or DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}") Is Nothing Then
-                    MessageBox.Show(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads")
+                    My.Settings.DefaultDownloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
                 Else
-                    MessageBox.Show(DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString())
+                    My.Settings.DefaultDownloadFolder = DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}").ToString()
                 End If
                 LabelState.Text = "Définition des paramètres par défaut pour le comportement de SmartNet Browser..."
                 My.Settings.CorrectlyClosed = True
