@@ -113,6 +113,13 @@ Partial Class SettingsForm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.GroupBox_AdsBlockerActivation = New System.Windows.Forms.GroupBox()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox_AdsBlockerPopups = New System.Windows.Forms.GroupBox()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -146,6 +153,12 @@ Partial Class SettingsForm
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox_AdsBlockerActivation.SuspendLayout()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox_AdsBlockerPopups.SuspendLayout()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -525,10 +538,10 @@ Partial Class SettingsForm
         'AdBlockerTabPage
         '
         resources.ApplyResources(Me.AdBlockerTabPage, "AdBlockerTabPage")
-        Me.AdBlockerTabPage.Controls.Add(Me.AdsBlockerProblemSignalementButton)
-        Me.AdBlockerTabPage.Controls.Add(Me.PopUpsBlockerCheckBox)
-        Me.AdBlockerTabPage.Controls.Add(Me.EditWhitelistButton)
-        Me.AdBlockerTabPage.Controls.Add(Me.AdBlockerCheckBox)
+        Me.AdBlockerTabPage.Controls.Add(Me.GroupBox1)
+        Me.AdBlockerTabPage.Controls.Add(Me.GroupBox_AdsBlockerPopups)
+        Me.AdBlockerTabPage.Controls.Add(Me.GroupBox_AdsBlockerActivation)
+        Me.AdBlockerTabPage.Controls.Add(Me.Label9)
         Me.AdBlockerTabPage.Name = "AdBlockerTabPage"
         Me.AdBlockerTabPage.UseVisualStyleBackColor = True
         '
@@ -797,6 +810,56 @@ Partial Class SettingsForm
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.TabStop = False
         '
+        'Label9
+        '
+        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.Name = "Label9"
+        '
+        'GroupBox_AdsBlockerActivation
+        '
+        Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.PictureBox11)
+        Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.AdBlockerCheckBox)
+        resources.ApplyResources(Me.GroupBox_AdsBlockerActivation, "GroupBox_AdsBlockerActivation")
+        Me.GroupBox_AdsBlockerActivation.Name = "GroupBox_AdsBlockerActivation"
+        Me.GroupBox_AdsBlockerActivation.TabStop = False
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlocker
+        resources.ApplyResources(Me.PictureBox11, "PictureBox11")
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.TabStop = False
+        '
+        'GroupBox_AdsBlockerPopups
+        '
+        Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PictureBox12)
+        Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PopUpsBlockerCheckBox)
+        resources.ApplyResources(Me.GroupBox_AdsBlockerPopups, "GroupBox_AdsBlockerPopups")
+        Me.GroupBox_AdsBlockerPopups.Name = "GroupBox_AdsBlockerPopups"
+        Me.GroupBox_AdsBlockerPopups.TabStop = False
+        '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.SmartNet_Browser.My.Resources.Resources.BlockPopUps
+        resources.ApplyResources(Me.PictureBox12, "PictureBox12")
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.TabStop = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.PictureBox13)
+        Me.GroupBox1.Controls.Add(Me.EditWhitelistButton)
+        Me.GroupBox1.Controls.Add(Me.AdsBlockerProblemSignalementButton)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'PictureBox13
+        '
+        resources.ApplyResources(Me.PictureBox13, "PictureBox13")
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.TabStop = False
+        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -862,6 +925,14 @@ Partial Class SettingsForm
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox_AdsBlockerActivation.ResumeLayout(False)
+        Me.GroupBox_AdsBlockerActivation.PerformLayout()
+        CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox_AdsBlockerPopups.ResumeLayout(False)
+        Me.GroupBox_AdsBlockerPopups.PerformLayout()
+        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -956,4 +1027,11 @@ Partial Class SettingsForm
     Friend WithEvents Label8 As Label
     Friend WithEvents PictureBox9 As PictureBox
     Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents GroupBox_AdsBlockerActivation As GroupBox
+    Friend WithEvents PictureBox11 As PictureBox
+    Friend WithEvents GroupBox_AdsBlockerPopups As GroupBox
+    Friend WithEvents PictureBox12 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PictureBox13 As PictureBox
 End Class

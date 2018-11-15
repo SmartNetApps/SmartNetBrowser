@@ -784,7 +784,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Général.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 437</value>
+    <value>852, 459</value>
   </data>
   <data name="Général.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1393,7 +1393,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Confidentialité.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 437</value>
+    <value>852, 459</value>
   </data>
   <data name="Confidentialité.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1826,59 +1826,38 @@ et pouvant choquer les plus jeunes.</value>
   <data name="AdBlockerTabPage.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="AdsBlockerProblemSignalementButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 84</value>
+  <data name="PictureBox13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="AdsBlockerProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 26</value>
+  <data name="PictureBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
   </data>
-  <data name="AdsBlockerProblemSignalementButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="PictureBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
   </data>
-  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
-    <value>Signaler une faille dans SmartNet AdsBlocker...</value>
+  <data name="PictureBox13.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Name" xml:space="preserve">
-    <value>AdsBlockerProblemSignalementButton</value>
+  <data name="PictureBox13.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;PictureBox13.Name" xml:space="preserve">
+    <value>PictureBox13</value>
   </data>
-  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Parent" xml:space="preserve">
-    <value>AdBlockerTabPage</value>
+  <data name="&gt;&gt;PictureBox13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;PictureBox13.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;PictureBox13.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PopUpsBlockerCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 28</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 23</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.Text" xml:space="preserve">
-    <value>Empêcher l'ouverture de fenêtres contextuelles à caractère publicitaire</value>
-  </data>
-  <data name="&gt;&gt;PopUpsBlockerCheckBox.Name" xml:space="preserve">
-    <value>PopUpsBlockerCheckBox</value>
-  </data>
-  <data name="&gt;&gt;PopUpsBlockerCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PopUpsBlockerCheckBox.Parent" xml:space="preserve">
-    <value>AdBlockerTabPage</value>
-  </data>
-  <data name="&gt;&gt;PopUpsBlockerCheckBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="EditWhitelistButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="EditWhitelistButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
+    <value>72, 28</value>
   </data>
   <data name="EditWhitelistButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 26</value>
@@ -1896,16 +1875,184 @@ et pouvant choquer les plus jeunes.</value>
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditWhitelistButton.Parent" xml:space="preserve">
-    <value>AdBlockerTabPage</value>
+    <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;EditWhitelistButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 55</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 26</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
+    <value>Signaler une faille dans SmartNet AdsBlocker...</value>
+  </data>
+  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Name" xml:space="preserve">
+    <value>AdsBlockerProblemSignalementButton</value>
+  </data>
+  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;AdsBlockerProblemSignalementButton.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 231</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 94</value>
+  </data>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Paramètres du service</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>AdBlockerTabPage</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PictureBox12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
+  </data>
+  <data name="PictureBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox12.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox12.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;PictureBox12.Name" xml:space="preserve">
+    <value>PictureBox12</value>
+  </data>
+  <data name="&gt;&gt;PictureBox12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox12.Parent" xml:space="preserve">
+    <value>GroupBox_AdsBlockerPopups</value>
+  </data>
+  <data name="&gt;&gt;PictureBox12.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 28</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>453, 23</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Text" xml:space="preserve">
+    <value>Empêcher l'ouverture de fenêtres contextuelles à caractère publicitaire</value>
+  </data>
+  <data name="&gt;&gt;PopUpsBlockerCheckBox.Name" xml:space="preserve">
+    <value>PopUpsBlockerCheckBox</value>
+  </data>
+  <data name="&gt;&gt;PopUpsBlockerCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PopUpsBlockerCheckBox.Parent" xml:space="preserve">
+    <value>GroupBox_AdsBlockerPopups</value>
+  </data>
+  <data name="&gt;&gt;PopUpsBlockerCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 137</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 88</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.Text" xml:space="preserve">
+    <value>Blocage des fenêtres intempestives (pop-ups)</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerPopups.Name" xml:space="preserve">
+    <value>GroupBox_AdsBlockerPopups</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerPopups.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerPopups.Parent" xml:space="preserve">
+    <value>AdBlockerTabPage</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerPopups.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PictureBox11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="PictureBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox11.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox11.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;PictureBox11.Name" xml:space="preserve">
+    <value>PictureBox11</value>
+  </data>
+  <data name="&gt;&gt;PictureBox11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox11.Parent" xml:space="preserve">
+    <value>GroupBox_AdsBlockerActivation</value>
+  </data>
+  <data name="&gt;&gt;PictureBox11.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="AdBlockerCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="AdBlockerCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="AdBlockerCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 6</value>
+    <value>72, 24</value>
   </data>
   <data name="AdBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 23</value>
@@ -1923,9 +2070,69 @@ et pouvant choquer les plus jeunes.</value>
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AdBlockerCheckBox.Parent" xml:space="preserve">
-    <value>AdBlockerTabPage</value>
+    <value>GroupBox_AdsBlockerActivation</value>
   </data>
   <data name="&gt;&gt;AdBlockerCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GroupBox_AdsBlockerActivation.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="GroupBox_AdsBlockerActivation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 44</value>
+  </data>
+  <data name="GroupBox_AdsBlockerActivation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 86</value>
+  </data>
+  <data name="GroupBox_AdsBlockerActivation.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="GroupBox_AdsBlockerActivation.Text" xml:space="preserve">
+    <value>Activation du service</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerActivation.Name" xml:space="preserve">
+    <value>GroupBox_AdsBlockerActivation</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerActivation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerActivation.Parent" xml:space="preserve">
+    <value>AdBlockerTabPage</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_AdsBlockerActivation.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 14.25pt, style=Bold</value>
+  </data>
+  <data name="Label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 12</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 25</value>
+  </data>
+  <data name="Label9.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>Bloquer les publicités</value>
+  </data>
+  <data name="&gt;&gt;Label9.Name" xml:space="preserve">
+    <value>Label9</value>
+  </data>
+  <data name="&gt;&gt;Label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label9.Parent" xml:space="preserve">
+    <value>AdBlockerTabPage</value>
+  </data>
+  <data name="&gt;&gt;Label9.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="AdBlockerTabPage.Location" type="System.Drawing.Point, System.Drawing">
@@ -1935,7 +2142,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="AdBlockerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 431</value>
+    <value>852, 459</value>
   </data>
   <data name="AdBlockerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
