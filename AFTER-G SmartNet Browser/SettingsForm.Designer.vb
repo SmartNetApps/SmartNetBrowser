@@ -105,6 +105,11 @@ Partial Class SettingsForm
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -132,6 +137,10 @@ Partial Class SettingsForm
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -309,6 +318,7 @@ Partial Class SettingsForm
         'Confidentialité
         '
         resources.ApplyResources(Me.Confidentialité, "Confidentialité")
+        Me.Confidentialité.Controls.Add(Me.Label7)
         Me.Confidentialité.Controls.Add(Me.GroupBoxCookies)
         Me.Confidentialité.Controls.Add(Me.TrackingGroupBox)
         Me.Confidentialité.Controls.Add(Me.DeleteDataGroupBox)
@@ -319,6 +329,7 @@ Partial Class SettingsForm
         'GroupBoxCookies
         '
         resources.ApplyResources(Me.GroupBoxCookies, "GroupBoxCookies")
+        Me.GroupBoxCookies.Controls.Add(Me.PictureBox7)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockAllCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockThirdPartyCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonAcceptAllCookies)
@@ -349,6 +360,7 @@ Partial Class SettingsForm
         'TrackingGroupBox
         '
         resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
+        Me.TrackingGroupBox.Controls.Add(Me.PictureBox8)
         Me.TrackingGroupBox.Controls.Add(Me.DoNotTrackCheckBox)
         Me.TrackingGroupBox.Name = "TrackingGroupBox"
         Me.TrackingGroupBox.TabStop = False
@@ -362,6 +374,7 @@ Partial Class SettingsForm
         'DeleteDataGroupBox
         '
         resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
+        Me.DeleteDataGroupBox.Controls.Add(Me.PictureBox6)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteSearchHistoryButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteTemporaryInternetFilesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteCookiesButton)
@@ -396,6 +409,7 @@ Partial Class SettingsForm
         'HistoryGroupBox
         '
         resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
+        Me.HistoryGroupBox.Controls.Add(Me.PictureBox5)
         Me.HistoryGroupBox.Controls.Add(Me.CookiesLinkLabel)
         Me.HistoryGroupBox.Controls.Add(Me.EraseCookiesCheckBox)
         Me.HistoryGroupBox.Controls.Add(Me.PrivateBrowsingCheckBox)
@@ -723,6 +737,39 @@ Partial Class SettingsForm
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.TabStop = False
         '
+        'Label7
+        '
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
+        resources.ApplyResources(Me.PictureBox5, "PictureBox5")
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.SmartNet_Browser.My.Resources.Resources.Delete
+        resources.ApplyResources(Me.PictureBox6, "PictureBox6")
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.SmartNet_Browser.My.Resources.Resources.Cookies
+        resources.ApplyResources(Me.PictureBox7, "PictureBox7")
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.TabStop = False
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.SmartNet_Browser.My.Resources.Resources.Tracking
+        resources.ApplyResources(Me.PictureBox8, "PictureBox8")
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.TabStop = False
+        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -750,6 +797,7 @@ Partial Class SettingsForm
         Me.HomepageGroupBox.ResumeLayout(False)
         Me.HomepageGroupBox.PerformLayout()
         Me.Confidentialité.ResumeLayout(False)
+        Me.Confidentialité.PerformLayout()
         Me.GroupBoxCookies.ResumeLayout(False)
         Me.GroupBoxCookies.PerformLayout()
         Me.TrackingGroupBox.ResumeLayout(False)
@@ -780,6 +828,10 @@ Partial Class SettingsForm
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -866,4 +918,9 @@ Partial Class SettingsForm
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents PictureBox8 As PictureBox
 End Class
