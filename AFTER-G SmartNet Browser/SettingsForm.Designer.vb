@@ -100,6 +100,11 @@ Partial Class SettingsForm
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.AbortButton = New System.Windows.Forms.Button()
         Me.DefaultDownloadFolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -123,6 +128,10 @@ Partial Class SettingsForm
         Me.DevelopmentGroupBox.SuspendLayout()
         Me.RepareBrowserGroupBox.SuspendLayout()
         Me.SettingsSavesGroupBox.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -140,6 +149,7 @@ Partial Class SettingsForm
         'Général
         '
         resources.ApplyResources(Me.Général, "Général")
+        Me.Général.Controls.Add(Me.Label6)
         Me.Général.Controls.Add(Me.DownloadsGroupBox)
         Me.Général.Controls.Add(Me.AutresOptionsGroupBox)
         Me.Général.Controls.Add(Me.SearchEngineGroupBox)
@@ -150,6 +160,7 @@ Partial Class SettingsForm
         'DownloadsGroupBox
         '
         resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
+        Me.DownloadsGroupBox.Controls.Add(Me.PictureBox4)
         Me.DownloadsGroupBox.Controls.Add(Me.Label5)
         Me.DownloadsGroupBox.Controls.Add(Me.SetDefaultDownloadFolderButton)
         Me.DownloadsGroupBox.Controls.Add(Me.DefaultDownloadFolderTextBox)
@@ -175,6 +186,7 @@ Partial Class SettingsForm
         'AutresOptionsGroupBox
         '
         resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
+        Me.AutresOptionsGroupBox.Controls.Add(Me.PictureBox3)
         Me.AutresOptionsGroupBox.Controls.Add(Me.PreventMultipleTabsCloseCheckBox)
         Me.AutresOptionsGroupBox.Name = "AutresOptionsGroupBox"
         Me.AutresOptionsGroupBox.TabStop = False
@@ -190,6 +202,7 @@ Partial Class SettingsForm
         'SearchEngineGroupBox
         '
         resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
+        Me.SearchEngineGroupBox.Controls.Add(Me.PictureBox2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
         Me.SearchEngineGroupBox.Controls.Add(Me.CustomSearchSettingsButton)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton0)
@@ -203,16 +216,16 @@ Partial Class SettingsForm
         'RadioButton5
         '
         Me.RadioButton5.FlatAppearance.BorderSize = 0
-        Me.RadioButton5.Image = Global.SmartNet_Browser.My.Resources.Resources.Qwant
         resources.ApplyResources(Me.RadioButton5, "RadioButton5")
+        Me.RadioButton5.Image = Global.SmartNet_Browser.My.Resources.Resources.Qwant
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.TabStop = True
         Me.RadioButton5.UseVisualStyleBackColor = True
         '
         'CustomSearchSettingsButton
         '
-        Me.CustomSearchSettingsButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Settings
         resources.ApplyResources(Me.CustomSearchSettingsButton, "CustomSearchSettingsButton")
+        Me.CustomSearchSettingsButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Settings
         Me.CustomSearchSettingsButton.Name = "CustomSearchSettingsButton"
         Me.CustomSearchSettingsButton.UseVisualStyleBackColor = True
         '
@@ -226,8 +239,8 @@ Partial Class SettingsForm
         'RadioButton4
         '
         Me.RadioButton4.FlatAppearance.BorderSize = 0
-        Me.RadioButton4.Image = Global.SmartNet_Browser.My.Resources.Resources.DuckDuckGo
         resources.ApplyResources(Me.RadioButton4, "RadioButton4")
+        Me.RadioButton4.Image = Global.SmartNet_Browser.My.Resources.Resources.DuckDuckGo
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.TabStop = True
         Me.RadioButton4.UseVisualStyleBackColor = True
@@ -235,8 +248,8 @@ Partial Class SettingsForm
         'RadioButton3
         '
         Me.RadioButton3.FlatAppearance.BorderSize = 0
-        Me.RadioButton3.Image = Global.SmartNet_Browser.My.Resources.Resources.Yahoo
         resources.ApplyResources(Me.RadioButton3, "RadioButton3")
+        Me.RadioButton3.Image = Global.SmartNet_Browser.My.Resources.Resources.Yahoo
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.TabStop = True
         Me.RadioButton3.UseVisualStyleBackColor = True
@@ -244,8 +257,8 @@ Partial Class SettingsForm
         'RadioButton2
         '
         Me.RadioButton2.FlatAppearance.BorderSize = 0
-        Me.RadioButton2.Image = Global.SmartNet_Browser.My.Resources.Resources.Bing
         resources.ApplyResources(Me.RadioButton2, "RadioButton2")
+        Me.RadioButton2.Image = Global.SmartNet_Browser.My.Resources.Resources.Bing
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -253,8 +266,8 @@ Partial Class SettingsForm
         'RadioButton1
         '
         Me.RadioButton1.FlatAppearance.BorderSize = 0
-        Me.RadioButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.Google
         resources.ApplyResources(Me.RadioButton1, "RadioButton1")
+        Me.RadioButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.Google
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -262,6 +275,7 @@ Partial Class SettingsForm
         'HomepageGroupBox
         '
         resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
+        Me.HomepageGroupBox.Controls.Add(Me.PictureBox1)
         Me.HomepageGroupBox.Controls.Add(Me.WhitePageHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.ActualPageURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.MenuURLHomepageButton)
@@ -676,6 +690,39 @@ Partial Class SettingsForm
         Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AbortButton.Name = "AbortButton"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources.Homepage
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.Search
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.SmartNet_Browser.My.Resources.Resources.General
+        resources.ApplyResources(Me.PictureBox3, "PictureBox3")
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.SmartNet_Browser.My.Resources.Resources.Download_Big
+        resources.ApplyResources(Me.PictureBox4, "PictureBox4")
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.TabStop = False
+        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -693,6 +740,7 @@ Partial Class SettingsForm
         Me.ShowInTaskbar = False
         Me.TabControl1.ResumeLayout(False)
         Me.Général.ResumeLayout(False)
+        Me.Général.PerformLayout()
         Me.DownloadsGroupBox.ResumeLayout(False)
         Me.DownloadsGroupBox.PerformLayout()
         Me.AutresOptionsGroupBox.ResumeLayout(False)
@@ -728,6 +776,10 @@ Partial Class SettingsForm
         Me.DevelopmentGroupBox.PerformLayout()
         Me.RepareBrowserGroupBox.ResumeLayout(False)
         Me.SettingsSavesGroupBox.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -809,4 +861,9 @@ Partial Class SettingsForm
     Friend WithEvents RadioButtonBlockAllCookies As RadioButton
     Friend WithEvents RadioButtonBlockThirdPartyCookies As RadioButton
     Friend WithEvents RadioButtonAcceptAllCookies As RadioButton
+    Friend WithEvents Label6 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

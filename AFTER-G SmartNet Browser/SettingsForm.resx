@@ -125,15 +125,75 @@
   <data name="Général.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 14.25pt, style=Bold</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 12</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 25</value>
+  </data>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>Paramètres généraux</value>
+  </data>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="DownloadsGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="PictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 28</value>
+  </data>
+  <data name="PictureBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.Name" xml:space="preserve">
+    <value>PictureBox4</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.Parent" xml:space="preserve">
+    <value>DownloadsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox4.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 21</value>
+    <value>67, 25</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 19</value>
@@ -154,10 +214,13 @@
     <value>DownloadsGroupBox</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="SetDefaultDownloadFolderButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="SetDefaultDownloadFolderButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 43</value>
+    <value>473, 46</value>
   </data>
   <data name="SetDefaultDownloadFolderButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 27</value>
@@ -178,13 +241,16 @@
     <value>DownloadsGroupBox</value>
   </data>
   <data name="&gt;&gt;SetDefaultDownloadFolderButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="DefaultDownloadFolderTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="DefaultDownloadFolderTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 44</value>
+    <value>71, 47</value>
   </data>
   <data name="DefaultDownloadFolderTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 25</value>
+    <value>402, 25</value>
   </data>
   <data name="DefaultDownloadFolderTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -199,13 +265,16 @@
     <value>DownloadsGroupBox</value>
   </data>
   <data name="&gt;&gt;DefaultDownloadFolderTextBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="DownloadsGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="DownloadsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 249</value>
+    <value>140, 239</value>
   </data>
   <data name="DownloadsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 76</value>
+    <value>581, 87</value>
   </data>
   <data name="DownloadsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -223,16 +292,46 @@
     <value>Général</value>
   </data>
   <data name="&gt;&gt;DownloadsGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="AutresOptionsGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="PictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
+  </data>
+  <data name="PictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Name" xml:space="preserve">
+    <value>PictureBox3</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Parent" xml:space="preserve">
+    <value>AutresOptionsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="PreventMultipleTabsCloseCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="PreventMultipleTabsCloseCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="PreventMultipleTabsCloseCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 25</value>
+    <value>72, 28</value>
   </data>
   <data name="PreventMultipleTabsCloseCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
@@ -253,13 +352,16 @@
     <value>AutresOptionsGroupBox</value>
   </data>
   <data name="&gt;&gt;PreventMultipleTabsCloseCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="AutresOptionsGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="AutresOptionsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 190</value>
+    <value>140, 332</value>
   </data>
   <data name="AutresOptionsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 53</value>
+    <value>581, 88</value>
   </data>
   <data name="AutresOptionsGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -277,13 +379,43 @@
     <value>Général</value>
   </data>
   <data name="&gt;&gt;AutresOptionsGroupBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="SearchEngineGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="PictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
+  </data>
+  <data name="PictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Name" xml:space="preserve">
+    <value>PictureBox2</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.Parent" xml:space="preserve">
+    <value>SearchEngineGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioButton5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="RadioButton5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 20</value>
+    <value>72, 28</value>
   </data>
   <data name="RadioButton5.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 28</value>
@@ -304,10 +436,13 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton5.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="CustomSearchSettingsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="CustomSearchSettingsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 55</value>
+    <value>507, 63</value>
   </data>
   <data name="CustomSearchSettingsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 27</value>
@@ -325,13 +460,16 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;CustomSearchSettingsButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="RadioButton0.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="RadioButton0.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="RadioButton0.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 57</value>
+    <value>353, 65</value>
   </data>
   <data name="RadioButton0.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 23</value>
@@ -352,10 +490,13 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton0.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="RadioButton4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="RadioButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>445, 20</value>
+    <value>353, 28</value>
   </data>
   <data name="RadioButton4.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 28</value>
@@ -373,13 +514,16 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="RadioButton3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="RadioButton3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="RadioButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>317, 20</value>
+    <value>205, 62</value>
   </data>
   <data name="RadioButton3.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 28</value>
@@ -397,10 +541,13 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton3.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
+  </data>
+  <data name="RadioButton2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="RadioButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 20</value>
+    <value>205, 28</value>
   </data>
   <data name="RadioButton2.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 28</value>
@@ -418,10 +565,13 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <data name="RadioButton1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="RadioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 20</value>
+    <value>72, 62</value>
   </data>
   <data name="RadioButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 28</value>
@@ -439,13 +589,16 @@
     <value>SearchEngineGroupBox</value>
   </data>
   <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="SearchEngineGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="SearchEngineGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 92</value>
+    <value>140, 134</value>
   </data>
   <data name="SearchEngineGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 92</value>
+    <value>581, 99</value>
   </data>
   <data name="SearchEngineGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -463,13 +616,40 @@
     <value>Général</value>
   </data>
   <data name="&gt;&gt;SearchEngineGroupBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="HomepageGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
+    <value>HomepageGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WhitePageHomepageButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="WhitePageHomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>377, 53</value>
+    <value>444, 52</value>
   </data>
   <data name="WhitePageHomepageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 26</value>
@@ -490,10 +670,13 @@
     <value>HomepageGroupBox</value>
   </data>
   <data name="&gt;&gt;WhitePageHomepageButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="ActualPageURLHomepageButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="ActualPageURLHomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 53</value>
+    <value>339, 52</value>
   </data>
   <data name="ActualPageURLHomepageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 26</value>
@@ -514,10 +697,13 @@
     <value>HomepageGroupBox</value>
   </data>
   <data name="&gt;&gt;ActualPageURLHomepageButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="MenuURLHomepageButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="MenuURLHomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 53</value>
+    <value>72, 52</value>
   </data>
   <data name="MenuURLHomepageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 26</value>
@@ -538,13 +724,16 @@
     <value>HomepageGroupBox</value>
   </data>
   <data name="&gt;&gt;MenuURLHomepageButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="HomepageURLBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="HomepageURLBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 25</value>
+    <value>72, 25</value>
   </data>
   <data name="HomepageURLBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>561, 25</value>
+    <value>495, 25</value>
   </data>
   <data name="HomepageURLBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -559,13 +748,16 @@
     <value>HomepageGroupBox</value>
   </data>
   <data name="&gt;&gt;HomepageURLBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="HomepageGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="HomepageGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
+    <value>140, 44</value>
   </data>
   <data name="HomepageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 84</value>
+    <value>581, 84</value>
   </data>
   <data name="HomepageGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -583,7 +775,7 @@
     <value>Général</value>
   </data>
   <data name="&gt;&gt;HomepageGroupBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="Général.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
@@ -592,7 +784,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Général.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="Général.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -703,7 +895,7 @@
     <value>9, 242</value>
   </data>
   <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>581, 104</value>
+    <value>835, 104</value>
   </data>
   <data name="GroupBoxCookies.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -757,7 +949,7 @@
     <value>8, 352</value>
   </data>
   <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 55</value>
+    <value>836, 55</value>
   </data>
   <data name="TrackingGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -880,7 +1072,7 @@
     <value>8, 93</value>
   </data>
   <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 142</value>
+    <value>836, 142</value>
   </data>
   <data name="DeleteDataGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -988,7 +1180,7 @@
     <value>8, 7</value>
   </data>
   <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>582, 80</value>
+    <value>836, 80</value>
   </data>
   <data name="HistoryGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1015,7 +1207,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Confidentialité.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="Confidentialité.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1151,7 +1343,7 @@ paramètres et aux données personnelles.</value>
     <value>8, 155</value>
   </data>
   <data name="BrowserSettingsSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 149</value>
+    <value>827, 149</value>
   </data>
   <data name="BrowserSettingsSecurityGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1281,7 +1473,7 @@ choquer les plus jeunes.</value>
     <value>8, 6</value>
   </data>
   <data name="ChildrenProtectionGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 143</value>
+    <value>827, 143</value>
   </data>
   <data name="ChildrenProtectionGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1308,7 +1500,7 @@ choquer les plus jeunes.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="SecurityTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="SecurityTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1440,7 +1632,7 @@ choquer les plus jeunes.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="AdBlockerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="AdBlockerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1521,7 +1713,7 @@ choquer les plus jeunes.</value>
     <value>8, 71</value>
   </data>
   <data name="UpdatesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 79</value>
+    <value>827, 79</value>
   </data>
   <data name="UpdatesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1575,7 +1767,7 @@ choquer les plus jeunes.</value>
     <value>8, 3</value>
   </data>
   <data name="AutoUpdateGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 61</value>
+    <value>827, 61</value>
   </data>
   <data name="AutoUpdateGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1599,7 +1791,7 @@ choquer les plus jeunes.</value>
     <value>4, 26</value>
   </data>
   <data name="MisesàJour.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="MisesàJour.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2200,7 +2392,7 @@ choquer les plus jeunes.</value>
     <value>8, 138</value>
   </data>
   <data name="LanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>735, 96</value>
+    <value>989, 96</value>
   </data>
   <data name="LanguageGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2311,7 +2503,7 @@ choquer les plus jeunes.</value>
     <value>8, 240</value>
   </data>
   <data name="DevelopmentGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>735, 104</value>
+    <value>989, 104</value>
   </data>
   <data name="DevelopmentGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2386,7 +2578,7 @@ choquer les plus jeunes.</value>
     <value>8, 69</value>
   </data>
   <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>735, 62</value>
+    <value>989, 62</value>
   </data>
   <data name="RepareBrowserGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2437,7 +2629,7 @@ choquer les plus jeunes.</value>
     <value>8, 3</value>
   </data>
   <data name="SettingsSavesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>735, 59</value>
+    <value>989, 59</value>
   </data>
   <data name="SettingsSavesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2461,7 +2653,7 @@ choquer les plus jeunes.</value>
     <value>4, 26</value>
   </data>
   <data name="Avancé.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 416</value>
+    <value>852, 431</value>
   </data>
   <data name="Avancé.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2485,7 +2677,7 @@ choquer les plus jeunes.</value>
     <value>0, 0</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 446</value>
+    <value>860, 461</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2506,7 +2698,7 @@ choquer les plus jeunes.</value>
     <value>Bottom, Right</value>
   </data>
   <data name="OKButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>524, 449</value>
+    <value>778, 464</value>
   </data>
   <data name="OKButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 26</value>
@@ -2542,7 +2734,7 @@ choquer les plus jeunes.</value>
     <value>Bottom, Right</value>
   </data>
   <data name="AbortButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>434, 449</value>
+    <value>688, 464</value>
   </data>
   <data name="AbortButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 26</value>
@@ -2575,7 +2767,7 @@ choquer les plus jeunes.</value>
     <value>7, 17</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>606, 479</value>
+    <value>860, 494</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
