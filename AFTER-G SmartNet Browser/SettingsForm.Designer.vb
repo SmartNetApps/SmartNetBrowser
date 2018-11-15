@@ -110,6 +110,9 @@ Partial Class SettingsForm
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -141,6 +144,8 @@ Partial Class SettingsForm
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -443,6 +448,7 @@ Partial Class SettingsForm
         'SecurityTabPage
         '
         resources.ApplyResources(Me.SecurityTabPage, "SecurityTabPage")
+        Me.SecurityTabPage.Controls.Add(Me.Label8)
         Me.SecurityTabPage.Controls.Add(Me.BrowserSettingsSecurityGroupBox)
         Me.SecurityTabPage.Controls.Add(Me.ChildrenProtectionGroupBox)
         Me.SecurityTabPage.Name = "SecurityTabPage"
@@ -451,6 +457,7 @@ Partial Class SettingsForm
         'BrowserSettingsSecurityGroupBox
         '
         resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
+        Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.PictureBox10)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.HistoryFavoritesSecurityCheckBox)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.Label4)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.ChangeBrowserSettingsSecurityPasswordButton)
@@ -484,6 +491,7 @@ Partial Class SettingsForm
         'ChildrenProtectionGroupBox
         '
         resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
+        Me.ChildrenProtectionGroupBox.Controls.Add(Me.PictureBox9)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildGuardProblemSignalementButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.Label3)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChangeChildrenProtectionPasswordButton)
@@ -770,6 +778,25 @@ Partial Class SettingsForm
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.TabStop = False
         '
+        'Label8
+        '
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.Name = "Label8"
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = Global.SmartNet_Browser.My.Resources.Resources.ChildGuard
+        resources.ApplyResources(Me.PictureBox9, "PictureBox9")
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.TabStop = False
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = Global.SmartNet_Browser.My.Resources.Resources.LockBrowser
+        resources.ApplyResources(Me.PictureBox10, "PictureBox10")
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.TabStop = False
+        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -806,6 +833,7 @@ Partial Class SettingsForm
         Me.HistoryGroupBox.ResumeLayout(False)
         Me.HistoryGroupBox.PerformLayout()
         Me.SecurityTabPage.ResumeLayout(False)
+        Me.SecurityTabPage.PerformLayout()
         Me.BrowserSettingsSecurityGroupBox.ResumeLayout(False)
         Me.BrowserSettingsSecurityGroupBox.PerformLayout()
         Me.ChildrenProtectionGroupBox.ResumeLayout(False)
@@ -832,6 +860,8 @@ Partial Class SettingsForm
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -923,4 +953,7 @@ Partial Class SettingsForm
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents PictureBox9 As PictureBox
+    Friend WithEvents PictureBox10 As PictureBox
 End Class
