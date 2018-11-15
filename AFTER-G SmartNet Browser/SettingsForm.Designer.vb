@@ -127,13 +127,13 @@ Partial Class SettingsForm
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.Général)
         Me.TabControl1.Controls.Add(Me.Confidentialité)
         Me.TabControl1.Controls.Add(Me.SecurityTabPage)
         Me.TabControl1.Controls.Add(Me.AdBlockerTabPage)
         Me.TabControl1.Controls.Add(Me.MisesàJour)
         Me.TabControl1.Controls.Add(Me.Avancé)
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
