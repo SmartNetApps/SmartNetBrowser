@@ -967,7 +967,7 @@
     <value>140, 286</value>
   </data>
   <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 108</value>
+    <value>547, 108</value>
   </data>
   <data name="GroupBoxCookies.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1054,7 +1054,7 @@
     <value>140, 400</value>
   </data>
   <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 87</value>
+    <value>547, 87</value>
   </data>
   <data name="TrackingGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1219,7 +1219,7 @@
     <value>140, 138</value>
   </data>
   <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 142</value>
+    <value>547, 142</value>
   </data>
   <data name="DeleteDataGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1366,7 +1366,7 @@
     <value>140, 44</value>
   </data>
   <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 88</value>
+    <value>547, 88</value>
   </data>
   <data name="HistoryGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2165,11 +2165,74 @@ et pouvant choquer les plus jeunes.</value>
   <data name="MisesàJour.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 14.25pt, style=Bold</value>
+  </data>
+  <data name="Label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 12</value>
+  </data>
+  <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 25</value>
+  </data>
+  <data name="Label10.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>Mises à jour logicielles</value>
+  </data>
+  <data name="&gt;&gt;Label10.Name" xml:space="preserve">
+    <value>Label10</value>
+  </data>
+  <data name="&gt;&gt;Label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label10.Parent" xml:space="preserve">
+    <value>MisesàJour</value>
+  </data>
+  <data name="&gt;&gt;Label10.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="UpdatesGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="PictureBox15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
+  </data>
+  <data name="PictureBox15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox15.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox15.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;PictureBox15.Name" xml:space="preserve">
+    <value>PictureBox15</value>
+  </data>
+  <data name="&gt;&gt;PictureBox15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox15.Parent" xml:space="preserve">
+    <value>UpdatesGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox15.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CheckUpdatesNowButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="CheckUpdatesNowButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 45</value>
+    <value>76, 50</value>
   </data>
   <data name="CheckUpdatesNowButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>248, 26</value>
@@ -2190,13 +2253,16 @@ et pouvant choquer les plus jeunes.</value>
     <value>UpdatesGroupBox</value>
   </data>
   <data name="&gt;&gt;CheckUpdatesNowButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="VersionActuelleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="VersionActuelleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="VersionActuelleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
+    <value>72, 28</value>
   </data>
   <data name="VersionActuelleLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 19</value>
@@ -2217,13 +2283,16 @@ et pouvant choquer les plus jeunes.</value>
     <value>UpdatesGroupBox</value>
   </data>
   <data name="&gt;&gt;VersionActuelleLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="UpdatesGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="UpdatesGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 71</value>
+    <value>140, 139</value>
   </data>
   <data name="UpdatesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>827, 79</value>
+    <value>581, 89</value>
   </data>
   <data name="UpdatesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2241,16 +2310,46 @@ et pouvant choquer les plus jeunes.</value>
     <value>MisesàJour</value>
   </data>
   <data name="&gt;&gt;UpdatesGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="AutoUpdateGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="PictureBox14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 28</value>
+  </data>
+  <data name="PictureBox14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 54</value>
+  </data>
+  <data name="PictureBox14.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="PictureBox14.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;PictureBox14.Name" xml:space="preserve">
+    <value>PictureBox14</value>
+  </data>
+  <data name="&gt;&gt;PictureBox14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox14.Parent" xml:space="preserve">
+    <value>AutoUpdateGroupBox</value>
+  </data>
+  <data name="&gt;&gt;PictureBox14.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="AutoUpdateCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="AutoUpdateCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
   <data name="AutoUpdateCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 25</value>
+    <value>72, 28</value>
   </data>
   <data name="AutoUpdateCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>382, 23</value>
@@ -2271,13 +2370,16 @@ et pouvant choquer les plus jeunes.</value>
     <value>AutoUpdateGroupBox</value>
   </data>
   <data name="&gt;&gt;AutoUpdateCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="AutoUpdateGroupBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
   </data>
   <data name="AutoUpdateGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
+    <value>140, 44</value>
   </data>
   <data name="AutoUpdateGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>827, 61</value>
+    <value>581, 89</value>
   </data>
   <data name="AutoUpdateGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2295,13 +2397,13 @@ et pouvant choquer les plus jeunes.</value>
     <value>MisesàJour</value>
   </data>
   <data name="&gt;&gt;AutoUpdateGroupBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="MisesàJour.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
   </data>
   <data name="MisesàJour.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 431</value>
+    <value>852, 459</value>
   </data>
   <data name="MisesàJour.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3163,7 +3265,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>4, 26</value>
   </data>
   <data name="Avancé.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 431</value>
+    <value>852, 459</value>
   </data>
   <data name="Avancé.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
