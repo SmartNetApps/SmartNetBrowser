@@ -37,17 +37,18 @@ Public Class CustomBrowser
     ''' <param name="url">URL de la page ou du cadre.</param>
     ''' <returns></returns>
     Public Function IsAdvertisement(url As String) As Boolean
-        Dim ad As Boolean = False
-        Dim target As String = url
-        Dim AdsDomainsFile As New WebClient
-        Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
-        Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-        For I = 0 To AdsDomainsList.Count - 1
-            If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
-                ad = True
-            End If
-        Next
-        Return ad
+        If My.Settings.AdBlocker = True Then
+            Dim target As String = url
+            Dim AdsDomainsFile As New WebClient
+            Dim AdsDomainsListFile As String = AdsDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
+            Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
+            For I = 0 To AdsDomainsList.Count - 1
+                If My.Settings.PopUpBlocker = True And target.Contains(AdsDomainsList.Item(I)) Then
+                    Return True
+                End If
+            Next
+        End If
+        Return False
     End Function
 
     ''' <summary>
@@ -57,21 +58,21 @@ Public Class CustomBrowser
     ''' <returns></returns>
     Public Function IsDangerousForChildren(url As String) As Boolean
         Try
-            Dim dangerous As Boolean = False
+            'Dim dangerous As Boolean = False
             If My.Settings.ChildrenProtection = True Then
                 Dim AdultDomainsFile As New WebClient
                 Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/ChildrenProtection.txt")
                 Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
                 For I = 0 To AdultDomainsList.Count - 1
                     If url.Contains(AdultDomainsList.Item(I)) Then
-                        dangerous = True
+                        Return True
                     End If
                 Next
             End If
-            Return dangerous
+            Return False
         Catch ex As Exception
             BrowserForm.DisplayMessageBar("Critical", "SmartNet ChildGuard a rencontré une erreur inattendue. (CHILDGUARD_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-            Return True
+            Return False
         End Try
     End Function
 
@@ -131,7 +132,7 @@ Public Class CustomBrowser
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
 
-        If IsDangerousForChildren(e.Uri.ToString()) = True Then
+        If My.Settings.ChildrenProtection And IsDangerousForChildren(e.Uri.ToString()) = True Then
             Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
                 Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
@@ -280,10 +281,6 @@ Public Class CustomBrowser
         BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
-    'Private Sub CustomBrowser_DomClick(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomClick
-    '    BrowserForm.BrowserTabs.SelectedTab.Focus()
-    'End Sub
-
     ''' <summary>
     ''' Favicon de la page actuellement chargée
     ''' </summary>
@@ -320,6 +317,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
+        Console.WriteLine(e.ErrorCode)
         Select Case e.ErrorCode
             Case -2142568446
                 BrowserForm.StopButton.Visible = False
@@ -330,6 +328,7 @@ Public Class CustomBrowser
                 Else
                     Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/en.html")
                 End If
+                BrowserForm.CloseMessageBar()
             Case Else
                 Console.WriteLine("Erreur de navigation inconnue sur " + e.Uri + " Code : " + e.ErrorCode.ToString())
         End Select

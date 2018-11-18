@@ -63,6 +63,9 @@ Partial Class EnterChildrenProtectionForm
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "EnterChildrenProtectionForm"
         Me.ShowInTaskbar = False
         Me.ResumeLayout(False)
