@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 25</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>General settings</value>
+  </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 19</value>
   </data>
@@ -137,7 +143,7 @@
     <value>Other settings</value>
   </data>
   <data name="CustomSearchSettingsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 55</value>
+    <value>473, 63</value>
   </data>
   <data name="RadioButton0.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -149,13 +155,13 @@
     <value>Search engine</value>
   </data>
   <data name="WhitePageHomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 53</value>
+    <value>385, 52</value>
   </data>
   <data name="WhitePageHomepageButton.Text" xml:space="preserve">
     <value>Blank page</value>
   </data>
   <data name="ActualPageURLHomepageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 53</value>
+    <value>280, 52</value>
   </data>
   <data name="ActualPageURLHomepageButton.Text" xml:space="preserve">
     <value>Actual page</value>
@@ -171,6 +177,12 @@
   </data>
   <data name="Général.Text" xml:space="preserve">
     <value>General</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 25</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>Privacy settings</value>
   </data>
   <data name="RadioButtonBlockAllCookies.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 23</value>
@@ -190,11 +202,17 @@
   <data name="RadioButtonAcceptAllCookies.Text" xml:space="preserve">
     <value>Accept all cookies</value>
   </data>
+  <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 108</value>
+  </data>
   <data name="DoNotTrackCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 23</value>
   </data>
   <data name="DoNotTrackCheckBox.Text" xml:space="preserve">
     <value>Enable "Do Not Track"</value>
+  </data>
+  <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 87</value>
   </data>
   <data name="TrackingGroupBox.Text" xml:space="preserve">
     <value>Tracking</value>
@@ -211,11 +229,14 @@
   <data name="DeleteHistoryButton.Text" xml:space="preserve">
     <value>Delete all the browsing history</value>
   </data>
+  <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 142</value>
+  </data>
   <data name="DeleteDataGroupBox.Text" xml:space="preserve">
     <value>Delete my personal data</value>
   </data>
   <data name="CookiesLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 48</value>
+    <value>340, 52</value>
   </data>
   <data name="CookiesLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 19</value>
@@ -235,11 +256,20 @@
   <data name="PrivateBrowsingCheckBox.Text" xml:space="preserve">
     <value>Save browsing history in realtime</value>
   </data>
+  <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 88</value>
+  </data>
   <data name="HistoryGroupBox.Text" xml:space="preserve">
     <value>Data managing</value>
   </data>
   <data name="Confidentialité.Text" xml:space="preserve">
     <value>Privacy</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 25</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>Browser and users safety</value>
   </data>
   <data name="HistoryFavoritesSecurityCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>284, 23</value>
@@ -248,11 +278,11 @@
     <value>Protect my browsing history and favorites</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 38</value>
+    <value>492, 38</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
-    <value>Browser security prevents people who are foreign to the system from changing settings
-and accessing to your personnal data.</value>
+    <value>Browser security prevents people who are foreign to the system from changing
+settings and accessing to your personal data.</value>
   </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 26</value>
@@ -276,11 +306,11 @@ and accessing to your personnal data.</value>
     <value>Report a fault of ChildGuard...</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 38</value>
+    <value>487, 38</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
-    <value>SmartNet ChildGuard block the sites that are prohibited to minors or contents that can
-shock them.</value>
+    <value>SmartNet ChildGuard block the sites that are prohibited to minors or contents
+that may shock them.</value>
   </data>
   <data name="ChangeChildrenProtectionPasswordButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 26</value>
@@ -295,22 +325,10 @@ shock them.</value>
     <value>Enable SmartNet ChildGuard</value>
   </data>
   <data name="ChildrenProtectionGroupBox.Text" xml:space="preserve">
-    <value>Children security</value>
+    <value>Children safety</value>
   </data>
   <data name="SecurityTabPage.Text" xml:space="preserve">
     <value>Security</value>
-  </data>
-  <data name="AdsBlockerProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 26</value>
-  </data>
-  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
-    <value>Report a fault of SmartNet AdsBlocker...</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 23</value>
-  </data>
-  <data name="PopUpsBlockerCheckBox.Text" xml:space="preserve">
-    <value>Prevent pop-up windows from opening</value>
   </data>
   <data name="EditWhitelistButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 26</value>
@@ -318,14 +336,47 @@ shock them.</value>
   <data name="EditWhitelistButton.Text" xml:space="preserve">
     <value>Edit whitelist...</value>
   </data>
+  <data name="AdsBlockerProblemSignalementButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 26</value>
+  </data>
+  <data name="AdsBlockerProblemSignalementButton.Text" xml:space="preserve">
+    <value>Report a fault of SmartNet AdsBlocker...</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Service settings</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 23</value>
+  </data>
+  <data name="PopUpsBlockerCheckBox.Text" xml:space="preserve">
+    <value>Prevent pop-up windows from opening</value>
+  </data>
+  <data name="GroupBox_AdsBlockerPopups.Text" xml:space="preserve">
+    <value>Pop-up blocking</value>
+  </data>
   <data name="AdBlockerCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 23</value>
   </data>
   <data name="AdBlockerCheckBox.Text" xml:space="preserve">
     <value>Enable SmartNet AdsBlocker</value>
   </data>
+  <data name="GroupBox_AdsBlockerActivation.Text" xml:space="preserve">
+    <value>Enable or disable the service</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 25</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>Block the ads</value>
+  </data>
   <data name="AdBlockerTabPage.Text" xml:space="preserve">
     <value>Advertisement</value>
+  </data>
+  <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 25</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>Software updates</value>
   </data>
   <data name="CheckUpdatesNowButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 26</value>
@@ -354,6 +405,33 @@ shock them.</value>
   <data name="MisesàJour.Text" xml:space="preserve">
     <value>Updates</value>
   </data>
+  <data name="FirstStartDialogButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 26</value>
+  </data>
+  <data name="FirstStartDialogButton.Text" xml:space="preserve">
+    <value>Display the First Start Wizard</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>Reconfigure the browser</value>
+  </data>
+  <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 25</value>
+  </data>
+  <data name="Label13.Text" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 25</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>Language settings</value>
+  </data>
+  <data name="Label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 25</value>
+  </data>
+  <data name="Label11.Text" xml:space="preserve">
+    <value>Fixes and recovery</value>
+  </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>321, 38</value>
   </data>
@@ -361,11 +439,14 @@ shock them.</value>
     <value>Ask websites for displaying pages in this language :
 (This doesn't modify the language of the interface)</value>
   </data>
+  <data name="LanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 102</value>
+  </data>
   <data name="LanguageGroupBox.Text" xml:space="preserve">
     <value>Display language of the pages</value>
   </data>
   <data name="ChangeUserAgentLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 15</value>
+    <value>134, 19</value>
   </data>
   <data name="ChangeUserAgentLinkLabel.Text" xml:space="preserve">
     <value>Change UserAgent...</value>
@@ -373,26 +454,20 @@ shock them.</value>
   <data name="UserAgentTextBox.Text" xml:space="preserve">
     <value>Unknown error. Please visit "about:config" to display the UserAgent.</value>
   </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 19</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Browser UserAgent</value>
+  <data name="DevelopmentGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 104</value>
   </data>
   <data name="DevelopmentGroupBox.Text" xml:space="preserve">
     <value>Settings for developers</value>
-  </data>
-  <data name="FirstStartDialogButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 26</value>
-  </data>
-  <data name="FirstStartDialogButton.Text" xml:space="preserve">
-    <value>Display the First Start Wizard</value>
   </data>
   <data name="RepareBrowserButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 26</value>
   </data>
   <data name="RepareBrowserButton.Text" xml:space="preserve">
     <value>Reset the browser (restarts the app)</value>
+  </data>
+  <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 89</value>
   </data>
   <data name="RepareBrowserGroupBox.Text" xml:space="preserve">
     <value>Fix the browser</value>
@@ -402,6 +477,9 @@ shock them.</value>
   </data>
   <data name="ImportSettingsButton.Text" xml:space="preserve">
     <value>Import settings from an old version...</value>
+  </data>
+  <data name="SettingsSavesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 88</value>
   </data>
   <data name="SettingsSavesGroupBox.Text" xml:space="preserve">
     <value>Reload settings</value>

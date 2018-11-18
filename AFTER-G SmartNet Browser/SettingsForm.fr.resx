@@ -118,26 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 108</value>
+  </data>
+  <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 87</value>
+  </data>
+  <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 142</value>
+  </data>
+  <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>496, 88</value>
+  </data>
   <data name="ChangeBrowserSettingsSecurityPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 111</value>
   </data>
   <data name="BrowserSettingsSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>573, 144</value>
   </data>
-  <data name="ChangeUserAgentLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 15</value>
+  <data name="LanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 102</value>
   </data>
-  <data name="ChangeUserAgentLinkLabel.Text" xml:space="preserve">
-    <value>Modifier l'agent utilisateur du navigateur...</value>
+  <data name="DevelopmentGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 104</value>
   </data>
-  <data name="UserAgentTextBox.Text" xml:space="preserve">
-    <value>Impossible d'afficher l'agent utilisateur du navigateur à cause d'une erreur inconnue. Vous pouvez le retrouver en visitant la page "about:config".</value>
+  <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 89</value>
   </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 19</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Agent utilisateur du navigateur :</value>
+  <data name="SettingsSavesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 88</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
