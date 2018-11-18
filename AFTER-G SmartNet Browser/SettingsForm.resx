@@ -784,7 +784,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Général.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 674</value>
+    <value>852, 424</value>
   </data>
   <data name="Général.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -967,7 +967,7 @@
     <value>140, 286</value>
   </data>
   <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 108</value>
+    <value>530, 108</value>
   </data>
   <data name="GroupBoxCookies.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1054,7 +1054,7 @@
     <value>140, 400</value>
   </data>
   <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 87</value>
+    <value>530, 87</value>
   </data>
   <data name="TrackingGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1219,7 +1219,7 @@
     <value>140, 138</value>
   </data>
   <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 142</value>
+    <value>530, 142</value>
   </data>
   <data name="DeleteDataGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1366,7 +1366,7 @@
     <value>140, 44</value>
   </data>
   <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>547, 88</value>
+    <value>530, 88</value>
   </data>
   <data name="HistoryGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1393,7 +1393,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="Confidentialité.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 674</value>
+    <value>852, 424</value>
   </data>
   <data name="Confidentialité.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1803,7 +1803,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="SecurityTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 674</value>
+    <value>852, 424</value>
   </data>
   <data name="SecurityTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2142,7 +2142,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="AdBlockerTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 674</value>
+    <value>852, 424</value>
   </data>
   <data name="AdBlockerTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2403,7 +2403,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>4, 26</value>
   </data>
   <data name="MisesàJour.Size" type="System.Drawing.Size, System.Drawing">
-    <value>852, 674</value>
+    <value>852, 424</value>
   </data>
   <data name="MisesàJour.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3220,7 +3220,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>140, 374</value>
   </data>
   <data name="LanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 102</value>
+    <value>547, 102</value>
   </data>
   <data name="LanguageGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3334,7 +3334,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>140, 520</value>
   </data>
   <data name="DevelopmentGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 104</value>
+    <value>547, 104</value>
   </data>
   <data name="DevelopmentGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3418,7 +3418,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>140, 138</value>
   </data>
   <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 89</value>
+    <value>547, 89</value>
   </data>
   <data name="RepareBrowserGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3502,7 +3502,7 @@ et pouvant choquer les plus jeunes.</value>
     <value>140, 44</value>
   </data>
   <data name="SettingsSavesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>564, 88</value>
+    <value>547, 88</value>
   </data>
   <data name="SettingsSavesGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

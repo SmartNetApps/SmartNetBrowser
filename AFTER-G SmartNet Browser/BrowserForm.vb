@@ -503,7 +503,7 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            SettingsForm.ShowDialog()
+            SettingsForm.Show()
         End If
     End Sub
 

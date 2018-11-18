@@ -106,31 +106,31 @@ Partial Class SettingsForm
         Me.PictureBox14 = New System.Windows.Forms.PictureBox()
         Me.AutoUpdateCheckBox = New System.Windows.Forms.CheckBox()
         Me.Avancé = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox18 = New System.Windows.Forms.PictureBox()
+        Me.FirstStartDialogButton = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.LanguageGroupBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox19 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LanguagesComboBox = New System.Windows.Forms.ComboBox()
         Me.DevelopmentGroupBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox20 = New System.Windows.Forms.PictureBox()
         Me.ChangeUserAgentLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.UserAgentTextBox = New System.Windows.Forms.RichTextBox()
-        Me.FirstStartDialogButton = New System.Windows.Forms.Button()
         Me.RepareBrowserGroupBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox17 = New System.Windows.Forms.PictureBox()
         Me.RepareBrowserButton = New System.Windows.Forms.Button()
         Me.SettingsSavesGroupBox = New System.Windows.Forms.GroupBox()
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
         Me.ImportSettingsButton = New System.Windows.Forms.Button()
         Me.OKButton = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.AbortButton = New System.Windows.Forms.Button()
         Me.DefaultDownloadFolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox17 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox18 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox19 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox20 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
         Me.DownloadsGroupBox.SuspendLayout()
@@ -168,16 +168,16 @@ Partial Class SettingsForm
         Me.AutoUpdateGroupBox.SuspendLayout()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Avancé.SuspendLayout()
-        Me.LanguageGroupBox.SuspendLayout()
-        Me.DevelopmentGroupBox.SuspendLayout()
-        Me.RepareBrowserGroupBox.SuspendLayout()
-        Me.SettingsSavesGroupBox.SuspendLayout()
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LanguageGroupBox.SuspendLayout()
         CType(Me.PictureBox19, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DevelopmentGroupBox.SuspendLayout()
         CType(Me.PictureBox20, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RepareBrowserGroupBox.SuspendLayout()
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SettingsSavesGroupBox.SuspendLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -800,6 +800,42 @@ Partial Class SettingsForm
         Me.Avancé.Name = "Avancé"
         Me.Avancé.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.PictureBox18)
+        Me.GroupBox2.Controls.Add(Me.FirstStartDialogButton)
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.TabStop = False
+        '
+        'PictureBox18
+        '
+        Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
+        resources.ApplyResources(Me.PictureBox18, "PictureBox18")
+        Me.PictureBox18.Name = "PictureBox18"
+        Me.PictureBox18.TabStop = False
+        '
+        'FirstStartDialogButton
+        '
+        resources.ApplyResources(Me.FirstStartDialogButton, "FirstStartDialogButton")
+        Me.FirstStartDialogButton.Name = "FirstStartDialogButton"
+        Me.FirstStartDialogButton.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        resources.ApplyResources(Me.Label13, "Label13")
+        Me.Label13.Name = "Label13"
+        '
+        'Label12
+        '
+        resources.ApplyResources(Me.Label12, "Label12")
+        Me.Label12.Name = "Label12"
+        '
+        'Label11
+        '
+        resources.ApplyResources(Me.Label11, "Label11")
+        Me.Label11.Name = "Label11"
+        '
         'LanguageGroupBox
         '
         resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
@@ -808,6 +844,13 @@ Partial Class SettingsForm
         Me.LanguageGroupBox.Controls.Add(Me.LanguagesComboBox)
         Me.LanguageGroupBox.Name = "LanguageGroupBox"
         Me.LanguageGroupBox.TabStop = False
+        '
+        'PictureBox19
+        '
+        Me.PictureBox19.Image = Global.SmartNet_Browser.My.Resources.Resources.Langues
+        resources.ApplyResources(Me.PictureBox19, "PictureBox19")
+        Me.PictureBox19.Name = "PictureBox19"
+        Me.PictureBox19.TabStop = False
         '
         'Label1
         '
@@ -830,6 +873,13 @@ Partial Class SettingsForm
         Me.DevelopmentGroupBox.Name = "DevelopmentGroupBox"
         Me.DevelopmentGroupBox.TabStop = False
         '
+        'PictureBox20
+        '
+        Me.PictureBox20.Image = Global.SmartNet_Browser.My.Resources.Resources.UserAgent
+        resources.ApplyResources(Me.PictureBox20, "PictureBox20")
+        Me.PictureBox20.Name = "PictureBox20"
+        Me.PictureBox20.TabStop = False
+        '
         'ChangeUserAgentLinkLabel
         '
         Me.ChangeUserAgentLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText
@@ -849,12 +899,6 @@ Partial Class SettingsForm
         Me.UserAgentTextBox.Name = "UserAgentTextBox"
         Me.UserAgentTextBox.ReadOnly = True
         '
-        'FirstStartDialogButton
-        '
-        resources.ApplyResources(Me.FirstStartDialogButton, "FirstStartDialogButton")
-        Me.FirstStartDialogButton.Name = "FirstStartDialogButton"
-        Me.FirstStartDialogButton.UseVisualStyleBackColor = True
-        '
         'RepareBrowserGroupBox
         '
         resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
@@ -862,6 +906,13 @@ Partial Class SettingsForm
         Me.RepareBrowserGroupBox.Controls.Add(Me.RepareBrowserButton)
         Me.RepareBrowserGroupBox.Name = "RepareBrowserGroupBox"
         Me.RepareBrowserGroupBox.TabStop = False
+        '
+        'PictureBox17
+        '
+        Me.PictureBox17.Image = Global.SmartNet_Browser.My.Resources.Resources.CleanBrowser
+        resources.ApplyResources(Me.PictureBox17, "PictureBox17")
+        Me.PictureBox17.Name = "PictureBox17"
+        Me.PictureBox17.TabStop = False
         '
         'RepareBrowserButton
         '
@@ -876,6 +927,13 @@ Partial Class SettingsForm
         Me.SettingsSavesGroupBox.Controls.Add(Me.ImportSettingsButton)
         Me.SettingsSavesGroupBox.Name = "SettingsSavesGroupBox"
         Me.SettingsSavesGroupBox.TabStop = False
+        '
+        'PictureBox16
+        '
+        Me.PictureBox16.Image = Global.SmartNet_Browser.My.Resources.Resources.RestoreSettings
+        resources.ApplyResources(Me.PictureBox16, "PictureBox16")
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.TabStop = False
         '
         'ImportSettingsButton
         '
@@ -901,64 +959,6 @@ Partial Class SettingsForm
         Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AbortButton.Name = "AbortButton"
         '
-        'Label11
-        '
-        resources.ApplyResources(Me.Label11, "Label11")
-        Me.Label11.Name = "Label11"
-        '
-        'Label12
-        '
-        resources.ApplyResources(Me.Label12, "Label12")
-        Me.Label12.Name = "Label12"
-        '
-        'Label13
-        '
-        resources.ApplyResources(Me.Label13, "Label13")
-        Me.Label13.Name = "Label13"
-        '
-        'PictureBox16
-        '
-        Me.PictureBox16.Image = Global.SmartNet_Browser.My.Resources.Resources.RestoreSettings
-        resources.ApplyResources(Me.PictureBox16, "PictureBox16")
-        Me.PictureBox16.Name = "PictureBox16"
-        Me.PictureBox16.TabStop = False
-        '
-        'PictureBox17
-        '
-        Me.PictureBox17.Image = Global.SmartNet_Browser.My.Resources.Resources.CleanBrowser
-        resources.ApplyResources(Me.PictureBox17, "PictureBox17")
-        Me.PictureBox17.Name = "PictureBox17"
-        Me.PictureBox17.TabStop = False
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.PictureBox18)
-        Me.GroupBox2.Controls.Add(Me.FirstStartDialogButton)
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.TabStop = False
-        '
-        'PictureBox18
-        '
-        Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
-        resources.ApplyResources(Me.PictureBox18, "PictureBox18")
-        Me.PictureBox18.Name = "PictureBox18"
-        Me.PictureBox18.TabStop = False
-        '
-        'PictureBox19
-        '
-        Me.PictureBox19.Image = Global.SmartNet_Browser.My.Resources.Resources.Langues
-        resources.ApplyResources(Me.PictureBox19, "PictureBox19")
-        Me.PictureBox19.Name = "PictureBox19"
-        Me.PictureBox19.TabStop = False
-        '
-        'PictureBox20
-        '
-        Me.PictureBox20.Image = Global.SmartNet_Browser.My.Resources.Resources.UserAgent
-        resources.ApplyResources(Me.PictureBox20, "PictureBox20")
-        Me.PictureBox20.Name = "PictureBox20"
-        Me.PictureBox20.TabStop = False
-        '
         'SettingsForm
         '
         Me.AcceptButton = Me.OKButton
@@ -970,10 +970,8 @@ Partial Class SettingsForm
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "SettingsForm"
         Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.TabControl1.ResumeLayout(False)
         Me.Général.ResumeLayout(False)
         Me.Général.PerformLayout()
@@ -1030,18 +1028,18 @@ Partial Class SettingsForm
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Avancé.ResumeLayout(False)
         Me.Avancé.PerformLayout()
-        Me.LanguageGroupBox.ResumeLayout(False)
-        Me.LanguageGroupBox.PerformLayout()
-        Me.DevelopmentGroupBox.ResumeLayout(False)
-        Me.DevelopmentGroupBox.PerformLayout()
-        Me.RepareBrowserGroupBox.ResumeLayout(False)
-        Me.SettingsSavesGroupBox.ResumeLayout(False)
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.LanguageGroupBox.ResumeLayout(False)
+        Me.LanguageGroupBox.PerformLayout()
         CType(Me.PictureBox19, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DevelopmentGroupBox.ResumeLayout(False)
+        Me.DevelopmentGroupBox.PerformLayout()
         CType(Me.PictureBox20, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.RepareBrowserGroupBox.ResumeLayout(False)
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SettingsSavesGroupBox.ResumeLayout(False)
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
