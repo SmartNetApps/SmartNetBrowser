@@ -38,47 +38,50 @@ Namespace My
                 BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
             End Try
 
-            Try
-                Dim MiniNTVersionChecker As New WebClient
-                Dim NTActualVersion As Version = Environment.OSVersion.Version
-                Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
-                Dim MAJ As New WebClient
-                Dim VersionActuelle As Version = My.Application.Info.Version
-                Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt"))
-                Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/support-status.txt")
-                If VersionActuelle > DerniereVersion Then
-                    MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, mais merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
-                    BrowserForm.EnvoyerVosCommentairesToolStripMenuItem.Enabled = False
-                    GoTo StopVersionChecking
-                End If
-                If My.Settings.AutoUpdates = True Then
-                    If NTActualVersion < MiniNTVersion Then
-                        MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour à été désactivée.", MsgBoxStyle.Exclamation, "Avertissement")
-                        My.Settings.AutoUpdates = False
-                        My.Settings.Save()
-                        BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                        GoTo StopVersionChecking
-                    End If
-                    If SupportStatus = "on" Then
-                        If VersionActuelle < DerniereVersion Then
-                            BrowserForm.UpdateNotifyIcon.Visible = True
-                            BrowserForm.UpdateNotifyIcon.ShowBalloonTip(1000)
-                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = True
-                            BrowserForm.TéléchargerLaVersionXXXXToolStripMenuItem.Text = "Télécharger la version " + DerniereVersion.ToString
-                        Else
-                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                            GoTo StopVersionChecking
-                        End If
-                    Else
-                        BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                        MsgBox("Le support et le développement de ce produit ont été interrompus. Visitez le site SmartNet Apps pour en savoir plus.", MsgBoxStyle.Critical, "Service interrompu")
-                        GoTo StopVersionChecking
-                    End If
-                End If
-StopVersionChecking:
-            Catch ex As Exception
-                BrowserForm.DisplayMessageBar("Warning", "Impossible de rechercher les mises à jour en raison d'une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
-            End Try
+            '            Try
+            '                Dim MiniNTVersionChecker As New WebClient
+            '                Dim NTActualVersion As Version = Environment.OSVersion.Version
+            '                Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
+            '                Dim MAJ As New WebClient
+            '                Dim VersionActuelle As Version = My.Application.Info.Version
+            '                Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt"))
+            '                Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/support-status.txt")
+            '                If VersionActuelle > DerniereVersion Then
+            '                    MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, mais merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez nous contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
+            '                    BrowserForm.EnvoyerVosCommentairesToolStripMenuItem.Enabled = False
+            '                    GoTo StopVersionChecking
+            '                End If
+            '                If My.Settings.AutoUpdates = True Then
+            '                    If NTActualVersion < MiniNTVersion Then
+            '                        MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour à été désactivée.", MsgBoxStyle.Exclamation, "Avertissement")
+            '                        My.Settings.AutoUpdates = False
+            '                        My.Settings.Save()
+            '                        BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+            '                        GoTo StopVersionChecking
+            '                    End If
+            '                    If SupportStatus = "on" Then
+            '                        If VersionActuelle < DerniereVersion Then
+            '                            BrowserForm.UpdateNotifyIcon.Visible = True
+            '                            BrowserForm.UpdateNotifyIcon.ShowBalloonTip(1000)
+            '                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = True
+            '                            BrowserForm.TéléchargerLaVersionXXXXToolStripMenuItem.Text = "Télécharger la version " + DerniereVersion.ToString
+            '                        Else
+            '                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+            '                            GoTo StopVersionChecking
+            '                        End If
+            '                    Else
+            '                        BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+            '                        MsgBox("Le support et le développement de ce produit ont été interrompus. Visitez le site SmartNet Apps pour en savoir plus.", MsgBoxStyle.Critical, "Service interrompu")
+            '                        GoTo StopVersionChecking
+            '                    End If
+            '                End If
+            'StopVersionChecking:
+            '            Catch ex As Exception
+            '                BrowserForm.DisplayMessageBar("Warning", "Impossible de rechercher les mises à jour en raison d'une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+            '            End Try
+
+            Dim agent As New UpdateAgent
+            agent.IsUpdateAvailable(False)
         End Sub
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException

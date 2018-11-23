@@ -252,6 +252,7 @@
     <Compile Include="NewHistoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdateAgent.vb" />
     <Compile Include="Webpage.vb" />
     <Compile Include="HistoryForm.Designer.vb">
       <DependentUpon>HistoryForm.vb</DependentUpon>

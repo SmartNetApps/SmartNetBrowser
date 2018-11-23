@@ -3,6 +3,8 @@ Imports System.Net
 Imports Microsoft.Win32
 
 Public Class SettingsForm
+    Dim agent As New UpdateAgent
+
     Public Sub New()
         InitializeComponent()
     End Sub
@@ -69,6 +71,14 @@ Public Class SettingsForm
         PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
         AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
         VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString
+
+        If agent.IsUpdateAvailable(False) Then
+            CheckUpdatesNowButton.Enabled = True
+            CheckUpdatesNowButton.Text = "Mise à jour disponible !"
+        Else
+            CheckUpdatesNowButton.Enabled = False
+            CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+        End If
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
         UserAgentTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
@@ -258,46 +268,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
-        Try
-            Dim MiniNTVersionChecker As New WebClient
-            Dim NTActualVersion As Version = Environment.OSVersion.Version
-            Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
-            Dim MAJ As New WebClient
-            Dim VersionActuelle As Version = My.Application.Info.Version
-            Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/version.txt"))
-            Dim SupportStatus As String = MAJ.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/support-status.txt")
-            If VersionActuelle > DerniereVersion Then
-                MsgBox("Vous utilisez une version préliminaire de SmartNet Browser. Vous pourriez trouver des beugs ou incohérences, merci de ne pas les signaler tant que cette version n'est pas publiée. Veuillez me contacter si vous pensez qu'il s'agit d'une erreur.", MsgBoxStyle.Exclamation, "Version préliminaire")
-                GoTo StopVersionChecking
-            End If
-            If NTActualVersion < MiniNTVersion Then
-                MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour à été désactivée.", MsgBoxStyle.Exclamation, "Avertissement")
-                My.Settings.AutoUpdates = False
-                My.Settings.Save()
-                BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                GoTo StopVersionChecking
-            End If
-            If SupportStatus = "on" Then
-                If VersionActuelle < DerniereVersion Then
-                    BrowserForm.UpdateNotifyIcon.Visible = True
-                    BrowserForm.UpdateNotifyIcon.ShowBalloonTip(1000)
-                    BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = True
-                    BrowserForm.TéléchargerLaVersionXXXXToolStripMenuItem.Text = "Télécharger la version " + DerniereVersion.ToString
-                    UpdaterForm.ShowDialog()
-                Else
-                    BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                    MsgBox("Vous utilisez dejà la dernière version de SmartNet Browser.", MsgBoxStyle.Information, "SmartNet Apps Updater")
-                    GoTo StopVersionChecking
-                End If
-            Else
-                BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
-                MsgBox("Le support et le développement de ce produit ont été interrompus. Visitez le site SmartNet Apps pour en savoir plus.", MsgBoxStyle.Critical, "Service interrompu")
-                GoTo StopVersionChecking
-            End If
-StopVersionChecking:
-        Catch ex As Exception
-            MsgBox("La connexion à SmartNet Apps Updater a échoué : " + ex.Message, MsgBoxStyle.Critical, "SmartNet Apps Updater")
-        End Try
+        agent.IsUpdateAvailable(True)
     End Sub
 
     Private Sub ImportSettingsButton_Click(sender As Object, e As EventArgs) Handles ImportSettingsButton.Click
