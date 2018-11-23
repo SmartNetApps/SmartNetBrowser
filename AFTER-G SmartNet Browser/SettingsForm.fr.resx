@@ -118,36 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="GroupBoxCookies.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 108</value>
-  </data>
-  <data name="TrackingGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 87</value>
-  </data>
-  <data name="DeleteDataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 142</value>
-  </data>
-  <data name="HistoryGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 88</value>
-  </data>
-  <data name="ChangeBrowserSettingsSecurityPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 111</value>
-  </data>
-  <data name="BrowserSettingsSecurityGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 144</value>
-  </data>
-  <data name="LanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>513, 102</value>
-  </data>
-  <data name="DevelopmentGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>513, 104</value>
-  </data>
-  <data name="RepareBrowserGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>513, 89</value>
-  </data>
-  <data name="SettingsSavesGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>513, 88</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABABIAICAQAAEABADoAgAAJgEAABAQEAABAAQAKAEAAA4EAAAwMAAAAQAIAKgOAAA2BQAAICAAAAEA
