@@ -324,7 +324,6 @@
     <Compile Include="UserAgentChangeForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WebpageCollection.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutForm.en.resx">
