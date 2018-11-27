@@ -104,22 +104,17 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        If e.Uri.ToString <> "about:blank" Then
-            BrowserForm.UpdateInterface()
-        End If
+        BrowserForm.UpdateInterface()
     End Sub
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
-        CurrentWebpage.ChangeName(Me.DocumentTitle)
-        CurrentWebpage.ChangeURL(Me.Url.ToString())
-        CurrentWebpage.ChangeFavicon(CurrentPageFavicon())
+        BrowserForm.CurrentDocument = Me.Document
+        BrowserForm.UpdateInterface()
+        BrowserForm.CheckFavicon()
         If e.Uri.ToString <> "about:blank" Then
-            BrowserForm.CurrentDocument = Me.Document
-            BrowserForm.UpdateInterface()
-            BrowserForm.CheckFavicon()
             If My.Settings.PrivateBrowsing = False Then
-                If Not (e.Uri.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
+                If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
                     If FirstTimeNavigated = True Then
-                        BrowserForm.AddInHistory(CurrentWebpage)
+                        BrowserForm.AddInHistory(New Webpage(Me.DocumentTitle, Me.Url.ToString(), CurrentPageFavicon()))
                         FirstTimeNavigated = False
                     Else
                         FirstTimeNavigated = True
@@ -131,8 +126,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
-
-        If My.Settings.ChildrenProtection And IsDangerousForChildren(e.Uri.ToString()) = True Then
+        If My.Settings.ChildrenProtection = True And IsDangerousForChildren(e.Uri.ToString()) = True Then
             Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
                 Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
@@ -140,6 +134,7 @@ Public Class CustomBrowser
                 Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
             End If
         End If
+
         If e.Uri.ToString.Contains("window.close") Then
             If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
                 BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
@@ -231,24 +226,21 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_DocumentTitleChanged(sender As Object, e As EventArgs) Handles Me.DocumentTitleChanged
+        Dim doctitle As String
         If DocumentTitle = "" Then
-            If Url.ToString.Length > 30 Then
-                CType(Me.Tag, TabPage).Text = Url.ToString.Substring(0, 29) & "..."
-            Else
-                CType(Me.Tag, TabPage).Text = Url.ToString
-            End If
-            If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
-                BrowserForm.Text = Url.ToString + " - SmartNet Browser"
-            End If
+            doctitle = Url.ToString()
         Else
-            If DocumentTitle.Length > 30 Then
-                CType(Me.Tag, TabPage).Text = DocumentTitle.Substring(0, 29) & "..."
-            Else
-                CType(Me.Tag, TabPage).Text = DocumentTitle
-            End If
-            If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
-                BrowserForm.Text = DocumentTitle.ToString + " - SmartNet Browser"
-            End If
+            doctitle = DocumentTitle
+        End If
+
+        If doctitle.Length > 30 Then
+            doctitle = doctitle.Substring(0, 26) & "..."
+        End If
+
+        CType(Me.Tag, TabPage).Text = doctitle + " - SmartNet Browser"
+
+        If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
+            BrowserForm.Text = doctitle + " - SmartNet Browser"
         End If
     End Sub
 

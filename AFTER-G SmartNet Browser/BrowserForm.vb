@@ -232,10 +232,12 @@ Public Class BrowserForm
         PreviouspageButton.Enabled = WB.CanGoBack
         NextpageButton.Enabled = WB.CanGoForward
 
-        If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Then
-            URLBox.Text = ""
-        Else
-            URLBox.Text = WB.Url.ToString
+        If Not URLBox.Focused Then
+            If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Then
+                URLBox.Text = ""
+            Else
+                URLBox.Text = WB.Url.ToString
+            End If
         End If
 
         For Each onglet As TabPage In Me.BrowserTabs.TabPages
@@ -278,6 +280,7 @@ Public Class BrowserForm
         Else
             URLBoxLabel.Visible = False
         End If
+
         If SearchBox.Text = "" Then
             SearchBoxLabel.Visible = True
         Else
