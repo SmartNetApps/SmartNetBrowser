@@ -1,5 +1,5 @@
 ﻿Public Class NewHistoryForm
-    Dim Historique As List(Of Webpage)
+    'Dim Historique As List(Of Webpage)
 
     Public Sub New()
         InitializeComponent()
@@ -8,18 +8,16 @@
     Private Sub NewHistoryForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         HistoryListView.Items.Clear()
         FaviconImageList.Images.Clear()
-        If Not (My.Settings.NewHistory Is Nothing) Then
-            Historique = BrowserForm.Historique
-            For index = 0 To Historique.Count - 1
-                Dim element As New ListViewItem
-                FaviconImageList.Images.Add(Historique(index).GetFavicon())
-                element = HistoryListView.Items.Add(Historique(index).GetName())
-                element.SubItems.Add(Historique(index).GetURL())
-                element.ImageIndex = index
-            Next
-            HistoryListView.SmallImageList = FaviconImageList
-            HistoryListView.LargeImageList = FaviconImageList
-        End If
+        'If Not (My.Settings.NewHistory Is Nothing) Then
+        '    For Each entree In My.Settings.NewHistory
+        '        Dim element As New ListViewItem
+        '        FaviconImageList.Images.Add(New Bitmap(0, 0))
+        '        element = CType(HistoryListView.Items.Add(entree.Split("\").GetValue(1)), ListViewItem)
+        '        element.SubItems.Add(entree.Split("\").GetValue(1))
+        '    Next
+        '    HistoryListView.SmallImageList = FaviconImageList
+        '    HistoryListView.LargeImageList = FaviconImageList
+        'End If
     End Sub
 
     Private Sub HistoryListView_DoubleClick(sender As Object, e As EventArgs) Handles HistoryListView.DoubleClick

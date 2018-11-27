@@ -4,12 +4,8 @@ Imports Gecko.Events
 
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
-    Dim CurrentWebpage As Webpage
-    Dim FirstTimeNavigated As Boolean
 
     Public Sub New()
-        FirstTimeNavigated = True
-        CurrentWebpage = New Webpage("about:blank")
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
@@ -113,12 +109,12 @@ Public Class CustomBrowser
         If e.Uri.ToString <> "about:blank" Then
             If My.Settings.PrivateBrowsing = False Then
                 If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
-                    If FirstTimeNavigated = True Then
-                        BrowserForm.AddInHistory(New Webpage(Me.DocumentTitle, Me.Url.ToString(), CurrentPageFavicon()))
-                        FirstTimeNavigated = False
-                    Else
-                        FirstTimeNavigated = True
-                    End If
+                    'If FirstTimeNavigated = True Then
+
+                    '    FirstTimeNavigated = False
+                    'Else
+                    '    FirstTimeNavigated = True
+                    'End If
                     BrowserForm.URLBox.Items.Add(Me.Url.ToString)
                 End If
             End If
@@ -237,7 +233,7 @@ Public Class CustomBrowser
             doctitle = doctitle.Substring(0, 26) & "..."
         End If
 
-        CType(Me.Tag, TabPage).Text = doctitle + " - SmartNet Browser"
+        CType(Me.Tag, TabPage).Text = doctitle
 
         If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
             BrowserForm.Text = doctitle + " - SmartNet Browser"

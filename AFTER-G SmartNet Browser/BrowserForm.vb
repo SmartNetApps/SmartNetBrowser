@@ -10,32 +10,12 @@ Public Class BrowserForm
     Public MessageBarAction As String
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
-    Public Historique As List(Of Webpage)
+    'Public Historique As List(Of Webpage)
     Public lastClosedTab As String
 
     Public Sub New()
         InitializeComponent()
-        Historique = New List(Of Webpage)
-    End Sub
-    ''' <summary>
-    ''' Ajouter un site internet à l'historique de navigation
-    ''' </summary>
-    ''' <param name="NewPage">Page web à ajouter</param>
-    ''' <param name="AddInOldHistory">Ajouter la page dans l'ancien historique</param>
-    Public Sub AddInHistory(NewPage As Webpage, Optional AddInOldHistory As Boolean = True)
-        Historique = CType(My.Settings.NewHistory, List(Of Webpage))
-        If Not (Historique Is Nothing) Then
-            Historique.Add(NewPage)
-            My.Settings.NewHistory = Historique
-        Else
-            Historique = New List(Of Webpage) From {NewPage}
-            My.Settings.NewHistory = Historique
-        End If
-        If AddInOldHistory = True Then
-            My.Settings.History.Add(NewPage.GetURL())
-        End If
-        URLBox.Items.Add(NewPage.GetURL())
-        My.Settings.Save()
+        'Historique = New List(Of Webpage)
     End Sub
 
     ''' <summary>
@@ -324,23 +304,12 @@ Public Class BrowserForm
                 URLBox.Items.Add(favorite)
             Next
 
-            If My.Settings.NewHistory Is Nothing Then
-                My.Settings.NewHistory = New List(Of Webpage)
-                For Each historyentry In My.Settings.History
-                    AddInHistory(New Webpage(historyentry), False)
-                    URLBox.Items.Add(historyentry)
-                Next
-            Else
-                For Each NewHistoryEntry In CType(My.Settings.NewHistory, List(Of Webpage))
-                    URLBox.Items.Add(NewHistoryEntry.GetURL())
-                Next
-            End If
-
-            For Each NewHistoryEntry In Historique
-                URLBox.Items.Add(NewHistoryEntry.GetURL())
+            For Each HistoryEntry In My.Settings.History
+                URLBox.Items.Add(HistoryEntry)
             Next
-            For Each SearchHistoryentry In My.Settings.SearchHistory
-                SearchBox.Items.Add(SearchHistoryentry)
+
+            For Each SearchHistoryEntry In My.Settings.SearchHistory
+                SearchBox.Items.Add(SearchHistoryEntry)
             Next
         Catch ex As Exception
             DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)

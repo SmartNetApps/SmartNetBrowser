@@ -155,7 +155,6 @@ Public Class SettingsForm
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Try
             My.Settings.History.Clear()
-            CType(My.Settings.NewHistory, List(Of Webpage)).Clear()
             BrowserForm.URLBox.Items.Clear()
             WB.History.Clear()
             DeleteHistoryButton.Enabled = False
@@ -286,7 +285,6 @@ Public Class SettingsForm
         If MsgBox("Êtes-vous sûr(e) de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", MsgBoxStyle.OkCancel, "Réinitialisation de SmartNet Browser") = MsgBoxResult.Ok Then
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
-            CType(My.Settings.NewHistory, List(Of Webpage)).Clear()
             My.Settings.Homepage = "http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/"
             My.Settings.Favorites.Clear()
             My.Settings.SearchHistory.Clear()
