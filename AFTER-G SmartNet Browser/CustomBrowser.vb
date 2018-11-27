@@ -102,20 +102,16 @@ Public Class CustomBrowser
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
         BrowserForm.UpdateInterface()
     End Sub
+
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
         BrowserForm.CurrentDocument = Me.Document
         BrowserForm.UpdateInterface()
         BrowserForm.CheckFavicon()
         If e.Uri.ToString <> "about:blank" Then
             If My.Settings.PrivateBrowsing = False Then
-                If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:")) Then
-                    'If FirstTimeNavigated = True Then
-
-                    '    FirstTimeNavigated = False
-                    'Else
-                    '    FirstTimeNavigated = True
-                    'End If
+                If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or My.Settings.History.Item(My.Settings.History.Count - 1) = Me.Url.ToString) Then
                     BrowserForm.URLBox.Items.Add(Me.Url.ToString)
+                    My.Settings.History.Add(Me.Url.ToString())
                 End If
             End If
         End If

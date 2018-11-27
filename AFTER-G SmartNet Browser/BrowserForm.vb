@@ -65,7 +65,7 @@ Public Class BrowserForm
     Public Sub CheckFavicon()
         Dim WB As CustomBrowser = CType(BrowserTabs.SelectedTab.Tag, CustomBrowser)
         FaviconBox.Image = PageFavicon(WB.Url.ToString())
-        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = PageFavicon(WB.Url.ToString())
+        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = New Bitmap(PageFavicon(WB.Url.ToString()), 16, 16)
         BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
         PropertiesForm.FaviconBox.Image = PageFavicon(WB.Url.ToString())
     End Sub
