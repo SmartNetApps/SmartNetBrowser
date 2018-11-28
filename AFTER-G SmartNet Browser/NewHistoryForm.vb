@@ -14,7 +14,7 @@
         Historique = BrowserForm.Historique
         For Each entree In Historique
             Dim element As New ListViewItem
-            HistoryFaviconImageList.Images.Add(My.Resources.ErrorFavicon)
+            HistoryFaviconImageList.Images.Add(entree.GetFavicon())
             element = CType(HistoryListView.Items.Add(entree.GetNom()), ListViewItem)
             element.SubItems.Add(entree.GetURL())
         Next
@@ -27,7 +27,7 @@
         Favoris = BrowserForm.Favoris
         For Each entree In Favoris
             Dim element As New ListViewItem
-            'FaviconImageList.Images.Add(My.Resources.ErrorFavicon)
+            FavoritesFaviconImageList.Images.Add(entree.GetFavicon())
             element = CType(ListViewFavorites.Items.Add(entree.GetNom()), ListViewItem)
             element.SubItems.Add(entree.GetURL())
         Next

@@ -232,7 +232,7 @@ Public Class CustomBrowser
         CType(Me.Tag, TabPage).Text = doctitle
 
         If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
-            BrowserForm.Text = doctitle + " - SmartNet Browser"
+            BrowserForm.Text = DocumentTitle + " - SmartNet Browser"
         End If
     End Sub
 

@@ -28,14 +28,27 @@ Public Class BrowserForm
         Next
     End Sub
 
+    ''' <summary>
+    ''' Ajoute la page spécifiée dans l'historique de l'utilisateur.
+    ''' </summary>
+    ''' <param name="page">Page à ajouter</param>
     Public Sub AddInHistory(page As WebPage)
         My.Settings.History.Add(page.GetURL())
+        My.Settings.Save()
         Historique.Add(page)
+        URLBox.Items.Add(page.GetURL())
     End Sub
 
+    ''' <summary>
+    ''' Ajoute la page spécifiée dans la liste des favoris de l'utilisateur.
+    ''' </summary>
+    ''' <param name="page">Page à ajouter</param>
     Public Sub AddInFavorites(page As WebPage)
         My.Settings.Favorites.Add(page.GetURL())
+        My.Settings.Save()
         Favoris.Add(page)
+        URLBox.Items.Add(page.GetURL())
+        UpdateInterface()
     End Sub
 
     ''' <summary>
@@ -244,13 +257,13 @@ Public Class BrowserForm
             WB2 = CType(onglet.Tag, CustomBrowser)
             If WB2.DocumentTitle = "" Or WB2.DocumentTitle Is Nothing Then
                 If WB2.Url.ToString.Length > 30 Then
-                    onglet.Text = WB2.Url.ToString.Substring(0, 29) & "..."
+                    onglet.Text = WB2.Url.ToString.Substring(0, 26) & "..."
                 Else
                     onglet.Text = WB2.Url.ToString
                 End If
             Else
                 If WB2.DocumentTitle.Length > 30 Then
-                    onglet.Text = WB2.DocumentTitle.Substring(0, 29) & "..."
+                    onglet.Text = WB2.DocumentTitle.Substring(0, 26) & "..."
                 Else
                     onglet.Text = WB2.DocumentTitle
                 End If
@@ -286,22 +299,6 @@ Public Class BrowserForm
         Else
             SearchBoxLabel.Visible = False
         End If
-    End Sub
-
-    ''' <summary>
-    ''' Ajoute une page dans les favoris de l'utilisateur.
-    ''' </summary>
-    ''' <param name="pURL">URL de la page à ajouter</param>
-    Public Sub AddFavorite(pURL As String)
-        Try
-            My.Settings.Favorites.Add(pURL)
-            URLBox.Items.Add(pURL)
-            My.Settings.Save()
-            UpdateInterface()
-        Catch ex As Exception
-            DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne. (Code d'erreur : FAVORITE_SAVE_ERROR)", "OpenExceptionForm", "Voir les détails", "", ex)
-            UpdateInterface()
-        End Try
     End Sub
 
     Private Sub FormEssai_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -471,7 +468,7 @@ Public Class BrowserForm
     End Sub
     Private Sub AjouterCettePageDansLesFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddFavorite(WB.Url.ToString())
+        AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
     End Sub
     Private Sub ShowFavorites(sender As Object, e As EventArgs) Handles AfficherLesFavorisToolStripMenuItem.Click
         If My.Settings.HistoryFavoritesSecurity = True Then
@@ -838,7 +835,7 @@ Public Class BrowserForm
         If My.Settings.Favorites.Contains(WB.Url.ToString) Then
             FavoritesForm.Show()
         Else
-            AddFavorite(WB.Url.ToString())
+            AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
             My.Settings.Save()
             UpdateInterface()
         End If
