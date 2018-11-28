@@ -124,41 +124,10 @@
   <data name="MainToolbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
-  </data>
-  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 20</value>
-  </data>
-  <data name="MainMenu.ToolTipText" xml:space="preserve">
-    <value>Menu de SmartNet Browser</value>
-  </data>
-  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 1</value>
-  </data>
-  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 24</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
-    <value>MainToolbar</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
   <data name="NewTabToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+T</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="NewTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
@@ -228,15 +197,6 @@
   <data name="EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Envoyer un lien vers cette page par e-mail.</value>
   </data>
-  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="ÉditionSubMenu.Text" xml:space="preserve">
-    <value>Éditio&amp;n</value>
-  </data>
-  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
-    <value>Outils d'édition</value>
-  </data>
   <data name="CouperToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 24</value>
   </data>
@@ -291,22 +251,14 @@
   <data name="RechercherDansLaPageToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Rechercher du texte dans la page et le mettre en surbrillance.</value>
   </data>
-  <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASlJREFUOE+V
-        kjFOAlEQQBETGioqCwsTEjsMDY2llfEgdoTOWjottacxHoGoF7CzNMbG6Akg0UITCvC93QX+7n4gvOQl
-        fzc7M39mtlLgBO/xDT/wCc+xhmvxgzsc4RWeocl6+JrZxJUY/IJ7yVOeXbzBT2z4ooiVrBwGd/EhPS54
-        RBOVsGevHXKBz+lxwTGO0RvlcGD2LFY22Opf2Vn3sYp/eIg5nLZtiIFWNvg7O+sRyg+20uMSV+W0Q2It
-        HOAE68lTgHt2TWFvsQTXOEyPefwHTBBO2J7n15ZT/MV28hTBn8Q9uyqn7cDEa1vZ4Ck6oz7uYAl/Em/h
-        qpy2A7Nnr21lg2eZA4wmEWfhqpx2OLBLnCfYmCSGHxsUJrnFrSgmecetMYmVCa50/gH5BEYmIsx9TgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ÉditionSubMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
-  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Zoom</value>
+  <data name="ÉditionSubMenu.Text" xml:space="preserve">
+    <value>Éditio&amp;n</value>
+  </data>
+  <data name="ÉditionSubMenu.ToolTipText" xml:space="preserve">
+    <value>Outils d'édition</value>
   </data>
   <data name="Zoom50.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 24</value>
@@ -392,6 +344,23 @@
   <data name="ZoomMinusButton.Text" xml:space="preserve">
     <value>Zoom a&amp;rrière</value>
   </data>
+  <data name="ZoomToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASlJREFUOE+V
+        kjFOAlEQQBETGioqCwsTEjsMDY2llfEgdoTOWjottacxHoGoF7CzNMbG6Akg0UITCvC93QX+7n4gvOQl
+        fzc7M39mtlLgBO/xDT/wCc+xhmvxgzsc4RWeocl6+JrZxJUY/IJ7yVOeXbzBT2z4ooiVrBwGd/EhPS54
+        RBOVsGevHXKBz+lxwTGO0RvlcGD2LFY22Opf2Vn3sYp/eIg5nLZtiIFWNvg7O+sRyg+20uMSV+W0Q2It
+        HOAE68lTgHt2TWFvsQTXOEyPefwHTBBO2J7n15ZT/MV28hTBn8Q9uyqn7cDEa1vZ4Ck6oz7uYAl/Em/h
+        qpy2A7Nnr21lg2eZA4wmEWfhqpx2OLBLnCfYmCSGHxsUJrnFrSgmecetMYmVCa50/gH5BEYmIsx9TgAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Zoom</value>
+  </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
   </data>
@@ -403,15 +372,6 @@
   </data>
   <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 6</value>
-  </data>
-  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="FavorisSubMenu.Text" xml:space="preserve">
-    <value>Favoris</value>
-  </data>
-  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
-    <value>Gérer les favoris</value>
   </data>
   <data name="AfficherLesFavorisToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+B</value>
@@ -436,6 +396,15 @@
   </data>
   <data name="AjouterCettePageDansLesFavorisToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ajoute la page dans la liste de vos favoris.</value>
+  </data>
+  <data name="FavorisSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="FavorisSubMenu.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
+    <value>Gérer les favoris</value>
   </data>
   <data name="AfficherLhistoriqueToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+H</value>
@@ -464,6 +433,7 @@
   <data name="PleinÉcranToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Passer en mode plein écran.</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="QuitterLePleinÉcranToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -493,15 +463,6 @@
   </data>
   <data name="ParamètresToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ouvre les paramètres de votre navigateur.</value>
-  </data>
-  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 24</value>
-  </data>
-  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Aide</value>
-  </data>
-  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
   </data>
   <data name="CentreDaideEnLigneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 24</value>
@@ -551,30 +512,14 @@
   <data name="SignalerUnSiteMalveillantToolStripMenuItem.Text" xml:space="preserve">
     <value>Signaler un site malveillant...</value>
   </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
-        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
-        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
-        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
-        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
-        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
-        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
-        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SupportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
   </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
-    <value>Mettre à jour SmartNet Browser</value>
+  <data name="SupportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Aide</value>
   </data>
-  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
-    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
-  </data>
-  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="SupportToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Aide en ligne relative à l'utilisation de SmartNet Browser</value>
   </data>
   <data name="TéléchargerLaVersionXXXXToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -601,6 +546,31 @@
   <data name="TéléchargerLaVersionXXXXToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Afficher les détails sur la mise à jour de SmartNet Browser.</value>
   </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMK0KCsAAAAGPSURBVDhPpZM9
+        S0JRGMddHf0Uzg6JEIVOrQ19gz5AQ1gILUUfoCHw4i60OHiVAge1KYiGJkUt9Ya5pNH15er17d/zHB81
+        tQjqB3+4/+fNc47nOFaZTCYekkYqkgYi/g6TPFK2DiWdpAhpgh/gHME1TmmbwgHSrdT9CtcuDSETkZyi
+        Zr/gaHiOTewpHeAUTzAkO4V7Zs285/my84UbBDM7SPfS6MNWukYWG919xHv3UjXfjocHhCUGu24gFdpC
+        r29KZIE5tuCtXqBif0hEDQnzgKJ42CfHsFK6uHX0poFg6VGcGlBwDAjxQCAAtFpi1umORtjOlMTRDxK8
+        gumAXA5wuwGfD2g0VGiVNlUGkl1xagWDxRaSScDlAvx+Zb8j9gyE7sQQ3MsDNPFAuQwkEmKWaVpjeK/G
+        eO1IgKBedYhLf+OMTqUG691E27SQfahjVzOQqQ4lq5qZ6dWmj6WLxJSjOvTDS2hnMUTjeby1FmfNcI9q
+        Zsj87yozMuRvj+krlOQz4ac7e842qSCxlefscHwC7pw90XnTIacAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 24</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Text" xml:space="preserve">
+    <value>Mettre à jour SmartNet Browser</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.ToolTipText" xml:space="preserve">
+    <value>SmartNet Apps Updater a détecté une mise à jour pour SmartNet Browser.</value>
+  </data>
+  <data name="NouvelleVersionDisponibleSubMenu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+F4</value>
   </data>
@@ -612,6 +582,36 @@
   </data>
   <data name="FermerSmartNetBrowserToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Ferme SmartNet Browser.</value>
+  </data>
+  <data name="MainMenu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt</value>
+  </data>
+  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 20</value>
+  </data>
+  <data name="MainMenu.ToolTipText" xml:space="preserve">
+    <value>Menu de SmartNet Browser</value>
+  </data>
+  <data name="MainToolbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 1</value>
+  </data>
+  <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 24</value>
+  </data>
+  <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Name" xml:space="preserve">
+    <value>MainToolbar</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainToolbar.ZOrder" xml:space="preserve">
+    <value>24</value>
   </data>
   <data name="FaviconBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>146, 6</value>
@@ -745,15 +745,6 @@
   <metadata name="BrowserContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>679, 8</value>
   </metadata>
-  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 336</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
-    <value>BrowserContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="OuvrirLeLienToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 22</value>
   </data>
@@ -853,6 +844,15 @@
   <data name="AfficherLeCodeSourceDeLaPageToolStripMenuItem.Text" xml:space="preserve">
     <value>Afficher le code source de la page</value>
   </data>
+  <data name="BrowserContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 336</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Name" xml:space="preserve">
+    <value>BrowserContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;BrowserContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="SaveImageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>873, 8</value>
   </metadata>
@@ -885,33 +885,33 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABy
-        BgAAAk1TRnQBSQFMAwEBAAG0AQEBtAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFSAf8CJQGoAf8CmQHMAf8CAAFSAf8CAAFS
-        Af8CAAFSAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFS
-        Af8CHgGlAf8CLQGsAf8CAAGCAf8CQQG2Af8CFgGhAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAFS
-        Af8CAAFSAf8CAAFSAf8CAAFSAf8CWQFdAdLCAAF/Af4CJwGpAf8CAgGXAf8CAAGGAf8ClgHKAf8CAAGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CJQGoAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAFSAf8CAAF/
-        Af7CAAFSAf8CQAG2Af8CAAGAAf8CAAFSAf8CRQG4Af8CAAGPAf8CtgHaAf8CRQG4Af8CQgG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFSAf8CAAFSAf8CAAFSAf/CAAGPAf8CAAGNAf8CRwG5Af8CQQG2
-        Af8CNwGxAf8CUgG/Af8CCQGaAf8COQGyAf8CNQGwAf8CAAGIAf8CxAHiAf8CJgGoAf8CswHZAf8CAAFS
-        Af8CAAFSAf8CAAFSAf/AAAKwAdcB/wILAZsB/wIAAVIB/wIAAYoB/wJRAb4B/wLyAfkB/wK+Ad4B/wLY
-        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIlAagB/wIAAVIB/wIAAVIB/8IAAYUB/wJI
-        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI3AbEB/wIAAYQB/wI/AbUB/wI8AbMB/wIAAYQB/wI6AbMB/wJC
-        AbcB/wIAAZQB/wKvAdcB/wIAAVIB/wIAAVIB/8IAAVIB/wIAAVIB/wLVAeoB/wI1AbAB/wKzAdkB/wKM
-        AcUB/wI1AbAB/wKhAdAB/wKeAc4B/wI1AbAB/wKPAccB/wKxAdgB/wI1AbAB/wLUAekB/wIAAVIB/wIA
-        AVIB/8IAAVIB/wIAAVIB/wLWAeoB/wI4AbEB/wK1AdoB/wKOAcYB/wI4AbEB/wKiAdAB/wKgAc8B/wI4
-        AbEB/wKQAccB/wKzAdgB/wI4AbEB/wLUAekB/wIAAVIB/wIAAVIB/8IAAVIB/wIAAVIB/wK0AdkB/wIA
-        AZAB/wJEAbgB/wI0AbAB/wIAAYIB/wI9AbQB/wI5AbIB/wIAAYIB/wI4AbIB/wJAAbYB/wIAAZIB/wKw
-        AdcB/wIAAVIB/wIAAVIB/8IAAVIB/wIAAVIB/wIrAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
-        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wInAakB/wIAAVIB/wIAAVIB/8IAAVIB/wIA
-        AVIB/wIAAYAB/wK4AdsB/wIgAaYB/wLGAeMB/wIAAYcB/wI5AbIB/wI1AbAB/wIAAYgB/wLFAeIB/wIj
-        AacB/wK1AdoB/wIAAYAB/wIAAVIB/wIAAVIB/8IAAVIB/wIAAVIB/wIAAVIB/wIAAYcB/wK4AdsB/wLP
-        AecB/wKvAdcB/wJDAbcB/wJAAbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVIB/wIAAVIB/wIA
-        AVIB/8IAAX8B/gIAAVIB/wIAAVIB/wIAAVIB/wIAAYAB/wIrAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
-        AdkB/wIpAaoB/wIAAYAB/wIAAVIB/wIAAVIB/wIAAVIB/wIAAX8B/sAAAlgBXAHRAgABUgH/AgABUgH/
-        AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/
-        AgABUgH/AgABUgH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABUgH/AgABUgH/AgABUgH/AgABUgH/
-        AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABUgH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
+        BgAAAk1TRnQBSQFMAwEBAAG8AQEBvAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFRAf8CJAGoAf8CmQHMAf8CAAFRAf8CAAFR
+        Af8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFR
+        Af8CHQGlAf8CLAGsAf8CAAGCAf8CQAG2Af8CFQGhAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFR
+        Af8CAAFRAf8CAAFRAf8CAAFRAf8CWQFdAdLCAAF/Af4CJgGpAf8CAQGXAf8CAAGGAf8ClgHKAf8CAAGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CJAGoAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAF/
+        Af7CAAFRAf8CPwG2Af8CAAGAAf8CAAFRAf8CRAG4Af8CAAGPAf8CtgHaAf8CRAG4Af8CQQG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFRAf8CAAFRAf8CAAFRAf/CAAGPAf8CAAGNAf8CRgG5Af8CQAG2
+        Af8CNgGxAf8CUQG/Af8CCAGaAf8COAGyAf8CNAGwAf8CAAGIAf8CxAHiAf8CJQGoAf8CswHZAf8CAAFR
+        Af8CAAFRAf8CAAFRAf/AAAKwAdcB/wIKAZsB/wIAAVEB/wIAAYoB/wJQAb4B/wLyAfkB/wK+Ad4B/wLY
+        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIkAagB/wIAAVEB/wIAAVEB/8IAAYUB/wJH
+        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI2AbEB/wIAAYQB/wI+AbUB/wI7AbMB/wIAAYQB/wI5AbMB/wJB
+        AbcB/wIAAZQB/wKvAdcB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wLVAeoB/wI0AbAB/wKzAdkB/wKM
+        AcUB/wI0AbAB/wKhAdAB/wKeAc4B/wI0AbAB/wKPAccB/wKxAdgB/wI0AbAB/wLUAekB/wIAAVEB/wIA
+        AVEB/8IAAVEB/wIAAVEB/wLWAeoB/wI3AbEB/wK1AdoB/wKOAcYB/wI3AbEB/wKiAdAB/wKgAc8B/wI3
+        AbEB/wKQAccB/wKzAdgB/wI3AbEB/wLUAekB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wK0AdkB/wIA
+        AZAB/wJDAbgB/wIzAbAB/wIAAYIB/wI8AbQB/wI4AbIB/wIAAYIB/wI3AbIB/wI/AbYB/wIAAZIB/wKw
+        AdcB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wIqAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
+        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wImAakB/wIAAVEB/wIAAVEB/8IAAVEB/wIA
+        AVEB/wIAAYAB/wK4AdsB/wIfAaYB/wLGAeMB/wIAAYcB/wI4AbIB/wI0AbAB/wIAAYgB/wLFAeIB/wIi
+        AacB/wK1AdoB/wIAAYAB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wIAAVEB/wIAAYcB/wK4AdsB/wLP
+        AecB/wKvAdcB/wJCAbcB/wI/AbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVEB/wIAAVEB/wIA
+        AVEB/8IAAX8B/gIAAVEB/wIAAVEB/wIAAVEB/wIAAYAB/wIqAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
+        AdkB/wIoAaoB/wIAAYAB/wIAAVEB/wIAAVEB/wIAAVEB/wIAAX8B/sAAAlgBXAHRAgABUQH/AgABUQH/
+        AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/
+        AgABUQH/AgABUQH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABUQH/AgABUQH/AgABUQH/AgABUQH/
+        AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
         BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/+BAAs=
 </value>
   </data>
@@ -942,15 +942,6 @@
   <metadata name="TabsContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1158, 8</value>
   </metadata>
-  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 48</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
-    <value>TabsContextMenuStrip</value>
-  </data>
-  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="FermerCetOngletToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 22</value>
   </data>
@@ -962,6 +953,15 @@
   </data>
   <data name="RouvrirLeDernierOngletFerméToolStripMenuItem.Text" xml:space="preserve">
     <value>Rouvrir le dernier onglet fermé</value>
+  </data>
+  <data name="TabsContextMenuStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 48</value>
+  </data>
+  <data name="&gt;&gt;TabsContextMenuStrip.Name" xml:space="preserve">
+    <value>TabsContextMenuStrip</value>
+  </data>
+  <data name="&gt;&gt;TabsContextMenuStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LoadingGif.Location" type="System.Drawing.Point, System.Drawing">
     <value>146, 6</value>

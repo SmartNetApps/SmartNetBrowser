@@ -27,21 +27,33 @@ Partial Class NewHistoryForm
         Me.HistoryListView = New System.Windows.Forms.ListView()
         Me.TitleColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.URLColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.FaviconImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.HistoryFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.OpenPageButton = New System.Windows.Forms.Button()
         Me.OpenOldHistoryButton = New System.Windows.Forms.Button()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPageHistory = New System.Windows.Forms.TabPage()
+        Me.TabPageFavorites = New System.Windows.Forms.TabPage()
+        Me.ListViewFavorites = New System.Windows.Forms.ListView()
+        Me.ColumnHeaderTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeaderURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.TabPageDownloads = New System.Windows.Forms.TabPage()
+        Me.TabPageSearchHistory = New System.Windows.Forms.TabPage()
+        Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.TabControl1.SuspendLayout()
+        Me.TabPageHistory.SuspendLayout()
+        Me.TabPageFavorites.SuspendLayout()
         Me.SuspendLayout()
         '
         'HistoryListView
         '
-        resources.ApplyResources(Me.HistoryListView, "HistoryListView")
         Me.HistoryListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.TitleColumnHeader, Me.URLColumnHeader})
+        resources.ApplyResources(Me.HistoryListView, "HistoryListView")
         Me.HistoryListView.FullRowSelect = True
-        Me.HistoryListView.LargeImageList = Me.FaviconImageList
+        Me.HistoryListView.LargeImageList = Me.HistoryFaviconImageList
         Me.HistoryListView.Name = "HistoryListView"
-        Me.HistoryListView.SmallImageList = Me.FaviconImageList
-        Me.HistoryListView.StateImageList = Me.FaviconImageList
+        Me.HistoryListView.SmallImageList = Me.HistoryFaviconImageList
+        Me.HistoryListView.StateImageList = Me.HistoryFaviconImageList
         Me.HistoryListView.UseCompatibleStateImageBehavior = False
         Me.HistoryListView.View = System.Windows.Forms.View.Details
         '
@@ -53,11 +65,11 @@ Partial Class NewHistoryForm
         '
         resources.ApplyResources(Me.URLColumnHeader, "URLColumnHeader")
         '
-        'FaviconImageList
+        'HistoryFaviconImageList
         '
-        Me.FaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        resources.ApplyResources(Me.FaviconImageList, "FaviconImageList")
-        Me.FaviconImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.HistoryFaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
+        resources.ApplyResources(Me.HistoryFaviconImageList, "HistoryFaviconImageList")
+        Me.HistoryFaviconImageList.TransparentColor = System.Drawing.Color.Transparent
         '
         'DeleteButton
         '
@@ -77,15 +89,77 @@ Partial Class NewHistoryForm
         Me.OpenOldHistoryButton.Name = "OpenOldHistoryButton"
         Me.OpenOldHistoryButton.UseVisualStyleBackColor = True
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPageHistory)
+        Me.TabControl1.Controls.Add(Me.TabPageFavorites)
+        Me.TabControl1.Controls.Add(Me.TabPageSearchHistory)
+        Me.TabControl1.Controls.Add(Me.TabPageDownloads)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        '
+        'TabPageHistory
+        '
+        Me.TabPageHistory.Controls.Add(Me.HistoryListView)
+        Me.TabPageHistory.Controls.Add(Me.OpenOldHistoryButton)
+        Me.TabPageHistory.Controls.Add(Me.DeleteButton)
+        Me.TabPageHistory.Controls.Add(Me.OpenPageButton)
+        resources.ApplyResources(Me.TabPageHistory, "TabPageHistory")
+        Me.TabPageHistory.Name = "TabPageHistory"
+        Me.TabPageHistory.UseVisualStyleBackColor = True
+        '
+        'TabPageFavorites
+        '
+        Me.TabPageFavorites.Controls.Add(Me.ListViewFavorites)
+        resources.ApplyResources(Me.TabPageFavorites, "TabPageFavorites")
+        Me.TabPageFavorites.Name = "TabPageFavorites"
+        Me.TabPageFavorites.UseVisualStyleBackColor = True
+        '
+        'ListViewFavorites
+        '
+        Me.ListViewFavorites.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeaderTitle, Me.ColumnHeaderURL})
+        resources.ApplyResources(Me.ListViewFavorites, "ListViewFavorites")
+        Me.ListViewFavorites.FullRowSelect = True
+        Me.ListViewFavorites.Name = "ListViewFavorites"
+        Me.ListViewFavorites.UseCompatibleStateImageBehavior = False
+        Me.ListViewFavorites.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeaderTitle
+        '
+        resources.ApplyResources(Me.ColumnHeaderTitle, "ColumnHeaderTitle")
+        '
+        'ColumnHeaderURL
+        '
+        resources.ApplyResources(Me.ColumnHeaderURL, "ColumnHeaderURL")
+        '
+        'TabPageDownloads
+        '
+        resources.ApplyResources(Me.TabPageDownloads, "TabPageDownloads")
+        Me.TabPageDownloads.Name = "TabPageDownloads"
+        Me.TabPageDownloads.UseVisualStyleBackColor = True
+        '
+        'TabPageSearchHistory
+        '
+        resources.ApplyResources(Me.TabPageSearchHistory, "TabPageSearchHistory")
+        Me.TabPageSearchHistory.Name = "TabPageSearchHistory"
+        Me.TabPageSearchHistory.UseVisualStyleBackColor = True
+        '
+        'FavoritesFaviconImageList
+        '
+        Me.FavoritesFaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
+        resources.ApplyResources(Me.FavoritesFaviconImageList, "FavoritesFaviconImageList")
+        Me.FavoritesFaviconImageList.TransparentColor = System.Drawing.Color.Transparent
+        '
         'NewHistoryForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.OpenOldHistoryButton)
-        Me.Controls.Add(Me.OpenPageButton)
-        Me.Controls.Add(Me.DeleteButton)
-        Me.Controls.Add(Me.HistoryListView)
+        Me.Controls.Add(Me.TabControl1)
         Me.Name = "NewHistoryForm"
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPageHistory.ResumeLayout(False)
+        Me.TabPageFavorites.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -93,8 +167,17 @@ Partial Class NewHistoryForm
     Friend WithEvents HistoryListView As ListView
     Friend WithEvents TitleColumnHeader As ColumnHeader
     Friend WithEvents URLColumnHeader As ColumnHeader
-    Friend WithEvents FaviconImageList As ImageList
+    Friend WithEvents HistoryFaviconImageList As ImageList
     Friend WithEvents DeleteButton As Button
     Friend WithEvents OpenPageButton As Button
     Friend WithEvents OpenOldHistoryButton As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPageHistory As TabPage
+    Friend WithEvents TabPageFavorites As TabPage
+    Friend WithEvents ListViewFavorites As ListView
+    Friend WithEvents ColumnHeaderTitle As ColumnHeader
+    Friend WithEvents ColumnHeaderURL As ColumnHeader
+    Friend WithEvents TabPageSearchHistory As TabPage
+    Friend WithEvents TabPageDownloads As TabPage
+    Friend WithEvents FavoritesFaviconImageList As ImageList
 End Class

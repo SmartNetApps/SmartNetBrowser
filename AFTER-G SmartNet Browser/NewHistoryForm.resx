@@ -117,128 +117,317 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="OpenPageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 31</value>
-  </data>
-  <data name="&gt;&gt;OpenPageButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TitleColumnHeader.Text" xml:space="preserve">
+    <value>Titre</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TitleColumnHeader.Width" type="System.Int32, mscorlib">
     <value>409</value>
   </data>
-  <data name="OpenPageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>443, 443</value>
+  <data name="URLColumnHeader.Text" xml:space="preserve">
+    <value>Adresse</value>
   </data>
-  <data name="&gt;&gt;TitleColumnHeader.Name" xml:space="preserve">
-    <value>TitleColumnHeader</value>
-  </data>
-  <data name="&gt;&gt;OpenOldHistoryButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="OpenOldHistoryButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="DeleteButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 31</value>
-  </data>
-  <data name="&gt;&gt;FaviconImageList.Name" xml:space="preserve">
-    <value>FaviconImageList</value>
-  </data>
-  <data name="&gt;&gt;OpenPageButton.Name" xml:space="preserve">
-    <value>OpenPageButton</value>
-  </data>
-  <data name="OpenPageButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;OpenOldHistoryButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="OpenOldHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 443</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>NewHistoryForm</value>
-  </data>
-  <data name="&gt;&gt;DeleteButton.Name" xml:space="preserve">
-    <value>DeleteButton</value>
-  </data>
-  <data name="OpenPageButton.Text" xml:space="preserve">
-    <value>Ouvrir la page</value>
+  <data name="URLColumnHeader.Width" type="System.Int32, mscorlib">
+    <value>476</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HistoryListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="HistoryListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="&gt;&gt;HistoryListView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="HistoryListView.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="OpenOldHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 31</value>
+  <metadata name="HistoryFaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="HistoryFaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
   </data>
-  <data name="&gt;&gt;DeleteButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="HistoryListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>801, 484</value>
+  <data name="HistoryListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>893, 496</value>
   </data>
-  <data name="&gt;&gt;OpenPageButton.ZOrder" xml:space="preserve">
+  <data name="HistoryListView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;HistoryListView.Name" xml:space="preserve">
     <value>HistoryListView</value>
   </data>
+  <data name="&gt;&gt;HistoryListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HistoryListView.Parent" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;HistoryListView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DeleteButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="DeleteButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>676, 505</value>
+  </data>
+  <data name="DeleteButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 31</value>
+  </data>
+  <data name="DeleteButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DeleteButton.Text" xml:space="preserve">
+    <value>Supprimer l'entrée sélectionnée</value>
+  </data>
+  <data name="&gt;&gt;DeleteButton.Name" xml:space="preserve">
+    <value>DeleteButton</value>
+  </data>
+  <data name="&gt;&gt;DeleteButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeleteButton.Parent" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;DeleteButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="OpenPageButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="&gt;&gt;DeleteButton.ZOrder" xml:space="preserve">
+  <data name="OpenPageButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>547, 505</value>
+  </data>
+  <data name="OpenPageButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 31</value>
+  </data>
+  <data name="OpenPageButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="OpenPageButton.Text" xml:space="preserve">
+    <value>Ouvrir la page</value>
+  </data>
+  <data name="&gt;&gt;OpenPageButton.Name" xml:space="preserve">
+    <value>OpenPageButton</value>
+  </data>
+  <data name="&gt;&gt;OpenPageButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenPageButton.Parent" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;OpenPageButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="OpenOldHistoryButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="OpenOldHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>367, 505</value>
+  </data>
+  <data name="OpenOldHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 31</value>
+  </data>
+  <data name="OpenOldHistoryButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="OpenOldHistoryButton.Text" xml:space="preserve">
     <value>Ouvrir l'ancien historique</value>
   </data>
-  <data name="&gt;&gt;OpenOldHistoryButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="DeleteButton.Text" xml:space="preserve">
-    <value>Supprimer l'entrée sélectionnée</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="HistoryListView.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;TitleColumnHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="URLColumnHeader.Width" type="System.Int32, mscorlib">
-    <value>345</value>
-  </data>
-  <data name="DeleteButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;OpenPageButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="OpenOldHistoryButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="DeleteButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="HistoryListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 434</value>
-  </data>
   <data name="&gt;&gt;OpenOldHistoryButton.Name" xml:space="preserve">
     <value>OpenOldHistoryButton</value>
   </data>
-  <data name="&gt;&gt;DeleteButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;OpenOldHistoryButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenOldHistoryButton.Parent" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;OpenOldHistoryButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TabPageHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageHistory.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TabPageHistory.Text" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Name" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ColumnHeaderTitle.Text" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="ColumnHeaderTitle.Width" type="System.Int32, mscorlib">
+    <value>396</value>
+  </data>
+  <data name="ColumnHeaderURL.Text" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="ColumnHeaderURL.Width" type="System.Int32, mscorlib">
+    <value>482</value>
+  </data>
+  <data name="ListViewFavorites.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="ListViewFavorites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ListViewFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>893, 479</value>
+  </data>
+  <data name="ListViewFavorites.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Name" xml:space="preserve">
+    <value>ListViewFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPageFavorites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageFavorites.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageFavorites.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabPageFavorites.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Name" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TabPageSearchHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageSearchHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageSearchHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="TabPageSearchHistory.Text" xml:space="preserve">
+    <value>Recherches</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Name" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabPageDownloads.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageDownloads.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageDownloads.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageDownloads.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPageDownloads.Text" xml:space="preserve">
+    <value>Téléchargements</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Name" xml:space="preserve">
+    <value>TabPageDownloads</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>907, 572</value>
+  </data>
+  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="FavoritesFaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>201, 17</value>
+  </metadata>
+  <data name="FavoritesFaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 17</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>907, 572</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5953,49 +6142,49 @@
         AIABAADAAwAA4AcAAA==
 </value>
   </data>
-  <data name="&gt;&gt;HistoryListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bibliothèque (expérimental) - SmartNet Browser</value>
   </data>
-  <data name="&gt;&gt;FaviconImageList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TitleColumnHeader.Name" xml:space="preserve">
+    <value>TitleColumnHeader</value>
   </data>
-  <data name="URLColumnHeader.Text" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="HistoryListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="DeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 443</value>
-  </data>
-  <data name="&gt;&gt;HistoryListView.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;TitleColumnHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;URLColumnHeader.Name" xml:space="preserve">
     <value>URLColumnHeader</value>
   </data>
-  <data name="FaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="TitleColumnHeader.Text" xml:space="preserve">
-    <value>Titre</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 17</value>
-  </data>
-  <data name="HistoryListView.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Nouvel historique (expérimental) - SmartNet Browser</value>
-  </data>
   <data name="&gt;&gt;URLColumnHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="&gt;&gt;HistoryFaviconImageList.Name" xml:space="preserve">
+    <value>HistoryFaviconImageList</value>
+  </data>
+  <data name="&gt;&gt;HistoryFaviconImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeaderTitle.Name" xml:space="preserve">
+    <value>ColumnHeaderTitle</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeaderTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeaderURL.Name" xml:space="preserve">
+    <value>ColumnHeaderURL</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeaderURL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FavoritesFaviconImageList.Name" xml:space="preserve">
+    <value>FavoritesFaviconImageList</value>
+  </data>
+  <data name="&gt;&gt;FavoritesFaviconImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>NewHistoryForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

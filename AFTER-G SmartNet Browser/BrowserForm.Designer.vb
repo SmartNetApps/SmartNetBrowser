@@ -606,6 +606,8 @@ Partial Class BrowserForm
         '
         'LoadingGif
         '
+        Me.LoadingGif.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.loading
+        Me.LoadingGif.Image = Global.SmartNet_Browser.My.Resources.Resources.loading
         resources.ApplyResources(Me.LoadingGif, "LoadingGif")
         Me.LoadingGif.Name = "LoadingGif"
         Me.LoadingGif.TabStop = False

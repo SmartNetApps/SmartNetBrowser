@@ -1,23 +1,38 @@
 ﻿Public Class NewHistoryForm
-    'Dim Historique As List(Of Webpage)
+    Dim Historique As List(Of WebPage)
+    Dim Favoris As List(Of WebPage)
 
     Public Sub New()
         InitializeComponent()
+        Historique = New List(Of WebPage)
+        Favoris = New List(Of WebPage)
     End Sub
 
     Private Sub NewHistoryForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         HistoryListView.Items.Clear()
-        FaviconImageList.Images.Clear()
-        'If Not (My.Settings.NewHistory Is Nothing) Then
-        '    For Each entree In My.Settings.NewHistory
-        '        Dim element As New ListViewItem
-        '        FaviconImageList.Images.Add(New Bitmap(0, 0))
-        '        element = CType(HistoryListView.Items.Add(entree.Split("\").GetValue(1)), ListViewItem)
-        '        element.SubItems.Add(entree.Split("\").GetValue(1))
-        '    Next
-        '    HistoryListView.SmallImageList = FaviconImageList
-        '    HistoryListView.LargeImageList = FaviconImageList
-        'End If
+        HistoryFaviconImageList.Images.Clear()
+        Historique = BrowserForm.Historique
+        For Each entree In Historique
+            Dim element As New ListViewItem
+            HistoryFaviconImageList.Images.Add(My.Resources.ErrorFavicon)
+            element = CType(HistoryListView.Items.Add(entree.GetNom()), ListViewItem)
+            element.SubItems.Add(entree.GetURL())
+        Next
+        HistoryListView.SmallImageList = HistoryFaviconImageList
+        HistoryListView.LargeImageList = HistoryFaviconImageList
+
+
+        ListViewFavorites.Items.Clear()
+        FavoritesFaviconImageList.Images.Clear()
+        Favoris = BrowserForm.Favoris
+        For Each entree In Favoris
+            Dim element As New ListViewItem
+            'FaviconImageList.Images.Add(My.Resources.ErrorFavicon)
+            element = CType(ListViewFavorites.Items.Add(entree.GetNom()), ListViewItem)
+            element.SubItems.Add(entree.GetURL())
+        Next
+        ListViewFavorites.SmallImageList = FavoritesFaviconImageList
+        ListViewFavorites.LargeImageList = FavoritesFaviconImageList
     End Sub
 
     Private Sub HistoryListView_DoubleClick(sender As Object, e As EventArgs) Handles HistoryListView.DoubleClick

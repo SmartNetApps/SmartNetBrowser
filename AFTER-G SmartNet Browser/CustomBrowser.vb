@@ -111,7 +111,7 @@ Public Class CustomBrowser
             If My.Settings.PrivateBrowsing = False Then
                 If Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or My.Settings.History.Item(My.Settings.History.Count - 1) = Me.Url.ToString) Then
                     BrowserForm.URLBox.Items.Add(Me.Url.ToString)
-                    My.Settings.History.Add(Me.Url.ToString())
+                    BrowserForm.AddInHistory(New WebPage(Me.DocumentTitle, Me.Url.ToString())) 'My.Settings.History.Add(Me.Url.ToString())
                 End If
             End If
         End If

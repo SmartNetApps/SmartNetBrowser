@@ -10,12 +10,32 @@ Public Class BrowserForm
     Public MessageBarAction As String
     Public MessageBarButtonLink As String
     Dim tabPageIndex As Integer = 0
-    'Public Historique As List(Of Webpage)
+    Public Historique As List(Of WebPage)
+    Public Favoris As List(Of WebPage)
     Public lastClosedTab As String
 
     Public Sub New()
         InitializeComponent()
-        'Historique = New List(Of Webpage)
+        Historique = New List(Of WebPage)
+        Favoris = New List(Of WebPage)
+
+        For Each entry In My.Settings.History
+            Historique.Add(New WebPage(entry))
+        Next
+
+        For Each favorite In My.Settings.Favorites
+            Favoris.Add(New WebPage(favorite))
+        Next
+    End Sub
+
+    Public Sub AddInHistory(page As WebPage)
+        My.Settings.History.Add(page.GetURL())
+        Historique.Add(page)
+    End Sub
+
+    Public Sub AddInFavorites(page As WebPage)
+        My.Settings.Favorites.Add(page.GetURL())
+        Favoris.Add(page)
     End Sub
 
     ''' <summary>
