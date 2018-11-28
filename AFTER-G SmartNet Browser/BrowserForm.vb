@@ -826,7 +826,13 @@ Public Class BrowserForm
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         If My.Settings.Favorites.Contains(WB.Url.ToString) Then
-            FavoritesForm.Show()
+            If My.Settings.HistoryFavoritesSecurity = True Then
+                EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
+                EnterBrowserSettingsSecurityForm.ShowDialog()
+            Else
+                NewHistoryForm.TabControl1.SelectTab(1)
+                NewHistoryForm.Show()
+            End If
         Else
             AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
             My.Settings.Save()
@@ -900,7 +906,13 @@ Public Class BrowserForm
                 Case Keys.BrowserBack
                     WB.GoBack()
                 Case Keys.BrowserFavorites
-                    FavoritesForm.Show()
+                    If My.Settings.HistoryFavoritesSecurity = True Then
+                        EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
+                        EnterBrowserSettingsSecurityForm.ShowDialog()
+                    Else
+                        NewHistoryForm.TabControl1.SelectTab(1)
+                        NewHistoryForm.Show()
+                    End If
                 Case Keys.BrowserForward
                     WB.GoForward()
                 Case Keys.BrowserHome

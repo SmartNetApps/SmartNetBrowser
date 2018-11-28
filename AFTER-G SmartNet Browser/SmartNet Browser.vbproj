@@ -229,12 +229,6 @@
     <Compile Include="ExceptionForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FavoritesForm.Designer.vb">
-      <DependentUpon>FavoritesForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FavoritesForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FirstStartForm.Designer.vb">
       <DependentUpon>FirstStartForm.vb</DependentUpon>
     </Compile>
@@ -253,12 +247,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateAgent.vb" />
-    <Compile Include="HistoryForm.Designer.vb">
-      <DependentUpon>HistoryForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="LicenseForm.Designer.vb">
       <DependentUpon>LicenseForm.vb</DependentUpon>
     </Compile>
@@ -425,15 +413,6 @@
     <EmbeddedResource Include="ExceptionForm.resx">
       <DependentUpon>ExceptionForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FavoritesForm.en.resx">
-      <DependentUpon>FavoritesForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FavoritesForm.fr.resx">
-      <DependentUpon>FavoritesForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FavoritesForm.resx">
-      <DependentUpon>FavoritesForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FirstStartForm.en.resx">
       <DependentUpon>FirstStartForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -442,15 +421,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstStartForm.resx">
       <DependentUpon>FirstStartForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistoryForm.en.resx">
-      <DependentUpon>HistoryForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistoryForm.fr.resx">
-      <DependentUpon>HistoryForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistoryForm.resx">
-      <DependentUpon>HistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LicenseForm.en.resx">
       <DependentUpon>LicenseForm.vb</DependentUpon>

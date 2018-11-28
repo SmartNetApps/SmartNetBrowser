@@ -30,7 +30,6 @@ Partial Class NewHistoryForm
         Me.HistoryFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.OpenPageButton = New System.Windows.Forms.Button()
-        Me.OpenOldHistoryButton = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageHistory = New System.Windows.Forms.TabPage()
         Me.TabPageFavorites = New System.Windows.Forms.TabPage()
@@ -40,7 +39,6 @@ Partial Class NewHistoryForm
         Me.TabPageDownloads = New System.Windows.Forms.TabPage()
         Me.TabPageSearchHistory = New System.Windows.Forms.TabPage()
         Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
-        Me.ButtonOpenOldFavorites = New System.Windows.Forms.Button()
         Me.ButtonOpenFavorite = New System.Windows.Forms.Button()
         Me.ButtonDeleteFavorite = New System.Windows.Forms.Button()
         Me.ListBoxSearches = New System.Windows.Forms.ListBox()
@@ -90,12 +88,6 @@ Partial Class NewHistoryForm
         Me.OpenPageButton.Name = "OpenPageButton"
         Me.OpenPageButton.UseVisualStyleBackColor = True
         '
-        'OpenOldHistoryButton
-        '
-        resources.ApplyResources(Me.OpenOldHistoryButton, "OpenOldHistoryButton")
-        Me.OpenOldHistoryButton.Name = "OpenOldHistoryButton"
-        Me.OpenOldHistoryButton.UseVisualStyleBackColor = True
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPageHistory)
@@ -109,7 +101,6 @@ Partial Class NewHistoryForm
         'TabPageHistory
         '
         Me.TabPageHistory.Controls.Add(Me.HistoryListView)
-        Me.TabPageHistory.Controls.Add(Me.OpenOldHistoryButton)
         Me.TabPageHistory.Controls.Add(Me.DeleteButton)
         Me.TabPageHistory.Controls.Add(Me.OpenPageButton)
         resources.ApplyResources(Me.TabPageHistory, "TabPageHistory")
@@ -120,7 +111,6 @@ Partial Class NewHistoryForm
         '
         Me.TabPageFavorites.Controls.Add(Me.ButtonDeleteFavorite)
         Me.TabPageFavorites.Controls.Add(Me.ButtonOpenFavorite)
-        Me.TabPageFavorites.Controls.Add(Me.ButtonOpenOldFavorites)
         Me.TabPageFavorites.Controls.Add(Me.ListViewFavorites)
         resources.ApplyResources(Me.TabPageFavorites, "TabPageFavorites")
         Me.TabPageFavorites.Name = "TabPageFavorites"
@@ -163,12 +153,6 @@ Partial Class NewHistoryForm
         Me.FavoritesFaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
         resources.ApplyResources(Me.FavoritesFaviconImageList, "FavoritesFaviconImageList")
         Me.FavoritesFaviconImageList.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'ButtonOpenOldFavorites
-        '
-        resources.ApplyResources(Me.ButtonOpenOldFavorites, "ButtonOpenOldFavorites")
-        Me.ButtonOpenOldFavorites.Name = "ButtonOpenOldFavorites"
-        Me.ButtonOpenOldFavorites.UseVisualStyleBackColor = True
         '
         'ButtonOpenFavorite
         '
@@ -220,7 +204,6 @@ Partial Class NewHistoryForm
     Friend WithEvents HistoryFaviconImageList As ImageList
     Friend WithEvents DeleteButton As Button
     Friend WithEvents OpenPageButton As Button
-    Friend WithEvents OpenOldHistoryButton As Button
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPageHistory As TabPage
     Friend WithEvents TabPageFavorites As TabPage
@@ -232,7 +215,6 @@ Partial Class NewHistoryForm
     Friend WithEvents FavoritesFaviconImageList As ImageList
     Friend WithEvents ButtonDeleteFavorite As Button
     Friend WithEvents ButtonOpenFavorite As Button
-    Friend WithEvents ButtonOpenOldFavorites As Button
     Friend WithEvents ListBoxSearches As ListBox
     Friend WithEvents ButtonSearchAgain As Button
     Friend WithEvents ButtonDeleteSearch As Button

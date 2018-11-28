@@ -21,7 +21,6 @@
         HistoryListView.SmallImageList = HistoryFaviconImageList
         HistoryListView.LargeImageList = HistoryFaviconImageList
 
-
         ListViewFavorites.Items.Clear()
         FavoritesFaviconImageList.Images.Clear()
         Favoris = BrowserForm.Favoris
@@ -54,16 +53,6 @@
         Me.Close()
     End Sub
 
-    Private Sub OpenOldHistoryButton_Click(sender As Object, e As EventArgs) Handles OpenOldHistoryButton.Click
-        HistoryForm.Show()
-        Me.Close()
-    End Sub
-
-    Private Sub ButtonOpenOldFavorites_Click(sender As Object, e As EventArgs) Handles ButtonOpenOldFavorites.Click
-        FavoritesForm.Show()
-        Me.Close()
-    End Sub
-
     Private Sub ButtonOpenFavorite_Click(sender As Object, e As EventArgs) Handles ButtonOpenFavorite.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         For Each Item As ListViewItem In ListViewFavorites.SelectedItems
@@ -89,5 +78,15 @@
             Historique.RemoveAt(indice)
             HistoryListView.Items.RemoveAt(indice)
         Next
+    End Sub
+
+    Private Sub ButtonSearchAgain_Click(sender As Object, e As EventArgs) Handles ButtonSearchAgain.Click
+        BrowserForm.OpenSearchResults(ListBoxSearches.SelectedItem.ToString())
+    End Sub
+
+    Private Sub ButtonDeleteSearch_Click(sender As Object, e As EventArgs) Handles ButtonDeleteSearch.Click
+        My.Settings.Favorites.RemoveAt(ListBoxSearches.SelectedIndex)
+        My.Settings.Save()
+        ListBoxSearches.Items.RemoveAt(ListBoxSearches.SelectedIndex)
     End Sub
 End Class
