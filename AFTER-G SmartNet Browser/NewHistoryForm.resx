@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="HistoryListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="TitleColumnHeader.Text" xml:space="preserve">
     <value>Titre</value>
   </data>
@@ -129,10 +133,6 @@
   </data>
   <data name="URLColumnHeader.Width" type="System.Int32, mscorlib">
     <value>476</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HistoryListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="HistoryListView.Font" type="System.Drawing.Font, System.Drawing">
@@ -148,7 +148,7 @@
     <value>3, 3</value>
   </data>
   <data name="HistoryListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>893, 494</value>
+    <value>893, 470</value>
   </data>
   <data name="HistoryListView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -169,7 +169,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="DeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>674, 503</value>
+    <value>674, 479</value>
   </data>
   <data name="DeleteButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 31</value>
@@ -196,7 +196,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="OpenPageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>545, 503</value>
+    <value>545, 479</value>
   </data>
   <data name="OpenPageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 31</value>
@@ -226,7 +226,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
+    <value>899, 518</value>
   </data>
   <data name="TabPageHistory.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -246,8 +246,11 @@
   <data name="&gt;&gt;TabPageHistory.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="ButtonDeleteFavorite.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="ButtonDeleteFavorite.Location" type="System.Drawing.Point, System.Drawing">
-    <value>740, 503</value>
+    <value>740, 479</value>
   </data>
   <data name="ButtonDeleteFavorite.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 31</value>
@@ -270,8 +273,11 @@
   <data name="&gt;&gt;ButtonDeleteFavorite.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="ButtonOpenFavorite.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="ButtonOpenFavorite.Location" type="System.Drawing.Point, System.Drawing">
-    <value>593, 503</value>
+    <value>593, 479</value>
   </data>
   <data name="ButtonOpenFavorite.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 31</value>
@@ -294,14 +300,26 @@
   <data name="&gt;&gt;ButtonOpenFavorite.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ListViewFavorites.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="ListViewFavorites.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="ColumnHeaderTitle.Text" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="ColumnHeaderTitle.Width" type="System.Int32, mscorlib">
+    <value>396</value>
+  </data>
+  <data name="ColumnHeaderURL.Text" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="ColumnHeaderURL.Width" type="System.Int32, mscorlib">
+    <value>482</value>
   </data>
   <data name="ListViewFavorites.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="ListViewFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>893, 494</value>
+    <value>893, 470</value>
   </data>
   <data name="ListViewFavorites.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -325,7 +343,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
+    <value>899, 518</value>
   </data>
   <data name="TabPageFavorites.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -385,7 +403,7 @@
     <value>4, 26</value>
   </data>
   <data name="TabPageSearchHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
+    <value>899, 518</value>
   </data>
   <data name="TabPageSearchHistory.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -436,10 +454,10 @@
     <value>Fill</value>
   </data>
   <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 24</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>907, 572</value>
+    <value>907, 548</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -456,53 +474,38 @@
   <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ColumnHeaderTitle.Text" xml:space="preserve">
-    <value>Titre</value>
+  <data name="ButtonDeleteSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="ColumnHeaderTitle.Width" type="System.Int32, mscorlib">
-    <value>396</value>
+  <data name="ButtonDeleteSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>725, 479</value>
   </data>
-  <data name="ColumnHeaderURL.Text" xml:space="preserve">
-    <value>URL</value>
+  <data name="ButtonDeleteSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 31</value>
   </data>
-  <data name="ColumnHeaderURL.Width" type="System.Int32, mscorlib">
-    <value>482</value>
-  </data>
-  <metadata name="FavoritesFaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>201, 17</value>
-  </metadata>
-  <data name="FavoritesFaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="ListBoxSearches.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="ListBoxSearches.ItemHeight" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="ListBoxSearches.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ListBoxSearches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 497</value>
-  </data>
-  <data name="ListBoxSearches.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ListBoxSearches.Name" xml:space="preserve">
-    <value>ListBoxSearches</value>
-  </data>
-  <data name="&gt;&gt;ListBoxSearches.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ListBoxSearches.Parent" xml:space="preserve">
-    <value>TabPageSearchHistory</value>
-  </data>
-  <data name="&gt;&gt;ListBoxSearches.ZOrder" xml:space="preserve">
+  <data name="ButtonDeleteSearch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="ButtonDeleteSearch.Text" xml:space="preserve">
+    <value>Supprimer la sélection</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Name" xml:space="preserve">
+    <value>ButtonDeleteSearch</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonSearchAgain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="ButtonSearchAgain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>564, 503</value>
+    <value>564, 479</value>
   </data>
   <data name="ButtonSearchAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 31</value>
@@ -525,29 +528,107 @@
   <data name="&gt;&gt;ButtonSearchAgain.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonDeleteSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>725, 503</value>
+  <data name="ListBoxSearches.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="ButtonDeleteSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 31</value>
+  <data name="ListBoxSearches.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="ButtonDeleteSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="ListBoxSearches.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="ButtonDeleteSearch.Text" xml:space="preserve">
-    <value>Supprimer la sélection</value>
+  <data name="ListBoxSearches.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 463</value>
   </data>
-  <data name="&gt;&gt;ButtonDeleteSearch.Name" xml:space="preserve">
-    <value>ButtonDeleteSearch</value>
+  <data name="ListBoxSearches.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;ButtonDeleteSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ListBoxSearches.Name" xml:space="preserve">
+    <value>ListBoxSearches</value>
   </data>
-  <data name="&gt;&gt;ButtonDeleteSearch.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ListBoxSearches.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Parent" xml:space="preserve">
     <value>TabPageSearchHistory</value>
   </data>
-  <data name="&gt;&gt;ButtonDeleteSearch.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;ListBoxSearches.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="FavoritesFaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>201, 17</value>
+  </metadata>
+  <data name="FavoritesFaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>395, 17</value>
+  </metadata>
+  <data name="MenuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>907, 24</value>
+  </data>
+  <data name="MenuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="MenuStrip1.Text" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Name" xml:space="preserve">
+    <value>MenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="FermerToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+F4</value>
+  </data>
+  <data name="FermerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="FermerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="RafraîchirLesListesToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F5</value>
+  </data>
+  <data name="RafraîchirLesListesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="RafraîchirLesListesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Rafraîchir les listes</value>
+  </data>
+  <data name="AProposDeSmartNetBrowserToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 22</value>
+  </data>
+  <data name="AProposDeSmartNetBrowserToolStripMenuItem.Text" xml:space="preserve">
+    <value>A propos de SmartNet Browser...</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -6312,6 +6393,42 @@
   </data>
   <data name="&gt;&gt;FavoritesFaviconImageList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FichierToolStripMenuItem.Name" xml:space="preserve">
+    <value>FichierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FichierToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AffichageToolStripMenuItem.Name" xml:space="preserve">
+    <value>AffichageToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AffichageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FermerToolStripMenuItem.Name" xml:space="preserve">
+    <value>FermerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FermerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RafraîchirLesListesToolStripMenuItem.Name" xml:space="preserve">
+    <value>RafraîchirLesListesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RafraîchirLesListesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AProposDeSmartNetBrowserToolStripMenuItem.Name" xml:space="preserve">
+    <value>AProposDeSmartNetBrowserToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AProposDeSmartNetBrowserToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>NewHistoryForm</value>

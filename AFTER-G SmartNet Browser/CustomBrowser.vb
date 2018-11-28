@@ -80,7 +80,13 @@ Public Class CustomBrowser
                 Case Keys.BrowserBack
                     GoBack()
                 Case Keys.BrowserFavorites
-                    FavoritesForm.Show()
+                    If My.Settings.HistoryFavoritesSecurity = True Then
+                        EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
+                        EnterBrowserSettingsSecurityForm.ShowDialog()
+                    Else
+                        NewHistoryForm.TabControl1.SelectTab(1)
+                        NewHistoryForm.Show()
+                    End If
                 Case Keys.BrowserForward
                     GoForward()
                 Case Keys.BrowserHome
