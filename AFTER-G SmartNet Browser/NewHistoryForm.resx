@@ -148,7 +148,7 @@
     <value>3, 3</value>
   </data>
   <data name="HistoryListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>893, 496</value>
+    <value>893, 494</value>
   </data>
   <data name="HistoryListView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -169,7 +169,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="DeleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>676, 505</value>
+    <value>674, 503</value>
   </data>
   <data name="DeleteButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 31</value>
@@ -196,7 +196,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="OpenPageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>547, 505</value>
+    <value>545, 503</value>
   </data>
   <data name="OpenPageButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 31</value>
@@ -223,7 +223,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="OpenOldHistoryButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 505</value>
+    <value>365, 503</value>
   </data>
   <data name="OpenOldHistoryButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 31</value>
@@ -246,21 +246,6 @@
   <data name="&gt;&gt;OpenOldHistoryButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="TabPageHistory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="TabPageHistory.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
-  </data>
-  <data name="TabPageHistory.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TabPageHistory.Text" xml:space="preserve">
-    <value>Historique</value>
-  </data>
   <data name="&gt;&gt;TabPageHistory.Name" xml:space="preserve">
     <value>TabPageHistory</value>
   </data>
@@ -272,57 +257,6 @@
   </data>
   <data name="&gt;&gt;TabPageHistory.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="ColumnHeaderTitle.Text" xml:space="preserve">
-    <value>Titre</value>
-  </data>
-  <data name="ColumnHeaderTitle.Width" type="System.Int32, mscorlib">
-    <value>396</value>
-  </data>
-  <data name="ColumnHeaderURL.Text" xml:space="preserve">
-    <value>URL</value>
-  </data>
-  <data name="ColumnHeaderURL.Width" type="System.Int32, mscorlib">
-    <value>482</value>
-  </data>
-  <data name="ListViewFavorites.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="ListViewFavorites.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="ListViewFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>893, 479</value>
-  </data>
-  <data name="ListViewFavorites.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ListViewFavorites.Name" xml:space="preserve">
-    <value>ListViewFavorites</value>
-  </data>
-  <data name="&gt;&gt;ListViewFavorites.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ListViewFavorites.Parent" xml:space="preserve">
-    <value>TabPageFavorites</value>
-  </data>
-  <data name="&gt;&gt;ListViewFavorites.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPageFavorites.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="TabPageFavorites.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
-  </data>
-  <data name="TabPageFavorites.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabPageFavorites.Text" xml:space="preserve">
-    <value>Favoris</value>
   </data>
   <data name="&gt;&gt;TabPageFavorites.Name" xml:space="preserve">
     <value>TabPageFavorites</value>
@@ -336,18 +270,6 @@
   <data name="&gt;&gt;TabPageFavorites.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="TabPageSearchHistory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="TabPageSearchHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
-  </data>
-  <data name="TabPageSearchHistory.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="TabPageSearchHistory.Text" xml:space="preserve">
-    <value>Recherches</value>
-  </data>
   <data name="&gt;&gt;TabPageSearchHistory.Name" xml:space="preserve">
     <value>TabPageSearchHistory</value>
   </data>
@@ -359,21 +281,6 @@
   </data>
   <data name="&gt;&gt;TabPageSearchHistory.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="TabPageDownloads.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="TabPageDownloads.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageDownloads.Size" type="System.Drawing.Size, System.Drawing">
-    <value>899, 542</value>
-  </data>
-  <data name="TabPageDownloads.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabPageDownloads.Text" xml:space="preserve">
-    <value>Téléchargements</value>
   </data>
   <data name="&gt;&gt;TabPageDownloads.Name" xml:space="preserve">
     <value>TabPageDownloads</value>
@@ -411,11 +318,383 @@
   <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="TabPageHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageHistory.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TabPageHistory.Text" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Name" xml:space="preserve">
+    <value>TabPageHistory</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageHistory.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Name" xml:space="preserve">
+    <value>ButtonDeleteFavorite</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Name" xml:space="preserve">
+    <value>ButtonOpenFavorite</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Name" xml:space="preserve">
+    <value>ButtonOpenOldFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Name" xml:space="preserve">
+    <value>ListViewFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TabPageFavorites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageFavorites.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageFavorites.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabPageFavorites.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Name" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageFavorites.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ListViewFavorites.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="ListViewFavorites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ListViewFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>893, 494</value>
+  </data>
+  <data name="ListViewFavorites.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Name" xml:space="preserve">
+    <value>ListViewFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ListViewFavorites.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ColumnHeaderTitle.Text" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="ColumnHeaderTitle.Width" type="System.Int32, mscorlib">
+    <value>396</value>
+  </data>
+  <data name="ColumnHeaderURL.Text" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="ColumnHeaderURL.Width" type="System.Int32, mscorlib">
+    <value>482</value>
+  </data>
+  <data name="TabPageDownloads.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageDownloads.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageDownloads.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageDownloads.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPageDownloads.Text" xml:space="preserve">
+    <value>Téléchargements</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Name" xml:space="preserve">
+    <value>TabPageDownloads</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageDownloads.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Name" xml:space="preserve">
+    <value>ButtonDeleteSearch</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Name" xml:space="preserve">
+    <value>ButtonSearchAgain</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Name" xml:space="preserve">
+    <value>ListBoxSearches</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabPageSearchHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="TabPageSearchHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 542</value>
+  </data>
+  <data name="TabPageSearchHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="TabPageSearchHistory.Text" xml:space="preserve">
+    <value>Recherches</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Name" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPageSearchHistory.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="FavoritesFaviconImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>201, 17</value>
   </metadata>
   <data name="FavoritesFaviconImageList.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
+  </data>
+  <data name="ButtonOpenOldFavorites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 503</value>
+  </data>
+  <data name="ButtonOpenOldFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 31</value>
+  </data>
+  <data name="ButtonOpenOldFavorites.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ButtonOpenOldFavorites.Text" xml:space="preserve">
+    <value>Ouvrir l'ancienne bibliothèque</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Name" xml:space="preserve">
+    <value>ButtonOpenOldFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenOldFavorites.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ButtonOpenFavorite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, 503</value>
+  </data>
+  <data name="ButtonOpenFavorite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 31</value>
+  </data>
+  <data name="ButtonOpenFavorite.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ButtonOpenFavorite.Text" xml:space="preserve">
+    <value>Ouvrir le favori</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Name" xml:space="preserve">
+    <value>ButtonOpenFavorite</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonOpenFavorite.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ButtonDeleteFavorite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>740, 503</value>
+  </data>
+  <data name="ButtonDeleteFavorite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 31</value>
+  </data>
+  <data name="ButtonDeleteFavorite.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="ButtonDeleteFavorite.Text" xml:space="preserve">
+    <value>Supprimer le favori</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Name" xml:space="preserve">
+    <value>ButtonDeleteFavorite</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.Parent" xml:space="preserve">
+    <value>TabPageFavorites</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteFavorite.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ListBoxSearches.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="ListBoxSearches.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="ListBoxSearches.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ListBoxSearches.Size" type="System.Drawing.Size, System.Drawing">
+    <value>899, 497</value>
+  </data>
+  <data name="ListBoxSearches.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Name" xml:space="preserve">
+    <value>ListBoxSearches</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ListBoxSearches.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ButtonSearchAgain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>564, 503</value>
+  </data>
+  <data name="ButtonSearchAgain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 31</value>
+  </data>
+  <data name="ButtonSearchAgain.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ButtonSearchAgain.Text" xml:space="preserve">
+    <value>Relancer la recherche</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Name" xml:space="preserve">
+    <value>ButtonSearchAgain</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ButtonSearchAgain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ButtonDeleteSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>725, 503</value>
+  </data>
+  <data name="ButtonDeleteSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 31</value>
+  </data>
+  <data name="ButtonDeleteSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ButtonDeleteSearch.Text" xml:space="preserve">
+    <value>Supprimer la sélection</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Name" xml:space="preserve">
+    <value>ButtonDeleteSearch</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.Parent" xml:space="preserve">
+    <value>TabPageSearchHistory</value>
+  </data>
+  <data name="&gt;&gt;ButtonDeleteSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -6143,7 +6422,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Bibliothèque (expérimental) - SmartNet Browser</value>
+    <value>Bibliothèque de SmartNet Browser</value>
   </data>
   <data name="&gt;&gt;TitleColumnHeader.Name" xml:space="preserve">
     <value>TitleColumnHeader</value>

@@ -406,8 +406,29 @@
   <data name="FavorisSubMenu.ToolTipText" xml:space="preserve">
     <value>Gérer les favoris</value>
   </data>
-  <data name="AfficherLhistoriqueToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+  <data name="HistoriqueDeNavigationToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+H</value>
+  </data>
+  <data name="HistoriqueDeNavigationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 24</value>
+  </data>
+  <data name="HistoriqueDeNavigationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Historique de navigation</value>
+  </data>
+  <data name="HistoriqueDesRecherchesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 24</value>
+  </data>
+  <data name="HistoriqueDesRecherchesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Historique des recherches</value>
+  </data>
+  <data name="TéléchargementsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+J</value>
+  </data>
+  <data name="TéléchargementsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 24</value>
+  </data>
+  <data name="TéléchargementsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Téléchargements</value>
   </data>
   <data name="AfficherLhistoriqueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 24</value>
@@ -596,7 +617,7 @@
     <value>-4, 1</value>
   </data>
   <data name="MainToolbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 24</value>
+    <value>156, 24</value>
   </data>
   <data name="MainToolbar.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -885,33 +906,33 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABy
-        BgAAAk1TRnQBSQFMAwEBAAG8AQEBvAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFRAf8CJAGoAf8CmQHMAf8CAAFRAf8CAAFR
-        Af8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFR
-        Af8CHQGlAf8CLAGsAf8CAAGCAf8CQAG2Af8CFQGhAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFR
-        Af8CAAFRAf8CAAFRAf8CAAFRAf8CWQFdAdLCAAF/Af4CJgGpAf8CAQGXAf8CAAGGAf8ClgHKAf8CAAGW
-        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CJAGoAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAFRAf8CAAF/
-        Af7CAAFRAf8CPwG2Af8CAAGAAf8CAAFRAf8CRAG4Af8CAAGPAf8CtgHaAf8CRAG4Af8CQQG3Af8CtQHa
-        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFRAf8CAAFRAf8CAAFRAf/CAAGPAf8CAAGNAf8CRgG5Af8CQAG2
-        Af8CNgGxAf8CUQG/Af8CCAGaAf8COAGyAf8CNAGwAf8CAAGIAf8CxAHiAf8CJQGoAf8CswHZAf8CAAFR
-        Af8CAAFRAf8CAAFRAf/AAAKwAdcB/wIKAZsB/wIAAVEB/wIAAYoB/wJQAb4B/wLyAfkB/wK+Ad4B/wLY
-        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIkAagB/wIAAVEB/wIAAVEB/8IAAYUB/wJH
-        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI2AbEB/wIAAYQB/wI+AbUB/wI7AbMB/wIAAYQB/wI5AbMB/wJB
-        AbcB/wIAAZQB/wKvAdcB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wLVAeoB/wI0AbAB/wKzAdkB/wKM
-        AcUB/wI0AbAB/wKhAdAB/wKeAc4B/wI0AbAB/wKPAccB/wKxAdgB/wI0AbAB/wLUAekB/wIAAVEB/wIA
-        AVEB/8IAAVEB/wIAAVEB/wLWAeoB/wI3AbEB/wK1AdoB/wKOAcYB/wI3AbEB/wKiAdAB/wKgAc8B/wI3
-        AbEB/wKQAccB/wKzAdgB/wI3AbEB/wLUAekB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wK0AdkB/wIA
-        AZAB/wJDAbgB/wIzAbAB/wIAAYIB/wI8AbQB/wI4AbIB/wIAAYIB/wI3AbIB/wI/AbYB/wIAAZIB/wKw
-        AdcB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wIqAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
-        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wImAakB/wIAAVEB/wIAAVEB/8IAAVEB/wIA
-        AVEB/wIAAYAB/wK4AdsB/wIfAaYB/wLGAeMB/wIAAYcB/wI4AbIB/wI0AbAB/wIAAYgB/wLFAeIB/wIi
-        AacB/wK1AdoB/wIAAYAB/wIAAVEB/wIAAVEB/8IAAVEB/wIAAVEB/wIAAVEB/wIAAYcB/wK4AdsB/wLP
-        AecB/wKvAdcB/wJCAbcB/wI/AbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVEB/wIAAVEB/wIA
-        AVEB/8IAAX8B/gIAAVEB/wIAAVEB/wIAAVEB/wIAAYAB/wIqAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
-        AdkB/wIoAaoB/wIAAYAB/wIAAVEB/wIAAVEB/wIAAVEB/wIAAX8B/sAAAlgBXAHRAgABUQH/AgABUQH/
-        AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/
-        AgABUQH/AgABUQH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABUQH/AgABUQH/AgABUQH/AgABUQH/
-        AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABUQH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
+        BgAAAk1TRnQBSQFMAwEBAAHEAQEBxAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAMgAS8CWAFcAdECAAF/Af4CAAFQAf8CIwGoAf8CmQHMAf8CAAFQAf8CAAFQ
+        Af8CAAFQAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAF/Af4CWQFdAdIDIAEvwAACWAFcAdECAAFQ
+        Af8CHAGlAf8CKwGsAf8CAAGCAf8CPwG2Af8CFAGhAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAFQ
+        Af8CAAFQAf8CAAFQAf8CAAFQAf8CWQFdAdLCAAF/Af4CJQGpAf8CAAGXAf8CAAGGAf8ClgHKAf8CAAGW
+        Af8C3gHuAf8C2wHtAf8C2wHtAf8CrwHXAf8CIwGoAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAFQAf8CAAF/
+        Af7CAAFQAf8CPgG2Af8CAAGAAf8CAAFQAf8CQwG4Af8CAAGPAf8CtgHaAf8CQwG4Af8CQAG3Af8CtQHa
+        Af8C0QHoAf8CswHZAf8CAAGFAf8CAAFQAf8CAAFQAf8CAAFQAf/CAAGPAf8CAAGNAf8CRQG5Af8CPwG2
+        Af8CNQGxAf8CUAG/Af8CBwGaAf8CNwGyAf8CMwGwAf8CAAGIAf8CxAHiAf8CJAGoAf8CswHZAf8CAAFQ
+        Af8CAAFQAf8CAAFQAf/AAAKwAdcB/wIJAZsB/wIAAVAB/wIAAYoB/wJPAb4B/wLyAfkB/wK+Ad4B/wLY
+        AesB/wLXAesB/wK+Ad4B/wLuAfYB/wLDAeEB/wLxAfgB/wIjAagB/wIAAVAB/wIAAVAB/8IAAYUB/wJG
+        AboB/wLeAe4B/wKcAc0B/wKpAdQB/wI1AbEB/wIAAYQB/wI9AbUB/wI6AbMB/wIAAYQB/wI4AbMB/wJA
+        AbcB/wIAAZQB/wKvAdcB/wIAAVAB/wIAAVAB/8IAAVAB/wIAAVAB/wLVAeoB/wIzAbAB/wKzAdkB/wKM
+        AcUB/wIzAbAB/wKhAdAB/wKeAc4B/wIzAbAB/wKPAccB/wKxAdgB/wIzAbAB/wLUAekB/wIAAVAB/wIA
+        AVAB/8IAAVAB/wIAAVAB/wLWAeoB/wI2AbEB/wK1AdoB/wKOAcYB/wI2AbEB/wKiAdAB/wKgAc8B/wI2
+        AbEB/wKQAccB/wKzAdgB/wI2AbEB/wLUAekB/wIAAVAB/wIAAVAB/8IAAVAB/wIAAVAB/wK0AdkB/wIA
+        AZAB/wJCAbgB/wIyAbAB/wIAAYIB/wI7AbQB/wI3AbIB/wIAAYIB/wI2AbIB/wI+AbYB/wIAAZIB/wKw
+        AdcB/wIAAVAB/wIAAVAB/8IAAVAB/wIAAVAB/wIpAasB/wLxAfgB/wLIAeMB/wLuAfYB/wLCAeAB/wLa
+        Ae0B/wLZAewB/wLCAeAB/wLvAfcB/wLHAeMB/wLyAfgB/wIlAakB/wIAAVAB/wIAAVAB/8IAAVAB/wIA
+        AVAB/wIAAYAB/wK4AdsB/wIeAaYB/wLGAeMB/wIAAYcB/wI3AbIB/wIzAbAB/wIAAYgB/wLFAeIB/wIh
+        AacB/wK1AdoB/wIAAYAB/wIAAVAB/wIAAVAB/8IAAVAB/wIAAVAB/wIAAVAB/wIAAYcB/wK4AdsB/wLP
+        AecB/wKvAdcB/wJBAbcB/wI+AbYB/wKyAdgB/wLPAecB/wK2AdoB/wIAAYYB/wIAAVAB/wIAAVAB/wIA
+        AVAB/8IAAX8B/gIAAVAB/wIAAVAB/wIAAVAB/wIAAYAB/wIpAasB/wK0AdkB/wLeAe8B/wLeAe4B/wKz
+        AdkB/wInAaoB/wIAAYAB/wIAAVAB/wIAAVAB/wIAAVAB/wIAAX8B/sAAAlgBXAHRAgABUAH/AgABUAH/
+        AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/
+        AgABUAH/AgABUAH/AlgBXAHRwAADIAEvAlgBXAHRAgABfwH+AgABUAH/AgABUAH/AgABUAH/AgABUAH/
+        AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABUAH/AgABfwH+AlgBXAHRAyABL8AAAUIBTQE+
         BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/+BAAs=
 </value>
   </data>
@@ -7442,6 +7463,24 @@
     <value>AfficherLhistoriqueToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;AfficherLhistoriqueToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HistoriqueDeNavigationToolStripMenuItem.Name" xml:space="preserve">
+    <value>HistoriqueDeNavigationToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HistoriqueDeNavigationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HistoriqueDesRecherchesToolStripMenuItem.Name" xml:space="preserve">
+    <value>HistoriqueDesRecherchesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;HistoriqueDesRecherchesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TéléchargementsToolStripMenuItem.Name" xml:space="preserve">
+    <value>TéléchargementsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;TéléchargementsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">

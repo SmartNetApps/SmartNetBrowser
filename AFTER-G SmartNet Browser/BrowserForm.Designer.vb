@@ -64,6 +64,9 @@ Partial Class BrowserForm
         Me.AfficherLesFavorisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjouterCettePageDansLesFavorisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AfficherLhistoriqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoriqueDeNavigationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoriqueDesRecherchesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TéléchargementsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.PleinÉcranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterLePleinÉcranToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -342,9 +345,28 @@ Partial Class BrowserForm
         '
         'AfficherLhistoriqueToolStripMenuItem
         '
+        Me.AfficherLhistoriqueToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoriqueDeNavigationToolStripMenuItem, Me.HistoriqueDesRecherchesToolStripMenuItem, Me.TéléchargementsToolStripMenuItem})
         Me.AfficherLhistoriqueToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.History
         Me.AfficherLhistoriqueToolStripMenuItem.Name = "AfficherLhistoriqueToolStripMenuItem"
         resources.ApplyResources(Me.AfficherLhistoriqueToolStripMenuItem, "AfficherLhistoriqueToolStripMenuItem")
+        '
+        'HistoriqueDeNavigationToolStripMenuItem
+        '
+        Me.HistoriqueDeNavigationToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.History
+        Me.HistoriqueDeNavigationToolStripMenuItem.Name = "HistoriqueDeNavigationToolStripMenuItem"
+        resources.ApplyResources(Me.HistoriqueDeNavigationToolStripMenuItem, "HistoriqueDeNavigationToolStripMenuItem")
+        '
+        'HistoriqueDesRecherchesToolStripMenuItem
+        '
+        Me.HistoriqueDesRecherchesToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Search
+        Me.HistoriqueDesRecherchesToolStripMenuItem.Name = "HistoriqueDesRecherchesToolStripMenuItem"
+        resources.ApplyResources(Me.HistoriqueDesRecherchesToolStripMenuItem, "HistoriqueDesRecherchesToolStripMenuItem")
+        '
+        'TéléchargementsToolStripMenuItem
+        '
+        Me.TéléchargementsToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Download
+        Me.TéléchargementsToolStripMenuItem.Name = "TéléchargementsToolStripMenuItem"
+        resources.ApplyResources(Me.TéléchargementsToolStripMenuItem, "TéléchargementsToolStripMenuItem")
         '
         'ToolStripSeparator4
         '
@@ -917,4 +939,7 @@ Partial Class BrowserForm
     Friend WithEvents GoButton As Button
     Friend WithEvents StopButton As Button
     Friend WithEvents RefreshButton As Button
+    Friend WithEvents HistoriqueDeNavigationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HistoriqueDesRecherchesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TéléchargementsToolStripMenuItem As ToolStripMenuItem
 End Class

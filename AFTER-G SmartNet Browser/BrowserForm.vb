@@ -479,15 +479,6 @@ Public Class BrowserForm
             NewHistoryForm.Show()
         End If
     End Sub
-    Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
-        If My.Settings.HistoryFavoritesSecurity = True Then
-            EnterBrowserSettingsSecurityForm.SecurityMode = "History"
-            EnterBrowserSettingsSecurityForm.ShowDialog()
-        Else
-            NewHistoryForm.TabControl1.SelectTab(0)
-            NewHistoryForm.Show()
-        End If
-    End Sub
 
     Private Sub GoToSettings(sender As Object, e As EventArgs) Handles ParamètresToolStripMenuItem.Click
         If My.Settings.BrowserSettingsSecurity = True Then
@@ -1054,6 +1045,36 @@ Public Class BrowserForm
     Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString(), BrowserTabs)
+    End Sub
+
+    Private Sub HistoriqueDeNavigationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDeNavigationToolStripMenuItem.Click
+        If My.Settings.HistoryFavoritesSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "History"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            NewHistoryForm.TabControl1.SelectTab(0)
+            NewHistoryForm.Show()
+        End If
+    End Sub
+
+    Private Sub HistoriqueDesRecherchesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDesRecherchesToolStripMenuItem.Click
+        If My.Settings.HistoryFavoritesSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "SearchHistory"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            NewHistoryForm.TabControl1.SelectTab(2)
+            NewHistoryForm.Show()
+        End If
+    End Sub
+
+    Private Sub TéléchargementsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargementsToolStripMenuItem.Click
+        If My.Settings.HistoryFavoritesSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "DownloadHistory"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            NewHistoryForm.TabControl1.SelectTab(3)
+            NewHistoryForm.Show()
+        End If
     End Sub
 End Class
 

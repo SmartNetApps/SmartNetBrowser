@@ -40,9 +40,16 @@ Partial Class NewHistoryForm
         Me.TabPageDownloads = New System.Windows.Forms.TabPage()
         Me.TabPageSearchHistory = New System.Windows.Forms.TabPage()
         Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.ButtonOpenOldFavorites = New System.Windows.Forms.Button()
+        Me.ButtonOpenFavorite = New System.Windows.Forms.Button()
+        Me.ButtonDeleteFavorite = New System.Windows.Forms.Button()
+        Me.ListBoxSearches = New System.Windows.Forms.ListBox()
+        Me.ButtonSearchAgain = New System.Windows.Forms.Button()
+        Me.ButtonDeleteSearch = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
+        Me.TabPageSearchHistory.SuspendLayout()
         Me.SuspendLayout()
         '
         'HistoryListView
@@ -111,6 +118,9 @@ Partial Class NewHistoryForm
         '
         'TabPageFavorites
         '
+        Me.TabPageFavorites.Controls.Add(Me.ButtonDeleteFavorite)
+        Me.TabPageFavorites.Controls.Add(Me.ButtonOpenFavorite)
+        Me.TabPageFavorites.Controls.Add(Me.ButtonOpenOldFavorites)
         Me.TabPageFavorites.Controls.Add(Me.ListViewFavorites)
         resources.ApplyResources(Me.TabPageFavorites, "TabPageFavorites")
         Me.TabPageFavorites.Name = "TabPageFavorites"
@@ -141,6 +151,9 @@ Partial Class NewHistoryForm
         '
         'TabPageSearchHistory
         '
+        Me.TabPageSearchHistory.Controls.Add(Me.ButtonDeleteSearch)
+        Me.TabPageSearchHistory.Controls.Add(Me.ButtonSearchAgain)
+        Me.TabPageSearchHistory.Controls.Add(Me.ListBoxSearches)
         resources.ApplyResources(Me.TabPageSearchHistory, "TabPageSearchHistory")
         Me.TabPageSearchHistory.Name = "TabPageSearchHistory"
         Me.TabPageSearchHistory.UseVisualStyleBackColor = True
@@ -151,6 +164,42 @@ Partial Class NewHistoryForm
         resources.ApplyResources(Me.FavoritesFaviconImageList, "FavoritesFaviconImageList")
         Me.FavoritesFaviconImageList.TransparentColor = System.Drawing.Color.Transparent
         '
+        'ButtonOpenOldFavorites
+        '
+        resources.ApplyResources(Me.ButtonOpenOldFavorites, "ButtonOpenOldFavorites")
+        Me.ButtonOpenOldFavorites.Name = "ButtonOpenOldFavorites"
+        Me.ButtonOpenOldFavorites.UseVisualStyleBackColor = True
+        '
+        'ButtonOpenFavorite
+        '
+        resources.ApplyResources(Me.ButtonOpenFavorite, "ButtonOpenFavorite")
+        Me.ButtonOpenFavorite.Name = "ButtonOpenFavorite"
+        Me.ButtonOpenFavorite.UseVisualStyleBackColor = True
+        '
+        'ButtonDeleteFavorite
+        '
+        resources.ApplyResources(Me.ButtonDeleteFavorite, "ButtonDeleteFavorite")
+        Me.ButtonDeleteFavorite.Name = "ButtonDeleteFavorite"
+        Me.ButtonDeleteFavorite.UseVisualStyleBackColor = True
+        '
+        'ListBoxSearches
+        '
+        resources.ApplyResources(Me.ListBoxSearches, "ListBoxSearches")
+        Me.ListBoxSearches.FormattingEnabled = True
+        Me.ListBoxSearches.Name = "ListBoxSearches"
+        '
+        'ButtonSearchAgain
+        '
+        resources.ApplyResources(Me.ButtonSearchAgain, "ButtonSearchAgain")
+        Me.ButtonSearchAgain.Name = "ButtonSearchAgain"
+        Me.ButtonSearchAgain.UseVisualStyleBackColor = True
+        '
+        'ButtonDeleteSearch
+        '
+        resources.ApplyResources(Me.ButtonDeleteSearch, "ButtonDeleteSearch")
+        Me.ButtonDeleteSearch.Name = "ButtonDeleteSearch"
+        Me.ButtonDeleteSearch.UseVisualStyleBackColor = True
+        '
         'NewHistoryForm
         '
         resources.ApplyResources(Me, "$this")
@@ -160,6 +209,7 @@ Partial Class NewHistoryForm
         Me.TabControl1.ResumeLayout(False)
         Me.TabPageHistory.ResumeLayout(False)
         Me.TabPageFavorites.ResumeLayout(False)
+        Me.TabPageSearchHistory.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -180,4 +230,10 @@ Partial Class NewHistoryForm
     Friend WithEvents TabPageSearchHistory As TabPage
     Friend WithEvents TabPageDownloads As TabPage
     Friend WithEvents FavoritesFaviconImageList As ImageList
+    Friend WithEvents ButtonDeleteFavorite As Button
+    Friend WithEvents ButtonOpenFavorite As Button
+    Friend WithEvents ButtonOpenOldFavorites As Button
+    Friend WithEvents ListBoxSearches As ListBox
+    Friend WithEvents ButtonSearchAgain As Button
+    Friend WithEvents ButtonDeleteSearch As Button
 End Class
