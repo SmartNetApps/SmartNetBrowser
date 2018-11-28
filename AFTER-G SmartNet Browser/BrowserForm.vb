@@ -475,7 +475,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            FavoritesForm.Show()
+            NewHistoryForm.TabControl1.SelectTab(1)
+            NewHistoryForm.Show()
         End If
     End Sub
     Private Sub ShowHistory(sender As Object, e As EventArgs) Handles AfficherLhistoriqueToolStripMenuItem.Click
@@ -483,6 +484,7 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "History"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
+            NewHistoryForm.TabControl1.SelectTab(0)
             NewHistoryForm.Show()
         End If
     End Sub
