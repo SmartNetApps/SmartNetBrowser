@@ -46,15 +46,19 @@ Partial Class NewHistoryForm
         Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AffichageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AffichageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RafraîchirLesListesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListBoxDownloads = New System.Windows.Forms.ListBox()
+        Me.ButtonDownloadAgain = New System.Windows.Forms.Button()
+        Me.ButtonDeleteDownload = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
         Me.TabPageSearchHistory.SuspendLayout()
+        Me.TabPageDownloads.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -182,6 +186,9 @@ Partial Class NewHistoryForm
         '
         'TabPageDownloads
         '
+        Me.TabPageDownloads.Controls.Add(Me.ButtonDeleteDownload)
+        Me.TabPageDownloads.Controls.Add(Me.ButtonDownloadAgain)
+        Me.TabPageDownloads.Controls.Add(Me.ListBoxDownloads)
         resources.ApplyResources(Me.TabPageDownloads, "TabPageDownloads")
         Me.TabPageDownloads.Name = "TabPageDownloads"
         Me.TabPageDownloads.UseVisualStyleBackColor = True
@@ -205,22 +212,16 @@ Partial Class NewHistoryForm
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
         resources.ApplyResources(Me.FichierToolStripMenuItem, "FichierToolStripMenuItem")
         '
+        'FermerToolStripMenuItem
+        '
+        Me.FermerToolStripMenuItem.Name = "FermerToolStripMenuItem"
+        resources.ApplyResources(Me.FermerToolStripMenuItem, "FermerToolStripMenuItem")
+        '
         'AffichageToolStripMenuItem
         '
         Me.AffichageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RafraîchirLesListesToolStripMenuItem})
         Me.AffichageToolStripMenuItem.Name = "AffichageToolStripMenuItem"
         resources.ApplyResources(Me.AffichageToolStripMenuItem, "AffichageToolStripMenuItem")
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AProposDeSmartNetBrowserToolStripMenuItem})
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
-        '
-        'FermerToolStripMenuItem
-        '
-        Me.FermerToolStripMenuItem.Name = "FermerToolStripMenuItem"
-        resources.ApplyResources(Me.FermerToolStripMenuItem, "FermerToolStripMenuItem")
         '
         'RafraîchirLesListesToolStripMenuItem
         '
@@ -228,10 +229,34 @@ Partial Class NewHistoryForm
         Me.RafraîchirLesListesToolStripMenuItem.Name = "RafraîchirLesListesToolStripMenuItem"
         resources.ApplyResources(Me.RafraîchirLesListesToolStripMenuItem, "RafraîchirLesListesToolStripMenuItem")
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AProposDeSmartNetBrowserToolStripMenuItem})
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        '
         'AProposDeSmartNetBrowserToolStripMenuItem
         '
         Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.AProposDeSmartNetBrowserToolStripMenuItem, "AProposDeSmartNetBrowserToolStripMenuItem")
+        '
+        'ListBoxDownloads
+        '
+        resources.ApplyResources(Me.ListBoxDownloads, "ListBoxDownloads")
+        Me.ListBoxDownloads.FormattingEnabled = True
+        Me.ListBoxDownloads.Name = "ListBoxDownloads"
+        '
+        'ButtonDownloadAgain
+        '
+        resources.ApplyResources(Me.ButtonDownloadAgain, "ButtonDownloadAgain")
+        Me.ButtonDownloadAgain.Name = "ButtonDownloadAgain"
+        Me.ButtonDownloadAgain.UseVisualStyleBackColor = True
+        '
+        'ButtonDeleteDownload
+        '
+        resources.ApplyResources(Me.ButtonDeleteDownload, "ButtonDeleteDownload")
+        Me.ButtonDeleteDownload.Name = "ButtonDeleteDownload"
+        Me.ButtonDeleteDownload.UseVisualStyleBackColor = True
         '
         'NewHistoryForm
         '
@@ -245,6 +270,7 @@ Partial Class NewHistoryForm
         Me.TabPageHistory.ResumeLayout(False)
         Me.TabPageFavorites.ResumeLayout(False)
         Me.TabPageSearchHistory.ResumeLayout(False)
+        Me.TabPageDownloads.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -279,4 +305,7 @@ Partial Class NewHistoryForm
     Friend WithEvents FermerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RafraîchirLesListesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AProposDeSmartNetBrowserToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ButtonDeleteDownload As Button
+    Friend WithEvents ButtonDownloadAgain As Button
+    Friend WithEvents ListBoxDownloads As ListBox
 End Class

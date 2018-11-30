@@ -275,7 +275,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://homepage.quentinpugeat.fr/")>  _
         Public Property Homepage() As String
             Get
                 Return CType(Me("Homepage"),String)
@@ -302,12 +302,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("http://quentinpugeat.pagesperso-orange.fr")>  _
-        Public Property AllowAdsSites() As String
+        Public Property AdBlockerWhitelist() As String
             Get
-                Return CType(Me("AllowAdsSites"),String)
+                Return CType(Me("AdBlockerWhitelist"),String)
             End Get
             Set
-                Me("AllowAdsSites") = value
+                Me("AdBlockerWhitelist") = value
             End Set
         End Property
         
@@ -348,7 +348,10 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
+            "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <s"& _ 
+            "tring xsi:nil=""true"" />"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfString>")>  _
         Public Property DownloadHistory() As Global.System.Collections.Specialized.StringCollection
             Get
                 Return CType(Me("DownloadHistory"),Global.System.Collections.Specialized.StringCollection)

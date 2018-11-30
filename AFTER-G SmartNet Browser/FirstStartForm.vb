@@ -63,7 +63,7 @@ Public Class FirstStartForm
                 My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
                 LabelState.Text = "Définition des paramètres par défaut pour SmartNet AdsBlocker..."
                 My.Settings.PopUpBlocker = My.Settings.AdBlocker
-                My.Settings.AllowAdsSites = "http://quentinpugeat.pagesperso-orange.fr"
+                My.Settings.AdBlockerWhitelist = "http://quentinpugeat.pagesperso-orange.fr"
                 LabelState.Text = "Définition des paramètres par défaut pour le téléchargement de fichiers..."
                 Dim DownloadFolderrKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")
                 If DownloadFolderrKey Is Nothing Or DownloadFolderrKey.GetValue("{374DE290-123F-4565-9164-39C4925E467B}") Is Nothing Then

@@ -93,13 +93,26 @@
 
     Private Sub RefreshSearches()
         ListBoxSearches.Items.Clear()
-        For Each item In My.Settings.SearchHistory
-            ListBoxSearches.Items.Add(item)
-        Next
+        If My.Settings.SearchHistory.Count > 0 Then
+            For Each item In My.Settings.SearchHistory
+                If item IsNot Nothing Then
+                    ListBoxSearches.Items.Add(item)
+                End If
+            Next
+        End If
+
     End Sub
 
     Private Sub RefreshDownloads()
+        ListBoxDownloads.Items.Clear()
+        If My.Settings.DownloadHistory.Count > 0 Then
+            For Each item In My.Settings.DownloadHistory
+                If item IsNot Nothing Then
+                    ListBoxDownloads.Items.Add(item)
+                End If
 
+            Next
+        End If
     End Sub
 
     Private Sub DeleteSelectedHistory()
@@ -169,5 +182,16 @@
                 WB.Navigate(ListViewFavorites.SelectedItems.Item(0).SubItems(1).Text)
                 Me.Close()
         End Select
+    End Sub
+
+    Private Sub ButtonDeleteDownload_Click(sender As Object, e As EventArgs) Handles ButtonDeleteDownload.Click
+        My.Settings.DownloadHistory.RemoveAt(ListBoxDownloads.SelectedIndex)
+        My.Settings.Save()
+        ListBoxDownloads.Items.RemoveAt(ListBoxDownloads.SelectedIndex)
+    End Sub
+
+    Private Sub ButtonDownloadAgain_Click(sender As Object, e As EventArgs) Handles ButtonDownloadAgain.Click
+        Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        WB.Navigate(ListBoxDownloads.SelectedItem.ToString())
     End Sub
 End Class

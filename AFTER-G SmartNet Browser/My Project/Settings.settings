@@ -59,7 +59,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Homepage" Type="(Web Service URL)" Scope="User">
-      <Value Profile="(Default)">http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/</Value>
+      <Value Profile="(Default)">http://homepage.quentinpugeat.fr/</Value>
     </Setting>
     <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -67,7 +67,7 @@
   &lt;string&gt;http://quentinpugeat.pagesperso-orange.fr&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="AllowAdsSites" Type="System.String" Scope="User">
+    <Setting Name="AdBlockerWhitelist" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://quentinpugeat.pagesperso-orange.fr</Value>
     </Setting>
     <Setting Name="UserAgentLanguage" Type="System.String" Scope="User">
@@ -80,7 +80,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DownloadHistory" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string xsi:nil="true" /&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="DoNotTrack" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

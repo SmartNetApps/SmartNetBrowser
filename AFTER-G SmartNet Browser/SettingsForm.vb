@@ -296,7 +296,7 @@ Public Class SettingsForm
             My.Settings.AutoUpdates = True
             My.Settings.AdBlocker = False
             My.Settings.PopUpBlocker = False
-            My.Settings.AllowAdsSites = "quentinpugeat.wixsite.com"
+            My.Settings.AdBlockerWhitelist = "quentinpugeat.wixsite.com"
             My.Settings.ChildrenProtection = False
             My.Settings.ChildrenProtectionPassword = ""
             My.Settings.BrowserSettingsSecurity = False
