@@ -358,7 +358,7 @@ Public Class SettingsForm
 
     Private Sub SetDefaultDownloadFolderButton_Click(sender As Object, e As EventArgs) Handles SetDefaultDownloadFolderButton.Click
         If DefaultDownloadFolderBrowserDialog.ShowDialog() = DialogResult.OK Then
-            DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
+            DefaultDownloadFolderTextBox.Text = DefaultDownloadFolderBrowserDialog.SelectedPath
         End If
     End Sub
 
