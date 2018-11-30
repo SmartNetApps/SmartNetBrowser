@@ -67,6 +67,9 @@ Public Class DownloadForm
         SaveButton.Visible = False
         OpenButton.Visible = False
         DownloadFolder = My.Settings.DefaultDownloadFolder
+        If Not System.IO.Directory.Exists(DownloadFolder) Then
+            System.IO.Directory.CreateDirectory(DownloadFolder)
+        End If
         AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
