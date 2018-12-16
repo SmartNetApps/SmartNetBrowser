@@ -18,7 +18,7 @@
     Private Sub HistoryListView_DoubleClick(sender As Object, e As EventArgs) Handles HistoryListView.DoubleClick
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Navigate(HistoryListView.SelectedItems.Item(0).SubItems(1).Text)
-        Me.Close()
+        BrowserForm.BringToFront()
     End Sub
 
     Private Sub OpenPageButton_Click(sender As Object, e As EventArgs) Handles OpenPageButton.Click
@@ -26,8 +26,7 @@
         For Each Item As ListViewItem In HistoryListView.SelectedItems
             BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
         Next
-        WB.Navigate(HistoryListView.SelectedItems.Item(0).SubItems(1).Text)
-        Me.Close()
+        BrowserForm.BringToFront()
     End Sub
 
     Private Sub ButtonOpenFavorite_Click(sender As Object, e As EventArgs) Handles ButtonOpenFavorite.Click
@@ -35,8 +34,7 @@
         For Each Item As ListViewItem In ListViewFavorites.SelectedItems
             BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
         Next
-        WB.Navigate(ListViewFavorites.SelectedItems.Item(0).SubItems(1).Text)
-        Me.Close()
+        BrowserForm.BringToFront()
     End Sub
 
     Private Sub ButtonDeleteFavorite_Click(sender As Object, e As EventArgs) Handles ButtonDeleteFavorite.Click
@@ -49,6 +47,7 @@
 
     Private Sub ButtonSearchAgain_Click(sender As Object, e As EventArgs) Handles ButtonSearchAgain.Click
         BrowserForm.OpenSearchResults(ListBoxSearches.SelectedItem.ToString())
+        BrowserForm.BringToFront()
     End Sub
 
     Private Sub ButtonDeleteSearch_Click(sender As Object, e As EventArgs) Handles ButtonDeleteSearch.Click
@@ -110,7 +109,6 @@
                 If item IsNot Nothing Then
                     ListBoxDownloads.Items.Add(item)
                 End If
-
             Next
         End If
     End Sub
@@ -165,8 +163,7 @@
                 For Each Item As ListViewItem In HistoryListView.SelectedItems
                     BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
                 Next
-                WB.Navigate(HistoryListView.SelectedItems.Item(0).SubItems(1).Text)
-                Me.Close()
+                BrowserForm.BringToFront()
         End Select
     End Sub
 
@@ -179,8 +176,7 @@
                 For Each Item As ListViewItem In ListViewFavorites.SelectedItems
                     BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
                 Next
-                WB.Navigate(ListViewFavorites.SelectedItems.Item(0).SubItems(1).Text)
-                Me.Close()
+                BrowserForm.BringToFront()
         End Select
     End Sub
 
