@@ -102,7 +102,6 @@ Partial Class DownloadForm
         Me.MaximizeBox = False
         Me.Name = "DownloadForm"
         Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
