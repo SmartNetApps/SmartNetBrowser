@@ -16,6 +16,7 @@ Public Class BrowserForm
 
     Public Sub New()
         InitializeComponent()
+
         Historique = New List(Of WebPage)
         Favoris = New List(Of WebPage)
 
@@ -962,20 +963,28 @@ Public Class BrowserForm
                 MessageBarLabel1.ForeColor = Color.White
                 MessageBarCloseButton1.BackColor = Color.DarkBlue
         End Select
+
         MessageBarLabel1.Text = message
-        MessageBarAction = action
-        MessageBarButton1.Text = buttonText
         MessageBarButtonLink = buttonLink
         If ex IsNot Nothing Then
             ExceptionForm.MessageTextBox.Text = ex.Message
             ExceptionForm.DetailsTextBox.Text = vbCrLf & ex.Source & vbCrLf & ex.GetType.ToString & vbCrLf & ex.StackTrace
         End If
         MessageBarPictureBox.Visible = True
-        MessageBarButton1.Visible = True
         MessageBarCloseButton1.Visible = True
         MessageBarLabel1.Visible = True
-        MessageBarButton1.Enabled = True
         MessageBarCloseButton1.Enabled = True
+
+        If action Is Nothing Or buttonText Is Nothing Then
+            MessageBarAction = ""
+            MessageBarButton1.Visible = False
+            MessageBarButton1.Enabled = False
+        Else
+            MessageBarAction = action
+            MessageBarButton1.Visible = True
+            MessageBarButton1.Enabled = True
+            MessageBarButton1.Text = buttonText
+        End If
     End Sub
 
     ''' <summary>
