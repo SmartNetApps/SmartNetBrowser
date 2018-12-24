@@ -159,10 +159,10 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
         e.Cancel = True
-        If IsAdvertisement(e.Uri) = True And My.Settings.PopUpBlocker = True And My.Settings.AdBlockerWhitelist.Contains(Me.Url.Host.ToString) = False Then
-            BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.Uri)
+        If IsAdvertisement(e.WebBrowser.Url.ToString()) = True And My.Settings.PopUpBlocker = True And My.Settings.AdBlockerWhitelist.Contains(Me.Url.Host.ToString) = False Then
+            BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.WebBrowser.Url.ToString())
         Else
-            AddTab(e.Uri, BrowserForm.BrowserTabs)
+            AddTab(e.WebBrowser.Url.ToString(), BrowserForm.BrowserTabs)
         End If
     End Sub
 
