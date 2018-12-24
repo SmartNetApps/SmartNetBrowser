@@ -442,13 +442,15 @@ Partial Class BrowserForm
         'NouvelleVersionDisponibleSubMenu
         '
         Me.NouvelleVersionDisponibleSubMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TéléchargerLaVersionXXXXToolStripMenuItem})
-        resources.ApplyResources(Me.NouvelleVersionDisponibleSubMenu, "NouvelleVersionDisponibleSubMenu")
+        Me.NouvelleVersionDisponibleSubMenu.Image = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetAppsUpdater_1024
         Me.NouvelleVersionDisponibleSubMenu.Name = "NouvelleVersionDisponibleSubMenu"
+        resources.ApplyResources(Me.NouvelleVersionDisponibleSubMenu, "NouvelleVersionDisponibleSubMenu")
         '
         'TéléchargerLaVersionXXXXToolStripMenuItem
         '
-        resources.ApplyResources(Me.TéléchargerLaVersionXXXXToolStripMenuItem, "TéléchargerLaVersionXXXXToolStripMenuItem")
+        Me.TéléchargerLaVersionXXXXToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowserInstaller_1024
         Me.TéléchargerLaVersionXXXXToolStripMenuItem.Name = "TéléchargerLaVersionXXXXToolStripMenuItem"
+        resources.ApplyResources(Me.TéléchargerLaVersionXXXXToolStripMenuItem, "TéléchargerLaVersionXXXXToolStripMenuItem")
         '
         'FermerSmartNetBrowserToolStripMenuItem
         '

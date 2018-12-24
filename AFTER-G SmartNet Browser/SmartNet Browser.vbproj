@@ -11,7 +11,7 @@
     <AssemblyName>smartnetbrowser</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -66,7 +66,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Logo\SmartNetBrowserIcone.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\2019_SmartNetBrowser_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -596,6 +596,16 @@
     <Content Include="README.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\2019_SmartNetBrowser_Icon.ico" />
+    <None Include="Resources\2019_SmartNetBrowser_16.png" />
+    <None Include="Resources\2019_SmartNetBrowser_32.png" />
+    <None Include="Resources\2019_SmartNetBrowser_64.png" />
+    <None Include="Resources\2019_SmartNetBrowser_128.png" />
+    <None Include="Resources\2019_SmartNetBrowser_256.png" />
+    <None Include="Resources\2019_SmartNetBrowser_512.png" />
+    <None Include="Resources\2019_SmartNetBrowser_1024.png" />
+    <None Include="Resources\2019_SmartNetBrowserInstaller_1024.png" />
+    <None Include="Resources\2019_SmartNetAppsUpdater_1024.png" />
     <Content Include="Resources\CloseTabButton\CloseTabBlack.png" />
     <Content Include="Resources\ContextMenuStrip\CopyImage.png" />
     <Content Include="Resources\ContextMenuStrip\Image.png" />

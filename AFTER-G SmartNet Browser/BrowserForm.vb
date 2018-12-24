@@ -111,7 +111,7 @@ Public Class BrowserForm
     Public Function PageFavicon(pURL As String) As Image
         Try
             If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or pURL.Contains("about:") Then
-                Return My.Resources.logo32
+                Return My.Resources._2019_SmartNetBrowser_64
             Else
                 Dim url As Uri = New Uri(pURL)
                 If url.HostNameType = UriHostNameType.Dns Then

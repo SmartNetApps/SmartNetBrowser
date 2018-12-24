@@ -43,6 +43,9 @@ Partial Class NewHistoryForm
         Me.ButtonSearchAgain = New System.Windows.Forms.Button()
         Me.ListBoxSearches = New System.Windows.Forms.ListBox()
         Me.TabPageDownloads = New System.Windows.Forms.TabPage()
+        Me.ButtonDeleteDownload = New System.Windows.Forms.Button()
+        Me.ButtonDownloadAgain = New System.Windows.Forms.Button()
+        Me.ListBoxDownloads = New System.Windows.Forms.ListBox()
         Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,9 +54,6 @@ Partial Class NewHistoryForm
         Me.RafraîchirLesListesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListBoxDownloads = New System.Windows.Forms.ListBox()
-        Me.ButtonDownloadAgain = New System.Windows.Forms.Button()
-        Me.ButtonDeleteDownload = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
@@ -193,6 +193,24 @@ Partial Class NewHistoryForm
         Me.TabPageDownloads.Name = "TabPageDownloads"
         Me.TabPageDownloads.UseVisualStyleBackColor = True
         '
+        'ButtonDeleteDownload
+        '
+        resources.ApplyResources(Me.ButtonDeleteDownload, "ButtonDeleteDownload")
+        Me.ButtonDeleteDownload.Name = "ButtonDeleteDownload"
+        Me.ButtonDeleteDownload.UseVisualStyleBackColor = True
+        '
+        'ButtonDownloadAgain
+        '
+        resources.ApplyResources(Me.ButtonDownloadAgain, "ButtonDownloadAgain")
+        Me.ButtonDownloadAgain.Name = "ButtonDownloadAgain"
+        Me.ButtonDownloadAgain.UseVisualStyleBackColor = True
+        '
+        'ListBoxDownloads
+        '
+        resources.ApplyResources(Me.ListBoxDownloads, "ListBoxDownloads")
+        Me.ListBoxDownloads.FormattingEnabled = True
+        Me.ListBoxDownloads.Name = "ListBoxDownloads"
+        '
         'FavoritesFaviconImageList
         '
         Me.FavoritesFaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
@@ -239,24 +257,6 @@ Partial Class NewHistoryForm
         '
         Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.AProposDeSmartNetBrowserToolStripMenuItem, "AProposDeSmartNetBrowserToolStripMenuItem")
-        '
-        'ListBoxDownloads
-        '
-        resources.ApplyResources(Me.ListBoxDownloads, "ListBoxDownloads")
-        Me.ListBoxDownloads.FormattingEnabled = True
-        Me.ListBoxDownloads.Name = "ListBoxDownloads"
-        '
-        'ButtonDownloadAgain
-        '
-        resources.ApplyResources(Me.ButtonDownloadAgain, "ButtonDownloadAgain")
-        Me.ButtonDownloadAgain.Name = "ButtonDownloadAgain"
-        Me.ButtonDownloadAgain.UseVisualStyleBackColor = True
-        '
-        'ButtonDeleteDownload
-        '
-        resources.ApplyResources(Me.ButtonDeleteDownload, "ButtonDeleteDownload")
-        Me.ButtonDeleteDownload.Name = "ButtonDeleteDownload"
-        Me.ButtonDeleteDownload.UseVisualStyleBackColor = True
         '
         'NewHistoryForm
         '
