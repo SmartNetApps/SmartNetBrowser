@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports Gecko
 Imports Gecko.Events
 
 Public Class CustomBrowser
@@ -116,6 +117,13 @@ Public Class CustomBrowser
             End If
         End If
 
+        If My.Settings.PopUpBlocker = True And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup Then
+            Dim url As String = Me.Url.ToString()
+            BrowserForm.BrowserTabs.TabPages.Remove(Me.Tag)
+            BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", url)
+            Me.Dispose()
+        End If
+
         If e.Uri.ToString.Contains("window.close") Then
             If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
                 BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
@@ -139,7 +147,8 @@ Public Class CustomBrowser
     ''' </summary>
     ''' <param name="URL">URL de la page à afficher</param>
     ''' <param name="TabControl">Système d'onglets dans lequel s'ajoute l'onglet</param>
-    Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl)
+    ''' <param name="isPopup">Si le nouvel onglet est contextuel, indiquer True.</param>
+    Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl, Optional isPopup As Boolean = False)
         Try
             Dim NewBrowser As New CustomBrowser
             Dim NewTab As New TabPage
@@ -158,12 +167,24 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
-        e.Cancel = True
-        If IsAdvertisement(e.WebBrowser.Url.ToString()) = True And My.Settings.PopUpBlocker = True And My.Settings.AdBlockerWhitelist.Contains(Me.Url.Host.ToString) = False Then
-            BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", e.WebBrowser.Url.ToString())
-        Else
-            AddTab(e.WebBrowser.Url.ToString(), BrowserForm.BrowserTabs)
-        End If
+        Try
+            Dim NewBrowser As New CustomBrowser
+            NewBrowser.SetContextFlagsAttribute(GeckoWindowFlags.WindowPopup) '32768
+            e.WebBrowser = NewBrowser
+            Dim NewTab As New TabPage
+            NewBrowser.Tag = NewTab
+            NewTab.Tag = NewBrowser
+            BrowserForm.ImageList1.Images.Add(BrowserForm.FaviconBox.InitialImage)
+            BrowserForm.BrowserTabs.ImageList.Images.Add(BrowserForm.FaviconBox.InitialImage)
+            BrowserForm.BrowserTabs.TabPages.Add(NewTab)
+            NewTab.Controls.Add(NewBrowser)
+            NewBrowser.Dock = DockStyle.Fill
+            'NewBrowser.Navigate(Url)
+            BrowserForm.BrowserTabs.SelectedTab = NewTab
+        Catch ex As Exception
+            BrowserForm.DisplayMessageBar("Warning", "SmartNet Browser a rencontré une erreur interne.", "OpenExceptionForm", "Voir les détails", "", ex)
+        End Try
+
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
@@ -279,15 +300,6 @@ Public Class CustomBrowser
             Return My.Resources.ErrorFavicon
         End Try
     End Function
-
-    Private Sub InitializeComponent()
-        Me.SuspendLayout()
-        '
-        'CustomBrowser
-        '
-        Me.ResumeLayout(False)
-
-    End Sub
 
     Private Sub CustomBrowser_NavigationError(sender As Object, e As GeckoNavigationErrorEventArgs) Handles MyBase.NavigationError
         Console.WriteLine(e.ErrorCode)

@@ -70,7 +70,7 @@ Public Class SettingsForm
         End If
         PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
         AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
-        VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.Major.ToString + "." + My.Application.Info.Version.Minor.ToString + "." + My.Application.Info.Version.Build.ToString
+        VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.ToString()
 
         If agent.IsUpdateAvailable(False) Then
             CheckUpdatesNowButton.Enabled = True
@@ -81,7 +81,12 @@ Public Class SettingsForm
         End If
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
-        UserAgentTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
+        'Try
+        '    UserAgentTextBox.Text = Gecko.GeckoPreferences.User("general.useragent.override").ToString()
+        'Catch ex As Exception
+        '    UserAgentTextBox.Text = Gecko.GeckoPreferences.Default("general.useragent.override").ToString()
+        'End Try
+
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
         DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         Me.CenterToScreen()
