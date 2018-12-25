@@ -81,11 +81,8 @@ Public Class SettingsForm
         End If
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
-        'Try
-        '    UserAgentTextBox.Text = Gecko.GeckoPreferences.User("general.useragent.override").ToString()
-        'Catch ex As Exception
-        '    UserAgentTextBox.Text = Gecko.GeckoPreferences.Default("general.useragent.override").ToString()
-        'End Try
+
+        'UserAgentTextBox.Text = Gecko.GeckoPreferences.User("general.useragent.override")
 
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
         DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder

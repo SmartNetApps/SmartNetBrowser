@@ -119,7 +119,7 @@ Public Class CustomBrowser
 
         If My.Settings.PopUpBlocker = True And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup Then
             Dim url As String = Me.Url.ToString()
-            BrowserForm.BrowserTabs.TabPages.Remove(Me.Tag)
+            BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
             BrowserForm.DisplayMessageBar("Info", "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", "OpenPopup", "Ouvrir quand même", url)
             Me.Dispose()
         End If
