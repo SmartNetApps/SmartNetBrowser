@@ -52,4 +52,35 @@ Public Class WebPageList
         Next
         Return False
     End Function
+
+    ''' <summary>
+    ''' Vérifier si la liste contient une page avec les critères définis en paramètre.
+    ''' </summary>
+    ''' <param name="url">URL de la page à trouver</param>
+    ''' <param name="title">Titre de la page à trouver</param>
+    ''' <returns>Vrai si la page a été trouvée, faux sinon.</returns>
+    Public Function ContainsPage(url As String, title As String) As Boolean
+        For Each page In Me
+            If page.GetURL() = url And page.GetNom() = title Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+    ''' <summary>
+    ''' Vérifier si la liste contient une page avec les critères définis en paramètre.
+    ''' </summary>
+    ''' <param name="url">URL de la page à trouver</param>
+    ''' <param name="title">Titre de la page à trouver</param>
+    ''' <param name="visitDateTime">Date et heure de visite de la page à trouver</param>
+    ''' <returns>Vrai si la page a été trouvée, faux sinon.</returns>
+    Public Function ContainsPage(url As String, title As String, visitDateTime As DateTime) As Boolean
+        For Each page In Me
+            If page.GetURL() = url And page.GetNom() = title And page.GetVisitDateTime() = visitDateTime Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 End Class
