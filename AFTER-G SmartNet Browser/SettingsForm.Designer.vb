@@ -85,9 +85,14 @@ Partial Class SettingsForm
         Me.ChangeChildrenProtectionPasswordButton = New System.Windows.Forms.Button()
         Me.ChildrenProtectionCheckBox = New System.Windows.Forms.CheckBox()
         Me.AdBlockerTabPage = New System.Windows.Forms.TabPage()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ButtonRemovePageFromAdsBlockerWhitelist = New System.Windows.Forms.Button()
+        Me.ListBoxAdsBlockerWhitelistedPages = New System.Windows.Forms.ListBox()
+        Me.ButtonAddNewPageInAdsBlockerWhitelist = New System.Windows.Forms.Button()
+        Me.TextBoxNewPageInAdsBlockerWhitelist = New System.Windows.Forms.TextBox()
+        Me.PictureBoxAdsBlockerWhitelist = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBox13 = New System.Windows.Forms.PictureBox()
-        Me.EditWhitelistButton = New System.Windows.Forms.Button()
         Me.AdsBlockerProblemSignalementButton = New System.Windows.Forms.Button()
         Me.GroupBox_AdsBlockerPopups = New System.Windows.Forms.GroupBox()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
@@ -96,6 +101,18 @@ Partial Class SettingsForm
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.AdBlockerCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TabPageAppSync = New System.Windows.Forms.TabPage()
+        Me.GroupBoxAppSyncDevice = New System.Windows.Forms.GroupBox()
+        Me.ButtonChangeAppSyncDeviceName = New System.Windows.Forms.Button()
+        Me.TextBoxAppSyncDeviceName = New System.Windows.Forms.TextBox()
+        Me.LabelAppSyncDeviceName = New System.Windows.Forms.Label()
+        Me.PictureBoxAppSyncDevice = New System.Windows.Forms.PictureBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LabelUsername = New System.Windows.Forms.Label()
+        Me.PictureBoxUserProfilePic = New System.Windows.Forms.PictureBox()
+        Me.ButtonLoginLogout = New System.Windows.Forms.Button()
+        Me.ButtonManageAccount = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MisesàJour = New System.Windows.Forms.TabPage()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.UpdatesGroupBox = New System.Windows.Forms.GroupBox()
@@ -126,10 +143,8 @@ Partial Class SettingsForm
         Me.SettingsSavesGroupBox = New System.Windows.Forms.GroupBox()
         Me.PictureBox16 = New System.Windows.Forms.PictureBox()
         Me.ImportSettingsButton = New System.Windows.Forms.Button()
-        Me.OKButton = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.AbortButton = New System.Windows.Forms.Button()
         Me.DefaultDownloadFolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.TabControl1.SuspendLayout()
         Me.Général.SuspendLayout()
@@ -156,12 +171,19 @@ Partial Class SettingsForm
         Me.ChildrenProtectionGroupBox.SuspendLayout()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AdBlockerTabPage.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.PictureBoxAdsBlockerWhitelist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox_AdsBlockerPopups.SuspendLayout()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox_AdsBlockerActivation.SuspendLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPageAppSync.SuspendLayout()
+        Me.GroupBoxAppSyncDevice.SuspendLayout()
+        CType(Me.PictureBoxAppSyncDevice, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.PictureBoxUserProfilePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MisesàJour.SuspendLayout()
         Me.UpdatesGroupBox.SuspendLayout()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -182,13 +204,14 @@ Partial Class SettingsForm
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.Général)
         Me.TabControl1.Controls.Add(Me.Confidentialité)
         Me.TabControl1.Controls.Add(Me.SecurityTabPage)
         Me.TabControl1.Controls.Add(Me.AdBlockerTabPage)
+        Me.TabControl1.Controls.Add(Me.TabPageAppSync)
         Me.TabControl1.Controls.Add(Me.MisesàJour)
         Me.TabControl1.Controls.Add(Me.Avancé)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
@@ -642,6 +665,7 @@ Partial Class SettingsForm
         'AdBlockerTabPage
         '
         resources.ApplyResources(Me.AdBlockerTabPage, "AdBlockerTabPage")
+        Me.AdBlockerTabPage.Controls.Add(Me.GroupBox4)
         Me.AdBlockerTabPage.Controls.Add(Me.GroupBox1)
         Me.AdBlockerTabPage.Controls.Add(Me.GroupBox_AdsBlockerPopups)
         Me.AdBlockerTabPage.Controls.Add(Me.GroupBox_AdsBlockerActivation)
@@ -649,10 +673,49 @@ Partial Class SettingsForm
         Me.AdBlockerTabPage.Name = "AdBlockerTabPage"
         Me.AdBlockerTabPage.UseVisualStyleBackColor = True
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.ButtonRemovePageFromAdsBlockerWhitelist)
+        Me.GroupBox4.Controls.Add(Me.ListBoxAdsBlockerWhitelistedPages)
+        Me.GroupBox4.Controls.Add(Me.ButtonAddNewPageInAdsBlockerWhitelist)
+        Me.GroupBox4.Controls.Add(Me.TextBoxNewPageInAdsBlockerWhitelist)
+        Me.GroupBox4.Controls.Add(Me.PictureBoxAdsBlockerWhitelist)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.TabStop = False
+        '
+        'ButtonRemovePageFromAdsBlockerWhitelist
+        '
+        resources.ApplyResources(Me.ButtonRemovePageFromAdsBlockerWhitelist, "ButtonRemovePageFromAdsBlockerWhitelist")
+        Me.ButtonRemovePageFromAdsBlockerWhitelist.Name = "ButtonRemovePageFromAdsBlockerWhitelist"
+        Me.ButtonRemovePageFromAdsBlockerWhitelist.UseVisualStyleBackColor = True
+        '
+        'ListBoxAdsBlockerWhitelistedPages
+        '
+        resources.ApplyResources(Me.ListBoxAdsBlockerWhitelistedPages, "ListBoxAdsBlockerWhitelistedPages")
+        Me.ListBoxAdsBlockerWhitelistedPages.FormattingEnabled = True
+        Me.ListBoxAdsBlockerWhitelistedPages.Name = "ListBoxAdsBlockerWhitelistedPages"
+        '
+        'ButtonAddNewPageInAdsBlockerWhitelist
+        '
+        resources.ApplyResources(Me.ButtonAddNewPageInAdsBlockerWhitelist, "ButtonAddNewPageInAdsBlockerWhitelist")
+        Me.ButtonAddNewPageInAdsBlockerWhitelist.Name = "ButtonAddNewPageInAdsBlockerWhitelist"
+        Me.ButtonAddNewPageInAdsBlockerWhitelist.UseVisualStyleBackColor = True
+        '
+        'TextBoxNewPageInAdsBlockerWhitelist
+        '
+        resources.ApplyResources(Me.TextBoxNewPageInAdsBlockerWhitelist, "TextBoxNewPageInAdsBlockerWhitelist")
+        Me.TextBoxNewPageInAdsBlockerWhitelist.Name = "TextBoxNewPageInAdsBlockerWhitelist"
+        '
+        'PictureBoxAdsBlockerWhitelist
+        '
+        resources.ApplyResources(Me.PictureBoxAdsBlockerWhitelist, "PictureBoxAdsBlockerWhitelist")
+        Me.PictureBoxAdsBlockerWhitelist.Name = "PictureBoxAdsBlockerWhitelist"
+        Me.PictureBoxAdsBlockerWhitelist.TabStop = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.PictureBox13)
-        Me.GroupBox1.Controls.Add(Me.EditWhitelistButton)
         Me.GroupBox1.Controls.Add(Me.AdsBlockerProblemSignalementButton)
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
@@ -663,12 +726,6 @@ Partial Class SettingsForm
         resources.ApplyResources(Me.PictureBox13, "PictureBox13")
         Me.PictureBox13.Name = "PictureBox13"
         Me.PictureBox13.TabStop = False
-        '
-        'EditWhitelistButton
-        '
-        resources.ApplyResources(Me.EditWhitelistButton, "EditWhitelistButton")
-        Me.EditWhitelistButton.Name = "EditWhitelistButton"
-        Me.EditWhitelistButton.UseVisualStyleBackColor = True
         '
         'AdsBlockerProblemSignalementButton
         '
@@ -722,6 +779,86 @@ Partial Class SettingsForm
         '
         resources.ApplyResources(Me.Label9, "Label9")
         Me.Label9.Name = "Label9"
+        '
+        'TabPageAppSync
+        '
+        Me.TabPageAppSync.Controls.Add(Me.GroupBoxAppSyncDevice)
+        Me.TabPageAppSync.Controls.Add(Me.GroupBox3)
+        Me.TabPageAppSync.Controls.Add(Me.Label2)
+        resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
+        Me.TabPageAppSync.Name = "TabPageAppSync"
+        Me.TabPageAppSync.UseVisualStyleBackColor = True
+        '
+        'GroupBoxAppSyncDevice
+        '
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.ButtonChangeAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.TextBoxAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.LabelAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.PictureBoxAppSyncDevice)
+        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
+        Me.GroupBoxAppSyncDevice.Name = "GroupBoxAppSyncDevice"
+        Me.GroupBoxAppSyncDevice.TabStop = False
+        '
+        'ButtonChangeAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.ButtonChangeAppSyncDeviceName, "ButtonChangeAppSyncDeviceName")
+        Me.ButtonChangeAppSyncDeviceName.Name = "ButtonChangeAppSyncDeviceName"
+        Me.ButtonChangeAppSyncDeviceName.UseVisualStyleBackColor = True
+        '
+        'TextBoxAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.TextBoxAppSyncDeviceName, "TextBoxAppSyncDeviceName")
+        Me.TextBoxAppSyncDeviceName.Name = "TextBoxAppSyncDeviceName"
+        '
+        'LabelAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.LabelAppSyncDeviceName, "LabelAppSyncDeviceName")
+        Me.LabelAppSyncDeviceName.Name = "LabelAppSyncDeviceName"
+        '
+        'PictureBoxAppSyncDevice
+        '
+        resources.ApplyResources(Me.PictureBoxAppSyncDevice, "PictureBoxAppSyncDevice")
+        Me.PictureBoxAppSyncDevice.Name = "PictureBoxAppSyncDevice"
+        Me.PictureBoxAppSyncDevice.TabStop = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.LabelUsername)
+        Me.GroupBox3.Controls.Add(Me.PictureBoxUserProfilePic)
+        Me.GroupBox3.Controls.Add(Me.ButtonLoginLogout)
+        Me.GroupBox3.Controls.Add(Me.ButtonManageAccount)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.TabStop = False
+        '
+        'LabelUsername
+        '
+        resources.ApplyResources(Me.LabelUsername, "LabelUsername")
+        Me.LabelUsername.Name = "LabelUsername"
+        '
+        'PictureBoxUserProfilePic
+        '
+        Me.PictureBoxUserProfilePic.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
+        resources.ApplyResources(Me.PictureBoxUserProfilePic, "PictureBoxUserProfilePic")
+        Me.PictureBoxUserProfilePic.Name = "PictureBoxUserProfilePic"
+        Me.PictureBoxUserProfilePic.TabStop = False
+        '
+        'ButtonLoginLogout
+        '
+        resources.ApplyResources(Me.ButtonLoginLogout, "ButtonLoginLogout")
+        Me.ButtonLoginLogout.Name = "ButtonLoginLogout"
+        Me.ButtonLoginLogout.UseVisualStyleBackColor = True
+        '
+        'ButtonManageAccount
+        '
+        resources.ApplyResources(Me.ButtonManageAccount, "ButtonManageAccount")
+        Me.ButtonManageAccount.Name = "ButtonManageAccount"
+        Me.ButtonManageAccount.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.Name = "Label2"
         '
         'MisesàJour
         '
@@ -941,32 +1078,16 @@ Partial Class SettingsForm
         Me.ImportSettingsButton.Name = "ImportSettingsButton"
         Me.ImportSettingsButton.UseVisualStyleBackColor = True
         '
-        'OKButton
-        '
-        resources.ApplyResources(Me.OKButton, "OKButton")
-        Me.OKButton.Name = "OKButton"
-        Me.OKButton.UseVisualStyleBackColor = True
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.DefaultExt = "Fichier de configuration|*.config"
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
         '
-        'AbortButton
-        '
-        resources.ApplyResources(Me.AbortButton, "AbortButton")
-        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.AbortButton.Name = "AbortButton"
-        '
         'SettingsForm
         '
-        Me.AcceptButton = Me.OKButton
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.AbortButton
-        Me.Controls.Add(Me.AbortButton)
-        Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -1010,6 +1131,9 @@ Partial Class SettingsForm
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AdBlockerTabPage.ResumeLayout(False)
         Me.AdBlockerTabPage.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.PictureBoxAdsBlockerWhitelist, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox_AdsBlockerPopups.ResumeLayout(False)
@@ -1018,6 +1142,14 @@ Partial Class SettingsForm
         Me.GroupBox_AdsBlockerActivation.ResumeLayout(False)
         Me.GroupBox_AdsBlockerActivation.PerformLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageAppSync.ResumeLayout(False)
+        Me.TabPageAppSync.PerformLayout()
+        Me.GroupBoxAppSyncDevice.ResumeLayout(False)
+        Me.GroupBoxAppSyncDevice.PerformLayout()
+        CType(Me.PictureBoxAppSyncDevice, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.PictureBoxUserProfilePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MisesàJour.ResumeLayout(False)
         Me.MisesàJour.PerformLayout()
         Me.UpdatesGroupBox.ResumeLayout(False)
@@ -1079,7 +1211,6 @@ Partial Class SettingsForm
     Friend WithEvents RepareBrowserButton As Button
     Friend WithEvents SettingsSavesGroupBox As GroupBox
     Friend WithEvents ImportSettingsButton As Button
-    Friend WithEvents OKButton As Button
     Private WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents CustomSearchSettingsButton As Button
@@ -1098,10 +1229,8 @@ Partial Class SettingsForm
     Friend WithEvents ChangeUserAgentLinkLabel As LinkLabel
     Friend WithEvents RadioButton5 As RadioButton
     Friend WithEvents AdBlockerTabPage As TabPage
-    Friend WithEvents EditWhitelistButton As Button
     Friend WithEvents AdBlockerCheckBox As CheckBox
     Friend WithEvents PopUpsBlockerCheckBox As CheckBox
-    Friend WithEvents AbortButton As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents AdsBlockerProblemSignalementButton As Button
@@ -1152,4 +1281,22 @@ Partial Class SettingsForm
     Friend WithEvents PictureBox18 As PictureBox
     Friend WithEvents PictureBox19 As PictureBox
     Friend WithEvents PictureBox20 As PictureBox
+    Friend WithEvents TabPageAppSync As TabPage
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents PictureBoxUserProfilePic As PictureBox
+    Friend WithEvents ButtonLoginLogout As Button
+    Friend WithEvents ButtonManageAccount As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents LabelUsername As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents ListBoxAdsBlockerWhitelistedPages As ListBox
+    Friend WithEvents ButtonAddNewPageInAdsBlockerWhitelist As Button
+    Friend WithEvents TextBoxNewPageInAdsBlockerWhitelist As TextBox
+    Friend WithEvents PictureBoxAdsBlockerWhitelist As PictureBox
+    Friend WithEvents ButtonRemovePageFromAdsBlockerWhitelist As Button
+    Friend WithEvents GroupBoxAppSyncDevice As GroupBox
+    Friend WithEvents PictureBoxAppSyncDevice As PictureBox
+    Friend WithEvents LabelAppSyncDeviceName As Label
+    Friend WithEvents ButtonChangeAppSyncDeviceName As Button
+    Friend WithEvents TextBoxAppSyncDeviceName As TextBox
 End Class

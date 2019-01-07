@@ -156,10 +156,10 @@ Partial Class AboutForm
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.PictureBox1.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.logo1024
+        Me.PictureBox1.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowser_1024
         Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowser_1024
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
-        Me.PictureBox1.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.logo1024
+        Me.PictureBox1.InitialImage = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowser_1024
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '

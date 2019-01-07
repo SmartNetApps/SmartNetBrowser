@@ -29,6 +29,8 @@ Partial Class BrowserForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BrowserForm))
         Me.MainToolbar = New System.Windows.Forms.MenuStrip()
         Me.MainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeConnecterÀAppSyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.NewTabToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseTabToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -151,10 +153,21 @@ Partial Class BrowserForm
         '
         'MainMenu
         '
-        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
+        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeConnecterÀAppSyncToolStripMenuItem, Me.ToolStripSeparator11, Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
         resources.ApplyResources(Me.MainMenu, "MainMenu")
         Me.MainMenu.Image = Global.SmartNet_Browser.My.Resources.Resources.MenuBlack
         Me.MainMenu.Name = "MainMenu"
+        '
+        'SeConnecterÀAppSyncToolStripMenuItem
+        '
+        Me.SeConnecterÀAppSyncToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
+        Me.SeConnecterÀAppSyncToolStripMenuItem.Name = "SeConnecterÀAppSyncToolStripMenuItem"
+        resources.ApplyResources(Me.SeConnecterÀAppSyncToolStripMenuItem, "SeConnecterÀAppSyncToolStripMenuItem")
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        resources.ApplyResources(Me.ToolStripSeparator11, "ToolStripSeparator11")
         '
         'NewTabToolStripMenuItem
         '
@@ -944,4 +957,6 @@ Partial Class BrowserForm
     Friend WithEvents HistoriqueDeNavigationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HistoriqueDesRecherchesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TéléchargementsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SeConnecterÀAppSyncToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
 End Class

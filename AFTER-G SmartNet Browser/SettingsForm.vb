@@ -1,9 +1,11 @@
-﻿Imports System.IO.File
+﻿Imports System.ComponentModel
+Imports System.IO.File
 Imports System.Net
 Imports Microsoft.Win32
 
 Public Class SettingsForm
     Dim agent As New UpdateAgent
+    Dim appsync As New AppSyncAgent
 
     Public Sub New()
         InitializeComponent()
@@ -62,13 +64,21 @@ Public Class SettingsForm
         End If
         If My.Settings.AdBlocker = True Then
             AdBlockerCheckBox.Checked = True
-            PopUpsBlockerCheckBox.Enabled = True
+            PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
         Else
             AdBlockerCheckBox.Checked = False
             PopUpsBlockerCheckBox.Enabled = False
             PopUpsBlockerCheckBox.Checked = False
         End If
-        PopUpsBlockerCheckBox.Checked = My.Settings.PopUpBlocker
+
+        ListBoxAdsBlockerWhitelistedPages.Items.Clear()
+        For Each page In My.Settings.AdBlockerWhitelist
+            ListBoxAdsBlockerWhitelistedPages.Items.Add(page)
+        Next
+        TextBoxNewPageInAdsBlockerWhitelist.ResetText()
+        ButtonAddNewPageInAdsBlockerWhitelist.Enabled = False
+        ButtonRemovePageFromAdsBlockerWhitelist.Enabled = False
+
         AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
         VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.ToString()
 
@@ -101,10 +111,29 @@ Public Class SettingsForm
                 RadioButtonBlockThirdPartyCookies.Checked = False
                 RadioButtonBlockAllCookies.Checked = True
         End Select
+
+        If My.Settings.AppSyncPassword = "" Or My.Settings.AppSyncUsername = "" Then
+            ButtonManageAccount.Enabled = False
+            ButtonManageAccount.Visible = False
+            ButtonLoginLogout.Text = "Se connecter..."
+            LabelUsername.Text = "Déconnecté.e"
+            PictureBoxUserProfilePic.Image = My.Resources.Person
+            GroupBoxAppSyncDevice.Visible = False
+            ButtonChangeAppSyncDeviceName.Enabled = False
+        Else
+            ButtonManageAccount.Enabled = True
+            ButtonManageAccount.Visible = True
+            ButtonLoginLogout.Text = "Se déconnecter..."
+            LabelUsername.Text = appsync.GetUserName()
+            PictureBoxUserProfilePic.Image = New Bitmap(appsync.GetUserProfilePicture(), 54, 54)
+            GroupBoxAppSyncDevice.Visible = True
+            TextBoxAppSyncDeviceName.Text = appsync.GetDeviceName()
+            ButtonChangeAppSyncDeviceName.Enabled = False
+        End If
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/"
+        HomepageURLBox.Text = "https://homepage.quentinpugeat.fr"
     End Sub
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
@@ -146,8 +175,11 @@ Public Class SettingsForm
 
     Private Sub PrivateBrowsingCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles PrivateBrowsingCheckBox.CheckedChanged
         If PrivateBrowsingCheckBox.Checked = False Then
-            MsgBox("Avertissement : Ceci n'est pas une fonction de navigation privée. Les cookies et le cache du navigateur seront toujours enregistrés.", MsgBoxStyle.Information, "SmartNet Browser : Gestion de l'historique")
+            If MessageBox.Show("Avertissement : Ceci n'est pas une fonction de navigation privée. Les cookies et le cache du navigateur seront toujours enregistrés.", "SmartNet Browser : Gestion de l'historique", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = DialogResult.Cancel Then
+                PrivateBrowsingCheckBox.Checked = True
+            End If
         End If
+        My.Settings.PrivateBrowsing = Not (PrivateBrowsingCheckBox.Checked)
     End Sub
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
         BrowserForm.AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support", BrowserForm.BrowserTabs)
@@ -162,7 +194,7 @@ Public Class SettingsForm
             DeleteHistoryButton.Enabled = False
             DeleteHistoryButton.Text = "Historique de navigation effacé"
         Catch ex As Exception
-            MsgBox("Erreur lors de la suppression de l'historique : " + ex.Message, CType(MessageBoxIcon.Error, MsgBoxStyle), "SmartNet Browser : Gestion de l'historique")
+            MessageBox.Show(ex.Message, "SmartNet Browser : Gestion de l'historique", MessageBoxButtons.OK, MessageBoxIcon.Error)
             DeleteHistoryButton.Enabled = True
             DeleteHistoryButton.Text = "Effacer tout l'historique de navigation"
         End Try
@@ -173,7 +205,7 @@ Public Class SettingsForm
             DeleteCookiesButton.Enabled = False
             DeleteCookiesButton.Text = "Cookies effacés"
         Catch ex As Exception
-            MsgBox("Erreur lors de la suppression des cookies : " + ex.Message, CType(MessageBoxIcon.Error, MsgBoxStyle), "SmartNet Browser : Gestion des cookies")
+            MessageBox.Show(ex.Message, "SmartNet Browser : Gestion des cookies", MessageBoxButtons.OK, MessageBoxIcon.Error)
             DeleteCookiesButton.Enabled = True
             DeleteCookiesButton.Text = "Effacer les cookies"
         End Try
@@ -184,7 +216,7 @@ Public Class SettingsForm
             DeleteTemporaryInternetFilesButton.Enabled = False
             DeleteTemporaryInternetFilesButton.Text = "Cache effacé"
         Catch ex As Exception
-            MsgBox("Erreur lors de la suppression du cache : " + ex.Message, CType(MessageBoxIcon.Error, MsgBoxStyle), "SmartNet Browser : Gestion du cache")
+            MessageBox.Show(ex.Message, "SmartNet Browser : Gestion du cache", MessageBoxButtons.OK, MessageBoxIcon.Error)
             DeleteTemporaryInternetFilesButton.Enabled = True
             DeleteTemporaryInternetFilesButton.Text = "Effacer le cache"
         End Try
@@ -196,7 +228,7 @@ Public Class SettingsForm
             DeleteSearchHistoryButton.Enabled = False
             DeleteSearchHistoryButton.Text = "Historique des recherches effacé"
         Catch ex As Exception
-            MsgBox("Erreur lors de la suppression de l'historique des recherches : " + ex.Message, CType(MessageBoxIcon.Error, MsgBoxStyle), "SmartNet Browser : Gestion de l'historique des recherches")
+            MessageBox.Show(ex.Message, "SmartNet Browser : Gestion de l'historique des recherches", MessageBoxButtons.OK, MessageBoxIcon.Error)
             DeleteSearchHistoryButton.Enabled = True
             DeleteSearchHistoryButton.Text = "Effacer l'historique des recherches"
         End Try
@@ -215,6 +247,7 @@ Public Class SettingsForm
                 EnterChildrenProtectionForm.ShowDialog()
             End If
         End If
+
     End Sub
 
     Private Sub ChangeBrowserSettingsSecurityPasswordButton_Click(sender As Object, e As EventArgs) Handles ChangeBrowserSettingsSecurityPasswordButton.Click
@@ -247,25 +280,26 @@ Public Class SettingsForm
             PopUpsBlockerCheckBox.Enabled = False
             PopUpsBlockerCheckBox.Checked = False
         End If
-    End Sub
-    Private Sub EditWhitelistButton_Click(sender As Object, e As EventArgs) Handles EditWhitelistButton.Click
-        AdBlockerWhitelistForm.ShowDialog()
+        My.Settings.AdBlocker = AdBlockerCheckBox.Checked
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
         Try
             If AutoUpdateCheckBox.Checked = False And My.Settings.AutoUpdates = True Then
-                MsgBox("Avertissement : Les mises à jour automatiques permettent au navigateur de recevoir les dernières fonctionnalités et les corrections de bugs dès qu'elles sont disponibles. Si vous désactivez les mises à jour automatiques, vous acceptez que des bugs puissent être présents dans le logiciel et que ceux-ci ne soient pas corrigés. Ceci est vivement déconseillé.", MsgBoxStyle.Exclamation, "Désactiver SmartNet Apps Updater")
+                If MessageBox.Show("Les mises à jour automatiques permettent au navigateur de recevoir les dernières fonctionnalités et les corrections de bugs dès qu'elles sont disponibles. Si vous désactivez les mises à jour automatiques, vous acceptez que des bugs puissent être présents dans le logiciel et que ceux-ci ne soient pas corrigés. Ceci est vivement déconseillé.", "SmartNet Apps Updater", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = DialogResult.Cancel Then
+                    AutoUpdateCheckBox.Checked = True
+                End If
             End If
             Dim MiniNTVersionChecker As New WebClient
             Dim NTActualVersion As Version = Environment.OSVersion.Version
             Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
             If NTActualVersion < MiniNTVersion And AutoUpdateCheckBox.Checked = True Then
-                MsgBox("Votre système d'exploitation n'est plus pris en charge par SmartNet Apps. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", MsgBoxStyle.Critical, "Impossible de continuer")
+                MessageBox.Show("Votre système d'exploitation n'est plus pris en charge. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 AutoUpdateCheckBox.Checked = False
             End If
         Catch ex As Exception
         End Try
+        My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
@@ -277,17 +311,17 @@ Public Class SettingsForm
             My.Settings.Upgrade()
             ImportSettingsButton.Text = "Importation terminée."
         Catch ex As Exception
-            MsgBox("Erreur lors de l'importation : " + ex.Message, CType(MessageBoxIcon.Error, MsgBoxStyle), "SmartNet Browser : Gestion des données")
+            MessageBox.Show(ex.Message, "SmartNet Browser : Gestion des données", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ImportSettingsButton.Text = "Erreur lors de l'importation."
         End Try
         My.Settings.Reload()
     End Sub
 
     Private Sub RepareBrowserButton_Click(sender As Object, e As EventArgs) Handles RepareBrowserButton.Click
-        If MsgBox("Êtes-vous sûr(e) de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", MsgBoxStyle.OkCancel, "Réinitialisation de SmartNet Browser") = MsgBoxResult.Ok Then
+        If MessageBox.Show("Êtes-vous sûr(e) de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", "Réinitialisation de SmartNet Browser", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
-            My.Settings.Homepage = "http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/"
+            My.Settings.Homepage = "https://homepage.quentinpugeat.fr"
             My.Settings.Favorites.Clear()
             My.Settings.SearchHistory.Clear()
             My.Settings.PreventMultipleTabsClose = True
@@ -298,7 +332,7 @@ Public Class SettingsForm
             My.Settings.AutoUpdates = True
             My.Settings.AdBlocker = False
             My.Settings.PopUpBlocker = False
-            My.Settings.AdBlockerWhitelist = "quentinpugeat.wixsite.com"
+            My.Settings.AdBlockerWhitelist.Clear()
             My.Settings.ChildrenProtection = False
             My.Settings.ChildrenProtectionPassword = ""
             My.Settings.BrowserSettingsSecurity = False
@@ -330,34 +364,6 @@ Public Class SettingsForm
         UserAgentChangeForm.ShowDialog()
     End Sub
 
-    Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
-        Me.Close()
-    End Sub
-    Private Sub OKButton_Click(sender As Object, e As EventArgs) Handles OKButton.Click
-        My.Settings.Homepage = HomepageURLBox.Text
-        My.Settings.PopUpBlocker = PopUpsBlockerCheckBox.Checked
-        My.Settings.DeleteCookiesWhileClosing = EraseCookiesCheckBox.Checked
-        My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
-        My.Settings.HistoryFavoritesSecurity = HistoryFavoritesSecurityCheckBox.Checked
-        My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
-        My.Settings.AdBlocker = AdBlockerCheckBox.Checked
-        My.Settings.PreventMultipleTabsClose = PreventMultipleTabsCloseCheckBox.Checked
-        If PrivateBrowsingCheckBox.Checked = True Then
-            My.Settings.PrivateBrowsing = False
-        Else
-            My.Settings.PrivateBrowsing = True
-        End If
-        My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
-        My.Settings.UserAgentLanguage = LanguagesComboBox.Text.Split(" "c)(0)
-        Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
-        Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
-        My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
-        My.Settings.DoNotTrack = DoNotTrackCheckBox.Checked
-        Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
-        My.Settings.Save()
-        Me.Close()
-    End Sub
-
     Private Sub SetDefaultDownloadFolderButton_Click(sender As Object, e As EventArgs) Handles SetDefaultDownloadFolderButton.Click
         If DefaultDownloadFolderBrowserDialog.ShowDialog() = DialogResult.OK Then
             DefaultDownloadFolderTextBox.Text = DefaultDownloadFolderBrowserDialog.SelectedPath
@@ -374,5 +380,122 @@ Public Class SettingsForm
 
     Private Sub RadioButtonBlockAllCookies_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonBlockAllCookies.CheckedChanged
         Gecko.GeckoPreferences.User("network.cookie.cookieBehavior") = 2
+    End Sub
+
+    Private Sub ButtonLoginLogout_Click(sender As Object, e As EventArgs) Handles ButtonLoginLogout.Click
+        If My.Settings.AppSyncPassword = "" Or My.Settings.AppSyncUsername = "" Then
+            AppSyncLogin.ShowDialog()
+        Else
+            If MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "SmartNet AppSync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+                My.Settings.AppSyncPassword = ""
+                My.Settings.AppSyncUsername = ""
+                ButtonManageAccount.Enabled = False
+                ButtonManageAccount.Visible = False
+                ButtonLoginLogout.Text = "Se connecter..."
+                LabelUsername.Text = "Déconnecté.e"
+                PictureBoxUserProfilePic.Image = My.Resources.Person
+                BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+                BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            End If
+        End If
+    End Sub
+
+    Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
+        BrowserForm.AddTab("http://appsync.smartnetapps.com/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserForm.BrowserTabs)
+        Me.Close()
+    End Sub
+
+    Private Sub TextBoxNewPageInAdsBlockerWhitelist_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNewPageInAdsBlockerWhitelist.TextChanged
+        If TextBoxNewPageInAdsBlockerWhitelist.TextLength > 0 Then
+            ButtonAddNewPageInAdsBlockerWhitelist.Enabled = True
+        Else
+            ButtonAddNewPageInAdsBlockerWhitelist.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ListBoxAdsBlockerWhitelistedPages_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxAdsBlockerWhitelistedPages.SelectedIndexChanged
+        If ListBoxAdsBlockerWhitelistedPages.SelectedIndex >= 0 Then
+            ButtonRemovePageFromAdsBlockerWhitelist.Enabled = True
+        Else
+            ButtonRemovePageFromAdsBlockerWhitelist.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ButtonAddNewPageInAdsBlockerWhitelist_Click(sender As Object, e As EventArgs) Handles ButtonAddNewPageInAdsBlockerWhitelist.Click
+        My.Settings.AdBlockerWhitelist.Add(TextBoxNewPageInAdsBlockerWhitelist.Text)
+        TextBoxNewPageInAdsBlockerWhitelist.ResetText()
+        ListBoxAdsBlockerWhitelistedPages.Items.Clear()
+        For Each page In My.Settings.AdBlockerWhitelist
+            ListBoxAdsBlockerWhitelistedPages.Items.Add(page)
+        Next
+    End Sub
+
+    Private Sub ButtonRemovePageFromAdsBlockerWhitelist_Click(sender As Object, e As EventArgs) Handles ButtonRemovePageFromAdsBlockerWhitelist.Click
+        My.Settings.AdBlockerWhitelist.Remove(ListBoxAdsBlockerWhitelistedPages.SelectedItem.ToString())
+        ListBoxAdsBlockerWhitelistedPages.Items.Clear()
+        For Each page In My.Settings.AdBlockerWhitelist
+            ListBoxAdsBlockerWhitelistedPages.Items.Add(page)
+        Next
+    End Sub
+
+    Private Sub TextBoxAppSyncDeviceName_TextChanged(sender As Object, e As EventArgs) Handles TextBoxAppSyncDeviceName.TextChanged
+        If TextBoxAppSyncDeviceName.Text.Length > 0 Then
+            ButtonChangeAppSyncDeviceName.Enabled = True
+        Else
+            ButtonChangeAppSyncDeviceName.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ButtonChangeAppSyncDeviceName_Click(sender As Object, e As EventArgs) Handles ButtonChangeAppSyncDeviceName.Click
+        While True
+            If appsync.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
+                ButtonChangeAppSyncDeviceName.Enabled = False
+                Exit While
+            Else
+                If MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil.", "SmartNet AppSync", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) = DialogResult.Cancel Then
+                    Exit While
+                End If
+            End If
+        End While
+    End Sub
+
+    Private Sub SettingsForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
+        My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
+        My.Settings.UserAgentLanguage = LanguagesComboBox.Text.Split(" "c)(0)
+        Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
+        Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
+        My.Settings.Save()
+        appsync.SendConfig()
+    End Sub
+
+    Private Sub DoNotTrackCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DoNotTrackCheckBox.CheckedChanged
+        My.Settings.DoNotTrack = DoNotTrackCheckBox.Checked
+        Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
+    End Sub
+
+    Private Sub HomepageURLBox_TextChanged(sender As Object, e As EventArgs) Handles HomepageURLBox.TextChanged
+        My.Settings.Homepage = HomepageURLBox.Text
+    End Sub
+
+    Private Sub PopUpsBlockerCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles PopUpsBlockerCheckBox.CheckedChanged
+        My.Settings.PopUpBlocker = PopUpsBlockerCheckBox.Checked
+    End Sub
+
+    Private Sub EraseCookiesCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles EraseCookiesCheckBox.CheckedChanged
+        My.Settings.DeleteCookiesWhileClosing = EraseCookiesCheckBox.Checked
+    End Sub
+
+    Private Sub HistoryFavoritesSecurityCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles HistoryFavoritesSecurityCheckBox.CheckedChanged
+        My.Settings.HistoryFavoritesSecurity = HistoryFavoritesSecurityCheckBox.Checked
+    End Sub
+
+    Private Sub PreventMultipleTabsCloseCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles PreventMultipleTabsCloseCheckBox.CheckedChanged
+        My.Settings.PreventMultipleTabsClose = PreventMultipleTabsCloseCheckBox.Checked
+    End Sub
+
+    Private Sub DefaultDownloadFolderTextBox_TextChanged(sender As Object, e As EventArgs) Handles DefaultDownloadFolderTextBox.TextChanged
+        My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
     End Sub
 End Class

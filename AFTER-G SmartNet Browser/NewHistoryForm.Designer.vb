@@ -54,6 +54,7 @@ Partial Class NewHistoryForm
         Me.RafraîchirLesListesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VisitDateColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
@@ -65,12 +66,13 @@ Partial Class NewHistoryForm
         'HistoryListView
         '
         resources.ApplyResources(Me.HistoryListView, "HistoryListView")
-        Me.HistoryListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.TitleColumnHeader, Me.URLColumnHeader})
+        Me.HistoryListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.TitleColumnHeader, Me.URLColumnHeader, Me.VisitDateColumnHeader})
         Me.HistoryListView.FullRowSelect = True
         Me.HistoryListView.LargeImageList = Me.HistoryFaviconImageList
         Me.HistoryListView.Name = "HistoryListView"
         Me.HistoryListView.SmallImageList = Me.HistoryFaviconImageList
         Me.HistoryListView.StateImageList = Me.HistoryFaviconImageList
+        Me.HistoryListView.TileSize = New System.Drawing.Size(32, 32)
         Me.HistoryListView.UseCompatibleStateImageBehavior = False
         Me.HistoryListView.View = System.Windows.Forms.View.Details
         '
@@ -258,6 +260,10 @@ Partial Class NewHistoryForm
         Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.AProposDeSmartNetBrowserToolStripMenuItem, "AProposDeSmartNetBrowserToolStripMenuItem")
         '
+        'VisitDateColumnHeader
+        '
+        resources.ApplyResources(Me.VisitDateColumnHeader, "VisitDateColumnHeader")
+        '
         'NewHistoryForm
         '
         resources.ApplyResources(Me, "$this")
@@ -308,4 +314,5 @@ Partial Class NewHistoryForm
     Friend WithEvents ButtonDeleteDownload As Button
     Friend WithEvents ButtonDownloadAgain As Button
     Friend WithEvents ListBoxDownloads As ListBox
+    Friend WithEvents VisitDateColumnHeader As ColumnHeader
 End Class

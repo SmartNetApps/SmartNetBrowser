@@ -121,19 +121,44 @@
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=3.1.2.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.3.1.2\lib\net452\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="Geckofx-Core, Version=60.0.25.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx60.32.60.0.25\lib\net45\Geckofx-Core.dll</HintPath>
     </Reference>
     <Reference Include="Geckofx-Winforms, Version=60.0.25.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx60.32.60.0.25\lib\net45\Geckofx-Winforms.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\MySQL.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\..\..\MySQL Connector\v4.5.2\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -164,13 +189,14 @@
     <Compile Include="AboutForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdBlockerWhitelistForm.Designer.vb">
-      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="AppSyncAgent.vb" />
+    <Compile Include="AppSyncLogin.Designer.vb">
+      <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="AdBlockerWhitelistForm.vb">
+    <Compile Include="AppSyncLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BrowserForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +261,7 @@
     <Compile Include="FirstStartForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MessageBar.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -246,6 +273,7 @@
     <Compile Include="NewHistoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings.vb" />
     <Compile Include="UpdateAgent.vb" />
     <Compile Include="LicenseForm.Designer.vb">
       <DependentUpon>LicenseForm.vb</DependentUpon>
@@ -312,6 +340,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WebPage.vb" />
+    <Compile Include="WebpageList.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutForm.en.resx">
@@ -323,14 +352,8 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdBlockerWhitelistForm.en.resx">
-      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdBlockerWhitelistForm.fr.resx">
-      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdBlockerWhitelistForm.resx">
-      <DependentUpon>AdBlockerWhitelistForm.vb</DependentUpon>
+    <EmbeddedResource Include="AppSyncLogin.resx">
+      <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BrowserForm.en.resx">
       <DependentUpon>BrowserForm.vb</DependentUpon>
@@ -604,6 +627,7 @@
     <None Include="Resources\2019_SmartNetBrowser_1024.png" />
     <None Include="Resources\2019_SmartNetBrowserInstaller_1024.png" />
     <None Include="Resources\2019_SmartNetAppsUpdater_1024.png" />
+    <None Include="Resources\appsync_1024.png" />
     <Content Include="Resources\CloseTabButton\CloseTabBlack.png" />
     <Content Include="Resources\ContextMenuStrip\CopyImage.png" />
     <Content Include="Resources\ContextMenuStrip\Image.png" />

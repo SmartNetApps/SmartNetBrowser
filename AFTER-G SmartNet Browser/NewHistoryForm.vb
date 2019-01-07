@@ -71,9 +71,11 @@
             HistoryFaviconImageList.Images.Add(entree.GetFavicon())
             element = CType(HistoryListView.Items.Add(entree.GetNom()), ListViewItem)
             element.SubItems.Add(entree.GetURL())
+            element.SubItems.Add(entree.GetVisitDateTime().ToString())
         Next
         HistoryListView.SmallImageList = HistoryFaviconImageList
         HistoryListView.LargeImageList = HistoryFaviconImageList
+        HistoryListView.StateImageList = HistoryFaviconImageList
     End Sub
 
     Private Sub RefreshFavorites()
@@ -88,6 +90,7 @@
         Next
         ListViewFavorites.SmallImageList = FavoritesFaviconImageList
         ListViewFavorites.LargeImageList = FavoritesFaviconImageList
+        ListViewFavorites.StateImageList = FavoritesFaviconImageList
     End Sub
 
     Private Sub RefreshSearches()

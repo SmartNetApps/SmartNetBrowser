@@ -301,10 +301,14 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://quentinpugeat.pagesperso-orange.fr")>  _
-        Public Property AdBlockerWhitelist() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" encoding=""utf-16""?>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"<ArrayOfString xmlns:xsi=""http://www.w3."& _ 
+            "org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <s"& _ 
+            "tring>quentinpugeat.fr</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <string>quentinpugeat.pagesperso-orange.fr</s"& _ 
+            "tring>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <string>localhost</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  <string>127.0.0.1</string>"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"</ArrayOfStr"& _ 
+            "ing>")>  _
+        Public Property AdBlockerWhitelist() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("AdBlockerWhitelist"),String)
+                Return CType(Me("AdBlockerWhitelist"),Global.System.Collections.Specialized.StringCollection)
             End Get
             Set
                 Me("AdBlockerWhitelist") = value
@@ -393,6 +397,65 @@ Namespace My
             End Get
             Set
                 Me("LastSessionListOfTabs") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property AppSyncUsername() As String
+            Get
+                Return CType(Me("AppSyncUsername"),String)
+            End Get
+            Set
+                Me("AppSyncUsername") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property AppSyncPassword() As String
+            Get
+                Return CType(Me("AppSyncPassword"),String)
+            End Get
+            Set
+                Me("AppSyncPassword") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1753-01-01")>  _
+        Public Property AppSyncLastSyncTime() As Date
+            Get
+                Return CType(Me("AppSyncLastSyncTime"),Date)
+            End Get
+            Set
+                Me("AppSyncLastSyncTime") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;port=3306;database=smartnetappsync;user=appsync_restricted;passw"& _ 
+            "ord=8QC85Cx6rEoXgrQA")>  _
+        Public ReadOnly Property mysqlconnection() As String
+            Get
+                Return CType(Me("mysqlconnection"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property AppSyncDeviceNumber() As Integer
+            Get
+                Return CType(Me("AppSyncDeviceNumber"),Integer)
+            End Get
+            Set
+                Me("AppSyncDeviceNumber") = value
             End Set
         End Property
     End Class
