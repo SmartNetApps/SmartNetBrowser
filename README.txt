@@ -1,7 +1,7 @@
 Vous trouverez de l'aide pour SmartNet Browser sur le site internet SmartNet Apps, à l'adresse
 http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/index.html
 
-Copyright 2015-2018 Quentin Pugeat
+Copyright 2015-2019 Quentin Pugeat
 SmartNet Apps
 
 SmartNet Browser est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
