@@ -30,8 +30,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return BCrypt.Net.BCrypt.Verify(password, mdp)
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la vérification de vos identifiants SmartNet AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la vérification de vos identifiants AppSync.", ex)
             Return False
         End Try
     End Function
@@ -57,8 +56,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return userID
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de votre ID utilisateur depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre ID d'utilisateur AppSync.", ex)
             Return 0
         End Try
     End Function
@@ -84,8 +82,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return userName
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de votre identité depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre nom depuis AppSync.", ex)
             Return "Compte AppSync"
         End Try
     End Function
@@ -123,8 +120,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return New Bitmap(imgLocalPath)
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de votre image de profil depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre photo de profil depuis AppSync.", ex)
             Return My.Resources.Person
         End Try
     End Function
@@ -171,8 +167,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de votre configuration depuis AppSync. Elle a donc été renvoyée.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre configuration depuis AppSync.", ex)
             Return False
         End Try
     End Function
@@ -228,8 +223,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi de votre configuration vers AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de l'envoi de votre configuration vers AppSync.", ex)
             Return False
         End Try
     End Function
@@ -254,8 +248,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return list
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de l'historique de navigation depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre historique de navigation depuis AppSync.", ex)
             Return Nothing
         End Try
     End Function
@@ -280,8 +273,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return list
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception des favoris depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de vos favoris depuis AppSync.", ex)
             Return Nothing
         End Try
     End Function
@@ -290,8 +282,7 @@ Public Class AppSyncAgent
         Try
             Return Nothing
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de l'historique de recherche depuis AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la réception de votre historique de recherche depuis AppSync.", ex)
             Return Nothing
         End Try
     End Function
@@ -321,8 +312,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return result
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Impossible de retrouver la date de dernière synchronisation de l'historique du compte AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la récupération de la dernière date de synchronisation de votre historique de navigation depuis AppSync.", ex)
             Return New Date(1, 1, 1)
         End Try
     End Function
@@ -345,8 +335,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi de l'historique de navigation vers AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'une entrée d'historique vers AppSync.", ex)
             Return False
         End Try
     End Function
@@ -368,8 +357,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi des favoris vers AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'un favori vers AppSync.", ex)
             Return False
         End Try
     End Function
@@ -378,8 +366,7 @@ Public Class AppSyncAgent
         Try
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi de l'historique de recherche vers AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la suppression d'un historique de recherche sur AppSync.", ex)
             Return False
         End Try
     End Function
@@ -402,8 +389,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la suppression d'une entrée l'historique de navigation sur AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la suppression d'une entrée d'historique sur AppSync.", ex)
             Return False
         End Try
     End Function
@@ -425,8 +411,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la suppression du favori sur AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la suppression du favori sur AppSync.", ex)
             Return False
         End Try
     End Function
@@ -458,8 +443,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return result
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Impossible de retrouver la date de dernière synchronisation du compte AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Impossible de récupérer la date de dernière synchronisation de votre compte AppSync.", ex)
             Return New Date(1, 1, 1)
         End Try
     End Function
@@ -493,6 +477,7 @@ Public Class AppSyncAgent
             My.Settings.AppSyncLastSyncTime = now
             Return True
         Catch ex As Exception
+            Throw New AppSyncException("Une erreur est survenue lors de l'actualisation de la date de dernière synchronisation.", ex)
             Return False
         End Try
     End Function
@@ -642,8 +627,7 @@ Public Class AppSyncAgent
             My.Settings.AppSyncDeviceNumber = 0
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la désinscription de l'appareil.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de la suppression de l'autorisation de connexion à AppSync.", ex)
             Return False
         End Try
     End Function
@@ -672,8 +656,7 @@ Public Class AppSyncAgent
             connection.Close()
             Return True
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'inscription de l'appareil à AppSync.")
-            BrowserForm.DisplayMessageBar()
+            Throw New AppSyncException("Une erreur est survenue lors de l'enregistrement de votre appareil sur votre compte AppSync.", ex)
             Return False
         End Try
     End Function
@@ -699,8 +682,7 @@ Public Class AppSyncAgent
                 If (dataReader.Read()) Then
                     result = (dataReader.GetInt32("idUtilisateur") = GetUserID())
                     If (result = False) Then
-                        BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "AppSync : Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté.")
-                        BrowserForm.DisplayMessageBar()
+                        Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté")
                     End If
                 Else
                     result = False
@@ -708,8 +690,7 @@ Public Class AppSyncAgent
                 connection.Close()
                 Return result
             Catch ex As Exception
-                BrowserForm.msgBar = New MessageBar(ex, "Impossible de vérifier l'inscription de l'appareil à AppSync.")
-                BrowserForm.DisplayMessageBar()
+                Throw New AppSyncException("Une erreur est survenue lors de la vérification de votre autorisation de connexion à AppSync.", ex)
                 Return False
             End Try
         Else
@@ -739,8 +720,7 @@ Public Class AppSyncAgent
                 connection.Close()
                 Return deviceName
             Catch ex As Exception
-                BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la requête du nom de l'appareil à AppSync.")
-                BrowserForm.DisplayMessageBar()
+                Throw New AppSyncException("Une erreur est survenue lors de la réception du nom de votre appareil depuis AppSync.", ex)
                 Return Nothing
             End Try
         Else
@@ -764,8 +744,7 @@ Public Class AppSyncAgent
                 connection.Close()
                 Return True
             Catch ex As Exception
-                BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi du nom de l'appareil à AppSync.")
-                BrowserForm.DisplayMessageBar()
+                Throw New AppSyncException("Une erreur est survenue lors de l'envoi du nouveau nom de votre appareil à AppSync.", ex)
                 Return False
             End Try
         Else

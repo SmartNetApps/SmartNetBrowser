@@ -317,7 +317,7 @@ Public Class BrowserForm
             Else
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
                 My.Settings.AppSyncDeviceNumber = 0
-                msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
                 DisplayMessageBar()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
@@ -1099,16 +1099,21 @@ Public Class BrowserForm
     End Sub
 
     Private Sub AppSyncTimer_Tick(sender As Object, e As EventArgs) Handles AppSyncTimer.Tick
-        If appsync.IsDeviceRegistered() Then
-            appsync.SyncNow()
-        Else
-            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-            My.Settings.AppSyncDeviceNumber = 0
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+        Try
+            If appsync.IsDeviceRegistered() Then
+                appsync.SyncNow()
+            Else
+                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+                My.Settings.AppSyncDeviceNumber = 0
+                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                DisplayMessageBar()
+                SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+                SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            End If
+        Catch ex As Exception
+            msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
             DisplayMessageBar()
-            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-        End If
+        End Try
     End Sub
 End Class
 

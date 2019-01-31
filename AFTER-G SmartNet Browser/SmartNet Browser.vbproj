@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="AppSyncAgent.vb" />
+    <Compile Include="AppSyncException.vb" />
     <Compile Include="AppSyncLogin.Designer.vb">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </Compile>
