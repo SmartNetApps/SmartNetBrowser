@@ -8,33 +8,6 @@ Imports MySql.Data.MySqlClient
 Public Class AppSyncAgent
 
     ''' <summary>
-    ''' Vérifie les identifiants enregistrés dans My.Settings
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function CheckCredentials() As Boolean
-        Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT motDePasseUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@username", My.Settings.AppSyncUsername)
-            dataReader = command.ExecuteReader()
-            dataReader.Read()
-            Dim mdp As String = dataReader.GetString("motDePasseUtilisateur")
-            connection.Close()
-            Return mdp = My.Settings.AppSyncPassword
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la vérification de vos identifiants SmartNet AppSync.")
-            BrowserForm.DisplayMessageBar()
-            Return False
-        End Try
-    End Function
-
-    ''' <summary>
     ''' Vérifie les identifiants entrés par l'utilisateur
     ''' </summary>
     ''' <param name="username">Nom d'utilisateur</param>
@@ -64,33 +37,6 @@ Public Class AppSyncAgent
     End Function
 
     ''' <summary>
-    ''' Demande et retourne le mot de passe de l'utilisateur connecté hashé avec BCrypt tel qu'enregistré sur la BDD SmartNet AppSync.
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function GetUserPassword() As String
-        Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT motDePasseUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@username", My.Settings.AppSyncUsername)
-            dataReader = command.ExecuteReader()
-            dataReader.Read()
-            Dim mdp = dataReader.GetString("motDePasseUtilisateur")
-            connection.Close()
-            Return mdp
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la vérification de vos identifiants SmartNet AppSync.")
-            BrowserForm.DisplayMessageBar()
-            Return Nothing
-        End Try
-    End Function
-
-    ''' <summary>
     ''' Charge l'ID de l'utilisateur de SmartNet AppSync à partir de l'adresse e-mail
     ''' </summary>
     ''' <returns></returns>
@@ -99,12 +45,12 @@ Public Class AppSyncAgent
             Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
             connection.Open()
             Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT idUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
+            Dim query As String = "SELECT idUtilisateur from connexion WHERE idConnexion = @idconnexion"
             Dim command As New MySqlCommand()
             command.Connection = connection
             command.CommandText = query
             command.Prepare()
-            command.Parameters.AddWithValue("@username", My.Settings.AppSyncUsername)
+            command.Parameters.AddWithValue("@idconnexion", My.Settings.AppSyncDeviceNumber)
             dataReader = command.ExecuteReader()
             dataReader.Read()
             Dim userID As Integer = dataReader.GetInt32("idUtilisateur")
@@ -126,12 +72,12 @@ Public Class AppSyncAgent
             Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
             connection.Open()
             Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT prenomUtilisateur, nomUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
+            Dim query As String = "SELECT prenomUtilisateur, nomUtilisateur from utilisateur WHERE idUtilisateur = @userID"
             Dim command As New MySqlCommand()
             command.Connection = connection
             command.CommandText = query
             command.Prepare()
-            command.Parameters.AddWithValue("@username", My.Settings.AppSyncUsername)
+            command.Parameters.AddWithValue("@userID", GetUserID())
             dataReader = command.ExecuteReader
             dataReader.Read()
             Dim userName As String = dataReader.GetString("prenomUtilisateur") + " " + dataReader.GetString("nomUtilisateur")

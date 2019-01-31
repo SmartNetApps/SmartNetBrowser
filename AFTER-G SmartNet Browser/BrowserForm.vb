@@ -310,39 +310,20 @@ Public Class BrowserForm
 
         Try
             appsync = New AppSyncAgent()
-            If My.Settings.AppSyncPassword <> "" And My.Settings.AppSyncUsername <> "" Then
-                If appsync.IsDeviceRegistered() Then
-                    If appsync.CheckCredentials() Then
-                        appsync.SyncNow()
-                        SeConnecterÀAppSyncToolStripMenuItem.Text = appsync.GetUserName()
-                        SeConnecterÀAppSyncToolStripMenuItem.Image = appsync.GetUserProfilePicture()
-                    Else
-                        appsync.UnregisterDevice()
-                        My.Settings.AppSyncPassword = ""
-                        My.Settings.AppSyncUsername = ""
-                        My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                        My.Settings.AppSyncDeviceNumber = 0
-                        msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet AppSync : Veuillez vous reconnecter.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                        DisplayMessageBar()
-                        SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-                        SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-                    End If
-                Else
-                    My.Settings.AppSyncPassword = ""
-                    My.Settings.AppSyncUsername = ""
-                    My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                    My.Settings.AppSyncDeviceNumber = 0
-                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                    DisplayMessageBar()
-                    SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-                    SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-                End If
+            If appsync.IsDeviceRegistered() Then
+                appsync.SyncNow()
+                SeConnecterÀAppSyncToolStripMenuItem.Text = appsync.GetUserName()
+                SeConnecterÀAppSyncToolStripMenuItem.Image = appsync.GetUserProfilePicture()
             Else
+                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+                My.Settings.AppSyncDeviceNumber = 0
+                msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                DisplayMessageBar()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             End If
         Catch ex As Exception
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "La connexion avec SmartNet AppSync n'a pu être établie.", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/browser/support/")
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync.", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
             DisplayMessageBar()
         End Try
 
@@ -1110,7 +1091,7 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SeConnecterÀAppSyncToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeConnecterÀAppSyncToolStripMenuItem.Click
-        If My.Settings.AppSyncPassword = "" Or My.Settings.AppSyncUsername = "" Then
+        If My.Settings.AppSyncDeviceNumber > 0 Then
             AppSyncLogin.ShowDialog()
         Else
             AddTab("https://appsync.smartnetapps.com/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
@@ -1121,8 +1102,6 @@ Public Class BrowserForm
         If appsync.IsDeviceRegistered() Then
             appsync.SyncNow()
         Else
-            My.Settings.AppSyncPassword = ""
-            My.Settings.AppSyncUsername = ""
             My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
             My.Settings.AppSyncDeviceNumber = 0
             msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")

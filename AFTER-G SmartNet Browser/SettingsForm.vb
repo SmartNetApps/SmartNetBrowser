@@ -112,7 +112,7 @@ Public Class SettingsForm
                 RadioButtonBlockAllCookies.Checked = True
         End Select
 
-        If My.Settings.AppSyncPassword = "" Or My.Settings.AppSyncUsername = "" Then
+        If My.Settings.AppSyncDeviceNumber <= 0 Then
             ButtonManageAccount.Enabled = False
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
@@ -383,13 +383,12 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonLoginLogout_Click(sender As Object, e As EventArgs) Handles ButtonLoginLogout.Click
-        If My.Settings.AppSyncPassword = "" Or My.Settings.AppSyncUsername = "" Then
+        If My.Settings.AppSyncDeviceNumber = 0 Then
             AppSyncLogin.ShowDialog()
         Else
             If MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "SmartNet AppSync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncPassword = ""
-                My.Settings.AppSyncUsername = ""
+                My.Settings.AppSyncDeviceNumber = 0
                 ButtonManageAccount.Enabled = False
                 ButtonManageAccount.Visible = False
                 ButtonLoginLogout.Text = "Se connecter..."

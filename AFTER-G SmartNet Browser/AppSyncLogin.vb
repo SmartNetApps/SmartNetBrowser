@@ -2,8 +2,6 @@
     Dim agent As New AppSyncAgent
     Private Sub Button_Connecter_Click(sender As Object, e As EventArgs) Handles Button_Connecter.Click
         If agent.CheckCredentials(TextBox_Email.Text, TextBox_MDP.Text) Then
-            My.Settings.AppSyncUsername = TextBox_Email.Text
-            My.Settings.AppSyncPassword = agent.GetUserPassword()
             My.Settings.Save()
             agent.RegisterDevice()
             BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = agent.GetUserName()

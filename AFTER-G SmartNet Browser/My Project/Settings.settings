@@ -100,12 +100,6 @@
     <Setting Name="LastSessionListOfTabs" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AppSyncUsername" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="AppSyncPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="AppSyncLastSyncTime" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">1753-01-01</Value>
     </Setting>

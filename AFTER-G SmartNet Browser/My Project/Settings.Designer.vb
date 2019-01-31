@@ -402,30 +402,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property AppSyncUsername() As String
-            Get
-                Return CType(Me("AppSyncUsername"),String)
-            End Get
-            Set
-                Me("AppSyncUsername") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property AppSyncPassword() As String
-            Get
-                Return CType(Me("AppSyncPassword"),String)
-            End Get
-            Set
-                Me("AppSyncPassword") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("1753-01-01")>  _
         Public Property AppSyncLastSyncTime() As Date
             Get
