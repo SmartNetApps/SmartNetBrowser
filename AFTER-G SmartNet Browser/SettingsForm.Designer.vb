@@ -102,6 +102,7 @@ Partial Class SettingsForm
         Me.AdBlockerCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TabPageAppSync = New System.Windows.Forms.TabPage()
+        Me.ButtonSyncNow = New System.Windows.Forms.Button()
         Me.GroupBoxAppSyncDevice = New System.Windows.Forms.GroupBox()
         Me.ButtonChangeAppSyncDeviceName = New System.Windows.Forms.Button()
         Me.TextBoxAppSyncDeviceName = New System.Windows.Forms.TextBox()
@@ -782,12 +783,19 @@ Partial Class SettingsForm
         '
         'TabPageAppSync
         '
+        Me.TabPageAppSync.Controls.Add(Me.ButtonSyncNow)
         Me.TabPageAppSync.Controls.Add(Me.GroupBoxAppSyncDevice)
         Me.TabPageAppSync.Controls.Add(Me.GroupBox3)
         Me.TabPageAppSync.Controls.Add(Me.Label2)
         resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Name = "TabPageAppSync"
         Me.TabPageAppSync.UseVisualStyleBackColor = True
+        '
+        'ButtonSyncNow
+        '
+        resources.ApplyResources(Me.ButtonSyncNow, "ButtonSyncNow")
+        Me.ButtonSyncNow.Name = "ButtonSyncNow"
+        Me.ButtonSyncNow.UseVisualStyleBackColor = True
         '
         'GroupBoxAppSyncDevice
         '
@@ -1299,4 +1307,5 @@ Partial Class SettingsForm
     Friend WithEvents LabelAppSyncDeviceName As Label
     Friend WithEvents ButtonChangeAppSyncDeviceName As Button
     Friend WithEvents TextBoxAppSyncDeviceName As TextBox
+    Friend WithEvents ButtonSyncNow As Button
 End Class

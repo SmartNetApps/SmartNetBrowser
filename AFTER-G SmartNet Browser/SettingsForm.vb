@@ -498,4 +498,12 @@ Public Class SettingsForm
     Private Sub DefaultDownloadFolderTextBox_TextChanged(sender As Object, e As EventArgs) Handles DefaultDownloadFolderTextBox.TextChanged
         My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
     End Sub
+
+    Private Sub ButtonSyncNow_Click(sender As Object, e As EventArgs) Handles ButtonSyncNow.Click
+        ButtonSyncNow.Text = "Synchronisation en cours..."
+        ButtonSyncNow.Enabled = False
+        appsync.SyncNow()
+        ButtonSyncNow.Text = "Synchroniser maintenant"
+        ButtonSyncNow.Enabled = True
+    End Sub
 End Class

@@ -28,6 +28,9 @@ Public Class BrowserForm
         Historique.Add(page)
         My.Settings.History = Historique.ToStringCollection()
         My.Settings.Save()
+        If My.Settings.AppSyncPassword <> "" And My.Settings.AppSyncUsername <> "" Then
+            appsync.AddHistory(page)
+        End If
         URLBox.Items.Add(page.GetURL())
     End Sub
 
@@ -39,6 +42,9 @@ Public Class BrowserForm
         Favoris.Add(page)
         My.Settings.Favorites = Favoris.ToStringCollection()
         My.Settings.Save()
+        If My.Settings.AppSyncPassword <> "" And My.Settings.AppSyncUsername <> "" Then
+            appsync.AddFavorite(page)
+        End If
         URLBox.Items.Add(page.GetURL())
         UpdateInterface()
     End Sub

@@ -63,6 +63,10 @@ Public Class AppSyncAgent
         End Try
     End Function
 
+    ''' <summary>
+    ''' Demande et retourne le mot de passe de l'utilisateur connecté hashé avec BCrypt tel qu'enregistré sur la BDD SmartNet AppSync.
+    ''' </summary>
+    ''' <returns></returns>
     Public Function GetUserPassword() As String
         Try
             Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
@@ -227,6 +231,10 @@ Public Class AppSyncAgent
         End Try
     End Function
 
+    ''' <summary>
+    ''' Envoie la configuration locale sur le serveur AppSync en écrasant l'existant.
+    ''' </summary>
+    ''' <returns></returns>
     Public Function SendConfig() As Boolean
         Try
             Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
@@ -280,38 +288,115 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function GetHistory() As Boolean
+    Public Function GetHistory() As WebPageList
         Try
-            Return True
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim dataReader As MySqlDataReader
+            Dim query As String = "SELECT * from browserhistory WHERE idUtilisateur = @userid"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            dataReader = command.ExecuteReader
+
+            Dim list As New WebPageList()
+            While dataReader.Read()
+                list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL"), dataReader.GetDateTime("pageVisitDateTime")))
+            End While
+            connection.Close()
+            Return list
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de l'historique de navigation depuis AppSync.")
             BrowserForm.DisplayMessageBar()
-            Return False
+            Return Nothing
         End Try
     End Function
 
-    Public Function GetFavorites() As Boolean
+    Public Function GetFavorites() As WebPageList
         Try
-            Return True
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim dataReader As MySqlDataReader
+            Dim query As String = "SELECT * from browserfavorite WHERE idUtilisateur = @userid"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            dataReader = command.ExecuteReader
+
+            Dim list As New WebPageList()
+            While dataReader.Read()
+                list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL")))
+            End While
+            connection.Close()
+            Return list
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception des favoris depuis AppSync.")
             BrowserForm.DisplayMessageBar()
-            Return False
+            Return Nothing
         End Try
     End Function
 
-    Public Function GetSearchHistory() As Boolean
+    Public Function GetSearchHistory() As Specialized.StringCollection
         Try
-            Return True
+            Return Nothing
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la réception de l'historique de recherche depuis AppSync.")
             BrowserForm.DisplayMessageBar()
-            Return False
+            Return Nothing
         End Try
     End Function
 
-    Public Function SendHistory() As Boolean
+    ''' <summary>
+    ''' Charge la dernière date et heure de synchronisation de l'historique.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function LastHistorySyncTime() As Date
         Try
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim dataReader As MySqlDataReader
+            Dim query As String = "SELECT MAX(pageVisitDateTime) AS lastSyncDateTime from browserhistory WHERE idUtilisateur = @userid"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            dataReader = command.ExecuteReader
+            Dim result As Date
+            If dataReader.Read() Then
+                result = dataReader.GetDateTime("lastSyncDateTime")
+            Else
+                result = New Date(1, 1, 1)
+            End If
+            connection.Close()
+            Return result
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(ex, "Impossible de retrouver la date de dernière synchronisation de l'historique du compte AppSync.")
+            BrowserForm.DisplayMessageBar()
+            Return New Date(1, 1, 1)
+        End Try
+    End Function
+
+    Public Function AddHistory(page As WebPage) As Boolean
+        Try
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim query As String = "INSERT INTO browserhistory(pageTitle, pageURL, pageVisitDateTime, idUtilisateur) VALUES(@titre, @url, @dateVisite, @userid)"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+
+            command.Parameters.AddWithValue("@titre", page.GetNom())
+            command.Parameters.AddWithValue("@url", page.GetURL())
+            command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            command.ExecuteNonQuery()
+            connection.Close()
             Return True
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi de l'historique de navigation vers AppSync.")
@@ -320,8 +405,21 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function SendFavorites() As Boolean
+    Public Function AddFavorite(page As WebPage) As Boolean
         Try
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim query As String = "INSERT INTO browserfavorite(pageTitle, pageURL, idUtilisateur) VALUES(@titre, @url, @userid)"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+
+            command.Parameters.AddWithValue("@titre", page.GetNom())
+            command.Parameters.AddWithValue("@url", page.GetURL())
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            command.ExecuteNonQuery()
+            connection.Close()
             Return True
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de l'envoi des favoris vers AppSync.")
@@ -330,7 +428,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function SendSearchHistory() As Boolean
+    Public Function AddSearchHistory(query As String) As Boolean
         Try
             Return True
         Catch ex As Exception
@@ -340,11 +438,59 @@ Public Class AppSyncAgent
         End Try
     End Function
 
+    Public Function DeleteHistory(page As WebPage) As Boolean
+        Try
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim query As String = "DELETE FROM browserhistory WHERE pageTitle = @titre AND pageURL = @url AND pageVisitDateTime = @dateVisite AND idUtilisateur = @userid"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+
+            command.Parameters.AddWithValue("@titre", page.GetNom())
+            command.Parameters.AddWithValue("@url", page.GetURL())
+            command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            command.ExecuteNonQuery()
+            connection.Close()
+            Return True
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la suppression d'une entrée l'historique de navigation sur AppSync.")
+            BrowserForm.DisplayMessageBar()
+            Return False
+        End Try
+    End Function
+
+    Public Function DeleteFavorite(page As WebPage) As Boolean
+        Try
+            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            connection.Open()
+            Dim query As String = "DELETE FROM browserfavorite WHERE pageTitle = @titre AND pageURL = @url AND idUtilisateur = @userid"
+            Dim command As New MySqlCommand()
+            command.Connection = connection
+            command.CommandText = query
+            command.Prepare()
+
+            command.Parameters.AddWithValue("@titre", page.GetNom())
+            command.Parameters.AddWithValue("@url", page.GetURL())
+            command.Parameters.AddWithValue("@userid", GetUserID())
+            command.ExecuteNonQuery()
+            connection.Close()
+            Return True
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la suppression du favori sur AppSync.")
+            BrowserForm.DisplayMessageBar()
+            Return False
+        End Try
+    End Function
+
+
     ''' <summary>
-    ''' Charge la dernière date et heure de synchronisation des données.
+    ''' Charge la dernière date et heure de synchronisation de la configuration.
     ''' </summary>
     ''' <returns></returns>
-    Public Function LastSyncTime() As Date
+    Public Function LastConfigSyncTime() As Date
         Try
             Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
             connection.Open()
@@ -456,24 +602,79 @@ Public Class AppSyncAgent
     ''' <returns>Vrai si réussite, Faux en cas d'échec.</returns>
     Public Function SyncNow() As Boolean
         Dim config As Boolean
-        Dim history As Boolean
-        Dim searchHistory As Boolean
-        Dim favorites As Boolean
+        'Dim history As Boolean
+        'Dim searchHistory As Boolean
+        'Dim favorites As Boolean
 
-        If My.Settings.AppSyncLastSyncTime >= LastSyncTime() Then
+        Dim theHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Dim theOnlineHistory As WebPageList = GetHistory()
+        Dim theFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim theOnlineFavorites As WebPageList = GetFavorites()
+
+        If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
             config = SendConfig()
-            history = SendHistory()
-            searchHistory = SendSearchHistory()
-            favorites = SendFavorites()
+
+            For Each p As WebPage In theHistory
+                If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                    AddHistory(p)
+                End If
+            Next
+
+            For Each p As WebPage In theOnlineHistory
+                If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                    DeleteHistory(p)
+                End If
+            Next
+            My.Settings.History = theHistory.ToStringCollection()
+
+            For Each p As WebPage In theFavorites
+                If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
+                    AddFavorite(p)
+                End If
+            Next
+
+            For Each op As WebPage In theOnlineFavorites
+                If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
+                    DeleteFavorite(op)
+                End If
+            Next
+            My.Settings.Favorites = theFavorites.ToStringCollection()
         Else
             config = GetConfig()
-            history = GetHistory()
-            searchHistory = GetSearchHistory()
-            favorites = GetFavorites()
+
+            For Each p As WebPage In theHistory
+                If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                    theHistory.Remove(p)
+                End If
+            Next
+
+            For Each p As WebPage In theFavorites
+                If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
+                    theFavorites.Remove(p)
+                End If
+            Next
+
+            For Each p As WebPage In theOnlineHistory
+                If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                    theHistory.Add(p)
+                End If
+            Next
+
+            For Each op As WebPage In theOnlineFavorites
+                If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
+                    theFavorites.Add(op)
+                    BrowserForm.URLBox.Items.Add(op.GetURL())
+                End If
+            Next
+
+            My.Settings.History = theHistory.ToStringCollection()
+            My.Settings.Favorites = theFavorites.ToStringCollection()
         End If
 
+        'Il manque l'historique de recherche
+
         Dim synctime As Boolean = RefreshSyncTime()
-        Return (config And history And searchHistory And favorites And synctime)
+        Return (config And synctime)
     End Function
 
     ''' <summary>

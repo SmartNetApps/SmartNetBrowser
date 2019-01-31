@@ -13,7 +13,7 @@ Public Class WebPageList
     Public Function ToStringCollection() As StringCollection
         Dim listToReturn As New StringCollection
         For Each page In Me
-            listToReturn.Add(page.GetNom() + ">" + page.GetURL() + ">" + page.GetVisitDateTime().ToString())
+            listToReturn.Add(page.GetNom().Replace(">", " ") + ">" + page.GetURL() + ">" + page.GetVisitDateTime().ToString())
         Next
         Return listToReturn
     End Function

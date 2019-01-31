@@ -1,11 +1,11 @@
 ﻿Public Class NewHistoryForm
-    Dim Historique As List(Of WebPage)
-    Dim Favoris As List(Of WebPage)
+    Dim Historique As WebPageList
+    Dim Favoris As WebPageList
 
     Public Sub New()
         InitializeComponent()
-        Historique = New List(Of WebPage)
-        Favoris = New List(Of WebPage)
+        Historique = New WebPageList()
+        Favoris = New WebPageList()
     End Sub
 
     Private Sub NewHistoryForm_Load(sender As Object, e As EventArgs) Handles Me.Load
