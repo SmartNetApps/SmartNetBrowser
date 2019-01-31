@@ -1,11 +1,6 @@
 ﻿Public Class NewHistoryForm
-    Dim Historique As WebPageList
-    Dim Favoris As WebPageList
-
     Public Sub New()
         InitializeComponent()
-        Historique = New WebPageList()
-        Favoris = New WebPageList()
     End Sub
 
     Private Sub NewHistoryForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -65,7 +60,7 @@
     Private Sub RefreshHistory()
         HistoryListView.Items.Clear()
         HistoryFaviconImageList.Images.Clear()
-        Historique = BrowserForm.Historique
+        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
         For Each entree In Historique
             Dim element As New ListViewItem
             HistoryFaviconImageList.Images.Add(entree.GetFavicon())
@@ -81,7 +76,7 @@
     Private Sub RefreshFavorites()
         ListViewFavorites.Items.Clear()
         FavoritesFaviconImageList.Images.Clear()
-        Favoris = BrowserForm.Favoris
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         For Each entree In Favoris
             Dim element As New ListViewItem
             FavoritesFaviconImageList.Images.Add(entree.GetFavicon())
@@ -124,7 +119,7 @@
             indice = SelectedIndexes.Item(i)
             My.Settings.History.RemoveAt(indice)
             My.Settings.Save()
-            BrowserForm.Historique.RemoveAt(indice)
+            'BrowserForm.Historique.RemoveAt(indice)
         Next
         RefreshHistory()
     End Sub
@@ -135,9 +130,9 @@
         SelectedIndexes = ListViewFavorites.SelectedIndices
         For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
             indice = SelectedIndexes.Item(i)
+            'BrowserForm.Favoris.RemoveAt(indice)
             My.Settings.Favorites.RemoveAt(indice)
             My.Settings.Save()
-            BrowserForm.Favoris.RemoveAt(indice)
         Next
         RefreshFavorites()
     End Sub

@@ -108,7 +108,7 @@ Public Class AppSyncAgent
             Dim imgPath As String = dataReader.GetString("imageProfilClient")
             imgPath = imgPath.Substring(1)
             Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgPath.Substring(imgPath.LastIndexOf("."))
-            Dim imgDistantPath = "http://appsync.smartnetapps.com" + imgPath
+            Dim imgDistantPath = "http://smartnetappsync.wampserver" + imgPath
             Try
                 If System.IO.File.Exists(imgLocalPath) Then
                     System.IO.File.Delete(imgLocalPath)
@@ -556,7 +556,7 @@ Public Class AppSyncAgent
                     DeleteHistory(p)
                 End If
             Next
-            My.Settings.History = theHistory.ToStringCollection()
+            'My.Settings.History = theHistory.ToStringCollection()
 
             For Each p As WebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
@@ -569,37 +569,40 @@ Public Class AppSyncAgent
                     DeleteFavorite(op)
                 End If
             Next
-            My.Settings.Favorites = theFavorites.ToStringCollection()
+            'My.Settings.Favorites = theFavorites.ToStringCollection()
         Else
             config = GetConfig()
 
+            Dim theNewHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+            Dim theNewFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+
             For Each p As WebPage In theHistory
                 If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    theHistory.Remove(p)
+                    theNewHistory.Remove(p)
                 End If
             Next
 
             For Each p As WebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
-                    theFavorites.Remove(p)
+                    theNewFavorites.Remove(p)
                 End If
             Next
 
             For Each p As WebPage In theOnlineHistory
-                If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    theHistory.Add(p)
+                If theNewHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                    theNewHistory.Add(p)
                 End If
             Next
 
             For Each op As WebPage In theOnlineFavorites
-                If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
-                    theFavorites.Add(op)
+                If theNewFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
+                    theNewFavorites.Add(op)
                     BrowserForm.URLBox.Items.Add(op.GetURL())
                 End If
             Next
 
-            My.Settings.History = theHistory.ToStringCollection()
-            My.Settings.Favorites = theFavorites.ToStringCollection()
+            My.Settings.History = theNewHistory.ToStringCollection()
+            My.Settings.Favorites = theNewFavorites.ToStringCollection()
         End If
 
         'Il manque l'historique de recherche

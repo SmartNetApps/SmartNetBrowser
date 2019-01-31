@@ -9,15 +9,11 @@ Public Class BrowserForm
     Public Ele As Gecko.GeckoElement
     Public msgBar As MessageBar
     Dim tabPageIndex As Integer = 0
-    Public Historique As WebPageList
-    Public Favoris As WebPageList
     Public lastClosedTab As String
     Dim appsync As AppSyncAgent
 
     Public Sub New()
         InitializeComponent()
-        Historique = WebPageList.FromStringCollection(My.Settings.History)
-        Favoris = WebPageList.FromStringCollection(My.Settings.Favorites)
     End Sub
 
     ''' <summary>
@@ -25,7 +21,7 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInHistory(page As WebPage)
-        Historique.Add(page)
+        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
         My.Settings.History = Historique.ToStringCollection()
         My.Settings.Save()
         URLBox.Items.Add(page.GetURL())
@@ -36,6 +32,7 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInFavorites(page As WebPage)
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         Favoris.Add(page)
         My.Settings.Favorites = Favoris.ToStringCollection()
         My.Settings.Save()
@@ -215,6 +212,7 @@ Public Class BrowserForm
                 SearchBoxLabel.Text = "Rechercher"
         End Select
 
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         If Favoris.ContainsPage(WB.Url.ToString()) Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
         Else
@@ -322,10 +320,13 @@ Public Class BrowserForm
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             End If
-        Catch ex As Exception
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync.", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
+        Catch ex As AppSyncException
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
             DisplayMessageBar()
         End Try
+
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
 
         For Each favorite In Favoris
             URLBox.Items.Add(favorite.GetURL())
@@ -751,11 +752,8 @@ Public Class BrowserForm
             Dim Link As String = Clipboard.GetText
             Clipboard.SetDataObject(ClipboardOriginalData, True)
 
-            Favoris.Add(New WebPage(Link))
-            My.Settings.Favorites = Favoris.ToStringCollection()
-            URLBox.Items.Add(Link)
-            My.Settings.Save()
-            If Favoris.ContainsPage(Link) Then
+            AddInFavorites(New WebPage(Link))
+            If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(Link) Then
                 msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Favori enregistré !")
                 DisplayMessageBar()
             Else
@@ -831,7 +829,7 @@ Public Class BrowserForm
 
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        If Favoris.ContainsPage(WB.Url.ToString) Then
+        If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(WB.Url.ToString) Then
             If My.Settings.HistoryFavoritesSecurity = True Then
                 EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
@@ -1094,7 +1092,7 @@ Public Class BrowserForm
         If My.Settings.AppSyncDeviceNumber > 0 Then
             AppSyncLogin.ShowDialog()
         Else
-            AddTab("https://appsync.smartnetapps.com/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
+            AddTab("http://smartnetappsync.wampserver/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
         End If
     End Sub
 
@@ -1110,7 +1108,7 @@ Public Class BrowserForm
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             End If
-        Catch ex As Exception
+        Catch ex As AppSyncException
             msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
             DisplayMessageBar()
         End Try
