@@ -135,6 +135,7 @@ Partial Class BrowserForm
         Me.GoButton = New System.Windows.Forms.Button()
         Me.StopButton = New System.Windows.Forms.Button()
         Me.RefreshButton = New System.Windows.Forms.Button()
+        Me.AppSyncTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MainToolbar.SuspendLayout()
         CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BrowserContextMenuStrip.SuspendLayout()
@@ -808,6 +809,11 @@ Partial Class BrowserForm
         Me.RefreshButton.Name = "RefreshButton"
         Me.RefreshButton.UseVisualStyleBackColor = True
         '
+        'AppSyncTimer
+        '
+        Me.AppSyncTimer.Enabled = True
+        Me.AppSyncTimer.Interval = 300000
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -959,4 +965,5 @@ Partial Class BrowserForm
     Friend WithEvents TéléchargementsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SeConnecterÀAppSyncToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents AppSyncTimer As Timer
 End Class

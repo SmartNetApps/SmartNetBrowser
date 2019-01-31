@@ -28,9 +28,6 @@ Public Class BrowserForm
         Historique.Add(page)
         My.Settings.History = Historique.ToStringCollection()
         My.Settings.Save()
-        If My.Settings.AppSyncPassword <> "" And My.Settings.AppSyncUsername <> "" Then
-            appsync.AddHistory(page)
-        End If
         URLBox.Items.Add(page.GetURL())
     End Sub
 
@@ -42,9 +39,6 @@ Public Class BrowserForm
         Favoris.Add(page)
         My.Settings.Favorites = Favoris.ToStringCollection()
         My.Settings.Save()
-        If My.Settings.AppSyncPassword <> "" And My.Settings.AppSyncUsername <> "" Then
-            appsync.AddFavorite(page)
-        End If
         URLBox.Items.Add(page.GetURL())
         UpdateInterface()
     End Sub
@@ -1120,6 +1114,21 @@ Public Class BrowserForm
             AppSyncLogin.ShowDialog()
         Else
             AddTab("https://appsync.smartnetapps.com/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
+        End If
+    End Sub
+
+    Private Sub AppSyncTimer_Tick(sender As Object, e As EventArgs) Handles AppSyncTimer.Tick
+        If appsync.IsDeviceRegistered() Then
+            appsync.SyncNow()
+        Else
+            My.Settings.AppSyncPassword = ""
+            My.Settings.AppSyncUsername = ""
+            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+            My.Settings.AppSyncDeviceNumber = 0
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+            DisplayMessageBar()
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
         End If
     End Sub
 End Class
