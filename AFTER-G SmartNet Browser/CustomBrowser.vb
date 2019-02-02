@@ -17,15 +17,21 @@ Public Class CustomBrowser
     ''' <param name="url">URL de la page ou du cadre.</param>
     ''' <returns></returns>
     Public Function IsAdvertisement(url As String) As Boolean
-        Dim AdsDomainsFileDownloader As New WebClient
-        Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
-        Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-        For Each domain In AdsDomainsList
-            If url.Contains(domain) Then
-                Return True
-            End If
-        Next
-        Return False
+        Try
+            Dim AdsDomainsFileDownloader As New WebClient
+            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
+            Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
+            For Each domain In AdsDomainsList
+                If url.Contains(domain) Then
+                    Return True
+                End If
+            Next
+            Return False
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "SmartNet AdsBlocker a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+            BrowserForm.DisplayMessageBar()
+            Return False
+        End Try
     End Function
 
     ''' <summary>
@@ -45,7 +51,7 @@ Public Class CustomBrowser
             Next
             Return False
         Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "SmartNet ChildGuard a rencontré une erreur inattendue.", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "SmartNet ChildGuard a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
             BrowserForm.DisplayMessageBar()
             Return False
         End Try

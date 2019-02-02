@@ -116,19 +116,38 @@ Public Class SettingsForm
             ButtonManageAccount.Enabled = False
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
+            ButtonLoginLogout.Enabled = True
             LabelUsername.Text = "Déconnecté.e"
             PictureBoxUserProfilePic.Image = My.Resources.Person
             GroupBoxAppSyncDevice.Visible = False
             ButtonChangeAppSyncDeviceName.Enabled = False
+            ButtonSyncNow.Enabled = False
+            ButtonSyncNow.Visible = False
         Else
-            ButtonManageAccount.Enabled = True
-            ButtonManageAccount.Visible = True
-            ButtonLoginLogout.Text = "Se déconnecter..."
-            LabelUsername.Text = appsync.GetUserName()
-            PictureBoxUserProfilePic.Image = New Bitmap(appsync.GetUserProfilePicture(), 54, 54)
-            GroupBoxAppSyncDevice.Visible = True
-            TextBoxAppSyncDeviceName.Text = appsync.GetDeviceName()
-            ButtonChangeAppSyncDeviceName.Enabled = False
+            Try
+                ButtonManageAccount.Enabled = True
+                ButtonManageAccount.Visible = True
+                ButtonLoginLogout.Text = "Se déconnecter..."
+                ButtonLoginLogout.Enabled = True
+                LabelUsername.Text = appsync.GetUserName()
+                PictureBoxUserProfilePic.Image = New Bitmap(appsync.GetUserProfilePicture(), 54, 54)
+                GroupBoxAppSyncDevice.Visible = True
+                TextBoxAppSyncDeviceName.Text = appsync.GetDeviceName()
+                ButtonChangeAppSyncDeviceName.Enabled = False
+                ButtonSyncNow.Visible = True
+                ButtonSyncNow.Enabled = True
+            Catch ex As AppSyncException
+                ButtonManageAccount.Enabled = False
+                ButtonManageAccount.Visible = True
+                ButtonLoginLogout.Text = "Se déconnecter..."
+                ButtonLoginLogout.Enabled = False
+                LabelUsername.Text = "Échec de l'ouverture de session. (" + ex.Message + ")"
+                PictureBoxUserProfilePic.Image = My.Resources.Person
+                GroupBoxAppSyncDevice.Visible = True
+                TextBoxAppSyncDeviceName.Text = ""
+                ButtonChangeAppSyncDeviceName.Enabled = False
+                ButtonSyncNow.Enabled = False
+            End Try
         End If
     End Sub
 
@@ -447,16 +466,13 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonChangeAppSyncDeviceName_Click(sender As Object, e As EventArgs) Handles ButtonChangeAppSyncDeviceName.Click
-        While True
+        Try
             If appsync.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
                 ButtonChangeAppSyncDeviceName.Enabled = False
-                Exit While
-            Else
-                If MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil.", "SmartNet AppSync", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) = DialogResult.Cancel Then
-                    Exit While
-                End If
             End If
-        End While
+        Catch ex As AppSyncException
+            MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub SettingsForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -466,7 +482,12 @@ Public Class SettingsForm
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         My.Settings.Save()
-        appsync.SendConfig()
+        Try
+            appsync.SendConfig()
+        Catch ex As AppSyncException
+            BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
+            BrowserForm.DisplayMessageBar()
+        End Try
     End Sub
 
     Private Sub DoNotTrackCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DoNotTrackCheckBox.CheckedChanged
@@ -501,8 +522,14 @@ Public Class SettingsForm
     Private Sub ButtonSyncNow_Click(sender As Object, e As EventArgs) Handles ButtonSyncNow.Click
         ButtonSyncNow.Text = "Synchronisation en cours..."
         ButtonSyncNow.Enabled = False
-        appsync.SyncNow()
-        ButtonSyncNow.Text = "Synchroniser maintenant"
-        ButtonSyncNow.Enabled = True
+        Try
+            appsync.SyncNow()
+            ButtonSyncNow.Text = "Synchroniser maintenant"
+            ButtonSyncNow.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ButtonSyncNow.Text = "Échec de la synchronisation."
+            ButtonSyncNow.Enabled = False
+        End Try
     End Sub
 End Class

@@ -47,7 +47,7 @@ Public Class MessageBar
     End Sub
 
     Public Sub New(ex As Exception)
-        message = ex.Message
+        message = "Erreur interne : " + ex.Message
         buttonText = "Voir les détails..."
         level = MessageBarLevel.Warning
         action = MessageBarAction.OpenExceptionForm

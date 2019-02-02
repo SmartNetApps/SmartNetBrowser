@@ -321,6 +321,9 @@ Public Class BrowserForm
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             End If
         Catch ex As AppSyncException
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Échec de l'ouverture de votre session AppSync."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
             msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
             DisplayMessageBar()
         End Try
