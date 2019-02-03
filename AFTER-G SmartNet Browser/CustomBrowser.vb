@@ -11,6 +11,33 @@ Public Class CustomBrowser
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
     End Sub
 
+    Private Sub UpdateInterface()
+        Dim shorttitle As String
+        If Me.DocumentTitle = "" Then
+            If Me.Url.ToString().Length > 20 Then
+                shorttitle = Me.Url.ToString().Substring(0, 19) + "..."
+            Else
+                shorttitle = Me.Url.ToString()
+            End If
+        Else
+            If Me.DocumentTitle.Length > 20 Then
+                shorttitle = Me.DocumentTitle.Substring(0, 19) + "..."
+            Else
+                shorttitle = Me.DocumentTitle
+            End If
+        End If
+
+        CType(Me.Tag, TabPage).Text = shorttitle
+        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(CurrentPageFavicon(), 16, 16)
+        CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
+
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.UpdateInterface()
+        Else
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
+    End Sub
+
     ''' <summary>
     ''' Indique si la page ou le cadre est une publicité.
     ''' </summary>
@@ -91,13 +118,12 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        BrowserForm.UpdateInterface()
+        UpdateInterface()
     End Sub
 
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
         BrowserForm.CurrentDocument = Me.Document
-        BrowserForm.UpdateInterface()
-        BrowserForm.CheckFavicon()
+        UpdateInterface()
         If My.Settings.PrivateBrowsing = False And Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or e.IsSameDocument Or e.IsErrorPage) Then
             BrowserForm.AddInHistory(New WebPage(Me.Document.Title, Me.Url.ToString()))
         End If
@@ -132,10 +158,7 @@ Public Class CustomBrowser
                 End If
             End If
 
-            BrowserForm.UpdateInterface()
-            BrowserForm.CheckFavicon()
-            BrowserForm.CloseMessageBar()
-            BrowserForm.CurrentDocument = Me.Document
+            UpdateInterface()
         End If
     End Sub
 
@@ -222,7 +245,9 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_StatusTextChanged(sender As Object, e As EventArgs) Handles Me.StatusTextChanged
-        BrowserForm.StatusLabel.Text = Me.StatusText
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.StatusLabel.Text = Me.StatusText
+        End If
     End Sub
 
     Private Sub CustomBrowser_DocumentTitleChanged(sender As Object, e As EventArgs) Handles Me.DocumentTitleChanged
@@ -245,10 +270,18 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_CanGoBackChanged(sender As Object, e As EventArgs) Handles Me.CanGoBackChanged
-        BrowserForm.PreviouspageButton.Enabled = CanGoBack
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.PreviouspageButton.Enabled = CanGoBack
+        Else
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
     End Sub
     Private Sub CustomBrowser_CanGoForwardChanged(sender As Object, e As EventArgs) Handles Me.CanGoForwardChanged
-        BrowserForm.NextpageButton.Enabled = CanGoForward
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.NextpageButton.Enabled = CanGoForward
+        Else
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
     End Sub
 
     Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.GeckoContextMenuEventArgs) Handles Me.ShowContextMenu

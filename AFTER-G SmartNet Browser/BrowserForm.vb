@@ -193,7 +193,6 @@ Public Class BrowserForm
     ''' </summary>
     Public Sub UpdateInterface()
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Dim WB2 As CustomBrowser
 
         Select Case My.Settings.SearchEngine
             Case 1
@@ -241,23 +240,6 @@ Public Class BrowserForm
                 URLBox.Text = WB.Url.ToString
             End If
         End If
-
-        For Each onglet As TabPage In Me.BrowserTabs.TabPages
-            WB2 = CType(onglet.Tag, CustomBrowser)
-            If WB2.DocumentTitle = "" Or WB2.DocumentTitle Is Nothing Then
-                If WB2.Url.ToString.Length > 30 Then
-                    onglet.Text = WB2.Url.ToString.Substring(0, 26) & "..."
-                Else
-                    onglet.Text = WB2.Url.ToString
-                End If
-            Else
-                If WB2.DocumentTitle.Length > 30 Then
-                    onglet.Text = WB2.DocumentTitle.Substring(0, 26) & "..."
-                Else
-                    onglet.Text = WB2.DocumentTitle
-                End If
-            End If
-        Next
 
         If WB.DocumentTitle = "" Then
             Me.Text = WB.Url.ToString + " - SmartNet Browser"
@@ -666,6 +648,7 @@ Public Class BrowserForm
         CheckFavicon()
         UpdateInterface()
         CurrentDocument = WB.Document
+        BrowserTabs.SelectedTab.BackColor = SystemColors.Control
     End Sub
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
