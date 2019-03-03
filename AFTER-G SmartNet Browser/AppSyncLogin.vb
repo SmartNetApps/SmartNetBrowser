@@ -4,7 +4,7 @@
         Try
             If agent.CheckCredentials(TextBox_Email.Text, TextBox_MDP.Text) Then
                 My.Settings.Save()
-                agent.RegisterDevice()
+                agent.RegisterDevice(TextBox_Email.Text, TextBox_MDP.Text)
                 BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = agent.GetUserName()
                 BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = agent.GetUserProfilePicture()
                 agent.SyncNow()

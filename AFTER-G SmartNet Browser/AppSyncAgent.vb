@@ -1,11 +1,17 @@
 ﻿Imports System.Net
 Imports System.Text
 Imports MySql.Data.MySqlClient
+Imports Newtonsoft.Json
 
 ''' <summary>
 ''' Agent de connexion de SmartNet AppSync
 ''' </summary>
 Public Class AppSyncAgent
+    Structure Connection
+        Dim idConnexion, idUtilisateur As Integer
+        Dim nomConnexion, applicationConnexion As String
+        Dim dateDeDerniereConnexion As Date
+    End Structure
 
     ''' <summary>
     ''' Vérifie les identifiants entrés par l'utilisateur
@@ -15,20 +21,35 @@ Public Class AppSyncAgent
     ''' <returns>Vrai si les identifiants sont bons, Faux sinon</returns>
     Public Function CheckCredentials(username As String, password As String) As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT motDePasseUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@username", username)
-            dataReader = command.ExecuteReader()
-            dataReader.Read()
-            Dim mdp As String = dataReader.GetString("motDePasseUtilisateur")
-            connection.Close()
-            Return BCrypt.Net.BCrypt.Verify(password, mdp)
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim queryParameters As String = "?action=CheckCredentials&username=" + username + "&password=" + password
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "true" Then
+                Return True
+            Else
+                Return False
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT motDePasseUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@username", username)
+            'dataReader = command.ExecuteReader()
+            'dataReader.Read()
+            'Dim mdp As String = dataReader.GetString("motDePasseUtilisateur")
+            'connection.Close()
+            'Return BCrypt.Net.BCrypt.Verify(password, mdp)
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la vérification de vos identifiants AppSync.", ex)
             Return False
@@ -41,20 +62,33 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function GetUserID() As Integer
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT idUtilisateur from connexion WHERE idConnexion = @idconnexion"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@idconnexion", My.Settings.AppSyncDeviceNumber)
-            dataReader = command.ExecuteReader()
-            dataReader.Read()
-            Dim userID As Integer = dataReader.GetInt32("idUtilisateur")
-            connection.Close()
-            Return userID
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim queryParameters As String = "?action=GetUserID&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Return resultat
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT idUtilisateur from connexion WHERE idConnexion = @idconnexion"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@idconnexion", My.Settings.AppSyncDeviceNumber)
+            'dataReader = command.ExecuteReader()
+            'dataReader.Read()
+            'Dim userID As Integer = dataReader.GetInt32("idUtilisateur")
+            'connection.Close()
+            'Return userID
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre ID d'utilisateur AppSync.", ex)
             Return 0
@@ -67,20 +101,33 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function GetUserName() As String
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT prenomUtilisateur, nomUtilisateur from utilisateur WHERE idUtilisateur = @userID"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userID", GetUserID())
-            dataReader = command.ExecuteReader
-            dataReader.Read()
-            Dim userName As String = dataReader.GetString("prenomUtilisateur") + " " + dataReader.GetString("nomUtilisateur")
-            connection.Close()
-            Return userName
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim queryParameters As String = "?action=GetUserName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Return resultat
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT prenomUtilisateur, nomUtilisateur from utilisateur WHERE idUtilisateur = @userID"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userID", GetUserID())
+            'dataReader = command.ExecuteReader
+            'dataReader.Read()
+            'Dim userName As String = dataReader.GetString("prenomUtilisateur") + " " + dataReader.GetString("nomUtilisateur")
+            'connection.Close()
+            'Return userName
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre nom depuis AppSync.", ex)
             Return "Compte AppSync"
@@ -93,32 +140,55 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function GetUserProfilePicture() As Bitmap
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT imageProfilClient from client WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            Dim userid As Integer = GetUserID()
-            command.Parameters.AddWithValue("@userid", userid.ToString())
-            dataReader = command.ExecuteReader
-            dataReader.Read()
-            Dim imgPath As String = dataReader.GetString("imageProfilClient")
-            imgPath = imgPath.Substring(1)
-            Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgPath.Substring(imgPath.LastIndexOf("."))
-            Dim imgDistantPath = "http://smartnetappsync.wampserver" + imgPath
-            Try
-                If System.IO.File.Exists(imgLocalPath) Then
-                    System.IO.File.Delete(imgLocalPath)
-                End If
-                Dim telechargeur As New WebClient()
-                telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
-            Catch ex As Exception
-            End Try
-            connection.Close()
-            Return New Bitmap(imgLocalPath)
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim queryParameters As String = "?action=GetUserProfilePicture&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Dim imgDistantPath As String = resultat
+                Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgDistantPath.Substring(imgDistantPath.LastIndexOf("."))
+                Try
+                    If System.IO.File.Exists(imgLocalPath) Then
+                        System.IO.File.Delete(imgLocalPath)
+                    End If
+                    Dim telechargeur As New WebClient()
+                    telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
+                Catch ex As Exception
+                End Try
+                Return New Bitmap(imgLocalPath)
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT imageProfilClient from client WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'Dim userid As Integer = GetUserID()
+            'command.Parameters.AddWithValue("@userid", userid.ToString())
+            'dataReader = command.ExecuteReader
+            'dataReader.Read()
+            'Dim imgPath As String = dataReader.GetString("imageProfilClient")
+            'imgPath = imgPath.Substring(1)
+            'Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgPath.Substring(imgPath.LastIndexOf("."))
+            'Dim imgDistantPath = "http://smartnetappsync.wampserver" + imgPath
+            'Try
+            '    If System.IO.File.Exists(imgLocalPath) Then
+            '        System.IO.File.Delete(imgLocalPath)
+            '    End If
+            '    Dim telechargeur As New WebClient()
+            '    telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
+            'Catch ex As Exception
+            'End Try
+            'connection.Close()
+            'Return New Bitmap(imgLocalPath)
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre photo de profil depuis AppSync.", ex)
             Return My.Resources.Person
@@ -287,35 +357,35 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    ''' <summary>
-    ''' Charge la dernière date et heure de synchronisation de l'historique.
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function LastHistorySyncTime() As Date
-        Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT MAX(pageVisitDateTime) AS lastSyncDateTime from browserhistory WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
-            Dim result As Date
-            If dataReader.Read() Then
-                result = dataReader.GetDateTime("lastSyncDateTime")
-            Else
-                result = New Date(1, 1, 1)
-            End If
-            connection.Close()
-            Return result
-        Catch ex As Exception
-            Throw New AppSyncException("Une erreur est survenue lors de la récupération de la dernière date de synchronisation de votre historique de navigation depuis AppSync.", ex)
-            Return New Date(1, 1, 1)
-        End Try
-    End Function
+    '''' <summary>
+    '''' Charge la dernière date et heure de synchronisation de l'historique.
+    '''' </summary>
+    '''' <returns></returns>
+    'Public Function LastHistorySyncTime() As Date
+    '    Try
+    '        Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+    '        connection.Open()
+    '        Dim dataReader As MySqlDataReader
+    '        Dim query As String = "SELECT MAX(pageVisitDateTime) AS lastSyncDateTime from browserhistory WHERE idUtilisateur = @userid"
+    '        Dim command As New MySqlCommand()
+    '        command.Connection = connection
+    '        command.CommandText = query
+    '        command.Prepare()
+    '        command.Parameters.AddWithValue("@userid", GetUserID())
+    '        dataReader = command.ExecuteReader
+    '        Dim result As Date
+    '        If dataReader.Read() Then
+    '            result = dataReader.GetDateTime("lastSyncDateTime")
+    '        Else
+    '            result = New Date(1, 1, 1)
+    '        End If
+    '        connection.Close()
+    '        Return result
+    '    Catch ex As Exception
+    '        Throw New AppSyncException("Une erreur est survenue lors de la récupération de la dernière date de synchronisation de votre historique de navigation depuis AppSync.", ex)
+    '        Return New Date(1, 1, 1)
+    '    End Try
+    'End Function
 
     Public Function AddHistory(page As WebPage) As Boolean
         Try
@@ -423,25 +493,38 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function LastConfigSyncTime() As Date
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT lastSyncDateTime from browserconfig WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
-            Dim result As Date
-            If dataReader.Read() Then
-                result = dataReader.GetDateTime("lastSyncDateTime")
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=GetLastSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
             Else
-                SendConfig()
-                result = Date.Now
+                Return New Date(resultat.Substring(0, 4), resultat.Substring(5, 2), resultat.Substring(8, 2), resultat.Substring(11, 2), resultat.Substring(14, 2), resultat.Substring(17, 2))
             End If
-            connection.Close()
-            Return result
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT lastSyncDateTime from browserconfig WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'dataReader = command.ExecuteReader
+            'Dim result As Date
+            'If dataReader.Read() Then
+            '    result = dataReader.GetDateTime("lastSyncDateTime")
+            'Else
+            '    SendConfig()
+            '    result = Date.Now
+            'End If
+            'connection.Close()
+            'Return result
         Catch ex As Exception
             Throw New AppSyncException("Impossible de récupérer la date de dernière synchronisation de votre compte AppSync.", ex)
             Return New Date(1, 1, 1)
@@ -451,31 +534,46 @@ Public Class AppSyncAgent
     Public Function RefreshSyncTime() As Boolean
         Dim now As Date = Date.Now
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "UPDATE browserconfig SET lastSyncDateTime = @now WHERE idUtilisateur = @idUser"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@now", now)
-            command.Parameters.AddWithValue("@idUser", GetUserID())
-            command.ExecuteNonQuery()
-            connection.Close()
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=RefreshSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            connection.Open()
-            query = "UPDATE connexion SET dateDeDerniereConnexion = @now WHERE idConnexion = @connectionId"
-            command = New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@now", now)
-            command.Parameters.AddWithValue("@connectionId", My.Settings.AppSyncDeviceNumber)
-            command.ExecuteNonQuery()
-            connection.Close()
+            resultat = client.DownloadString(engineURL + queryParameters)
 
-            My.Settings.AppSyncLastSyncTime = now
-            Return True
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "true" Then
+                My.Settings.AppSyncLastSyncTime = now
+                Return True
+            Else
+                Return False
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "UPDATE browserconfig SET lastSyncDateTime = @now WHERE idUtilisateur = @idUser"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@now", now)
+            'command.Parameters.AddWithValue("@idUser", GetUserID())
+            'command.ExecuteNonQuery()
+            'connection.Close()
+
+            'connection.Open()
+            'query = "UPDATE connexion SET dateDeDerniereConnexion = @now WHERE idConnexion = @connectionId"
+            'command = New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@now", now)
+            'command.Parameters.AddWithValue("@connectionId", My.Settings.AppSyncDeviceNumber)
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'My.Settings.AppSyncLastSyncTime = now
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'actualisation de la date de dernière synchronisation.", ex)
             Return False
@@ -617,18 +715,34 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function UnregisterDevice() As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "DELETE FROM connexion WHERE idConnexion = @idConnexion"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-            command.ExecuteReader()
-            connection.Close()
-            My.Settings.AppSyncDeviceNumber = 0
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim queryParameters As String = "?action=UnregisterDevice&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "false" Then
+                Return False
+            Else
+                My.Settings.AppSyncDeviceNumber = 0
+                Return True
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "DELETE FROM connexion WHERE idConnexion = @idConnexion"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
+            'command.ExecuteReader()
+            'connection.Close()
+            'My.Settings.AppSyncDeviceNumber = 0
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression de l'autorisation de connexion à AppSync.", ex)
             Return False
@@ -639,25 +753,41 @@ Public Class AppSyncAgent
     ''' Enregistre l'appareil pour l'autoriser à utiliser SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function RegisterDevice() As Boolean
+    Public Function RegisterDevice(username As String, password As String) As Boolean
         If IsDeviceRegistered() Then
             UnregisterDevice()
         End If
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "INSERT INTO connexion(nomConnexion, dateDeDerniereConnexion, applicationConnexion, idUtilisateur) VALUES(@nomConnexion, NOW(), @appliConnexion, @idUser)"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@nomConnexion", Environment.MachineName)
-            command.Parameters.AddWithValue("@appliConnexion", "SmartNet Browser")
-            command.Parameters.AddWithValue("@idUser", GetUserID())
-            command.ExecuteNonQuery()
-            My.Settings.AppSyncDeviceNumber = CType(command.LastInsertedId, Integer)
-            connection.Close()
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim queryParameters As String = "?action=RegisterDevice&username=" + username + "&password=" + password + "&machineName=" + Environment.MachineName + "&appName=SmartNet Browser"
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "false" Then
+                Return False
+            Else
+                My.Settings.AppSyncDeviceNumber = resultat
+                Return True
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "INSERT INTO connexion(nomConnexion, dateDeDerniereConnexion, applicationConnexion, idUtilisateur) VALUES(@nomConnexion, NOW(), @appliConnexion, @idUser)"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@nomConnexion", Environment.MachineName)
+            'command.Parameters.AddWithValue("@appliConnexion", "SmartNet Browser")
+            'command.Parameters.AddWithValue("@idUser", GetUserID())
+            'command.ExecuteNonQuery()
+            'My.Settings.AppSyncDeviceNumber = CType(command.LastInsertedId, Integer)
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'enregistrement de votre appareil sur votre compte AppSync.", ex)
             Return False
@@ -671,27 +801,47 @@ Public Class AppSyncAgent
     Public Function IsDeviceRegistered() As Boolean
         If My.Settings.AppSyncDeviceNumber > 0 Then
             Try
-                Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                connection.Open()
-                Dim dataReader As MySqlDataReader
-                Dim query As String = "SELECT * from connexion WHERE idConnexion = @idConnexion"
-                Dim command As New MySqlCommand()
-                command.Connection = connection
-                command.CommandText = query
-                command.Prepare()
-                command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                dataReader = command.ExecuteReader()
-                Dim result As Boolean
-                If (dataReader.Read()) Then
-                    result = (dataReader.GetInt32("idUtilisateur") = GetUserID())
+                Dim client As New WebClient
+                Dim resultat As String
+                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim queryParameters As String = "?action=IsDeviceRegistered&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+                resultat = client.DownloadString(engineURL + queryParameters)
+
+                If resultat.Contains("err#") Then
+                    Throw New AppSyncException(resultat.Substring(4))
+                Else
+                    Dim details As Connection = JsonConvert.DeserializeObject(Of Connection)(resultat)
+                    Dim result As Boolean = (details.idUtilisateur = GetUserID())
                     If (result = False) Then
                         Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté")
+                        Return False
+                    Else
+                        Return True
                     End If
-                Else
-                    result = False
                 End If
-                connection.Close()
-                Return result
+
+                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+                'connection.Open()
+                'Dim dataReader As MySqlDataReader
+                'Dim query As String = "SELECT * from connexion WHERE idConnexion = @idConnexion"
+                'Dim command As New MySqlCommand()
+                'command.Connection = connection
+                'command.CommandText = query
+                'command.Prepare()
+                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
+                'dataReader = command.ExecuteReader()
+                'Dim result As Boolean
+                'If (dataReader.Read()) Then
+                '    result = (dataReader.GetInt32("idUtilisateur") = GetUserID())
+                '    If (result = False) Then
+                '        Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté")
+                '    End If
+                'Else
+                '    result = False
+                'End If
+                'connection.Close()
+                'Return result
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de la vérification de votre autorisation de connexion à AppSync.", ex)
                 Return False
@@ -708,20 +858,34 @@ Public Class AppSyncAgent
     Public Function GetDeviceName() As String
         If IsDeviceRegistered() Then
             Try
-                Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                connection.Open()
-                Dim dataReader As MySqlDataReader
-                Dim query As String = "SELECT nomConnexion from connexion WHERE idConnexion = @idConnexion"
-                Dim command As New MySqlCommand()
-                command.Connection = connection
-                command.CommandText = query
-                command.Prepare()
-                command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                dataReader = command.ExecuteReader()
-                dataReader.Read()
-                Dim deviceName As String = dataReader.GetString("nomConnexion")
-                connection.Close()
-                Return deviceName
+                Dim client As New WebClient
+                Dim resultat As String
+                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim queryParameters As String = "?action=GetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+                resultat = client.DownloadString(engineURL + queryParameters)
+
+                If resultat.Contains("err#") Then
+                    Throw New AppSyncException(resultat.Substring(4))
+                Else
+                    Return resultat
+                End If
+
+
+                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+                'connection.Open()
+                'Dim dataReader As MySqlDataReader
+                'Dim query As String = "SELECT nomConnexion from connexion WHERE idConnexion = @idConnexion"
+                'Dim command As New MySqlCommand()
+                'command.Connection = connection
+                'command.CommandText = query
+                'command.Prepare()
+                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
+                'dataReader = command.ExecuteReader()
+                'dataReader.Read()
+                'Dim deviceName As String = dataReader.GetString("nomConnexion")
+                'connection.Close()
+                'Return deviceName
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de la réception du nom de votre appareil depuis AppSync.", ex)
                 Return Nothing
@@ -734,18 +898,33 @@ Public Class AppSyncAgent
     Public Function SetDeviceName(newDeviceName As String) As Boolean
         If IsDeviceRegistered() Then
             Try
-                Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                connection.Open()
-                Dim query As String = "UPDATE connexion SET nomConnexion = @nouvNom WHERE idConnexion = @idConnexion"
-                Dim command As New MySqlCommand()
-                command.Connection = connection
-                command.CommandText = query
-                command.Prepare()
-                command.Parameters.AddWithValue("@nouvNom", newDeviceName)
-                command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                command.ExecuteNonQuery()
-                connection.Close()
-                Return True
+                Dim client As New WebClient
+                Dim resultat As String
+                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim queryParameters As String = "?action=SetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString() + "NewName=" + newDeviceName
+
+                resultat = client.DownloadString(engineURL + queryParameters)
+
+                If resultat.Contains("err#") Then
+                    Throw New AppSyncException(resultat.Substring(4))
+                ElseIf resultat = "true" Then
+                    Return True
+                Else
+                    Return False
+                End If
+
+                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+                'connection.Open()
+                'Dim query As String = "UPDATE connexion SET nomConnexion = @nouvNom WHERE idConnexion = @idConnexion"
+                'Dim command As New MySqlCommand()
+                'command.Connection = connection
+                'command.CommandText = query
+                'command.Prepare()
+                'command.Parameters.AddWithValue("@nouvNom", newDeviceName)
+                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
+                'command.ExecuteNonQuery()
+                'connection.Close()
+                'Return True
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de l'envoi du nouveau nom de votre appareil à AppSync.", ex)
                 Return False
