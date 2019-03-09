@@ -13,6 +13,18 @@ Public Class AppSyncAgent
         Dim dateDeDerniereConnexion As Date
     End Structure
 
+    Structure BrowserConfig
+        Dim idBrowserConfig, searchEngine, idUtilisateur As Integer
+        Dim privateBrowsing, preventMultipleTabsClose, adBlocker, childrenProtection, browserSettingsSecurity, deleteCookiesWhileClosing, popUpBlocker, historyFavoritesSecurity, doNotTrack As Boolean
+        Dim customSearchURL, customSearchName, childrenProtectionPassword, browserSettingsSecurityPassword, homepage, adBlockerWhitelist, userAgentLanguage As String
+        Dim lastSyncDateTime As Date
+    End Structure
+
+    Structure Page
+        Dim pageTitle, pageURL As String
+        Dim pageVisitDateTime As Date
+    End Structure
+
     ''' <summary>
     ''' Vérifie les identifiants entrés par l'utilisateur
     ''' </summary>
@@ -201,41 +213,72 @@ Public Class AppSyncAgent
     ''' <returns>Vrai si l'enregistrement se passe sans erreur.</returns>
     Public Function GetConfig() As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
-            If dataReader.Read() Then
-                My.Settings.PrivateBrowsing = dataReader.GetBoolean("privateBrowsing")
-                My.Settings.PreventMultipleTabsClose = dataReader.GetBoolean("preventMultipleTabsClose")
-                My.Settings.SearchEngine = dataReader.GetInt32("searchEngine")
-                My.Settings.CustomSearchURL = dataReader.GetString("customSearchURL")
-                My.Settings.CustomSearchName = dataReader.GetString("customSearchName")
-                My.Settings.AdBlocker = dataReader.GetBoolean("adBlocker")
-                My.Settings.ChildrenProtection = dataReader.GetBoolean("childrenProtection")
-                My.Settings.ChildrenProtectionPassword = dataReader.GetString("childrenProtectionPassword")
-                My.Settings.BrowserSettingsSecurity = dataReader.GetBoolean("browserSettingsSecurity")
-                My.Settings.BrowserSettingsSecurityPassword = dataReader.GetString("browserSettingsSecurityPassword")
-                My.Settings.DeleteCookiesWhileClosing = dataReader.GetBoolean("deleteCookiesWhileClosing")
-                My.Settings.PopUpBlocker = dataReader.GetBoolean("popUpBlocker")
-                My.Settings.Homepage = dataReader.GetString("homepage")
-                My.Settings.UserAgentLanguage = dataReader.GetString("userAgentLanguage")
-                My.Settings.HistoryFavoritesSecurity = dataReader.GetBoolean("historyFavoritesSecurity")
-                My.Settings.DoNotTrack = dataReader.GetBoolean("doNotTrack")
-                My.Settings.AppSyncLastSyncTime = dataReader.GetDateTime("lastSyncDateTime")
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=GetConfig&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
             Else
-                SendConfig()
+                Dim config As BrowserConfig = JsonConvert.DeserializeObject(Of BrowserConfig)(resultat)
+                My.Settings.PrivateBrowsing = config.privateBrowsing
+                My.Settings.PreventMultipleTabsClose = config.preventMultipleTabsClose
+                My.Settings.SearchEngine = config.searchEngine
+                My.Settings.CustomSearchURL = config.customSearchURL
+                My.Settings.CustomSearchName = config.customSearchName
+                My.Settings.AdBlocker = config.adBlocker
+                My.Settings.ChildrenProtection = config.childrenProtection
+                My.Settings.ChildrenProtectionPassword = config.childrenProtectionPassword
+                My.Settings.BrowserSettingsSecurity = config.browserSettingsSecurity
+                My.Settings.BrowserSettingsSecurityPassword = config.browserSettingsSecurityPassword
+                My.Settings.DeleteCookiesWhileClosing = config.deleteCookiesWhileClosing
+                My.Settings.PopUpBlocker = config.popUpBlocker
+                My.Settings.Homepage = config.homepage
+                My.Settings.UserAgentLanguage = config.userAgentLanguage
+                My.Settings.HistoryFavoritesSecurity = config.historyFavoritesSecurity
+                My.Settings.DoNotTrack = config.doNotTrack
+                My.Settings.AppSyncLastSyncTime = config.lastSyncDateTime
+                Return True
             End If
 
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'dataReader = command.ExecuteReader
+            'If dataReader.Read() Then
+            '    My.Settings.PrivateBrowsing = dataReader.GetBoolean("privateBrowsing")
+            '    My.Settings.PreventMultipleTabsClose = dataReader.GetBoolean("preventMultipleTabsClose")
+            '    My.Settings.SearchEngine = dataReader.GetInt32("searchEngine")
+            '    My.Settings.CustomSearchURL = dataReader.GetString("customSearchURL")
+            '    My.Settings.CustomSearchName = dataReader.GetString("customSearchName")
+            '    My.Settings.AdBlocker = dataReader.GetBoolean("adBlocker")
+            '    My.Settings.ChildrenProtection = dataReader.GetBoolean("childrenProtection")
+            '    My.Settings.ChildrenProtectionPassword = dataReader.GetString("childrenProtectionPassword")
+            '    My.Settings.BrowserSettingsSecurity = dataReader.GetBoolean("browserSettingsSecurity")
+            '    My.Settings.BrowserSettingsSecurityPassword = dataReader.GetString("browserSettingsSecurityPassword")
+            '    My.Settings.DeleteCookiesWhileClosing = dataReader.GetBoolean("deleteCookiesWhileClosing")
+            '    My.Settings.PopUpBlocker = dataReader.GetBoolean("popUpBlocker")
+            '    My.Settings.Homepage = dataReader.GetString("homepage")
+            '    My.Settings.UserAgentLanguage = dataReader.GetString("userAgentLanguage")
+            '    My.Settings.HistoryFavoritesSecurity = dataReader.GetBoolean("historyFavoritesSecurity")
+            '    My.Settings.DoNotTrack = dataReader.GetBoolean("doNotTrack")
+            '    My.Settings.AppSyncLastSyncTime = dataReader.GetDateTime("lastSyncDateTime")
+            'Else
+            '    SendConfig()
+            'End If
 
-            connection.Close()
-            Return True
+
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre configuration depuis AppSync.", ex)
             Return False
@@ -248,50 +291,86 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function SendConfig() As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
-            Dim exists As Boolean = dataReader.Read()
-            connection.Close()
-            If exists Then
-                query = "UPDATE browserconfig SET privateBrowsing = @privateBrowsing, preventMultipleTabsClose = @preventMultipleTabsClose, searchEngine = @searchEngine, customSearchURL = @customSearchURL, customSearchName = @customSearchName, adBlocker = @adBlocker, childrenProtection = @childrenProtection, childrenProtectionPassword = @childrenProtectionPassword, browserSettingsSecurity = @browserSettingsSecurity, browserSettingsSecurityPassword = @browserSettingsSecurityPassword, deleteCookiesWhileClosing = @deleteCookiesWhileClosing, popUpBlocker = @popUpBlocker, homepage = @homepage, userAgentLanguage = @userAgentLanguage, historyFavoritesSecurity = @historyFavoritesSecurity, doNotTrack = @doNotTrack, lastSyncDateTime = @lastSyncDateTime WHERE idUtilisateur = @userid"
+            Dim config As New BrowserConfig
+
+            config.privateBrowsing = My.Settings.PrivateBrowsing
+            config.preventMultipleTabsClose = My.Settings.PreventMultipleTabsClose
+            config.searchEngine = My.Settings.SearchEngine
+            config.customSearchURL = My.Settings.CustomSearchURL
+            config.customSearchName = My.Settings.CustomSearchName
+            config.adBlocker = My.Settings.AdBlocker
+            config.childrenProtection = My.Settings.ChildrenProtection
+            config.childrenProtectionPassword = My.Settings.ChildrenProtectionPassword
+            config.browserSettingsSecurity = My.Settings.BrowserSettingsSecurity
+            config.browserSettingsSecurityPassword = My.Settings.BrowserSettingsSecurityPassword
+            config.deleteCookiesWhileClosing = My.Settings.DeleteCookiesWhileClosing
+            config.popUpBlocker = My.Settings.PopUpBlocker
+            config.homepage = My.Settings.Homepage
+            config.userAgentLanguage = My.Settings.UserAgentLanguage
+            config.historyFavoritesSecurity = My.Settings.HistoryFavoritesSecurity
+            config.doNotTrack = My.Settings.DoNotTrack
+            config.lastSyncDateTime = My.Settings.AppSyncLastSyncTime
+
+            Dim jsonconfig As String = JsonConvert.SerializeObject(config)
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=SendConfig&config=" + jsonconfig + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "false" Then
+                Return False
             Else
-                query = "INSERT INTO browserconfig(privateBrowsing, preventMultipleTabsClose, searchEngine, customSearchURL, customSearchName, adBlocker, childrenProtection, childrenProtectionPassword, browserSettingsSecurity, browserSettingsSecurityPassword, deleteCookiesWhileClosing, popUpBlocker, homepage, userAgentLanguage, historyFavoritesSecurity, doNotTrack, lastSyncDateTime, idUtilisateur) VALUES(@privateBrowsing, @preventMultipleTabsClose, @searchEngine, @customSearchURL, @customSearchName, @adBlocker, @childrenProtection, @childrenProtectionPassword, @browserSettingsSecurity, @browserSettingsSecurityPassword, @deleteCookiesWhileClosing, @popUpBlocker, @homepage, @userAgentLanguage, @historyFavoritesSecurity, @doNotTrack, @lastSyncDateTime, @userid)"
+                Return True
             End If
 
-            connection.Open()
-            command = New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            command.Parameters.AddWithValue("@privateBrowsing", My.Settings.PrivateBrowsing)
-            command.Parameters.AddWithValue("@preventMultipleTabsClose", My.Settings.PreventMultipleTabsClose)
-            command.Parameters.AddWithValue("@searchEngine", My.Settings.SearchEngine)
-            command.Parameters.AddWithValue("@customSearchURL", My.Settings.CustomSearchURL)
-            command.Parameters.AddWithValue("@customSearchName", My.Settings.CustomSearchName)
-            command.Parameters.AddWithValue("@adBlocker", My.Settings.AdBlocker)
-            command.Parameters.AddWithValue("@childrenProtection", My.Settings.ChildrenProtection)
-            command.Parameters.AddWithValue("@childrenProtectionPassword", My.Settings.ChildrenProtectionPassword)
-            command.Parameters.AddWithValue("@browserSettingsSecurity", My.Settings.BrowserSettingsSecurity)
-            command.Parameters.AddWithValue("@browserSettingsSecurityPassword", My.Settings.BrowserSettingsSecurityPassword)
-            command.Parameters.AddWithValue("@deleteCookiesWhileClosing", My.Settings.DeleteCookiesWhileClosing)
-            command.Parameters.AddWithValue("@popUpBlocker", My.Settings.PopUpBlocker)
-            command.Parameters.AddWithValue("@homepage", My.Settings.Homepage)
-            command.Parameters.AddWithValue("@userAgentLanguage", My.Settings.UserAgentLanguage)
-            command.Parameters.AddWithValue("@historyFavoritesSecurity", My.Settings.HistoryFavoritesSecurity)
-            command.Parameters.AddWithValue("@doNotTrack", My.Settings.DoNotTrack)
-            command.Parameters.AddWithValue("@lastSyncDateTime", My.Settings.AppSyncLastSyncTime)
-            command.ExecuteNonQuery()
-            connection.Close()
-            Return True
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'dataReader = command.ExecuteReader
+            'Dim exists As Boolean = dataReader.Read()
+            'connection.Close()
+            'If exists Then
+            '    query = "UPDATE browserconfig SET privateBrowsing = @privateBrowsing, preventMultipleTabsClose = @preventMultipleTabsClose, searchEngine = @searchEngine, customSearchURL = @customSearchURL, customSearchName = @customSearchName, adBlocker = @adBlocker, childrenProtection = @childrenProtection, childrenProtectionPassword = @childrenProtectionPassword, browserSettingsSecurity = @browserSettingsSecurity, browserSettingsSecurityPassword = @browserSettingsSecurityPassword, deleteCookiesWhileClosing = @deleteCookiesWhileClosing, popUpBlocker = @popUpBlocker, homepage = @homepage, userAgentLanguage = @userAgentLanguage, historyFavoritesSecurity = @historyFavoritesSecurity, doNotTrack = @doNotTrack, lastSyncDateTime = @lastSyncDateTime WHERE idUtilisateur = @userid"
+            'Else
+            '    query = "INSERT INTO browserconfig(privateBrowsing, preventMultipleTabsClose, searchEngine, customSearchURL, customSearchName, adBlocker, childrenProtection, childrenProtectionPassword, browserSettingsSecurity, browserSettingsSecurityPassword, deleteCookiesWhileClosing, popUpBlocker, homepage, userAgentLanguage, historyFavoritesSecurity, doNotTrack, lastSyncDateTime, idUtilisateur) VALUES(@privateBrowsing, @preventMultipleTabsClose, @searchEngine, @customSearchURL, @customSearchName, @adBlocker, @childrenProtection, @childrenProtectionPassword, @browserSettingsSecurity, @browserSettingsSecurityPassword, @deleteCookiesWhileClosing, @popUpBlocker, @homepage, @userAgentLanguage, @historyFavoritesSecurity, @doNotTrack, @lastSyncDateTime, @userid)"
+            'End If
+
+            'connection.Open()
+            'command = New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'command.Parameters.AddWithValue("@privateBrowsing", My.Settings.PrivateBrowsing)
+            'command.Parameters.AddWithValue("@preventMultipleTabsClose", My.Settings.PreventMultipleTabsClose)
+            'command.Parameters.AddWithValue("@searchEngine", My.Settings.SearchEngine)
+            'command.Parameters.AddWithValue("@customSearchURL", My.Settings.CustomSearchURL)
+            'command.Parameters.AddWithValue("@customSearchName", My.Settings.CustomSearchName)
+            'command.Parameters.AddWithValue("@adBlocker", My.Settings.AdBlocker)
+            'command.Parameters.AddWithValue("@childrenProtection", My.Settings.ChildrenProtection)
+            'command.Parameters.AddWithValue("@childrenProtectionPassword", My.Settings.ChildrenProtectionPassword)
+            'command.Parameters.AddWithValue("@browserSettingsSecurity", My.Settings.BrowserSettingsSecurity)
+            'command.Parameters.AddWithValue("@browserSettingsSecurityPassword", My.Settings.BrowserSettingsSecurityPassword)
+            'command.Parameters.AddWithValue("@deleteCookiesWhileClosing", My.Settings.DeleteCookiesWhileClosing)
+            'command.Parameters.AddWithValue("@popUpBlocker", My.Settings.PopUpBlocker)
+            'command.Parameters.AddWithValue("@homepage", My.Settings.Homepage)
+            'command.Parameters.AddWithValue("@userAgentLanguage", My.Settings.UserAgentLanguage)
+            'command.Parameters.AddWithValue("@historyFavoritesSecurity", My.Settings.HistoryFavoritesSecurity)
+            'command.Parameters.AddWithValue("@doNotTrack", My.Settings.DoNotTrack)
+            'command.Parameters.AddWithValue("@lastSyncDateTime", My.Settings.AppSyncLastSyncTime)
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi de votre configuration vers AppSync.", ex)
             Return False
@@ -300,23 +379,41 @@ Public Class AppSyncAgent
 
     Public Function GetHistory() As WebPageList
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT * from browserhistory WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=GetHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            Dim list As New WebPageList()
-            While dataReader.Read()
-                list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL"), dataReader.GetDateTime("pageVisitDateTime")))
-            End While
-            connection.Close()
-            Return list
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Dim history As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
+                Dim list As New WebPageList()
+                For Each p As Page In history
+                    list.Add(New WebPage(p.pageTitle, p.pageURL, p.pageVisitDateTime))
+                Next
+                Return list
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT * from browserhistory WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'dataReader = command.ExecuteReader
+
+            'Dim list As New WebPageList()
+            'While dataReader.Read()
+            '    list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL"), dataReader.GetDateTime("pageVisitDateTime")))
+            'End While
+            'Connection.Close()
+            'Return list
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre historique de navigation depuis AppSync.", ex)
             Return Nothing
@@ -325,23 +422,41 @@ Public Class AppSyncAgent
 
     Public Function GetFavorites() As WebPageList
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim dataReader As MySqlDataReader
-            Dim query As String = "SELECT * from browserfavorite WHERE idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            dataReader = command.ExecuteReader
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=GetFavorites&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            Dim list As New WebPageList()
-            While dataReader.Read()
-                list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL")))
-            End While
-            connection.Close()
-            Return list
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Dim favorites As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
+                Dim list As New WebPageList()
+                For Each p As Page In favorites
+                    list.Add(New WebPage(p.pageTitle, p.pageURL))
+                Next
+                Return list
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim dataReader As MySqlDataReader
+            'Dim query As String = "SELECT * from browserfavorite WHERE idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'dataReader = command.ExecuteReader
+
+            'Dim list As New WebPageList()
+            'While dataReader.Read()
+            '    list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL")))
+            'End While
+            'connection.Close()
+            'Return list
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de vos favoris depuis AppSync.", ex)
             Return Nothing
@@ -389,21 +504,42 @@ Public Class AppSyncAgent
 
     Public Function AddHistory(page As WebPage) As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "INSERT INTO browserhistory(pageTitle, pageURL, pageVisitDateTime, idUtilisateur) VALUES(@titre, @url, @dateVisite, @userid)"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
+            Dim laPage As New Page
+            laPage.pageTitle = page.GetNom()
+            laPage.pageURL = page.GetURL()
+            laPage.pageVisitDateTime = page.GetVisitDateTime()
+            Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
-            command.Parameters.AddWithValue("@titre", page.GetNom())
-            command.Parameters.AddWithValue("@url", page.GetURL())
-            command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            command.ExecuteNonQuery()
-            connection.Close()
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=AddHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "INSERT INTO browserhistory(pageTitle, pageURL, pageVisitDateTime, idUtilisateur) VALUES(@titre, @url, @dateVisite, @userid)"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+
+            'command.Parameters.AddWithValue("@titre", page.GetNom())
+            'command.Parameters.AddWithValue("@url", page.GetURL())
+            'command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'une entrée d'historique vers AppSync.", ex)
             Return False
@@ -412,20 +548,40 @@ Public Class AppSyncAgent
 
     Public Function AddFavorite(page As WebPage) As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "INSERT INTO browserfavorite(pageTitle, pageURL, idUtilisateur) VALUES(@titre, @url, @userid)"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
+            Dim laPage As New Page
+            laPage.pageTitle = page.GetNom()
+            laPage.pageURL = page.GetURL()
+            Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
-            command.Parameters.AddWithValue("@titre", page.GetNom())
-            command.Parameters.AddWithValue("@url", page.GetURL())
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            command.ExecuteNonQuery()
-            connection.Close()
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=AddFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "INSERT INTO browserfavorite(pageTitle, pageURL, idUtilisateur) VALUES(@titre, @url, @userid)"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+
+            'command.Parameters.AddWithValue("@titre", page.GetNom())
+            'command.Parameters.AddWithValue("@url", page.GetURL())
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'un favori vers AppSync.", ex)
             Return False
@@ -443,21 +599,43 @@ Public Class AppSyncAgent
 
     Public Function DeleteHistory(page As WebPage) As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "DELETE FROM browserhistory WHERE pageTitle = @titre AND pageURL = @url AND pageVisitDateTime = @dateVisite AND idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
+            Dim laPage As New Page
+            laPage.pageTitle = page.GetNom()
+            laPage.pageURL = page.GetURL()
+            laPage.pageVisitDateTime = page.GetVisitDateTime()
+            Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
-            command.Parameters.AddWithValue("@titre", page.GetNom())
-            command.Parameters.AddWithValue("@url", page.GetURL())
-            command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            command.ExecuteNonQuery()
-            connection.Close()
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=DeleteHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
+
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "DELETE FROM browserhistory WHERE pageTitle = @titre AND pageURL = @url AND pageVisitDateTime = @dateVisite AND idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+
+            'command.Parameters.AddWithValue("@titre", page.GetNom())
+            'command.Parameters.AddWithValue("@url", page.GetURL())
+            'command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression d'une entrée d'historique sur AppSync.", ex)
             Return False
@@ -466,20 +644,40 @@ Public Class AppSyncAgent
 
     Public Function DeleteFavorite(page As WebPage) As Boolean
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim query As String = "DELETE FROM browserfavorite WHERE pageTitle = @titre AND pageURL = @url AND idUtilisateur = @userid"
-            Dim command As New MySqlCommand()
-            command.Connection = connection
-            command.CommandText = query
-            command.Prepare()
+            Dim laPage As New Page
+            laPage.pageTitle = page.GetNom()
+            laPage.pageURL = page.GetURL()
+            Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
-            command.Parameters.AddWithValue("@titre", page.GetNom())
-            command.Parameters.AddWithValue("@url", page.GetURL())
-            command.Parameters.AddWithValue("@userid", GetUserID())
-            command.ExecuteNonQuery()
-            connection.Close()
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim queryParameters As String = "?action=DeleteFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
+
+            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
+            'connection.Open()
+            'Dim query As String = "DELETE FROM browserfavorite WHERE pageTitle = @titre AND pageURL = @url AND idUtilisateur = @userid"
+            'Dim command As New MySqlCommand()
+            'command.Connection = connection
+            'command.CommandText = query
+            'command.Prepare()
+
+            'command.Parameters.AddWithValue("@titre", page.GetNom())
+            'command.Parameters.AddWithValue("@url", page.GetURL())
+            'command.Parameters.AddWithValue("@userid", GetUserID())
+            'command.ExecuteNonQuery()
+            'connection.Close()
+            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression du favori sur AppSync.", ex)
             Return False
@@ -809,7 +1007,8 @@ Public Class AppSyncAgent
                 resultat = client.DownloadString(engineURL + queryParameters)
 
                 If resultat.Contains("err#") Then
-                    Throw New AppSyncException(resultat.Substring(4))
+                    Return False
+                    'Throw New AppSyncException(resultat.Substring(4))
                 Else
                     Dim details As Connection = JsonConvert.DeserializeObject(Of Connection)(resultat)
                     Dim result As Boolean = (details.idUtilisateur = GetUserID())
