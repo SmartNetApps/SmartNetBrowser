@@ -211,14 +211,14 @@ Public Class AppSyncAgent
     ''' Charge la configuration distante et l'enregistre sur le profil local.
     ''' </summary>
     ''' <returns>Vrai si l'enregistrement se passe sans erreur.</returns>
-    Public Function GetConfig() As Boolean
+    Public Async Function GetConfig() As Task(Of Boolean)
         Try
             Dim client As New WebClient
             Dim resultat As String
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetConfig&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If resultat.Contains("err#") Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -289,7 +289,7 @@ Public Class AppSyncAgent
     ''' Envoie la configuration locale sur le serveur AppSync en écrasant l'existant.
     ''' </summary>
     ''' <returns></returns>
-    Public Function SendConfig() As Boolean
+    Public Async Function SendConfig() As Task(Of Boolean)
         Try
             Dim config As New BrowserConfig
 
@@ -317,7 +317,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=SendConfig&config=" + jsonconfig + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -377,14 +377,14 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function GetHistory() As WebPageList
+    Public Async Function GetHistory() As Task(Of WebPageList)
         Try
             Dim client As New WebClient
             Dim resultat As String
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -420,14 +420,14 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function GetFavorites() As WebPageList
+    Public Async Function GetFavorites() As Task(Of WebPageList)
         Try
             Dim client As New WebClient
             Dim resultat As String
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetFavorites&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -502,7 +502,7 @@ Public Class AppSyncAgent
     '    End Try
     'End Function
 
-    Public Function AddHistory(page As WebPage) As Boolean
+    Public Async Function AddHistory(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -515,7 +515,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=AddHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -546,7 +546,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function AddFavorite(page As WebPage) As Boolean
+    Public Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -558,7 +558,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=AddFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -597,7 +597,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function DeleteHistory(page As WebPage) As Boolean
+    Public Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -610,7 +610,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=DeleteHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -642,7 +642,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function DeleteFavorite(page As WebPage) As Boolean
+    Public Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -654,7 +654,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=DeleteFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If (resultat.Contains("err#")) Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -729,7 +729,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function RefreshSyncTime() As Boolean
+    Public Async Function RefreshSyncTime() As Task(Of Boolean)
         Dim now As Date = Date.Now
         Try
             Dim client As New WebClient
@@ -737,7 +737,7 @@ Public Class AppSyncAgent
             Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=RefreshSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            resultat = client.DownloadString(engineURL + queryParameters)
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
 
             If resultat.Contains("err#") Then
                 Throw New AppSyncException(resultat.Substring(4))
@@ -827,47 +827,47 @@ Public Class AppSyncAgent
     ''' Synchronise les données de l'utilisateur avec la base de données de SmartNet AppSync.
     ''' </summary>
     ''' <returns>Vrai si réussite, Faux en cas d'échec.</returns>
-    Public Function SyncNow() As Boolean
+    Public Async Function SyncNow() As Task(Of Boolean)
         Dim config As Boolean
         'Dim history As Boolean
         'Dim searchHistory As Boolean
         'Dim favorites As Boolean
 
         Dim theHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
-        Dim theOnlineHistory As WebPageList = GetHistory()
+        Dim theOnlineHistory As WebPageList = Await GetHistory()
         Dim theFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-        Dim theOnlineFavorites As WebPageList = GetFavorites()
+        Dim theOnlineFavorites As WebPageList = Await GetFavorites()
 
         If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
-            config = SendConfig()
+            config = Await SendConfig()
 
             For Each p As WebPage In theHistory
                 If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    AddHistory(p)
+                    Await AddHistory(p)
                 End If
             Next
 
             For Each p As WebPage In theOnlineHistory
                 If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    DeleteHistory(p)
+                    Await DeleteHistory(p)
                 End If
             Next
             'My.Settings.History = theHistory.ToStringCollection()
 
             For Each p As WebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
-                    AddFavorite(p)
+                    Await AddFavorite(p)
                 End If
             Next
 
             For Each op As WebPage In theOnlineFavorites
                 If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
-                    DeleteFavorite(op)
+                    Await DeleteFavorite(op)
                 End If
             Next
             'My.Settings.Favorites = theFavorites.ToStringCollection()
         Else
-            config = GetConfig()
+            config = Await GetConfig()
 
             Dim theNewHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
             Dim theNewFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
@@ -903,7 +903,7 @@ Public Class AppSyncAgent
 
         'Il manque l'historique de recherche
 
-        Dim synctime As Boolean = RefreshSyncTime()
+        Dim synctime As Boolean = Await RefreshSyncTime()
         Return (config And synctime)
     End Function
 
