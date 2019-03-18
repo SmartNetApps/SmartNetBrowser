@@ -525,8 +525,6 @@ Public Class SettingsForm
         ButtonSyncNow.Enabled = False
         Try
             appsync.SyncNow()
-            ButtonSyncNow.Text = "Synchroniser maintenant"
-            ButtonSyncNow.Enabled = True
         Catch ex As Exception
             MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ButtonSyncNow.Text = "Échec de la synchronisation."
