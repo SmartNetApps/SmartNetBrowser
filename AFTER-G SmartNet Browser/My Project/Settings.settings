@@ -103,13 +103,6 @@
     <Setting Name="AppSyncLastSyncTime" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">1753-01-01</Value>
     </Setting>
-    <Setting Name="mysqlconnection" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=localhost;port=3306;database=smartnetappsync;user=appsync_restricted;password=8QC85Cx6rEoXgrQA&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=localhost;port=3306;database=smartnetappsync;user=appsync_restricted;password=8QC85Cx6rEoXgrQA</Value>
-    </Setting>
     <Setting Name="AppSyncDeviceNumber" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

@@ -47,21 +47,6 @@ Public Class AppSyncAgent
             Else
                 Return False
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT motDePasseUtilisateur from utilisateur WHERE emailLoginUtilisateur = @username"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@username", username)
-            'dataReader = command.ExecuteReader()
-            'dataReader.Read()
-            'Dim mdp As String = dataReader.GetString("motDePasseUtilisateur")
-            'connection.Close()
-            'Return BCrypt.Net.BCrypt.Verify(password, mdp)
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la vérification de vos identifiants AppSync.", ex)
             Return False
@@ -86,21 +71,6 @@ Public Class AppSyncAgent
             Else
                 Return CType(resultat, Integer)
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT idUtilisateur from connexion WHERE idConnexion = @idconnexion"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@idconnexion", My.Settings.AppSyncDeviceNumber)
-            'dataReader = command.ExecuteReader()
-            'dataReader.Read()
-            'Dim userID As Integer = dataReader.GetInt32("idUtilisateur")
-            'connection.Close()
-            'Return userID
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre ID d'utilisateur AppSync.", ex)
             Return 0
@@ -125,21 +95,6 @@ Public Class AppSyncAgent
             Else
                 Return resultat
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT prenomUtilisateur, nomUtilisateur from utilisateur WHERE idUtilisateur = @userID"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userID", GetUserID())
-            'dataReader = command.ExecuteReader
-            'dataReader.Read()
-            'Dim userName As String = dataReader.GetString("prenomUtilisateur") + " " + dataReader.GetString("nomUtilisateur")
-            'connection.Close()
-            'Return userName
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre nom depuis AppSync.", ex)
             Return "Compte AppSync"
@@ -174,33 +129,6 @@ Public Class AppSyncAgent
                 End Try
                 Return New Bitmap(imgLocalPath)
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT imageProfilClient from client WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'Dim userid As Integer = GetUserID()
-            'command.Parameters.AddWithValue("@userid", userid.ToString())
-            'dataReader = command.ExecuteReader
-            'dataReader.Read()
-            'Dim imgPath As String = dataReader.GetString("imageProfilClient")
-            'imgPath = imgPath.Substring(1)
-            'Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgPath.Substring(imgPath.LastIndexOf("."))
-            'Dim imgDistantPath = "https://appsync.quentinpugeat.fr" + imgPath
-            'Try
-            '    If System.IO.File.Exists(imgLocalPath) Then
-            '        System.IO.File.Delete(imgLocalPath)
-            '    End If
-            '    Dim telechargeur As New WebClient()
-            '    telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
-            'Catch ex As Exception
-            'End Try
-            'connection.Close()
-            'Return New Bitmap(imgLocalPath)
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre photo de profil depuis AppSync.", ex)
             Return My.Resources.Person
@@ -243,42 +171,6 @@ Public Class AppSyncAgent
                 My.Settings.AppSyncLastSyncTime = config.lastSyncDateTime
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'dataReader = command.ExecuteReader
-            'If dataReader.Read() Then
-            '    My.Settings.PrivateBrowsing = dataReader.GetBoolean("privateBrowsing")
-            '    My.Settings.PreventMultipleTabsClose = dataReader.GetBoolean("preventMultipleTabsClose")
-            '    My.Settings.SearchEngine = dataReader.GetInt32("searchEngine")
-            '    My.Settings.CustomSearchURL = dataReader.GetString("customSearchURL")
-            '    My.Settings.CustomSearchName = dataReader.GetString("customSearchName")
-            '    My.Settings.AdBlocker = dataReader.GetBoolean("adBlocker")
-            '    My.Settings.ChildrenProtection = dataReader.GetBoolean("childrenProtection")
-            '    My.Settings.ChildrenProtectionPassword = dataReader.GetString("childrenProtectionPassword")
-            '    My.Settings.BrowserSettingsSecurity = dataReader.GetBoolean("browserSettingsSecurity")
-            '    My.Settings.BrowserSettingsSecurityPassword = dataReader.GetString("browserSettingsSecurityPassword")
-            '    My.Settings.DeleteCookiesWhileClosing = dataReader.GetBoolean("deleteCookiesWhileClosing")
-            '    My.Settings.PopUpBlocker = dataReader.GetBoolean("popUpBlocker")
-            '    My.Settings.Homepage = dataReader.GetString("homepage")
-            '    My.Settings.UserAgentLanguage = dataReader.GetString("userAgentLanguage")
-            '    My.Settings.HistoryFavoritesSecurity = dataReader.GetBoolean("historyFavoritesSecurity")
-            '    My.Settings.DoNotTrack = dataReader.GetBoolean("doNotTrack")
-            '    My.Settings.AppSyncLastSyncTime = dataReader.GetDateTime("lastSyncDateTime")
-            'Else
-            '    SendConfig()
-            'End If
-
-
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre configuration depuis AppSync.", ex)
             Return False
@@ -326,51 +218,6 @@ Public Class AppSyncAgent
             Else
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT * from browserconfig WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'dataReader = command.ExecuteReader
-            'Dim exists As Boolean = dataReader.Read()
-            'connection.Close()
-            'If exists Then
-            '    query = "UPDATE browserconfig SET privateBrowsing = @privateBrowsing, preventMultipleTabsClose = @preventMultipleTabsClose, searchEngine = @searchEngine, customSearchURL = @customSearchURL, customSearchName = @customSearchName, adBlocker = @adBlocker, childrenProtection = @childrenProtection, childrenProtectionPassword = @childrenProtectionPassword, browserSettingsSecurity = @browserSettingsSecurity, browserSettingsSecurityPassword = @browserSettingsSecurityPassword, deleteCookiesWhileClosing = @deleteCookiesWhileClosing, popUpBlocker = @popUpBlocker, homepage = @homepage, userAgentLanguage = @userAgentLanguage, historyFavoritesSecurity = @historyFavoritesSecurity, doNotTrack = @doNotTrack, lastSyncDateTime = @lastSyncDateTime WHERE idUtilisateur = @userid"
-            'Else
-            '    query = "INSERT INTO browserconfig(privateBrowsing, preventMultipleTabsClose, searchEngine, customSearchURL, customSearchName, adBlocker, childrenProtection, childrenProtectionPassword, browserSettingsSecurity, browserSettingsSecurityPassword, deleteCookiesWhileClosing, popUpBlocker, homepage, userAgentLanguage, historyFavoritesSecurity, doNotTrack, lastSyncDateTime, idUtilisateur) VALUES(@privateBrowsing, @preventMultipleTabsClose, @searchEngine, @customSearchURL, @customSearchName, @adBlocker, @childrenProtection, @childrenProtectionPassword, @browserSettingsSecurity, @browserSettingsSecurityPassword, @deleteCookiesWhileClosing, @popUpBlocker, @homepage, @userAgentLanguage, @historyFavoritesSecurity, @doNotTrack, @lastSyncDateTime, @userid)"
-            'End If
-
-            'connection.Open()
-            'command = New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'command.Parameters.AddWithValue("@privateBrowsing", My.Settings.PrivateBrowsing)
-            'command.Parameters.AddWithValue("@preventMultipleTabsClose", My.Settings.PreventMultipleTabsClose)
-            'command.Parameters.AddWithValue("@searchEngine", My.Settings.SearchEngine)
-            'command.Parameters.AddWithValue("@customSearchURL", My.Settings.CustomSearchURL)
-            'command.Parameters.AddWithValue("@customSearchName", My.Settings.CustomSearchName)
-            'command.Parameters.AddWithValue("@adBlocker", My.Settings.AdBlocker)
-            'command.Parameters.AddWithValue("@childrenProtection", My.Settings.ChildrenProtection)
-            'command.Parameters.AddWithValue("@childrenProtectionPassword", My.Settings.ChildrenProtectionPassword)
-            'command.Parameters.AddWithValue("@browserSettingsSecurity", My.Settings.BrowserSettingsSecurity)
-            'command.Parameters.AddWithValue("@browserSettingsSecurityPassword", My.Settings.BrowserSettingsSecurityPassword)
-            'command.Parameters.AddWithValue("@deleteCookiesWhileClosing", My.Settings.DeleteCookiesWhileClosing)
-            'command.Parameters.AddWithValue("@popUpBlocker", My.Settings.PopUpBlocker)
-            'command.Parameters.AddWithValue("@homepage", My.Settings.Homepage)
-            'command.Parameters.AddWithValue("@userAgentLanguage", My.Settings.UserAgentLanguage)
-            'command.Parameters.AddWithValue("@historyFavoritesSecurity", My.Settings.HistoryFavoritesSecurity)
-            'command.Parameters.AddWithValue("@doNotTrack", My.Settings.DoNotTrack)
-            'command.Parameters.AddWithValue("@lastSyncDateTime", My.Settings.AppSyncLastSyncTime)
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi de votre configuration vers AppSync.", ex)
             Return False
@@ -396,24 +243,6 @@ Public Class AppSyncAgent
                 Next
                 Return list
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT * from browserhistory WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'dataReader = command.ExecuteReader
-
-            'Dim list As New WebPageList()
-            'While dataReader.Read()
-            '    list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL"), dataReader.GetDateTime("pageVisitDateTime")))
-            'End While
-            'Connection.Close()
-            'Return list
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre historique de navigation depuis AppSync.", ex)
             Return Nothing
@@ -439,24 +268,6 @@ Public Class AppSyncAgent
                 Next
                 Return list
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT * from browserfavorite WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'dataReader = command.ExecuteReader
-
-            'Dim list As New WebPageList()
-            'While dataReader.Read()
-            '    list.Add(New WebPage(dataReader.GetString("pageTitle"), dataReader.GetString("pageURL")))
-            'End While
-            'connection.Close()
-            'Return list
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de vos favoris depuis AppSync.", ex)
             Return Nothing
@@ -524,22 +335,6 @@ Public Class AppSyncAgent
             Else
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "INSERT INTO browserhistory(pageTitle, pageURL, pageVisitDateTime, idUtilisateur) VALUES(@titre, @url, @dateVisite, @userid)"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-
-            'command.Parameters.AddWithValue("@titre", page.GetNom())
-            'command.Parameters.AddWithValue("@url", page.GetURL())
-            'command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'une entrée d'historique vers AppSync.", ex)
             Return False
@@ -567,21 +362,6 @@ Public Class AppSyncAgent
             Else
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "INSERT INTO browserfavorite(pageTitle, pageURL, idUtilisateur) VALUES(@titre, @url, @userid)"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-
-            'command.Parameters.AddWithValue("@titre", page.GetNom())
-            'command.Parameters.AddWithValue("@url", page.GetURL())
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi d'un favori vers AppSync.", ex)
             Return False
@@ -619,23 +399,6 @@ Public Class AppSyncAgent
             Else
                 Return True
             End If
-
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "DELETE FROM browserhistory WHERE pageTitle = @titre AND pageURL = @url AND pageVisitDateTime = @dateVisite AND idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-
-            'command.Parameters.AddWithValue("@titre", page.GetNom())
-            'command.Parameters.AddWithValue("@url", page.GetURL())
-            'command.Parameters.AddWithValue("@dateVisite", page.GetVisitDateTime())
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression d'une entrée d'historique sur AppSync.", ex)
             Return False
@@ -663,21 +426,6 @@ Public Class AppSyncAgent
             Else
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "DELETE FROM browserfavorite WHERE pageTitle = @titre AND pageURL = @url AND idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-
-            'command.Parameters.AddWithValue("@titre", page.GetNom())
-            'command.Parameters.AddWithValue("@url", page.GetURL())
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression du favori sur AppSync.", ex)
             Return False
@@ -703,26 +451,6 @@ Public Class AppSyncAgent
             Else
                 Return New Date(resultat.Substring(0, 4), resultat.Substring(5, 2), resultat.Substring(8, 2), resultat.Substring(11, 2), resultat.Substring(14, 2), resultat.Substring(17, 2))
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim dataReader As MySqlDataReader
-            'Dim query As String = "SELECT lastSyncDateTime from browserconfig WHERE idUtilisateur = @userid"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@userid", GetUserID())
-            'dataReader = command.ExecuteReader
-            'Dim result As Date
-            'If dataReader.Read() Then
-            '    result = dataReader.GetDateTime("lastSyncDateTime")
-            'Else
-            '    SendConfig()
-            '    result = Date.Now
-            'End If
-            'connection.Close()
-            'Return result
         Catch ex As Exception
             Throw New AppSyncException("Impossible de récupérer la date de dernière synchronisation de votre compte AppSync.", ex)
             Return New Date(1, 1, 1)
@@ -747,31 +475,6 @@ Public Class AppSyncAgent
             Else
                 Return False
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "UPDATE browserconfig SET lastSyncDateTime = @now WHERE idUtilisateur = @idUser"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@now", now)
-            'command.Parameters.AddWithValue("@idUser", GetUserID())
-            'command.ExecuteNonQuery()
-            'connection.Close()
-
-            'connection.Open()
-            'query = "UPDATE connexion SET dateDeDerniereConnexion = @now WHERE idConnexion = @connectionId"
-            'command = New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@now", now)
-            'command.Parameters.AddWithValue("@connectionId", My.Settings.AppSyncDeviceNumber)
-            'command.ExecuteNonQuery()
-            'connection.Close()
-            'My.Settings.AppSyncLastSyncTime = now
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'actualisation de la date de dernière synchronisation.", ex)
             Return False
@@ -928,19 +631,6 @@ Public Class AppSyncAgent
                 My.Settings.AppSyncDeviceNumber = ""
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "DELETE FROM connexion WHERE idConnexion = @idConnexion"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-            'command.ExecuteReader()
-            'connection.Close()
-            'My.Settings.AppSyncDeviceNumber = 0
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression de l'autorisation de connexion à AppSync.", ex)
             Return False
@@ -972,21 +662,6 @@ Public Class AppSyncAgent
                 My.Settings.Save()
                 Return True
             End If
-
-            'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            'connection.Open()
-            'Dim query As String = "INSERT INTO connexion(nomConnexion, dateDeDerniereConnexion, applicationConnexion, idUtilisateur) VALUES(@nomConnexion, NOW(), @appliConnexion, @idUser)"
-            'Dim command As New MySqlCommand()
-            'command.Connection = connection
-            'command.CommandText = query
-            'command.Prepare()
-            'command.Parameters.AddWithValue("@nomConnexion", Environment.MachineName)
-            'command.Parameters.AddWithValue("@appliConnexion", "SmartNet Browser")
-            'command.Parameters.AddWithValue("@idUser", GetUserID())
-            'command.ExecuteNonQuery()
-            'My.Settings.AppSyncDeviceNumber = CType(command.LastInsertedId, Integer)
-            'connection.Close()
-            'Return True
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'enregistrement de votre appareil sur votre compte AppSync.", ex)
             Return False
@@ -1020,28 +695,6 @@ Public Class AppSyncAgent
                         Return True
                     End If
                 End If
-
-                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                'connection.Open()
-                'Dim dataReader As MySqlDataReader
-                'Dim query As String = "SELECT * from connexion WHERE idConnexion = @idConnexion"
-                'Dim command As New MySqlCommand()
-                'command.Connection = connection
-                'command.CommandText = query
-                'command.Prepare()
-                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                'dataReader = command.ExecuteReader()
-                'Dim result As Boolean
-                'If (dataReader.Read()) Then
-                '    result = (dataReader.GetInt32("idUtilisateur") = GetUserID())
-                '    If (result = False) Then
-                '        Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté")
-                '    End If
-                'Else
-                '    result = False
-                'End If
-                'connection.Close()
-                'Return result
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de la vérification de votre autorisation de connexion à AppSync.", ex)
                 Return False
@@ -1070,22 +723,6 @@ Public Class AppSyncAgent
                 Else
                     Return resultat
                 End If
-
-
-                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                'connection.Open()
-                'Dim dataReader As MySqlDataReader
-                'Dim query As String = "SELECT nomConnexion from connexion WHERE idConnexion = @idConnexion"
-                'Dim command As New MySqlCommand()
-                'command.Connection = connection
-                'command.CommandText = query
-                'command.Prepare()
-                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                'dataReader = command.ExecuteReader()
-                'dataReader.Read()
-                'Dim deviceName As String = dataReader.GetString("nomConnexion")
-                'connection.Close()
-                'Return deviceName
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de la réception du nom de votre appareil depuis AppSync.", ex)
                 Return Nothing
@@ -1112,19 +749,6 @@ Public Class AppSyncAgent
                 Else
                     Return False
                 End If
-
-                'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-                'connection.Open()
-                'Dim query As String = "UPDATE connexion SET nomConnexion = @nouvNom WHERE idConnexion = @idConnexion"
-                'Dim command As New MySqlCommand()
-                'command.Connection = connection
-                'command.CommandText = query
-                'command.Prepare()
-                'command.Parameters.AddWithValue("@nouvNom", newDeviceName)
-                'command.Parameters.AddWithValue("@idConnexion", My.Settings.AppSyncDeviceNumber)
-                'command.ExecuteNonQuery()
-                'connection.Close()
-                'Return True
             Catch ex As Exception
                 Throw New AppSyncException("Une erreur est survenue lors de l'envoi du nouveau nom de votre appareil à AppSync.", ex)
                 Return False
