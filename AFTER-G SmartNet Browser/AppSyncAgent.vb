@@ -8,14 +8,14 @@ Imports Newtonsoft.Json
 ''' </summary>
 Public Class AppSyncAgent
     Structure Connection
-        Dim idConnexion, idUtilisateur As Integer
-        Dim nomConnexion, applicationConnexion As String
+        Dim idUtilisateur As Integer
+        Dim idConnexion, nomConnexion, applicationConnexion As String
         Dim dateDeDerniereConnexion As Date
     End Structure
 
     Structure BrowserConfig
         Dim idBrowserConfig, searchEngine, idUtilisateur As Integer
-        Dim privateBrowsing, preventMultipleTabsClose, adBlocker, childrenProtection, browserSettingsSecurity, deleteCookiesWhileClosing, popUpBlocker, historyFavoritesSecurity, doNotTrack As Boolean
+        Dim privateBrowsing, preventMultipleTabsClose, adBlocker, childrenProtection, browserSettingsSecurity, deleteCookiesWhileClosing, popUpBlocker, historyFavoritesSecurity, doNotTrack As Integer
         Dim customSearchURL, customSearchName, childrenProtectionPassword, browserSettingsSecurityPassword, homepage, adBlockerWhitelist, userAgentLanguage As String
         Dim lastSyncDateTime As Date
     End Structure
@@ -35,7 +35,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
             Dim queryParameters As String = "?action=CheckCredentials&username=" + username + "&password=" + password
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -76,7 +76,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
             Dim queryParameters As String = "?action=GetUserID&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -84,7 +84,7 @@ Public Class AppSyncAgent
             If resultat.Contains("err#") Then
                 Throw New AppSyncException(resultat.Substring(4))
             Else
-                Return resultat
+                Return CType(resultat, Integer)
             End If
 
             'Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
@@ -115,7 +115,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
             Dim queryParameters As String = "?action=GetUserName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -154,7 +154,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
             Dim queryParameters As String = "?action=GetUserProfilePicture&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -190,7 +190,7 @@ Public Class AppSyncAgent
             'Dim imgPath As String = dataReader.GetString("imageProfilClient")
             'imgPath = imgPath.Substring(1)
             'Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgPath.Substring(imgPath.LastIndexOf("."))
-            'Dim imgDistantPath = "http://smartnetappsync.wampserver" + imgPath
+            'Dim imgDistantPath = "https://appsync.quentinpugeat.fr" + imgPath
             'Try
             '    If System.IO.File.Exists(imgLocalPath) Then
             '        System.IO.File.Delete(imgLocalPath)
@@ -215,7 +215,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetConfig&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -314,7 +314,7 @@ Public Class AppSyncAgent
             Dim jsonconfig As String = JsonConvert.SerializeObject(config)
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=SendConfig&config=" + jsonconfig + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -381,7 +381,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -424,7 +424,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetFavorites&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -512,7 +512,7 @@ Public Class AppSyncAgent
 
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=AddHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -555,7 +555,7 @@ Public Class AppSyncAgent
 
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=AddFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -607,7 +607,7 @@ Public Class AppSyncAgent
 
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=DeleteHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -651,7 +651,7 @@ Public Class AppSyncAgent
 
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=DeleteFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -693,7 +693,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=GetLastSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -734,7 +734,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/browser/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
             Dim queryParameters As String = "?action=RefreshSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -915,7 +915,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
             Dim queryParameters As String = "?action=UnregisterDevice&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -925,7 +925,7 @@ Public Class AppSyncAgent
             ElseIf resultat = "false" Then
                 Return False
             Else
-                My.Settings.AppSyncDeviceNumber = 0
+                My.Settings.AppSyncDeviceNumber = ""
                 Return True
             End If
 
@@ -958,7 +958,7 @@ Public Class AppSyncAgent
         Try
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "http://smartnetappsync.wampserver/engine/main/query.php"
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
             Dim queryParameters As String = "?action=RegisterDevice&username=" + username + "&password=" + password + "&machineName=" + Environment.MachineName + "&appName=SmartNet Browser"
 
             resultat = client.DownloadString(engineURL + queryParameters)
@@ -969,6 +969,7 @@ Public Class AppSyncAgent
                 Return False
             Else
                 My.Settings.AppSyncDeviceNumber = resultat
+                My.Settings.Save()
                 Return True
             End If
 
@@ -997,11 +998,11 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns></returns>
     Public Function IsDeviceRegistered() As Boolean
-        If My.Settings.AppSyncDeviceNumber > 0 Then
+        If My.Settings.AppSyncDeviceNumber <> "" Then
             Try
                 Dim client As New WebClient
                 Dim resultat As String
-                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
                 Dim queryParameters As String = "?action=IsDeviceRegistered&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
                 resultat = client.DownloadString(engineURL + queryParameters)
@@ -1059,7 +1060,7 @@ Public Class AppSyncAgent
             Try
                 Dim client As New WebClient
                 Dim resultat As String
-                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
                 Dim queryParameters As String = "?action=GetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
                 resultat = client.DownloadString(engineURL + queryParameters)
@@ -1099,7 +1100,7 @@ Public Class AppSyncAgent
             Try
                 Dim client As New WebClient
                 Dim resultat As String
-                Dim engineURL As String = "http://smartnetappsync.wampserver/engine/user/query.php"
+                Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
                 Dim queryParameters As String = "?action=SetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString() + "NewName=" + newDeviceName
 
                 resultat = client.DownloadString(engineURL + queryParameters)

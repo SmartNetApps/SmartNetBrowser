@@ -291,12 +291,11 @@ Public Class BrowserForm
         Try
             appsync = New AppSyncAgent()
             If appsync.IsDeviceRegistered() Then
-                appsync.SyncNow()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = appsync.GetUserName()
                 SeConnecterÀAppSyncToolStripMenuItem.Image = appsync.GetUserProfilePicture()
             Else
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncDeviceNumber = 0
+                My.Settings.AppSyncDeviceNumber = ""
                 msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
                 DisplayMessageBar()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
@@ -307,6 +306,15 @@ Public Class BrowserForm
             SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
             msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
+            DisplayMessageBar()
+        End Try
+
+        Try
+            If appsync.IsDeviceRegistered() Then
+                appsync.SyncNow()
+            End If
+        Catch ex As Exception
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "La synchronisation avec AppSync a échoué. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
             DisplayMessageBar()
         End Try
 
@@ -1075,10 +1083,10 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SeConnecterÀAppSyncToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeConnecterÀAppSyncToolStripMenuItem.Click
-        If My.Settings.AppSyncDeviceNumber > 0 Then
+        If My.Settings.AppSyncDeviceNumber = "" Then
             AppSyncLogin.ShowDialog()
         Else
-            AddTab("http://smartnetappsync.wampserver/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
+            AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserTabs)
         End If
     End Sub
 
@@ -1088,7 +1096,7 @@ Public Class BrowserForm
                 appsync.SyncNow()
             Else
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncDeviceNumber = 0
+                My.Settings.AppSyncDeviceNumber = ""
                 msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
                 DisplayMessageBar()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."

@@ -112,7 +112,7 @@ Public Class SettingsForm
                 RadioButtonBlockAllCookies.Checked = True
         End Select
 
-        If My.Settings.AppSyncDeviceNumber <= 0 Then
+        If My.Settings.AppSyncDeviceNumber = "" Then
             ButtonManageAccount.Enabled = False
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
@@ -402,12 +402,12 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonLoginLogout_Click(sender As Object, e As EventArgs) Handles ButtonLoginLogout.Click
-        If My.Settings.AppSyncDeviceNumber = 0 Then
+        If My.Settings.AppSyncDeviceNumber = "" Then
             AppSyncLogin.ShowDialog()
         Else
             If MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "SmartNet AppSync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncDeviceNumber = 0
+                My.Settings.AppSyncDeviceNumber = ""
                 ButtonManageAccount.Enabled = False
                 ButtonManageAccount.Visible = False
                 ButtonLoginLogout.Text = "Se connecter..."
@@ -420,7 +420,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
-        BrowserForm.AddTab("http://appsync.smartnetapps.com/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
 

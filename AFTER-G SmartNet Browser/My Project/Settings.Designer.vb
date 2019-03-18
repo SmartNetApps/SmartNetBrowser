@@ -425,10 +425,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property AppSyncDeviceNumber() As Integer
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property AppSyncDeviceNumber() As String
             Get
-                Return CType(Me("AppSyncDeviceNumber"),Integer)
+                Return CType(Me("AppSyncDeviceNumber"),String)
             End Get
             Set
                 Me("AppSyncDeviceNumber") = value

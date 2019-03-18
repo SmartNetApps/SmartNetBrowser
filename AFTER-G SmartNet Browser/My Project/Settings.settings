@@ -110,8 +110,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;port=3306;database=smartnetappsync;user=appsync_restricted;password=8QC85Cx6rEoXgrQA</Value>
     </Setting>
-    <Setting Name="AppSyncDeviceNumber" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="AppSyncDeviceNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
