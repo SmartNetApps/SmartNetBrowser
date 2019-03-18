@@ -133,8 +133,7 @@ Partial Class BrowserForm
         Me.SearchButton = New System.Windows.Forms.Button()
         Me.FavoritesButton = New System.Windows.Forms.Button()
         Me.GoButton = New System.Windows.Forms.Button()
-        Me.StopButton = New System.Windows.Forms.Button()
-        Me.RefreshButton = New System.Windows.Forms.Button()
+        Me.StopOrRefreshButton = New System.Windows.Forms.Button()
         Me.AppSyncTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MainToolbar.SuspendLayout()
         CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -789,25 +788,15 @@ Partial Class BrowserForm
         Me.GoButton.Name = "GoButton"
         Me.GoButton.UseVisualStyleBackColor = True
         '
-        'StopButton
+        'StopOrRefreshButton
         '
-        Me.StopButton.FlatAppearance.BorderSize = 0
-        Me.StopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
-        Me.StopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        resources.ApplyResources(Me.StopButton, "StopButton")
-        Me.StopButton.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
-        Me.StopButton.Name = "StopButton"
-        Me.StopButton.UseVisualStyleBackColor = True
-        '
-        'RefreshButton
-        '
-        Me.RefreshButton.FlatAppearance.BorderSize = 0
-        Me.RefreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
-        Me.RefreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        resources.ApplyResources(Me.RefreshButton, "RefreshButton")
-        Me.RefreshButton.Image = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
-        Me.RefreshButton.Name = "RefreshButton"
-        Me.RefreshButton.UseVisualStyleBackColor = True
+        Me.StopOrRefreshButton.FlatAppearance.BorderSize = 0
+        Me.StopOrRefreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.StopOrRefreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        resources.ApplyResources(Me.StopOrRefreshButton, "StopOrRefreshButton")
+        Me.StopOrRefreshButton.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
+        Me.StopOrRefreshButton.Name = "StopOrRefreshButton"
+        Me.StopOrRefreshButton.UseVisualStyleBackColor = True
         '
         'AppSyncTimer
         '
@@ -819,7 +808,7 @@ Partial Class BrowserForm
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.Controls.Add(Me.StopButton)
+        Me.Controls.Add(Me.StopOrRefreshButton)
         Me.Controls.Add(Me.GoButton)
         Me.Controls.Add(Me.FavoritesButton)
         Me.Controls.Add(Me.SearchButton)
@@ -840,7 +829,6 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.SearchBox)
         Me.Controls.Add(Me.URLBox)
         Me.Controls.Add(Me.BrowserTabs)
-        Me.Controls.Add(Me.RefreshButton)
         Me.Controls.Add(Me.MainToolbar)
         Me.KeyPreview = True
         Me.Name = "BrowserForm"
@@ -958,8 +946,7 @@ Partial Class BrowserForm
     Friend WithEvents SearchButton As Button
     Friend WithEvents FavoritesButton As Button
     Friend WithEvents GoButton As Button
-    Friend WithEvents StopButton As Button
-    Friend WithEvents RefreshButton As Button
+    Friend WithEvents StopOrRefreshButton As Button
     Friend WithEvents HistoriqueDeNavigationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HistoriqueDesRecherchesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TéléchargementsToolStripMenuItem As ToolStripMenuItem

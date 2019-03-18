@@ -219,13 +219,11 @@ Public Class BrowserForm
         End If
 
         If WB.IsBusy Then
-            StopButton.Visible = True
-            RefreshButton.Visible = False
+            StopOrRefreshButton.Image = My.Resources.StopBlack
             LoadingGif.Visible = True
             AperçuAvantImpressionToolStripMenuItem.Enabled = False
         Else
-            StopButton.Visible = False
-            RefreshButton.Visible = True
+            StopOrRefreshButton.Image = My.Resources.RefreshBlack
             LoadingGif.Visible = False
             AperçuAvantImpressionToolStripMenuItem.Enabled = True
         End If
@@ -361,17 +359,22 @@ Public Class BrowserForm
             WB.GoBack()
         End If
     End Sub
-    Private Sub RefreshPage(sender As Object, e As EventArgs) Handles ActualiserLaPageToolStripMenuItem.Click, RefreshButton.Click
+    Private Sub RefreshPage(sender As Object, e As EventArgs) Handles ActualiserLaPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         WB.Reload()
     End Sub
-    Private Sub StopPage(sender As Object, e As EventArgs) Handles StopButton.Click
+    Private Sub StopPage(sender As Object, e As EventArgs) Handles StopOrRefreshButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Stop()
-        StopButton.Visible = False
-        RefreshButton.Visible = True
         GoButton.Visible = False
-        LoadingGif.Visible = False
+        If WB.IsBusy Then
+            WB.Stop()
+            StopOrRefreshButton.Image = My.Resources.RefreshBlack
+            LoadingGif.Visible = False
+        Else
+            WB.Reload()
+            StopOrRefreshButton.Image = My.Resources.StopBlack
+            LoadingGif.Visible = True
+        End If
     End Sub
 
     Private Sub NewTabOpen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewTabButton.Click, NewTabToolStripMenuItem.Click
