@@ -5,6 +5,7 @@ Imports Gecko.Events
 
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
+    Public PointedElement As Gecko.GeckoElement
 
     Public Sub New()
         Me.NoDefaultContextMenu = True
@@ -122,7 +123,6 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
-        BrowserForm.CurrentDocument = Me.Document
         UpdateInterface()
         If My.Settings.PrivateBrowsing = False And Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or e.IsSameDocument Or e.IsErrorPage) Then
             BrowserForm.AddInHistory(New WebPage(Me.Document.Title, Me.Url.ToString()))
@@ -214,34 +214,30 @@ Public Class CustomBrowser
         End If
     End Sub
 
-    Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
-        BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
-        BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
-        BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
-        BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
-        BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
-        BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-        If CanCutSelection Or CanPaste Or CanCopySelection Then
-            BrowserForm.EditionToolStripSeparator.Visible = True
-        Else
-            BrowserForm.EditionToolStripSeparator.Visible = False
-        End If
-        BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
-    End Sub
+    'Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
+    '    BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
+    '    BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
+    '    BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
+    '    BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
+    '    BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
+    '    BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
+    '    BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
+    '    BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
+    '    BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
+    '    BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
+    '    BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
+    '    BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
+    '    BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
+    '    If CanCutSelection Or CanPaste Or CanCopySelection Then
+    '        BrowserForm.EditionToolStripSeparator.Visible = True
+    '    Else
+    '        BrowserForm.EditionToolStripSeparator.Visible = False
+    '    End If
+    '    BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
+    'End Sub
 
     Private Sub CustomBrowser_DomMouseMove(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomMouseMove
-        Try
-            BrowserForm.MousePoint = New Point(e.ClientX, e.ClientY)
-            BrowserForm.Ele = BrowserForm.CurrentDocument.ElementFromPoint(BrowserForm.MousePoint.X, BrowserForm.MousePoint.Y)
-        Catch ex As Exception
-        End Try
+        PointedElement = DomDocument.ElementFromPoint(e.ClientX, e.ClientY)
     End Sub
 
     Private Sub CustomBrowser_StatusTextChanged(sender As Object, e As EventArgs) Handles Me.StatusTextChanged
@@ -298,11 +294,8 @@ Public Class CustomBrowser
         BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
         BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
         BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-        If CanCutSelection Or CanPaste Or CanCopySelection Then
-            BrowserForm.EditionToolStripSeparator.Visible = True
-        Else
-            BrowserForm.EditionToolStripSeparator.Visible = False
-        End If
+        BrowserForm.EditionToolStripSeparator.Visible = (CanCutSelection Or CanPaste Or CanCopySelection)
+
         BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
