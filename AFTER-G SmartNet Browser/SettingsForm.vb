@@ -420,7 +420,8 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
-        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + appsync.GenerateToken(), BrowserForm.BrowserTabs)
+        Dim token As String = appsync.GenerateToken()
+        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + token, BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
 

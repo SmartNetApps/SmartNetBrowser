@@ -487,38 +487,20 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Function GenerateToken() As String
         Try
-            Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-            connection.Open()
-            Dim firstQuery As String = "DELETE FROM jetondeconnexion WHERE idUtilisateur = @userid"
-            Dim firstCommand As New MySqlCommand()
-            firstCommand.Connection = connection
-            firstCommand.CommandText = firstQuery
-            firstCommand.Prepare()
-            firstCommand.Parameters.AddWithValue("@userid", GetUserID())
-            firstCommand.ExecuteReader()
-            connection.Close()
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
+            Dim queryParameters As String = "?action=GenerateToken&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
 
-            Dim newToken As String
-            Dim s As String = "0aAbBc1CdDeE2fFgGh3HiIjJ4kKlLm5MnNoO6pPqQr7RsStT8uUvVw9WxXyYzZ"
-            Dim r As New Random
-            Dim sb As New StringBuilder
-            For i As Integer = 1 To 64
-                Dim idx As Integer = r.Next(0, 35)
-                sb.Append(s.Substring(idx, 1))
-            Next
-            newToken = sb.ToString()
+            resultat = client.DownloadString(engineURL + queryParameters)
 
-            connection.Open()
-            Dim secondQuery As String = "INSERT INTO jetondeconnexion(idUtilisateur, codeJeton) VALUES(@userid, @newToken)"
-            Dim secondCommand As New MySqlCommand()
-            secondCommand.Connection = connection
-            secondCommand.CommandText = secondQuery
-            secondCommand.Prepare()
-            secondCommand.Parameters.AddWithValue("@userid", GetUserID())
-            secondCommand.Parameters.AddWithValue("@newToken", newToken)
-            secondCommand.ExecuteReader()
-            connection.Close()
-            Return newToken
+            If resultat.Contains("err#") Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat = "false" Then
+                Return "False"
+            Else
+                Return resultat
+            End If
         Catch ex As Exception
             BrowserForm.msgBar = New MessageBar(ex, "Une erreur est survenue lors de la génération du jeton de connexion.")
             BrowserForm.DisplayMessageBar()
