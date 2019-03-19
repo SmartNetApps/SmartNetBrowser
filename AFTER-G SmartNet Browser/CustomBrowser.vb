@@ -214,28 +214,6 @@ Public Class CustomBrowser
         End If
     End Sub
 
-    Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomContextMenu
-        BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
-        BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
-        BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
-        BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
-        BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
-        BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-        If CanCutSelection Or CanPaste Or CanCopySelection Then
-            BrowserForm.EditionToolStripSeparator.Visible = True
-        Else
-            BrowserForm.EditionToolStripSeparator.Visible = False
-        End If
-        BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
-    End Sub
-
     Private Sub CustomBrowser_DomMouseMove(sender As Object, e As Gecko.DomMouseEventArgs) Handles Me.DomMouseMove
         PointedElement = DomDocument.ElementFromPoint(e.ClientX, e.ClientY)
     End Sub
@@ -278,25 +256,6 @@ Public Class CustomBrowser
         Else
             CType(Me.Tag, TabPage).BackColor = Color.LightYellow
         End If
-    End Sub
-
-    Private Sub CustomBrowser_ShowContextMenu(sender As Object, e As Gecko.GeckoContextMenuEventArgs) Handles Me.ShowContextMenu
-        BrowserForm.CopierLadresseDeLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.EnregistrerLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.AfficherLimageToolStripMenuItem.Visible = CanCopyImageLocation
-        BrowserForm.ImageToolStripSeparator.Visible = CanCopyImageLocation
-        BrowserForm.CopierLadresseDuLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirLeLienToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.AjouterLeLienAuxFavorisToolStripMenuItem.Visible = CanCopyLinkLocation
-        BrowserForm.LinkToolStripSeparator.Visible = CanCopyLinkLocation
-        BrowserForm.CouperToolStripMenuItem1.Visible = CanCutSelection
-        BrowserForm.CollerToolStripMenuItem1.Visible = CanPaste
-        BrowserForm.CopierToolStripMenuItem1.Visible = CanCopySelection
-        BrowserForm.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Visible = CanCopySelection
-        BrowserForm.EditionToolStripSeparator.Visible = (CanCutSelection Or CanPaste Or CanCopySelection)
-
-        BrowserForm.BrowserContextMenuStrip.Show(MousePosition)
     End Sub
 
     ''' <summary>

@@ -89,7 +89,6 @@ Partial Class BrowserForm
         Me.URLBox = New System.Windows.Forms.ComboBox()
         Me.SearchBox = New System.Windows.Forms.ComboBox()
         Me.UpdateNotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.BrowserContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OuvrirLeLienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OuvrirDansUnNouvelOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -109,8 +108,6 @@ Partial Class BrowserForm
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.PropriétésToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveImageDialog = New System.Windows.Forms.SaveFileDialog()
-        Me.SavePageDialog = New System.Windows.Forms.SaveFileDialog()
         Me.BrowserTabs = New System.Windows.Forms.TabControl()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TabsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -501,10 +498,6 @@ Partial Class BrowserForm
         Me.UpdateNotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
         resources.ApplyResources(Me.UpdateNotifyIcon, "UpdateNotifyIcon")
         '
-        'OpenFileDialog1
-        '
-        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
-        '
         'BrowserContextMenuStrip
         '
         Me.BrowserContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OuvrirLeLienToolStripMenuItem, Me.OuvrirDansUnNouvelOngletToolStripMenuItem, Me.CopierLadresseDuLienToolStripMenuItem, Me.AjouterLeLienAuxFavorisToolStripMenuItem, Me.LinkToolStripSeparator, Me.EnregistrerLimageToolStripMenuItem, Me.CopierLadresseDeLimageToolStripMenuItem, Me.AfficherLimageToolStripMenuItem, Me.ImageToolStripSeparator, Me.CouperToolStripMenuItem1, Me.CopierToolStripMenuItem1, Me.CollerToolStripMenuItem1, Me.LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem, Me.EditionToolStripSeparator, Me.ActualiserLaPageToolStripMenuItem, Me.ToolStripSeparator7, Me.PropriétésToolStripMenuItem, Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem})
@@ -600,15 +593,6 @@ Partial Class BrowserForm
         '
         Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem.Name = "AfficherLeCodeSourceDeLaPageToolStripMenuItem"
         resources.ApplyResources(Me.AfficherLeCodeSourceDeLaPageToolStripMenuItem, "AfficherLeCodeSourceDeLaPageToolStripMenuItem")
-        '
-        'SaveImageDialog
-        '
-        resources.ApplyResources(Me.SaveImageDialog, "SaveImageDialog")
-        '
-        'SavePageDialog
-        '
-        Me.SavePageDialog.DefaultExt = "html"
-        resources.ApplyResources(Me.SavePageDialog, "SavePageDialog")
         '
         'BrowserTabs
         '
@@ -861,7 +845,6 @@ Partial Class BrowserForm
     Friend WithEvents NouvelleVersionDisponibleSubMenu As ToolStripMenuItem
     Friend WithEvents TéléchargerLaVersionXXXXToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FermerSmartNetBrowserToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents NewTabToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseTabToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
@@ -901,9 +884,7 @@ Partial Class BrowserForm
     Friend WithEvents CollerToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents EditionToolStripSeparator As ToolStripSeparator
     Friend WithEvents LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SaveImageDialog As SaveFileDialog
     Friend WithEvents EnvoyerVosCommentairesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SavePageDialog As SaveFileDialog
     Friend WithEvents BrowserTabs As TabControl
     Friend WithEvents LoadingGif As PictureBox
     Friend WithEvents ZoomToolStripMenuItem As ToolStripMenuItem

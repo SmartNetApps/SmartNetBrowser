@@ -406,22 +406,31 @@ Public Class BrowserForm
         GoButton.Visible = True
     End Sub
 
-    Private Sub SavePageAs(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
+    Private Sub SavePageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim sfd As New SaveFileDialog
+        sfd.Title = "Enregistrer la page sous..."
+        sfd.DefaultExt = WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c))
+        sfd.Filter = "*." + WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c))
+
         Try
-            If SavePageDialog.ShowDialog = DialogResult.OK Then
-                WB.SaveDocument(SavePageDialog.FileName)
+            If sfd.ShowDialog() = DialogResult.OK Then
+                WB.SaveDocument(sfd.FileName)
             End If
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
         End Try
     End Sub
-    Private Sub OpenDocument(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
+    Private Sub OpenPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim ofd As New OpenFileDialog
+        ofd.Title = "Ouvrir un document dans SmartNet Browser"
+        ofd.Filter = "Pages Web HTML|*.html;*.htm;*.shtml;*.xhtml|Fichiers XML|*.xml|Fichiers texte|*.txt;*.text|Images|*.jpe;*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;*.drw;*.pct;*.psp;*.xcf;*.psd;*.raw|Tous les fichiers|*.*"
+
         Try
-            If OpenFileDialog1.ShowDialog <> DialogResult.Cancel Then
-                WB.Navigate(OpenFileDialog1.FileName)
+            If ofd.ShowDialog() <> DialogResult.Cancel Then
+                WB.Navigate(ofd.FileName)
             End If
         Catch ex As Exception
             msgBar = New MessageBar(ex)
@@ -702,21 +711,22 @@ Public Class BrowserForm
     Private Sub OuvrirLeLienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirLeLienToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            Dim lnk As String = "about:blank"
+            Dim href As String = "about:blank"
 
-            If WB.CanCopyLinkLocation Then
-                If WB.PointedElement.TagName = "a" Then
-                    lnk = WB.PointedElement.GetAttribute("href")
+            If WB.PointedElement.TagName.ToUpper = "A" Then
+                href = WB.PointedElement.GetAttribute("HREF")
+            Else
+                Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("A")
+                If childElements.Length <> 0 Then
+                    href = childElements.Item(0UI).GetAttribute("HREF")
                 Else
-                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("a")
-                    If childElements.Length <> 0 Then
-                        lnk = childElements.Item(0UI).GetAttribute("href")
-                    Else
-                        lnk = WB.PointedElement.ParentElement.GetAttribute("href")
-                    End If
+                    href = WB.PointedElement.ParentElement.GetAttribute("HREF")
                 End If
-                WB.Navigate(lnk)
             End If
+            If Not href.Contains("://") Then
+                href = WB.Url.Host + "/" + href
+            End If
+            WB.Navigate(href)
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
@@ -726,21 +736,22 @@ Public Class BrowserForm
     Public Sub OuvrirDansUnNouvelOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirDansUnNouvelOngletToolStripMenuItem.Click
         Try
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-            Dim lnk As String = "about:blank"
+            Dim href As String = "about:blank"
 
-            If WB.CanCopyLinkLocation Then
-                If WB.PointedElement.TagName = "a" Then
-                    lnk = WB.PointedElement.GetAttribute("href")
+            If WB.PointedElement.TagName.ToUpper = "A" Then
+                href = WB.PointedElement.GetAttribute("HREF")
+            Else
+                Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("A")
+                If childElements.Length <> 0 Then
+                    href = childElements.Item(0UI).GetAttribute("HREF")
                 Else
-                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("a")
-                    If childElements.Length <> 0 Then
-                        lnk = childElements.Item(0UI).GetAttribute("href")
-                    Else
-                        lnk = WB.PointedElement.ParentElement.GetAttribute("href")
-                    End If
+                    href = WB.PointedElement.ParentElement.GetAttribute("HREF")
                 End If
-                AddTab(lnk, BrowserTabs)
             End If
+            If Not href.Contains("://") Then
+                href = WB.Url.Host + "/" + href
+            End If
+            AddTab(href, BrowserTabs)
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
@@ -749,8 +760,18 @@ Public Class BrowserForm
 
     Private Sub CopierLadresseDuLienToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopierLadresseDuLienToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim href As String = "about:blank"
+
         If WB.CanCopyLinkLocation = True Then
             WB.CopyLinkLocation()
+        Else
+            If WB.PointedElement.TagName.ToUpper = "A" Then
+                href = WB.PointedElement.GetAttribute("HREF")
+                If Not href.Contains("://") Then
+                    href = WB.Url.Host + "/" + href
+                End If
+                Clipboard.SetText(href)
+            End If
         End If
     End Sub
 
@@ -760,14 +781,14 @@ Public Class BrowserForm
             Dim lnk As String = "about:blank"
 
             If WB.CanCopyLinkLocation Then
-                If WB.PointedElement.TagName = "a" Then
-                    lnk = WB.PointedElement.GetAttribute("href")
+                If WB.PointedElement.TagName = "A" Then
+                    lnk = WB.PointedElement.GetAttribute("HREF")
                 Else
-                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("a")
+                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("A")
                     If childElements.Length <> 0 Then
-                        lnk = childElements.Item(0UI).GetAttribute("href")
+                        lnk = childElements.Item(0UI).GetAttribute("HREF")
                     Else
-                        lnk = WB.PointedElement.ParentElement.GetAttribute("href")
+                        lnk = WB.PointedElement.ParentElement.GetAttribute("HREF")
                     End If
                 End If
                 AddInFavorites(New WebPage(lnk))
@@ -790,26 +811,30 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             Dim src As String = "about:blank"
 
-            If WB.CanCopyImageLocation Then
-                If WB.PointedElement.TagName = "img" Then
-                    src = WB.PointedElement.GetAttribute("src")
+            If WB.PointedElement.TagName.ToUpper = "IMG" Then
+                src = WB.PointedElement.GetAttribute("SRC")
+            Else
+                Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("IMG")
+                If childElements.Length <> 0 Then
+                    src = childElements.Item(0UI).GetAttribute("SRC")
                 Else
-                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("img")
-                    If childElements.Length <> 0 Then
-                        src = childElements.Item(0UI).GetAttribute("src")
-                    Else
-                        src = WB.PointedElement.ParentElement.GetAttribute("src")
-                    End If
+                    src = WB.PointedElement.ParentElement.GetAttribute("SRC")
                 End If
-                Dim FileExtension As String = src.Substring(src.LastIndexOf(".") + 1)
-                Dim FileName As String = src.Substring(src.LastIndexOf("/") + 1)
-                Dim ImageDownloader As New WebClient
-                SaveImageDialog.FileName = FileName
-                SaveImageDialog.DefaultExt = FileExtension
-                SaveImageDialog.Filter = "Image|*." + FileExtension
-                If SaveImageDialog.ShowDialog = MsgBoxResult.Ok Then
-                    ImageDownloader.DownloadFile(src, SaveImageDialog.FileName.ToString)
-                End If
+            End If
+            If Not src.Contains("://") Then
+                src = WB.Url.Host + "/" + src
+            End If
+
+            Dim FileExtension As String = src.Substring(src.LastIndexOf(".") + 1)
+            Dim FileName As String = src.Substring(src.LastIndexOf("/") + 1)
+            Dim ImageDownloader As New WebClient
+            Dim SaveImageDialog As New SaveFileDialog
+            SaveImageDialog.Title = "Enregistrer l'image sous..."
+            SaveImageDialog.FileName = FileName
+            SaveImageDialog.DefaultExt = FileExtension
+            SaveImageDialog.Filter = "Image " + FileExtension.ToUpper() + "|*." + FileExtension
+            If SaveImageDialog.ShowDialog() = MsgBoxResult.Ok Then
+                ImageDownloader.DownloadFile(src, SaveImageDialog.FileName.ToString)
             End If
         Catch ex As Exception
             msgBar = New MessageBar(ex)
@@ -819,8 +844,18 @@ Public Class BrowserForm
 
     Private Sub CopierLadresseDeLimageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopierLadresseDeLimageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim src As String
+
         If WB.CanCopyImageLocation = True Then
             WB.CopyImageLocation()
+        Else
+            If WB.PointedElement.TagName.ToUpper = "IMG" Then
+                src = WB.PointedElement.GetAttribute("SRC")
+                If Not src.Contains("://") Then
+                    src = WB.Url.Host + "/" + src
+                End If
+                Clipboard.SetText(src)
+            End If
         End If
     End Sub
 
@@ -829,19 +864,20 @@ Public Class BrowserForm
             Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
             Dim src As String = "about:blank"
 
-            If WB.CanCopyImageLocation Then
-                If WB.PointedElement.TagName = "img" Then
-                    src = WB.PointedElement.GetAttribute("src")
+            If WB.PointedElement.TagName.ToUpper = "IMG" Then
+                src = WB.PointedElement.GetAttribute("SRC")
+            Else
+                Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("IMG")
+                If childElements.Length <> 0 Then
+                    src = childElements.Item(0UI).GetAttribute("SRC")
                 Else
-                    Dim childElements As Gecko.Collections.IDomHtmlCollection(Of Gecko.GeckoElement) = WB.PointedElement.GetElementsByTagName("img")
-                    If childElements.Length <> 0 Then
-                        src = childElements.Item(0UI).GetAttribute("src")
-                    Else
-                        src = WB.PointedElement.ParentElement.GetAttribute("src")
-                    End If
+                    src = WB.PointedElement.ParentElement.GetAttribute("SRC")
                 End If
-                WB.Navigate(src)
             End If
+            If Not src.Contains("://") Then
+                src = WB.Url.Host + "/" + src
+            End If
+            WB.Navigate(src)
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
@@ -880,15 +916,32 @@ Public Class BrowserForm
 
     Private Sub BrowserContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles BrowserContextMenuStrip.Opening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        CopierLadresseDeLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-        EnregistrerLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-        AfficherLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
-        ImageToolStripSeparator.Visible = WB.CanCopyImageLocation
-        CopierLadresseDuLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-        OuvrirLeLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-        OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-        AjouterLeLienAuxFavorisToolStripMenuItem.Visible = WB.CanCopyLinkLocation
-        LinkToolStripSeparator.Visible = WB.CanCopyLinkLocation
+        Select Case WB.PointedElement.TagName.ToUpper
+            Case "IMG"
+                CopierLadresseDeLimageToolStripMenuItem.Visible = True
+                EnregistrerLimageToolStripMenuItem.Visible = True
+                AfficherLimageToolStripMenuItem.Visible = True
+                ImageToolStripSeparator.Visible = True
+
+            Case "A"
+                CopierLadresseDuLienToolStripMenuItem.Visible = True
+                OuvrirLeLienToolStripMenuItem.Visible = True
+                OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = True
+                AjouterLeLienAuxFavorisToolStripMenuItem.Visible = True
+                LinkToolStripSeparator.Visible = True
+
+            Case Else
+                CopierLadresseDeLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+                EnregistrerLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+                AfficherLimageToolStripMenuItem.Visible = WB.CanCopyImageLocation
+                ImageToolStripSeparator.Visible = WB.CanCopyImageLocation
+                CopierLadresseDuLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+                OuvrirLeLienToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+                OuvrirDansUnNouvelOngletToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+                AjouterLeLienAuxFavorisToolStripMenuItem.Visible = WB.CanCopyLinkLocation
+                LinkToolStripSeparator.Visible = WB.CanCopyLinkLocation
+        End Select
+
         CouperToolStripMenuItem1.Visible = WB.CanCutSelection
         CollerToolStripMenuItem1.Visible = WB.CanPaste
         CopierToolStripMenuItem1.Visible = WB.CanCopySelection
@@ -1041,11 +1094,11 @@ Public Class BrowserForm
         Dim tabPageToRemove As TabPage = BrowserTabs.TabPages.Item(tabPageIndex)
         Dim WB As CustomBrowser = CType(tabPageToRemove.Tag, CustomBrowser)
         Try
-            WB.Navigate("about:blank")
+            WB.Dispose()
             If BrowserTabs.TabPages.Count = 1 Then
                 CloseSmartNetBrowser()
             Else
-                lastClosedTab = WB.Url.ToString
+                lastClosedTab = WB.Url.ToString()
                 BrowserTabs.TabPages.Remove(tabPageToRemove)
             End If
         Catch ex As Exception

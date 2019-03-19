@@ -30,7 +30,7 @@
            lesquelles elle doit fonctionner. Supprimez les marques de commentaire des éléments appropriés, et Windows va 
            automatiquement sélectionner l'environnement le plus compatible. -->
       <!-- Windows Vista -->
-      <supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />
+      <!-- <supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" /> -->
       <!-- Windows 7 -->
       <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />
       <!-- Windows 8 -->
@@ -53,9 +53,8 @@
   </application>
   -->
   <!-- Activer les thèmes pour les contrôles et boîtes de dialogue communes de Windows (Windows XP et version ultérieure) -->
-  <!--
   <dependency>
-    <dependentAssembly>
+    <!--<dependentAssembly>
       <assemblyIdentity
           type="win32"
           name="Microsoft.Windows.Common-Controls"
@@ -64,7 +63,9 @@
           publicKeyToken="6595b64144ccf1df"
           language="*"
         />
-    </dependentAssembly>
+    </dependentAssembly>-->
+    <!--<dependentAssembly>
+      <assemblyIdentity type="win32" name="Microsoft.VC80.CRT" version="8.0.50727.762" processorArchitecture="x86" publicKeyToken="1fc8b3b9a1e18e3b"></assemblyIdentity>
+    </dependentAssembly>-->
   </dependency>
-  -->
 </assembly>
