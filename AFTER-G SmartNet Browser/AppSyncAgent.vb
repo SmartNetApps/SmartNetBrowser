@@ -274,9 +274,25 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function GetSearchHistory() As Specialized.StringCollection
+    Public Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
         Try
-            Return Nothing
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
+            Dim queryParameters As String = "?action=GetSearchHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            Else
+                Dim searchhistory As List(Of String) = JsonConvert.DeserializeObject(Of List(Of String))(resultat)
+                Dim list As New Specialized.StringCollection()
+                For Each p In searchhistory
+                    list.Add(p)
+                Next
+                Return list
+            End If
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la réception de votre historique de recherche depuis AppSync.", ex)
             Return Nothing
@@ -338,9 +354,22 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Function AddSearchHistory(query As String) As Boolean
+    Public Async Function AddSearchHistory(query As String) As Task(Of Boolean)
         Try
-            Return True
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
+            Dim queryParameters As String = "?action=AddSearchHistory&texte=" + query + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression d'un historique de recherche sur AppSync.", ex)
             Return False
@@ -398,6 +427,28 @@ Public Class AppSyncAgent
             End If
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de la suppression du favori sur AppSync.", ex)
+            Return False
+        End Try
+    End Function
+
+    Public Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
+        Try
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
+            Dim queryParameters As String = "?action=DeleteSearchHistory&texte=" + query + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+
+            resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+
+            If (resultat.Contains("err#")) Then
+                Throw New AppSyncException(resultat.Substring(4))
+            ElseIf (resultat = "false") Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            Throw New AppSyncException("Une erreur est survenue lors de la suppression de l'historique de recherche sur AppSync.", ex)
             Return False
         End Try
     End Function
@@ -495,6 +546,8 @@ Public Class AppSyncAgent
         Dim theOnlineHistory As WebPageList = Await GetHistory()
         Dim theFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         Dim theOnlineFavorites As WebPageList = Await GetFavorites()
+        Dim theSearchHistory As Specialized.StringCollection = My.Settings.SearchHistory
+        Dim theOnlineSearchHistory As Specialized.StringCollection = Await GetSearchHistory()
 
         If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
             config = Await SendConfig()
@@ -510,7 +563,6 @@ Public Class AppSyncAgent
                     Await DeleteHistory(p)
                 End If
             Next
-            'My.Settings.History = theHistory.ToStringCollection()
 
             For Each p As WebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
@@ -523,7 +575,18 @@ Public Class AppSyncAgent
                     Await DeleteFavorite(op)
                 End If
             Next
-            'My.Settings.Favorites = theFavorites.ToStringCollection()
+
+            For Each q As String In theSearchHistory
+                If theOnlineSearchHistory.Contains(q) = False Then
+                    Await AddSearchHistory(q)
+                End If
+            Next
+
+            For Each q As String In theOnlineSearchHistory
+                If theSearchHistory.Contains(q) = False Then
+                    Await DeleteSearchHistory(q)
+                End If
+            Next
         Else
             config = Await GetConfig()
 
@@ -542,6 +605,12 @@ Public Class AppSyncAgent
                 End If
             Next
 
+            For Each q As String In theSearchHistory
+                If theOnlineSearchHistory.Contains(q) = False Then
+                    theSearchHistory.Remove(q)
+                End If
+            Next
+
             For Each p As WebPage In theOnlineHistory
                 If theNewHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
                     theNewHistory.Add(p)
@@ -555,11 +624,16 @@ Public Class AppSyncAgent
                 End If
             Next
 
+            For Each q As String In theOnlineSearchHistory
+                If theSearchHistory.Contains(q) = False Then
+                    theSearchHistory.Add(q)
+                End If
+            Next
+
             My.Settings.History = theNewHistory.ToStringCollection()
             My.Settings.Favorites = theNewFavorites.ToStringCollection()
+            My.Settings.SearchHistory = theSearchHistory
         End If
-
-        'Il manque l'historique de recherche
 
         Dim synctime As Boolean = Await RefreshSyncTime()
         SettingsForm.ButtonSyncNow.Text = "Synchroniser maintenant"
