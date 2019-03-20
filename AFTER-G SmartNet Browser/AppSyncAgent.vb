@@ -152,22 +152,22 @@ Public Class AppSyncAgent
                 Throw New AppSyncException(resultat.Substring(4))
             Else
                 Dim config As BrowserConfig = JsonConvert.DeserializeObject(Of BrowserConfig)(resultat)
-                My.Settings.PrivateBrowsing = config.privateBrowsing
-                My.Settings.PreventMultipleTabsClose = config.preventMultipleTabsClose
+                My.Settings.PrivateBrowsing = CBool(config.privateBrowsing)
+                My.Settings.PreventMultipleTabsClose = CBool(config.preventMultipleTabsClose)
                 My.Settings.SearchEngine = config.searchEngine
                 My.Settings.CustomSearchURL = config.customSearchURL
                 My.Settings.CustomSearchName = config.customSearchName
-                My.Settings.AdBlocker = config.adBlocker
-                My.Settings.ChildrenProtection = config.childrenProtection
+                My.Settings.AdBlocker = CBool(config.adBlocker)
+                My.Settings.ChildrenProtection = CBool(config.childrenProtection)
                 My.Settings.ChildrenProtectionPassword = config.childrenProtectionPassword
-                My.Settings.BrowserSettingsSecurity = config.browserSettingsSecurity
+                My.Settings.BrowserSettingsSecurity = CBool(config.browserSettingsSecurity)
                 My.Settings.BrowserSettingsSecurityPassword = config.browserSettingsSecurityPassword
-                My.Settings.DeleteCookiesWhileClosing = config.deleteCookiesWhileClosing
-                My.Settings.PopUpBlocker = config.popUpBlocker
+                My.Settings.DeleteCookiesWhileClosing = CBool(config.deleteCookiesWhileClosing)
+                My.Settings.PopUpBlocker = CBool(config.popUpBlocker)
                 My.Settings.Homepage = config.homepage
                 My.Settings.UserAgentLanguage = config.userAgentLanguage
-                My.Settings.HistoryFavoritesSecurity = config.historyFavoritesSecurity
-                My.Settings.DoNotTrack = config.doNotTrack
+                My.Settings.HistoryFavoritesSecurity = CBool(config.historyFavoritesSecurity)
+                My.Settings.DoNotTrack = CBool(config.doNotTrack)
                 My.Settings.AppSyncLastSyncTime = config.lastSyncDateTime
                 Return True
             End If
@@ -185,22 +185,22 @@ Public Class AppSyncAgent
         Try
             Dim config As New BrowserConfig
 
-            config.privateBrowsing = My.Settings.PrivateBrowsing
-            config.preventMultipleTabsClose = My.Settings.PreventMultipleTabsClose
+            config.privateBrowsing = CInt(My.Settings.PrivateBrowsing)
+            config.preventMultipleTabsClose = CInt(My.Settings.PreventMultipleTabsClose)
             config.searchEngine = My.Settings.SearchEngine
             config.customSearchURL = My.Settings.CustomSearchURL
             config.customSearchName = My.Settings.CustomSearchName
-            config.adBlocker = My.Settings.AdBlocker
-            config.childrenProtection = My.Settings.ChildrenProtection
+            config.adBlocker = CInt(My.Settings.AdBlocker)
+            config.childrenProtection = CInt(My.Settings.ChildrenProtection)
             config.childrenProtectionPassword = My.Settings.ChildrenProtectionPassword
-            config.browserSettingsSecurity = My.Settings.BrowserSettingsSecurity
+            config.browserSettingsSecurity = CInt(My.Settings.BrowserSettingsSecurity)
             config.browserSettingsSecurityPassword = My.Settings.BrowserSettingsSecurityPassword
-            config.deleteCookiesWhileClosing = My.Settings.DeleteCookiesWhileClosing
-            config.popUpBlocker = My.Settings.PopUpBlocker
+            config.deleteCookiesWhileClosing = CInt(My.Settings.DeleteCookiesWhileClosing)
+            config.popUpBlocker = CInt(My.Settings.PopUpBlocker)
             config.homepage = My.Settings.Homepage
             config.userAgentLanguage = My.Settings.UserAgentLanguage
-            config.historyFavoritesSecurity = My.Settings.HistoryFavoritesSecurity
-            config.doNotTrack = My.Settings.DoNotTrack
+            config.historyFavoritesSecurity = CInt(My.Settings.HistoryFavoritesSecurity)
+            config.doNotTrack = CInt(My.Settings.DoNotTrack)
             config.lastSyncDateTime = My.Settings.AppSyncLastSyncTime
 
             Dim jsonconfig As String = JsonConvert.SerializeObject(config)
@@ -282,36 +282,6 @@ Public Class AppSyncAgent
             Return Nothing
         End Try
     End Function
-
-    '''' <summary>
-    '''' Charge la dernière date et heure de synchronisation de l'historique.
-    '''' </summary>
-    '''' <returns></returns>
-    'Public Function LastHistorySyncTime() As Date
-    '    Try
-    '        Dim connection As New MySqlConnection(My.Settings.mysqlconnection)
-    '        connection.Open()
-    '        Dim dataReader As MySqlDataReader
-    '        Dim query As String = "SELECT MAX(pageVisitDateTime) AS lastSyncDateTime from browserhistory WHERE idUtilisateur = @userid"
-    '        Dim command As New MySqlCommand()
-    '        command.Connection = connection
-    '        command.CommandText = query
-    '        command.Prepare()
-    '        command.Parameters.AddWithValue("@userid", GetUserID())
-    '        dataReader = command.ExecuteReader
-    '        Dim result As Date
-    '        If dataReader.Read() Then
-    '            result = dataReader.GetDateTime("lastSyncDateTime")
-    '        Else
-    '            result = New Date(1, 1, 1)
-    '        End If
-    '        connection.Close()
-    '        Return result
-    '    Catch ex As Exception
-    '        Throw New AppSyncException("Une erreur est survenue lors de la récupération de la dernière date de synchronisation de votre historique de navigation depuis AppSync.", ex)
-    '        Return New Date(1, 1, 1)
-    '    End Try
-    'End Function
 
     Public Async Function AddHistory(page As WebPage) As Task(Of Boolean)
         Try
@@ -449,7 +419,7 @@ Public Class AppSyncAgent
             If resultat.Contains("err#") Then
                 Throw New AppSyncException(resultat.Substring(4))
             Else
-                Return New Date(resultat.Substring(0, 4), resultat.Substring(5, 2), resultat.Substring(8, 2), resultat.Substring(11, 2), resultat.Substring(14, 2), resultat.Substring(17, 2))
+                Return New Date(CInt(resultat.Substring(0, 4)), CInt(resultat.Substring(5, 2)), CInt(resultat.Substring(8, 2)), CInt(resultat.Substring(11, 2)), CInt(resultat.Substring(14, 2)), CInt(resultat.Substring(17, 2)))
             End If
         Catch ex As Exception
             Throw New AppSyncException("Impossible de récupérer la date de dernière synchronisation de votre compte AppSync.", ex)
