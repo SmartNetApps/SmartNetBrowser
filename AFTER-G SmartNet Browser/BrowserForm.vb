@@ -19,6 +19,7 @@ Public Class BrowserForm
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInHistory(page As WebPage)
         Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Historique.Add(page)
         My.Settings.History = Historique.ToStringCollection()
         My.Settings.Save()
         URLBox.Items.Add(page.GetURL())
