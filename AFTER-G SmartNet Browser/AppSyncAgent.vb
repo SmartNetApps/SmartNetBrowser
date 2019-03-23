@@ -641,13 +641,13 @@ Public Class AppSyncAgent
 
                 For Each p As WebPage In theHistory
                     If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                        theNewHistory.Remove(p)
+                        theNewHistory.Remove(p, True)
                     End If
                 Next
 
                 For Each p As WebPage In theFavorites
                     If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
-                        theNewFavorites.Remove(p)
+                        theNewFavorites.Remove(p, False)
                     End If
                 Next
 

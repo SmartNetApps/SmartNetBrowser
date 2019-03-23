@@ -18,6 +18,30 @@ Public Class WebPageList
         Return listToReturn
     End Function
 
+    Public Function Clone() As WebPageList
+        Return CType(Me.MemberwiseClone(), WebPageList)
+    End Function
+
+    Public Overloads Function Remove(item As WebPage, compareDate As Boolean) As Boolean
+        Dim theList As New WebPageList()
+        For Each page In Me
+            theList.Add(page)
+        Next
+
+        For Each page As WebPage In theList
+            If page.GetURL() = item.GetURL() And page.GetNom() = item.GetNom() Then
+                If compareDate = True Then
+                    If page.GetVisitDateTime() = item.GetVisitDateTime() Then
+                        Me.Remove(page)
+                    End If
+                Else
+                    Me.Remove(page)
+                End If
+            End If
+        Next
+        Return True
+    End Function
+
     ''' <summary>
     ''' Construit une WebPageList à partir d'une StringCollection correctement construite.
     ''' </summary>
