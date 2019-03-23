@@ -484,7 +484,9 @@ Public Class SettingsForm
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         My.Settings.Save()
         Try
-            appsync.SendConfig()
+            If My.Settings.AppSyncDeviceNumber <> "" Then
+                appsync.SendConfig()
+            End If
         Catch ex As AppSyncException
             BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
             BrowserForm.DisplayMessageBar()
