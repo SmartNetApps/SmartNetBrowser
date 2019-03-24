@@ -105,8 +105,10 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        UpdateInterface()
+        BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
+        BrowserForm.LoadingGif.Visible = False
         Favicon = GetCurrentPageFavicon()
+        UpdateInterface()
     End Sub
 
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
@@ -256,27 +258,30 @@ Public Class CustomBrowser
             If Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then
                 Return My.Resources._2019_SmartNetBrowser_32
             Else
-                Dim metaLinks As GeckoElementCollection = Me.DomDocument.GetElementsByTagName("LINK")
-                For Each element In metaLinks
-                    If element.GetAttribute("REL").ToUpper() = "ICON" Then
-                        faviconPath = element.GetAttribute("HREF")
-                        If faviconPath.Contains("://") = False Then
-                            If Me.Url.Host.Contains("/") Or faviconPath.Substring(0, 1) = "/" Then
-                                faviconPath = "http://" + Me.Url.Host + faviconPath
-                            Else
-                                faviconPath = "http://" + Me.Url.Host + "/" + faviconPath
+                Try
+                    Dim metaLinks As GeckoElementCollection = Me.DomDocument.GetElementsByTagName("LINK")
+                    For Each element In metaLinks
+                        If element.GetAttribute("REL").ToUpper() = "ICON" Then
+                            faviconPath = element.GetAttribute("HREF")
+                            If faviconPath.Contains("://") = False Then
+                                If Me.Url.Host.Contains("/") Or faviconPath.Substring(0, 1) = "/" Then
+                                    faviconPath = "http://" + Me.Url.Host + faviconPath
+                                Else
+                                    faviconPath = "http://" + Me.Url.Host + "/" + faviconPath
+                                End If
                             End If
+                            GoTo FaviconFound
                         End If
-                        GoTo FaviconFound
-                    End If
-                Next
-
+                    Next
+                Catch ex As Exception
+                    GoTo FaviconNotFound
+                End Try
+FaviconNotFound:
                 If Me.Url.HostNameType = UriHostNameType.Dns Then
                     faviconPath = "http://" & Me.Url.Host & "/favicon.ico"
                 Else
                     Return My.Resources.ErrorFavicon
                 End If
-
 FaviconFound:
                 Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(faviconPath)
                 Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
