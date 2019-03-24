@@ -15,8 +15,8 @@ Public Class AppSyncAgent
 
     Structure BrowserConfig
         Dim idBrowserConfig, searchEngine, idUtilisateur As Integer
-        Dim privateBrowsing, preventMultipleTabsClose, adBlocker, childrenProtection, browserSettingsSecurity, deleteCookiesWhileClosing, popUpBlocker, historyFavoritesSecurity, doNotTrack As Integer
-        Dim customSearchURL, customSearchName, childrenProtectionPassword, browserSettingsSecurityPassword, homepage, adBlockerWhitelist, userAgentLanguage As String
+        Dim privateBrowsing, preventMultipleTabsClose, adBlocker, deleteCookiesWhileClosing, popUpBlocker, doNotTrack As Integer
+        Dim customSearchURL, customSearchName, homepage, adBlockerWhitelist, userAgentLanguage As String
         Dim lastSyncDateTime As Date
     End Structure
 
@@ -168,17 +168,11 @@ Public Class AppSyncAgent
                 My.Settings.CustomSearchURL = config.customSearchURL
                 My.Settings.CustomSearchName = config.customSearchName
                 My.Settings.AdBlocker = CBool(config.adBlocker)
-                My.Settings.ChildrenProtection = CBool(config.childrenProtection)
-                My.Settings.ChildrenProtectionPassword = config.childrenProtectionPassword
-                My.Settings.BrowserSettingsSecurity = CBool(config.browserSettingsSecurity)
-                My.Settings.BrowserSettingsSecurityPassword = config.browserSettingsSecurityPassword
                 My.Settings.DeleteCookiesWhileClosing = CBool(config.deleteCookiesWhileClosing)
                 My.Settings.PopUpBlocker = CBool(config.popUpBlocker)
                 My.Settings.Homepage = config.homepage
                 My.Settings.UserAgentLanguage = config.userAgentLanguage
-                My.Settings.HistoryFavoritesSecurity = CBool(config.historyFavoritesSecurity)
                 My.Settings.DoNotTrack = CBool(config.doNotTrack)
-                My.Settings.AppSyncLastSyncTime = config.lastSyncDateTime
                 Return True
             End If
         Catch ex As Exception
@@ -250,7 +244,6 @@ Public Class AppSyncAgent
                 Throw New AppSyncException(resultat)
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.ToString())
             Throw New AppSyncException("Une erreur est survenue lors de l'envoi de votre configuration vers AppSync.", ex)
             Return False
         End Try
@@ -687,7 +680,6 @@ Public Class AppSyncAgent
             SettingsForm.ButtonSyncNow.Enabled = True
             Return (config And synctime)
         Catch ex As Exception
-            MessageBox.Show(ex.ToString())
             SettingsForm.ButtonSyncNow.Text = "Synchroniser maintenant"
             SettingsForm.ButtonSyncNow.Enabled = True
             Throw New AppSyncException("Erreur lors de la synchronisation de vos données.", ex)
