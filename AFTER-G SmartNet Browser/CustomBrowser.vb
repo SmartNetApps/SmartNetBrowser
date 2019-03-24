@@ -15,7 +15,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub UpdateInterface()
-        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(GetCurrentPageFavicon(), 16, 16)
+        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(Favicon, 16, 16)
         CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
 
         If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
@@ -104,19 +104,6 @@ Public Class CustomBrowser
         End Try
     End Sub
 
-    Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
-        BrowserForm.LoadingGif.Visible = False
-        Favicon = GetCurrentPageFavicon()
-        UpdateInterface()
-    End Sub
-
-    Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
-        If My.Settings.PrivateBrowsing = False And Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or e.IsSameDocument Or e.IsErrorPage) Then
-            BrowserForm.AddInHistory(New WebPage(Me.Document.Title, Me.Url.ToString()))
-        End If
-    End Sub
-
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         Favicon = My.Resources.ErrorFavicon
 
@@ -150,6 +137,25 @@ Public Class CustomBrowser
 
             UpdateInterface()
         End If
+    End Sub
+
+    Private Sub CustomBrowser_DomContentChanged(sender As Object, e As DomEventArgs) Handles Me.DomContentChanged
+        If Not BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
+    End Sub
+
+    Private Sub CustomBrowser_DOMContentLoaded(sender As Object, e As DomEventArgs) Handles Me.DOMContentLoaded
+        Favicon = GetCurrentPageFavicon()
+        If My.Settings.PrivateBrowsing = False And Not (Me.Url.ToString().Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString().Contains("about:")) Then
+            BrowserForm.AddInHistory(New WebPage(Me.DocumentTitle, Me.Url.ToString()))
+        End If
+        UpdateInterface()
+    End Sub
+
+    Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
+        BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
+        BrowserForm.LoadingGif.Visible = False
     End Sub
 
     ''' <summary>
