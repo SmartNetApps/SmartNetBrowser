@@ -32,6 +32,13 @@ Public Class WebPage
         visitDateTime = pVisitDateTime
     End Sub
 
+    Public Sub New(pNom As String, pURL As String, pVisitDateTime As DateTime, pFavicon As Image)
+        nom = pNom
+        URL = pURL
+        favicon = pFavicon
+        visitDateTime = pVisitDateTime
+    End Sub
+
     Public Function GetNom() As String
         Return nom
     End Function

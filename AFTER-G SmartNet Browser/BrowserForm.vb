@@ -1155,10 +1155,12 @@ Public Class BrowserForm
             If appsync.IsDeviceRegistered() Then
                 appsync.SyncNow()
             Else
+                If My.Settings.AppSyncDeviceNumber <> "" Then
+                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                    DisplayMessageBar()
+                End If
                 My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
                 My.Settings.AppSyncDeviceNumber = ""
-                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                DisplayMessageBar()
                 SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
                 SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             End If

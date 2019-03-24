@@ -1,6 +1,6 @@
 ﻿Imports System.Net
+Imports System.Web
 Imports System.Text
-Imports MySql.Data.MySqlClient
 Imports Newtonsoft.Json
 
 ''' <summary>
@@ -265,7 +265,7 @@ Public Class AppSyncAgent
                 Dim history As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
                 Dim list As New WebPageList()
                 For Each p As Page In history
-                    list.Add(New WebPage(p.pageTitle, p.pageURL, p.pageVisitDateTime))
+                    list.Add(New WebPage(p.pageTitle, WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
                 Next
                 Return list
             End If
@@ -291,7 +291,7 @@ Public Class AppSyncAgent
                 Dim favorites As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
                 Dim list As New WebPageList()
                 For Each p As Page In favorites
-                    list.Add(New WebPage(p.pageTitle, p.pageURL))
+                    list.Add(New WebPage(p.pageTitle, WebUtility.UrlDecode(p.pageURL)))
                 Next
                 Return list
             End If
@@ -331,7 +331,7 @@ Public Class AppSyncAgent
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
-            laPage.pageURL = page.GetURL()
+            laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
             laPage.pageVisitDateTime = page.GetVisitDateTime()
             Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
@@ -360,7 +360,7 @@ Public Class AppSyncAgent
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
-            laPage.pageURL = page.GetURL()
+            laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
             Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
             Dim client As New WebClient
@@ -682,6 +682,8 @@ Public Class AppSyncAgent
         Catch ex As Exception
             SettingsForm.ButtonSyncNow.Text = "Synchroniser maintenant"
             SettingsForm.ButtonSyncNow.Enabled = True
+            BrowserForm.msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
+            BrowserForm.DisplayMessageBar()
             Throw New AppSyncException("Erreur lors de la synchronisation de vos données.", ex)
             Return False
         End Try
