@@ -6,6 +6,7 @@ Imports Gecko.Events
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
     Public PointedElement As Gecko.GeckoElement
+    Public Favicon As Image
 
     Public Sub New()
         Me.NoDefaultContextMenu = True
@@ -29,7 +30,7 @@ Public Class CustomBrowser
         End If
 
         CType(Me.Tag, TabPage).Text = shorttitle
-        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(CurrentPageFavicon(), 16, 16)
+        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(GetCurrentPageFavicon(), 16, 16)
         CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
 
         If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
@@ -120,16 +121,18 @@ Public Class CustomBrowser
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
         UpdateInterface()
+        Favicon = GetCurrentPageFavicon()
     End Sub
 
     Private Sub BrowserNavigated(sender As Object, e As Gecko.GeckoNavigatedEventArgs) Handles Me.Navigated
-        UpdateInterface()
         If My.Settings.PrivateBrowsing = False And Not (e.Uri.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or e.Uri.ToString.Contains("about:") Or e.IsSameDocument Or e.IsErrorPage) Then
             BrowserForm.AddInHistory(New WebPage(Me.Document.Title, Me.Url.ToString()))
         End If
     End Sub
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
+        Favicon = My.Resources.ErrorFavicon
+
         If My.Settings.ChildrenProtection = True And IsDangerousForChildren(e.Uri.ToString()) = True Then
             Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
@@ -262,22 +265,39 @@ Public Class CustomBrowser
     ''' Favicon de la page actuellement chargée
     ''' </summary>
     ''' <returns>Favicon de la page actuellement chargée</returns>
-    Public Function CurrentPageFavicon() As Image
+    Public Function GetCurrentPageFavicon() As Image
+        Dim faviconPath As String
         Try
-            If Me.Url.ToString.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage") Or Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then
+            If Me.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString.Contains("about:") Then
                 Return My.Resources._2019_SmartNetBrowser_32
             Else
-                Dim url As Uri = New Uri(Me.Url.ToString)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    Return favicon
+                Dim metaLinks As GeckoElementCollection = Me.DomDocument.GetElementsByTagName("LINK")
+                For Each element In metaLinks
+                    If element.GetAttribute("REL").ToUpper() = "ICON" Then
+                        faviconPath = element.GetAttribute("HREF")
+                        If faviconPath.Contains("://") = False Then
+                            If Me.Url.Host.Contains("/") Or faviconPath.Substring(0, 1) = "/" Then
+                                faviconPath = "http://" + Me.Url.Host + faviconPath
+                            Else
+                                faviconPath = "http://" + Me.Url.Host + "/" + faviconPath
+                            End If
+                        End If
+                        GoTo FaviconFound
+                    End If
+                Next
+
+                If Me.Url.HostNameType = UriHostNameType.Dns Then
+                    faviconPath = "http://" & Me.Url.Host & "/favicon.ico"
                 Else
                     Return My.Resources.ErrorFavicon
                 End If
+
+FaviconFound:
+                Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(faviconPath)
+                Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+                Dim stream As System.IO.Stream = response.GetResponseStream()
+                Dim favicon = Image.FromStream(stream)
+                Return favicon
             End If
         Catch ex As Exception
             Return My.Resources.ErrorFavicon
@@ -292,7 +312,6 @@ Public Class CustomBrowser
             Case -2142568418
                 If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
                     Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
-
                 Else
                     Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/404/en.html")
                 End If

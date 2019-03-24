@@ -83,37 +83,10 @@ Public Class BrowserForm
     ''' </summary>
     Public Sub CheckFavicon()
         Dim WB As CustomBrowser = CType(BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        FaviconBox.Image = PageFavicon(WB.Url.ToString())
-        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = New Bitmap(PageFavicon(WB.Url.ToString()), 16, 16)
+        FaviconBox.Image = WB.GetCurrentPageFavicon()
+        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = New Bitmap(WB.GetCurrentPageFavicon(), 16, 16)
         BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
-        PropertiesForm.FaviconBox.Image = PageFavicon(WB.Url.ToString())
     End Sub
-
-    ''' <summary>
-    ''' Favicon de la page passée en paramètre.
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function PageFavicon(pURL As String) As Image
-        Try
-            If pURL.Contains("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/homepage/") Or pURL.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or pURL.Contains("about:") Then
-                Return My.Resources._2019_SmartNetBrowser_64
-            Else
-                Dim url As Uri = New Uri(pURL)
-                If url.HostNameType = UriHostNameType.Dns Then
-                    Dim iconURL = "http://" & url.Host & "/favicon.ico"
-                    Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(iconURL)
-                    Dim response As System.Net.HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                    Dim stream As System.IO.Stream = response.GetResponseStream()
-                    Dim favicon = Image.FromStream(stream)
-                    Return favicon
-                Else
-                    Return My.Resources.ErrorFavicon
-                End If
-            End If
-        Catch ex As Exception
-            Return My.Resources.ErrorFavicon
-        End Try
-    End Function
 
     ''' <summary>
     ''' Retourne une chaîne après cryptage en SHA512.
@@ -266,6 +239,8 @@ Public Class BrowserForm
         Else
             SearchBoxLabel.Visible = False
         End If
+
+        FaviconBox.Image = WB.Favicon
     End Sub
 
     Private Sub BrowserForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -707,7 +682,7 @@ Public Class BrowserForm
             Case Else
                 PropertiesForm.PageTypeLabel.Text = "Type : Page Web"
         End Select
-        CheckFavicon()
+        PropertiesForm.FaviconBox.Image = WB.GetCurrentPageFavicon()
         PropertiesForm.ShowDialog()
     End Sub
 
