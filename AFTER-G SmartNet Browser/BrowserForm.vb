@@ -48,8 +48,12 @@ Public Class BrowserForm
         Dim WB As CustomBrowser
         Dim newList As New Specialized.StringCollection
         For Each onglet As TabPage In BrowserTabs.TabPages
-            WB = CType(onglet.Tag, CustomBrowser)
-            newList.Add(WB.Url.ToString())
+            Try
+                WB = CType(onglet.Tag, CustomBrowser)
+                newList.Add(WB.Url.ToString())
+            Catch ex As Exception
+                'Le WB peut être null lors de fermetures d'onglets. Ne rien faire et passer au suivant dans ces cas là.
+            End Try
         Next
         My.Settings.LastSessionListOfTabs = newList
         My.Settings.Save()
@@ -1063,12 +1067,12 @@ Public Class BrowserForm
     Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
         Dim tabPageToRemove As TabPage = BrowserTabs.TabPages.Item(tabPageIndex)
         Dim WB As CustomBrowser = CType(tabPageToRemove.Tag, CustomBrowser)
+        lastClosedTab = WB.Url.ToString()
         Try
             WB.Dispose()
             If BrowserTabs.TabPages.Count = 1 Then
                 CloseSmartNetBrowser()
             Else
-                lastClosedTab = WB.Url.ToString()
                 BrowserTabs.TabPages.Remove(tabPageToRemove)
             End If
         Catch ex As Exception
