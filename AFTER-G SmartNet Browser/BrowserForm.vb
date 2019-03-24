@@ -10,6 +10,9 @@ Public Class BrowserForm
     Dim appsync As AppSyncAgent
 
     Public Sub New()
+        msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Bonjour !")
+        lastClosedTab = "about:blank"
+        appsync = New AppSyncAgent()
         InitializeComponent()
     End Sub
 
@@ -76,16 +79,6 @@ Public Class BrowserForm
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
         End Try
-    End Sub
-
-    ''' <summary>
-    ''' Déclenche la mise à jour de la favicon de l'onglet actuellement ouvert.
-    ''' </summary>
-    Public Sub CheckFavicon()
-        Dim WB As CustomBrowser = CType(BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        FaviconBox.Image = WB.GetCurrentPageFavicon()
-        BrowserTabs.ImageList.Images.Item(BrowserTabs.SelectedIndex) = New Bitmap(WB.GetCurrentPageFavicon(), 16, 16)
-        BrowserTabs.SelectedTab.ImageIndex = BrowserTabs.SelectedIndex
     End Sub
 
     ''' <summary>
@@ -640,7 +633,6 @@ Public Class BrowserForm
 
     Private Sub ActiveTabChange(sender As Object, e As EventArgs) Handles BrowserTabs.SelectedIndexChanged
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        CheckFavicon()
         UpdateInterface()
         BrowserTabs.SelectedTab.BackColor = SystemColors.Control
     End Sub

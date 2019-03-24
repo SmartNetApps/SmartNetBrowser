@@ -11,25 +11,10 @@ Public Class CustomBrowser
     Public Sub New()
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
+        Favicon = My.Resources.ErrorFavicon
     End Sub
 
     Private Sub UpdateInterface()
-        Dim shorttitle As String
-        If Me.DocumentTitle = "" Then
-            If Me.Url.ToString().Length > 20 Then
-                shorttitle = Me.Url.ToString().Substring(0, 19) + "..."
-            Else
-                shorttitle = Me.Url.ToString()
-            End If
-        Else
-            If Me.DocumentTitle.Length > 20 Then
-                shorttitle = Me.DocumentTitle.Substring(0, 19) + "..."
-            Else
-                shorttitle = Me.DocumentTitle
-            End If
-        End If
-
-        CType(Me.Tag, TabPage).Text = shorttitle
         BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(GetCurrentPageFavicon(), 16, 16)
         CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
 
