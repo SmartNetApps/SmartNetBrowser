@@ -4,7 +4,6 @@ Imports System.Net
 Imports Microsoft.Win32
 
 Public Class SettingsForm
-    Dim agent As New UpdateAgent
     Dim appsync As New AppSyncAgent
 
     Public Sub New()
@@ -79,16 +78,29 @@ Public Class SettingsForm
         ButtonAddNewPageInAdsBlockerWhitelist.Enabled = False
         ButtonRemovePageFromAdsBlockerWhitelist.Enabled = False
 
-        AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
         VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.ToString()
 
-        If agent.IsUpdateAvailable(False) Then
-            CheckUpdatesNowButton.Enabled = True
-            CheckUpdatesNowButton.Text = "Mise à jour disponible !"
-        Else
-            CheckUpdatesNowButton.Enabled = False
-            CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
-        End If
+        Select Case UpdateAgent.IsUpdateAvailable()
+            Case UpdateAgent.UpdateStatus.OSNotSupported
+                CheckUpdatesNowButton.Enabled = False
+                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+                My.Settings.AutoUpdates = False
+                My.Settings.Save()
+            Case UpdateAgent.UpdateStatus.SupportStatusOff
+                CheckUpdatesNowButton.Enabled = False
+                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+                My.Settings.AutoUpdates = False
+                My.Settings.Save()
+            Case UpdateAgent.UpdateStatus.UpdateAvailable
+                CheckUpdatesNowButton.Enabled = True
+                CheckUpdatesNowButton.Text = "Mise à jour disponible !"
+            Case UpdateAgent.UpdateStatus.UpToDate
+                CheckUpdatesNowButton.Enabled = False
+                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+        End Select
+
+        AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
+
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
 
@@ -303,26 +315,38 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
-        Try
-            If AutoUpdateCheckBox.Checked = False And My.Settings.AutoUpdates = True Then
-                If MessageBox.Show("Les mises à jour automatiques permettent au navigateur de recevoir les dernières fonctionnalités et les corrections de bugs dès qu'elles sont disponibles. Si vous désactivez les mises à jour automatiques, vous acceptez que des bugs puissent être présents dans le logiciel et que ceux-ci ne soient pas corrigés. Ceci est vivement déconseillé.", "SmartNet Apps Updater", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) = DialogResult.Cancel Then
+        If AutoUpdateCheckBox.Checked = True Then
+            If My.Settings.AutoUpdates = False Then
+                Select Case UpdateAgent.IsUpdateAvailable()
+                    Case UpdateAgent.UpdateStatus.OSNotSupported
+                        MessageBox.Show("Malheureusement, ce système d'exploitation n'étant plus pris en charge, aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        AutoUpdateCheckBox.Checked = False
+                        My.Settings.AutoUpdates = False
+                    Case UpdateAgent.UpdateStatus.SupportStatusOff
+                        MessageBox.Show("Malheureusement, ce logiciel a été abandonné. Aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        AutoUpdateCheckBox.Checked = False
+                        My.Settings.AutoUpdates = False
+                    Case Else
+                        My.Settings.AutoUpdates = True
+                End Select
+            End If
+        Else
+            If My.Settings.AutoUpdates = True Then
+                If MessageBox.Show("La désactivation de la vérification automatique des mises à jour est déconseillée, car les mises à jour apportent des correctifs de bugs, ainsi que de nouvelles fonctionnalités, de manière régulière. Êtes-vous sûr.e de vouloir continuer ?", "SmartNet Apps Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                    My.Settings.AutoUpdates = False
+                Else
                     AutoUpdateCheckBox.Checked = True
+                    My.Settings.AutoUpdates = True
                 End If
             End If
-            Dim MiniNTVersionChecker As New WebClient
-            Dim NTActualVersion As Version = Environment.OSVersion.Version
-            Dim MiniNTVersion As Version = New Version(MiniNTVersionChecker.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/updater/browser/windows/MinimumNTVersion.txt"))
-            If NTActualVersion < MiniNTVersion And AutoUpdateCheckBox.Checked = True Then
-                MessageBox.Show("Votre système d'exploitation n'est plus pris en charge. Visitez le site SmartNet Apps pour en savoir plus à ce sujet. La recherche automatique de mises à jour ne peut être activée.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                AutoUpdateCheckBox.Checked = False
-            End If
-        Catch ex As Exception
-        End Try
-        My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
+        End If
+        My.Settings.Save()
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
-        agent.IsUpdateAvailable(True)
+        If UpdateAgent.IsUpdateAvailable() = UpdateAgent.UpdateStatus.UpdateAvailable Then
+            UpdaterForm.ShowDialog()
+        End If
     End Sub
 
     Private Sub ImportSettingsButton_Click(sender As Object, e As EventArgs) Handles ImportSettingsButton.Click

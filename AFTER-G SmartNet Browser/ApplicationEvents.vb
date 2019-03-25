@@ -98,14 +98,39 @@ Namespace My
                 BrowserForm.DisplayMessageBar()
             End If
 
-            Dim updateAgent As New UpdateAgent
-            updateAgent.IsUpdateAvailable(False)
-
-            ' Connection string encryption
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-            config.ConnectionStrings.SectionInformation.ProtectSection(Nothing)
-            ' We must save the changes to the configuration file.
-            config.Save(ConfigurationSaveMode.Full, True)
+            Try
+                If My.Settings.AutoUpdates = True Then
+                    Select Case UpdateAgent.IsUpdateAvailable()
+                        Case UpdateAgent.UpdateStatus.OSNotSupported
+                            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Les mises à jour de SmartNet Browser ne sont plus fournies pour ce système d'exploitation.")
+                            BrowserForm.UpdateNotifyIcon.Visible = False
+                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+                            My.Settings.AutoUpdates = False
+                            My.Settings.Save()
+                            BrowserForm.DisplayMessageBar()
+                        Case UpdateAgent.UpdateStatus.SupportStatusOff
+                            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Ce logiciel est abandonné et ne sera plus mis à jour.")
+                            BrowserForm.UpdateNotifyIcon.Visible = False
+                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+                            My.Settings.AutoUpdates = False
+                            My.Settings.Save()
+                            BrowserForm.DisplayMessageBar()
+                        Case UpdateAgent.UpdateStatus.UpdateAvailable
+                            BrowserForm.UpdateNotifyIcon.Visible = True
+                            BrowserForm.UpdateNotifyIcon.ShowBalloonTip(5000)
+                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = True
+                            BrowserForm.TéléchargerLaVersionXXXXToolStripMenuItem.Text = "Télécharger la version " + UpdateAgent.LastVersionAvailable().ToString()
+                        Case UpdateAgent.UpdateStatus.UpToDate
+                            BrowserForm.UpdateNotifyIcon.Visible = False
+                            BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+                    End Select
+                End If
+            Catch ex As Exception
+                BrowserForm.msgBar = New MessageBar(ex)
+                BrowserForm.DisplayMessageBar()
+                BrowserForm.UpdateNotifyIcon.Visible = False
+                BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
+            End Try
         End Sub
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
