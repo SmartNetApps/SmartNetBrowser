@@ -926,8 +926,6 @@ Partial Class SettingsForm
         'AutoUpdateCheckBox
         '
         resources.ApplyResources(Me.AutoUpdateCheckBox, "AutoUpdateCheckBox")
-        Me.AutoUpdateCheckBox.Checked = True
-        Me.AutoUpdateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked
         Me.AutoUpdateCheckBox.Name = "AutoUpdateCheckBox"
         Me.AutoUpdateCheckBox.UseVisualStyleBackColor = True
         '

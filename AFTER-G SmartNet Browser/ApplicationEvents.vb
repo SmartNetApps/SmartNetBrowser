@@ -34,6 +34,7 @@ Namespace My
             If Screen.PrimaryScreen.Bounds.Width < 1024 Or Screen.PrimaryScreen.Bounds.Height < 768 Then
                 MessageBox.Show("Votre ordinateur est configuré pour afficher une résolution inférieure à 1024x768 pixels. Certaines pages Web peuvent ne pas s'afficher correctement. Pour configurer la résolution, faites un clic droit sur le Bureau et sélectionnez ""Résolution d'écran"" ou ""Paramètres d'affichage"". Poussez le curseur vers la droite (ou le haut) jusqu'à 1024x768 ou plus.", "Résolution d'écran trop faible", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
+RetryInit:
             Try
                 Gecko.Xpcom.Initialize("Firefox")
                 Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
@@ -54,8 +55,14 @@ Namespace My
                 Gecko.GeckoPreferences.Default("dom.disable_beforeunload") = True
                 Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
             Catch ex As Exception
-                BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Malheureusement, SmartNet Browser n'a pas pu démarrer correctement.", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
-                BrowserForm.DisplayMessageBar()
+                Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Exclamation)
+                    Case DialogResult.Abort
+                        Environment.Exit(2)
+                    Case DialogResult.Retry
+                        GoTo RetryInit
+                    Case DialogResult.Ignore
+                        'Ignorer l'erreur et continuer.
+                End Select
             End Try
 
             Dim newHistory As New WebPageList
@@ -94,27 +101,24 @@ Namespace My
             My.Settings.Favorites = newFavorites.ToStringCollection()
 
             If migrated Then
-                BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Nous avons migré votre historique vers le nouveau format.")
-                BrowserForm.DisplayMessageBar()
+                MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             End If
 
             Try
                 If My.Settings.AutoUpdates = True Then
                     Select Case UpdateAgent.IsUpdateAvailable()
                         Case UpdateAgent.UpdateStatus.OSNotSupported
-                            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Les mises à jour de SmartNet Browser ne sont plus fournies pour ce système d'exploitation.")
+                            MessageBox.Show("Nous vous informons que les mises à jour de SmartNet Browser ne sont plus fournies pour ce système d'exploitation. Veuillez mettre à niveau votre ordinateur. SmartNet Apps Updater a été désactivé.", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             BrowserForm.UpdateNotifyIcon.Visible = False
                             BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
                             My.Settings.AutoUpdates = False
                             My.Settings.Save()
-                            BrowserForm.DisplayMessageBar()
                         Case UpdateAgent.UpdateStatus.SupportStatusOff
-                            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Ce logiciel est abandonné et ne sera plus mis à jour.")
+                            MessageBox.Show("Nous vous informons que ce logiciel a été abandonné. De ce fait, il ne sera plus mis à jour, vous exposant alors a des risques de stabilité et de sécurité. SmartNet Apps Updater a été désactivé.", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             BrowserForm.UpdateNotifyIcon.Visible = False
                             BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
                             My.Settings.AutoUpdates = False
                             My.Settings.Save()
-                            BrowserForm.DisplayMessageBar()
                         Case UpdateAgent.UpdateStatus.UpdateAvailable
                             BrowserForm.UpdateNotifyIcon.Visible = True
                             BrowserForm.UpdateNotifyIcon.ShowBalloonTip(5000)
@@ -134,9 +138,9 @@ Namespace My
         End Sub
 
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
-            BrowserForm.msgBar = New MessageBar(e.Exception)
-            BrowserForm.DisplayMessageBar()
+            e.ExitApplication = False
             Console.WriteLine(e.Exception.Message)
+            MessageBox.Show("SmartNet Browser a planté." + vbCrLf + e.Exception.Message + vbCrLf + e.Exception.StackTrace, "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Environment.Exit(2)
         End Sub
     End Class

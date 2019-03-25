@@ -82,15 +82,15 @@ Public Class SettingsForm
 
         Select Case UpdateAgent.IsUpdateAvailable()
             Case UpdateAgent.UpdateStatus.OSNotSupported
-                CheckUpdatesNowButton.Enabled = False
-                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
                 My.Settings.AutoUpdates = False
                 My.Settings.Save()
+                CheckUpdatesNowButton.Enabled = False
+                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
             Case UpdateAgent.UpdateStatus.SupportStatusOff
-                CheckUpdatesNowButton.Enabled = False
-                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
                 My.Settings.AutoUpdates = False
                 My.Settings.Save()
+                CheckUpdatesNowButton.Enabled = False
+                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
             Case UpdateAgent.UpdateStatus.UpdateAvailable
                 CheckUpdatesNowButton.Enabled = True
                 CheckUpdatesNowButton.Text = "Mise à jour disponible !"
@@ -315,32 +315,35 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
-        If AutoUpdateCheckBox.Checked = True Then
-            If My.Settings.AutoUpdates = False Then
-                Select Case UpdateAgent.IsUpdateAvailable()
-                    Case UpdateAgent.UpdateStatus.OSNotSupported
-                        MessageBox.Show("Malheureusement, ce système d'exploitation n'étant plus pris en charge, aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        AutoUpdateCheckBox.Checked = False
-                        My.Settings.AutoUpdates = False
-                    Case UpdateAgent.UpdateStatus.SupportStatusOff
-                        MessageBox.Show("Malheureusement, ce logiciel a été abandonné. Aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        AutoUpdateCheckBox.Checked = False
-                        My.Settings.AutoUpdates = False
-                    Case Else
-                        My.Settings.AutoUpdates = True
-                End Select
+        If CType(sender, CheckBox).CheckState = CheckState.Checked And My.Settings.AutoUpdates = False Then
+            Select Case UpdateAgent.IsUpdateAvailable()
+                Case UpdateAgent.UpdateStatus.OSNotSupported
+                    MessageBox.Show("Malheureusement, ce système d'exploitation n'étant plus pris en charge, aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    My.Settings.AutoUpdates = False
+                    My.Settings.Save()
+                    AutoUpdateCheckBox.Checked = False
+                Case UpdateAgent.UpdateStatus.SupportStatusOff
+                    MessageBox.Show("Malheureusement, ce logiciel a été abandonné. Aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    My.Settings.AutoUpdates = False
+                    My.Settings.Save()
+                    AutoUpdateCheckBox.Checked = False
+                Case Else
+                    My.Settings.AutoUpdates = True
+                    My.Settings.Save()
+            End Select
+        ElseIf CType(sender, CheckBox).CheckState = CheckState.Unchecked And My.Settings.AutoUpdates = True Then
+            If MessageBox.Show("La désactivation de la vérification automatique des mises à jour est déconseillée, car les mises à jour apportent des correctifs de bugs, ainsi que de nouvelles fonctionnalités, de manière régulière. Êtes-vous sûr.e de vouloir continuer ?", "SmartNet Apps Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                My.Settings.AutoUpdates = False
+                My.Settings.Save()
+            Else
+                My.Settings.AutoUpdates = True
+                My.Settings.Save()
+                AutoUpdateCheckBox.Checked = True
             End If
         Else
-            If My.Settings.AutoUpdates = True Then
-                If MessageBox.Show("La désactivation de la vérification automatique des mises à jour est déconseillée, car les mises à jour apportent des correctifs de bugs, ainsi que de nouvelles fonctionnalités, de manière régulière. Êtes-vous sûr.e de vouloir continuer ?", "SmartNet Apps Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                    My.Settings.AutoUpdates = False
-                Else
-                    AutoUpdateCheckBox.Checked = True
-                    My.Settings.AutoUpdates = True
-                End If
-            End If
+            My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
+            My.Settings.Save()
         End If
-        My.Settings.Save()
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
