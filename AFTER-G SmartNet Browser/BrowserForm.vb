@@ -240,9 +240,20 @@ Public Class BrowserForm
         FaviconBox.Image = WB.Favicon
     End Sub
 
-    Private Sub BrowserForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub BrowserForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         CloseMessageBar()
-        AddTab(My.Settings.Homepage, BrowserTabs)
+
+        Dim CommandArgs As String() = Environment.GetCommandLineArgs()
+        If CommandArgs.Length = 1 Then
+            AddTab(My.Settings.Homepage, BrowserTabs)
+        Else
+            Dim x As Integer = 0
+            For Each argument In CommandArgs
+                x = x + 1
+                If x = 1 Then Continue For
+                AddTab(argument, BrowserTabs)
+            Next
+        End If
 
         If My.Settings.FirstStart = True Then
             If My.Settings.FirstStartFromReset = False Then
