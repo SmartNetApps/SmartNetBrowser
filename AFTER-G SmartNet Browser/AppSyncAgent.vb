@@ -125,6 +125,8 @@ Public Class AppSyncAgent
 
             If resultat.Contains("err#") Then
                 Throw New AppSyncException(resultat.Substring(4))
+            ElseIf resultat.ToLower() = "null" Then
+                Return My.Resources.Person
             Else
                 Dim imgDistantPath As String = resultat
                 Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgDistantPath.Substring(imgDistantPath.LastIndexOf("."))
