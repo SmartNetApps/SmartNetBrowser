@@ -114,7 +114,7 @@ RetryInit:
                             My.Settings.AutoUpdates = False
                             My.Settings.Save()
                         Case UpdateAgent.UpdateStatus.SupportStatusOff
-                            MessageBox.Show("Nous vous informons que ce logiciel a été abandonné. De ce fait, il ne sera plus mis à jour, vous exposant alors a des risques de stabilité et de sécurité. SmartNet Apps Updater a été désactivé.", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            MessageBox.Show("Nous vous informons que ce logiciel a été abandonné. De ce fait, il ne sera plus mis à jour, vous exposant alors à des risques de stabilité et de sécurité. SmartNet Apps Updater a été désactivé.", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             BrowserForm.UpdateNotifyIcon.Visible = False
                             BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
                             My.Settings.AutoUpdates = False
