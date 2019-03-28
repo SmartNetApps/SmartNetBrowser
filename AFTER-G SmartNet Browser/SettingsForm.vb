@@ -8,6 +8,31 @@ Public Class SettingsForm
         InitializeComponent()
     End Sub
 
+    Private Async Function AppSyncSyncNowAsync() As Task(Of Boolean)
+        Try
+            ButtonSyncNow.Text = "Synchronisation en cours..."
+            ButtonSyncNow.Enabled = False
+            Return Await AppSyncAgent.SyncNow()
+            ButtonSyncNow.Text = "Synchroniser maintenant"
+            ButtonSyncNow.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ButtonSyncNow.Text = "Échec de la synchronisation."
+            ButtonSyncNow.Enabled = False
+            Return False
+        End Try
+    End Function
+
+    Private Async Function AppSyncSendConfigAsync() As Task(Of Boolean)
+        Try
+            Return Await AppSyncAgent.SendConfig()
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
+            BrowserForm.DisplayMessageBar()
+            Return False
+        End Try
+    End Function
+
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HomepageURLBox.Text = My.Settings.Homepage
         Select Case My.Settings.SearchEngine
@@ -508,14 +533,9 @@ Public Class SettingsForm
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         My.Settings.Save()
-        Try
-            If My.Settings.AppSyncDeviceNumber <> "" Then
-                AppSyncAgent.SendConfig()
-            End If
-        Catch ex As AppSyncException
-            BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
-            BrowserForm.DisplayMessageBar()
-        End Try
+        If My.Settings.AppSyncDeviceNumber <> "" Then
+            AppSyncSendConfigAsync()
+        End If
     End Sub
 
     Private Sub DoNotTrackCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DoNotTrackCheckBox.CheckedChanged
@@ -548,14 +568,6 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonSyncNow_Click(sender As Object, e As EventArgs) Handles ButtonSyncNow.Click
-        ButtonSyncNow.Text = "Synchronisation en cours..."
-        ButtonSyncNow.Enabled = False
-        Try
-            AppSyncAgent.SyncNow()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ButtonSyncNow.Text = "Échec de la synchronisation."
-            ButtonSyncNow.Enabled = False
-        End Try
+        AppSyncSyncNowAsync()
     End Sub
 End Class

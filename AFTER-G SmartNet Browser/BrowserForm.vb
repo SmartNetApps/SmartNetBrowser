@@ -287,14 +287,9 @@ Public Class BrowserForm
             DisplayMessageBar()
         End Try
 
-        Try
-            If AppSyncAgent.IsDeviceRegistered() Then
-                AppSyncAgent.SyncNow()
-            End If
-        Catch ex As Exception
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "La synchronisation avec AppSync a échoué. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
-            DisplayMessageBar()
-        End Try
+        If AppSyncAgent.IsDeviceRegistered() Then
+            AppSyncSyncNowAsync()
+        End If
 
         Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
@@ -1159,23 +1154,27 @@ Public Class BrowserForm
     End Sub
 
     Private Sub AppSyncTimer_Tick(sender As Object, e As EventArgs) Handles AppSyncTimer.Tick
-        Try
-            If AppSyncAgent.IsDeviceRegistered() Then
-                AppSyncAgent.SyncNow()
-            Else
-                If My.Settings.AppSyncDeviceNumber <> "" Then
-                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                    DisplayMessageBar()
-                End If
-                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncDeviceNumber = ""
-                SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-                SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+        If AppSyncAgent.IsDeviceRegistered() Then
+            AppSyncSyncNowAsync()
+        Else
+            If My.Settings.AppSyncDeviceNumber <> "" Then
+                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                DisplayMessageBar()
             End If
-        Catch ex As AppSyncException
-            msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
-            DisplayMessageBar()
-        End Try
+            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+            My.Settings.AppSyncDeviceNumber = ""
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+        End If
     End Sub
+
+    Private Async Function AppSyncSyncNowAsync() As Task(Of Boolean)
+        Try
+            Return Await AppSyncAgent.SyncNow()
+        Catch ex As Exception
+            msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
+            Return False
+        End Try
+    End Function
 End Class
 
