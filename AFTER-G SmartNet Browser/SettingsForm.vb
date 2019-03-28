@@ -4,8 +4,6 @@ Imports System.Net
 Imports Microsoft.Win32
 
 Public Class SettingsForm
-    Dim appsync As New AppSyncAgent
-
     Public Sub New()
         InitializeComponent()
     End Sub
@@ -141,10 +139,10 @@ Public Class SettingsForm
                 ButtonManageAccount.Visible = True
                 ButtonLoginLogout.Text = "Se déconnecter..."
                 ButtonLoginLogout.Enabled = True
-                LabelUsername.Text = appsync.GetUserName()
-                PictureBoxUserProfilePic.Image = New Bitmap(appsync.GetUserProfilePicture(), 54, 54)
+                LabelUsername.Text = AppSyncAgent.GetUserName()
+                PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
                 GroupBoxAppSyncDevice.Visible = True
-                TextBoxAppSyncDeviceName.Text = appsync.GetDeviceName()
+                TextBoxAppSyncDeviceName.Text = AppSyncAgent.GetDeviceName()
                 ButtonChangeAppSyncDeviceName.Enabled = False
                 ButtonSyncNow.Visible = True
                 ButtonSyncNow.Enabled = True
@@ -447,7 +445,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
-        Dim token As String = appsync.GenerateToken()
+        Dim token As String = AppSyncAgent.GenerateToken()
         BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + token, BrowserForm.BrowserTabs)
         Me.Close()
     End Sub
@@ -495,7 +493,7 @@ Public Class SettingsForm
 
     Private Sub ButtonChangeAppSyncDeviceName_Click(sender As Object, e As EventArgs) Handles ButtonChangeAppSyncDeviceName.Click
         Try
-            If appsync.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
+            If AppSyncAgent.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
                 ButtonChangeAppSyncDeviceName.Enabled = False
             End If
         Catch ex As AppSyncException
@@ -512,7 +510,7 @@ Public Class SettingsForm
         My.Settings.Save()
         Try
             If My.Settings.AppSyncDeviceNumber <> "" Then
-                appsync.SendConfig()
+                AppSyncAgent.SendConfig()
             End If
         Catch ex As AppSyncException
             BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
@@ -553,7 +551,7 @@ Public Class SettingsForm
         ButtonSyncNow.Text = "Synchronisation en cours..."
         ButtonSyncNow.Enabled = False
         Try
-            appsync.SyncNow()
+            AppSyncAgent.SyncNow()
         Catch ex As Exception
             MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ButtonSyncNow.Text = "Échec de la synchronisation."

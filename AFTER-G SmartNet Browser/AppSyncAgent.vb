@@ -36,7 +36,7 @@ Public Class AppSyncAgent
     ''' <param name="username">Nom d'utilisateur</param>
     ''' <param name="password">Mot de passe</param>
     ''' <returns>Vrai si les identifiants sont bons, Faux sinon</returns>
-    Public Function CheckCredentials(username As String, password As String) As Boolean
+    Public Shared Function CheckCredentials(username As String, password As String) As Boolean
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -63,7 +63,7 @@ Public Class AppSyncAgent
     ''' Charge l'ID de l'utilisateur de SmartNet AppSync à partir de l'adresse e-mail
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetUserID() As Integer
+    Public Shared Function GetUserID() As Integer
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -88,7 +88,7 @@ Public Class AppSyncAgent
     ''' Charge le prénom et le nom de l'utilisateur tels qu'enregistrés sur SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetUserName() As String
+    Public Shared Function GetUserName() As String
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -113,7 +113,7 @@ Public Class AppSyncAgent
     ''' Charge l'image de profil de l'utilisateur depuis SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetUserProfilePicture() As Bitmap
+    Public Shared Function GetUserProfilePicture() As Bitmap
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -150,7 +150,7 @@ Public Class AppSyncAgent
     ''' Charge la configuration distante et l'enregistre sur le profil local.
     ''' </summary>
     ''' <returns>Vrai si l'enregistrement se passe sans erreur.</returns>
-    Public Async Function GetConfig() As Task(Of Boolean)
+    Public Shared Async Function GetConfig() As Task(Of Boolean)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -187,7 +187,7 @@ Public Class AppSyncAgent
     ''' Envoie la configuration locale sur le serveur AppSync en écrasant l'existant.
     ''' </summary>
     ''' <returns></returns>
-    Public Async Function SendConfig() As Task(Of Boolean)
+    Public Shared Async Function SendConfig() As Task(Of Boolean)
         Try
             Dim config As New BrowserConfig
 
@@ -251,7 +251,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function GetHistory() As Task(Of WebPageList)
+    Public Shared Async Function GetHistory() As Task(Of WebPageList)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -277,7 +277,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function GetFavorites() As Task(Of WebPageList)
+    Public Shared Async Function GetFavorites() As Task(Of WebPageList)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -303,7 +303,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
+    Public Shared Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -329,7 +329,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function AddHistory(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function AddHistory(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -358,7 +358,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -386,7 +386,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function AddSearchHistory(query As String) As Task(Of Boolean)
+    Public Shared Async Function AddSearchHistory(query As String) As Task(Of Boolean)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -409,7 +409,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -438,7 +438,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
         Try
             Dim laPage As New Page
             laPage.pageTitle = page.GetNom()
@@ -467,7 +467,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
+    Public Shared Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -495,7 +495,7 @@ Public Class AppSyncAgent
     ''' Charge la dernière date et heure de synchronisation de la configuration.
     ''' </summary>
     ''' <returns></returns>
-    Public Function LastConfigSyncTime() As Date
+    Public Shared Function LastConfigSyncTime() As Date
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -517,7 +517,7 @@ Public Class AppSyncAgent
         End Try
     End Function
 
-    Public Async Function RefreshSyncTime() As Task(Of Boolean)
+    Public Shared Async Function RefreshSyncTime() As Task(Of Boolean)
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -544,7 +544,7 @@ Public Class AppSyncAgent
     ''' Génère et retourne un jeton de connexion pour l'utilisateur connecté à SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function GenerateToken() As String
+    Public Shared Function GenerateToken() As String
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -572,7 +572,7 @@ Public Class AppSyncAgent
     ''' Synchronise les données de l'utilisateur avec la base de données de SmartNet AppSync.
     ''' </summary>
     ''' <returns>Vrai si réussite, Faux en cas d'échec.</returns>
-    Public Async Function SyncNow() As Task(Of Boolean)
+    Public Shared Async Function SyncNow() As Task(Of Boolean)
         Try
             SettingsForm.ButtonSyncNow.Text = "Synchronisation en cours..."
             SettingsForm.ButtonSyncNow.Enabled = False
@@ -695,7 +695,7 @@ Public Class AppSyncAgent
     ''' Supprime l'appareil de la base de données SmartNet AppSync. Avertissement : ceci obligera l'utilisateur à se reconnecter.
     ''' </summary>
     ''' <returns></returns>
-    Public Function UnregisterDevice() As Boolean
+    Public Shared Function UnregisterDevice() As Boolean
         Try
             Dim client As New WebClient
             Dim resultat As String
@@ -723,7 +723,7 @@ Public Class AppSyncAgent
     ''' Enregistre l'appareil pour l'autoriser à utiliser SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function RegisterDevice(username As String, password As String) As Boolean
+    Public Shared Function RegisterDevice(username As String, password As String) As Boolean
         If IsDeviceRegistered() Then
             UnregisterDevice()
         End If
@@ -747,7 +747,7 @@ Public Class AppSyncAgent
             End If
         Catch ex As Exception
             Throw New AppSyncException("Une erreur est survenue lors de l'enregistrement de votre appareil sur votre compte AppSync.", ex)
-                Return False
+            Return False
         End Try
     End Function
 
@@ -755,7 +755,7 @@ Public Class AppSyncAgent
     ''' Vérifie si l'appareil est enregistré auprès de SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function IsDeviceRegistered() As Boolean
+    Public Shared Function IsDeviceRegistered() As Boolean
         If My.Settings.AppSyncDeviceNumber <> "" Then
             Try
                 Dim client As New WebClient
@@ -792,7 +792,7 @@ Public Class AppSyncAgent
     ''' Récupère le nom de l'appareil depuis SmartNet AppSync.
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetDeviceName() As String
+    Public Shared Function GetDeviceName() As String
         If IsDeviceRegistered() Then
             Try
                 Dim client As New WebClient
@@ -817,7 +817,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Function SetDeviceName(newDeviceName As String) As Boolean
+    Public Shared Function SetDeviceName(newDeviceName As String) As Boolean
         If IsDeviceRegistered() Then
             Try
                 Dim client As New WebClient
