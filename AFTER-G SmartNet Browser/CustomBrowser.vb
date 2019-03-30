@@ -33,7 +33,7 @@ Public Class CustomBrowser
     Public Function IsAdvertisement(url As String) As Boolean
         Try
             Dim AdsDomainsFileDownloader As New WebClient
-            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/AdsDomains.txt")
+            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("https://smartnetapps.quentinpugeat.fr/browser/security/AdsDomains.txt")
             Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
             For Each domain In AdsDomainsList
                 If url.Contains(domain) Then
@@ -56,7 +56,7 @@ Public Class CustomBrowser
     Public Function IsDangerousForChildren(url As String) As Boolean
         Try
             Dim AdultDomainsFile As New WebClient
-            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/security/ChildrenProtection.txt")
+            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("https://smartnetapps.quentinpugeat.fr/browser/security/ChildrenProtection.txt")
             Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
             For Each domain In AdultDomainsList
                 If url.Contains(domain) Then
@@ -205,7 +205,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
-        If (My.Settings.AdBlocker = True And My.Settings.AdBlockerWhitelist.Contains(e.Uri.Host.ToString()) = False AndAlso IsAdvertisement(e.Uri.ToString()) = True) Or (My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString())) Then
+        If (My.Settings.AdBlocker = True And My.Settings.AdBlockerWhitelist.Contains(e.Uri.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) = True) Or (My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString())) Then
             e.Cancel = True
         End If
     End Sub

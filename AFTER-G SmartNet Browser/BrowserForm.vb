@@ -283,7 +283,7 @@ Public Class BrowserForm
             SeConnecterÀAppSyncToolStripMenuItem.Text = "Échec de l'ouverture de votre session AppSync."
             SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "http://quentinpugeat.pagesperso-orange.fr/appsync/support/")
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "https://smartnetapps.quentinpugeat.fr/appsync/support/")
             DisplayMessageBar()
         End Try
 
@@ -500,10 +500,10 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SupportCenterNavigating(sender As Object, e As EventArgs) Handles CentreDaideEnLigneToolStripMenuItem.Click
-        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support/", BrowserTabs)
+        AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/", BrowserTabs)
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/contact.html", BrowserTabs)
+        AddTab("https://smartnetapps.quentinpugeat.fr/contact.html", BrowserTabs)
     End Sub
     Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
         AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)
@@ -997,7 +997,7 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim Link As String = WB.Url.ToString()
         Dim PageTitle As String = WB.DocumentTitle
-        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser)")
+        Process.Start("mailto:?subject=Un ami vous a envoyé le lien du site '" + PageTitle + "' via SmartNet Browser" + "&body=Regarde cette page ! " + PageTitle + " : " + Link + " (Partagé via SmartNet Browser : https://smartnetapps.quentinpugeat.fr/browser)")
     End Sub
 
     ''' <summary>

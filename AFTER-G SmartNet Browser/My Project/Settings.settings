@@ -59,19 +59,18 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Homepage" Type="(Web Service URL)" Scope="User">
-      <Value Profile="(Default)">http://homepage.quentinpugeat.fr/</Value>
+      <Value Profile="(Default)">https://homepage.quentinpugeat.fr/</Value>
     </Setting>
     <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;http://quentinpugeat.pagesperso-orange.fr&lt;/string&gt;
+  &lt;string&gt;https://smartnetapps.quentinpugeat.fr/&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="AdBlockerWhitelist" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;quentinpugeat.fr&lt;/string&gt;
-  &lt;string&gt;quentinpugeat.pagesperso-orange.fr&lt;/string&gt;
   &lt;string&gt;localhost&lt;/string&gt;
   &lt;string&gt;127.0.0.1&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>

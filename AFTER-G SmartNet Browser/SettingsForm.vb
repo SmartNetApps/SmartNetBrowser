@@ -236,7 +236,7 @@ Public Class SettingsForm
         My.Settings.PrivateBrowsing = Not (PrivateBrowsingCheckBox.Checked)
     End Sub
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
-        BrowserForm.AddTab("http://quentinpugeat.pagesperso-orange.fr/smartnetapps/browser/support", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/donnees_personnelles/index.html", BrowserForm.BrowserTabs)
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
