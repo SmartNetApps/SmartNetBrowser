@@ -7,11 +7,11 @@ Public Class AppSyncException
     Inherits Exception
 
     Public Sub New(message As String)
-        MyBase.New(message)
+        MyBase.New("SmartNet AppSync a retourné le message suivant : " + message)
     End Sub
 
     Public Sub New(message As String, innerException As Exception)
-        MyBase.New(message, innerException)
+        MyBase.New("SmartNet AppSync a retourné le message suivant : " + message, innerException)
     End Sub
 
     Public Overrides ReadOnly Property Message As String

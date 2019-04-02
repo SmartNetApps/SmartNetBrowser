@@ -55,7 +55,7 @@ RetryInit:
                 Gecko.GeckoPreferences.Default("dom.disable_beforeunload") = True
                 Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
             Catch ex As Exception
-                Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Exclamation)
+                Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error)
                     Case DialogResult.Abort
                         Environment.Exit(2)
                     Case DialogResult.Retry
@@ -65,44 +65,48 @@ RetryInit:
                 End Select
             End Try
 
-            Dim newHistory As New WebPageList
-            Dim newFavorites As New WebPageList
-            Dim migrated As Boolean = False
-            Dim title As String
-            Dim url As String
-            Dim visitDate As DateTime
-            Dim pageDetails As String()
-            For Each item In My.Settings.History
-                If Not item.Contains(">") Then
-                    newHistory.Add(New WebPage(item))
-                    migrated = True
-                Else
-                    pageDetails = item.Split(">"c)
-                    title = pageDetails(0)
-                    url = pageDetails(1)
-                    visitDate = DateTime.Parse(pageDetails(2))
-                    newHistory.Add(New WebPage(title, url, visitDate))
-                End If
-            Next
+            Try
+                Dim newHistory As New WebPageList
+                Dim newFavorites As New WebPageList
+                Dim migrated As Boolean = False
+                Dim title As String
+                Dim url As String
+                Dim visitDate As DateTime
+                Dim pageDetails As String()
+                For Each item In My.Settings.History
+                    If Not item.Contains(">") Then
+                        newHistory.Add(New WebPage(item))
+                        migrated = True
+                    Else
+                        pageDetails = item.Split(">"c)
+                        title = pageDetails(0)
+                        url = pageDetails(1)
+                        visitDate = DateTime.Parse(pageDetails(2))
+                        newHistory.Add(New WebPage(title, url, visitDate))
+                    End If
+                Next
 
-            For Each item In My.Settings.Favorites
-                If Not item.Contains(">") Then
-                    newFavorites.Add(New WebPage(item))
-                    migrated = True
-                Else
-                    pageDetails = item.Split(">"c)
-                    title = pageDetails(0)
-                    url = pageDetails(1)
-                    visitDate = DateTime.Parse(pageDetails(2))
-                    newFavorites.Add(New WebPage(title, url, visitDate))
-                End If
-            Next
-            My.Settings.History = newHistory.ToStringCollection()
-            My.Settings.Favorites = newFavorites.ToStringCollection()
+                For Each item In My.Settings.Favorites
+                    If Not item.Contains(">") Then
+                        newFavorites.Add(New WebPage(item))
+                        migrated = True
+                    Else
+                        pageDetails = item.Split(">"c)
+                        title = pageDetails(0)
+                        url = pageDetails(1)
+                        visitDate = DateTime.Parse(pageDetails(2))
+                        newFavorites.Add(New WebPage(title, url, visitDate))
+                    End If
+                Next
+                My.Settings.History = newHistory.ToStringCollection()
+                My.Settings.Favorites = newFavorites.ToStringCollection()
 
-            If migrated Then
-                MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            End If
+                If migrated Then
+                    MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Nous avons tenté de migrer vos données vers le nouveau format d'enregistrement, mais quelque chose s'est mal passé. Veuillez contacter l'assistance technique avec les données suivantes :" + vbCrLf + ex.Message + vbCrLf + ex.Source + vbCrLf + ex.StackTrace, "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
 
             Try
                 If My.Settings.AutoUpdates = True Then
@@ -130,8 +134,6 @@ RetryInit:
                     End Select
                 End If
             Catch ex As Exception
-                BrowserForm.msgBar = New MessageBar(ex)
-                BrowserForm.DisplayMessageBar()
                 BrowserForm.UpdateNotifyIcon.Visible = False
                 BrowserForm.NouvelleVersionDisponibleSubMenu.Visible = False
             End Try
@@ -140,7 +142,7 @@ RetryInit:
         Private Sub MyApplication_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
             e.ExitApplication = False
             Console.WriteLine(e.Exception.Message)
-            MessageBox.Show("SmartNet Browser a planté." + vbCrLf + e.Exception.Message + vbCrLf + e.Exception.StackTrace, "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("SmartNet Browser a planté." + vbCrLf + e.Exception.Message + vbCrLf + e.Exception.StackTrace, "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Environment.Exit(2)
         End Sub
     End Class

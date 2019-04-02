@@ -14,7 +14,7 @@
                 MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Catch ex As Exception
-            MessageBox.Show("Impossible de se connecter avec les serveurs de SmartNet AppSync en raison d'une erreur interne (" + ex.Message + " - " + ex.GetBaseException().Message + "). Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Impossible de se connecter avec les serveurs de SmartNet AppSync en raison d'une erreur interne (" + ex.Message + " - " + ex.Message + "). Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

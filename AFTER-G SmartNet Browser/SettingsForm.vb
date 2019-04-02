@@ -16,7 +16,7 @@ Public Class SettingsForm
             ButtonSyncNow.Text = "Synchroniser maintenant"
             ButtonSyncNow.Enabled = True
         Catch ex As Exception
-            MessageBox.Show(ex.Message + " - " + ex.GetBaseException().Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ButtonSyncNow.Text = "Échec de la synchronisation."
             ButtonSyncNow.Enabled = False
             Return False
@@ -103,24 +103,29 @@ Public Class SettingsForm
 
         VersionActuelleLabel.Text = "Version actuelle : " + My.Application.Info.Version.ToString()
 
-        Select Case UpdateAgent.IsUpdateAvailable()
-            Case UpdateAgent.UpdateStatus.OSNotSupported
-                My.Settings.AutoUpdates = False
-                My.Settings.Save()
-                CheckUpdatesNowButton.Enabled = False
-                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
-            Case UpdateAgent.UpdateStatus.SupportStatusOff
-                My.Settings.AutoUpdates = False
-                My.Settings.Save()
-                CheckUpdatesNowButton.Enabled = False
-                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
-            Case UpdateAgent.UpdateStatus.UpdateAvailable
-                CheckUpdatesNowButton.Enabled = True
-                CheckUpdatesNowButton.Text = "Mise à jour disponible !"
-            Case UpdateAgent.UpdateStatus.UpToDate
-                CheckUpdatesNowButton.Enabled = False
-                CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
-        End Select
+        Try
+            Select Case UpdateAgent.IsUpdateAvailable()
+                Case UpdateAgent.UpdateStatus.OSNotSupported
+                    My.Settings.AutoUpdates = False
+                    My.Settings.Save()
+                    CheckUpdatesNowButton.Enabled = False
+                    CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+                Case UpdateAgent.UpdateStatus.SupportStatusOff
+                    My.Settings.AutoUpdates = False
+                    My.Settings.Save()
+                    CheckUpdatesNowButton.Enabled = False
+                    CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+                Case UpdateAgent.UpdateStatus.UpdateAvailable
+                    CheckUpdatesNowButton.Enabled = True
+                    CheckUpdatesNowButton.Text = "Mise à jour disponible !"
+                Case UpdateAgent.UpdateStatus.UpToDate
+                    CheckUpdatesNowButton.Enabled = False
+                    CheckUpdatesNowButton.Text = "SmartNet Browser est à jour."
+            End Select
+        Catch ex As Exception
+            CheckUpdatesNowButton.Enabled = False
+            CheckUpdatesNowButton.Text = "Erreur de connexion."
+        End Try
 
         AutoUpdateCheckBox.Checked = My.Settings.AutoUpdates
 
@@ -240,11 +245,14 @@ Public Class SettingsForm
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
-        Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Dim WB As CustomBrowser
         Try
             My.Settings.History.Clear()
             BrowserForm.URLBox.Items.Clear()
-            WB.History.Clear()
+            For Each tab As TabPage In BrowserForm.BrowserTabs.TabPages
+                WB = CType(tab.Tag, CustomBrowser)
+                WB.History.Clear()
+            Next
             DeleteHistoryButton.Enabled = False
             DeleteHistoryButton.Text = "Historique de navigation effacé"
         Catch ex As Exception
@@ -338,41 +346,49 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AutoUpdateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AutoUpdateCheckBox.CheckedChanged
-        If CType(sender, CheckBox).CheckState = CheckState.Checked And My.Settings.AutoUpdates = False Then
-            Select Case UpdateAgent.IsUpdateAvailable()
-                Case UpdateAgent.UpdateStatus.OSNotSupported
-                    MessageBox.Show("Malheureusement, ce système d'exploitation n'étant plus pris en charge, aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Try
+            If CType(sender, CheckBox).CheckState = CheckState.Checked And My.Settings.AutoUpdates = False Then
+                Select Case UpdateAgent.IsUpdateAvailable()
+                    Case UpdateAgent.UpdateStatus.OSNotSupported
+                        MessageBox.Show("Malheureusement, ce système d'exploitation n'étant plus pris en charge, aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        My.Settings.AutoUpdates = False
+                        My.Settings.Save()
+                        AutoUpdateCheckBox.Checked = False
+                    Case UpdateAgent.UpdateStatus.SupportStatusOff
+                        MessageBox.Show("Malheureusement, ce logiciel a été abandonné. Aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        My.Settings.AutoUpdates = False
+                        My.Settings.Save()
+                        AutoUpdateCheckBox.Checked = False
+                    Case Else
+                        My.Settings.AutoUpdates = True
+                        My.Settings.Save()
+                End Select
+            ElseIf CType(sender, CheckBox).CheckState = CheckState.Unchecked And My.Settings.AutoUpdates = True Then
+                If MessageBox.Show("La désactivation de la vérification automatique des mises à jour est déconseillée, car les mises à jour apportent des correctifs de bugs, ainsi que de nouvelles fonctionnalités, de manière régulière. Êtes-vous sûr.e de vouloir continuer ?", "SmartNet Apps Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                     My.Settings.AutoUpdates = False
                     My.Settings.Save()
-                    AutoUpdateCheckBox.Checked = False
-                Case UpdateAgent.UpdateStatus.SupportStatusOff
-                    MessageBox.Show("Malheureusement, ce logiciel a été abandonné. Aucune mise à jour ne sera proposée à l'avenir. Consultez le site d'assistance de SmartNet Apps pour en savoir plus.", "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    My.Settings.AutoUpdates = False
-                    My.Settings.Save()
-                    AutoUpdateCheckBox.Checked = False
-                Case Else
+                Else
                     My.Settings.AutoUpdates = True
                     My.Settings.Save()
-            End Select
-        ElseIf CType(sender, CheckBox).CheckState = CheckState.Unchecked And My.Settings.AutoUpdates = True Then
-            If MessageBox.Show("La désactivation de la vérification automatique des mises à jour est déconseillée, car les mises à jour apportent des correctifs de bugs, ainsi que de nouvelles fonctionnalités, de manière régulière. Êtes-vous sûr.e de vouloir continuer ?", "SmartNet Apps Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                My.Settings.AutoUpdates = False
-                My.Settings.Save()
+                    AutoUpdateCheckBox.Checked = True
+                End If
             Else
-                My.Settings.AutoUpdates = True
+                My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
                 My.Settings.Save()
-                AutoUpdateCheckBox.Checked = True
             End If
-        Else
-            My.Settings.AutoUpdates = AutoUpdateCheckBox.Checked
-            My.Settings.Save()
-        End If
+        Catch ex As Exception
+            MessageBox.Show("Nous rencontrons des difficultés pour contacter SmartNet Apps Updater. Veuillez retenter ultérieurement." + vbCrLf + "Erreur : " + ex.Message, "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 
     Private Sub CheckUpdatesNowButton_Click(sender As Object, e As EventArgs) Handles CheckUpdatesNowButton.Click
-        If UpdateAgent.IsUpdateAvailable() = UpdateAgent.UpdateStatus.UpdateAvailable Then
-            UpdaterForm.ShowDialog()
-        End If
+        Try
+            If UpdateAgent.IsUpdateAvailable() = UpdateAgent.UpdateStatus.UpdateAvailable Then
+                UpdaterForm.ShowDialog()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Nous rencontrons des difficultés pour contacter SmartNet Apps Updater. Veuillez retenter ultérieurement." + vbCrLf + "Erreur : " + ex.Message, "SmartNet Apps Updater", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
     End Sub
 
     Private Sub ImportSettingsButton_Click(sender As Object, e As EventArgs) Handles ImportSettingsButton.Click
@@ -387,7 +403,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub RepareBrowserButton_Click(sender As Object, e As EventArgs) Handles RepareBrowserButton.Click
-        If MessageBox.Show("Êtes-vous sûr(e) de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", "Réinitialisation de SmartNet Browser", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+        If MessageBox.Show("Êtes-vous sûr.e de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", "Réinitialisation de SmartNet Browser", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
             My.Settings.Homepage = "https://homepage.quentinpugeat.fr"
@@ -521,8 +537,8 @@ Public Class SettingsForm
             If AppSyncAgent.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
                 ButtonChangeAppSyncDeviceName.Enabled = False
             End If
-        Catch ex As AppSyncException
-            MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil." + vbCrLf + ex.Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
