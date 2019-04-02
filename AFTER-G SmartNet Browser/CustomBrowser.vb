@@ -33,7 +33,7 @@ Public Class CustomBrowser
     Public Function IsAdvertisement(url As String) As Boolean
         Try
             Dim AdsDomainsFileDownloader As New WebClient
-            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("https://adsblocker.smartnetapps.quentinpugeat.fr/v1/AdsDomains.txt")
+            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://adsblocker.smartnetapps.quentinpugeat.fr/v1/AdsDomains.txt")
             Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
             For Each domain In AdsDomainsList
                 If url.Contains(domain) Then
@@ -56,7 +56,7 @@ Public Class CustomBrowser
     Public Function IsDangerousForChildren(url As String) As Boolean
         Try
             Dim AdultDomainsFile As New WebClient
-            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("https://childguard.smartnetapps.quentinpugeat.fr/v1/ChildrenProtection.txt")
+            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://childguard.smartnetapps.quentinpugeat.fr/v1/ChildrenProtection.txt")
             Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
             For Each domain In AdultDomainsList
                 If url.Contains(domain) Then
