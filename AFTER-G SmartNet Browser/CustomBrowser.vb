@@ -107,7 +107,7 @@ Public Class CustomBrowser
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         Favicon = My.Resources.ErrorFavicon
 
-        If My.Settings.ChildrenProtection = True And IsDangerousForChildren(e.Uri.ToString()) = True Then
+        If My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString()) = True Then
             Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
                 Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
@@ -116,7 +116,7 @@ Public Class CustomBrowser
             End If
         End If
 
-        If My.Settings.PopUpBlocker = True And My.Settings.AdBlocker = True And IsAdvertisement(e.Uri.ToString()) And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup Then
+        If My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup AndAlso My.Settings.AdBlockerWhitelist.Contains(e.Uri.ToString()) = False AndAlso IsAdvertisement(e.Uri.ToString()) Then
             Dim url As String = Me.Url.ToString()
             BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
             BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", MessageBar.MessageBarAction.OpenPopup, "Ouvrir quand même", url)
