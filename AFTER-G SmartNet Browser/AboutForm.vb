@@ -9,7 +9,7 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HomepageLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser")
         Me.Close()
     End Sub
 
@@ -18,22 +18,22 @@
     End Sub
 
     Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClipconverterLinkLabel.LinkClicked
-        BrowserForm.AddTab("http://www.clipconverter.cc/terms", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("http://www.clipconverter.cc/terms")
         Me.Close()
     End Sub
 
     Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GeckoFXLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://www.mozilla.org/en-US/MPL/2.0/", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://www.mozilla.org/en-US/MPL/2.0/")
         Me.Close()
     End Sub
 
     Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes.html", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes.html")
         Me.Close()
     End Sub
 
     Private Sub GitHubLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GitHubLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://github.com/RNbowKing/SmartNetBrowser", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://github.com/RNbowKing/SmartNetBrowser")
         Me.Close()
     End Sub
 

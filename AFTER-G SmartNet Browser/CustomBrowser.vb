@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Runtime.Serialization.Formatters.Binary
 Imports Gecko
 Imports Gecko.Events
 
@@ -90,7 +91,7 @@ Public Class CustomBrowser
                 Case Keys.BrowserForward
                     GoForward()
                 Case Keys.BrowserHome
-                    AddTab(My.Settings.Homepage, BrowserForm.BrowserTabs)
+                    BrowserForm.AddTab(My.Settings.Homepage)
                 Case Keys.BrowserRefresh
                     Reload()
                 Case Keys.BrowserSearch
@@ -118,7 +119,7 @@ Public Class CustomBrowser
         End If
 
         If My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup AndAlso My.Settings.AdBlockerWhitelist.Contains(e.Uri.ToString()) = False AndAlso IsAdvertisement(e.Uri.ToString()) Then
-            Dim url As String = Me.Url.ToString()
+            Dim url As String = e.Uri.ToString()
             BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
             BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", MessageBar.MessageBarAction.OpenPopup, "Ouvrir quand même", url)
             BrowserForm.DisplayMessageBar()
@@ -159,50 +160,11 @@ Public Class CustomBrowser
         BrowserForm.LoadingGif.Visible = False
     End Sub
 
-    ''' <summary>
-    ''' Ajoute un nouvel onglet dans le système d'onglets spécifié.
-    ''' </summary>
-    ''' <param name="URL">URL de la page à afficher</param>
-    ''' <param name="TabControl">Système d'onglets dans lequel s'ajoute l'onglet</param>
-    ''' <param name="isPopup">Si le nouvel onglet est contextuel, indiquer True.</param>
-    Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl, Optional isPopup As Boolean = False)
-        Try
-            Dim NewBrowser As New CustomBrowser
-            Dim NewTab As New TabPage
-            NewBrowser.Tag = NewTab
-            NewTab.Tag = NewBrowser
-            BrowserForm.ImageList1.Images.Add(BrowserForm.FaviconBox.InitialImage)
-            BrowserForm.BrowserTabs.ImageList.Images.Add(BrowserForm.FaviconBox.InitialImage)
-            TabControl.TabPages.Add(NewTab)
-            NewTab.Controls.Add(NewBrowser)
-            NewBrowser.Dock = DockStyle.Fill
-            NewBrowser.Navigate(URL)
-            TabControl.SelectedTab = NewTab
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex)
-            BrowserForm.DisplayMessageBar()
-        End Try
-    End Sub
-
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
-        Try
-            Dim NewBrowser As New CustomBrowser
-            NewBrowser.SetContextFlagsAttribute(CType(GeckoWindowFlags.WindowPopup, UInteger)) '32768
-            e.WebBrowser = NewBrowser
-            Dim NewTab As New TabPage
-            NewBrowser.Tag = NewTab
-            NewTab.Tag = NewBrowser
-            BrowserForm.ImageList1.Images.Add(BrowserForm.FaviconBox.InitialImage)
-            BrowserForm.BrowserTabs.ImageList.Images.Add(BrowserForm.FaviconBox.InitialImage)
-            BrowserForm.BrowserTabs.TabPages.Add(NewTab)
-            NewTab.Controls.Add(NewBrowser)
-            NewBrowser.Dock = DockStyle.Fill
-            'NewBrowser.Navigate(Url)
-            BrowserForm.BrowserTabs.SelectedTab = NewTab
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(ex)
-            BrowserForm.DisplayMessageBar()
-        End Try
+        Dim NewBrowser As New CustomBrowser
+        NewBrowser.SetContextFlagsAttribute(CType(GeckoWindowFlags.WindowPopup, UInteger))
+        e.WebBrowser = NewBrowser
+        BrowserForm.AddTab(NewBrowser)
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating

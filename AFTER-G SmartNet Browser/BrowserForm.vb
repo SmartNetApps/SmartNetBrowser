@@ -6,11 +6,11 @@ Imports System.Text
 Public Class BrowserForm
     Public msgBar As MessageBar
     Dim tabPageIndex As Integer = 0
-    Public lastClosedTab As String
+    Public lastClosedTabURL As String
 
     Public Sub New()
         msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Bonjour !")
-        lastClosedTab = "about:blank"
+        lastClosedTabURL = ""
         InitializeComponent()
     End Sub
 
@@ -58,24 +58,58 @@ Public Class BrowserForm
     End Sub
 
     ''' <summary>
-    ''' Ajoute un nouvel onglet.
+    ''' Ajoute un nouvel onglet dans BrowserTabs avec une nouvelle instance de CustomBrowser.
     ''' </summary>
     ''' <param name="URL">URL de la page qui sera chargée dans le nouvel onglet</param>
-    ''' <param name="TabControl">Dispositif d'onglets dans lequel sera ajouté l'onglet</param>
-    Public Sub AddTab(ByRef URL As String, ByRef TabControl As TabControl)
+    Public Sub AddTab(URL As String)
         Try
             Dim NewBrowser As New CustomBrowser()
             Dim NewTab As New TabPage("Nouvel onglet")
             NewBrowser.Tag = NewTab
             NewTab.Tag = NewBrowser
-            ImageList1.Images.Add(FaviconBox.InitialImage)
-            BrowserTabs.ImageList.Images.Add(FaviconBox.InitialImage)
+
+            ImageList1.Images.Add(My.Resources.ErrorFavicon)
+            BrowserTabs.ImageList.Images.Add(My.Resources.ErrorFavicon)
+            NewTab.ImageIndex = NewTab.TabIndex
+
             NewTab.ContextMenuStrip = TabsContextMenuStrip
             NewTab.ContextMenuStrip.Tag = NewTab
-            TabControl.TabPages.Add(NewTab)
+
             NewTab.Controls.Add(NewBrowser)
             NewBrowser.Dock = DockStyle.Fill
+
             NewBrowser.Navigate(URL)
+
+            BrowserTabs.TabPages.Add(NewTab)
+            BrowserTabs.SelectedTab = NewTab
+        Catch ex As Exception
+            msgBar = New MessageBar(ex)
+            DisplayMessageBar()
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Ajoute un nouvel onglet dans BrowserTabs avec l'instance de CustomBrowser passée en paramètre.
+    ''' </summary>
+    ''' <param name="BrowserInstance">Instance de CustomBrowser à afficher dans le nouvel onglet</param>
+    Public Sub AddTab(ByRef BrowserInstance As CustomBrowser)
+        Try
+
+            Dim NewTab As New TabPage("Nouvel onglet")
+            BrowserInstance.Tag = NewTab
+            NewTab.Tag = BrowserInstance
+
+            ImageList1.Images.Add(BrowserInstance.Favicon)
+            BrowserTabs.ImageList.Images.Add(BrowserInstance.Favicon)
+            NewTab.ImageIndex = NewTab.TabIndex
+
+            NewTab.ContextMenuStrip = TabsContextMenuStrip
+            NewTab.ContextMenuStrip.Tag = NewTab
+
+            NewTab.Controls.Add(BrowserInstance)
+            BrowserInstance.Dock = DockStyle.Fill
+
+            BrowserTabs.TabPages.Add(NewTab)
             BrowserTabs.SelectedTab = NewTab
         Catch ex As Exception
             msgBar = New MessageBar(ex)
@@ -243,13 +277,13 @@ Public Class BrowserForm
 
         Dim CommandArgs As String() = Environment.GetCommandLineArgs()
         If CommandArgs.Length = 1 Then
-            AddTab(My.Settings.Homepage, BrowserTabs)
+            AddTab(My.Settings.Homepage)
         Else
             Dim x As Integer = 0
             For Each argument In CommandArgs
-                x = x + 1
+                x += 1
                 If x = 1 Then Continue For
-                AddTab(argument, BrowserTabs)
+                AddTab(argument)
             Next
         End If
 
@@ -353,7 +387,7 @@ Public Class BrowserForm
     End Sub
 
     Private Sub NewTabOpen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewTabButton.Click, NewTabToolStripMenuItem.Click
-        AddTab(My.Settings.Homepage, BrowserTabs)
+        AddTab(My.Settings.Homepage)
     End Sub
 
     Private Sub CloseTab(sender As Object, e As EventArgs) Handles CloseTabButton.Click, CloseTabToolStripMenuItem.Click
@@ -363,7 +397,7 @@ Public Class BrowserForm
             CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser).Dispose()
             CloseSmartNetBrowser()
         Else
-            lastClosedTab = WB.Url.ToString()
+            lastClosedTabURL = WB.Url.ToString()
             CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser).Dispose()
             BrowserTabs.TabPages.Remove(BrowserTabs.SelectedTab)
         End If
@@ -500,13 +534,13 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SupportCenterNavigating(sender As Object, e As EventArgs) Handles CentreDaideEnLigneToolStripMenuItem.Click
-        AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/", BrowserTabs)
+        AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/")
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        AddTab("https://smartnetapps.quentinpugeat.fr/contact.html", BrowserTabs)
+        AddTab("https://smartnetapps.quentinpugeat.fr/contact.html")
     End Sub
     Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
-        AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link", BrowserTabs)
+        AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link")
     End Sub
     Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
         AboutForm.ShowDialog()
@@ -645,7 +679,8 @@ Public Class BrowserForm
     End Sub
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
-        AddTab("http://www.clipconverter.cc/?ref=addon&url=" + URLBox.Text, BrowserTabs)
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        AddTab("http://www.clipconverter.cc/?ref=addon&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
     End Sub
 
     Private Sub ShowProperties(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
@@ -728,7 +763,7 @@ Public Class BrowserForm
             If Not href.Contains("://") Then
                 href = WB.Url.Host + "/" + href
             End If
-            AddTab(href, BrowserTabs)
+            AddTab(href)
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
@@ -862,7 +897,7 @@ Public Class BrowserForm
     End Sub
     Private Sub AfficherLeCodeSourceDeLaPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AfficherLeCodeSourceDeLaPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("view-source:" & WB.Url.ToString, BrowserTabs)
+        AddTab("view-source:" & WB.Url.ToString())
     End Sub
     Private Sub LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -979,7 +1014,7 @@ Public Class BrowserForm
                 Case Keys.BrowserForward
                     WB.GoForward()
                 Case Keys.BrowserHome
-                    AddTab(My.Settings.Homepage, BrowserTabs)
+                    AddTab(My.Settings.Homepage)
                 Case Keys.BrowserRefresh
                     WB.Reload()
                 Case Keys.BrowserSearch
@@ -1048,10 +1083,10 @@ Public Class BrowserForm
     Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton1.Click
         Select Case msgBar.action
             Case MessageBar.MessageBarAction.OpenPopup
-                AddTab(msgBar.link, BrowserTabs)
+                AddTab(msgBar.link)
             Case MessageBar.MessageBarAction.RestorePreviousSession
                 For Each page As String In My.Settings.LastSessionListOfTabs
-                    AddTab(page, BrowserTabs)
+                    AddTab(page)
                 Next
                 My.Settings.CorrectlyClosed = False
             Case MessageBar.MessageBarAction.OpenExceptionForm
@@ -1070,7 +1105,7 @@ Public Class BrowserForm
     Private Sub FermerCetOngletToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerCetOngletToolStripMenuItem.Click
         Dim tabPageToRemove As TabPage = BrowserTabs.TabPages.Item(tabPageIndex)
         Dim WB As CustomBrowser = CType(tabPageToRemove.Tag, CustomBrowser)
-        lastClosedTab = WB.Url.ToString()
+        lastClosedTabURL = WB.Url.ToString()
         Try
             WB.Dispose()
             If BrowserTabs.TabPages.Count = 1 Then
@@ -1084,11 +1119,11 @@ Public Class BrowserForm
         End Try
     End Sub
     Private Sub RouvrirLeDernierOngletFerméToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RouvrirLeDernierOngletFerméToolStripMenuItem.Click
-        AddTab(lastClosedTab, BrowserTabs)
-        lastClosedTab = ""
+        AddTab(lastClosedTabURL)
+        lastClosedTabURL = ""
     End Sub
     Private Sub TabsContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles TabsContextMenuStrip.Opening
-        If lastClosedTab = "" Then
+        If lastClosedTabURL = "" Then
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = False
         Else
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = True
@@ -1112,7 +1147,7 @@ Public Class BrowserForm
     End Sub
     Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString(), BrowserTabs)
+        AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString())
     End Sub
 
     Private Sub HistoriqueDeNavigationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDeNavigationToolStripMenuItem.Click
@@ -1149,7 +1184,12 @@ Public Class BrowserForm
         If My.Settings.AppSyncDeviceNumber = "" Then
             AppSyncLogin.ShowDialog()
         Else
-            AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + AppSyncAgent.GenerateToken(), BrowserTabs)
+            Try
+                AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + AppSyncAgent.GenerateToken())
+            Catch ex As Exception
+                msgBar = New MessageBar(ex)
+                DisplayMessageBar()
+            End Try
         End If
     End Sub
 

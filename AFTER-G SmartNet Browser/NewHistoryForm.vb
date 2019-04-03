@@ -19,7 +19,7 @@
     Private Sub OpenPageButton_Click(sender As Object, e As EventArgs) Handles OpenPageButton.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         For Each Item As ListViewItem In HistoryListView.SelectedItems
-            BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
+            BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
         Next
         BrowserForm.BringToFront()
     End Sub
@@ -27,7 +27,7 @@
     Private Sub ButtonOpenFavorite_Click(sender As Object, e As EventArgs) Handles ButtonOpenFavorite.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         For Each Item As ListViewItem In ListViewFavorites.SelectedItems
-            BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
+            BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
         Next
         BrowserForm.BringToFront()
     End Sub
@@ -159,7 +159,7 @@
             Case Keys.Enter
                 Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
                 For Each Item As ListViewItem In HistoryListView.SelectedItems
-                    BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
+                    BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
                 Next
                 BrowserForm.BringToFront()
         End Select
@@ -172,7 +172,7 @@
             Case Keys.Enter
                 Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
                 For Each Item As ListViewItem In ListViewFavorites.SelectedItems
-                    BrowserForm.AddTab(Item.SubItems(1).Text.ToString(), BrowserForm.BrowserTabs)
+                    BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
                 Next
                 BrowserForm.BringToFront()
         End Select

@@ -241,7 +241,7 @@ Public Class SettingsForm
         My.Settings.PrivateBrowsing = Not (PrivateBrowsingCheckBox.Checked)
     End Sub
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/donnees_personnelles/index.html", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/donnees_personnelles/index.html")
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
@@ -331,7 +331,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AdBlockerSignalementButton_Click(sender As Object, e As EventArgs) Handles ChildGuardProblemSignalementButton.Click, AdsBlockerProblemSignalementButton.Click
-        BrowserForm.AddTab("https://docs.google.com/forms/d/e/1FAIpQLScxWEiZYE9ZQNQ1su4356QWW837j_jB7JGzbMxAqbVPM2nmcw/viewform?usp=sf_link", BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://docs.google.com/forms/d/e/1FAIpQLScxWEiZYE9ZQNQ1su4356QWW837j_jB7JGzbMxAqbVPM2nmcw/viewform?usp=sf_link")
         Me.Close()
     End Sub
 
@@ -487,7 +487,7 @@ Public Class SettingsForm
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
         Dim token As String = AppSyncAgent.GenerateToken()
-        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + token, BrowserForm.BrowserTabs)
+        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + token)
         Me.Close()
     End Sub
 
