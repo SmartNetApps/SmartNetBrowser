@@ -9,6 +9,7 @@ Public Class CustomBrowser
     Public Favicon As Image
 
     Public Sub New()
+        MyBase.New()
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
         Favicon = My.Resources.ErrorFavicon

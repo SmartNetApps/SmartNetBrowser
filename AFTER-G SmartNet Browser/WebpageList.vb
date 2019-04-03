@@ -6,6 +6,18 @@
 Public Class WebPageList
     Inherits List(Of WebPage)
 
+    Public Sub New()
+        MyBase.New()
+    End Sub
+
+    Public Sub New(capacity As Integer)
+        MyBase.New(capacity)
+    End Sub
+
+    Public Sub New(collection As IEnumerable(Of WebPage))
+        MyBase.New(collection)
+    End Sub
+
     ''' <summary>
     ''' Donne une liste de chaînes à partir de la liste de pages
     ''' </summary>
