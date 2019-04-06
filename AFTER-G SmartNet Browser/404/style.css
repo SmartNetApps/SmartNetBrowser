@@ -1,38 +1,105 @@
-body
-{
-	background-color:lightgrey;
-	color:black;
-	text-align: center;
-	font-family: Open Sans, Segoe UI, sans-serif;
-	position: fixed;
-	top: 30%;
-	width:100%;
+/* 
+ * (C) 2014-2019 Quentin Pugeat 
+ * Ce code est distribué selon les termes de la licence GNU GPL 3.0 consultable à l'adresse https://www.gnu.org/licenses/gpl-3.0-standalone.html
+ */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-family: Segoe UI, sans-serif;
+    min-height: 80vh;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    top: 0
 }
-a
-{
-	color:white;
+
+a {
+    color: white;
 }
-img
-{
-	padding-right:15px;
+
+.flex {
+    display: flex;
 }
-div
-{
-	display: inline-block;
-	width:50%;
-	vertical-align: top;
-	text-align:left;
+
+.icon {
+    flex: 1;
+    max-width: 100px;
+    text-align: right;
+    border-right: 1px black solid;
+    padding-right: 15px;
 }
-h1
-{
-	font-weight:normal;
-	margin:0;
-	padding:0;
+
+.icon img {
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
 }
-h2
-{
-	font-weight:normal;
-	margin-top:0px;
-	margin-bottom:0px;
-	vertical-align: top;
+
+.text {
+    flex: 1;
+    text-align: left;
+    padding-left: 15px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: top;
+}
+
+h3 {
+    font-size: medium;
+}
+
+h4 {
+    font-size: small;
+}
+
+/* Affichage sur les terminaux mobiles */
+@media only screen and (max-width : 960px) {
+    body {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    h1 {
+        font-size: x-large;
+    }
+
+    h2 {
+        font-size: large;
+    }
+
+    h3 {
+        font-size: medium;
+    }
+
+    h4 {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-height : 400px) {
+    body {
+        min-height: 90vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 }
