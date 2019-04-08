@@ -118,7 +118,7 @@ Public Class CustomBrowser
             End If
         End If
 
-        If My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup AndAlso My.Settings.AdBlockerWhitelist.Contains(e.Uri.ToString()) = False AndAlso IsAdvertisement(e.Uri.ToString()) Then
+        If My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup AndAlso My.Settings.AdBlockerWhitelist.Contains(e.Uri.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) Then
             Dim url As String = e.Uri.ToString()
             BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
             BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", MessageBar.MessageBarAction.OpenPopup, "Ouvrir quand même", url)
@@ -168,7 +168,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
-        If (My.Settings.AdBlocker = True And My.Settings.AdBlockerWhitelist.Contains(e.Uri.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) = True) Or (My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString())) Then
+        If (My.Settings.AdBlocker = True And My.Settings.AdBlockerWhitelist.Contains(Me.Url.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) = True) Or (My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString())) Then
             e.Cancel = True
         End If
     End Sub
