@@ -218,7 +218,7 @@ Public Class BrowserForm
             FavoritesButton.Image = My.Resources.FavoritesOutline
         End If
 
-        If WB.IsBusy Then
+        If WB.IsBusy Or WB.Document.ReadyState = "loading" Or WB.Document.ReadyState = "interactive" Then
             StopOrRefreshButton.Image = My.Resources.StopBlack
             LoadingGif.Visible = True
             AperçuAvantImpressionToolStripMenuItem.Enabled = False

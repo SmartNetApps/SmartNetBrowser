@@ -156,8 +156,13 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
-        BrowserForm.LoadingGif.Visible = False
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
+            BrowserForm.LoadingGif.Visible = False
+            BrowserForm.UpdateInterface()
+        Else
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
     End Sub
 
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
@@ -283,6 +288,20 @@ FaviconFound:
     End Sub
 
     Private Sub CustomBrowser_NSSError(sender As Object, e As GeckoNSSErrorEventArgs) Handles MyBase.NSSError
+        If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
+            Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/CertificateError/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html")
+        Else
+            Navigate("file:///" + My.Application.Info.DirectoryPath.Replace("\", "/") + "/CertificateError/en.html")
+        End If
+        BrowserForm.URLBox.Text = e.Uri.ToString()
         Console.WriteLine("Erreur de certificat non identifiée. Code d'erreur : " + e.ErrorCode.ToString())
+    End Sub
+
+    Private Sub CustomBrowser_ReadyStateChange(sender As Object, e As DomEventArgs) Handles Me.ReadyStateChange
+        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+            BrowserForm.UpdateInterface()
+        Else
+            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
+        End If
     End Sub
 End Class
