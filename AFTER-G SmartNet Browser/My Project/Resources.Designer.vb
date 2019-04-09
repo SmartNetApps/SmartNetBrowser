@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -753,9 +753,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Icon semblable à (Icône).
         '''</summary>
-        Friend ReadOnly Property SmartNetBrowserIcone() As System.Drawing.Icon
+        Friend ReadOnly Property smartnetbrowser_file() As System.Drawing.Icon
             Get
-                Dim obj As Object = ResourceManager.GetObject("SmartNetBrowserIcone", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("smartnetbrowser_file", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
             End Get
         End Property

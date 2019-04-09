@@ -623,6 +623,9 @@
     <Content Include="README.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="SmartNetBrowserIconSet.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\2019_SmartNetBrowser_Icon.ico" />
     <None Include="Resources\2019_SmartNetBrowser_16.png" />
     <None Include="Resources\2019_SmartNetBrowser_32.png" />
@@ -703,6 +706,7 @@
     <Content Include="Resources\SettingsForm\Tracking.png" />
     <Content Include="Resources\SettingsForm\Update.png" />
     <Content Include="Resources\SettingsForm\UserAgent.png" />
+    <None Include="Resources\smartnetbrowser_file.ico" />
     <Content Include="Resources\StopButton\StopBlack.png" />
     <None Include="Resources\Logo\wordmark_white_36.png" />
     <None Include="Resources\Logo\wordmark_black_36.png" />
