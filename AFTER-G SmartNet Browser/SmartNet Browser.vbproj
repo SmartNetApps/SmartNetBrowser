@@ -177,6 +177,7 @@
     <Compile Include="AboutForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdsBlockerAgent.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="AppSyncAgent.vb" />
     <Compile Include="AppSyncException.vb" />
@@ -205,6 +206,7 @@
     <Compile Include="ChangeChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ChildGuardAgent.vb" />
     <Compile Include="CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </Compile>

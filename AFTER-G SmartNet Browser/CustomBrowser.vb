@@ -27,52 +27,6 @@ Public Class CustomBrowser
         End If
     End Sub
 
-    ''' <summary>
-    ''' Indique si la page ou le cadre est une publicité.
-    ''' </summary>
-    ''' <param name="url">URL de la page ou du cadre.</param>
-    ''' <returns></returns>
-    Public Function IsAdvertisement(url As String) As Boolean
-        Try
-            Dim AdsDomainsFileDownloader As New WebClient
-            Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://adsblocker.smartnetapps.quentinpugeat.fr/v1/AdsDomains.txt")
-            Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
-            For Each domain In AdsDomainsList
-                If url.Contains(domain) Then
-                    Return True
-                End If
-            Next
-            Return False
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "SmartNet AdsBlocker a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
-            BrowserForm.DisplayMessageBar()
-            Return False
-        End Try
-    End Function
-
-    ''' <summary>
-    ''' Indique si la page est dangereuse pour les enfants.
-    ''' </summary>
-    ''' <param name="url">URL de la page à tester</param>
-    ''' <returns></returns>
-    Public Function IsDangerousForChildren(url As String) As Boolean
-        Try
-            Dim AdultDomainsFile As New WebClient
-            Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://childguard.smartnetapps.quentinpugeat.fr/v1/ChildrenProtection.txt")
-            Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
-            For Each domain In AdultDomainsList
-                If url.Contains(domain) Then
-                    Return True
-                End If
-            Next
-            Return False
-        Catch ex As Exception
-            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "SmartNet ChildGuard a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
-            BrowserForm.DisplayMessageBar()
-            Return False
-        End Try
-    End Function
-
     Private Sub CustomBrowser_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Try
             Select Case e.KeyCode
@@ -109,21 +63,47 @@ Public Class CustomBrowser
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         Favicon = My.Resources.ErrorFavicon
 
-        If My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString()) = True Then
-            Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-            If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
-                Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
-            Else
-                Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+        If My.Settings.ChildrenProtection = True Then
+            Dim isAdultContent As Boolean = False
+            Try
+                isAdultContent = ChildGuardAgent.IsAdultContent(e.Uri.ToString())
+            Catch ex As Exception
+                BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "SmartNet ChildGuard a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+                BrowserForm.DisplayMessageBar()
+                isAdultContent = False
+            End Try
+
+            If isAdultContent Then
+                e.Cancel = True
+                Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+                Else
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+                End If
             End If
         End If
 
-        If My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup AndAlso My.Settings.AdBlockerWhitelist.Contains(e.Uri.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) Then
-            Dim url As String = e.Uri.ToString()
-            BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
-            BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", MessageBar.MessageBarAction.OpenPopup, "Ouvrir quand même", url)
-            BrowserForm.DisplayMessageBar()
-            Me.Dispose()
+        If My.Settings.AdBlocker = True And My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup Then
+            Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(e.Uri.Host)
+            If isWhitelisted = False Then
+                Dim isAnAd As Boolean = False
+                Try
+                    isAnAd = AdsBlockerAgent.IsAdvertisement(e.Uri.ToString())
+                Catch ex As Exception
+                    BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "SmartNet AdsBlocker a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+                    BrowserForm.DisplayMessageBar()
+                    isAnAd = False
+                End Try
+
+                If isAnAd Then
+                    Dim url As String = e.Uri.ToString()
+                    BrowserForm.BrowserTabs.TabPages.Remove(CType(Me.Tag, TabPage))
+                    BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "SmartNet Browser a empêché l'ouverture d'une fenêtre publicitaire.", MessageBar.MessageBarAction.OpenPopup, "Ouvrir quand même", url)
+                    BrowserForm.DisplayMessageBar()
+                    Me.Dispose()
+                End If
+            End If
         End If
 
         If e.Uri.ToString.Contains("window.close") Then
@@ -173,8 +153,33 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
-        If (My.Settings.AdBlocker = True And My.Settings.AdBlockerWhitelist.Contains(Me.Url.Host) = False AndAlso IsAdvertisement(e.Uri.ToString()) = True) Or (My.Settings.ChildrenProtection = True AndAlso IsDangerousForChildren(e.Uri.ToString())) Then
-            e.Cancel = True
+        If My.Settings.AdBlocker = True Then
+            Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(e.Uri.Host)
+            If isWhitelisted = False Then
+                Dim isAnAd As Boolean = False
+                Try
+                    isAnAd = AdsBlockerAgent.IsAdvertisement(e.Uri.ToString())
+                Catch ex As Exception
+                    BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "SmartNet AdsBlocker a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+                    BrowserForm.DisplayMessageBar()
+                    isAnAd = False
+                End Try
+
+                e.Cancel = isAnAd
+            End If
+        End If
+
+        If My.Settings.ChildrenProtection = True Then
+            Dim isAdultContent As Boolean = False
+            Try
+                isAdultContent = ChildGuardAgent.IsAdultContent(e.Uri.ToString())
+            Catch ex As Exception
+                BrowserForm.msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "SmartNet ChildGuard a rencontré une erreur. (" + ex.Message + ")", MessageBar.MessageBarAction.OpenExceptionForm, "Voir les détails", ex)
+                BrowserForm.DisplayMessageBar()
+                isAdultContent = False
+            End Try
+
+            e.Cancel = isAdultContent
         End If
     End Sub
 
@@ -282,6 +287,8 @@ FaviconFound:
                 BrowserForm.URLBox.Text = e.Uri
             Case -2142568435
                 Console.WriteLine("Refus de connexion sur " + e.Uri + " (Code d'erreur " + e.ErrorCode.ToString() + ")")
+            Case -2142568428
+                Console.WriteLine("The document contains no data. " + e.Uri + " (Code d'erreur " + e.ErrorCode.ToString() + ")")
             Case Else
                 Console.WriteLine("Erreur de navigation inconnue sur " + e.Uri + " (Code d'erreur " + e.ErrorCode.ToString() + ")")
         End Select
