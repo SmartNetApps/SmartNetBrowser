@@ -154,7 +154,7 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
         If My.Settings.AdBlocker = True Then
-            Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(e.Uri.Host)
+            Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(Me.Url.Host)
             If isWhitelisted = False Then
                 Dim isAnAd As Boolean = False
                 Try
