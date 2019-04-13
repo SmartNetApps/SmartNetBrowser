@@ -146,12 +146,12 @@ Public Class AppSyncAgent
             My.Settings.PrivateBrowsing = CBool(config.privateBrowsing)
             My.Settings.PreventMultipleTabsClose = CBool(config.preventMultipleTabsClose)
             My.Settings.SearchEngine = config.searchEngine
-            My.Settings.CustomSearchURL = config.customSearchURL
-            My.Settings.CustomSearchName = config.customSearchName
+            My.Settings.CustomSearchURL = WebUtility.UrlDecode(config.customSearchURL)
+            My.Settings.CustomSearchName = WebUtility.UrlDecode(config.customSearchName)
             My.Settings.AdBlocker = CBool(config.adBlocker)
             My.Settings.DeleteCookiesWhileClosing = CBool(config.deleteCookiesWhileClosing)
             My.Settings.PopUpBlocker = CBool(config.popUpBlocker)
-            My.Settings.Homepage = config.homepage
+            My.Settings.Homepage = WebUtility.UrlDecode(config.homepage)
             My.Settings.UserAgentLanguage = config.userAgentLanguage
             My.Settings.DoNotTrack = CBool(config.doNotTrack)
             Return True
@@ -177,8 +177,8 @@ Public Class AppSyncAgent
             config.preventMultipleTabsClose = 0
         End If
         config.searchEngine = My.Settings.SearchEngine
-        config.customSearchURL = My.Settings.CustomSearchURL
-        config.customSearchName = My.Settings.CustomSearchName
+        config.customSearchURL = WebUtility.UrlEncode(My.Settings.CustomSearchURL)
+        config.customSearchName = WebUtility.UrlEncode(My.Settings.CustomSearchName)
         If My.Settings.AdBlocker Then
             config.adBlocker = 1
         Else
@@ -194,7 +194,7 @@ Public Class AppSyncAgent
         Else
             config.popUpBlocker = 0
         End If
-        config.homepage = My.Settings.Homepage
+        config.homepage = WebUtility.UrlEncode(My.Settings.Homepage)
         config.userAgentLanguage = My.Settings.UserAgentLanguage
         If My.Settings.DoNotTrack Then
             config.doNotTrack = 1
@@ -236,7 +236,7 @@ Public Class AppSyncAgent
             Dim history As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
             Dim list As New WebPageList()
             For Each p As Page In history
-                list.Add(New WebPage(p.pageTitle, WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
+                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
             Next
             Return list
         End If
@@ -257,7 +257,7 @@ Public Class AppSyncAgent
             Dim favorites As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
             Dim list As New WebPageList()
             For Each p As Page In favorites
-                list.Add(New WebPage(p.pageTitle, WebUtility.UrlDecode(p.pageURL)))
+                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL)))
             Next
             Return list
         End If
@@ -278,7 +278,7 @@ Public Class AppSyncAgent
             Dim searchhistory As List(Of BrowserSearchHistory) = JsonConvert.DeserializeObject(Of List(Of BrowserSearchHistory))(resultat)
             Dim list As New Specialized.StringCollection()
             For Each p In searchhistory
-                list.Add(p.searchHistoryText)
+                list.Add(WebUtility.UrlDecode(p.searchHistoryText))
             Next
             Return list
         End If
@@ -286,7 +286,7 @@ Public Class AppSyncAgent
 
     Public Shared Async Function AddHistory(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
+        laPage.pageTitle = WebUtility.UrlEncode(page.GetNom())
         laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
         laPage.pageVisitDateTime = page.GetVisitDateTime()
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
@@ -310,7 +310,7 @@ Public Class AppSyncAgent
 
     Public Shared Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
+        laPage.pageTitle = WebUtility.UrlEncode(page.GetNom())
         laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
@@ -335,7 +335,7 @@ Public Class AppSyncAgent
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=AddSearchHistory&texte=" + query + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim queryParameters As String = "?action=AddSearchHistory&texte=" + WebUtility.UrlEncode(query) + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
@@ -351,8 +351,8 @@ Public Class AppSyncAgent
 
     Public Shared Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
+        laPage.pageTitle = WebUtility.UrlEncode(page.GetNom())
+        laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
         laPage.pageVisitDateTime = page.GetVisitDateTime()
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
@@ -375,8 +375,8 @@ Public Class AppSyncAgent
 
     Public Shared Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
+        laPage.pageTitle = WebUtility.UrlEncode(page.GetNom())
+        laPage.pageURL = WebUtility.UrlEncode(page.GetURL())
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
         Dim client As New WebClient
@@ -400,7 +400,7 @@ Public Class AppSyncAgent
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=DeleteSearchHistory&texte=" + query + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim queryParameters As String = "?action=DeleteSearchHistory&texte=" + WebUtility.UrlEncode(query) + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
