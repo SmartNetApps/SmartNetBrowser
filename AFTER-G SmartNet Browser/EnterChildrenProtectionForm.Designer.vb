@@ -48,8 +48,8 @@ Partial Class EnterChildrenProtectionForm
         '
         'AbortButton
         '
-        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.AbortButton, "AbortButton")
+        Me.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.UseVisualStyleBackColor = True
         '
