@@ -220,9 +220,13 @@ Public Class BrowserForm
 
         If WB.IsBusy Or WB.Document.ReadyState = "loading" Then
             StopOrRefreshButton.Image = My.Resources.StopBlack
+            StopOrRefreshButton.AccessibleName = "Arrêter le chargement de la page"
+            StopOrRefreshButton.AccessibleDescription = "Bouton permettant d'arrêter le chargement de la page."
             AperçuAvantImpressionToolStripMenuItem.Enabled = False
         Else
             StopOrRefreshButton.Image = My.Resources.RefreshBlack
+            StopOrRefreshButton.AccessibleName = "Recharger la page"
+            StopOrRefreshButton.AccessibleDescription = "Bouton permettant de recharger la page."
             AperçuAvantImpressionToolStripMenuItem.Enabled = True
         End If
 
@@ -406,10 +410,6 @@ Public Class BrowserForm
         If e.KeyCode = Keys.Enter Then
             WB.Navigate(URLBox.Text)
         End If
-    End Sub
-
-    Private Sub URLBox_KeyPress(sender As Object, e As EventArgs) Handles URLBox.KeyPress
-        GoButton.Visible = True
     End Sub
 
     Private Sub SavePageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
@@ -1034,16 +1034,16 @@ Public Class BrowserForm
     ''' <param name="buttonLink">Lien à ouvrir par le bouton.</param>
     ''' <param name="ex">Exception à traiter par la barre de message.</param>
     Public Sub DisplayMessageBar()
-        MessageBarPictureBox.BackColor = msgBar.GetColor()
+        MessageBarPanel.BackColor = msgBar.GetColor()
         MessageBarLabel1.BackColor = msgBar.GetColor()
         MessageBarLabel1.ForeColor = Color.White
-        MessageBarCloseButton1.BackColor = msgBar.GetColor()
+        MessageBarCloseButton.BackColor = msgBar.GetColor()
         MessageBarLabel1.Text = msgBar.message
 
-        MessageBarPictureBox.Visible = True
-        MessageBarCloseButton1.Visible = True
+        MessageBarPanel.Visible = True
+        MessageBarCloseButton.Visible = True
         MessageBarLabel1.Visible = True
-        MessageBarCloseButton1.Enabled = True
+        MessageBarCloseButton.Enabled = True
 
         If msgBar.buttonText = "" Or msgBar.action = MessageBar.MessageBarAction.NoAction Then
             MessageBarButton1.Visible = False
@@ -1052,7 +1052,10 @@ Public Class BrowserForm
             MessageBarButton1.Visible = True
             MessageBarButton1.Enabled = True
             MessageBarButton1.Text = msgBar.buttonText
+            MessageBarButton1.AccessibleName = msgBar.buttonText
         End If
+
+        MessageBarLabel1.Focus()
     End Sub
 
     ''' <summary>
@@ -1061,13 +1064,13 @@ Public Class BrowserForm
     Public Sub CloseMessageBar()
         MessageBarButton1.Visible = False
         MessageBarLabel1.Visible = False
-        MessageBarPictureBox.Visible = False
-        MessageBarCloseButton1.Visible = False
+        MessageBarPanel.Visible = False
+        MessageBarCloseButton.Visible = False
         MessageBarButton1.Enabled = False
-        MessageBarCloseButton1.Enabled = False
+        MessageBarCloseButton.Enabled = False
     End Sub
 
-    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton1.Click
+    Private Sub MessageBarCloseButton_Click(sender As Object, e As EventArgs) Handles MessageBarCloseButton.Click
         CloseMessageBar()
     End Sub
     Private Sub MessageBarButton_Click(sender As Object, e As EventArgs) Handles MessageBarButton1.Click
