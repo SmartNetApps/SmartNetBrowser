@@ -56,7 +56,7 @@ Partial Class AppSyncLogin
         Me.Label_Email.Location = New System.Drawing.Point(430, 9)
         Me.Label_Email.Name = "Label_Email"
         Me.Label_Email.Size = New System.Drawing.Size(99, 19)
-        Me.Label_Email.TabIndex = 0
+        Me.Label_Email.TabIndex = 1
         Me.Label_Email.Text = "Adresse e-mail"
         '
         'Label_MDP
@@ -66,7 +66,7 @@ Partial Class AppSyncLogin
         Me.Label_MDP.Location = New System.Drawing.Point(430, 73)
         Me.Label_MDP.Name = "Label_MDP"
         Me.Label_MDP.Size = New System.Drawing.Size(92, 19)
-        Me.Label_MDP.TabIndex = 0
+        Me.Label_MDP.TabIndex = 3
         Me.Label_MDP.Text = "Mot de passe"
         '
         'Label_Title
@@ -83,49 +83,57 @@ Partial Class AppSyncLogin
         '
         'TextBox_Email
         '
+        Me.TextBox_Email.AccessibleDescription = "Saisir l'adresse de courriel de votre compte AppSync."
+        Me.TextBox_Email.AccessibleName = "Adresse de courriel"
         Me.TextBox_Email.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox_Email.Location = New System.Drawing.Point(434, 31)
         Me.TextBox_Email.Name = "TextBox_Email"
         Me.TextBox_Email.Size = New System.Drawing.Size(410, 25)
-        Me.TextBox_Email.TabIndex = 1
+        Me.TextBox_Email.TabIndex = 2
         '
         'TextBox_MDP
         '
+        Me.TextBox_MDP.AccessibleDescription = "Saisir le mot de passe de votre compte AppSync."
+        Me.TextBox_MDP.AccessibleName = "Mot de passe"
         Me.TextBox_MDP.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox_MDP.Location = New System.Drawing.Point(434, 95)
         Me.TextBox_MDP.Name = "TextBox_MDP"
         Me.TextBox_MDP.Size = New System.Drawing.Size(410, 25)
-        Me.TextBox_MDP.TabIndex = 2
+        Me.TextBox_MDP.TabIndex = 4
         Me.TextBox_MDP.UseSystemPasswordChar = True
         '
         'Button_Connecter
         '
+        Me.Button_Connecter.AccessibleName = "Se connecter"
         Me.Button_Connecter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button_Connecter.Location = New System.Drawing.Point(434, 171)
         Me.Button_Connecter.Name = "Button_Connecter"
         Me.Button_Connecter.Size = New System.Drawing.Size(100, 28)
-        Me.Button_Connecter.TabIndex = 4
+        Me.Button_Connecter.TabIndex = 6
         Me.Button_Connecter.Text = "Se connecter"
         Me.Button_Connecter.UseVisualStyleBackColor = True
         '
         'LinkLabel_MDPOublie
         '
+        Me.LinkLabel_MDPOublie.AccessibleDescription = "Cliquer sur ce lien en cas d'oubli du mot de passe de votre compte AppSync."
+        Me.LinkLabel_MDPOublie.AccessibleName = "Mot de passe oublié"
         Me.LinkLabel_MDPOublie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LinkLabel_MDPOublie.AutoSize = True
         Me.LinkLabel_MDPOublie.Location = New System.Drawing.Point(430, 123)
         Me.LinkLabel_MDPOublie.Name = "LinkLabel_MDPOublie"
         Me.LinkLabel_MDPOublie.Size = New System.Drawing.Size(143, 19)
-        Me.LinkLabel_MDPOublie.TabIndex = 3
+        Me.LinkLabel_MDPOublie.TabIndex = 5
         Me.LinkLabel_MDPOublie.TabStop = True
         Me.LinkLabel_MDPOublie.Text = "Mot de passe oublié ?"
         '
         'Button_CreerCompte
         '
+        Me.Button_CreerCompte.AccessibleName = "Créer un compte"
         Me.Button_CreerCompte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button_CreerCompte.Location = New System.Drawing.Point(434, 205)
         Me.Button_CreerCompte.Name = "Button_CreerCompte"
         Me.Button_CreerCompte.Size = New System.Drawing.Size(139, 28)
-        Me.Button_CreerCompte.TabIndex = 5
+        Me.Button_CreerCompte.TabIndex = 7
         Me.Button_CreerCompte.Text = "Créer un compte"
         Me.Button_CreerCompte.UseVisualStyleBackColor = True
         '
@@ -144,6 +152,8 @@ Partial Class AppSyncLogin
         'AppSyncLogin
         '
         Me.AcceptButton = Me.Button_Connecter
+        Me.AccessibleDescription = "Formulaire de connexion à un compte SmartNet AppSync"
+        Me.AccessibleName = "Se connecter à SmartNet AppSync"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
