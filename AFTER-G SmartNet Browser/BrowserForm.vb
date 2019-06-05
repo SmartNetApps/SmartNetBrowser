@@ -218,13 +218,11 @@ Public Class BrowserForm
             FavoritesButton.Image = My.Resources.FavoritesOutline
         End If
 
-        If WB.IsBusy Or WB.Document.ReadyState = "loading" Or WB.Document.ReadyState = "interactive" Then
+        If WB.IsBusy Or WB.Document.ReadyState = "loading" Then
             StopOrRefreshButton.Image = My.Resources.StopBlack
-            LoadingGif.Visible = True
             AperçuAvantImpressionToolStripMenuItem.Enabled = False
         Else
             StopOrRefreshButton.Image = My.Resources.RefreshBlack
-            LoadingGif.Visible = False
             AperçuAvantImpressionToolStripMenuItem.Enabled = True
         End If
 
@@ -268,8 +266,6 @@ Public Class BrowserForm
         Else
             SearchBoxLabel.Visible = False
         End If
-
-        FaviconBox.Image = WB.Favicon
     End Sub
 
     Private Sub BrowserForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
@@ -378,11 +374,9 @@ Public Class BrowserForm
         If WB.IsBusy Then
             WB.Stop()
             StopOrRefreshButton.Image = My.Resources.RefreshBlack
-            LoadingGif.Visible = False
         Else
             WB.Reload()
             StopOrRefreshButton.Image = My.Resources.StopBlack
-            LoadingGif.Visible = True
         End If
     End Sub
 
@@ -683,7 +677,7 @@ Public Class BrowserForm
         AddTab("http://www.clipconverter.cc/?ref=addon&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
     End Sub
 
-    Private Sub ShowProperties(sender As Object, e As EventArgs) Handles FaviconBox.DoubleClick, PropriétésToolStripMenuItem.Click
+    Private Sub ShowProperties(sender As Object, e As EventArgs) Handles PropriétésToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim PageFormat As String = WB.Url.ToString.Substring(WB.Url.ToString.LastIndexOf(".") + 1)
         If WB.DocumentTitle = "" Then
@@ -962,10 +956,6 @@ Public Class BrowserForm
     End Sub
 
     Private Sub URLBox_TextChanged(sender As Object, e As EventArgs) Handles URLBox.TextChanged
-        If URLBox.Focused Then
-            GoButton.Visible = True
-        End If
-
         If URLBox.Text = "" Then
             URLBoxLabel.Visible = True
         Else
@@ -1216,5 +1206,13 @@ Public Class BrowserForm
             Return False
         End Try
     End Function
+
+    Private Sub URLBox_GotFocus(sender As Object, e As EventArgs) Handles URLBox.GotFocus
+        GoButton.Visible = True
+    End Sub
+
+    Private Sub URLBox_LostFocus(sender As Object, e As EventArgs) Handles URLBox.LostFocus
+        GoButton.Visible = False
+    End Sub
 End Class
 

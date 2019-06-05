@@ -85,7 +85,6 @@ Partial Class BrowserForm
         Me.NouvelleVersionDisponibleSubMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FaviconBox = New System.Windows.Forms.PictureBox()
         Me.URLBox = New System.Windows.Forms.ComboBox()
         Me.SearchBox = New System.Windows.Forms.ComboBox()
         Me.UpdateNotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -113,7 +112,6 @@ Partial Class BrowserForm
         Me.TabsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FermerCetOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoadingGif = New System.Windows.Forms.PictureBox()
         Me.SearchBoxLabel = New System.Windows.Forms.Label()
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
@@ -133,17 +131,15 @@ Partial Class BrowserForm
         Me.StopOrRefreshButton = New System.Windows.Forms.Button()
         Me.AppSyncTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MainToolbar.SuspendLayout()
-        CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
-        CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainToolbar
         '
-        Me.MainToolbar.BackColor = System.Drawing.Color.White
+        Me.MainToolbar.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(253, Byte), Integer))
         resources.ApplyResources(Me.MainToolbar, "MainToolbar")
         Me.MainToolbar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MainMenu})
         Me.MainToolbar.Name = "MainToolbar"
@@ -468,14 +464,6 @@ Partial Class BrowserForm
         Me.FermerSmartNetBrowserToolStripMenuItem.Name = "FermerSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.FermerSmartNetBrowserToolStripMenuItem, "FermerSmartNetBrowserToolStripMenuItem")
         '
-        'FaviconBox
-        '
-        Me.FaviconBox.BackColor = System.Drawing.Color.White
-        Me.FaviconBox.Image = Global.SmartNet_Browser.My.Resources.Resources.ErrorFavicon
-        resources.ApplyResources(Me.FaviconBox, "FaviconBox")
-        Me.FaviconBox.Name = "FaviconBox"
-        Me.FaviconBox.TabStop = False
-        '
         'URLBox
         '
         Me.URLBox.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox
@@ -625,18 +613,10 @@ Partial Class BrowserForm
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Name = "RouvrirLeDernierOngletFerméToolStripMenuItem"
         resources.ApplyResources(Me.RouvrirLeDernierOngletFerméToolStripMenuItem, "RouvrirLeDernierOngletFerméToolStripMenuItem")
         '
-        'LoadingGif
-        '
-        Me.LoadingGif.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.loading
-        Me.LoadingGif.Image = Global.SmartNet_Browser.My.Resources.Resources.loading
-        resources.ApplyResources(Me.LoadingGif, "LoadingGif")
-        Me.LoadingGif.Name = "LoadingGif"
-        Me.LoadingGif.TabStop = False
-        '
         'SearchBoxLabel
         '
         resources.ApplyResources(Me.SearchBoxLabel, "SearchBoxLabel")
-        Me.SearchBoxLabel.BackColor = System.Drawing.Color.Transparent
+        Me.SearchBoxLabel.BackColor = System.Drawing.Color.White
         Me.SearchBoxLabel.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.SearchBoxLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.SearchBoxLabel.Name = "SearchBoxLabel"
@@ -644,7 +624,7 @@ Partial Class BrowserForm
         'URLBoxLabel
         '
         resources.ApplyResources(Me.URLBoxLabel, "URLBoxLabel")
-        Me.URLBoxLabel.BackColor = System.Drawing.Color.Transparent
+        Me.URLBoxLabel.BackColor = System.Drawing.Color.White
         Me.URLBoxLabel.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.URLBoxLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.URLBoxLabel.Name = "URLBoxLabel"
@@ -765,12 +745,13 @@ Partial Class BrowserForm
         'GoButton
         '
         resources.ApplyResources(Me.GoButton, "GoButton")
+        Me.GoButton.BackColor = System.Drawing.Color.White
         Me.GoButton.FlatAppearance.BorderSize = 0
         Me.GoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
         Me.GoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
         Me.GoButton.Image = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
         Me.GoButton.Name = "GoButton"
-        Me.GoButton.UseVisualStyleBackColor = True
+        Me.GoButton.UseVisualStyleBackColor = False
         '
         'StopOrRefreshButton
         '
@@ -791,7 +772,7 @@ Partial Class BrowserForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.Controls.Add(Me.StopOrRefreshButton)
         Me.Controls.Add(Me.GoButton)
         Me.Controls.Add(Me.FavoritesButton)
@@ -808,8 +789,6 @@ Partial Class BrowserForm
         Me.Controls.Add(Me.StatusLabel)
         Me.Controls.Add(Me.URLBoxLabel)
         Me.Controls.Add(Me.SearchBoxLabel)
-        Me.Controls.Add(Me.LoadingGif)
-        Me.Controls.Add(Me.FaviconBox)
         Me.Controls.Add(Me.SearchBox)
         Me.Controls.Add(Me.URLBox)
         Me.Controls.Add(Me.BrowserTabs)
@@ -818,10 +797,8 @@ Partial Class BrowserForm
         Me.Name = "BrowserForm"
         Me.MainToolbar.ResumeLayout(False)
         Me.MainToolbar.PerformLayout()
-        CType(Me.FaviconBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BrowserContextMenuStrip.ResumeLayout(False)
         Me.TabsContextMenuStrip.ResumeLayout(False)
-        CType(Me.LoadingGif, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MessageBarCloseButton1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -831,7 +808,6 @@ Partial Class BrowserForm
 
     Friend WithEvents MainToolbar As MenuStrip
     Friend WithEvents MainMenu As ToolStripMenuItem
-    Friend WithEvents FaviconBox As PictureBox
     Friend WithEvents URLBox As ComboBox
     Friend WithEvents SearchBox As ComboBox
     Friend WithEvents UpdateNotifyIcon As NotifyIcon
@@ -886,7 +862,6 @@ Partial Class BrowserForm
     Friend WithEvents LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnvoyerVosCommentairesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BrowserTabs As TabControl
-    Friend WithEvents LoadingGif As PictureBox
     Friend WithEvents ZoomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Zoom50 As ToolStripMenuItem
     Friend WithEvents Zoom75 As ToolStripMenuItem

@@ -17,7 +17,14 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub UpdateInterface()
-        BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(Favicon, 16, 16)
+        If IsBusy() Then
+            Cursor = Cursors.AppStarting
+            BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = My.Resources.loading
+        Else
+            Cursor = Cursors.Default
+            BrowserForm.BrowserTabs.ImageList.Images.Item(CType(Me.Tag, TabPage).TabIndex) = New Bitmap(Favicon, 16, 16)
+        End If
+
         CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
 
         If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
@@ -116,15 +123,13 @@ Public Class CustomBrowser
                     Me.Navigate(My.Settings.Homepage)
                 End If
             End If
-
-            UpdateInterface()
         End If
+
+        UpdateInterface()
     End Sub
 
     Private Sub CustomBrowser_DomContentChanged(sender As Object, e As DomEventArgs) Handles Me.DomContentChanged
-        If Not BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
-            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
-        End If
+        UpdateInterface()
     End Sub
 
     Private Sub CustomBrowser_DOMContentLoaded(sender As Object, e As DomEventArgs) Handles Me.DOMContentLoaded
@@ -136,13 +141,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub BrowserDocumentCompleted(ByVal sender As System.Object, ByVal e As GeckoDocumentCompletedEventArgs) Handles Me.DocumentCompleted
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
-            BrowserForm.StopOrRefreshButton.Image = My.Resources.RefreshBlack
-            BrowserForm.LoadingGif.Visible = False
-            BrowserForm.UpdateInterface()
-        Else
-            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
-        End If
+        UpdateInterface()
     End Sub
 
     Private Sub CustomBrowser_NewWindow(sender As Object, e As Gecko.GeckoCreateWindowEventArgs) Handles Me.CreateWindow
@@ -306,10 +305,6 @@ FaviconFound:
     End Sub
 
     Private Sub CustomBrowser_ReadyStateChange(sender As Object, e As DomEventArgs) Handles Me.ReadyStateChange
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
-            BrowserForm.UpdateInterface()
-        Else
-            CType(Me.Tag, TabPage).BackColor = Color.LightYellow
-        End If
+        UpdateInterface()
     End Sub
 End Class
