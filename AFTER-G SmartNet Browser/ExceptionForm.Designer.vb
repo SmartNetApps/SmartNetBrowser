@@ -37,27 +37,27 @@ Partial Class ExceptionForm
         '
         'MessageTextBox
         '
+        resources.ApplyResources(Me.MessageTextBox, "MessageTextBox")
         Me.MessageTextBox.BackColor = System.Drawing.SystemColors.Control
         Me.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MessageTextBox.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.MessageTextBox.DetectUrls = False
-        resources.ApplyResources(Me.MessageTextBox, "MessageTextBox")
         Me.MessageTextBox.Name = "MessageTextBox"
         Me.MessageTextBox.ReadOnly = True
         '
         'DetailsTextBox
         '
+        resources.ApplyResources(Me.DetailsTextBox, "DetailsTextBox")
         Me.DetailsTextBox.BackColor = System.Drawing.SystemColors.HighlightText
         Me.DetailsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DetailsTextBox.DetectUrls = False
-        resources.ApplyResources(Me.DetailsTextBox, "DetailsTextBox")
         Me.DetailsTextBox.Name = "DetailsTextBox"
         Me.DetailsTextBox.ReadOnly = True
         '
         'IgnoreButton
         '
-        Me.IgnoreButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.IgnoreButton, "IgnoreButton")
+        Me.IgnoreButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.IgnoreButton.Name = "IgnoreButton"
         Me.IgnoreButton.UseVisualStyleBackColor = True
         '
