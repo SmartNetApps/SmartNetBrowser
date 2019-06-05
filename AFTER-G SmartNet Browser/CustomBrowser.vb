@@ -166,6 +166,7 @@ Public Class CustomBrowser
                 End Try
 
                 e.Cancel = isAnAd
+                Exit Sub
             End If
         End If
 

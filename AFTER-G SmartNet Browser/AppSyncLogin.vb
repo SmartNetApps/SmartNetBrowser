@@ -1,4 +1,14 @@
 ﻿Public Class AppSyncLogin
+    Public Sub New()
+        InitializeComponent()
+        PictureBox1.Controls.Add(PictureBox2)
+        PictureBox1.Controls.Add(Label_Title)
+        PictureBox2.Location = New Point(313, 9)
+        Label_Title.Location = New Point(103, 81)
+        PictureBox2.BackColor = Color.Transparent
+        Label_Title.BackColor = Color.Transparent
+    End Sub
+
     Private Sub Button_Connecter_Click(sender As Object, e As EventArgs) Handles Button_Connecter.Click
         Try
             If AppSyncAgent.CheckCredentials(TextBox_Email.Text, TextBox_MDP.Text) Then

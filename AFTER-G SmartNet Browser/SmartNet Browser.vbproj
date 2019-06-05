@@ -625,6 +625,7 @@
     <Content Include="README.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\cloudbackground.png" />
     <Content Include="SmartNetBrowserIconSet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
