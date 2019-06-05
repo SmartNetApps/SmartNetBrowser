@@ -343,6 +343,12 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppSyncLogin.en.resx">
+      <DependentUpon>AppSyncLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppSyncLogin.fr.resx">
+      <DependentUpon>AppSyncLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppSyncLogin.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
