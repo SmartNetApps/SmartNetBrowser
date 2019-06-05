@@ -36,7 +36,8 @@ Namespace My
             End If
 RetryInit:
             Try
-                Gecko.Xpcom.Initialize("Firefox")
+                Console.WriteLine(My.Application.Info.DirectoryPath + "\Firefox")
+                Gecko.Xpcom.Initialize(My.Application.Info.DirectoryPath + "\Firefox")
                 Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
                 Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
                 If My.Settings.UserAgent = "" Then
