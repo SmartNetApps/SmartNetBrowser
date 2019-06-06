@@ -205,7 +205,6 @@ Partial Class SettingsForm
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.Général)
         Me.TabControl1.Controls.Add(Me.Confidentialité)
         Me.TabControl1.Controls.Add(Me.SecurityTabPage)
@@ -213,6 +212,7 @@ Partial Class SettingsForm
         Me.TabControl1.Controls.Add(Me.TabPageAppSync)
         Me.TabControl1.Controls.Add(Me.MisesàJour)
         Me.TabControl1.Controls.Add(Me.Avancé)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -235,18 +235,18 @@ Partial Class SettingsForm
         '
         'DownloadsGroupBox
         '
-        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Controls.Add(Me.PictureBox4)
         Me.DownloadsGroupBox.Controls.Add(Me.Label5)
         Me.DownloadsGroupBox.Controls.Add(Me.SetDefaultDownloadFolderButton)
         Me.DownloadsGroupBox.Controls.Add(Me.DefaultDownloadFolderTextBox)
+        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Name = "DownloadsGroupBox"
         Me.DownloadsGroupBox.TabStop = False
         '
         'PictureBox4
         '
-        resources.ApplyResources(Me.PictureBox4, "PictureBox4")
         Me.PictureBox4.Image = Global.SmartNet_Browser.My.Resources.Resources.Download_Big
+        resources.ApplyResources(Me.PictureBox4, "PictureBox4")
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.TabStop = False
         '
@@ -268,16 +268,16 @@ Partial Class SettingsForm
         '
         'AutresOptionsGroupBox
         '
-        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Controls.Add(Me.PictureBox3)
         Me.AutresOptionsGroupBox.Controls.Add(Me.PreventMultipleTabsCloseCheckBox)
+        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Name = "AutresOptionsGroupBox"
         Me.AutresOptionsGroupBox.TabStop = False
         '
         'PictureBox3
         '
-        resources.ApplyResources(Me.PictureBox3, "PictureBox3")
         Me.PictureBox3.Image = Global.SmartNet_Browser.My.Resources.Resources.General
+        resources.ApplyResources(Me.PictureBox3, "PictureBox3")
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.TabStop = False
         '
@@ -291,7 +291,6 @@ Partial Class SettingsForm
         '
         'SearchEngineGroupBox
         '
-        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Controls.Add(Me.PictureBox2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
         Me.SearchEngineGroupBox.Controls.Add(Me.CustomSearchSettingsButton)
@@ -300,13 +299,14 @@ Partial Class SettingsForm
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton3)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton1)
+        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Name = "SearchEngineGroupBox"
         Me.SearchEngineGroupBox.TabStop = False
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.Search
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '
@@ -374,19 +374,19 @@ Partial Class SettingsForm
         '
         'HomepageGroupBox
         '
-        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Controls.Add(Me.PictureBox1)
         Me.HomepageGroupBox.Controls.Add(Me.WhitePageHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.ActualPageURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.MenuURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.HomepageURLBox)
+        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Name = "HomepageGroupBox"
         Me.HomepageGroupBox.TabStop = False
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources.Homepage
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
@@ -431,18 +431,18 @@ Partial Class SettingsForm
         '
         'GroupBoxCookies
         '
-        resources.ApplyResources(Me.GroupBoxCookies, "GroupBoxCookies")
         Me.GroupBoxCookies.Controls.Add(Me.PictureBox7)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockAllCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockThirdPartyCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonAcceptAllCookies)
+        resources.ApplyResources(Me.GroupBoxCookies, "GroupBoxCookies")
         Me.GroupBoxCookies.Name = "GroupBoxCookies"
         Me.GroupBoxCookies.TabStop = False
         '
         'PictureBox7
         '
-        resources.ApplyResources(Me.PictureBox7, "PictureBox7")
         Me.PictureBox7.Image = Global.SmartNet_Browser.My.Resources.Resources.Cookies
+        resources.ApplyResources(Me.PictureBox7, "PictureBox7")
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.TabStop = False
         '
@@ -469,16 +469,16 @@ Partial Class SettingsForm
         '
         'TrackingGroupBox
         '
-        resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
         Me.TrackingGroupBox.Controls.Add(Me.PictureBox8)
         Me.TrackingGroupBox.Controls.Add(Me.DoNotTrackCheckBox)
+        resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
         Me.TrackingGroupBox.Name = "TrackingGroupBox"
         Me.TrackingGroupBox.TabStop = False
         '
         'PictureBox8
         '
-        resources.ApplyResources(Me.PictureBox8, "PictureBox8")
         Me.PictureBox8.Image = Global.SmartNet_Browser.My.Resources.Resources.Tracking
+        resources.ApplyResources(Me.PictureBox8, "PictureBox8")
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.TabStop = False
         '
@@ -490,19 +490,19 @@ Partial Class SettingsForm
         '
         'DeleteDataGroupBox
         '
-        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Controls.Add(Me.PictureBox6)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteSearchHistoryButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteTemporaryInternetFilesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteCookiesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteHistoryButton)
+        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Name = "DeleteDataGroupBox"
         Me.DeleteDataGroupBox.TabStop = False
         '
         'PictureBox6
         '
-        resources.ApplyResources(Me.PictureBox6, "PictureBox6")
         Me.PictureBox6.Image = Global.SmartNet_Browser.My.Resources.Resources.Delete
+        resources.ApplyResources(Me.PictureBox6, "PictureBox6")
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.TabStop = False
         '
@@ -532,25 +532,25 @@ Partial Class SettingsForm
         '
         'HistoryGroupBox
         '
-        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Controls.Add(Me.PictureBox5)
         Me.HistoryGroupBox.Controls.Add(Me.CookiesLinkLabel)
         Me.HistoryGroupBox.Controls.Add(Me.EraseCookiesCheckBox)
         Me.HistoryGroupBox.Controls.Add(Me.PrivateBrowsingCheckBox)
+        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Name = "HistoryGroupBox"
         Me.HistoryGroupBox.TabStop = False
         '
         'PictureBox5
         '
-        resources.ApplyResources(Me.PictureBox5, "PictureBox5")
         Me.PictureBox5.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
+        resources.ApplyResources(Me.PictureBox5, "PictureBox5")
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.TabStop = False
         '
         'CookiesLinkLabel
         '
-        resources.ApplyResources(Me.CookiesLinkLabel, "CookiesLinkLabel")
         Me.CookiesLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
+        resources.ApplyResources(Me.CookiesLinkLabel, "CookiesLinkLabel")
         Me.CookiesLinkLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CookiesLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.CookiesLinkLabel.Name = "CookiesLinkLabel"
@@ -587,19 +587,19 @@ Partial Class SettingsForm
         '
         'BrowserSettingsSecurityGroupBox
         '
-        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.PictureBox10)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.HistoryFavoritesSecurityCheckBox)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.Label4)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.ChangeBrowserSettingsSecurityPasswordButton)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.BrowserSettingsSecurityCheckBox)
+        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Name = "BrowserSettingsSecurityGroupBox"
         Me.BrowserSettingsSecurityGroupBox.TabStop = False
         '
         'PictureBox10
         '
-        resources.ApplyResources(Me.PictureBox10, "PictureBox10")
         Me.PictureBox10.Image = Global.SmartNet_Browser.My.Resources.Resources.LockBrowser
+        resources.ApplyResources(Me.PictureBox10, "PictureBox10")
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.TabStop = False
         '
@@ -628,19 +628,19 @@ Partial Class SettingsForm
         '
         'ChildrenProtectionGroupBox
         '
-        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.PictureBox9)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildGuardProblemSignalementButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.Label3)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChangeChildrenProtectionPasswordButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildrenProtectionCheckBox)
+        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Name = "ChildrenProtectionGroupBox"
         Me.ChildrenProtectionGroupBox.TabStop = False
         '
         'PictureBox9
         '
-        resources.ApplyResources(Me.PictureBox9, "PictureBox9")
         Me.PictureBox9.Image = Global.SmartNet_Browser.My.Resources.Resources.ChildGuard
+        resources.ApplyResources(Me.PictureBox9, "PictureBox9")
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.TabStop = False
         '
@@ -680,12 +680,12 @@ Partial Class SettingsForm
         '
         'GroupBox4
         '
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Controls.Add(Me.ButtonRemovePageFromAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.ListBoxAdsBlockerWhitelistedPages)
         Me.GroupBox4.Controls.Add(Me.ButtonAddNewPageInAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.TextBoxNewPageInAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.PictureBoxAdsBlockerWhitelist)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
         '
@@ -720,9 +720,9 @@ Partial Class SettingsForm
         '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.PictureBox13)
         Me.GroupBox1.Controls.Add(Me.AdsBlockerProblemSignalementButton)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
@@ -740,16 +740,16 @@ Partial Class SettingsForm
         '
         'GroupBox_AdsBlockerPopups
         '
-        resources.ApplyResources(Me.GroupBox_AdsBlockerPopups, "GroupBox_AdsBlockerPopups")
         Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PictureBox12)
         Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PopUpsBlockerCheckBox)
+        resources.ApplyResources(Me.GroupBox_AdsBlockerPopups, "GroupBox_AdsBlockerPopups")
         Me.GroupBox_AdsBlockerPopups.Name = "GroupBox_AdsBlockerPopups"
         Me.GroupBox_AdsBlockerPopups.TabStop = False
         '
         'PictureBox12
         '
-        resources.ApplyResources(Me.PictureBox12, "PictureBox12")
         Me.PictureBox12.Image = Global.SmartNet_Browser.My.Resources.Resources.BlockPopUps
+        resources.ApplyResources(Me.PictureBox12, "PictureBox12")
         Me.PictureBox12.Name = "PictureBox12"
         Me.PictureBox12.TabStop = False
         '
@@ -761,16 +761,16 @@ Partial Class SettingsForm
         '
         'GroupBox_AdsBlockerActivation
         '
-        resources.ApplyResources(Me.GroupBox_AdsBlockerActivation, "GroupBox_AdsBlockerActivation")
         Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.PictureBox11)
         Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.AdBlockerCheckBox)
+        resources.ApplyResources(Me.GroupBox_AdsBlockerActivation, "GroupBox_AdsBlockerActivation")
         Me.GroupBox_AdsBlockerActivation.Name = "GroupBox_AdsBlockerActivation"
         Me.GroupBox_AdsBlockerActivation.TabStop = False
         '
         'PictureBox11
         '
-        resources.ApplyResources(Me.PictureBox11, "PictureBox11")
         Me.PictureBox11.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlocker
+        resources.ApplyResources(Me.PictureBox11, "PictureBox11")
         Me.PictureBox11.Name = "PictureBox11"
         Me.PictureBox11.TabStop = False
         '
@@ -787,11 +787,11 @@ Partial Class SettingsForm
         '
         'TabPageAppSync
         '
-        resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Controls.Add(Me.ButtonSyncNow)
         Me.TabPageAppSync.Controls.Add(Me.GroupBoxAppSyncDevice)
         Me.TabPageAppSync.Controls.Add(Me.GroupBox3)
         Me.TabPageAppSync.Controls.Add(Me.Label2)
+        resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Name = "TabPageAppSync"
         Me.TabPageAppSync.UseVisualStyleBackColor = True
         '
@@ -803,11 +803,11 @@ Partial Class SettingsForm
         '
         'GroupBoxAppSyncDevice
         '
-        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.ButtonChangeAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.TextBoxAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.LabelAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.PictureBoxAppSyncDevice)
+        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
         Me.GroupBoxAppSyncDevice.Name = "GroupBoxAppSyncDevice"
         Me.GroupBoxAppSyncDevice.TabStop = False
         '
@@ -835,11 +835,11 @@ Partial Class SettingsForm
         '
         'GroupBox3
         '
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Controls.Add(Me.LabelUsername)
         Me.GroupBox3.Controls.Add(Me.PictureBoxUserProfilePic)
         Me.GroupBox3.Controls.Add(Me.ButtonLoginLogout)
         Me.GroupBox3.Controls.Add(Me.ButtonManageAccount)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
         '
@@ -850,8 +850,8 @@ Partial Class SettingsForm
         '
         'PictureBoxUserProfilePic
         '
-        resources.ApplyResources(Me.PictureBoxUserProfilePic, "PictureBoxUserProfilePic")
         Me.PictureBoxUserProfilePic.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
+        resources.ApplyResources(Me.PictureBoxUserProfilePic, "PictureBoxUserProfilePic")
         Me.PictureBoxUserProfilePic.Name = "PictureBoxUserProfilePic"
         Me.PictureBoxUserProfilePic.TabStop = False
         '
@@ -888,10 +888,10 @@ Partial Class SettingsForm
         '
         'UpdatesGroupBox
         '
-        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Controls.Add(Me.PictureBox15)
         Me.UpdatesGroupBox.Controls.Add(Me.CheckUpdatesNowButton)
         Me.UpdatesGroupBox.Controls.Add(Me.VersionActuelleLabel)
+        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Name = "UpdatesGroupBox"
         Me.UpdatesGroupBox.TabStop = False
         '
@@ -914,16 +914,16 @@ Partial Class SettingsForm
         '
         'AutoUpdateGroupBox
         '
-        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Controls.Add(Me.PictureBox14)
         Me.AutoUpdateGroupBox.Controls.Add(Me.AutoUpdateCheckBox)
+        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Name = "AutoUpdateGroupBox"
         Me.AutoUpdateGroupBox.TabStop = False
         '
         'PictureBox14
         '
-        resources.ApplyResources(Me.PictureBox14, "PictureBox14")
         Me.PictureBox14.Image = Global.SmartNet_Browser.My.Resources.Resources.Update
+        resources.ApplyResources(Me.PictureBox14, "PictureBox14")
         Me.PictureBox14.Name = "PictureBox14"
         Me.PictureBox14.TabStop = False
         '
@@ -949,16 +949,16 @@ Partial Class SettingsForm
         '
         'GroupBox2
         '
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Controls.Add(Me.PictureBox18)
         Me.GroupBox2.Controls.Add(Me.FirstStartDialogButton)
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
         '
         'PictureBox18
         '
-        resources.ApplyResources(Me.PictureBox18, "PictureBox18")
         Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
+        resources.ApplyResources(Me.PictureBox18, "PictureBox18")
         Me.PictureBox18.Name = "PictureBox18"
         Me.PictureBox18.TabStop = False
         '
@@ -985,17 +985,17 @@ Partial Class SettingsForm
         '
         'LanguageGroupBox
         '
-        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Controls.Add(Me.PictureBox19)
         Me.LanguageGroupBox.Controls.Add(Me.Label1)
         Me.LanguageGroupBox.Controls.Add(Me.LanguagesComboBox)
+        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Name = "LanguageGroupBox"
         Me.LanguageGroupBox.TabStop = False
         '
         'PictureBox19
         '
-        resources.ApplyResources(Me.PictureBox19, "PictureBox19")
         Me.PictureBox19.Image = Global.SmartNet_Browser.My.Resources.Resources.Langues
+        resources.ApplyResources(Me.PictureBox19, "PictureBox19")
         Me.PictureBox19.Name = "PictureBox19"
         Me.PictureBox19.TabStop = False
         '
@@ -1013,10 +1013,10 @@ Partial Class SettingsForm
         '
         'DevelopmentGroupBox
         '
-        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
         Me.DevelopmentGroupBox.Controls.Add(Me.Label14)
         Me.DevelopmentGroupBox.Controls.Add(Me.PictureBox20)
         Me.DevelopmentGroupBox.Controls.Add(Me.ChangeUserAgentLinkLabel)
+        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
         Me.DevelopmentGroupBox.Name = "DevelopmentGroupBox"
         Me.DevelopmentGroupBox.TabStop = False
         '
@@ -1027,15 +1027,15 @@ Partial Class SettingsForm
         '
         'PictureBox20
         '
-        resources.ApplyResources(Me.PictureBox20, "PictureBox20")
         Me.PictureBox20.Image = Global.SmartNet_Browser.My.Resources.Resources.UserAgent
+        resources.ApplyResources(Me.PictureBox20, "PictureBox20")
         Me.PictureBox20.Name = "PictureBox20"
         Me.PictureBox20.TabStop = False
         '
         'ChangeUserAgentLinkLabel
         '
-        resources.ApplyResources(Me.ChangeUserAgentLinkLabel, "ChangeUserAgentLinkLabel")
         Me.ChangeUserAgentLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText
+        resources.ApplyResources(Me.ChangeUserAgentLinkLabel, "ChangeUserAgentLinkLabel")
         Me.ChangeUserAgentLinkLabel.LinkColor = System.Drawing.SystemColors.ControlText
         Me.ChangeUserAgentLinkLabel.Name = "ChangeUserAgentLinkLabel"
         Me.ChangeUserAgentLinkLabel.TabStop = True
@@ -1043,16 +1043,16 @@ Partial Class SettingsForm
         '
         'RepareBrowserGroupBox
         '
-        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Controls.Add(Me.PictureBox17)
         Me.RepareBrowserGroupBox.Controls.Add(Me.RepareBrowserButton)
+        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Name = "RepareBrowserGroupBox"
         Me.RepareBrowserGroupBox.TabStop = False
         '
         'PictureBox17
         '
-        resources.ApplyResources(Me.PictureBox17, "PictureBox17")
         Me.PictureBox17.Image = Global.SmartNet_Browser.My.Resources.Resources.CleanBrowser
+        resources.ApplyResources(Me.PictureBox17, "PictureBox17")
         Me.PictureBox17.Name = "PictureBox17"
         Me.PictureBox17.TabStop = False
         '
@@ -1064,16 +1064,16 @@ Partial Class SettingsForm
         '
         'SettingsSavesGroupBox
         '
-        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Controls.Add(Me.PictureBox16)
         Me.SettingsSavesGroupBox.Controls.Add(Me.ImportSettingsButton)
+        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Name = "SettingsSavesGroupBox"
         Me.SettingsSavesGroupBox.TabStop = False
         '
         'PictureBox16
         '
-        resources.ApplyResources(Me.PictureBox16, "PictureBox16")
         Me.PictureBox16.Image = Global.SmartNet_Browser.My.Resources.Resources.RestoreSettings
+        resources.ApplyResources(Me.PictureBox16, "PictureBox16")
         Me.PictureBox16.Name = "PictureBox16"
         Me.PictureBox16.TabStop = False
         '
@@ -1083,19 +1083,11 @@ Partial Class SettingsForm
         Me.ImportSettingsButton.Name = "ImportSettingsButton"
         Me.ImportSettingsButton.UseVisualStyleBackColor = True
         '
-        'FolderBrowserDialog1
-        '
-        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.DefaultExt = "Fichier de configuration|*.config"
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
-        '
-        'DefaultDownloadFolderBrowserDialog
-        '
-        resources.ApplyResources(Me.DefaultDownloadFolderBrowserDialog, "DefaultDownloadFolderBrowserDialog")
         '
         'SettingsForm
         '
