@@ -132,8 +132,6 @@ Public Class SettingsForm
         ImportSettingsButton.Text = "Importer mes paramètres depuis une ancienne version..."
         ImportSettingsButton.Enabled = True
 
-        'UserAgentTextBox.Text = Gecko.GeckoPreferences.User("general.useragent.override")
-
         LanguagesComboBox.SelectedIndex = LanguagesComboBox.FindString(My.Settings.UserAgentLanguage)
         DefaultDownloadFolderTextBox.Text = My.Settings.DefaultDownloadFolder
         Me.CenterToScreen()
@@ -444,9 +442,8 @@ Public Class SettingsForm
         FirstStartForm.Show()
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ChangeUserAgentLinkLabel.LinkClicked
-        UserAgentChangeForm.UserAgentRichTextBox.Text = CType(Gecko.GeckoPreferences.User("general.useragent.override"), String)
-        UserAgentChangeForm.ShowDialog()
+    Private Sub ChangeUserAgentLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ChangeUserAgentLinkLabel.LinkClicked
+        BrowserForm.AddTab("about:config")
     End Sub
 
     Private Sub SetDefaultDownloadFolderButton_Click(sender As Object, e As EventArgs) Handles SetDefaultDownloadFolderButton.Click

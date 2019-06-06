@@ -135,9 +135,9 @@ Partial Class SettingsForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LanguagesComboBox = New System.Windows.Forms.ComboBox()
         Me.DevelopmentGroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.PictureBox20 = New System.Windows.Forms.PictureBox()
         Me.ChangeUserAgentLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.UserAgentTextBox = New System.Windows.Forms.RichTextBox()
         Me.RepareBrowserGroupBox = New System.Windows.Forms.GroupBox()
         Me.PictureBox17 = New System.Windows.Forms.PictureBox()
         Me.RepareBrowserButton = New System.Windows.Forms.Button()
@@ -205,6 +205,7 @@ Partial Class SettingsForm
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.Général)
         Me.TabControl1.Controls.Add(Me.Confidentialité)
         Me.TabControl1.Controls.Add(Me.SecurityTabPage)
@@ -212,7 +213,7 @@ Partial Class SettingsForm
         Me.TabControl1.Controls.Add(Me.TabPageAppSync)
         Me.TabControl1.Controls.Add(Me.MisesàJour)
         Me.TabControl1.Controls.Add(Me.Avancé)
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
+        Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
@@ -234,18 +235,18 @@ Partial Class SettingsForm
         '
         'DownloadsGroupBox
         '
+        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Controls.Add(Me.PictureBox4)
         Me.DownloadsGroupBox.Controls.Add(Me.Label5)
         Me.DownloadsGroupBox.Controls.Add(Me.SetDefaultDownloadFolderButton)
         Me.DownloadsGroupBox.Controls.Add(Me.DefaultDownloadFolderTextBox)
-        resources.ApplyResources(Me.DownloadsGroupBox, "DownloadsGroupBox")
         Me.DownloadsGroupBox.Name = "DownloadsGroupBox"
         Me.DownloadsGroupBox.TabStop = False
         '
         'PictureBox4
         '
-        Me.PictureBox4.Image = Global.SmartNet_Browser.My.Resources.Resources.Download_Big
         resources.ApplyResources(Me.PictureBox4, "PictureBox4")
+        Me.PictureBox4.Image = Global.SmartNet_Browser.My.Resources.Resources.Download_Big
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.TabStop = False
         '
@@ -267,16 +268,16 @@ Partial Class SettingsForm
         '
         'AutresOptionsGroupBox
         '
+        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Controls.Add(Me.PictureBox3)
         Me.AutresOptionsGroupBox.Controls.Add(Me.PreventMultipleTabsCloseCheckBox)
-        resources.ApplyResources(Me.AutresOptionsGroupBox, "AutresOptionsGroupBox")
         Me.AutresOptionsGroupBox.Name = "AutresOptionsGroupBox"
         Me.AutresOptionsGroupBox.TabStop = False
         '
         'PictureBox3
         '
-        Me.PictureBox3.Image = Global.SmartNet_Browser.My.Resources.Resources.General
         resources.ApplyResources(Me.PictureBox3, "PictureBox3")
+        Me.PictureBox3.Image = Global.SmartNet_Browser.My.Resources.Resources.General
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.TabStop = False
         '
@@ -290,6 +291,7 @@ Partial Class SettingsForm
         '
         'SearchEngineGroupBox
         '
+        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Controls.Add(Me.PictureBox2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
         Me.SearchEngineGroupBox.Controls.Add(Me.CustomSearchSettingsButton)
@@ -298,21 +300,20 @@ Partial Class SettingsForm
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton3)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton1)
-        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Name = "SearchEngineGroupBox"
         Me.SearchEngineGroupBox.TabStop = False
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.Search
         resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.Search
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         '
         'RadioButton5
         '
-        Me.RadioButton5.FlatAppearance.BorderSize = 0
         resources.ApplyResources(Me.RadioButton5, "RadioButton5")
+        Me.RadioButton5.FlatAppearance.BorderSize = 0
         Me.RadioButton5.Image = Global.SmartNet_Browser.My.Resources.Resources.Qwant
         Me.RadioButton5.Name = "RadioButton5"
         Me.RadioButton5.TabStop = True
@@ -321,6 +322,9 @@ Partial Class SettingsForm
         'CustomSearchSettingsButton
         '
         resources.ApplyResources(Me.CustomSearchSettingsButton, "CustomSearchSettingsButton")
+        Me.CustomSearchSettingsButton.FlatAppearance.BorderSize = 0
+        Me.CustomSearchSettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark
+        Me.CustomSearchSettingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.CustomSearchSettingsButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Settings
         Me.CustomSearchSettingsButton.Name = "CustomSearchSettingsButton"
         Me.CustomSearchSettingsButton.UseVisualStyleBackColor = True
@@ -334,8 +338,8 @@ Partial Class SettingsForm
         '
         'RadioButton4
         '
-        Me.RadioButton4.FlatAppearance.BorderSize = 0
         resources.ApplyResources(Me.RadioButton4, "RadioButton4")
+        Me.RadioButton4.FlatAppearance.BorderSize = 0
         Me.RadioButton4.Image = Global.SmartNet_Browser.My.Resources.Resources.DuckDuckGo
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.TabStop = True
@@ -343,8 +347,8 @@ Partial Class SettingsForm
         '
         'RadioButton3
         '
-        Me.RadioButton3.FlatAppearance.BorderSize = 0
         resources.ApplyResources(Me.RadioButton3, "RadioButton3")
+        Me.RadioButton3.FlatAppearance.BorderSize = 0
         Me.RadioButton3.Image = Global.SmartNet_Browser.My.Resources.Resources.Yahoo
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.TabStop = True
@@ -352,8 +356,8 @@ Partial Class SettingsForm
         '
         'RadioButton2
         '
-        Me.RadioButton2.FlatAppearance.BorderSize = 0
         resources.ApplyResources(Me.RadioButton2, "RadioButton2")
+        Me.RadioButton2.FlatAppearance.BorderSize = 0
         Me.RadioButton2.Image = Global.SmartNet_Browser.My.Resources.Resources.Bing
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.TabStop = True
@@ -361,8 +365,8 @@ Partial Class SettingsForm
         '
         'RadioButton1
         '
-        Me.RadioButton1.FlatAppearance.BorderSize = 0
         resources.ApplyResources(Me.RadioButton1, "RadioButton1")
+        Me.RadioButton1.FlatAppearance.BorderSize = 0
         Me.RadioButton1.Image = Global.SmartNet_Browser.My.Resources.Resources.Google
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.TabStop = True
@@ -370,19 +374,19 @@ Partial Class SettingsForm
         '
         'HomepageGroupBox
         '
+        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Controls.Add(Me.PictureBox1)
         Me.HomepageGroupBox.Controls.Add(Me.WhitePageHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.ActualPageURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.MenuURLHomepageButton)
         Me.HomepageGroupBox.Controls.Add(Me.HomepageURLBox)
-        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Name = "HomepageGroupBox"
         Me.HomepageGroupBox.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources.Homepage
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources.Homepage
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
@@ -427,18 +431,18 @@ Partial Class SettingsForm
         '
         'GroupBoxCookies
         '
+        resources.ApplyResources(Me.GroupBoxCookies, "GroupBoxCookies")
         Me.GroupBoxCookies.Controls.Add(Me.PictureBox7)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockAllCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonBlockThirdPartyCookies)
         Me.GroupBoxCookies.Controls.Add(Me.RadioButtonAcceptAllCookies)
-        resources.ApplyResources(Me.GroupBoxCookies, "GroupBoxCookies")
         Me.GroupBoxCookies.Name = "GroupBoxCookies"
         Me.GroupBoxCookies.TabStop = False
         '
         'PictureBox7
         '
-        Me.PictureBox7.Image = Global.SmartNet_Browser.My.Resources.Resources.Cookies
         resources.ApplyResources(Me.PictureBox7, "PictureBox7")
+        Me.PictureBox7.Image = Global.SmartNet_Browser.My.Resources.Resources.Cookies
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.TabStop = False
         '
@@ -465,16 +469,16 @@ Partial Class SettingsForm
         '
         'TrackingGroupBox
         '
+        resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
         Me.TrackingGroupBox.Controls.Add(Me.PictureBox8)
         Me.TrackingGroupBox.Controls.Add(Me.DoNotTrackCheckBox)
-        resources.ApplyResources(Me.TrackingGroupBox, "TrackingGroupBox")
         Me.TrackingGroupBox.Name = "TrackingGroupBox"
         Me.TrackingGroupBox.TabStop = False
         '
         'PictureBox8
         '
-        Me.PictureBox8.Image = Global.SmartNet_Browser.My.Resources.Resources.Tracking
         resources.ApplyResources(Me.PictureBox8, "PictureBox8")
+        Me.PictureBox8.Image = Global.SmartNet_Browser.My.Resources.Resources.Tracking
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.TabStop = False
         '
@@ -486,19 +490,19 @@ Partial Class SettingsForm
         '
         'DeleteDataGroupBox
         '
+        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Controls.Add(Me.PictureBox6)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteSearchHistoryButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteTemporaryInternetFilesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteCookiesButton)
         Me.DeleteDataGroupBox.Controls.Add(Me.DeleteHistoryButton)
-        resources.ApplyResources(Me.DeleteDataGroupBox, "DeleteDataGroupBox")
         Me.DeleteDataGroupBox.Name = "DeleteDataGroupBox"
         Me.DeleteDataGroupBox.TabStop = False
         '
         'PictureBox6
         '
-        Me.PictureBox6.Image = Global.SmartNet_Browser.My.Resources.Resources.Delete
         resources.ApplyResources(Me.PictureBox6, "PictureBox6")
+        Me.PictureBox6.Image = Global.SmartNet_Browser.My.Resources.Resources.Delete
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.TabStop = False
         '
@@ -528,25 +532,25 @@ Partial Class SettingsForm
         '
         'HistoryGroupBox
         '
+        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Controls.Add(Me.PictureBox5)
         Me.HistoryGroupBox.Controls.Add(Me.CookiesLinkLabel)
         Me.HistoryGroupBox.Controls.Add(Me.EraseCookiesCheckBox)
         Me.HistoryGroupBox.Controls.Add(Me.PrivateBrowsingCheckBox)
-        resources.ApplyResources(Me.HistoryGroupBox, "HistoryGroupBox")
         Me.HistoryGroupBox.Name = "HistoryGroupBox"
         Me.HistoryGroupBox.TabStop = False
         '
         'PictureBox5
         '
-        Me.PictureBox5.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
         resources.ApplyResources(Me.PictureBox5, "PictureBox5")
+        Me.PictureBox5.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.TabStop = False
         '
         'CookiesLinkLabel
         '
-        Me.CookiesLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
         resources.ApplyResources(Me.CookiesLinkLabel, "CookiesLinkLabel")
+        Me.CookiesLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
         Me.CookiesLinkLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CookiesLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.CookiesLinkLabel.Name = "CookiesLinkLabel"
@@ -583,19 +587,19 @@ Partial Class SettingsForm
         '
         'BrowserSettingsSecurityGroupBox
         '
+        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.PictureBox10)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.HistoryFavoritesSecurityCheckBox)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.Label4)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.ChangeBrowserSettingsSecurityPasswordButton)
         Me.BrowserSettingsSecurityGroupBox.Controls.Add(Me.BrowserSettingsSecurityCheckBox)
-        resources.ApplyResources(Me.BrowserSettingsSecurityGroupBox, "BrowserSettingsSecurityGroupBox")
         Me.BrowserSettingsSecurityGroupBox.Name = "BrowserSettingsSecurityGroupBox"
         Me.BrowserSettingsSecurityGroupBox.TabStop = False
         '
         'PictureBox10
         '
-        Me.PictureBox10.Image = Global.SmartNet_Browser.My.Resources.Resources.LockBrowser
         resources.ApplyResources(Me.PictureBox10, "PictureBox10")
+        Me.PictureBox10.Image = Global.SmartNet_Browser.My.Resources.Resources.LockBrowser
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.TabStop = False
         '
@@ -624,19 +628,19 @@ Partial Class SettingsForm
         '
         'ChildrenProtectionGroupBox
         '
+        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.PictureBox9)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildGuardProblemSignalementButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.Label3)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChangeChildrenProtectionPasswordButton)
         Me.ChildrenProtectionGroupBox.Controls.Add(Me.ChildrenProtectionCheckBox)
-        resources.ApplyResources(Me.ChildrenProtectionGroupBox, "ChildrenProtectionGroupBox")
         Me.ChildrenProtectionGroupBox.Name = "ChildrenProtectionGroupBox"
         Me.ChildrenProtectionGroupBox.TabStop = False
         '
         'PictureBox9
         '
-        Me.PictureBox9.Image = Global.SmartNet_Browser.My.Resources.Resources.ChildGuard
         resources.ApplyResources(Me.PictureBox9, "PictureBox9")
+        Me.PictureBox9.Image = Global.SmartNet_Browser.My.Resources.Resources.ChildGuard
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.TabStop = False
         '
@@ -676,12 +680,12 @@ Partial Class SettingsForm
         '
         'GroupBox4
         '
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Controls.Add(Me.ButtonRemovePageFromAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.ListBoxAdsBlockerWhitelistedPages)
         Me.GroupBox4.Controls.Add(Me.ButtonAddNewPageInAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.TextBoxNewPageInAdsBlockerWhitelist)
         Me.GroupBox4.Controls.Add(Me.PictureBoxAdsBlockerWhitelist)
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
         '
@@ -716,9 +720,9 @@ Partial Class SettingsForm
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.PictureBox13)
         Me.GroupBox1.Controls.Add(Me.AdsBlockerProblemSignalementButton)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
@@ -736,16 +740,16 @@ Partial Class SettingsForm
         '
         'GroupBox_AdsBlockerPopups
         '
+        resources.ApplyResources(Me.GroupBox_AdsBlockerPopups, "GroupBox_AdsBlockerPopups")
         Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PictureBox12)
         Me.GroupBox_AdsBlockerPopups.Controls.Add(Me.PopUpsBlockerCheckBox)
-        resources.ApplyResources(Me.GroupBox_AdsBlockerPopups, "GroupBox_AdsBlockerPopups")
         Me.GroupBox_AdsBlockerPopups.Name = "GroupBox_AdsBlockerPopups"
         Me.GroupBox_AdsBlockerPopups.TabStop = False
         '
         'PictureBox12
         '
-        Me.PictureBox12.Image = Global.SmartNet_Browser.My.Resources.Resources.BlockPopUps
         resources.ApplyResources(Me.PictureBox12, "PictureBox12")
+        Me.PictureBox12.Image = Global.SmartNet_Browser.My.Resources.Resources.BlockPopUps
         Me.PictureBox12.Name = "PictureBox12"
         Me.PictureBox12.TabStop = False
         '
@@ -757,16 +761,16 @@ Partial Class SettingsForm
         '
         'GroupBox_AdsBlockerActivation
         '
+        resources.ApplyResources(Me.GroupBox_AdsBlockerActivation, "GroupBox_AdsBlockerActivation")
         Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.PictureBox11)
         Me.GroupBox_AdsBlockerActivation.Controls.Add(Me.AdBlockerCheckBox)
-        resources.ApplyResources(Me.GroupBox_AdsBlockerActivation, "GroupBox_AdsBlockerActivation")
         Me.GroupBox_AdsBlockerActivation.Name = "GroupBox_AdsBlockerActivation"
         Me.GroupBox_AdsBlockerActivation.TabStop = False
         '
         'PictureBox11
         '
-        Me.PictureBox11.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlocker
         resources.ApplyResources(Me.PictureBox11, "PictureBox11")
+        Me.PictureBox11.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlocker
         Me.PictureBox11.Name = "PictureBox11"
         Me.PictureBox11.TabStop = False
         '
@@ -783,11 +787,11 @@ Partial Class SettingsForm
         '
         'TabPageAppSync
         '
+        resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Controls.Add(Me.ButtonSyncNow)
         Me.TabPageAppSync.Controls.Add(Me.GroupBoxAppSyncDevice)
         Me.TabPageAppSync.Controls.Add(Me.GroupBox3)
         Me.TabPageAppSync.Controls.Add(Me.Label2)
-        resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Name = "TabPageAppSync"
         Me.TabPageAppSync.UseVisualStyleBackColor = True
         '
@@ -799,11 +803,11 @@ Partial Class SettingsForm
         '
         'GroupBoxAppSyncDevice
         '
+        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.ButtonChangeAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.TextBoxAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.LabelAppSyncDeviceName)
         Me.GroupBoxAppSyncDevice.Controls.Add(Me.PictureBoxAppSyncDevice)
-        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
         Me.GroupBoxAppSyncDevice.Name = "GroupBoxAppSyncDevice"
         Me.GroupBoxAppSyncDevice.TabStop = False
         '
@@ -831,11 +835,11 @@ Partial Class SettingsForm
         '
         'GroupBox3
         '
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Controls.Add(Me.LabelUsername)
         Me.GroupBox3.Controls.Add(Me.PictureBoxUserProfilePic)
         Me.GroupBox3.Controls.Add(Me.ButtonLoginLogout)
         Me.GroupBox3.Controls.Add(Me.ButtonManageAccount)
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
         '
@@ -846,8 +850,8 @@ Partial Class SettingsForm
         '
         'PictureBoxUserProfilePic
         '
-        Me.PictureBoxUserProfilePic.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
         resources.ApplyResources(Me.PictureBoxUserProfilePic, "PictureBoxUserProfilePic")
+        Me.PictureBoxUserProfilePic.Image = Global.SmartNet_Browser.My.Resources.Resources.Person
         Me.PictureBoxUserProfilePic.Name = "PictureBoxUserProfilePic"
         Me.PictureBoxUserProfilePic.TabStop = False
         '
@@ -884,10 +888,10 @@ Partial Class SettingsForm
         '
         'UpdatesGroupBox
         '
+        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Controls.Add(Me.PictureBox15)
         Me.UpdatesGroupBox.Controls.Add(Me.CheckUpdatesNowButton)
         Me.UpdatesGroupBox.Controls.Add(Me.VersionActuelleLabel)
-        resources.ApplyResources(Me.UpdatesGroupBox, "UpdatesGroupBox")
         Me.UpdatesGroupBox.Name = "UpdatesGroupBox"
         Me.UpdatesGroupBox.TabStop = False
         '
@@ -910,16 +914,16 @@ Partial Class SettingsForm
         '
         'AutoUpdateGroupBox
         '
+        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Controls.Add(Me.PictureBox14)
         Me.AutoUpdateGroupBox.Controls.Add(Me.AutoUpdateCheckBox)
-        resources.ApplyResources(Me.AutoUpdateGroupBox, "AutoUpdateGroupBox")
         Me.AutoUpdateGroupBox.Name = "AutoUpdateGroupBox"
         Me.AutoUpdateGroupBox.TabStop = False
         '
         'PictureBox14
         '
-        Me.PictureBox14.Image = Global.SmartNet_Browser.My.Resources.Resources.Update
         resources.ApplyResources(Me.PictureBox14, "PictureBox14")
+        Me.PictureBox14.Image = Global.SmartNet_Browser.My.Resources.Resources.Update
         Me.PictureBox14.Name = "PictureBox14"
         Me.PictureBox14.TabStop = False
         '
@@ -945,16 +949,16 @@ Partial Class SettingsForm
         '
         'GroupBox2
         '
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Controls.Add(Me.PictureBox18)
         Me.GroupBox2.Controls.Add(Me.FirstStartDialogButton)
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
         '
         'PictureBox18
         '
-        Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
         resources.ApplyResources(Me.PictureBox18, "PictureBox18")
+        Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
         Me.PictureBox18.Name = "PictureBox18"
         Me.PictureBox18.TabStop = False
         '
@@ -981,17 +985,17 @@ Partial Class SettingsForm
         '
         'LanguageGroupBox
         '
+        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Controls.Add(Me.PictureBox19)
         Me.LanguageGroupBox.Controls.Add(Me.Label1)
         Me.LanguageGroupBox.Controls.Add(Me.LanguagesComboBox)
-        resources.ApplyResources(Me.LanguageGroupBox, "LanguageGroupBox")
         Me.LanguageGroupBox.Name = "LanguageGroupBox"
         Me.LanguageGroupBox.TabStop = False
         '
         'PictureBox19
         '
-        Me.PictureBox19.Image = Global.SmartNet_Browser.My.Resources.Resources.Langues
         resources.ApplyResources(Me.PictureBox19, "PictureBox19")
+        Me.PictureBox19.Image = Global.SmartNet_Browser.My.Resources.Resources.Langues
         Me.PictureBox19.Name = "PictureBox19"
         Me.PictureBox19.TabStop = False
         '
@@ -1002,58 +1006,53 @@ Partial Class SettingsForm
         '
         'LanguagesComboBox
         '
-        Me.LanguagesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.LanguagesComboBox, "LanguagesComboBox")
+        Me.LanguagesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.LanguagesComboBox.Items.AddRange(New Object() {resources.GetString("LanguagesComboBox.Items"), resources.GetString("LanguagesComboBox.Items1"), resources.GetString("LanguagesComboBox.Items2"), resources.GetString("LanguagesComboBox.Items3"), resources.GetString("LanguagesComboBox.Items4"), resources.GetString("LanguagesComboBox.Items5"), resources.GetString("LanguagesComboBox.Items6"), resources.GetString("LanguagesComboBox.Items7"), resources.GetString("LanguagesComboBox.Items8"), resources.GetString("LanguagesComboBox.Items9"), resources.GetString("LanguagesComboBox.Items10"), resources.GetString("LanguagesComboBox.Items11"), resources.GetString("LanguagesComboBox.Items12"), resources.GetString("LanguagesComboBox.Items13"), resources.GetString("LanguagesComboBox.Items14"), resources.GetString("LanguagesComboBox.Items15"), resources.GetString("LanguagesComboBox.Items16"), resources.GetString("LanguagesComboBox.Items17"), resources.GetString("LanguagesComboBox.Items18"), resources.GetString("LanguagesComboBox.Items19"), resources.GetString("LanguagesComboBox.Items20"), resources.GetString("LanguagesComboBox.Items21"), resources.GetString("LanguagesComboBox.Items22"), resources.GetString("LanguagesComboBox.Items23"), resources.GetString("LanguagesComboBox.Items24"), resources.GetString("LanguagesComboBox.Items25"), resources.GetString("LanguagesComboBox.Items26"), resources.GetString("LanguagesComboBox.Items27"), resources.GetString("LanguagesComboBox.Items28"), resources.GetString("LanguagesComboBox.Items29"), resources.GetString("LanguagesComboBox.Items30"), resources.GetString("LanguagesComboBox.Items31"), resources.GetString("LanguagesComboBox.Items32"), resources.GetString("LanguagesComboBox.Items33"), resources.GetString("LanguagesComboBox.Items34"), resources.GetString("LanguagesComboBox.Items35"), resources.GetString("LanguagesComboBox.Items36"), resources.GetString("LanguagesComboBox.Items37"), resources.GetString("LanguagesComboBox.Items38"), resources.GetString("LanguagesComboBox.Items39"), resources.GetString("LanguagesComboBox.Items40"), resources.GetString("LanguagesComboBox.Items41"), resources.GetString("LanguagesComboBox.Items42"), resources.GetString("LanguagesComboBox.Items43"), resources.GetString("LanguagesComboBox.Items44"), resources.GetString("LanguagesComboBox.Items45"), resources.GetString("LanguagesComboBox.Items46"), resources.GetString("LanguagesComboBox.Items47"), resources.GetString("LanguagesComboBox.Items48"), resources.GetString("LanguagesComboBox.Items49"), resources.GetString("LanguagesComboBox.Items50"), resources.GetString("LanguagesComboBox.Items51"), resources.GetString("LanguagesComboBox.Items52"), resources.GetString("LanguagesComboBox.Items53"), resources.GetString("LanguagesComboBox.Items54"), resources.GetString("LanguagesComboBox.Items55"), resources.GetString("LanguagesComboBox.Items56"), resources.GetString("LanguagesComboBox.Items57"), resources.GetString("LanguagesComboBox.Items58"), resources.GetString("LanguagesComboBox.Items59"), resources.GetString("LanguagesComboBox.Items60"), resources.GetString("LanguagesComboBox.Items61"), resources.GetString("LanguagesComboBox.Items62"), resources.GetString("LanguagesComboBox.Items63"), resources.GetString("LanguagesComboBox.Items64"), resources.GetString("LanguagesComboBox.Items65"), resources.GetString("LanguagesComboBox.Items66"), resources.GetString("LanguagesComboBox.Items67"), resources.GetString("LanguagesComboBox.Items68"), resources.GetString("LanguagesComboBox.Items69"), resources.GetString("LanguagesComboBox.Items70"), resources.GetString("LanguagesComboBox.Items71"), resources.GetString("LanguagesComboBox.Items72"), resources.GetString("LanguagesComboBox.Items73"), resources.GetString("LanguagesComboBox.Items74"), resources.GetString("LanguagesComboBox.Items75"), resources.GetString("LanguagesComboBox.Items76"), resources.GetString("LanguagesComboBox.Items77"), resources.GetString("LanguagesComboBox.Items78"), resources.GetString("LanguagesComboBox.Items79"), resources.GetString("LanguagesComboBox.Items80"), resources.GetString("LanguagesComboBox.Items81"), resources.GetString("LanguagesComboBox.Items82"), resources.GetString("LanguagesComboBox.Items83"), resources.GetString("LanguagesComboBox.Items84"), resources.GetString("LanguagesComboBox.Items85"), resources.GetString("LanguagesComboBox.Items86"), resources.GetString("LanguagesComboBox.Items87"), resources.GetString("LanguagesComboBox.Items88"), resources.GetString("LanguagesComboBox.Items89"), resources.GetString("LanguagesComboBox.Items90"), resources.GetString("LanguagesComboBox.Items91"), resources.GetString("LanguagesComboBox.Items92"), resources.GetString("LanguagesComboBox.Items93"), resources.GetString("LanguagesComboBox.Items94"), resources.GetString("LanguagesComboBox.Items95"), resources.GetString("LanguagesComboBox.Items96"), resources.GetString("LanguagesComboBox.Items97"), resources.GetString("LanguagesComboBox.Items98"), resources.GetString("LanguagesComboBox.Items99"), resources.GetString("LanguagesComboBox.Items100"), resources.GetString("LanguagesComboBox.Items101"), resources.GetString("LanguagesComboBox.Items102"), resources.GetString("LanguagesComboBox.Items103"), resources.GetString("LanguagesComboBox.Items104"), resources.GetString("LanguagesComboBox.Items105"), resources.GetString("LanguagesComboBox.Items106"), resources.GetString("LanguagesComboBox.Items107"), resources.GetString("LanguagesComboBox.Items108"), resources.GetString("LanguagesComboBox.Items109"), resources.GetString("LanguagesComboBox.Items110"), resources.GetString("LanguagesComboBox.Items111"), resources.GetString("LanguagesComboBox.Items112"), resources.GetString("LanguagesComboBox.Items113"), resources.GetString("LanguagesComboBox.Items114"), resources.GetString("LanguagesComboBox.Items115"), resources.GetString("LanguagesComboBox.Items116"), resources.GetString("LanguagesComboBox.Items117"), resources.GetString("LanguagesComboBox.Items118"), resources.GetString("LanguagesComboBox.Items119"), resources.GetString("LanguagesComboBox.Items120"), resources.GetString("LanguagesComboBox.Items121"), resources.GetString("LanguagesComboBox.Items122"), resources.GetString("LanguagesComboBox.Items123"), resources.GetString("LanguagesComboBox.Items124"), resources.GetString("LanguagesComboBox.Items125"), resources.GetString("LanguagesComboBox.Items126"), resources.GetString("LanguagesComboBox.Items127"), resources.GetString("LanguagesComboBox.Items128"), resources.GetString("LanguagesComboBox.Items129"), resources.GetString("LanguagesComboBox.Items130"), resources.GetString("LanguagesComboBox.Items131"), resources.GetString("LanguagesComboBox.Items132"), resources.GetString("LanguagesComboBox.Items133"), resources.GetString("LanguagesComboBox.Items134"), resources.GetString("LanguagesComboBox.Items135"), resources.GetString("LanguagesComboBox.Items136"), resources.GetString("LanguagesComboBox.Items137"), resources.GetString("LanguagesComboBox.Items138"), resources.GetString("LanguagesComboBox.Items139"), resources.GetString("LanguagesComboBox.Items140"), resources.GetString("LanguagesComboBox.Items141"), resources.GetString("LanguagesComboBox.Items142"), resources.GetString("LanguagesComboBox.Items143"), resources.GetString("LanguagesComboBox.Items144"), resources.GetString("LanguagesComboBox.Items145"), resources.GetString("LanguagesComboBox.Items146"), resources.GetString("LanguagesComboBox.Items147"), resources.GetString("LanguagesComboBox.Items148"), resources.GetString("LanguagesComboBox.Items149"), resources.GetString("LanguagesComboBox.Items150"), resources.GetString("LanguagesComboBox.Items151"), resources.GetString("LanguagesComboBox.Items152"), resources.GetString("LanguagesComboBox.Items153"), resources.GetString("LanguagesComboBox.Items154"), resources.GetString("LanguagesComboBox.Items155"), resources.GetString("LanguagesComboBox.Items156"), resources.GetString("LanguagesComboBox.Items157"), resources.GetString("LanguagesComboBox.Items158"), resources.GetString("LanguagesComboBox.Items159"), resources.GetString("LanguagesComboBox.Items160"), resources.GetString("LanguagesComboBox.Items161"), resources.GetString("LanguagesComboBox.Items162"), resources.GetString("LanguagesComboBox.Items163"), resources.GetString("LanguagesComboBox.Items164"), resources.GetString("LanguagesComboBox.Items165"), resources.GetString("LanguagesComboBox.Items166"), resources.GetString("LanguagesComboBox.Items167"), resources.GetString("LanguagesComboBox.Items168"), resources.GetString("LanguagesComboBox.Items169"), resources.GetString("LanguagesComboBox.Items170"), resources.GetString("LanguagesComboBox.Items171"), resources.GetString("LanguagesComboBox.Items172")})
         Me.LanguagesComboBox.Name = "LanguagesComboBox"
         '
         'DevelopmentGroupBox
         '
+        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
+        Me.DevelopmentGroupBox.Controls.Add(Me.Label14)
         Me.DevelopmentGroupBox.Controls.Add(Me.PictureBox20)
         Me.DevelopmentGroupBox.Controls.Add(Me.ChangeUserAgentLinkLabel)
-        Me.DevelopmentGroupBox.Controls.Add(Me.UserAgentTextBox)
-        resources.ApplyResources(Me.DevelopmentGroupBox, "DevelopmentGroupBox")
         Me.DevelopmentGroupBox.Name = "DevelopmentGroupBox"
         Me.DevelopmentGroupBox.TabStop = False
         '
+        'Label14
+        '
+        resources.ApplyResources(Me.Label14, "Label14")
+        Me.Label14.Name = "Label14"
+        '
         'PictureBox20
         '
-        Me.PictureBox20.Image = Global.SmartNet_Browser.My.Resources.Resources.UserAgent
         resources.ApplyResources(Me.PictureBox20, "PictureBox20")
+        Me.PictureBox20.Image = Global.SmartNet_Browser.My.Resources.Resources.UserAgent
         Me.PictureBox20.Name = "PictureBox20"
         Me.PictureBox20.TabStop = False
         '
         'ChangeUserAgentLinkLabel
         '
-        Me.ChangeUserAgentLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText
         resources.ApplyResources(Me.ChangeUserAgentLinkLabel, "ChangeUserAgentLinkLabel")
+        Me.ChangeUserAgentLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.ControlText
         Me.ChangeUserAgentLinkLabel.LinkColor = System.Drawing.SystemColors.ControlText
         Me.ChangeUserAgentLinkLabel.Name = "ChangeUserAgentLinkLabel"
         Me.ChangeUserAgentLinkLabel.TabStop = True
         Me.ChangeUserAgentLinkLabel.VisitedLinkColor = System.Drawing.SystemColors.ControlText
         '
-        'UserAgentTextBox
-        '
-        Me.UserAgentTextBox.BackColor = System.Drawing.Color.White
-        Me.UserAgentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.UserAgentTextBox.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.UserAgentTextBox.DetectUrls = False
-        resources.ApplyResources(Me.UserAgentTextBox, "UserAgentTextBox")
-        Me.UserAgentTextBox.Name = "UserAgentTextBox"
-        Me.UserAgentTextBox.ReadOnly = True
-        '
         'RepareBrowserGroupBox
         '
+        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Controls.Add(Me.PictureBox17)
         Me.RepareBrowserGroupBox.Controls.Add(Me.RepareBrowserButton)
-        resources.ApplyResources(Me.RepareBrowserGroupBox, "RepareBrowserGroupBox")
         Me.RepareBrowserGroupBox.Name = "RepareBrowserGroupBox"
         Me.RepareBrowserGroupBox.TabStop = False
         '
         'PictureBox17
         '
-        Me.PictureBox17.Image = Global.SmartNet_Browser.My.Resources.Resources.CleanBrowser
         resources.ApplyResources(Me.PictureBox17, "PictureBox17")
+        Me.PictureBox17.Image = Global.SmartNet_Browser.My.Resources.Resources.CleanBrowser
         Me.PictureBox17.Name = "PictureBox17"
         Me.PictureBox17.TabStop = False
         '
@@ -1065,16 +1064,16 @@ Partial Class SettingsForm
         '
         'SettingsSavesGroupBox
         '
+        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Controls.Add(Me.PictureBox16)
         Me.SettingsSavesGroupBox.Controls.Add(Me.ImportSettingsButton)
-        resources.ApplyResources(Me.SettingsSavesGroupBox, "SettingsSavesGroupBox")
         Me.SettingsSavesGroupBox.Name = "SettingsSavesGroupBox"
         Me.SettingsSavesGroupBox.TabStop = False
         '
         'PictureBox16
         '
-        Me.PictureBox16.Image = Global.SmartNet_Browser.My.Resources.Resources.RestoreSettings
         resources.ApplyResources(Me.PictureBox16, "PictureBox16")
+        Me.PictureBox16.Image = Global.SmartNet_Browser.My.Resources.Resources.RestoreSettings
         Me.PictureBox16.Name = "PictureBox16"
         Me.PictureBox16.TabStop = False
         '
@@ -1084,11 +1083,19 @@ Partial Class SettingsForm
         Me.ImportSettingsButton.Name = "ImportSettingsButton"
         Me.ImportSettingsButton.UseVisualStyleBackColor = True
         '
+        'FolderBrowserDialog1
+        '
+        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
+        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.DefaultExt = "Fichier de configuration|*.config"
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
+        '
+        'DefaultDownloadFolderBrowserDialog
+        '
+        resources.ApplyResources(Me.DefaultDownloadFolderBrowserDialog, "DefaultDownloadFolderBrowserDialog")
         '
         'SettingsForm
         '
@@ -1229,7 +1236,6 @@ Partial Class SettingsForm
     Friend WithEvents ChangeBrowserSettingsSecurityPasswordButton As Button
     Friend WithEvents BrowserSettingsSecurityCheckBox As CheckBox
     Friend WithEvents ChangeChildrenProtectionPasswordButton As Button
-    Friend WithEvents UserAgentTextBox As RichTextBox
     Friend WithEvents EraseCookiesCheckBox As CheckBox
     Friend WithEvents CookiesLinkLabel As LinkLabel
     Friend WithEvents ChangeUserAgentLinkLabel As LinkLabel
@@ -1306,4 +1312,5 @@ Partial Class SettingsForm
     Friend WithEvents ButtonChangeAppSyncDeviceName As Button
     Friend WithEvents TextBoxAppSyncDeviceName As TextBox
     Friend WithEvents ButtonSyncNow As Button
+    Friend WithEvents Label14 As Label
 End Class
