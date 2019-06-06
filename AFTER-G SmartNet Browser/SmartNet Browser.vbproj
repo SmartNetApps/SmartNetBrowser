@@ -472,9 +472,6 @@
     <EmbeddedResource Include="PropertiesForm.resx">
       <DependentUpon>PropertiesForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchTextInPageForm.dje-NE.resx">
-      <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SearchTextInPageForm.en.resx">
       <DependentUpon>SearchTextInPageForm.vb</DependentUpon>
     </EmbeddedResource>
