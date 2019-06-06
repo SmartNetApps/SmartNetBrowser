@@ -318,12 +318,6 @@
     <Compile Include="UpdaterForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserAgentChangeForm.Designer.vb">
-      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserAgentChangeForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WebPage.vb" />
     <Compile Include="WebpageList.vb" />
   </ItemGroup>
@@ -516,15 +510,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdaterForm.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserAgentChangeForm.en.resx">
-      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserAgentChangeForm.fr.resx">
-      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserAgentChangeForm.resx">
-      <DependentUpon>UserAgentChangeForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
