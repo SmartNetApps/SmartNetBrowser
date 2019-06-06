@@ -282,12 +282,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="NewBrowserForm.Designer.vb">
-      <DependentUpon>NewBrowserForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="NewBrowserForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="PreventTabsCloseForm.Designer.vb">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
     </Compile>
@@ -456,9 +450,6 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewBrowserForm.resx">
-      <DependentUpon>NewBrowserForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewHistoryForm.en.resx">
       <DependentUpon>NewHistoryForm.vb</DependentUpon>
