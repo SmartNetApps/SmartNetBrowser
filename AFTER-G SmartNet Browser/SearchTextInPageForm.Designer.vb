@@ -45,8 +45,8 @@ Partial Class SearchTextInPageForm
         '
         'Button3A
         '
-        Me.Button3A.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.Button3A, "Button3A")
+        Me.Button3A.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button3A.Name = "Button3A"
         Me.Button3A.UseVisualStyleBackColor = True
         '
@@ -62,8 +62,8 @@ Partial Class SearchTextInPageForm
         '
         'ComboBox1A
         '
-        Me.ComboBox1A.FormattingEnabled = True
         resources.ApplyResources(Me.ComboBox1A, "ComboBox1A")
+        Me.ComboBox1A.FormattingEnabled = True
         Me.ComboBox1A.Name = "ComboBox1A"
         '
         'Button1A
