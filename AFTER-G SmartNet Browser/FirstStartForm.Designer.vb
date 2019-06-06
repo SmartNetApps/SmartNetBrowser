@@ -108,8 +108,8 @@ Partial Class FirstStartForm
         '
         'PictureBox3
         '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Maroon
         resources.ApplyResources(Me.PictureBox3, "PictureBox3")
+        Me.PictureBox3.BackColor = System.Drawing.Color.Maroon
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.TabStop = False
         '
@@ -130,10 +130,10 @@ Partial Class FirstStartForm
         '
         'SmartNetSecurityGroupBox
         '
+        resources.ApplyResources(Me.SmartNetSecurityGroupBox, "SmartNetSecurityGroupBox")
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.PictureBox1)
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.Label5)
         Me.SmartNetSecurityGroupBox.Controls.Add(Me.AdBlockerCheckBox)
-        resources.ApplyResources(Me.SmartNetSecurityGroupBox, "SmartNetSecurityGroupBox")
         Me.SmartNetSecurityGroupBox.ForeColor = System.Drawing.Color.Black
         Me.SmartNetSecurityGroupBox.Name = "SmartNetSecurityGroupBox"
         Me.SmartNetSecurityGroupBox.TabStop = False
@@ -151,6 +151,7 @@ Partial Class FirstStartForm
         '
         'SearchEngineGroupBox
         '
+        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.Controls.Add(Me.PictureBox2)
         Me.SearchEngineGroupBox.Controls.Add(Me.Label4)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton5)
@@ -158,7 +159,6 @@ Partial Class FirstStartForm
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton3)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton2)
         Me.SearchEngineGroupBox.Controls.Add(Me.RadioButton1)
-        resources.ApplyResources(Me.SearchEngineGroupBox, "SearchEngineGroupBox")
         Me.SearchEngineGroupBox.ForeColor = System.Drawing.Color.Black
         Me.SearchEngineGroupBox.Name = "SearchEngineGroupBox"
         Me.SearchEngineGroupBox.TabStop = False
@@ -179,27 +179,27 @@ Partial Class FirstStartForm
         '
         'HomepageGroupBox
         '
+        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.Controls.Add(Me.PictureBoxHomepage)
         Me.HomepageGroupBox.Controls.Add(Me.Label3)
         Me.HomepageGroupBox.Controls.Add(Me.HomepageURLBox)
-        resources.ApplyResources(Me.HomepageGroupBox, "HomepageGroupBox")
         Me.HomepageGroupBox.ForeColor = System.Drawing.Color.Black
         Me.HomepageGroupBox.Name = "HomepageGroupBox"
         Me.HomepageGroupBox.TabStop = False
         '
         'PictureBoxHomepage
         '
+        resources.ApplyResources(Me.PictureBoxHomepage, "PictureBoxHomepage")
         Me.PictureBoxHomepage.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
         Me.PictureBoxHomepage.Image = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
         Me.PictureBoxHomepage.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
-        resources.ApplyResources(Me.PictureBoxHomepage, "PictureBoxHomepage")
         Me.PictureBoxHomepage.Name = "PictureBoxHomepage"
         Me.PictureBoxHomepage.TabStop = False
         '
         'PictureBoxWordmark
         '
-        Me.PictureBoxWordmark.BackColor = System.Drawing.Color.Maroon
         resources.ApplyResources(Me.PictureBoxWordmark, "PictureBoxWordmark")
+        Me.PictureBoxWordmark.BackColor = System.Drawing.Color.Maroon
         Me.PictureBoxWordmark.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
         Me.PictureBoxWordmark.Image = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
         Me.PictureBoxWordmark.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
@@ -208,15 +208,15 @@ Partial Class FirstStartForm
         '
         'PictureBoxHourglass
         '
-        Me.PictureBoxHourglass.Image = Global.SmartNet_Browser.My.Resources.Resources.Hourglass
         resources.ApplyResources(Me.PictureBoxHourglass, "PictureBoxHourglass")
+        Me.PictureBoxHourglass.Image = Global.SmartNet_Browser.My.Resources.Resources.Hourglass
         Me.PictureBoxHourglass.Name = "PictureBoxHourglass"
         Me.PictureBoxHourglass.TabStop = False
         '
         'LabelState
         '
-        Me.LabelState.AutoEllipsis = True
         resources.ApplyResources(Me.LabelState, "LabelState")
+        Me.LabelState.AutoEllipsis = True
         Me.LabelState.Name = "LabelState"
         '
         'FirstStartForm
