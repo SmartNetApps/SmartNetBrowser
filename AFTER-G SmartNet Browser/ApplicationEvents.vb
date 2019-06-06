@@ -55,6 +55,7 @@ RetryInit:
                 Gecko.GeckoPreferences.Default("extensions.blocklist.enabled") = False
                 Gecko.GeckoPreferences.Default("dom.disable_beforeunload") = True
                 Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
+                Gecko.GeckoPreferences.Default("security.csp.enable") = True
             Catch ex As Exception
                 Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error)
                     Case DialogResult.Abort
