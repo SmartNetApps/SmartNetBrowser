@@ -36,15 +36,15 @@ Partial Class PropertiesForm
         '
         'FaviconBox
         '
-        Me.FaviconBox.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.FaviconBox, "FaviconBox")
+        Me.FaviconBox.BackColor = System.Drawing.Color.White
         Me.FaviconBox.Name = "FaviconBox"
         Me.FaviconBox.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
@@ -61,11 +61,11 @@ Partial Class PropertiesForm
         '
         'PageURLTextBox
         '
+        resources.ApplyResources(Me.PageURLTextBox, "PageURLTextBox")
         Me.PageURLTextBox.BackColor = System.Drawing.SystemColors.Control
         Me.PageURLTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PageURLTextBox.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.PageURLTextBox.DetectUrls = False
-        resources.ApplyResources(Me.PageURLTextBox, "PageURLTextBox")
         Me.PageURLTextBox.Name = "PageURLTextBox"
         Me.PageURLTextBox.ReadOnly = True
         Me.PageURLTextBox.TabStop = False
@@ -77,8 +77,8 @@ Partial Class PropertiesForm
         '
         'CloseButton
         '
-        Me.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.CloseButton, "CloseButton")
+        Me.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.CloseButton.Name = "CloseButton"
         Me.CloseButton.UseVisualStyleBackColor = True
         '
