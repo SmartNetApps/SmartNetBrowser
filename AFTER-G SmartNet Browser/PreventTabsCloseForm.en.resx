@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>51, 8</value>
+    <value>56, 9</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>383, 15</value>
@@ -127,24 +127,26 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Several tabs are still opened. Are you sure that you want to close them ?</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="DontAskAgainCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="DontAskAgainCheckBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="DontAskAgainCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 32</value>
   </data>
   <data name="DontAskAgainCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 19</value>
   </data>
   <data name="DontAskAgainCheckBox.Text" xml:space="preserve">
-    <value>Don't warn me again next time</value>
+    <value>Don't &amp;warn me again next time</value>
+  </data>
+  <data name="CloseTabsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 57</value>
   </data>
   <data name="CloseTabsButton.Text" xml:space="preserve">
-    <value>Close tabs</value>
+    <value>Close &amp;tabs</value>
+  </data>
+  <data name="CloseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 57</value>
   </data>
   <data name="CloseButton.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>&amp;Cancel</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

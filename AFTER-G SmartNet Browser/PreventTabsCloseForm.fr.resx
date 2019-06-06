@@ -117,19 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="DontAskAgainCheckBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="DontAskAgainCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 26</value>
-  </data>
-  <data name="DontAskAgainCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 24</value>
-  </data>
   <data name="DontAskAgainCheckBox.Text" xml:space="preserve">
     <value>Ne plus me le demander à l'avenir</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABABIAICAQAAEABADoAgAAJgEAABAQEAABAAQAKAEAAA4EAAAwMAAAAQAIAKgOAAA2BQAAICAAAAEA
