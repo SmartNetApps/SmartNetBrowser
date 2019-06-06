@@ -27,6 +27,7 @@ Partial Class NewHistoryForm
         Me.HistoryListView = New System.Windows.Forms.ListView()
         Me.TitleColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.URLColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.VisitDateColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.HistoryFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.OpenPageButton = New System.Windows.Forms.Button()
@@ -54,7 +55,6 @@ Partial Class NewHistoryForm
         Me.RafraîchirLesListesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VisitDateColumnHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
@@ -84,6 +84,10 @@ Partial Class NewHistoryForm
         '
         resources.ApplyResources(Me.URLColumnHeader, "URLColumnHeader")
         '
+        'VisitDateColumnHeader
+        '
+        resources.ApplyResources(Me.VisitDateColumnHeader, "VisitDateColumnHeader")
+        '
         'HistoryFaviconImageList
         '
         Me.HistoryFaviconImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
@@ -104,29 +108,29 @@ Partial Class NewHistoryForm
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPageHistory)
         Me.TabControl1.Controls.Add(Me.TabPageFavorites)
         Me.TabControl1.Controls.Add(Me.TabPageSearchHistory)
         Me.TabControl1.Controls.Add(Me.TabPageDownloads)
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'TabPageHistory
         '
+        resources.ApplyResources(Me.TabPageHistory, "TabPageHistory")
         Me.TabPageHistory.Controls.Add(Me.HistoryListView)
         Me.TabPageHistory.Controls.Add(Me.DeleteButton)
         Me.TabPageHistory.Controls.Add(Me.OpenPageButton)
-        resources.ApplyResources(Me.TabPageHistory, "TabPageHistory")
         Me.TabPageHistory.Name = "TabPageHistory"
         Me.TabPageHistory.UseVisualStyleBackColor = True
         '
         'TabPageFavorites
         '
+        resources.ApplyResources(Me.TabPageFavorites, "TabPageFavorites")
         Me.TabPageFavorites.Controls.Add(Me.ButtonDeleteFavorite)
         Me.TabPageFavorites.Controls.Add(Me.ButtonOpenFavorite)
         Me.TabPageFavorites.Controls.Add(Me.ListViewFavorites)
-        resources.ApplyResources(Me.TabPageFavorites, "TabPageFavorites")
         Me.TabPageFavorites.Name = "TabPageFavorites"
         Me.TabPageFavorites.UseVisualStyleBackColor = True
         '
@@ -161,10 +165,10 @@ Partial Class NewHistoryForm
         '
         'TabPageSearchHistory
         '
+        resources.ApplyResources(Me.TabPageSearchHistory, "TabPageSearchHistory")
         Me.TabPageSearchHistory.Controls.Add(Me.ButtonDeleteSearch)
         Me.TabPageSearchHistory.Controls.Add(Me.ButtonSearchAgain)
         Me.TabPageSearchHistory.Controls.Add(Me.ListBoxSearches)
-        resources.ApplyResources(Me.TabPageSearchHistory, "TabPageSearchHistory")
         Me.TabPageSearchHistory.Name = "TabPageSearchHistory"
         Me.TabPageSearchHistory.UseVisualStyleBackColor = True
         '
@@ -188,10 +192,10 @@ Partial Class NewHistoryForm
         '
         'TabPageDownloads
         '
+        resources.ApplyResources(Me.TabPageDownloads, "TabPageDownloads")
         Me.TabPageDownloads.Controls.Add(Me.ButtonDeleteDownload)
         Me.TabPageDownloads.Controls.Add(Me.ButtonDownloadAgain)
         Me.TabPageDownloads.Controls.Add(Me.ListBoxDownloads)
-        resources.ApplyResources(Me.TabPageDownloads, "TabPageDownloads")
         Me.TabPageDownloads.Name = "TabPageDownloads"
         Me.TabPageDownloads.UseVisualStyleBackColor = True
         '
@@ -221,48 +225,44 @@ Partial Class NewHistoryForm
         '
         'MenuStrip1
         '
+        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.AffichageToolStripMenuItem, Me.ToolStripMenuItem1})
-        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
         '
         'FichierToolStripMenuItem
         '
+        resources.ApplyResources(Me.FichierToolStripMenuItem, "FichierToolStripMenuItem")
         Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FermerToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        resources.ApplyResources(Me.FichierToolStripMenuItem, "FichierToolStripMenuItem")
         '
         'FermerToolStripMenuItem
         '
-        Me.FermerToolStripMenuItem.Name = "FermerToolStripMenuItem"
         resources.ApplyResources(Me.FermerToolStripMenuItem, "FermerToolStripMenuItem")
+        Me.FermerToolStripMenuItem.Name = "FermerToolStripMenuItem"
         '
         'AffichageToolStripMenuItem
         '
+        resources.ApplyResources(Me.AffichageToolStripMenuItem, "AffichageToolStripMenuItem")
         Me.AffichageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RafraîchirLesListesToolStripMenuItem})
         Me.AffichageToolStripMenuItem.Name = "AffichageToolStripMenuItem"
-        resources.ApplyResources(Me.AffichageToolStripMenuItem, "AffichageToolStripMenuItem")
         '
         'RafraîchirLesListesToolStripMenuItem
         '
+        resources.ApplyResources(Me.RafraîchirLesListesToolStripMenuItem, "RafraîchirLesListesToolStripMenuItem")
         Me.RafraîchirLesListesToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.RefreshBlack
         Me.RafraîchirLesListesToolStripMenuItem.Name = "RafraîchirLesListesToolStripMenuItem"
-        resources.ApplyResources(Me.RafraîchirLesListesToolStripMenuItem, "RafraîchirLesListesToolStripMenuItem")
         '
         'ToolStripMenuItem1
         '
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AProposDeSmartNetBrowserToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         '
         'AProposDeSmartNetBrowserToolStripMenuItem
         '
-        Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.AProposDeSmartNetBrowserToolStripMenuItem, "AProposDeSmartNetBrowserToolStripMenuItem")
-        '
-        'VisitDateColumnHeader
-        '
-        resources.ApplyResources(Me.VisitDateColumnHeader, "VisitDateColumnHeader")
+        Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         '
         'NewHistoryForm
         '
