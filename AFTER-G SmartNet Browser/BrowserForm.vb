@@ -415,9 +415,16 @@ Public Class BrowserForm
     Private Sub SavePageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SavePageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Dim sfd As New SaveFileDialog
+        Dim documentExtension As String = WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c) + 1)
         sfd.Title = "Enregistrer la page sous..."
-        sfd.DefaultExt = WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c))
-        sfd.Filter = "*." + WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c))
+
+        If Not documentExtension.Contains("/") Then
+            sfd.DefaultExt = documentExtension
+            sfd.Filter = "Fichier " + documentExtension.ToUpper() + "|*." + documentExtension
+        Else
+            sfd.DefaultExt = "html"
+            sfd.Filter = "Page Web|*.html"
+        End If
 
         Try
             If sfd.ShowDialog() = DialogResult.OK Then
