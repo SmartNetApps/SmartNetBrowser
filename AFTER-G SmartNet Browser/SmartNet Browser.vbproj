@@ -106,7 +106,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SmartNetBrowserSignatureDeNomFort.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SNB.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>39FFEDAB6BF0634E04F3EC56A866EC80280E24F8</ManifestCertificateThumbprint>
@@ -527,7 +527,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SmartNetBrowserSignatureDeNomFort.pfx" />
+    <None Include="SNB.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="404\en.html">

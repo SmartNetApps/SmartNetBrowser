@@ -67,45 +67,59 @@ RetryInit:
                 End Select
             End Try
 
+            ' Migration des listes Historique et Favoris vers le nouveau format
             Try
-                Dim newHistory As New WebPageList
-                Dim newFavorites As New WebPageList
                 Dim migrated As Boolean = False
                 Dim title As String
                 Dim url As String
                 Dim visitDate As DateTime
                 Dim pageDetails As String()
-                For Each item In My.Settings.History
-                    If Not item.Contains(">") Then
-                        newHistory.Add(New WebPage(item))
-                        migrated = True
-                    Else
-                        pageDetails = item.Split(">"c)
-                        title = pageDetails(0)
-                        url = pageDetails(1)
-                        visitDate = DateTime.Parse(pageDetails(2))
-                        newHistory.Add(New WebPage(title, url, visitDate))
-                    End If
-                Next
 
-                For Each item In My.Settings.Favorites
-                    If Not item.Contains(">") Then
-                        newFavorites.Add(New WebPage(item))
-                        migrated = True
-                    Else
-                        pageDetails = item.Split(">"c)
-                        title = pageDetails(0)
-                        url = pageDetails(1)
-                        visitDate = DateTime.Parse(pageDetails(2))
-                        newFavorites.Add(New WebPage(title, url, visitDate))
-                    End If
-                Next
-                My.Settings.History = newHistory.ToStringCollection()
-                My.Settings.Favorites = newFavorites.ToStringCollection()
+                If My.Settings.History.Count > 0 AndAlso My.Settings.History(0).Contains(">") = False Then
+                    Dim newHistory As New WebPageList
+
+                    For Each item In My.Settings.History
+                        If Not item.Contains(">") Then
+                            newHistory.Add(New WebPage(item))
+                            migrated = True
+                        Else
+                            pageDetails = item.Split(">"c)
+                            title = pageDetails(0)
+                            url = pageDetails(1)
+                            visitDate = DateTime.Parse(pageDetails(2))
+                            newHistory.Add(New WebPage(title, url, visitDate))
+                        End If
+                    Next
+
+                    My.Settings.History = newHistory.ToStringCollection()
+                    My.Settings.Save()
+                End If
+
+
+                If My.Settings.Favorites.Count > 0 AndAlso My.Settings.Favorites(0).Contains(">") = False Then
+                    Dim newFavorites As New WebPageList
+
+                    For Each item In My.Settings.Favorites
+                        If Not item.Contains(">") Then
+                            newFavorites.Add(New WebPage(item))
+                            migrated = True
+                        Else
+                            pageDetails = item.Split(">"c)
+                            title = pageDetails(0)
+                            url = pageDetails(1)
+                            visitDate = DateTime.Parse(pageDetails(2))
+                            newFavorites.Add(New WebPage(title, url, visitDate))
+                        End If
+                    Next
+
+                    My.Settings.Favorites = newFavorites.ToStringCollection()
+                    My.Settings.Save()
+                End If
 
                 'If migrated Then
-                '    MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                '    MessageBox.Show("Bonjour ! Votre historique et vos favoris ont été convertis vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
                 'End If
+
             Catch ex As Exception
                 MessageBox.Show("Nous avons tenté de migrer vos données vers le nouveau format d'enregistrement, mais quelque chose s'est mal passé. Veuillez contacter l'assistance technique avec les données suivantes :" + vbCrLf + ex.Message + vbCrLf + ex.Source + vbCrLf + ex.StackTrace, "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
