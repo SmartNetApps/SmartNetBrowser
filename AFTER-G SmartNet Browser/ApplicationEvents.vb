@@ -103,9 +103,9 @@ RetryInit:
                 My.Settings.History = newHistory.ToStringCollection()
                 My.Settings.Favorites = newFavorites.ToStringCollection()
 
-                If migrated Then
-                    MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                End If
+                'If migrated Then
+                '    MessageBox.Show("Bonjour ! Votre historique a été converti vers le nouveau format. Bonne navigation :)", "SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                'End If
             Catch ex As Exception
                 MessageBox.Show("Nous avons tenté de migrer vos données vers le nouveau format d'enregistrement, mais quelque chose s'est mal passé. Veuillez contacter l'assistance technique avec les données suivantes :" + vbCrLf + ex.Message + vbCrLf + ex.Source + vbCrLf + ex.StackTrace, "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
