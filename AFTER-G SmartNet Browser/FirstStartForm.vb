@@ -59,8 +59,12 @@ Public Class FirstStartForm
                 My.Settings.BrowserSettingsSecurityPassword = ""
                 My.Settings.HistoryFavoritesSecurity = False
                 LabelState.Text = "Définition des paramètres par défaut pour l'agent utilisateur..."
-                My.Settings.UserAgent = ""
                 My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
+                If Environment.Is64BitOperatingSystem = True Then
+                    Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+                Else
+                    Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+                End If
                 LabelState.Text = "Définition des paramètres par défaut pour SmartNet AdsBlocker..."
                 My.Settings.PopUpBlocker = My.Settings.AdBlocker
                 LabelState.Text = "Définition des paramètres par défaut pour le téléchargement de fichiers..."

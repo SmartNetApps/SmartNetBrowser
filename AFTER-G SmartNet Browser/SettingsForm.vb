@@ -421,7 +421,11 @@ Public Class SettingsForm
             My.Settings.BrowserSettingsSecurity = False
             My.Settings.BrowserSettingsSecurityPassword = ""
             My.Settings.DeleteCookiesWhileClosing = False
-            My.Settings.UserAgent = ""
+            If Environment.Is64BitOperatingSystem = True Then
+                Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+            Else
+                Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+            End If
             My.Settings.FirstStartFromReset = True
             My.Settings.UserAgentLanguage = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
             Gecko.CookieManager.RemoveAll()
@@ -442,7 +446,7 @@ Public Class SettingsForm
         FirstStartForm.Show()
     End Sub
 
-    Private Sub ChangeUserAgentLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ChangeUserAgentLinkLabel.LinkClicked
+    Private Sub ChangeUserAgentLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         BrowserForm.AddTab("about:config")
     End Sub
 
