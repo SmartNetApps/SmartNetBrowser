@@ -137,6 +137,8 @@ Public Class BrowserForm
         For Each b As Byte In HashValue
             strHex += String.Format("{0:x2}", b)
         Next
+
+        SHhash.Dispose()
         Return strHex
     End Function
 
@@ -434,12 +436,15 @@ Public Class BrowserForm
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
         End Try
+
+        sfd.Dispose()
     End Sub
     Private Sub OpenPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenPageToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Dim ofd As New OpenFileDialog
-        ofd.Title = "Ouvrir un document dans SmartNet Browser"
-        ofd.Filter = "Pages Web HTML|*.html;*.htm;*.shtml;*.xhtml|Fichiers XML|*.xml|Fichiers texte|*.txt;*.text|Images|*.jpe;*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;*.drw;*.pct;*.psp;*.xcf;*.psd;*.raw|Tous les fichiers|*.*"
+        Dim ofd As New OpenFileDialog With {
+            .Title = "Ouvrir un document dans SmartNet Browser",
+            .Filter = "Pages Web HTML|*.html;*.htm;*.shtml;*.xhtml|Fichiers XML|*.xml|Fichiers texte|*.txt;*.text|Images|*.jpe;*.jpg;*.jpeg;*.gif;*.png;*.bmp;*.ico;*.svg;*.svgz;*.tif;*.tiff;*.ai;*.drw;*.pct;*.psp;*.xcf;*.psd;*.raw|Tous les fichiers|*.*"
+        }
 
         Try
             If ofd.ShowDialog() <> DialogResult.Cancel Then
@@ -449,6 +454,8 @@ Public Class BrowserForm
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
         End Try
+
+        ofd.Dispose()
     End Sub
     Private Sub PrintPreview(sender As Object, e As EventArgs) Handles AperçuAvantImpressionToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
@@ -841,14 +848,18 @@ Public Class BrowserForm
             Dim FileExtension As String = src.Substring(src.LastIndexOf(".") + 1)
             Dim FileName As String = src.Substring(src.LastIndexOf("/") + 1)
             Dim ImageDownloader As New WebClient
-            Dim SaveImageDialog As New SaveFileDialog
-            SaveImageDialog.Title = "Enregistrer l'image sous..."
-            SaveImageDialog.FileName = FileName
-            SaveImageDialog.DefaultExt = FileExtension
-            SaveImageDialog.Filter = "Image " + FileExtension.ToUpper() + "|*." + FileExtension
+            Dim SaveImageDialog As New SaveFileDialog With {
+                .Title = "Enregistrer l'image sous...",
+                .FileName = FileName,
+                .DefaultExt = FileExtension,
+                .Filter = "Image " + FileExtension.ToUpper() + "|*." + FileExtension
+            }
             If SaveImageDialog.ShowDialog() = MsgBoxResult.Ok Then
                 ImageDownloader.DownloadFile(src, SaveImageDialog.FileName.ToString)
             End If
+
+            ImageDownloader.Dispose()
+            SaveImageDialog.Dispose()
         Catch ex As Exception
             msgBar = New MessageBar(ex)
             DisplayMessageBar()
