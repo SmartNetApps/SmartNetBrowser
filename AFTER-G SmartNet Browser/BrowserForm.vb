@@ -420,7 +420,7 @@ Public Class BrowserForm
         Dim documentExtension As String = WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c) + 1)
         sfd.Title = "Enregistrer la page sous..."
 
-        If Not documentExtension.Contains("/") Then
+        If Not documentExtension.Contains("/") And documentExtension <> "php" Then
             sfd.DefaultExt = documentExtension
             sfd.Filter = "Fichier " + documentExtension.ToUpper() + "|*." + documentExtension
         Else
