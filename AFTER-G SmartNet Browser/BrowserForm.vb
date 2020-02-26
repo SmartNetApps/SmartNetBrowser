@@ -419,13 +419,15 @@ Public Class BrowserForm
         Dim sfd As New SaveFileDialog
         Dim documentExtension As String = WB.Url.ToString().Substring(WB.Url.ToString().LastIndexOf("."c) + 1)
         sfd.Title = "Enregistrer la page sous..."
+        sfd.InitialDirectory = My.Settings.DefaultDownloadFolder
+        sfd.FileName = WB.DocumentTitle
 
-        If Not documentExtension.Contains("/") And documentExtension <> "php" Then
+        If Not documentExtension.Contains("/") And documentExtension <> "php" And documentExtension <> "html" And documentExtension <> "htm" Then
             sfd.DefaultExt = documentExtension
             sfd.Filter = "Fichier " + documentExtension.ToUpper() + "|*." + documentExtension
         Else
             sfd.DefaultExt = "html"
-            sfd.Filter = "Page Web|*.html"
+            sfd.Filter = "Page Web, HTML uniquement|*.htm;*.html|Fichier texte|*.txt;*.text"
         End If
 
         Try
@@ -1234,6 +1236,11 @@ Public Class BrowserForm
 
     Private Sub URLBox_LostFocus(sender As Object, e As EventArgs) Handles URLBox.LostFocus
         GoButton.Visible = False
+    End Sub
+
+    Private Sub ToolStripMenuItem_NouvelleFenetre_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_NouvelleFenetre.Click
+        Dim newForm = (New BrowserForm())
+        newForm.Show()
     End Sub
 End Class
 
