@@ -1237,10 +1237,5 @@ Public Class BrowserForm
     Private Sub URLBox_LostFocus(sender As Object, e As EventArgs) Handles URLBox.LostFocus
         GoButton.Visible = False
     End Sub
-
-    Private Sub ToolStripMenuItem_NouvelleFenetre_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_NouvelleFenetre.Click
-        Dim newForm = (New BrowserForm())
-        newForm.Show()
-    End Sub
 End Class
 

@@ -130,7 +130,6 @@ Partial Class BrowserForm
         Me.AppSyncTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MessageBarPanel = New System.Windows.Forms.Panel()
         Me.MessageBarCloseButton = New System.Windows.Forms.Button()
-        Me.ToolStripMenuItem_NouvelleFenetre = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolbar.SuspendLayout()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
@@ -147,7 +146,7 @@ Partial Class BrowserForm
         'MainMenu
         '
         resources.ApplyResources(Me.MainMenu, "MainMenu")
-        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeConnecterÀAppSyncToolStripMenuItem, Me.ToolStripSeparator11, Me.ToolStripMenuItem_NouvelleFenetre, Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
+        Me.MainMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeConnecterÀAppSyncToolStripMenuItem, Me.ToolStripSeparator11, Me.NewTabToolStripMenuItem, Me.CloseTabToolStripMenuItem, Me.ToolStripSeparator1, Me.OpenPageToolStripMenuItem, Me.SavePageToolStripMenuItem, Me.AperçuAvantImpressionToolStripMenuItem, Me.EnvoyerLadresseDeLaPageParCourrierÉlectoniqueToolStripMenuItem, Me.ÉditionSubMenu, Me.ZoomToolStripMenuItem, Me.ToolStripSeparator2, Me.TéléchargerCetteVidéoToolStripMenuItem, Me.ToolStripSeparator6, Me.FavorisSubMenu, Me.AfficherLhistoriqueToolStripMenuItem, Me.ToolStripSeparator4, Me.PleinÉcranToolStripMenuItem, Me.QuitterLePleinÉcranToolStripMenuItem, Me.ToolStripSeparator3, Me.ParamètresToolStripMenuItem, Me.SupportToolStripMenuItem, Me.NouvelleVersionDisponibleSubMenu, Me.FermerSmartNetBrowserToolStripMenuItem})
         Me.MainMenu.Image = Global.SmartNet_Browser.My.Resources.Resources.MenuBlack
         Me.MainMenu.Name = "MainMenu"
         '
@@ -768,11 +767,6 @@ Partial Class BrowserForm
         Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
         Me.MessageBarCloseButton.UseVisualStyleBackColor = True
         '
-        'ToolStripMenuItem_NouvelleFenetre
-        '
-        Me.ToolStripMenuItem_NouvelleFenetre.Name = "ToolStripMenuItem_NouvelleFenetre"
-        resources.ApplyResources(Me.ToolStripMenuItem_NouvelleFenetre, "ToolStripMenuItem_NouvelleFenetre")
-        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -910,5 +904,4 @@ Partial Class BrowserForm
     Friend WithEvents AppSyncTimer As Timer
     Friend WithEvents MessageBarPanel As Panel
     Friend WithEvents MessageBarCloseButton As Button
-    Friend WithEvents ToolStripMenuItem_NouvelleFenetre As ToolStripMenuItem
 End Class
