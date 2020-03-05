@@ -547,7 +547,7 @@ Public Class BrowserForm
         AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/")
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
-        AddTab("https://smartnetapps.quentinpugeat.fr/contact.html")
+        AddTab("https://smartnetapps.quentinpugeat.fr/contact")
     End Sub
     Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
         AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link")

@@ -28,7 +28,7 @@
     End Sub
 
     Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes.html")
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes")
         Me.Close()
     End Sub
 
