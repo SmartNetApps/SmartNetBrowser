@@ -575,7 +575,7 @@ Public Class AppSyncAgent
             For Each q As String In theOnlineSearchHistory
                 If theNewSearchHistory.Contains(q) = False Then
                     theNewSearchHistory.Add(q)
-                    BrowserForm.SearchBox.Items.Add(q)
+                    BrowserForm.URLBox.Items.Add(q)
                 End If
             Next
 

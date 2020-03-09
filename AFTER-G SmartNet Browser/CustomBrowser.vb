@@ -8,12 +8,29 @@ Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
     Public PointedElement As Gecko.GeckoElement
     Public Favicon As Image
+    Public ContainsAds As AdBlockerState
+
+    Public Enum AdBlockerState
+        ''' <summary>
+        ''' Contient des pubs
+        ''' </summary>
+        ContainsAds
+        ''' <summary>
+        ''' Ne contient pas de pubs
+        ''' </summary>
+        NoAds
+        ''' <summary>
+        ''' Est whitelisté
+        ''' </summary>
+        Whitelisted
+    End Enum
 
     Public Sub New()
         MyBase.New()
         Me.NoDefaultContextMenu = True
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
         Favicon = My.Resources.ErrorFavicon
+        ContainsAds = AdBlockerState.NoAds
     End Sub
 
     Private Sub UpdateInterface()
@@ -56,8 +73,8 @@ Public Class CustomBrowser
                 Case Keys.BrowserRefresh
                     Reload()
                 Case Keys.BrowserSearch
-                    BrowserForm.SearchBox.Focus()
-                    BrowserForm.SearchBoxLabel.Visible = False
+                    BrowserForm.URLBox.Focus()
+                    BrowserForm.URLBoxLabel.Visible = False
                 Case Keys.BrowserStop
                     Me.Stop()
                 Case Keys.Print
@@ -69,6 +86,7 @@ Public Class CustomBrowser
 
     Private Sub BrowserNavigating(ByVal sender As Object, ByVal e As GeckoNavigatingEventArgs) Handles Me.Navigating
         Favicon = My.Resources.ErrorFavicon
+        ContainsAds = AdBlockerState.NoAds
 
         If My.Settings.ChildrenProtection = True Then
             Dim isAdultContent As Boolean = False
@@ -92,9 +110,9 @@ Public Class CustomBrowser
         End If
 
         If My.Settings.AdBlocker = True And My.Settings.PopUpBlocker = True And Me.GetContextFlagsAttribute() = GeckoWindowFlags.WindowPopup Then
+            Dim isAnAd As Boolean = False
             Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(e.Uri.Host)
             If isWhitelisted = False Then
-                Dim isAnAd As Boolean = False
                 Try
                     isAnAd = AdsBlockerAgent.IsAdvertisement(e.Uri.ToString())
                 Catch ex As Exception
@@ -113,7 +131,7 @@ Public Class CustomBrowser
             End If
         End If
 
-        If e.Uri.ToString.Contains("window.close") Then
+        If e.Uri IsNot Nothing AndAlso e.Uri.ToString().Contains("window.close") Then
             If BrowserForm.BrowserTabs.TabPages.Count > 1 Then
                 BrowserForm.BrowserTabs.TabPages.Remove(BrowserForm.BrowserTabs.SelectedTab)
             Else
@@ -153,9 +171,9 @@ Public Class CustomBrowser
 
     Private Sub CustomBrowser_FrameNavigating(sender As Object, e As GeckoNavigatingEventArgs) Handles Me.FrameNavigating
         If My.Settings.AdBlocker = True Then
+            Dim isAnAd As Boolean = False
             Dim isWhitelisted As Boolean = AdsBlockerAgent.IsWhitelisted(Me.Url.Host)
             If isWhitelisted = False Then
-                Dim isAnAd As Boolean = False
                 Try
                     isAnAd = AdsBlockerAgent.IsAdvertisement(e.Uri.ToString())
                 Catch ex As Exception
@@ -164,8 +182,14 @@ Public Class CustomBrowser
                     isAnAd = False
                 End Try
 
+                If isAnAd Then
+                    BrowserForm.AdBlockerButton.Image = My.Resources.AdsBlockerButton_working
+                    ContainsAds = AdBlockerState.ContainsAds
+                End If
                 e.Cancel = isAnAd
                 Exit Sub
+            Else
+                ContainsAds = AdBlockerState.Whitelisted
             End If
         End If
 

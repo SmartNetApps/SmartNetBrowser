@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Text.RegularExpressions
 
 Public Class BrowserForm
     Public msgBar As MessageBar
@@ -185,7 +186,7 @@ Public Class BrowserForm
         End Select
 
         If My.Settings.PrivateBrowsing = False Then
-            SearchBox.Items.Add(keywords)
+            URLBox.Items.Add(keywords)
             My.Settings.SearchHistory.Add(keywords)
         End If
     End Sub
@@ -196,22 +197,21 @@ Public Class BrowserForm
     Public Sub UpdateInterface()
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
 
-        Select Case My.Settings.SearchEngine
-            Case 1
-                SearchBoxLabel.Text = "Google"
-            Case 2
-                SearchBoxLabel.Text = "Bing"
-            Case 3
-                SearchBoxLabel.Text = "Yahoo!"
-            Case 4
-                SearchBoxLabel.Text = "DuckDuckGo"
-            Case 5
-                SearchBoxLabel.Text = "Qwant"
-            Case 0
-                SearchBoxLabel.Text = My.Settings.CustomSearchName
-            Case Else
-                SearchBoxLabel.Text = "Rechercher"
-        End Select
+        If WB.Url.ToString().Contains("://") = False Then
+            PageSecurityButton.Image = Nothing
+        ElseIf WB.Url.ToString().Contains("://") AndAlso WB.Url.ToString().Substring(0, WB.Url.ToString().IndexOf("://")).ToLower() = "https" Then
+            PageSecurityButton.Image = My.Resources.PageSecurity_black
+        Else
+            PageSecurityButton.Image = My.Resources.PageSecurity_red
+        End If
+
+        If My.Settings.AdBlocker = False Or WB.ContainsAds = CustomBrowser.AdBlockerState.Whitelisted Then
+            AdBlockerButton.Image = My.Resources.AdsBlockerButton_disabled
+        ElseIf WB.ContainsAds = CustomBrowser.AdBlockerState.ContainsAds Then
+            AdBlockerButton.Image = My.Resources.AdsBlockerButton_working
+        Else
+            AdBlockerButton.Image = My.Resources.AdsBlockerButton_enabled
+        End If
 
         Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         If Favoris.ContainsPage(WB.Url.ToString()) Then
@@ -236,6 +236,7 @@ Public Class BrowserForm
         NextpageButton.Enabled = WB.CanGoForward
 
         If Not URLBox.Focused Then
+            GoButton.Visible = False
             If WB.Url.ToString.Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Then
                 URLBox.Text = ""
             Else
@@ -265,12 +266,6 @@ Public Class BrowserForm
             URLBoxLabel.Visible = True
         Else
             URLBoxLabel.Visible = False
-        End If
-
-        If SearchBox.Text = "" Then
-            SearchBoxLabel.Visible = True
-        Else
-            SearchBoxLabel.Visible = False
         End If
     End Sub
 
@@ -339,7 +334,7 @@ Public Class BrowserForm
         Next
 
         For Each SearchHistoryEntry In My.Settings.SearchHistory
-            SearchBox.Items.Add(SearchHistoryEntry)
+            URLBox.Items.Add(SearchHistoryEntry)
         Next
 
         If My.Settings.CorrectlyClosed = False Then
@@ -405,12 +400,20 @@ Public Class BrowserForm
 
     Private Sub GoButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GoButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate(Me.URLBox.Text)
+        If Uri.IsWellFormedUriString(URLBox.Text, UriKind.RelativeOrAbsolute) And Regex.IsMatch(URLBox.Text, "^\w{1,}$") = False Then
+            WB.Navigate(URLBox.Text)
+        Else
+            OpenSearchResults(URLBox.Text)
+        End If
     End Sub
     Private Sub URLBoxKeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles URLBox.KeyDown
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         If e.KeyCode = Keys.Enter Then
-            WB.Navigate(URLBox.Text)
+            If Uri.IsWellFormedUriString(URLBox.Text, UriKind.RelativeOrAbsolute) And Regex.IsMatch(URLBox.Text, "^\w{1,}$") = False Then
+                WB.Navigate(URLBox.Text)
+            Else
+                OpenSearchResults(URLBox.Text)
+            End If
         End If
     End Sub
 
@@ -554,15 +557,6 @@ Public Class BrowserForm
     End Sub
     Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
         AboutForm.ShowDialog()
-    End Sub
-
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
-        OpenSearchResults(SearchBox.Text)
-    End Sub
-    Private Sub SearchBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles SearchBox.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            OpenSearchResults(SearchBox.Text)
-        End If
     End Sub
 
     Private Sub Zoom_100(sender As Object, e As EventArgs) Handles Zoom100.Click
@@ -983,18 +977,8 @@ Public Class BrowserForm
         End If
     End Sub
 
-    Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged
-        If SearchBox.Text = "" Then
-            SearchBoxLabel.Visible = True
-        Else
-            SearchBoxLabel.Visible = False
-        End If
-    End Sub
     Private Sub URLBoxLabel_Click(sender As Object, e As EventArgs) Handles URLBoxLabel.Click
         URLBox.Focus()
-    End Sub
-    Private Sub SearchBoxLabel_Click(sender As Object, e As EventArgs) Handles SearchBoxLabel.Click
-        SearchBox.Focus()
     End Sub
 
     Private Sub SélectionnerToutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SélectionnerToutToolStripMenuItem.Click
@@ -1028,8 +1012,8 @@ Public Class BrowserForm
                 Case Keys.BrowserRefresh
                     WB.Reload()
                 Case Keys.BrowserSearch
-                    SearchBox.Focus()
-                    SearchBoxLabel.Visible = False
+                    URLBox.Focus()
+                    URLBoxLabel.Visible = False
                 Case Keys.BrowserStop
                     WB.Stop()
                 Case Keys.Print
@@ -1236,6 +1220,16 @@ Public Class BrowserForm
 
     Private Sub URLBox_LostFocus(sender As Object, e As EventArgs) Handles URLBox.LostFocus
         GoButton.Visible = False
+    End Sub
+
+    Private Sub AdBlockerButton_Click(sender As Object, e As EventArgs) Handles AdBlockerButton.Click
+        SettingsForm.TabControl1.SelectTab(3)
+        If My.Settings.BrowserSettingsSecurity = True Then
+            EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
+            EnterBrowserSettingsSecurityForm.ShowDialog()
+        Else
+            SettingsForm.Show()
+        End If
     End Sub
 End Class
 

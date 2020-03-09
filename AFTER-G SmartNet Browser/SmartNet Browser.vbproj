@@ -602,6 +602,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\cloudbackground.png" />
+    <Content Include="Resources\AdsBlockerButton\AdsBlockerButton_disabled.png" />
+    <Content Include="Resources\AdsBlockerButton\AdsBlockerButton_enabled.png" />
+    <Content Include="Resources\AdsBlockerButton\AdsBlockerButton_working.png" />
+    <Content Include="Resources\PageSecurityButton\PageSecurity_black.png" />
+    <Content Include="Resources\PageSecurityButton\PageSecurity_red.png" />
     <Content Include="SmartNetBrowserIconSet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

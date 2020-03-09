@@ -23,7 +23,6 @@
             My.Settings.SearchEngine = 0
             My.Settings.CustomSearchName = TextBox1.Text
             My.Settings.CustomSearchURL = TextBox2.Text
-            BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
         End If
     End Sub
 

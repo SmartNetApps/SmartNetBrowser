@@ -202,26 +202,20 @@ Public Class SettingsForm
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         My.Settings.SearchEngine = 1
-        BrowserForm.SearchBoxLabel.Text = "Google"
     End Sub
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         My.Settings.SearchEngine = 2
-        BrowserForm.SearchBoxLabel.Text = "Bing"
     End Sub
     Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
         My.Settings.SearchEngine = 3
-        BrowserForm.SearchBoxLabel.Text = "Yahoo!"
     End Sub
     Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
         My.Settings.SearchEngine = 4
-        BrowserForm.SearchBoxLabel.Text = "DuckDuckGo"
     End Sub
     Private Sub RadioButton5_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton5.CheckedChanged
         My.Settings.SearchEngine = 5
-        BrowserForm.SearchBoxLabel.Text = "Qwant"
     End Sub
     Private Sub RadioButton0_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton0.CheckedChanged
-        BrowserForm.SearchBoxLabel.Text = My.Settings.CustomSearchName
         If My.Settings.CustomSearchURL = "" Then
             SettingsCustomSearchForm.Show()
         End If
@@ -284,7 +278,6 @@ Public Class SettingsForm
     Private Sub DeleteSearchHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteSearchHistoryButton.Click
         Try
             My.Settings.SearchHistory.Clear()
-            BrowserForm.SearchBox.Items.Clear()
             DeleteSearchHistoryButton.Enabled = False
             DeleteSearchHistoryButton.Text = "Historique des recherches effacé"
         Catch ex As Exception

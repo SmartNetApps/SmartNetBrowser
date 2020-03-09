@@ -86,7 +86,6 @@ Partial Class BrowserForm
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.URLBox = New System.Windows.Forms.ComboBox()
-        Me.SearchBox = New System.Windows.Forms.ComboBox()
         Me.UpdateNotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.BrowserContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OuvrirLeLienToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -112,7 +111,6 @@ Partial Class BrowserForm
         Me.TabsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FermerCetOngletToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SearchBoxLabel = New System.Windows.Forms.Label()
         Me.URLBoxLabel = New System.Windows.Forms.Label()
         Me.StatusLabel = New System.Windows.Forms.Label()
         Me.MessageBarLabel1 = New System.Windows.Forms.Label()
@@ -123,17 +121,20 @@ Partial Class BrowserForm
         Me.NewTabButton = New System.Windows.Forms.Button()
         Me.CloseTabButton = New System.Windows.Forms.Button()
         Me.HomepageButton = New System.Windows.Forms.Button()
-        Me.SearchButton = New System.Windows.Forms.Button()
         Me.FavoritesButton = New System.Windows.Forms.Button()
         Me.GoButton = New System.Windows.Forms.Button()
         Me.StopOrRefreshButton = New System.Windows.Forms.Button()
         Me.AppSyncTimer = New System.Windows.Forms.Timer(Me.components)
         Me.MessageBarPanel = New System.Windows.Forms.Panel()
         Me.MessageBarCloseButton = New System.Windows.Forms.Button()
+        Me.URLBoxPanel = New System.Windows.Forms.Panel()
+        Me.PageSecurityButton = New System.Windows.Forms.Button()
+        Me.AdBlockerButton = New System.Windows.Forms.Button()
         Me.MainToolbar.SuspendLayout()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
         Me.MessageBarPanel.SuspendLayout()
+        Me.URLBoxPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainToolbar
@@ -472,14 +473,6 @@ Partial Class BrowserForm
         Me.URLBox.FormattingEnabled = True
         Me.URLBox.Name = "URLBox"
         '
-        'SearchBox
-        '
-        resources.ApplyResources(Me.SearchBox, "SearchBox")
-        Me.SearchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.SearchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.SearchBox.FormattingEnabled = True
-        Me.SearchBox.Name = "SearchBox"
-        '
         'UpdateNotifyIcon
         '
         Me.UpdateNotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
@@ -612,14 +605,6 @@ Partial Class BrowserForm
         Me.RouvrirLeDernierOngletFerméToolStripMenuItem.Name = "RouvrirLeDernierOngletFerméToolStripMenuItem"
         resources.ApplyResources(Me.RouvrirLeDernierOngletFerméToolStripMenuItem, "RouvrirLeDernierOngletFerméToolStripMenuItem")
         '
-        'SearchBoxLabel
-        '
-        resources.ApplyResources(Me.SearchBoxLabel, "SearchBoxLabel")
-        Me.SearchBoxLabel.BackColor = System.Drawing.Color.White
-        Me.SearchBoxLabel.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.SearchBoxLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.SearchBoxLabel.Name = "SearchBoxLabel"
-        '
         'URLBoxLabel
         '
         resources.ApplyResources(Me.URLBoxLabel, "URLBoxLabel")
@@ -704,16 +689,6 @@ Partial Class BrowserForm
         Me.HomepageButton.Name = "HomepageButton"
         Me.HomepageButton.UseVisualStyleBackColor = True
         '
-        'SearchButton
-        '
-        resources.ApplyResources(Me.SearchButton, "SearchButton")
-        Me.SearchButton.FlatAppearance.BorderSize = 0
-        Me.SearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark
-        Me.SearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
-        Me.SearchButton.Image = Global.SmartNet_Browser.My.Resources.Resources.SearchBlack
-        Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.UseVisualStyleBackColor = True
-        '
         'FavoritesButton
         '
         resources.ApplyResources(Me.FavoritesButton, "FavoritesButton")
@@ -722,7 +697,7 @@ Partial Class BrowserForm
         Me.FavoritesButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.FavoritesButton.Image = Global.SmartNet_Browser.My.Resources.Resources.Favorites
         Me.FavoritesButton.Name = "FavoritesButton"
-        Me.FavoritesButton.UseVisualStyleBackColor = True
+        Me.FavoritesButton.UseVisualStyleBackColor = False
         '
         'GoButton
         '
@@ -767,6 +742,39 @@ Partial Class BrowserForm
         Me.MessageBarCloseButton.Name = "MessageBarCloseButton"
         Me.MessageBarCloseButton.UseVisualStyleBackColor = True
         '
+        'URLBoxPanel
+        '
+        resources.ApplyResources(Me.URLBoxPanel, "URLBoxPanel")
+        Me.URLBoxPanel.BackColor = System.Drawing.Color.White
+        Me.URLBoxPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.URLBoxPanel.Controls.Add(Me.PageSecurityButton)
+        Me.URLBoxPanel.Controls.Add(Me.AdBlockerButton)
+        Me.URLBoxPanel.Controls.Add(Me.URLBoxLabel)
+        Me.URLBoxPanel.Controls.Add(Me.GoButton)
+        Me.URLBoxPanel.Controls.Add(Me.FavoritesButton)
+        Me.URLBoxPanel.Controls.Add(Me.URLBox)
+        Me.URLBoxPanel.Name = "URLBoxPanel"
+        '
+        'PageSecurityButton
+        '
+        Me.PageSecurityButton.FlatAppearance.BorderSize = 0
+        Me.PageSecurityButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.PageSecurityButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        resources.ApplyResources(Me.PageSecurityButton, "PageSecurityButton")
+        Me.PageSecurityButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PageSecurity_red
+        Me.PageSecurityButton.Name = "PageSecurityButton"
+        Me.PageSecurityButton.UseVisualStyleBackColor = True
+        '
+        'AdBlockerButton
+        '
+        resources.ApplyResources(Me.AdBlockerButton, "AdBlockerButton")
+        Me.AdBlockerButton.FlatAppearance.BorderSize = 0
+        Me.AdBlockerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
+        Me.AdBlockerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.AdBlockerButton.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlockerButton_enabled
+        Me.AdBlockerButton.Name = "AdBlockerButton"
+        Me.AdBlockerButton.UseVisualStyleBackColor = True
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -774,21 +782,15 @@ Partial Class BrowserForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.Controls.Add(Me.MessageBarPanel)
         Me.Controls.Add(Me.StopOrRefreshButton)
-        Me.Controls.Add(Me.GoButton)
-        Me.Controls.Add(Me.FavoritesButton)
-        Me.Controls.Add(Me.SearchButton)
         Me.Controls.Add(Me.HomepageButton)
         Me.Controls.Add(Me.CloseTabButton)
         Me.Controls.Add(Me.NewTabButton)
         Me.Controls.Add(Me.PreviouspageButton)
         Me.Controls.Add(Me.NextpageButton)
         Me.Controls.Add(Me.StatusLabel)
-        Me.Controls.Add(Me.URLBoxLabel)
-        Me.Controls.Add(Me.SearchBoxLabel)
-        Me.Controls.Add(Me.SearchBox)
-        Me.Controls.Add(Me.URLBox)
         Me.Controls.Add(Me.BrowserTabs)
         Me.Controls.Add(Me.MainToolbar)
+        Me.Controls.Add(Me.URLBoxPanel)
         Me.KeyPreview = True
         Me.Name = "BrowserForm"
         Me.MainToolbar.ResumeLayout(False)
@@ -796,6 +798,8 @@ Partial Class BrowserForm
         Me.BrowserContextMenuStrip.ResumeLayout(False)
         Me.TabsContextMenuStrip.ResumeLayout(False)
         Me.MessageBarPanel.ResumeLayout(False)
+        Me.URLBoxPanel.ResumeLayout(False)
+        Me.URLBoxPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -804,7 +808,6 @@ Partial Class BrowserForm
     Friend WithEvents MainToolbar As MenuStrip
     Friend WithEvents MainMenu As ToolStripMenuItem
     Friend WithEvents URLBox As ComboBox
-    Friend WithEvents SearchBox As ComboBox
     Friend WithEvents UpdateNotifyIcon As NotifyIcon
     Friend WithEvents ÉditionSubMenu As ToolStripMenuItem
     Friend WithEvents CouperToolStripMenuItem As ToolStripMenuItem
@@ -868,7 +871,6 @@ Partial Class BrowserForm
     Friend WithEvents Zoom250 As ToolStripMenuItem
     Friend WithEvents Zoom300 As ToolStripMenuItem
     Friend WithEvents Zoom400 As ToolStripMenuItem
-    Friend WithEvents SearchBoxLabel As Label
     Friend WithEvents URLBoxLabel As Label
     Friend WithEvents StatusLabel As Label
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
@@ -892,7 +894,6 @@ Partial Class BrowserForm
     Friend WithEvents NewTabButton As Button
     Friend WithEvents CloseTabButton As Button
     Friend WithEvents HomepageButton As Button
-    Friend WithEvents SearchButton As Button
     Friend WithEvents FavoritesButton As Button
     Friend WithEvents GoButton As Button
     Friend WithEvents StopOrRefreshButton As Button
@@ -904,4 +905,7 @@ Partial Class BrowserForm
     Friend WithEvents AppSyncTimer As Timer
     Friend WithEvents MessageBarPanel As Panel
     Friend WithEvents MessageBarCloseButton As Button
+    Friend WithEvents URLBoxPanel As Panel
+    Friend WithEvents AdBlockerButton As Button
+    Friend WithEvents PageSecurityButton As Button
 End Class

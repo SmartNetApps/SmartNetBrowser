@@ -47,6 +47,13 @@ RetryInit:
                 Gecko.GeckoPreferences.Default("dom.disable_beforeunload") = True
                 Gecko.GeckoPreferences.User("privacy.donottrackheader.enabled") = My.Settings.DoNotTrack
                 Gecko.GeckoPreferences.Default("security.csp.enable") = True
+                If Gecko.GeckoPreferences.Default("general.useragent.override") Is Nothing Then
+                    If Environment.Is64BitOperatingSystem = True Then
+                        Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+                    Else
+                        Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
+                    End If
+                End If
             Catch ex As Exception
                 Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error)
                     Case DialogResult.Abort
