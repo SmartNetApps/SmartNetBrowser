@@ -1131,13 +1131,31 @@ Public Class BrowserForm
     Private Sub BrowserTabs_MouseClick(sender As Object, e As MouseEventArgs) Handles BrowserTabs.MouseClick
         Dim i As Integer = 0
         If e.Button = MouseButtons.Right Then
-            While i <= BrowserTabs.TabPages.Count - 1
+            While i < BrowserTabs.TabPages.Count
                 If BrowserTabs.GetTabRect(i).Contains(e.Location) Then
                     tabPageIndex = i
+                    TabsContextMenuStrip.Show(MousePosition)
+                    Exit Sub
                 End If
                 i += 1
             End While
-            TabsContextMenuStrip.Show(MousePosition)
+        ElseIf e.Button = MouseButtons.Middle Then
+            While i < BrowserTabs.TabPages.Count
+                If BrowserTabs.GetTabRect(i).Contains(e.Location) Then
+                    Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+
+                    If BrowserTabs.TabPages.Count = 1 Then
+                        CType(Me.BrowserTabs.TabPages(i).Tag, CustomBrowser).Dispose()
+                        CloseSmartNetBrowser()
+                    Else
+                        lastClosedTabURL = WB.Url.ToString()
+                        CType(Me.BrowserTabs.TabPages(i).Tag, CustomBrowser).Dispose()
+                        BrowserTabs.TabPages.Remove(Me.BrowserTabs.TabPages(i))
+                    End If
+                    Exit Sub
+                End If
+                i += 1
+            End While
         End If
     End Sub
 
