@@ -197,6 +197,8 @@ Public Class BrowserForm
     Public Sub UpdateInterface()
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
 
+        StatusLabel.Text = WB.StatusText
+
         If WB.Url.ToString().Contains("://") = False Then
             PageSecurityButton.Image = Nothing
         ElseIf WB.Url.ToString().Contains("://") AndAlso WB.Url.ToString().Substring(0, WB.Url.ToString().IndexOf("://")).ToLower() = "https" Then

@@ -44,7 +44,7 @@ Public Class CustomBrowser
 
         CType(Me.Tag, TabPage).ImageIndex = CType(Me.Tag, TabPage).TabIndex
 
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+        If BrowserForm.BrowserTabs.SelectedTab.Equals(CType(Me.Tag, TabPage)) Then
             BrowserForm.UpdateInterface()
         Else
             CType(Me.Tag, TabPage).BackColor = Color.LightYellow
@@ -212,7 +212,7 @@ Public Class CustomBrowser
     End Sub
 
     Private Sub CustomBrowser_StatusTextChanged(sender As Object, e As EventArgs) Handles Me.StatusTextChanged
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+        If BrowserForm.BrowserTabs.SelectedTab.Equals(CType(Me.Tag, TabPage)) Then
             BrowserForm.StatusLabel.Text = Me.StatusText
         End If
     End Sub
@@ -231,20 +231,20 @@ Public Class CustomBrowser
 
         CType(Me.Tag, TabPage).Text = doctitle
 
-        If CType(Me.Tag, TabPage).TabIndex = BrowserForm.BrowserTabs.SelectedTab.TabIndex Then
+        If BrowserForm.BrowserTabs.SelectedTab.Equals(CType(Me.Tag, TabPage)) Then
             BrowserForm.Text = DocumentTitle + " - SmartNet Browser"
         End If
     End Sub
 
     Private Sub CustomBrowser_CanGoBackChanged(sender As Object, e As EventArgs) Handles Me.CanGoBackChanged
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+        If BrowserForm.BrowserTabs.SelectedTab.Equals(CType(Me.Tag, TabPage)) Then
             BrowserForm.PreviouspageButton.Enabled = CanGoBack
         Else
             CType(Me.Tag, TabPage).BackColor = Color.LightYellow
         End If
     End Sub
     Private Sub CustomBrowser_CanGoForwardChanged(sender As Object, e As EventArgs) Handles Me.CanGoForwardChanged
-        If BrowserForm.BrowserTabs.SelectedIndex = CType(Me.Tag, TabPage).TabIndex Then
+        If BrowserForm.BrowserTabs.SelectedTab.Equals(CType(Me.Tag, TabPage)) Then
             BrowserForm.NextpageButton.Enabled = CanGoForward
         Else
             CType(Me.Tag, TabPage).BackColor = Color.LightYellow
