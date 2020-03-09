@@ -26,7 +26,6 @@ Partial Class AboutForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.HomepageLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.LicenseLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.ClipconverterLinkLabel = New System.Windows.Forms.LinkLabel()
@@ -34,20 +33,19 @@ Partial Class AboutForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.LicensePictureBox = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.ReleaseNotesLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.GitHubLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LicensePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -65,22 +63,11 @@ Partial Class AboutForm
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
         '
-        'RichTextBox1
-        '
-        resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
-        Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.RichTextBox1.DetectUrls = False
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.TabStop = False
-        '
         'HomepageLinkLabel
         '
         Me.HomepageLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
         resources.ApplyResources(Me.HomepageLinkLabel, "HomepageLinkLabel")
-        Me.HomepageLinkLabel.BackColor = System.Drawing.Color.White
+        Me.HomepageLinkLabel.BackColor = System.Drawing.SystemColors.Control
         Me.HomepageLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.HomepageLinkLabel.Name = "HomepageLinkLabel"
         Me.HomepageLinkLabel.TabStop = True
@@ -90,7 +77,7 @@ Partial Class AboutForm
         '
         Me.LicenseLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
         resources.ApplyResources(Me.LicenseLinkLabel, "LicenseLinkLabel")
-        Me.LicenseLinkLabel.BackColor = System.Drawing.Color.White
+        Me.LicenseLinkLabel.BackColor = System.Drawing.SystemColors.Control
         Me.LicenseLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.LicenseLinkLabel.Name = "LicenseLinkLabel"
         Me.LicenseLinkLabel.TabStop = True
@@ -132,30 +119,8 @@ Partial Class AboutForm
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.TabStop = False
         '
-        'LicensePictureBox
-        '
-        resources.ApplyResources(Me.LicensePictureBox, "LicensePictureBox")
-        Me.LicensePictureBox.BackColor = System.Drawing.Color.White
-        Me.LicensePictureBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LicensePictureBox.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
-        Me.LicensePictureBox.Image = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
-        Me.LicensePictureBox.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.GPLv3Logo
-        Me.LicensePictureBox.Name = "LicensePictureBox"
-        Me.LicensePictureBox.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Maroon
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
-        Me.PictureBox2.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
-        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
-        Me.PictureBox2.InitialImage = Global.SmartNet_Browser.My.Resources.Resources.wordmark_white_36
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.TabStop = False
-        '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox1.ErrorImage = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowser_1024
         Me.PictureBox1.Image = Global.SmartNet_Browser.My.Resources.Resources._2019_SmartNetBrowser_1024
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
@@ -165,7 +130,7 @@ Partial Class AboutForm
         '
         'PictureBox6
         '
-        Me.PictureBox6.BackColor = System.Drawing.Color.White
+        Me.PictureBox6.BackColor = System.Drawing.SystemColors.Control
         resources.ApplyResources(Me.PictureBox6, "PictureBox6")
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.TabStop = False
@@ -184,7 +149,7 @@ Partial Class AboutForm
         '
         Me.GitHubLinkLabel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack
         resources.ApplyResources(Me.GitHubLinkLabel, "GitHubLinkLabel")
-        Me.GitHubLinkLabel.BackColor = System.Drawing.Color.White
+        Me.GitHubLinkLabel.BackColor = System.Drawing.SystemColors.Control
         Me.GitHubLinkLabel.LinkColor = System.Drawing.SystemColors.HotTrack
         Me.GitHubLinkLabel.Name = "GitHubLinkLabel"
         Me.GitHubLinkLabel.TabStop = True
@@ -192,31 +157,43 @@ Partial Class AboutForm
         '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.PictureBox4)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.ClipconverterLinkLabel)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.PictureBox5)
         Me.GroupBox1.Controls.Add(Me.GeckoFXLinkLabel)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.wordmark_black_36
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.TabStop = False
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
         '
         'AboutForm
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Window
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GitHubLinkLabel)
         Me.Controls.Add(Me.ReleaseNotesLinkLabel)
-        Me.Controls.Add(Me.LicensePictureBox)
         Me.Controls.Add(Me.LicenseLinkLabel)
         Me.Controls.Add(Me.HomepageLinkLabel)
-        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox6)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -225,12 +202,11 @@ Partial Class AboutForm
         Me.ShowInTaskbar = False
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LicensePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -240,11 +216,8 @@ Partial Class AboutForm
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents HomepageLinkLabel As LinkLabel
     Friend WithEvents LicenseLinkLabel As LinkLabel
-    Friend WithEvents LicensePictureBox As PictureBox
     Friend WithEvents ClipconverterLinkLabel As LinkLabel
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
@@ -254,4 +227,6 @@ Partial Class AboutForm
     Friend WithEvents ReleaseNotesLinkLabel As LinkLabel
     Friend WithEvents GitHubLinkLabel As LinkLabel
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label4 As Label
 End Class

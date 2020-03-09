@@ -1,11 +1,19 @@
 ﻿Public Class AboutForm
+    Dim versionNumber As String
 
     Public Sub New()
         InitializeComponent()
+        versionNumber = My.Application.Info.Version.Major.ToString() + "." + My.Application.Info.Version.Minor.ToString()
+
+        If My.Application.Info.Version.Revision <> 0 Then
+            versionNumber += "." + My.Application.Info.Version.Build.ToString() + "." + My.Application.Info.Version.Revision.ToString()
+        ElseIf My.Application.Info.Version.Build <> 0 Then
+            versionNumber += "." + My.Application.Info.Version.Build.ToString()
+        End If
     End Sub
 
     Private Sub AboutForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Label2.Text = "Version " + My.Application.Info.Version.ToString
+        Label2.Text = "Version " + versionNumber
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HomepageLinkLabel.LinkClicked
@@ -13,7 +21,7 @@
         Me.Close()
     End Sub
 
-    Private Sub LinkLabel3_LinkClicked(sender As Object, e As EventArgs) Handles LicenseLinkLabel.LinkClicked, LicensePictureBox.Click
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As EventArgs) Handles LicenseLinkLabel.LinkClicked
         LicenseForm.ShowDialog()
     End Sub
 
@@ -28,7 +36,7 @@
     End Sub
 
     Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes")
+        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes/" + versionNumber)
         Me.Close()
     End Sub
 
