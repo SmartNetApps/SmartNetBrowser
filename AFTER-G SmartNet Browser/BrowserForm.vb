@@ -1243,6 +1243,10 @@ Public Class BrowserForm
     End Sub
 
     Private Sub AdBlockerButton_Click(sender As Object, e As EventArgs) Handles AdBlockerButton.Click
+        AdsBlockerContextMenuStrip.Show(Cursor.Position)
+    End Sub
+
+    Private Sub OuvrirLesParamètresDAdsBlockerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OuvrirLesParamètresDAdsBlockerToolStripMenuItem.Click
         SettingsForm.TabControl1.SelectTab(3)
         If My.Settings.BrowserSettingsSecurity = True Then
             EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
@@ -1250,6 +1254,42 @@ Public Class BrowserForm
         Else
             SettingsForm.Show()
         End If
+    End Sub
+
+    Private Sub AdsBlockerContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles AdsBlockerContextMenuStrip.Opening
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Select Case WB.ContainsAds
+            Case CustomBrowser.AdBlockerState.ContainsAds
+                AdsBlockerStateLabelToolStripMenuItem.Text = "AdsBlocker a détecté des publicités sur cette page."
+            Case CustomBrowser.AdBlockerState.NoAds
+                AdsBlockerStateLabelToolStripMenuItem.Text = "AdsBlocker n'a détecté aucune publicité."
+            Case CustomBrowser.AdBlockerState.Whitelisted
+                AdsBlockerStateLabelToolStripMenuItem.Text = "Le domaine " + WB.Url.Host + " est inclus en liste blanche."
+        End Select
+    End Sub
+
+    Private Sub PageSecurityButton_Click(sender As Object, e As EventArgs) Handles PageSecurityButton.Click
+        PageSecurityContextMenuStrip.Show(Cursor.Position)
+    End Sub
+
+    Private Sub PageSecurityContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles PageSecurityContextMenuStrip.Opening
+        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
+        Select Case WB.SecurityState
+            Case Gecko.GeckoSecurityState.Secure
+                PageSecurityStateLabelToolStripMenuItem.Text = "Votre connexion a ce site semble sécurisée."
+            Case Gecko.GeckoSecurityState.Insecure
+                PageSecurityStateLabelToolStripMenuItem.Text = "Votre connexion a ce site N'est PAS sécurisée."
+            Case Gecko.GeckoSecurityState.Broken
+                PageSecurityStateLabelToolStripMenuItem.Text = "La sécurité de ce site semble mal configurée."
+            Case Else
+                If WB.Url.ToString().Contains("://") = False Then
+                    PageSecurityStateLabelToolStripMenuItem.Text = "..."
+                ElseIf WB.Url.ToString().Contains("://") AndAlso WB.Url.ToString().Substring(0, WB.Url.ToString().IndexOf("://")).ToLower() = "https" Then
+                    PageSecurityStateLabelToolStripMenuItem.Text = "Votre connexion a ce site semble sécurisée."
+                Else
+                    PageSecurityStateLabelToolStripMenuItem.Text = "Votre connexion a ce site N'est PAS sécurisée."
+                End If
+        End Select
     End Sub
 End Class
 

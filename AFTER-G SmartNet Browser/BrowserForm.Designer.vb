@@ -130,11 +130,19 @@ Partial Class BrowserForm
         Me.URLBoxPanel = New System.Windows.Forms.Panel()
         Me.PageSecurityButton = New System.Windows.Forms.Button()
         Me.AdBlockerButton = New System.Windows.Forms.Button()
+        Me.AdsBlockerContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AdsBlockerStateLabelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PageSecurityContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PageSecurityStateLabelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolbar.SuspendLayout()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
         Me.MessageBarPanel.SuspendLayout()
         Me.URLBoxPanel.SuspendLayout()
+        Me.AdsBlockerContextMenuStrip.SuspendLayout()
+        Me.PageSecurityContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainToolbar
@@ -775,6 +783,38 @@ Partial Class BrowserForm
         Me.AdBlockerButton.Name = "AdBlockerButton"
         Me.AdBlockerButton.UseVisualStyleBackColor = True
         '
+        'AdsBlockerContextMenuStrip
+        '
+        Me.AdsBlockerContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdsBlockerStateLabelToolStripMenuItem, Me.ToolStripSeparator12, Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem})
+        Me.AdsBlockerContextMenuStrip.Name = "AdsBlockerContextMenuStrip"
+        resources.ApplyResources(Me.AdsBlockerContextMenuStrip, "AdsBlockerContextMenuStrip")
+        '
+        'OuvrirLesParamètresDAdsBlockerToolStripMenuItem
+        '
+        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem.Name = "OuvrirLesParamètresDAdsBlockerToolStripMenuItem"
+        resources.ApplyResources(Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem, "OuvrirLesParamètresDAdsBlockerToolStripMenuItem")
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        resources.ApplyResources(Me.ToolStripSeparator12, "ToolStripSeparator12")
+        '
+        'AdsBlockerStateLabelToolStripMenuItem
+        '
+        resources.ApplyResources(Me.AdsBlockerStateLabelToolStripMenuItem, "AdsBlockerStateLabelToolStripMenuItem")
+        Me.AdsBlockerStateLabelToolStripMenuItem.Name = "AdsBlockerStateLabelToolStripMenuItem"
+        '
+        'PageSecurityContextMenuStrip
+        '
+        Me.PageSecurityContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PageSecurityStateLabelToolStripMenuItem})
+        Me.PageSecurityContextMenuStrip.Name = "PageSecurityContextMenuStrip"
+        resources.ApplyResources(Me.PageSecurityContextMenuStrip, "PageSecurityContextMenuStrip")
+        '
+        'PageSecurityStateLabelToolStripMenuItem
+        '
+        resources.ApplyResources(Me.PageSecurityStateLabelToolStripMenuItem, "PageSecurityStateLabelToolStripMenuItem")
+        Me.PageSecurityStateLabelToolStripMenuItem.Name = "PageSecurityStateLabelToolStripMenuItem"
+        '
         'BrowserForm
         '
         resources.ApplyResources(Me, "$this")
@@ -800,6 +840,8 @@ Partial Class BrowserForm
         Me.MessageBarPanel.ResumeLayout(False)
         Me.URLBoxPanel.ResumeLayout(False)
         Me.URLBoxPanel.PerformLayout()
+        Me.AdsBlockerContextMenuStrip.ResumeLayout(False)
+        Me.PageSecurityContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -908,4 +950,10 @@ Partial Class BrowserForm
     Friend WithEvents URLBoxPanel As Panel
     Friend WithEvents AdBlockerButton As Button
     Friend WithEvents PageSecurityButton As Button
+    Friend WithEvents AdsBlockerContextMenuStrip As ContextMenuStrip
+    Friend WithEvents OuvrirLesParamètresDAdsBlockerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AdsBlockerStateLabelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents PageSecurityContextMenuStrip As ContextMenuStrip
+    Friend WithEvents PageSecurityStateLabelToolStripMenuItem As ToolStripMenuItem
 End Class
