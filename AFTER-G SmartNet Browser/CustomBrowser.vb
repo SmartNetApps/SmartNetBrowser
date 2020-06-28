@@ -142,11 +142,9 @@ Public Class CustomBrowser
                 End If
             End If
         End If
-
-        UpdateInterface()
     End Sub
 
-    Private Sub CustomBrowser_DomContentChanged(sender As Object, e As DomEventArgs) Handles Me.DomContentChanged
+    Private Sub CustomBrowser_Navigated(sender As Object, e As GeckoNavigatedEventArgs) Handles Me.Navigated
         UpdateInterface()
     End Sub
 
@@ -326,9 +324,5 @@ FaviconFound:
         End If
         BrowserForm.URLBox.Text = e.Uri.ToString()
         Console.WriteLine("Erreur de certificat non identifiée. Code d'erreur : " + e.ErrorCode.ToString())
-    End Sub
-
-    Private Sub CustomBrowser_ReadyStateChange(sender As Object, e As DomEventArgs) Handles Me.ReadyStateChange
-        UpdateInterface()
     End Sub
 End Class
