@@ -41,7 +41,7 @@
     End Sub
 
     Private Sub GitHubLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles GitHubLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://github.com/RNbowKing/SmartNetBrowser")
+        BrowserForm.AddTab("https://github.com/SmartNetApps/SmartNetBrowser")
         Me.Close()
     End Sub
 
