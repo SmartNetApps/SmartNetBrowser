@@ -218,18 +218,22 @@ Public Class BrowserForm
         Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
         If Favoris.ContainsPage(WB.Url.ToString()) Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
+            ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Afficher le marque-page dans la bibliothèque")
         Else
             FavoritesButton.Image = My.Resources.FavoritesOutline
+            ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Ajouter un marque-page sur cette page")
         End If
 
         If WB.IsBusy Or WB.Document.ReadyState = "loading" Then
             StopOrRefreshButton.Image = My.Resources.StopBlack
             StopOrRefreshButton.AccessibleName = "Arrêter le chargement de la page"
             StopOrRefreshButton.AccessibleDescription = "Bouton permettant d'arrêter le chargement de la page."
+            ToolTip_BrowserForm.SetToolTip(StopOrRefreshButton, "Arrêter le chargement de la page")
             AperçuAvantImpressionToolStripMenuItem.Enabled = False
         Else
             StopOrRefreshButton.Image = My.Resources.RefreshBlack
             StopOrRefreshButton.AccessibleName = "Recharger la page"
+            ToolTip_BrowserForm.SetToolTip(StopOrRefreshButton, "Recharger la page")
             StopOrRefreshButton.AccessibleDescription = "Bouton permettant de recharger la page."
             AperçuAvantImpressionToolStripMenuItem.Enabled = True
         End If
@@ -377,9 +381,17 @@ Public Class BrowserForm
         If WB.IsBusy Then
             WB.Stop()
             StopOrRefreshButton.Image = My.Resources.RefreshBlack
+            StopOrRefreshButton.AccessibleName = "Arrêter le chargement de la page"
+            StopOrRefreshButton.AccessibleDescription = "Bouton permettant d'arrêter le chargement de la page."
+            ToolTip_BrowserForm.SetToolTip(StopOrRefreshButton, "Arrêter le chargement de la page")
+            AperçuAvantImpressionToolStripMenuItem.Enabled = True
         Else
             WB.Reload()
             StopOrRefreshButton.Image = My.Resources.StopBlack
+            StopOrRefreshButton.AccessibleName = "Arrêter le chargement de la page"
+            StopOrRefreshButton.AccessibleDescription = "Bouton permettant d'arrêter le chargement de la page."
+            ToolTip_BrowserForm.SetToolTip(StopOrRefreshButton, "Arrêter le chargement de la page")
+            AperçuAvantImpressionToolStripMenuItem.Enabled = False
         End If
     End Sub
 

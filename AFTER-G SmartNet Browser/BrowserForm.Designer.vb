@@ -131,11 +131,12 @@ Partial Class BrowserForm
         Me.PageSecurityButton = New System.Windows.Forms.Button()
         Me.AdBlockerButton = New System.Windows.Forms.Button()
         Me.AdsBlockerContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.AdsBlockerStateLabelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PageSecurityContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PageSecurityStateLabelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolTip_BrowserForm = New System.Windows.Forms.ToolTip(Me.components)
         Me.MainToolbar.SuspendLayout()
         Me.BrowserContextMenuStrip.SuspendLayout()
         Me.TabsContextMenuStrip.SuspendLayout()
@@ -480,6 +481,7 @@ Partial Class BrowserForm
         Me.URLBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.URLBox.FormattingEnabled = True
         Me.URLBox.Name = "URLBox"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.URLBox, resources.GetString("URLBox.ToolTip"))
         '
         'UpdateNotifyIcon
         '
@@ -655,6 +657,7 @@ Partial Class BrowserForm
         Me.NextpageButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.NextpageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NextBlack
         Me.NextpageButton.Name = "NextpageButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.NextpageButton, resources.GetString("NextpageButton.ToolTip"))
         Me.NextpageButton.UseVisualStyleBackColor = True
         '
         'PreviouspageButton
@@ -665,6 +668,7 @@ Partial Class BrowserForm
         Me.PreviouspageButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.PreviouspageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PreviousBlack
         Me.PreviouspageButton.Name = "PreviouspageButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.PreviouspageButton, resources.GetString("PreviouspageButton.ToolTip"))
         Me.PreviouspageButton.UseVisualStyleBackColor = True
         '
         'NewTabButton
@@ -675,6 +679,7 @@ Partial Class BrowserForm
         Me.NewTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.NewTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.NewTabBlack
         Me.NewTabButton.Name = "NewTabButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.NewTabButton, resources.GetString("NewTabButton.ToolTip"))
         Me.NewTabButton.UseVisualStyleBackColor = True
         '
         'CloseTabButton
@@ -685,6 +690,7 @@ Partial Class BrowserForm
         Me.CloseTabButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.CloseTabButton.Image = Global.SmartNet_Browser.My.Resources.Resources.CloseTabBlack
         Me.CloseTabButton.Name = "CloseTabButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.CloseTabButton, resources.GetString("CloseTabButton.ToolTip"))
         Me.CloseTabButton.UseVisualStyleBackColor = True
         '
         'HomepageButton
@@ -695,6 +701,7 @@ Partial Class BrowserForm
         Me.HomepageButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.HomepageButton.Image = Global.SmartNet_Browser.My.Resources.Resources.HomeBlack
         Me.HomepageButton.Name = "HomepageButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.HomepageButton, resources.GetString("HomepageButton.ToolTip"))
         Me.HomepageButton.UseVisualStyleBackColor = True
         '
         'FavoritesButton
@@ -716,6 +723,7 @@ Partial Class BrowserForm
         Me.GoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
         Me.GoButton.Image = Global.SmartNet_Browser.My.Resources.Resources.GoBlack
         Me.GoButton.Name = "GoButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.GoButton, resources.GetString("GoButton.ToolTip"))
         Me.GoButton.UseVisualStyleBackColor = False
         '
         'StopOrRefreshButton
@@ -726,6 +734,7 @@ Partial Class BrowserForm
         Me.StopOrRefreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight
         Me.StopOrRefreshButton.Image = Global.SmartNet_Browser.My.Resources.Resources.StopBlack
         Me.StopOrRefreshButton.Name = "StopOrRefreshButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.StopOrRefreshButton, resources.GetString("StopOrRefreshButton.ToolTip"))
         Me.StopOrRefreshButton.UseVisualStyleBackColor = True
         '
         'AppSyncTimer
@@ -765,12 +774,13 @@ Partial Class BrowserForm
         '
         'PageSecurityButton
         '
+        resources.ApplyResources(Me.PageSecurityButton, "PageSecurityButton")
         Me.PageSecurityButton.FlatAppearance.BorderSize = 0
         Me.PageSecurityButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
         Me.PageSecurityButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        resources.ApplyResources(Me.PageSecurityButton, "PageSecurityButton")
         Me.PageSecurityButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PageSecurity_red
         Me.PageSecurityButton.Name = "PageSecurityButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.PageSecurityButton, resources.GetString("PageSecurityButton.ToolTip"))
         Me.PageSecurityButton.UseVisualStyleBackColor = True
         '
         'AdBlockerButton
@@ -781,6 +791,7 @@ Partial Class BrowserForm
         Me.AdBlockerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
         Me.AdBlockerButton.Image = Global.SmartNet_Browser.My.Resources.Resources.AdsBlockerButton_enabled
         Me.AdBlockerButton.Name = "AdBlockerButton"
+        Me.ToolTip_BrowserForm.SetToolTip(Me.AdBlockerButton, resources.GetString("AdBlockerButton.ToolTip"))
         Me.AdBlockerButton.UseVisualStyleBackColor = True
         '
         'AdsBlockerContextMenuStrip
@@ -789,20 +800,20 @@ Partial Class BrowserForm
         Me.AdsBlockerContextMenuStrip.Name = "AdsBlockerContextMenuStrip"
         resources.ApplyResources(Me.AdsBlockerContextMenuStrip, "AdsBlockerContextMenuStrip")
         '
-        'OuvrirLesParamètresDAdsBlockerToolStripMenuItem
+        'AdsBlockerStateLabelToolStripMenuItem
         '
-        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem.Name = "OuvrirLesParamètresDAdsBlockerToolStripMenuItem"
-        resources.ApplyResources(Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem, "OuvrirLesParamètresDAdsBlockerToolStripMenuItem")
+        resources.ApplyResources(Me.AdsBlockerStateLabelToolStripMenuItem, "AdsBlockerStateLabelToolStripMenuItem")
+        Me.AdsBlockerStateLabelToolStripMenuItem.Name = "AdsBlockerStateLabelToolStripMenuItem"
         '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
         resources.ApplyResources(Me.ToolStripSeparator12, "ToolStripSeparator12")
         '
-        'AdsBlockerStateLabelToolStripMenuItem
+        'OuvrirLesParamètresDAdsBlockerToolStripMenuItem
         '
-        resources.ApplyResources(Me.AdsBlockerStateLabelToolStripMenuItem, "AdsBlockerStateLabelToolStripMenuItem")
-        Me.AdsBlockerStateLabelToolStripMenuItem.Name = "AdsBlockerStateLabelToolStripMenuItem"
+        Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem.Name = "OuvrirLesParamètresDAdsBlockerToolStripMenuItem"
+        resources.ApplyResources(Me.OuvrirLesParamètresDAdsBlockerToolStripMenuItem, "OuvrirLesParamètresDAdsBlockerToolStripMenuItem")
         '
         'PageSecurityContextMenuStrip
         '
@@ -956,4 +967,5 @@ Partial Class BrowserForm
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
     Friend WithEvents PageSecurityContextMenuStrip As ContextMenuStrip
     Friend WithEvents PageSecurityStateLabelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTip_BrowserForm As ToolTip
 End Class
