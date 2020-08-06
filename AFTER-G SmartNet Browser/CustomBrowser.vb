@@ -4,11 +4,28 @@ Imports System.Runtime.Serialization.Formatters.Binary
 Imports Gecko
 Imports Gecko.Events
 
+Public Class GeolocationUpdate
+    Implements nsIGeolocationUpdate
+
+    Public Sub Update(position As nsIDOMGeoPosition) Implements nsIGeolocationUpdate.Update
+        Console.WriteLine("Geolocation Update! {0} [1}", position.GetCoordsAttribute().GetLatitudeAttribute(), position.GetCoordsAttribute().GetLongitudeAttribute())
+    End Sub
+
+    Public Sub LocationUpdatePending()
+        Console.WriteLine("LocationUpdatePending!")
+    End Sub
+
+    Public Sub NotifyError([error] As UShort) Implements nsIGeolocationUpdate.NotifyError
+        Console.WriteLine("Geolocation error! {0}", [error])
+    End Sub
+End Class
+
 Public Class CustomBrowser
     Inherits Gecko.GeckoWebBrowser
     Public PointedElement As Gecko.GeckoElement
     Public Favicon As Image
     Public ContainsAds As AdBlockerState
+    Dim GeolocationInstance As nsIGeolocationProvider
 
     Public Enum AdBlockerState
         ''' <summary>
@@ -31,6 +48,10 @@ Public Class CustomBrowser
         Me.ContextMenuStrip = BrowserForm.BrowserContextMenuStrip
         Favicon = My.Resources.ErrorFavicon
         ContainsAds = AdBlockerState.NoAds
+
+        GeolocationInstance = Xpcom.CreateInstance(Of nsIGeolocationProvider)("@mozilla.org/geolocation/provider;1")
+        GeolocationInstance.Startup()
+        GeolocationInstance.Watch(New GeolocationUpdate())
     End Sub
 
     Private Sub UpdateInterface()

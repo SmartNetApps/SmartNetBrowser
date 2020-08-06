@@ -54,6 +54,12 @@ RetryInit:
                         Gecko.GeckoPreferences.Default("general.useragent.override") = "Mozilla/5.0 (Windows NT " + Environment.OSVersion.Version.Major.ToString + "." + Environment.OSVersion.Version.Minor.ToString + "; rv:60.0) Gecko/20100101 Firefox/60.0  SmartNet/" + My.Application.Info.Version.ToString
                     End If
                 End If
+                Gecko.GeckoPreferences.Default("geo.enabled") = True
+                Gecko.GeckoPreferences.Default("geo.timeout") = 6000
+                Gecko.GeckoPreferences.Default("geo.provider.ms-windows-location") = True
+                Gecko.GeckoPreferences.Default("geo.provider.network.url") = "https://www.googleapis.com/geolocation/v1/geolocate?key=%GOOGLE_LOCATION_SERVICE_API_KEY%"
+                Gecko.GeckoPreferences.Default("geo.provider.network.timeout") = 6000
+                Gecko.GeckoPreferences.Default("geo.provider.network.timeToWaitBeforeSending") = 5000
             Catch ex As Exception
                 Select Case MessageBox.Show("SmartNet Browser a rencontré une erreur pendant son initialisation. (" + ex.Message + ")", "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error)
                     Case DialogResult.Abort
