@@ -172,17 +172,17 @@ Public Class BrowserForm
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
         Select Case My.Settings.SearchEngine
             Case 1
-                WB.Navigate("https://www.google.fr/search?q=" + keywords)
+                WB.Navigate("https://www.google.fr/search?q=" + WebUtility.UrlEncode(keywords))
             Case 2
-                WB.Navigate("https://www.bing.com/search?q=" + keywords)
+                WB.Navigate("https://www.bing.com/search?q=" + WebUtility.UrlEncode(keywords))
             Case 3
-                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + keywords)
+                WB.Navigate("https://fr.search.yahoo.com/search;_ylt=Art7C6mA.dKDerFt5RNNyYFNhJp4?p=" + WebUtility.UrlEncode(keywords))
             Case 4
-                WB.Navigate("https://duckduckgo.com/?q=" + keywords)
+                WB.Navigate("https://duckduckgo.com/?q=" + WebUtility.UrlEncode(keywords))
             Case 5
-                WB.Navigate("https://www.qwant.com/?q=" + keywords)
+                WB.Navigate("https://www.qwant.com/?q=" + WebUtility.UrlEncode(keywords))
             Case 0
-                WB.Navigate(My.Settings.CustomSearchURL + keywords)
+                WB.Navigate(My.Settings.CustomSearchURL + WebUtility.UrlEncode(keywords))
         End Select
 
         If My.Settings.PrivateBrowsing = False Then
