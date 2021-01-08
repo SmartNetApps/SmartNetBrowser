@@ -199,13 +199,22 @@ Public Class BrowserForm
 
         StatusLabel.Text = WB.StatusText
 
-        If WB.Url.ToString().Contains("://") = False Then
-            PageSecurityButton.Image = Nothing
-        ElseIf WB.Url.ToString().Contains("://") AndAlso WB.Url.ToString().Substring(0, WB.Url.ToString().IndexOf("://")).ToLower() = "https" Then
-            PageSecurityButton.Image = My.Resources.PageSecurity_black
-        Else
-            PageSecurityButton.Image = My.Resources.PageSecurity_red
-        End If
+        Select Case WB.SecurityState
+            Case Gecko.GeckoSecurityState.Secure
+                PageSecurityButton.Image = My.Resources.PageSecurity_OK
+            Case Gecko.GeckoSecurityState.Insecure
+                PageSecurityButton.Image = My.Resources.PageSecurity_NOK
+            Case Gecko.GeckoSecurityState.Broken
+                PageSecurityButton.Image = My.Resources.PageSecurity_NOK
+            Case Else
+                If WB.Url.ToString().Contains("://") = False Then
+                    PageSecurityButton.Image = Nothing
+                ElseIf WB.Url.ToString().Contains("://") AndAlso WB.Url.ToString().Substring(0, WB.Url.ToString().IndexOf("://")).ToLower() = "https" Then
+                    PageSecurityButton.Image = My.Resources.PageSecurity_OK
+                Else
+                    PageSecurityButton.Image = My.Resources.PageSecurity_NOK
+                End If
+        End Select
 
         If My.Settings.AdBlocker = False Or WB.ContainsAds = CustomBrowser.AdBlockerState.Whitelisted Then
             AdBlockerButton.Image = My.Resources.AdsBlockerButton_disabled

@@ -778,7 +778,7 @@ Partial Class BrowserForm
         Me.PageSecurityButton.FlatAppearance.BorderSize = 0
         Me.PageSecurityButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro
         Me.PageSecurityButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        Me.PageSecurityButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PageSecurity_red
+        Me.PageSecurityButton.Image = Global.SmartNet_Browser.My.Resources.Resources.PageSecurity_NOK
         Me.PageSecurityButton.Name = "PageSecurityButton"
         Me.ToolTip_BrowserForm.SetToolTip(Me.PageSecurityButton, resources.GetString("PageSecurityButton.ToolTip"))
         Me.PageSecurityButton.UseVisualStyleBackColor = True

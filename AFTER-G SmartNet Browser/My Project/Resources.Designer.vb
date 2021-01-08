@@ -643,9 +643,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property PageSecurity_black() As System.Drawing.Bitmap
+        Friend ReadOnly Property PageSecurity_NOK() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("PageSecurity_black", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("PageSecurity_NOK", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -653,9 +653,9 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property PageSecurity_red() As System.Drawing.Bitmap
+        Friend ReadOnly Property PageSecurity_OK() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("PageSecurity_red", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("PageSecurity_OK", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

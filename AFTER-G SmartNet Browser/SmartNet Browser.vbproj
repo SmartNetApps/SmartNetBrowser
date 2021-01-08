@@ -100,16 +100,16 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SNB.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SmartNet Browser_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>39FFEDAB6BF0634E04F3EC56A866EC80280E24F8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B2F4A06E3E32055BA9DD7DAC027F9E9E9E60A9D7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -524,6 +524,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="SmartNet Browser_TemporaryKey.pfx" />
     <None Include="SNB.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -607,6 +608,7 @@
     <Content Include="Resources\AdsBlockerButton\AdsBlockerButton_working.png" />
     <Content Include="Resources\PageSecurityButton\PageSecurity_black.png" />
     <Content Include="Resources\PageSecurityButton\PageSecurity_red.png" />
+    <None Include="Resources\PageSecurity_NOK.png" />
     <Content Include="SmartNetBrowserIconSet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
