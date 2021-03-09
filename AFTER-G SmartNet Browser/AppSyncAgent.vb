@@ -13,11 +13,54 @@ Public Class AppSyncAgent
         Dim dateDeDerniereConnexion As Date
     End Structure
 
+    Structure ApiResponse(Of T)
+        Dim statusCode As Integer
+        Dim statusMessage As String
+        Dim apiResponse As T
+    End Structure
+
+    Structure SendDataResponse
+        Dim isSuccessfullySent As Boolean
+    End Structure
+
+    Structure DeleteDataResponse
+        Dim isSuccessfullyDeleted As Boolean
+    End Structure
+
+    Structure CredentialsValidity
+        Dim credentialsValidity As Boolean
+    End Structure
+
+    Structure UserDetailsResponse
+        Dim userDetails As UserDetails
+    End Structure
+
+    Structure UserDetails
+        Dim idUtilisateur As Integer
+        Dim prenomUtilisateur, nomUtilisateur, emailLoginUtilisateur, emailSecondaireClient, imageProfilClient, telephoneClient As String
+    End Structure
+
+    Structure BrowserConfigResponse
+        Dim browserConfig As BrowserConfig
+    End Structure
+
     Structure BrowserConfig
         Dim idBrowserConfig, searchEngine, idUtilisateur As Integer
         Dim privateBrowsing, preventMultipleTabsClose, adBlocker, deleteCookiesWhileClosing, popUpBlocker, doNotTrack As Integer
         Dim customSearchURL, customSearchName, homepage, adBlockerWhitelist, userAgentLanguage As String
         Dim lastSyncDateTime As Date
+    End Structure
+
+    Structure BrowserHistoryResponse
+        Dim browserHistory As List(Of Page)
+    End Structure
+
+    Structure BrowserFavoritesResponse
+        Dim browserFavorites As List(Of Page)
+    End Structure
+
+    Structure BrowserSearchHistoryResponse
+        Dim browserSearchHistory As List(Of BrowserSearchHistory)
     End Structure
 
     Structure BrowserSearchHistory
@@ -30,6 +73,37 @@ Public Class AppSyncAgent
         Dim pageVisitDateTime As Date
     End Structure
 
+    Structure LastSyncTimeResponse
+        Dim lastBrowserSyncTime As Date
+    End Structure
+
+    Structure RefreshSyncTimeResponse
+        Dim isSyncTimeRefreshed As Boolean
+    End Structure
+
+    Structure GenerateTokenResponse
+        Dim isGenerated As Boolean
+        Dim codeJeton As String
+    End Structure
+
+    Structure UnregisterDeviceResponse
+        Dim isDeviceUnregistered As Boolean
+    End Structure
+
+    Structure RegisterDeviceResponse
+        Dim isDeviceRegistered As Boolean
+        Dim idConnexion As String
+        Dim deviceDetails As Dictionary(Of String, String)
+    End Structure
+
+    Structure DeviceDetailsResponse
+        Dim deviceDetails As Connection
+    End Structure
+
+    Structure SetDeviceNameResponse
+        Dim deviceNameChanged As Boolean
+    End Structure
+
     ''' <summary>
     ''' Vérifie les identifiants entrés par l'utilisateur
     ''' </summary>
@@ -39,39 +113,47 @@ Public Class AppSyncAgent
     Public Shared Function CheckCredentials(username As String, password As String) As Boolean
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
         Dim queryParameters As String = "?action=CheckCredentials&username=" + username + "&password=" + password
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of CredentialsValidity) = JsonConvert.DeserializeObject(Of ApiResponse(Of CredentialsValidity))(resultat)
 
-        If resultat.ToLower() = "false" Then
-            Return False
-        ElseIf resultat.ToLower() = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.credentialsValidity
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
     ''' <summary>
-    ''' Charge l'ID de l'utilisateur de SmartNet AppSync à partir de l'adresse e-mail
+    ''' Charge les détails de l'utilisateur AppSync dont la session est en cours.
     ''' </summary>
     ''' <returns></returns>
-    Public Shared Function GetUserID() As Integer
+    Public Shared Function GetUserDetails() As UserDetails
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-        Dim queryParameters As String = "?action=GetUserID&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+        Dim queryParameters As String = "?action=GetUserDetails&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of UserDetailsResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of UserDetailsResponse))(resultat)
 
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
+        If parsedresult.statusCode <> 1 Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Return CType(resultat, Integer)
+            Return parsedresult.apiResponse.userDetails
         End If
+    End Function
+
+    ''' <summary>
+    ''' Charge l'ID de l'utilisateur de SmartNet AppSync dont la session est en cours
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared Function GetUserID() As Integer
+        Return AppSyncAgent.GetUserDetails().idUtilisateur
     End Function
 
     ''' <summary>
@@ -79,19 +161,8 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function GetUserName() As String
-        Dim client As New WebClient
-        Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-        Dim queryParameters As String = "?action=GetUserName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
-        Console.WriteLine(engineURL + queryParameters)
-
-        resultat = client.DownloadString(engineURL + queryParameters)
-
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
-        Else
-            Return resultat
-        End If
+        Dim userDetails As UserDetails = AppSyncAgent.GetUserDetails()
+        Return userDetails.prenomUtilisateur + " " + userDetails.nomUtilisateur
     End Function
 
     ''' <summary>
@@ -99,31 +170,17 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function GetUserProfilePicture() As Bitmap
-        Dim client As New WebClient
-        Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-        Dim queryParameters As String = "?action=GetUserProfilePicture&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
-        Console.WriteLine(engineURL + queryParameters)
-
-        resultat = client.DownloadString(engineURL + queryParameters)
-
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
-        ElseIf resultat.ToLower() = "null" Then
-            Return My.Resources.Person
-        Else
-            Dim imgDistantPath As String = resultat
-            Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgDistantPath.Substring(imgDistantPath.LastIndexOf("."))
-            Try
-                If System.IO.File.Exists(imgLocalPath) Then
-                    System.IO.File.Delete(imgLocalPath)
-                End If
-                Dim telechargeur As New WebClient()
-                telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
-            Catch ex As Exception
-            End Try
-            Return New Bitmap(imgLocalPath)
-        End If
+        Dim imgDistantPath As String = AppSyncAgent.GetUserDetails().imageProfilClient
+        Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgDistantPath.Substring(imgDistantPath.LastIndexOf("."))
+        Try
+            If System.IO.File.Exists(imgLocalPath) Then
+                System.IO.File.Delete(imgLocalPath)
+            End If
+            Dim telechargeur As New WebClient()
+            telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
+        Catch ex As Exception
+        End Try
+        Return New Bitmap(imgLocalPath)
     End Function
 
     ''' <summary>
@@ -133,16 +190,17 @@ Public Class AppSyncAgent
     Public Shared Async Function GetConfig() As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=GetConfig&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=GetConfig&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of BrowserConfigResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of BrowserConfigResponse))(resultat)
 
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
+        If parsedresult.statusCode <> 1 Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Dim config As BrowserConfig = JsonConvert.DeserializeObject(Of BrowserConfig)(resultat)
+            Dim config As BrowserConfig = parsedresult.apiResponse.browserConfig
             My.Settings.PrivateBrowsing = CBool(config.privateBrowsing)
             My.Settings.PreventMultipleTabsClose = CBool(config.preventMultipleTabsClose)
             My.Settings.SearchEngine = config.searchEngine
@@ -206,34 +264,34 @@ Public Class AppSyncAgent
         Dim jsonconfig As String = JsonConvert.SerializeObject(config)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=SendConfig&config=" + jsonconfig + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=SendConfig&jsonConfig=" + jsonconfig + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of SendDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of SendDataResponse))(resultat)
 
-        If resultat.ToLower() = "false" Then
-            Return False
-        ElseIf resultat.ToLower() = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullySent
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
     Public Shared Async Function GetHistory() As Task(Of WebPageList)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=GetHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=GetHistory&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of BrowserHistoryResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of BrowserHistoryResponse))(resultat)
 
-        If (resultat.Contains("err#")) Then
-            Throw New AppSyncException(resultat.Substring(4))
+        If (parsedresult.statusCode <> 1) Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Dim history As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
+            Dim history As List(Of Page) = parsedresult.apiResponse.browserHistory
             Dim list As New WebPageList()
             For Each p As Page In history
                 list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
@@ -245,16 +303,17 @@ Public Class AppSyncAgent
     Public Shared Async Function GetFavorites() As Task(Of WebPageList)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=GetFavorites&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=GetFavorites&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of BrowserFavoritesResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of BrowserFavoritesResponse))(resultat)
 
-        If (resultat.Contains("err#")) Then
-            Throw New AppSyncException(resultat.Substring(4))
+        If (parsedresult.statusCode <> 1) Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Dim favorites As List(Of Page) = JsonConvert.DeserializeObject(Of List(Of Page))(resultat)
+            Dim favorites As List(Of Page) = parsedresult.apiResponse.browserFavorites
             Dim list As New WebPageList()
             For Each p As Page In favorites
                 list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL)))
@@ -266,16 +325,17 @@ Public Class AppSyncAgent
     Public Shared Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=GetSearchHistory&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=GetSearchHistory&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of BrowserSearchHistoryResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of BrowserSearchHistoryResponse))(resultat)
 
-        If (resultat.Contains("err#")) Then
-            Throw New AppSyncException(resultat.Substring(4))
+        If (parsedresult.statusCode <> 1) Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Dim searchhistory As List(Of BrowserSearchHistory) = JsonConvert.DeserializeObject(Of List(Of BrowserSearchHistory))(resultat)
+            Dim searchhistory As List(Of BrowserSearchHistory) = parsedresult.apiResponse.browserSearchHistory
             Dim list As New Specialized.StringCollection()
             For Each p In searchhistory
                 list.Add(WebUtility.UrlDecode(p.searchHistoryText))
@@ -293,18 +353,17 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=AddHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=AddHistory&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of SendDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of SendDataResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullySent
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -316,36 +375,34 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=AddFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=AddFavorite&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of SendDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of SendDataResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullySent
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
     Public Shared Async Function AddSearchHistory(query As String) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=AddSearchHistory&texte=" + WebUtility.UrlEncode(query) + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=AddSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of SendDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of SendDataResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullySent
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -358,18 +415,17 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=DeleteHistory&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=DeleteHistory&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of DeleteDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of DeleteDataResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullyDeleted
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -381,36 +437,34 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=DeleteFavorite&page=" + jsonpage + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=DeleteFavorite&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of DeleteDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of DeleteDataResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullyDeleted
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
     Public Shared Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=DeleteSearchHistory&texte=" + WebUtility.UrlEncode(query) + "&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=DeleteSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of DeleteDataResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of DeleteDataResponse))(resultat)
 
-        If (resultat.Contains("err#")) Then
-            Throw New AppSyncException(resultat.Substring(4))
-        ElseIf (resultat = "false") Then
-            Return False
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSuccessfullyDeleted
         Else
-            Return True
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -422,35 +476,33 @@ Public Class AppSyncAgent
     Public Shared Function LastConfigSyncTime() As Date
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=GetLastSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=GetLastSyncTime&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of LastSyncTimeResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of LastSyncTimeResponse))(resultat)
 
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat)
-        ElseIf resultat.Length = 0 Then
-            Return New Date(1, 1, 1)
+        If parsedresult.statusCode <> 1 Then
+            Throw New AppSyncException(parsedresult.statusMessage)
         Else
-            Return New Date(CInt(resultat.Substring(0, 4)), CInt(resultat.Substring(5, 2)), CInt(resultat.Substring(8, 2)), CInt(resultat.Substring(11, 2)), CInt(resultat.Substring(14, 2)), CInt(resultat.Substring(17, 2)))
+            Return parsedresult.apiResponse.lastBrowserSyncTime
         End If
     End Function
 
     Public Shared Async Function RefreshSyncTime() As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/browser/query.php"
-        Dim queryParameters As String = "?action=RefreshSyncTime&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim queryParameters As String = "?action=RefreshSyncTime&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
 
         My.Settings.AppSyncLastSyncTime = Date.Now
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of RefreshSyncTimeResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of RefreshSyncTimeResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
-            Return True
+        If parsedresult.statusCode = 1 Then
+            Return parsedresult.apiResponse.isSyncTimeRefreshed
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -461,18 +513,17 @@ Public Class AppSyncAgent
     Public Shared Function GenerateToken() As String
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-        Dim queryParameters As String = "?action=GenerateToken&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+        Dim queryParameters As String = "?action=GenerateToken&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of GenerateTokenResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of GenerateTokenResponse))(resultat)
 
-        If resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
-        ElseIf resultat = "false" Then
-            Return "False"
+        If parsedresult.statusCode = 1 And parsedresult.apiResponse.isGenerated = True Then
+            Return parsedresult.apiResponse.codeJeton
         Else
-            Return resultat
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -597,19 +648,18 @@ Public Class AppSyncAgent
     Public Shared Function UnregisterDevice() As Boolean
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
-        Dim queryParameters As String = "?action=UnregisterDevice&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
+        Dim queryParameters As String = "?action=UnregisterDevice&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of UnregisterDeviceResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of UnregisterDeviceResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat = "true" Then
+        If parsedresult.statusCode = 1 And parsedresult.apiResponse.isDeviceUnregistered = True Then
             My.Settings.AppSyncDeviceNumber = ""
             Return True
         Else
-            Throw New AppSyncException(resultat)
+            Throw New AppSyncException(parsedresult.statusMessage)
         End If
     End Function
 
@@ -624,20 +674,44 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/main/query.php"
+        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
         Dim queryParameters As String = "?action=RegisterDevice&username=" + username + "&password=" + password + "&machineName=" + Environment.MachineName + "&appName=SmartNet Browser"
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = client.DownloadString(engineURL + queryParameters)
+        Dim parsedresult As ApiResponse(Of RegisterDeviceResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of RegisterDeviceResponse))(resultat)
 
-        If resultat = "false" Then
-            Return False
-        ElseIf resultat.Contains("err#") Then
-            Throw New AppSyncException(resultat.Substring(4))
-        Else
-            My.Settings.AppSyncDeviceNumber = resultat
+        If parsedresult.statusCode = 1 And parsedresult.apiResponse.isDeviceRegistered = True Then
+            My.Settings.AppSyncDeviceNumber = parsedresult.apiResponse.idConnexion
             My.Settings.Save()
             Return True
+        Else
+            Throw New AppSyncException(parsedresult.statusMessage)
+        End If
+    End Function
+
+    ''' <summary>
+    ''' Obtient les détails de la session ouverte.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared Function GetDeviceDetails() As Connection
+        If My.Settings.AppSyncDeviceNumber <> "" Then
+            Dim client As New WebClient
+            Dim resultat As String
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+            Dim queryParameters As String = "?action=GetDeviceDetails&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
+            Console.WriteLine(engineURL + queryParameters)
+
+            resultat = client.DownloadString(engineURL + queryParameters)
+            Dim parsedresult As ApiResponse(Of DeviceDetailsResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of DeviceDetailsResponse))(resultat)
+
+            If parsedresult.statusCode <> 1 Then
+                Throw New AppSyncException(parsedresult.statusMessage)
+            Else
+                Return parsedresult.apiResponse.deviceDetails
+            End If
+        Else
+            Return Nothing
         End If
     End Function
 
@@ -647,26 +721,12 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Shared Function IsDeviceRegistered() As Boolean
         If My.Settings.AppSyncDeviceNumber <> "" Then
-            Dim client As New WebClient
-            Dim resultat As String
-            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-            Dim queryParameters As String = "?action=IsDeviceRegistered&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
-            Console.WriteLine(engineURL + queryParameters)
-
-            resultat = client.DownloadString(engineURL + queryParameters)
-
-            If resultat.Contains("err#") Then
+            Dim details As Connection = AppSyncAgent.GetDeviceDetails()
+            If details.idUtilisateur <> GetUserID() Then
+                Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté.")
                 Return False
-                'Throw New AppSyncException(resultat.Substring(4))
             Else
-                Dim details As Connection = JsonConvert.DeserializeObject(Of Connection)(resultat)
-                Dim result As Boolean = (details.idUtilisateur = GetUserID())
-                If (result = False) Then
-                    Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté")
-                    Return False
-                Else
-                    Return True
-                End If
+                Return True
             End If
         Else
             Return False
@@ -679,24 +739,8 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Shared Function GetDeviceName() As String
         If IsDeviceRegistered() Then
-            Try
-                Dim client As New WebClient
-                Dim resultat As String
-                Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-                Dim queryParameters As String = "?action=GetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString()
-                Console.WriteLine(engineURL + queryParameters)
-
-                resultat = client.DownloadString(engineURL + queryParameters)
-
-                If resultat.Contains("err#") Then
-                    Throw New AppSyncException(resultat.Substring(4))
-                Else
-                    Return resultat
-                End If
-            Catch ex As Exception
-                Throw New AppSyncException("Une erreur est survenue lors de la réception du nom de votre appareil depuis AppSync.", ex)
-                Return Nothing
-            End Try
+            Dim details As Connection = AppSyncAgent.GetDeviceDetails()
+            Return details.nomConnexion
         Else
             Return Nothing
         End If
@@ -706,18 +750,17 @@ Public Class AppSyncAgent
         If IsDeviceRegistered() Then
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "https://appsync.quentinpugeat.fr/engine/user/query.php"
-            Dim queryParameters As String = "?action=SetDeviceName&connectionID=" + My.Settings.AppSyncDeviceNumber.ToString() + "NewName=" + newDeviceName
+            Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+            Dim queryParameters As String = "?action=SetDeviceName&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString() + "&NewName=" + newDeviceName
             Console.WriteLine(engineURL + queryParameters)
 
             resultat = client.DownloadString(engineURL + queryParameters)
+            Dim parsedresult As ApiResponse(Of SetDeviceNameResponse) = JsonConvert.DeserializeObject(Of ApiResponse(Of SetDeviceNameResponse))(resultat)
 
-            If resultat = "false" Then
-                Return False
-            ElseIf resultat = "true" Then
+            If parsedresult.statusCode = 1 And parsedresult.apiResponse.deviceNameChanged = True Then
                 Return True
             Else
-                Throw New AppSyncException(resultat)
+                Throw New AppSyncException(parsedresult.statusMessage)
             End If
         Else
             Return False
