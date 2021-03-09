@@ -434,11 +434,6 @@ Public Class SettingsForm
         End If
     End Sub
 
-    Private Sub FirstStartDialogButton_Click(sender As Object, e As EventArgs) Handles FirstStartDialogButton.Click
-        Me.Close()
-        FirstStartForm.Show()
-    End Sub
-
     Private Sub ChangeUserAgentLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         BrowserForm.AddTab("about:config")
     End Sub

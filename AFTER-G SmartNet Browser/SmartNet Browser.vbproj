@@ -241,12 +241,6 @@
     <Compile Include="ExceptionForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstStartForm.Designer.vb">
-      <DependentUpon>FirstStartForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FirstStartForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MessageBar.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -416,15 +410,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExceptionForm.resx">
       <DependentUpon>ExceptionForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FirstStartForm.en.resx">
-      <DependentUpon>FirstStartForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FirstStartForm.fr.resx">
-      <DependentUpon>FirstStartForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FirstStartForm.resx">
-      <DependentUpon>FirstStartForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LicenseForm.en.resx">
       <DependentUpon>LicenseForm.vb</DependentUpon>

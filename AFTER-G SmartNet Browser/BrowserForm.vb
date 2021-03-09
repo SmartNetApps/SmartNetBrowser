@@ -303,12 +303,8 @@ Public Class BrowserForm
             If My.Settings.FirstStartFromReset = False Then
                 My.Settings.Upgrade()
                 My.Settings.Reload()
-                If My.Settings.FirstStart = True Then
-                    FirstStartForm.ShowDialog()
-                End If
-            Else
-                FirstStartForm.ShowDialog()
             End If
+            AddTab("https://smartnetapps.quentinpugeat.fr/browser/welcome")
         End If
 
         Try

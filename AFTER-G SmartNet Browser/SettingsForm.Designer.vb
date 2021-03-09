@@ -124,9 +124,6 @@ Partial Class SettingsForm
         Me.PictureBox14 = New System.Windows.Forms.PictureBox()
         Me.AutoUpdateCheckBox = New System.Windows.Forms.CheckBox()
         Me.Avancé = New System.Windows.Forms.TabPage()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox18 = New System.Windows.Forms.PictureBox()
-        Me.FirstStartDialogButton = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.LanguageGroupBox = New System.Windows.Forms.GroupBox()
@@ -186,8 +183,6 @@ Partial Class SettingsForm
         Me.AutoUpdateGroupBox.SuspendLayout()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Avancé.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LanguageGroupBox.SuspendLayout()
         CType(Me.PictureBox19, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RepareBrowserGroupBox.SuspendLayout()
@@ -929,7 +924,6 @@ Partial Class SettingsForm
         'Avancé
         '
         resources.ApplyResources(Me.Avancé, "Avancé")
-        Me.Avancé.Controls.Add(Me.GroupBox2)
         Me.Avancé.Controls.Add(Me.Label12)
         Me.Avancé.Controls.Add(Me.Label11)
         Me.Avancé.Controls.Add(Me.LanguageGroupBox)
@@ -937,27 +931,6 @@ Partial Class SettingsForm
         Me.Avancé.Controls.Add(Me.SettingsSavesGroupBox)
         Me.Avancé.Name = "Avancé"
         Me.Avancé.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.PictureBox18)
-        Me.GroupBox2.Controls.Add(Me.FirstStartDialogButton)
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.TabStop = False
-        '
-        'PictureBox18
-        '
-        Me.PictureBox18.Image = Global.SmartNet_Browser.My.Resources.Resources.FirstStart
-        resources.ApplyResources(Me.PictureBox18, "PictureBox18")
-        Me.PictureBox18.Name = "PictureBox18"
-        Me.PictureBox18.TabStop = False
-        '
-        'FirstStartDialogButton
-        '
-        resources.ApplyResources(Me.FirstStartDialogButton, "FirstStartDialogButton")
-        Me.FirstStartDialogButton.Name = "FirstStartDialogButton"
-        Me.FirstStartDialogButton.UseVisualStyleBackColor = True
         '
         'Label12
         '
@@ -1121,8 +1094,6 @@ Partial Class SettingsForm
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Avancé.ResumeLayout(False)
         Me.Avancé.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LanguageGroupBox.ResumeLayout(False)
         Me.LanguageGroupBox.PerformLayout()
         CType(Me.PictureBox19, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1164,7 +1135,6 @@ Partial Class SettingsForm
     Friend WithEvents AutoUpdateGroupBox As GroupBox
     Friend WithEvents AutoUpdateCheckBox As CheckBox
     Friend WithEvents Avancé As TabPage
-    Friend WithEvents FirstStartDialogButton As Button
     Friend WithEvents RepareBrowserGroupBox As GroupBox
     Friend WithEvents RepareBrowserButton As Button
     Friend WithEvents SettingsSavesGroupBox As GroupBox
@@ -1231,8 +1201,6 @@ Partial Class SettingsForm
     Friend WithEvents Label12 As Label
     Friend WithEvents PictureBox17 As PictureBox
     Friend WithEvents PictureBox16 As PictureBox
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents PictureBox18 As PictureBox
     Friend WithEvents PictureBox19 As PictureBox
     Friend WithEvents TabPageAppSync As TabPage
     Friend WithEvents GroupBox3 As GroupBox
