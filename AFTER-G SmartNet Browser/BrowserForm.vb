@@ -1146,7 +1146,7 @@ Public Class BrowserForm
             RouvrirLeDernierOngletFerméToolStripMenuItem.Enabled = True
         End If
     End Sub
-    Private Sub BrowserTabs_MouseClick(sender As Object, e As MouseEventArgs) Handles BrowserTabs.MouseClick
+    Private Sub BrowserTabs_MouseClick(sender As Object, e As MouseEventArgs) Handles BrowserTabs.MouseClick, BrowserTabs.MouseUp
         Dim i As Integer = 0
         If e.Button = MouseButtons.Right Then
             While i < BrowserTabs.TabPages.Count
