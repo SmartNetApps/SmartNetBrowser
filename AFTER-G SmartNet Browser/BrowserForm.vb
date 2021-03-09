@@ -305,6 +305,7 @@ Public Class BrowserForm
                 My.Settings.Reload()
             End If
             AddTab("https://smartnetapps.quentinpugeat.fr/browser/welcome")
+            My.Settings.FirstStart = False
         End If
 
         Try
