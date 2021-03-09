@@ -4,22 +4,24 @@
     End Sub
 
     Private Sub Button_Connecter_Click(sender As Object, e As EventArgs) Handles Button_Connecter.Click
-        Try
-            If AppSyncAgent.CheckCredentials(TextBox_Email.Text, TextBox_MDP.Text) Then
-                My.Settings.Save()
-                If AppSyncAgent.RegisterDevice(TextBox_Email.Text, TextBox_MDP.Text) Then
-                    BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
-                    BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+        If TextBox_Email.Text <> "" And TextBox_MDP.Text <> "" Then
+            Try
+                If AppSyncAgent.CheckCredentials(TextBox_Email.Text, TextBox_MDP.Text) Then
+                    My.Settings.Save()
+                    If AppSyncAgent.RegisterDevice(TextBox_Email.Text, TextBox_MDP.Text) Then
+                        BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
+                        BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+                    Else
+                        MessageBox.Show("SmartNet AppSync n'a pas réussi à enregistrer votre appareil. Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                    Me.Close()
                 Else
-                    MessageBox.Show("SmartNet AppSync n'a pas réussi à enregistrer votre appareil. Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
-                Me.Close()
-            Else
-                MessageBox.Show("Nom d'utilisateur ou mot de passe incorrect.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Impossible de se connecter avec les serveurs de SmartNet AppSync en raison d'une erreur interne (" + ex.Message + " - " + ex.Message + "). Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+            Catch ex As Exception
+                MessageBox.Show("Le serveur de SmartNet AppSync a retourné une erreur (" + ex.Message + "). Veuillez réessayer plus tard ou contacter l'assistance technique.", "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 
     Private Sub Button_CreerCompte_Click(sender As Object, e As EventArgs) Handles Button_CreerCompte.Click
