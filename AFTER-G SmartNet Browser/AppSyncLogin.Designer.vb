@@ -23,7 +23,6 @@ Partial Class AppSyncLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AppSyncLogin))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label_Email = New System.Windows.Forms.Label()
         Me.Label_MDP = New System.Windows.Forms.Label()
         Me.Label_Title = New System.Windows.Forms.Label()
@@ -33,16 +32,14 @@ Partial Class AppSyncLogin
         Me.LinkLabel_MDPOublie = New System.Windows.Forms.LinkLabel()
         Me.Button_CreerCompte = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
-        Me.PictureBox1.BackgroundImage = Global.SmartNet_Browser.My.Resources.Resources.CloudBackground
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.TabStop = False
         '
         'Label_Email
         '
@@ -91,11 +88,36 @@ Partial Class AppSyncLogin
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = Global.SmartNet_Browser.My.Resources.Resources.appsync_1024
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.PictureBox2)
+        resources.ApplyResources(Me.Panel1, "Panel1")
+        Me.Panel1.Name = "Panel1"
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label_Title)
+        resources.ApplyResources(Me.Panel2, "Panel2")
+        Me.Panel2.Name = "Panel2"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel3.Controls.Add(Me.Label_Email)
+        Me.Panel3.Controls.Add(Me.Button_CreerCompte)
+        Me.Panel3.Controls.Add(Me.TextBox_Email)
+        Me.Panel3.Controls.Add(Me.Button_Connecter)
+        Me.Panel3.Controls.Add(Me.LinkLabel_MDPOublie)
+        Me.Panel3.Controls.Add(Me.Label_MDP)
+        Me.Panel3.Controls.Add(Me.TextBox_MDP)
+        resources.ApplyResources(Me.Panel3, "Panel3")
+        Me.Panel3.Name = "Panel3"
         '
         'AppSyncLogin
         '
@@ -103,29 +125,24 @@ Partial Class AppSyncLogin
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.Controls.Add(Me.Label_Title)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Button_CreerCompte)
-        Me.Controls.Add(Me.LinkLabel_MDPOublie)
-        Me.Controls.Add(Me.Button_Connecter)
-        Me.Controls.Add(Me.TextBox_MDP)
-        Me.Controls.Add(Me.TextBox_Email)
-        Me.Controls.Add(Me.Label_MDP)
-        Me.Controls.Add(Me.Label_Email)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.BackgroundImage = Global.SmartNet_Browser.My.Resources.Resources.CloudBackground
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "AppSyncLogin"
         Me.ShowIcon = False
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label_Email As Label
     Friend WithEvents Label_MDP As Label
     Friend WithEvents Label_Title As Label
@@ -135,4 +152,7 @@ Partial Class AppSyncLogin
     Friend WithEvents LinkLabel_MDPOublie As LinkLabel
     Friend WithEvents Button_CreerCompte As Button
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class

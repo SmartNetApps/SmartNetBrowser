@@ -10,10 +10,10 @@ Imports System.Runtime.InteropServices
 ' Vérifiez les valeurs des attributs de l'assembly
 
 <Assembly: AssemblyTitle("SmartNet Browser")>
-<Assembly: AssemblyDescription("Naviguez plus rapidement et plus facilement avec SmartNet Browser !")>
+<Assembly: AssemblyDescription("Un navigateur simple, rapide et respectueux de vos données.")>
 <Assembly: AssemblyCompany("Quentin Pugeat")>
 <Assembly: AssemblyProduct("SmartNet Browser")>
-<Assembly: AssemblyCopyright("© Quentin Pugeat 2015-2020")>
+<Assembly: AssemblyCopyright("© Quentin Pugeat 2015-2021")>
 <Assembly: AssemblyTrademark("SmartNet Apps")>
 
 <Assembly: ComVisible(False)>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' en utilisant '*', comme indiqué ci-dessous :
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.16.1.0")>
-<Assembly: AssemblyFileVersion("0.16.1.0")>
+<Assembly: AssemblyVersion("0.17.0.0")>
+<Assembly: AssemblyFileVersion("0.17.0.0")>
 <Assembly: NeutralResourcesLanguage("fr")>
