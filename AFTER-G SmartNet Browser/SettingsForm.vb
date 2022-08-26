@@ -190,7 +190,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "https://homepage.quentinpugeat.fr"
+        HomepageURLBox.Text = "https://homepage.lesmajesticiels.org/"
     End Sub
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
@@ -233,7 +233,7 @@ Public Class SettingsForm
         My.Settings.PrivateBrowsing = Not (PrivateBrowsingCheckBox.Checked)
     End Sub
     Private Sub CookiesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles CookiesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/support/donnees_personnelles/index.html")
+        BrowserForm.AddTab("https://www.lesmajesticiels.org/support/kb/product/browser/proteger-mes-donnees-personnelles")
     End Sub
 
     Private Sub DeleteHistoryButton_Click(sender As Object, e As EventArgs) Handles DeleteHistoryButton.Click
@@ -397,7 +397,7 @@ Public Class SettingsForm
         If MessageBox.Show("Êtes-vous sûr.e de vouloir réinitialiser le navigateur ? Vous perdrez toutes vos informations personnelles, y compris vos Favoris et votre Historique. Les cookies seront tous effacés. Le contrôle parental et la sécurité des paramètres seront désactivés. Le navigateur redémarrera.", "Réinitialisation de SmartNet Browser", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
             My.Settings.PrivateBrowsing = False
             My.Settings.History.Clear()
-            My.Settings.Homepage = "https://homepage.quentinpugeat.fr"
+            My.Settings.Homepage = "https://homepage.lesmajesticiels.org"
             My.Settings.Favorites.Clear()
             My.Settings.SearchHistory.Clear()
             My.Settings.PreventMultipleTabsClose = True
@@ -476,7 +476,7 @@ Public Class SettingsForm
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
         Dim token As String = AppSyncAgent.GenerateToken()
-        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/login.php?action=oneclick&token=" + token)
+        BrowserForm.AddTab("https://appsync.lesmajesticiels.org/login.php?action=oneclick&token=" + token)
         Me.Close()
     End Sub
 

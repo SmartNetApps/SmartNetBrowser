@@ -113,7 +113,7 @@ Public Class AppSyncAgent
     Public Shared Function CheckCredentials(username As String, password As String) As Boolean
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/global/sendquery.php"
         Dim queryParameters As String = "?action=CheckCredentials&username=" + username + "&password=" + password
         Console.WriteLine(engineURL + queryParameters)
 
@@ -134,7 +134,7 @@ Public Class AppSyncAgent
     Public Shared Function GetUserDetails() As UserDetails
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/user/sendquery.php"
         Dim queryParameters As String = "?action=GetUserDetails&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -190,7 +190,7 @@ Public Class AppSyncAgent
     Public Shared Async Function GetConfig() As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=GetConfig&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -264,7 +264,7 @@ Public Class AppSyncAgent
         Dim jsonconfig As String = JsonConvert.SerializeObject(config)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=SendConfig&jsonConfig=" + jsonconfig + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -281,7 +281,7 @@ Public Class AppSyncAgent
     Public Shared Async Function GetHistory() As Task(Of WebPageList)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=GetHistory&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -303,7 +303,7 @@ Public Class AppSyncAgent
     Public Shared Async Function GetFavorites() As Task(Of WebPageList)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=GetFavorites&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -325,7 +325,7 @@ Public Class AppSyncAgent
     Public Shared Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=GetSearchHistory&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -353,7 +353,7 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=AddHistory&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -375,7 +375,7 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=AddFavorite&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -392,7 +392,7 @@ Public Class AppSyncAgent
     Public Shared Async Function AddSearchHistory(query As String) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=AddSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -415,7 +415,7 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=DeleteHistory&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -437,7 +437,7 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=DeleteFavorite&jsonWebpage=" + jsonpage + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -454,7 +454,7 @@ Public Class AppSyncAgent
     Public Shared Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=DeleteSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -476,7 +476,7 @@ Public Class AppSyncAgent
     Public Shared Function LastConfigSyncTime() As Date
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=GetLastSyncTime&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
 
         resultat = client.DownloadString(engineURL + queryParameters)
@@ -492,7 +492,7 @@ Public Class AppSyncAgent
     Public Shared Async Function RefreshSyncTime() As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/browser/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
         Dim queryParameters As String = "?action=RefreshSyncTime&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
 
         My.Settings.AppSyncLastSyncTime = Date.Now
@@ -513,7 +513,7 @@ Public Class AppSyncAgent
     Public Shared Function GenerateToken() As String
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/user/sendquery.php"
         Dim queryParameters As String = "?action=GenerateToken&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -648,7 +648,7 @@ Public Class AppSyncAgent
     Public Shared Function UnregisterDevice() As Boolean
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/global/sendquery.php"
         Dim queryParameters As String = "?action=UnregisterDevice&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
@@ -674,7 +674,7 @@ Public Class AppSyncAgent
 
         Dim client As New WebClient
         Dim resultat As String
-        Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/global/sendquery.php"
+        Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/global/sendquery.php"
         Dim queryParameters As String = "?action=RegisterDevice&username=" + username + "&password=" + password + "&machineName=" + Environment.MachineName + "&appName=SmartNet Browser"
         Console.WriteLine(engineURL + queryParameters)
 
@@ -698,7 +698,7 @@ Public Class AppSyncAgent
         If My.Settings.AppSyncDeviceNumber <> "" Then
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+            Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/user/sendquery.php"
             Dim queryParameters As String = "?action=GetDeviceDetails&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
             Console.WriteLine(engineURL + queryParameters)
 
@@ -750,7 +750,7 @@ Public Class AppSyncAgent
         If IsDeviceRegistered() Then
             Dim client As New WebClient
             Dim resultat As String
-            Dim engineURL As String = "https://appsync.quentinpugeat.fr/api_v2/user/sendquery.php"
+            Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/user/sendquery.php"
             Dim queryParameters As String = "?action=SetDeviceName&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString() + "&NewName=" + newDeviceName
             Console.WriteLine(engineURL + queryParameters)
 

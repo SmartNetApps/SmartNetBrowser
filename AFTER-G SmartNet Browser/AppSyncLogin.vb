@@ -25,12 +25,12 @@
     End Sub
 
     Private Sub Button_CreerCompte_Click(sender As Object, e As EventArgs) Handles Button_CreerCompte.Click
-        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/newaccount.php")
+        BrowserForm.AddTab("https://appsync.lesmajesticiels.org/newaccount.php")
         Me.Close()
     End Sub
 
     Private Sub LinkLabel_MDPOublie_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_MDPOublie.LinkClicked
-        BrowserForm.AddTab("https://appsync.quentinpugeat.fr/passwordrecovery.php")
+        BrowserForm.AddTab("https://appsync.lesmajesticiels.org/passwordrecovery.php")
         Me.Close()
     End Sub
 End Class

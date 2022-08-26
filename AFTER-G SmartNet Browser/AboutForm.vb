@@ -17,7 +17,7 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles HomepageLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser")
+        BrowserForm.AddTab("https://www.lesmajesticiels.org/browser")
         Me.Close()
     End Sub
 
@@ -36,7 +36,7 @@
     End Sub
 
     Private Sub ReleaseNotesLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ReleaseNotesLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://smartnetapps.quentinpugeat.fr/browser/releasenotes/" + versionNumber)
+        BrowserForm.AddTab("https://www.lesmajesticiels.org/browser/releasenotes/" + versionNumber)
         Me.Close()
     End Sub
 

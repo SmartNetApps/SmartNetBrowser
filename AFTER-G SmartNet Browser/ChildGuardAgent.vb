@@ -24,7 +24,7 @@ Public Class ChildGuardAgent
     ''' <returns>La liste noire de ChildGuard.</returns>
     Public Shared Function GetBlackList() As List(Of String)
         Dim AdultDomainsFile As New WebClient
-        Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("http://childguard.smartnetapps.quentinpugeat.fr/v1/ChildrenProtection.txt")
+        Dim AdultDomainsListFile As String = AdultDomainsFile.DownloadString("https://browser-api.lesmajesticiels.org/childguard/v1/ChildrenProtection.txt")
         Dim AdultDomainsList As New List(Of String)(AdultDomainsListFile.Split(","c))
         Return AdultDomainsList
     End Function

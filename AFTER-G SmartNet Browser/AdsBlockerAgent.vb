@@ -39,7 +39,7 @@ Public Class AdsBlockerAgent
     ''' <returns>La liste noire d'AdsBlocker.</returns>
     Public Shared Function GetBlackList() As List(Of String)
         Dim AdsDomainsFileDownloader As New WebClient
-        Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("http://adsblocker.smartnetapps.quentinpugeat.fr/v1/AdsDomains.txt")
+        Dim AdsDomainsListFile As String = AdsDomainsFileDownloader.DownloadString("https://browser-api.lesmajesticiels.org/adsblocker/v1/AdsDomains.txt")
         Dim AdsDomainsList As New List(Of String)(AdsDomainsListFile.Split(","c))
         Return AdsDomainsList
     End Function

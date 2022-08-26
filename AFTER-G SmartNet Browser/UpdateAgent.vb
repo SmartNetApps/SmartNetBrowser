@@ -37,12 +37,12 @@ Public Class UpdateAgent
         Dim MAJ As New WebClient()
 
         Dim NTActualVersion As Version = Environment.OSVersion.Version
-        Dim MiniNTVersion As Version = New Version(MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/MinimumNTVersion.txt"))
+        Dim MiniNTVersion As Version = New Version(MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/MinimumNTVersion.txt"))
 
         Dim VersionActuelle As Version = My.Application.Info.Version
-        Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/version.txt"))
+        Dim DerniereVersion As Version = New Version(MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/version.txt"))
 
-        Dim SupportStatus As String = MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/support-status.txt")
+        Dim SupportStatus As String = MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/support-status.txt")
 
         If VersionActuelle > DerniereVersion Then
             Return UpdateStatus.UpToDate
@@ -67,7 +67,7 @@ Public Class UpdateAgent
     ''' <returns>Le dernier numéro de version disponible.</returns>
     Public Shared Function LastVersionAvailable() As Version
         Dim MAJ As New WebClient()
-        Dim DerniereVersion As Version = New Version(MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/version.txt"))
+        Dim DerniereVersion As Version = New Version(MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/version.txt"))
         Return DerniereVersion
     End Function
 
@@ -77,7 +77,7 @@ Public Class UpdateAgent
     ''' <returns>Le dernier numéro de version disponible.</returns>
     Public Shared Function LastVersionNumberAvailable() As String
         Dim MAJ As New WebClient()
-        Return MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/version.txt")
+        Return MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/version.txt")
     End Function
 
     ''' <summary>
@@ -86,7 +86,7 @@ Public Class UpdateAgent
     ''' <returns></returns>
     Public Shared Function DownloadLink() As String
         Dim MAJ As New WebClient()
-        Return MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/download.txt")
+        Return MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/download.txt")
     End Function
 
     ''' <summary>
@@ -95,6 +95,6 @@ Public Class UpdateAgent
     ''' <returns></returns>
     Public Shared Function ReleaseNotes() As String
         Dim MAJ As New WebClient
-        Return MAJ.DownloadString("http://updater.smartnetapps.quentinpugeat.fr/browser/windows/releasenotes.txt")
+        Return MAJ.DownloadString("https://updates.lesmajesticiels.org/v1/browser/windows/releasenotes.txt")
     End Function
 End Class
