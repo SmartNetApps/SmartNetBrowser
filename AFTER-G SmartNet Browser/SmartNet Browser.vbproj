@@ -591,9 +591,9 @@
     <Content Include="Resources\PageSecurityButton\PageSecurity_black.png" />
     <Content Include="Resources\PageSecurityButton\PageSecurity_red.png" />
     <None Include="Resources\PageSecurity_NOK.png" />
-    <Content Include="SmartNetBrowserIconSet.dll">
+    <None Include="SmartNetBrowserIconSet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Resources\2019_SmartNetBrowser_Icon.ico" />
     <None Include="Resources\2019_SmartNetBrowser_16.png" />
     <None Include="Resources\2019_SmartNetBrowser_32.png" />
