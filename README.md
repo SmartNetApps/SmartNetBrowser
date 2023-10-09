@@ -5,17 +5,17 @@ SmartNet Browser est un navigateur construit en Visual Basic sur le framework Mi
 ## Besoin d'aide ?
 
 Vous trouverez de l'aide pour SmartNet Browser :
-- dans [les pages de support en ligne](https://smartnetapps.quentinpugeat.fr/support/kb/browser)
-- dans [le centre d'assistance SmartNet Apps](https://smartnetapps.quentinpugeat.fr/support)
+- dans [les pages de support en ligne](https://www.lesmajesticiels.org/support/kb/product/browser)
+- dans [le centre d'assistance Les Majesticiels](https://www.lesmajesticiels.org/support)
 
 ## Construire le logiciel
 
-La méthode la plus simple pour construire ce logiciel est de cloner ce dépôt et d'ouvrir le projet dans Visual Studio 2019.
-Il vous faudra réparer les paquets NuGet et sélectionner la configuration "x86" pour pouvoir construire le logiciel.
+La méthode la plus simple pour construire ce logiciel est de cloner ce dépôt et d'ouvrir le projet dans Visual Studio 2022 sous Windows.
+Il vous faudra installer les paquets NuGet et sélectionner la configuration "x86" pour pouvoir construire le logiciel.
 
 ## Droits d'auteur et licence
 
-**Copyright 2015-2021 Quentin Pugeat**
+**Copyright 2015-2023 Quentin Pugeat**
 
 SmartNet Browser est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la **GNU General Public License** telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
 
