@@ -322,7 +322,7 @@ Public Class SettingsForm
     End Sub
 
     Private Sub AdBlockerSignalementButton_Click(sender As Object, e As EventArgs) Handles ChildGuardProblemSignalementButton.Click, AdsBlockerProblemSignalementButton.Click
-        BrowserForm.AddTab("https://docs.google.com/forms/d/e/1FAIpQLScxWEiZYE9ZQNQ1su4356QWW837j_jB7JGzbMxAqbVPM2nmcw/viewform?usp=sf_link")
+        BrowserForm.AddTab("https://www.lesmajesticiels.org/support/requests/new")
         Me.Close()
     End Sub
 

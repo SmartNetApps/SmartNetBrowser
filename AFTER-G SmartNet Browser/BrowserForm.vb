@@ -572,9 +572,6 @@ Public Class BrowserForm
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
         AddTab("https://www.lesmajesticiels.org/contact")
     End Sub
-    Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
-        AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link")
-    End Sub
     Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
         AboutForm.ShowDialog()
     End Sub
@@ -956,7 +953,7 @@ Public Class BrowserForm
 
     Private Sub BrowserContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles BrowserContextMenuStrip.Opening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Select Case WB.PointedElement.TagName.ToUpper
+        Select Case WB.PointedElement?.TagName.ToUpper
             Case "IMG"
                 CopierLadresseDeLimageToolStripMenuItem.Visible = True
                 EnregistrerLimageToolStripMenuItem.Visible = True
@@ -1179,10 +1176,6 @@ Public Class BrowserForm
 
     Private Sub GardeFouTimer_Tick(sender As Object, e As EventArgs) Handles GardeFouTimer.Tick
         RefreshListOfTabs()
-    End Sub
-    Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString())
     End Sub
 
     Private Sub HistoriqueDeNavigationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDeNavigationToolStripMenuItem.Click
