@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.IO.File
 Imports System.Net
+Imports Microsoft.VisualBasic.Devices
 Imports Microsoft.Win32
 
 Public Class SettingsForm
@@ -24,6 +25,7 @@ Public Class SettingsForm
     End Function
 
     Private Async Function AppSyncSendConfigAsync() As Task(Of Boolean)
+        If Not NetworkChecker.IsInternetAvailable Then Return False
         Try
             Return Await AppSyncAgent.SendConfig()
         Catch ex As Exception
@@ -155,6 +157,17 @@ Public Class SettingsForm
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
             ButtonLoginLogout.Enabled = True
+            LabelUsername.Text = "Déconnecté.e"
+            PictureBoxUserProfilePic.Image = My.Resources.Person
+            GroupBoxAppSyncDevice.Visible = False
+            ButtonChangeAppSyncDeviceName.Enabled = False
+            ButtonSyncNow.Enabled = False
+            ButtonSyncNow.Visible = False
+        ElseIf Not NetworkChecker.IsInternetAvailable Then
+            ButtonManageAccount.Enabled = False
+            ButtonManageAccount.Visible = False
+            ButtonLoginLogout.Text = "Internet indisponible"
+            ButtonLoginLogout.Enabled = False
             LabelUsername.Text = "Déconnecté.e"
             PictureBoxUserProfilePic.Image = My.Resources.Person
             GroupBoxAppSyncDevice.Visible = False

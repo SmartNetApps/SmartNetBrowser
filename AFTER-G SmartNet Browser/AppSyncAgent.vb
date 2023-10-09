@@ -721,6 +721,8 @@ Public Class AppSyncAgent
     ''' <returns></returns>
     Public Shared Function IsDeviceRegistered() As Boolean
         If My.Settings.AppSyncDeviceNumber <> "" Then
+            If Not NetworkChecker.IsInternetAvailable Then Return True
+
             Dim details As Connection = AppSyncAgent.GetDeviceDetails()
             If details.idUtilisateur <> GetUserID() Then
                 Throw New AppSyncException("Le numéro de session enregistré n'est pas associé à l'utilisateur actuellement connecté.")
