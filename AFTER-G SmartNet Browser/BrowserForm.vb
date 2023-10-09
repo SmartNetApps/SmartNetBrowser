@@ -310,13 +310,11 @@ Public Class BrowserForm
 
         Try
             If AppSyncAgent.IsDeviceRegistered() Then
+                SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
+                SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+
                 If Not NetworkChecker.IsInternetAvailable Then
-                    SeConnecterÀAppSyncToolStripMenuItem.Text = "Déconnecté d'Internet"
-                    SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
                     SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
-                Else
-                    SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
-                    SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
                 End If
             Else
                 If My.Settings.AppSyncDeviceNumber <> "" Then

@@ -2,6 +2,8 @@
 Imports System.Web
 Imports System.Text
 Imports Newtonsoft.Json
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports System.IO
 
 ''' <summary>
 ''' Agent de connexion de SmartNet AppSync
@@ -161,8 +163,18 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function GetUserName() As String
-        Dim userDetails As UserDetails = AppSyncAgent.GetUserDetails()
-        Return userDetails.prenomUtilisateur + " " + userDetails.nomUtilisateur
+        Dim LocalFilePath = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncusername.txt"
+        Try
+            Dim userDetails As UserDetails = AppSyncAgent.GetUserDetails()
+            File.WriteAllText(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncusername.txt", userDetails.prenomUtilisateur + " " + userDetails.nomUtilisateur)
+            Return userDetails.prenomUtilisateur + " " + userDetails.nomUtilisateur
+        Catch ex As Exception
+            If (File.Exists(LocalFilePath)) Then
+                Return File.ReadAllText(LocalFilePath)
+            Else
+                Return ""
+            End If
+        End Try
     End Function
 
     ''' <summary>
@@ -170,17 +182,24 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns></returns>
     Public Shared Function GetUserProfilePicture() As Bitmap
-        Dim imgDistantPath As String = AppSyncAgent.GetUserDetails().imageProfilClient
-        Dim imgLocalPath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic" + imgDistantPath.Substring(imgDistantPath.LastIndexOf("."))
+        Dim LocalFilePath As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData.ToString() + "\appsyncprofilepic.dat"
+
         Try
-            If System.IO.File.Exists(imgLocalPath) Then
-                System.IO.File.Delete(imgLocalPath)
+            Dim imgDistantPath As String = AppSyncAgent.GetUserDetails().imageProfilClient
+            If System.IO.File.Exists(LocalFilePath) Then
+                System.IO.File.Delete(LocalFilePath)
             End If
+
             Dim telechargeur As New WebClient()
-            telechargeur.DownloadFile(imgDistantPath, imgLocalPath)
+            telechargeur.DownloadFile(imgDistantPath, LocalFilePath)
         Catch ex As Exception
         End Try
-        Return New Bitmap(imgLocalPath)
+
+        If File.Exists(LocalFilePath) Then
+            Return New Bitmap(LocalFilePath)
+        Else
+            Return My.Resources.Person
+        End If
     End Function
 
     ''' <summary>
