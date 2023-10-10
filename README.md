@@ -5,13 +5,13 @@ SmartNet Browser est un navigateur construit en Visual Basic sur le framework Mi
 ## Besoin d'aide ?
 
 Vous trouverez de l'aide pour SmartNet Browser :
-- dans [les pages de support en ligne](https://www.lesmajesticiels.org/support/kb/browser)
+- dans [les pages de support en ligne](https://www.lesmajesticiels.org/support/kb/product/browser)
 - dans [le centre d'assistance Les Majesticiels](https://www.lesmajesticiels.org/support)
 
 ## Construire le logiciel
 
-La méthode la plus simple pour construire ce logiciel est de cloner ce dépôt et d'ouvrir le projet dans Visual Studio 2019.
-Il vous faudra réparer les paquets NuGet et sélectionner la configuration "x86" pour pouvoir construire le logiciel.
+La méthode la plus simple pour construire ce logiciel est de cloner ce dépôt et d'ouvrir le projet dans Visual Studio 2022 sous Windows.
+Il vous faudra installer les paquets NuGet et sélectionner la configuration "x86" pour pouvoir construire le logiciel.
 
 ## Droits d'auteur et licence
 

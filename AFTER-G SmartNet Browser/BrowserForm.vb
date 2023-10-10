@@ -312,6 +312,10 @@ Public Class BrowserForm
             If AppSyncAgent.IsDeviceRegistered() Then
                 SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
                 SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+
+                If Not NetworkChecker.IsInternetAvailable Then
+                    SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
+                End If
             Else
                 If My.Settings.AppSyncDeviceNumber <> "" Then
                     msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
@@ -571,9 +575,6 @@ Public Class BrowserForm
     End Sub
     Private Sub ContacterLéquipeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContacterLéquipeToolStripMenuItem.Click
         AddTab("https://www.lesmajesticiels.org/contact")
-    End Sub
-    Private Sub EnvoyerVosCommentairesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvoyerVosCommentairesToolStripMenuItem.Click
-        AddTab("https://docs.google.com/forms/d/e/1FAIpQLSeefp223iFND5m2GG9fsKZo3oI6hC4Hthr14H2mFsFzU2WbIw/viewform?usp=sf_link")
     End Sub
     Private Sub AboutSmartNetBrowser(sender As Object, e As EventArgs) Handles ÀProposDeSmartNetBrowserToolStripMenuItem.Click
         AboutForm.ShowDialog()
@@ -956,7 +957,7 @@ Public Class BrowserForm
 
     Private Sub BrowserContextMenuStrip_Opening(sender As Object, e As CancelEventArgs) Handles BrowserContextMenuStrip.Opening
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        Select Case WB.PointedElement.TagName.ToUpper
+        Select Case WB.PointedElement?.TagName.ToUpper
             Case "IMG"
                 CopierLadresseDeLimageToolStripMenuItem.Visible = True
                 EnregistrerLimageToolStripMenuItem.Visible = True
@@ -1102,9 +1103,10 @@ Public Class BrowserForm
             Case MessageBar.MessageBarAction.OpenPopup
                 AddTab(msgBar.link)
             Case MessageBar.MessageBarAction.RestorePreviousSession
-                For Each page As String In My.Settings.LastSessionListOfTabs
-                    AddTab(page)
-                Next
+                Dim enumerator = My.Settings.LastSessionListOfTabs.GetEnumerator
+                While enumerator.MoveNext()
+                    AddTab(enumerator.Current)
+                End While
                 My.Settings.CorrectlyClosed = False
             Case MessageBar.MessageBarAction.OpenExceptionForm
                 ExceptionForm.SetException(msgBar.exception)
@@ -1179,10 +1181,6 @@ Public Class BrowserForm
 
     Private Sub GardeFouTimer_Tick(sender As Object, e As EventArgs) Handles GardeFouTimer.Tick
         RefreshListOfTabs()
-    End Sub
-    Private Sub SignalerUnSiteMalveillantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignalerUnSiteMalveillantToolStripMenuItem.Click
-        Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("https://safebrowsing.google.com/safebrowsing/report_phish/?tpl=mozilla&hl=fr&url=" + WB.Url.ToString())
     End Sub
 
     Private Sub HistoriqueDeNavigationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriqueDeNavigationToolStripMenuItem.Click

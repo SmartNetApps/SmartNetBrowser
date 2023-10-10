@@ -79,9 +79,6 @@ Partial Class BrowserForm
         Me.ContacterLéquipeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ÀProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnvoyerVosCommentairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SignalerUnSiteMalveillantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NouvelleVersionDisponibleSubMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TéléchargerLaVersionXXXXToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -413,7 +410,7 @@ Partial Class BrowserForm
         '
         'SupportToolStripMenuItem
         '
-        Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem, Me.EnvoyerVosCommentairesToolStripMenuItem, Me.ToolStripSeparator10, Me.SignalerUnSiteMalveillantToolStripMenuItem})
+        Me.SupportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CentreDaideEnLigneToolStripMenuItem, Me.ContacterLéquipeToolStripMenuItem, Me.ToolStripSeparator5, Me.ÀProposDeSmartNetBrowserToolStripMenuItem})
         Me.SupportToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.Help
         Me.SupportToolStripMenuItem.Name = "SupportToolStripMenuItem"
         resources.ApplyResources(Me.SupportToolStripMenuItem, "SupportToolStripMenuItem")
@@ -437,22 +434,6 @@ Partial Class BrowserForm
         '
         Me.ÀProposDeSmartNetBrowserToolStripMenuItem.Name = "ÀProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.ÀProposDeSmartNetBrowserToolStripMenuItem, "ÀProposDeSmartNetBrowserToolStripMenuItem")
-        '
-        'EnvoyerVosCommentairesToolStripMenuItem
-        '
-        Me.EnvoyerVosCommentairesToolStripMenuItem.Image = Global.SmartNet_Browser.My.Resources.Resources.SendFeedback
-        Me.EnvoyerVosCommentairesToolStripMenuItem.Name = "EnvoyerVosCommentairesToolStripMenuItem"
-        resources.ApplyResources(Me.EnvoyerVosCommentairesToolStripMenuItem, "EnvoyerVosCommentairesToolStripMenuItem")
-        '
-        'ToolStripSeparator10
-        '
-        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
-        '
-        'SignalerUnSiteMalveillantToolStripMenuItem
-        '
-        Me.SignalerUnSiteMalveillantToolStripMenuItem.Name = "SignalerUnSiteMalveillantToolStripMenuItem"
-        resources.ApplyResources(Me.SignalerUnSiteMalveillantToolStripMenuItem, "SignalerUnSiteMalveillantToolStripMenuItem")
         '
         'NouvelleVersionDisponibleSubMenu
         '
@@ -911,7 +892,6 @@ Partial Class BrowserForm
     Friend WithEvents CollerToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents EditionToolStripSeparator As ToolStripSeparator
     Friend WithEvents LancerUneRechercheAvecLeTexteSélectionnéToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EnvoyerVosCommentairesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BrowserTabs As TabControl
     Friend WithEvents ZoomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Zoom50 As ToolStripMenuItem
@@ -940,8 +920,6 @@ Partial Class BrowserForm
     Friend WithEvents FermerCetOngletToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RouvrirLeDernierOngletFerméToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GardeFouTimer As Timer
-    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
-    Friend WithEvents SignalerUnSiteMalveillantToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NextpageButton As Button
     Friend WithEvents PreviouspageButton As Button
     Friend WithEvents NewTabButton As Button
