@@ -1099,9 +1099,10 @@ Public Class BrowserForm
             Case MessageBar.MessageBarAction.OpenPopup
                 AddTab(msgBar.link)
             Case MessageBar.MessageBarAction.RestorePreviousSession
-                For Each page As String In My.Settings.LastSessionListOfTabs
-                    AddTab(page)
-                Next
+                Dim enumerator = My.Settings.LastSessionListOfTabs.GetEnumerator
+                While enumerator.MoveNext()
+                    AddTab(enumerator.Current)
+                End While
                 My.Settings.CorrectlyClosed = False
             Case MessageBar.MessageBarAction.OpenExceptionForm
                 ExceptionForm.SetException(msgBar.exception)
