@@ -15,7 +15,7 @@ Il vous faudra installer les paquets NuGet et sélectionner la configuration "x8
 
 ## Droits d'auteur et licence
 
-**Copyright 2015-2023 Quentin Pugeat**
+**Imaginé et maintenu depuis 2015 par Quentin Pugeat**
 
 SmartNet Browser est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la **GNU General Public License** telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
 
