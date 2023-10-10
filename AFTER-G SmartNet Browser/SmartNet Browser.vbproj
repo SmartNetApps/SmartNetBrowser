@@ -247,6 +247,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="NetworkChecker.vb" />
     <Compile Include="NewHistoryForm.Designer.vb">
       <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </Compile>

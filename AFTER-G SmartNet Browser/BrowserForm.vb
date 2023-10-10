@@ -312,6 +312,10 @@ Public Class BrowserForm
             If AppSyncAgent.IsDeviceRegistered() Then
                 SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
                 SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+
+                If Not NetworkChecker.IsInternetAvailable Then
+                    SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
+                End If
             Else
                 If My.Settings.AppSyncDeviceNumber <> "" Then
                     msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")

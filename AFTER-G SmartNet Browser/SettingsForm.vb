@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.IO.File
 Imports System.Net
+Imports Microsoft.VisualBasic.Devices
 Imports Microsoft.Win32
 
 Public Class SettingsForm
@@ -24,6 +25,7 @@ Public Class SettingsForm
     End Function
 
     Private Async Function AppSyncSendConfigAsync() As Task(Of Boolean)
+        If Not NetworkChecker.IsInternetAvailable Then Return False
         Try
             Return Await AppSyncAgent.SendConfig()
         Catch ex As Exception
@@ -163,18 +165,32 @@ Public Class SettingsForm
             ButtonSyncNow.Visible = False
         Else
             Try
-                ButtonManageAccount.Enabled = True
-                ButtonManageAccount.Visible = True
-                ButtonLoginLogout.Text = "Se déconnecter..."
-                ButtonLoginLogout.Enabled = True
-                LabelUsername.Text = AppSyncAgent.GetUserName()
-                PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
-                GroupBoxAppSyncDevice.Visible = True
-                TextBoxAppSyncDeviceName.Text = AppSyncAgent.GetDeviceName()
-                ButtonChangeAppSyncDeviceName.Enabled = False
-                ButtonSyncNow.Visible = True
-                ButtonSyncNow.Enabled = True
-            Catch ex As AppSyncException
+                If Not NetworkChecker.IsInternetAvailable Then
+                    ButtonManageAccount.Enabled = False
+                    ButtonManageAccount.Visible = True
+                    ButtonLoginLogout.Text = "Se déconnecter..."
+                    ButtonLoginLogout.Enabled = False
+                    LabelUsername.Text = AppSyncAgent.GetUserName()
+                    PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
+                    GroupBoxAppSyncDevice.Visible = True
+                    TextBoxAppSyncDeviceName.Text = ""
+                    ButtonChangeAppSyncDeviceName.Enabled = False
+                    ButtonSyncNow.Visible = True
+                    ButtonSyncNow.Enabled = False
+                Else
+                    ButtonManageAccount.Enabled = True
+                    ButtonManageAccount.Visible = True
+                    ButtonLoginLogout.Text = "Se déconnecter..."
+                    ButtonLoginLogout.Enabled = True
+                    LabelUsername.Text = AppSyncAgent.GetUserName()
+                    PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
+                    GroupBoxAppSyncDevice.Visible = True
+                    TextBoxAppSyncDeviceName.Text = AppSyncAgent.GetDeviceName()
+                    ButtonChangeAppSyncDeviceName.Enabled = False
+                    ButtonSyncNow.Visible = True
+                    ButtonSyncNow.Enabled = True
+                End If
+            Catch ex As Exception
                 ButtonManageAccount.Enabled = False
                 ButtonManageAccount.Visible = True
                 ButtonLoginLogout.Text = "Se déconnecter..."
