@@ -20,10 +20,7 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInHistory(page As WebPage)
-        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
-        Historique.Add(page)
-        My.Settings.History = Historique.ToStringCollection()
-        My.Settings.Save()
+        LegacyUserDataManagement.AddInHistory(page)
         URLBox.Items.Add(page.GetURL())
     End Sub
 
@@ -32,10 +29,7 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInFavorites(page As WebPage)
-        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-        Favoris.Add(page)
-        My.Settings.Favorites = Favoris.ToStringCollection()
-        My.Settings.Save()
+        LegacyUserDataManagement.AddInFavorites(page)
         URLBox.Items.Add(page.GetURL())
         UpdateInterface()
     End Sub
@@ -187,7 +181,7 @@ Public Class BrowserForm
 
         If My.Settings.PrivateBrowsing = False Then
             URLBox.Items.Add(keywords)
-            My.Settings.SearchHistory.Add(keywords)
+            LegacyUserDataManagement.AddInSearchHistory(keywords)
         End If
     End Sub
 
@@ -224,7 +218,7 @@ Public Class BrowserForm
             AdBlockerButton.Image = My.Resources.AdsBlockerButton_enabled
         End If
 
-        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
         If Favoris.ContainsPage(WB.Url.ToString()) Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
             ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Afficher le marque-page dans la bibliothèque")
@@ -338,8 +332,8 @@ Public Class BrowserForm
             AppSyncSyncNowAsync()
         End If
 
-        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
+        Dim Historique As WebPageList = LegacyUserDataManagement.GetHistory()
 
         For Each favorite In Favoris
             URLBox.Items.Add(favorite.GetURL())
@@ -349,7 +343,7 @@ Public Class BrowserForm
             URLBox.Items.Add(HistoryEntry.GetURL())
         Next
 
-        For Each SearchHistoryEntry In My.Settings.SearchHistory
+        For Each SearchHistoryEntry In LegacyUserDataManagement.GetSearchHistory()
             URLBox.Items.Add(SearchHistoryEntry)
         Next
 
@@ -829,7 +823,7 @@ Public Class BrowserForm
                     End If
                 End If
                 AddInFavorites(New WebPage(lnk))
-                If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(lnk) Then
+                If LegacyUserDataManagement.GetFavorites().ContainsPage(lnk) Then
                     msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Favori enregistré !")
                     DisplayMessageBar()
                 Else
@@ -940,7 +934,7 @@ Public Class BrowserForm
 
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(WB.Url.ToString) Then
+        If LegacyUserDataManagement.GetFavorites().ContainsPage(WB.Url.ToString) Then
             If My.Settings.HistoryFavoritesSecurity = True Then
                 EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                 EnterBrowserSettingsSecurityForm.ShowDialog()

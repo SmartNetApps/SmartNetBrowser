@@ -327,6 +327,7 @@
     <Compile Include="UpdaterForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserDataFeatures\LegacyUserDataManagement.vb" />
     <Compile Include="UserDataFeatures\UserDataManager.vb" />
     <Compile Include="UserDataFeatures\LegacyFormats\WebPage.vb" />
     <Compile Include="UserDataFeatures\LegacyFormats\WebpageList.vb" />

@@ -559,11 +559,11 @@ Public Class AppSyncAgent
         'Dim searchHistory As Boolean
         'Dim favorites As Boolean
 
-        Dim theHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Dim theHistory As WebPageList = LegacyUserDataManagement.GetHistory()
         Dim theOnlineHistory As WebPageList = Await GetHistory()
-        Dim theFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim theFavorites As WebPageList = LegacyUserDataManagement.GetFavorites()
         Dim theOnlineFavorites As WebPageList = Await GetFavorites()
-        Dim theSearchHistory As Specialized.StringCollection = My.Settings.SearchHistory
+        Dim theSearchHistory As Specialized.StringCollection = LegacyUserDataManagement.GetSearchHistory()
         Dim theOnlineSearchHistory As Specialized.StringCollection = Await GetSearchHistory()
 
         If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
@@ -607,9 +607,9 @@ Public Class AppSyncAgent
         Else
             config = Await GetConfig()
 
-            Dim theNewHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
-            Dim theNewFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-            Dim theNewSearchHistory As Specialized.StringCollection = My.Settings.SearchHistory
+            Dim theNewHistory As WebPageList = LegacyUserDataManagement.GetHistory()
+            Dim theNewFavorites As WebPageList = LegacyUserDataManagement.GetFavorites()
+            Dim theNewSearchHistory As Specialized.StringCollection = LegacyUserDataManagement.GetSearchHistory()
 
             For Each p As WebPage In theHistory
                 If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then

@@ -46,8 +46,7 @@
     End Sub
 
     Private Sub ButtonDeleteSearch_Click(sender As Object, e As EventArgs) Handles ButtonDeleteSearch.Click
-        My.Settings.SearchHistory.RemoveAt(ListBoxSearches.SelectedIndex)
-        My.Settings.Save()
+        LegacyUserDataManagement.RemoveFromSearchHistory(ListBoxSearches.SelectedIndex)
         ListBoxSearches.Items.RemoveAt(ListBoxSearches.SelectedIndex)
     End Sub
 
@@ -60,7 +59,7 @@
     Private Sub RefreshHistory()
         HistoryListView.Items.Clear()
         HistoryFaviconImageList.Images.Clear()
-        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Dim Historique As WebPageList = LegacyUserDataManagement.GetHistory()
         For Each entree In Historique
             Dim element As New ListViewItem
             HistoryFaviconImageList.Images.Add(entree.GetFavicon())
@@ -76,7 +75,7 @@
     Private Sub RefreshFavorites()
         ListViewFavorites.Items.Clear()
         FavoritesFaviconImageList.Images.Clear()
-        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
         For Each entree In Favoris
             Dim element As New ListViewItem
             FavoritesFaviconImageList.Images.Add(entree.GetFavicon())
@@ -90,8 +89,9 @@
 
     Private Sub RefreshSearches()
         ListBoxSearches.Items.Clear()
-        If My.Settings.SearchHistory.Count > 0 Then
-            For Each item In My.Settings.SearchHistory
+        Dim SearchHistory = LegacyUserDataManagement.GetSearchHistory()
+        If SearchHistory.Count > 0 Then
+            For Each item In SearchHistory
                 If item IsNot Nothing Then
                     ListBoxSearches.Items.Add(item)
                 End If
@@ -102,8 +102,9 @@
 
     Private Sub RefreshDownloads()
         ListBoxDownloads.Items.Clear()
-        If My.Settings.DownloadHistory.Count > 0 Then
-            For Each item In My.Settings.DownloadHistory
+        Dim DownloadHistory = LegacyUserDataManagement.GetDownloadHistory()
+        If DownloadHistory.Count > 0 Then
+            For Each item In DownloadHistory
                 If item IsNot Nothing Then
                     ListBoxDownloads.Items.Add(item)
                 End If
@@ -117,9 +118,7 @@
         SelectedIndexes = HistoryListView.SelectedIndices
         For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
             indice = SelectedIndexes.Item(i)
-            My.Settings.History.RemoveAt(indice)
-            My.Settings.Save()
-            'BrowserForm.Historique.RemoveAt(indice)
+            LegacyUserDataManagement.RemoveFromHistory(indice)
         Next
         RefreshHistory()
     End Sub
@@ -130,9 +129,7 @@
         SelectedIndexes = ListViewFavorites.SelectedIndices
         For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
             indice = SelectedIndexes.Item(i)
-            'BrowserForm.Favoris.RemoveAt(indice)
-            My.Settings.Favorites.RemoveAt(indice)
-            My.Settings.Save()
+            LegacyUserDataManagement.RemoveFromFavorites(indice)
         Next
         RefreshFavorites()
     End Sub
@@ -179,8 +176,7 @@
     End Sub
 
     Private Sub ButtonDeleteDownload_Click(sender As Object, e As EventArgs) Handles ButtonDeleteDownload.Click
-        My.Settings.DownloadHistory.RemoveAt(ListBoxDownloads.SelectedIndex)
-        My.Settings.Save()
+        LegacyUserDataManagement.RemoveFromDownloads(ListBoxDownloads.SelectedIndex)
         ListBoxDownloads.Items.RemoveAt(ListBoxDownloads.SelectedIndex)
     End Sub
 
