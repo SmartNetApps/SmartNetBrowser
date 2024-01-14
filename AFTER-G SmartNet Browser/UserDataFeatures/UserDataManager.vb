@@ -64,6 +64,7 @@ Public Class UserDataManager
     ''' Déclenche la migration des données à partir du format précédent (My.Settings.*)
     ''' </summary>
     Private Sub MigrateFromLegacyFormat()
+#Disable Warning BC40000
         Try
             Dim command As New SQLiteCommand With {
                 .Connection = db
@@ -123,5 +124,6 @@ Public Class UserDataManager
             Application.Exit()
             End
         End Try
+#Enable Warning BC40000
     End Sub
 End Class
