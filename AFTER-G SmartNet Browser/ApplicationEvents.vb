@@ -128,6 +128,8 @@ RetryInit:
                 MessageBox.Show("Nous avons tenté de migrer vos données vers le nouveau format d'enregistrement, mais quelque chose s'est mal passé. Veuillez contacter l'assistance technique avec les données suivantes :" + vbCrLf + ex.Message + vbCrLf + ex.Source + vbCrLf + ex.StackTrace, "Rapporteur de plantage de SmartNet Browser", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
 
+            Dim userdatadb As New UserDataManager
+
             Try
                 If My.Settings.AutoUpdates = True Then
                     Select Case UpdateAgent.IsUpdateAvailable()
