@@ -59,7 +59,7 @@
     Private Sub RefreshHistory()
         HistoryListView.Items.Clear()
         HistoryFaviconImageList.Images.Clear()
-        Dim Historique As WebPageList = LegacyUserDataManagement.GetHistory()
+        Dim Historique As LegacyWebPageList = LegacyUserDataManagement.GetHistory()
         For Each entree In Historique
             Dim element As New ListViewItem
             HistoryFaviconImageList.Images.Add(entree.GetFavicon())
@@ -75,7 +75,7 @@
     Private Sub RefreshFavorites()
         ListViewFavorites.Items.Clear()
         FavoritesFaviconImageList.Images.Clear()
-        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
+        Dim Favoris As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
         For Each entree In Favoris
             Dim element As New ListViewItem
             FavoritesFaviconImageList.Images.Add(entree.GetFavicon())

@@ -2,7 +2,7 @@
 ''' Représente une page web consultable avec un navigateur, ayant un nom, une adresse, une icône et une date de visite.
 ''' </summary>
 <Obsolete("Veuillez utiliser le nouveau format basé sur SQLite.")>
-Public Class WebPage
+Public Class LegacyWebPage
     Private nom As String
     Private URL As String
     Private favicon As Image

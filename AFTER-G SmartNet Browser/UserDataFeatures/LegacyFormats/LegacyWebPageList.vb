@@ -4,8 +4,8 @@
 ''' Représente une liste de pages web, fournit des méthodes pour y ajouter ou supprimer des pages.
 ''' </summary>
 <Obsolete("Veuillez utiliser le nouveau format basé sur SQLite.")>
-Public Class WebPageList
-    Inherits List(Of WebPage)
+Public Class LegacyWebPageList
+    Inherits List(Of LegacyWebPage)
 
     Public Sub New()
         MyBase.New()
@@ -15,7 +15,7 @@ Public Class WebPageList
         MyBase.New(capacity)
     End Sub
 
-    Public Sub New(collection As IEnumerable(Of WebPage))
+    Public Sub New(collection As IEnumerable(Of LegacyWebPage))
         MyBase.New(collection)
     End Sub
 
@@ -31,17 +31,17 @@ Public Class WebPageList
         Return listToReturn
     End Function
 
-    Public Function Clone() As WebPageList
-        Return CType(Me.MemberwiseClone(), WebPageList)
+    Public Function Clone() As LegacyWebPageList
+        Return CType(Me.MemberwiseClone(), LegacyWebPageList)
     End Function
 
-    Public Overloads Function Remove(item As WebPage, compareDate As Boolean) As Boolean
-        Dim theList As New WebPageList()
+    Public Overloads Function Remove(item As LegacyWebPage, compareDate As Boolean) As Boolean
+        Dim theList As New LegacyWebPageList()
         For Each page In Me
             theList.Add(page)
         Next
 
-        For Each page As WebPage In theList
+        For Each page As LegacyWebPage In theList
             If page.GetURL() = item.GetURL() And page.GetNom() = item.GetNom() Then
                 If compareDate = True Then
                     If page.GetVisitDateTime() = item.GetVisitDateTime() Then
@@ -60,8 +60,8 @@ Public Class WebPageList
     ''' </summary>
     ''' <param name="collection">La StringCollection à partir de laquelle sera construite la WebPageList.</param>
     ''' <returns>Une WebPageList</returns>
-    Public Shared Function FromStringCollection(collection As StringCollection) As WebPageList
-        Dim listToReturn As New WebPageList
+    Public Shared Function FromStringCollection(collection As StringCollection) As LegacyWebPageList
+        Dim listToReturn As New LegacyWebPageList
         Dim url As String
         Dim title As String
         Dim visitDate As DateTime
@@ -71,7 +71,7 @@ Public Class WebPageList
             title = pageDetails(0)
             url = pageDetails(1)
             visitDate = DateTime.Parse(pageDetails(2))
-            listToReturn.Add(New WebPage(title, url, visitDate))
+            listToReturn.Add(New LegacyWebPage(title, url, visitDate))
         Next
         Return listToReturn
     End Function

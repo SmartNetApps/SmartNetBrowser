@@ -329,8 +329,8 @@
     </Compile>
     <Compile Include="UserDataFeatures\LegacyUserDataManagement.vb" />
     <Compile Include="UserDataFeatures\UserDataManager.vb" />
-    <Compile Include="UserDataFeatures\LegacyFormats\WebPage.vb" />
-    <Compile Include="UserDataFeatures\LegacyFormats\WebpageList.vb" />
+    <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPage.vb" />
+    <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPageList.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutForm.en.resx">

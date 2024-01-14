@@ -19,7 +19,7 @@ Public Class BrowserForm
     ''' Ajoute la page spécifiée dans l'historique de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Public Sub AddInHistory(page As WebPage)
+    Public Sub AddInHistory(page As LegacyWebPage)
         LegacyUserDataManagement.AddInHistory(page)
         URLBox.Items.Add(page.GetURL())
     End Sub
@@ -28,7 +28,7 @@ Public Class BrowserForm
     ''' Ajoute la page spécifiée dans la liste des favoris de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Public Sub AddInFavorites(page As WebPage)
+    Public Sub AddInFavorites(page As LegacyWebPage)
         LegacyUserDataManagement.AddInFavorites(page)
         URLBox.Items.Add(page.GetURL())
         UpdateInterface()
@@ -218,7 +218,7 @@ Public Class BrowserForm
             AdBlockerButton.Image = My.Resources.AdsBlockerButton_enabled
         End If
 
-        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
+        Dim Favoris As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
         If Favoris.ContainsPage(WB.Url.ToString()) Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
             ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Afficher le marque-page dans la bibliothèque")
@@ -332,8 +332,8 @@ Public Class BrowserForm
             AppSyncSyncNowAsync()
         End If
 
-        Dim Favoris As WebPageList = LegacyUserDataManagement.GetFavorites()
-        Dim Historique As WebPageList = LegacyUserDataManagement.GetHistory()
+        Dim Favoris As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
+        Dim Historique As LegacyWebPageList = LegacyUserDataManagement.GetHistory()
 
         For Each favorite In Favoris
             URLBox.Items.Add(favorite.GetURL())
@@ -515,7 +515,7 @@ Public Class BrowserForm
     End Sub
     Private Sub AjouterCettePageDansLesFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
+        AddInFavorites(New LegacyWebPage(WB.DocumentTitle, WB.Url.ToString()))
     End Sub
     Private Sub ShowFavorites(sender As Object, e As EventArgs) Handles AfficherLesFavorisToolStripMenuItem.Click
         If My.Settings.HistoryFavoritesSecurity = True Then
@@ -822,7 +822,7 @@ Public Class BrowserForm
                         lnk = WB.PointedElement.ParentElement.GetAttribute("HREF")
                     End If
                 End If
-                AddInFavorites(New WebPage(lnk))
+                AddInFavorites(New LegacyWebPage(lnk))
                 If LegacyUserDataManagement.GetFavorites().ContainsPage(lnk) Then
                     msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Favori enregistré !")
                     DisplayMessageBar()
@@ -943,7 +943,7 @@ Public Class BrowserForm
                 NewHistoryForm.Show()
             End If
         Else
-            AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
+            AddInFavorites(New LegacyWebPage(WB.DocumentTitle, WB.Url.ToString()))
             My.Settings.Save()
             UpdateInterface()
         End If

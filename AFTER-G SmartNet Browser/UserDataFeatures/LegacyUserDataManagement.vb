@@ -17,17 +17,17 @@ Module LegacyUserDataManagement
             Dim pageDetails As String()
 
             If My.Settings.History.Count > 0 AndAlso My.Settings.History(0).Contains(">") = False Then
-                Dim newHistory As New WebPageList
+                Dim newHistory As New LegacyWebPageList
 
                 For Each item In My.Settings.History
                     If Not item.Contains(">") Then
-                        newHistory.Add(New WebPage(item))
+                        newHistory.Add(New LegacyWebPage(item))
                     Else
                         pageDetails = item.Split(">"c)
                         title = pageDetails(0)
                         url = pageDetails(1)
                         visitDate = DateTime.Parse(pageDetails(2))
-                        newHistory.Add(New WebPage(title, url, visitDate))
+                        newHistory.Add(New LegacyWebPage(title, url, visitDate))
                     End If
                 Next
 
@@ -37,17 +37,17 @@ Module LegacyUserDataManagement
 
 
             If My.Settings.Favorites.Count > 0 AndAlso My.Settings.Favorites(0).Contains(">") = False Then
-                Dim newFavorites As New WebPageList
+                Dim newFavorites As New LegacyWebPageList
 
                 For Each item In My.Settings.Favorites
                     If Not item.Contains(">") Then
-                        newFavorites.Add(New WebPage(item))
+                        newFavorites.Add(New LegacyWebPage(item))
                     Else
                         pageDetails = item.Split(">"c)
                         title = pageDetails(0)
                         url = pageDetails(1)
                         visitDate = DateTime.Parse(pageDetails(2))
-                        newFavorites.Add(New WebPage(title, url, visitDate))
+                        newFavorites.Add(New LegacyWebPage(title, url, visitDate))
                     End If
                 Next
 
@@ -66,12 +66,12 @@ Module LegacyUserDataManagement
         End Try
     End Sub
 
-    Function GetHistory() As WebPageList
-        Return WebPageList.FromStringCollection(My.Settings.History)
+    Function GetHistory() As LegacyWebPageList
+        Return LegacyWebPageList.FromStringCollection(My.Settings.History)
     End Function
 
-    Function GetFavorites() As WebPageList
-        Return WebPageList.FromStringCollection(My.Settings.Favorites)
+    Function GetFavorites() As LegacyWebPageList
+        Return LegacyWebPageList.FromStringCollection(My.Settings.Favorites)
     End Function
 
     Function GetSearchHistory() As StringCollection
@@ -86,8 +86,8 @@ Module LegacyUserDataManagement
     ''' Ajoute la page spécifiée dans l'historique de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Sub AddInHistory(page As WebPage)
-        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+    Sub AddInHistory(page As LegacyWebPage)
+        Dim Historique As LegacyWebPageList = LegacyWebPageList.FromStringCollection(My.Settings.History)
         Historique.Add(page)
         My.Settings.History = Historique.ToStringCollection()
         My.Settings.Save()
@@ -97,8 +97,8 @@ Module LegacyUserDataManagement
     ''' Ajoute la page spécifiée dans la liste des favoris de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Sub AddInFavorites(page As WebPage)
-        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+    Sub AddInFavorites(page As LegacyWebPage)
+        Dim Favoris As LegacyWebPageList = LegacyWebPageList.FromStringCollection(My.Settings.Favorites)
         Favoris.Add(page)
         My.Settings.Favorites = Favoris.ToStringCollection()
         My.Settings.Save()

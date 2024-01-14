@@ -70,7 +70,7 @@ Public Class UserDataManager
                 .Connection = db
             }
 
-            Dim legacyHistory = WebPageList.FromStringCollection(My.Settings.History).GetEnumerator()
+            Dim legacyHistory = LegacyWebPageList.FromStringCollection(My.Settings.History).GetEnumerator()
             While legacyHistory.MoveNext()
                 Dim page = legacyHistory.Current
                 Dim visitDate = (page.GetVisitDateTime().ToUniversalTime() - New DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds
@@ -83,7 +83,7 @@ Public Class UserDataManager
                 command.ExecuteNonQuery()
             End While
 
-            Dim legacyBookmarks = WebPageList.FromStringCollection(My.Settings.Favorites).GetEnumerator()
+            Dim legacyBookmarks = LegacyWebPageList.FromStringCollection(My.Settings.Favorites).GetEnumerator()
             While legacyBookmarks.MoveNext()
                 Dim page = legacyBookmarks.Current
                 Dim visitDate = (page.GetVisitDateTime().ToUniversalTime() - New DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds
@@ -125,5 +125,13 @@ Public Class UserDataManager
             End
         End Try
 #Enable Warning BC40000
+    End Sub
+
+    Public Sub GetHistory()
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "SELECT * FROM history"
+        }
+        Dim reader = command.ExecuteReader()
     End Sub
 End Class

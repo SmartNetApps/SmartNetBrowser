@@ -172,7 +172,7 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_DOMContentLoaded(sender As Object, e As DomEventArgs) Handles Me.DOMContentLoaded
         Favicon = GetCurrentPageFavicon()
         If My.Settings.PrivateBrowsing = False And Not (Me.Url.ToString().Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString().Contains("about:")) Then
-            BrowserForm.AddInHistory(New WebPage(Me.DocumentTitle, Me.Url.ToString()))
+            BrowserForm.AddInHistory(New LegacyWebPage(Me.DocumentTitle, Me.Url.ToString()))
         End If
         UpdateInterface()
     End Sub

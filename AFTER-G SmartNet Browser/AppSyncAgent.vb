@@ -297,7 +297,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function GetHistory() As Task(Of WebPageList)
+    Public Shared Async Function GetHistory() As Task(Of LegacyWebPageList)
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
@@ -311,15 +311,15 @@ Public Class AppSyncAgent
             Throw New AppSyncException(parsedresult.statusMessage)
         Else
             Dim history As List(Of Page) = parsedresult.apiResponse.browserHistory
-            Dim list As New WebPageList()
+            Dim list As New LegacyWebPageList()
             For Each p As Page In history
-                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
+                list.Add(New LegacyWebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
             Next
             Return list
         End If
     End Function
 
-    Public Shared Async Function GetFavorites() As Task(Of WebPageList)
+    Public Shared Async Function GetFavorites() As Task(Of LegacyWebPageList)
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
@@ -333,9 +333,9 @@ Public Class AppSyncAgent
             Throw New AppSyncException(parsedresult.statusMessage)
         Else
             Dim favorites As List(Of Page) = parsedresult.apiResponse.browserFavorites
-            Dim list As New WebPageList()
+            Dim list As New LegacyWebPageList()
             For Each p As Page In favorites
-                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL)))
+                list.Add(New LegacyWebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL)))
             Next
             Return list
         End If
@@ -363,7 +363,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function AddHistory(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function AddHistory(page As LegacyWebPage) As Task(Of Boolean)
         Dim laPage As New Page
         laPage.pageTitle = page.GetNom()
         laPage.pageURL = page.GetURL()
@@ -386,7 +386,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function AddFavorite(page As LegacyWebPage) As Task(Of Boolean)
         Dim laPage As New Page
         laPage.pageTitle = page.GetNom()
         laPage.pageURL = page.GetURL()
@@ -425,7 +425,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function DeleteHistory(page As LegacyWebPage) As Task(Of Boolean)
         Dim laPage As New Page
         laPage.pageTitle = page.GetNom()
         laPage.pageURL = page.GetURL()
@@ -448,7 +448,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
+    Public Shared Async Function DeleteFavorite(page As LegacyWebPage) As Task(Of Boolean)
         Dim laPage As New Page
         laPage.pageTitle = page.GetNom()
         laPage.pageURL = page.GetURL()
@@ -559,35 +559,35 @@ Public Class AppSyncAgent
         'Dim searchHistory As Boolean
         'Dim favorites As Boolean
 
-        Dim theHistory As WebPageList = LegacyUserDataManagement.GetHistory()
-        Dim theOnlineHistory As WebPageList = Await GetHistory()
-        Dim theFavorites As WebPageList = LegacyUserDataManagement.GetFavorites()
-        Dim theOnlineFavorites As WebPageList = Await GetFavorites()
+        Dim theHistory As LegacyWebPageList = LegacyUserDataManagement.GetHistory()
+        Dim theOnlineHistory As LegacyWebPageList = Await GetHistory()
+        Dim theFavorites As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
+        Dim theOnlineFavorites As LegacyWebPageList = Await GetFavorites()
         Dim theSearchHistory As Specialized.StringCollection = LegacyUserDataManagement.GetSearchHistory()
         Dim theOnlineSearchHistory As Specialized.StringCollection = Await GetSearchHistory()
 
         If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
             config = Await SendConfig()
 
-            For Each p As WebPage In theHistory
+            For Each p As LegacyWebPage In theHistory
                 If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
                     Await AddHistory(p)
                 End If
             Next
 
-            For Each p As WebPage In theOnlineHistory
+            For Each p As LegacyWebPage In theOnlineHistory
                 If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
                     Await DeleteHistory(p)
                 End If
             Next
 
-            For Each p As WebPage In theFavorites
+            For Each p As LegacyWebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
                     Await AddFavorite(p)
                 End If
             Next
 
-            For Each op As WebPage In theOnlineFavorites
+            For Each op As LegacyWebPage In theOnlineFavorites
                 If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
                     Await DeleteFavorite(op)
                 End If
@@ -607,17 +607,17 @@ Public Class AppSyncAgent
         Else
             config = Await GetConfig()
 
-            Dim theNewHistory As WebPageList = LegacyUserDataManagement.GetHistory()
-            Dim theNewFavorites As WebPageList = LegacyUserDataManagement.GetFavorites()
+            Dim theNewHistory As LegacyWebPageList = LegacyUserDataManagement.GetHistory()
+            Dim theNewFavorites As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
             Dim theNewSearchHistory As Specialized.StringCollection = LegacyUserDataManagement.GetSearchHistory()
 
-            For Each p As WebPage In theHistory
+            For Each p As LegacyWebPage In theHistory
                 If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
                     theNewHistory.Remove(p, True)
                 End If
             Next
 
-            For Each p As WebPage In theFavorites
+            For Each p As LegacyWebPage In theFavorites
                 If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
                     theNewFavorites.Remove(p, False)
                 End If
@@ -629,13 +629,13 @@ Public Class AppSyncAgent
                 End If
             Next
 
-            For Each p As WebPage In theOnlineHistory
+            For Each p As LegacyWebPage In theOnlineHistory
                 If theNewHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
                     theNewHistory.Add(p)
                 End If
             Next
 
-            For Each op As WebPage In theOnlineFavorites
+            For Each op As LegacyWebPage In theOnlineFavorites
                 If theNewFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
                     theNewFavorites.Add(op)
                     BrowserForm.URLBox.Items.Add(op.GetURL())
