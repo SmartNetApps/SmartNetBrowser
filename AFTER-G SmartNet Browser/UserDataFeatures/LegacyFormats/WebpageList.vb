@@ -3,6 +3,7 @@
 ''' <summary>
 ''' Représente une liste de pages web, fournit des méthodes pour y ajouter ou supprimer des pages.
 ''' </summary>
+<Obsolete("Veuillez utiliser le nouveau format basé sur SQLite.")>
 Public Class WebPageList
     Inherits List(Of WebPage)
 
