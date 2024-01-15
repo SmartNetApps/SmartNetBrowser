@@ -69,7 +69,9 @@ RetryInit:
                 End Select
             End Try
 
+#Disable Warning BC40000
             LegacyUserDataManagement.MigrateFromV1Format()
+#Enable Warning BC40000
 
             Try
                 If My.Settings.AutoUpdates = True Then

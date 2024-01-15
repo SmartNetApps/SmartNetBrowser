@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Net
-Imports System.Runtime.Serialization.Formatters.Binary
 Imports Gecko
 Imports Gecko.Events
 
@@ -84,8 +83,8 @@ Public Class CustomBrowser
                         EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                         EnterBrowserSettingsSecurityForm.ShowDialog()
                     Else
-                        NewHistoryForm.TabControl1.SelectTab(1)
-                        NewHistoryForm.Show()
+                        UserDataLibraryForm.TabControl1.SelectTab(1)
+                        UserDataLibraryForm.Show()
                     End If
                 Case Keys.BrowserForward
                     GoForward()
@@ -172,7 +171,7 @@ Public Class CustomBrowser
     Private Sub CustomBrowser_DOMContentLoaded(sender As Object, e As DomEventArgs) Handles Me.DOMContentLoaded
         Favicon = GetCurrentPageFavicon()
         If My.Settings.PrivateBrowsing = False And Not (Me.Url.ToString().Contains(My.Application.Info.DirectoryPath.Replace("\", "/")) Or Me.Url.ToString().Contains("about:")) Then
-            BrowserForm.AddInHistory(New LegacyWebPage(Me.DocumentTitle, Me.Url.ToString()))
+            BrowserForm.AddInHistory(New WebPage(Me.DocumentTitle, Me.Url.ToString()))
         End If
         UpdateInterface()
     End Sub

@@ -5,6 +5,7 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 
 Public Class BrowserForm
+    Private ReadOnly userData As UserDataManager = UserDataManager.GetInstance()
     Public msgBar As MessageBar
     Dim tabPageIndex As Integer = 0
     Public lastClosedTabURL As String
@@ -19,18 +20,18 @@ Public Class BrowserForm
     ''' Ajoute la page spécifiée dans l'historique de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Public Sub AddInHistory(page As LegacyWebPage)
-        LegacyUserDataManagement.AddInHistory(page)
-        URLBox.Items.Add(page.GetURL())
+    Public Sub AddInHistory(page As WebPage)
+        userData.AddInHistory(page)
+        URLBox.Items.Add(page.URI.AbsoluteUri)
     End Sub
 
     ''' <summary>
     ''' Ajoute la page spécifiée dans la liste des favoris de l'utilisateur.
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
-    Public Sub AddInFavorites(page As LegacyWebPage)
-        LegacyUserDataManagement.AddInFavorites(page)
-        URLBox.Items.Add(page.GetURL())
+    Public Sub AddInFavorites(page As WebPage)
+        userData.AddInBookmarks(page)
+        URLBox.Items.Add(page.URI.AbsoluteUri)
         UpdateInterface()
     End Sub
 
@@ -181,7 +182,7 @@ Public Class BrowserForm
 
         If My.Settings.PrivateBrowsing = False Then
             URLBox.Items.Add(keywords)
-            LegacyUserDataManagement.AddInSearchHistory(keywords)
+            userData.AddInSearchHistory(New SearchHistoryItem(keywords))
         End If
     End Sub
 
@@ -218,8 +219,7 @@ Public Class BrowserForm
             AdBlockerButton.Image = My.Resources.AdsBlockerButton_enabled
         End If
 
-        Dim Favoris As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
-        If Favoris.ContainsPage(WB.Url.ToString()) Then
+        If userData.SearchInBookmarks(WB.Url.ToString()).Count > 0 Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
             ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Afficher le marque-page dans la bibliothèque")
         Else
@@ -332,19 +332,19 @@ Public Class BrowserForm
             AppSyncSyncNowAsync()
         End If
 
-        Dim Favoris As LegacyWebPageList = LegacyUserDataManagement.GetFavorites()
-        Dim Historique As LegacyWebPageList = LegacyUserDataManagement.GetHistory()
+        Dim Favoris As List(Of WebPage) = userData.GetBookmarks()
+        Dim Historique As List(Of WebPage) = userData.GetHistory()
 
         For Each favorite In Favoris
-            URLBox.Items.Add(favorite.GetURL())
+            URLBox.Items.Add(favorite.URI.AbsoluteUri)
         Next
 
         For Each HistoryEntry In Historique
-            URLBox.Items.Add(HistoryEntry.GetURL())
+            URLBox.Items.Add(HistoryEntry.URI.AbsoluteUri)
         Next
 
-        For Each SearchHistoryEntry In LegacyUserDataManagement.GetSearchHistory()
-            URLBox.Items.Add(SearchHistoryEntry)
+        For Each SearchHistoryEntry In userData.GetSearchHistory()
+            URLBox.Items.Add(SearchHistoryEntry.Query)
         Next
 
         If My.Settings.CorrectlyClosed = False Then
@@ -515,15 +515,15 @@ Public Class BrowserForm
     End Sub
     Private Sub AjouterCettePageDansLesFavorisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjouterCettePageDansLesFavorisToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddInFavorites(New LegacyWebPage(WB.DocumentTitle, WB.Url.ToString()))
+        AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
     End Sub
     Private Sub ShowFavorites(sender As Object, e As EventArgs) Handles AfficherLesFavorisToolStripMenuItem.Click
         If My.Settings.HistoryFavoritesSecurity = True Then
             EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            NewHistoryForm.TabControl1.SelectTab(1)
-            NewHistoryForm.Show()
+            UserDataLibraryForm.TabControl1.SelectTab(1)
+            UserDataLibraryForm.Show()
         End If
     End Sub
 
@@ -822,14 +822,7 @@ Public Class BrowserForm
                         lnk = WB.PointedElement.ParentElement.GetAttribute("HREF")
                     End If
                 End If
-                AddInFavorites(New LegacyWebPage(lnk))
-                If LegacyUserDataManagement.GetFavorites().ContainsPage(lnk) Then
-                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Favori enregistré !")
-                    DisplayMessageBar()
-                Else
-                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "Oups, le favori ne s'est pas enregistré...")
-                    DisplayMessageBar()
-                End If
+                AddInFavorites(New WebPage(lnk, lnk))
             End If
         Catch ex As Exception
             msgBar = New MessageBar(ex)
@@ -934,16 +927,16 @@ Public Class BrowserForm
 
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        If LegacyUserDataManagement.GetFavorites().ContainsPage(WB.Url.ToString) Then
+        If userData.SearchInBookmarks(WB.Url.ToString).Count > 0 Then
             If My.Settings.HistoryFavoritesSecurity = True Then
                 EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
-                NewHistoryForm.TabControl1.SelectTab(1)
-                NewHistoryForm.Show()
+                UserDataLibraryForm.TabControl1.SelectTab(1)
+                UserDataLibraryForm.Show()
             End If
         Else
-            AddInFavorites(New LegacyWebPage(WB.DocumentTitle, WB.Url.ToString()))
+            AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
             My.Settings.Save()
             UpdateInterface()
         End If
@@ -1017,8 +1010,8 @@ Public Class BrowserForm
                         EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                         EnterBrowserSettingsSecurityForm.ShowDialog()
                     Else
-                        NewHistoryForm.TabControl1.SelectTab(1)
-                        NewHistoryForm.Show()
+                        UserDataLibraryForm.TabControl1.SelectTab(1)
+                        UserDataLibraryForm.Show()
                     End If
                 Case Keys.BrowserForward
                     WB.GoForward()
@@ -1182,8 +1175,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "History"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            NewHistoryForm.TabControl1.SelectTab(0)
-            NewHistoryForm.Show()
+            UserDataLibraryForm.TabControl1.SelectTab(0)
+            UserDataLibraryForm.Show()
         End If
     End Sub
 
@@ -1192,8 +1185,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "SearchHistory"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            NewHistoryForm.TabControl1.SelectTab(2)
-            NewHistoryForm.Show()
+            UserDataLibraryForm.TabControl1.SelectTab(2)
+            UserDataLibraryForm.Show()
         End If
     End Sub
 
@@ -1202,8 +1195,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "DownloadHistory"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            NewHistoryForm.TabControl1.SelectTab(3)
-            NewHistoryForm.Show()
+            UserDataLibraryForm.TabControl1.SelectTab(3)
+            UserDataLibraryForm.Show()
         End If
     End Sub
 

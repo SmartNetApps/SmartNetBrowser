@@ -266,10 +266,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="NetworkChecker.vb" />
-    <Compile Include="NewHistoryForm.Designer.vb">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    <Compile Include="Tools\TimestampConverter.vb" />
+    <Compile Include="UserDataFeatures\Formats\DownloadedItem.vb" />
+    <Compile Include="UserDataFeatures\Formats\UserDataItem.vb" />
+    <Compile Include="UserDataFeatures\Formats\SearchHistoryItem.vb" />
+    <Compile Include="UserDataFeatures\UserDataLibraryForm.Designer.vb">
+      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="NewHistoryForm.vb">
+    <Compile Include="UserDataFeatures\UserDataLibraryForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
@@ -327,10 +331,12 @@
     <Compile Include="UpdaterForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Tools\IconConverter.vb" />
     <Compile Include="UserDataFeatures\LegacyUserDataManagement.vb" />
     <Compile Include="UserDataFeatures\UserDataManager.vb" />
     <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPage.vb" />
     <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPageList.vb" />
+    <Compile Include="UserDataFeatures\Formats\WebPage.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutForm.en.resx">
@@ -447,14 +453,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewHistoryForm.en.resx">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.en.resx">
+      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewHistoryForm.fr.resx">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.fr.resx">
+      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewHistoryForm.resx">
-      <DependentUpon>NewHistoryForm.vb</DependentUpon>
+    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.resx">
+      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
