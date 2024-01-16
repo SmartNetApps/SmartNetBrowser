@@ -4,6 +4,7 @@ Imports System.Text
 Imports Newtonsoft.Json
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 Imports System.IO
+Imports Gecko
 
 ''' <summary>
 ''' Agent de connexion de SmartNet AppSync
@@ -297,7 +298,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function GetHistory() As Task(Of WebPageList)
+    Public Shared Async Function GetHistory() As Task(Of List(Of WebPage))
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
@@ -311,15 +312,15 @@ Public Class AppSyncAgent
             Throw New AppSyncException(parsedresult.statusMessage)
         Else
             Dim history As List(Of Page) = parsedresult.apiResponse.browserHistory
-            Dim list As New WebPageList()
+            Dim list As New List(Of WebPage)
             For Each p As Page In history
-                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), p.pageVisitDateTime))
+                list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL), My.Resources.ErrorFavicon, TimestampConverter.DateTimeToUnixTimestamp(p.pageVisitDateTime)))
             Next
             Return list
         End If
     End Function
 
-    Public Shared Async Function GetFavorites() As Task(Of WebPageList)
+    Public Shared Async Function GetFavorites() As Task(Of List(Of WebPage))
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
@@ -333,7 +334,7 @@ Public Class AppSyncAgent
             Throw New AppSyncException(parsedresult.statusMessage)
         Else
             Dim favorites As List(Of Page) = parsedresult.apiResponse.browserFavorites
-            Dim list As New WebPageList()
+            Dim list As New List(Of WebPage)
             For Each p As Page In favorites
                 list.Add(New WebPage(WebUtility.UrlDecode(p.pageTitle), WebUtility.UrlDecode(p.pageURL)))
             Next
@@ -341,7 +342,7 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function GetSearchHistory() As Task(Of Specialized.StringCollection)
+    Public Shared Async Function GetSearchHistory() As Task(Of List(Of SearchHistoryItem))
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
@@ -355,9 +356,9 @@ Public Class AppSyncAgent
             Throw New AppSyncException(parsedresult.statusMessage)
         Else
             Dim searchhistory As List(Of BrowserSearchHistory) = parsedresult.apiResponse.browserSearchHistory
-            Dim list As New Specialized.StringCollection()
+            Dim list As New List(Of SearchHistoryItem)
             For Each p In searchhistory
-                list.Add(WebUtility.UrlDecode(p.searchHistoryText))
+                list.Add(New SearchHistoryItem(WebUtility.UrlDecode(p.searchHistoryText)))
             Next
             Return list
         End If
@@ -365,9 +366,9 @@ Public Class AppSyncAgent
 
     Public Shared Async Function AddHistory(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
-        laPage.pageVisitDateTime = page.GetVisitDateTime()
+        laPage.pageTitle = page.Title
+        laPage.pageURL = page.URI.AbsoluteUri
+        laPage.pageVisitDateTime = page.GetCreationDate()
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
         Dim client As New WebClient
@@ -388,8 +389,8 @@ Public Class AppSyncAgent
 
     Public Shared Async Function AddFavorite(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
+        laPage.pageTitle = page.Title
+        laPage.pageURL = page.URI.AbsoluteUri
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
         Dim client As New WebClient
@@ -408,11 +409,11 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function AddSearchHistory(query As String) As Task(Of Boolean)
+    Public Shared Async Function AddSearchHistory(query As SearchHistoryItem) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
-        Dim queryParameters As String = "?action=AddSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim queryParameters As String = "?action=AddSearchHistory&queryText=" + WebUtility.UrlEncode(query.Query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
@@ -427,9 +428,9 @@ Public Class AppSyncAgent
 
     Public Shared Async Function DeleteHistory(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
-        laPage.pageVisitDateTime = page.GetVisitDateTime()
+        laPage.pageTitle = page.Title
+        laPage.pageURL = page.URI.AbsoluteUri
+        laPage.pageVisitDateTime = page.GetCreationDate()
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
         Dim client As New WebClient
@@ -450,8 +451,8 @@ Public Class AppSyncAgent
 
     Public Shared Async Function DeleteFavorite(page As WebPage) As Task(Of Boolean)
         Dim laPage As New Page
-        laPage.pageTitle = page.GetNom()
-        laPage.pageURL = page.GetURL()
+        laPage.pageTitle = page.Title
+        laPage.pageURL = page.URI.AbsoluteUri
         Dim jsonpage As String = JsonConvert.SerializeObject(laPage)
 
         Dim client As New WebClient
@@ -470,11 +471,11 @@ Public Class AppSyncAgent
         End If
     End Function
 
-    Public Shared Async Function DeleteSearchHistory(query As String) As Task(Of Boolean)
+    Public Shared Async Function DeleteSearchHistory(query As SearchHistoryItem) As Task(Of Boolean)
         Dim client As New WebClient
         Dim resultat As String
         Dim engineURL As String = "https://appsync.lesmajesticiels.org/api_v2/browser/sendquery.php"
-        Dim queryParameters As String = "?action=DeleteSearchHistory&queryText=" + WebUtility.UrlEncode(query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
+        Dim queryParameters As String = "?action=DeleteSearchHistory&queryText=" + WebUtility.UrlEncode(query.Query) + "&idConnexion=" + My.Settings.AppSyncDeviceNumber.ToString()
         Console.WriteLine(engineURL + queryParameters)
 
         resultat = Await client.DownloadStringTaskAsync(engineURL + queryParameters)
@@ -559,99 +560,96 @@ Public Class AppSyncAgent
         'Dim searchHistory As Boolean
         'Dim favorites As Boolean
 
-        Dim theHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
-        Dim theOnlineHistory As WebPageList = Await GetHistory()
-        Dim theFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-        Dim theOnlineFavorites As WebPageList = Await GetFavorites()
-        Dim theSearchHistory As Specialized.StringCollection = My.Settings.SearchHistory
-        Dim theOnlineSearchHistory As Specialized.StringCollection = Await GetSearchHistory()
+        Dim theHistory As List(Of WebPage) = UserDataManager.GetInstance().GetHistory()
+        Dim theOnlineHistory As List(Of WebPage) = Await GetHistory()
+        Dim theFavorites As List(Of WebPage) = UserDataManager.GetInstance().GetBookmarks()
+        Dim theOnlineFavorites As List(Of WebPage) = Await GetFavorites()
+        Dim theSearchHistory As List(Of SearchHistoryItem) = UserDataManager.GetInstance().GetSearchHistory()
+        Dim theOnlineSearchHistory As List(Of SearchHistoryItem) = Await GetSearchHistory()
 
         If My.Settings.AppSyncLastSyncTime >= LastConfigSyncTime() Then
             config = Await SendConfig()
 
             For Each p As WebPage In theHistory
-                If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                If Not theOnlineHistory.Exists(Function(webPage) webPage.IsSimilarTo(p, True)) Then
                     Await AddHistory(p)
                 End If
             Next
 
             For Each p As WebPage In theOnlineHistory
-                If theHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
+                If Not theHistory.Exists(Function(webPage) webPage.IsSimilarTo(p, True)) Then
                     Await DeleteHistory(p)
                 End If
             Next
 
             For Each p As WebPage In theFavorites
-                If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
+                If Not theOnlineFavorites.Exists(Function(webPage) webPage.IsSimilarTo(p)) Then
                     Await AddFavorite(p)
                 End If
             Next
 
             For Each op As WebPage In theOnlineFavorites
-                If theFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
+                If Not theFavorites.Exists(Function(webPage) webPage.IsSimilarTo(op)) Then
                     Await DeleteFavorite(op)
                 End If
             Next
 
-            For Each q As String In theSearchHistory
-                If theOnlineSearchHistory.Contains(q) = False Then
+            For Each q As SearchHistoryItem In theSearchHistory
+                If Not theOnlineSearchHistory.Exists(Function(item) item.Query = q.Query) Then
                     Await AddSearchHistory(q)
                 End If
             Next
 
-            For Each q As String In theOnlineSearchHistory
-                If theSearchHistory.Contains(q) = False Then
+            For Each q As SearchHistoryItem In theOnlineSearchHistory
+                If Not theSearchHistory.Exists(Function(item) item.Query = q.Query) Then
                     Await DeleteSearchHistory(q)
                 End If
             Next
         Else
             config = Await GetConfig()
 
-            Dim theNewHistory As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
-            Dim theNewFavorites As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
-            Dim theNewSearchHistory As Specialized.StringCollection = My.Settings.SearchHistory
+            Dim theNewHistory As List(Of WebPage) = UserDataManager.GetInstance().GetHistory()
+            Dim theNewFavorites As List(Of WebPage) = UserDataManager.GetInstance().GetBookmarks()
+            Dim theNewSearchHistory As List(Of SearchHistoryItem) = UserDataManager.GetInstance().GetSearchHistory()
 
             For Each p As WebPage In theHistory
-                If theOnlineHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    theNewHistory.Remove(p, True)
+                If Not theOnlineHistory.Exists(Function(webPage) webPage.IsSimilarTo(p, True)) Then
+                    UserDataManager.GetInstance().DeleteFromHistory(p.GetRawCreationDate())
                 End If
             Next
 
             For Each p As WebPage In theFavorites
-                If theOnlineFavorites.ContainsPage(p.GetURL(), p.GetNom()) = False Then
-                    theNewFavorites.Remove(p, False)
+                If Not theOnlineFavorites.Exists(Function(webPage) webPage.IsSimilarTo(p)) Then
+                    UserDataManager.GetInstance().DeleteFromBookmarks(p.GetRawCreationDate(), p.URI.AbsoluteUri)
                 End If
             Next
 
-            For Each q As String In theSearchHistory
-                If theOnlineSearchHistory.Contains(q) = False Then
+            For Each q As SearchHistoryItem In theSearchHistory
+                If Not theOnlineSearchHistory.Exists(Function(item) item.Query = q.Query) Then
                     theNewSearchHistory.Remove(q)
                 End If
             Next
 
             For Each p As WebPage In theOnlineHistory
-                If theNewHistory.ContainsPage(p.GetURL(), p.GetNom(), p.GetVisitDateTime()) = False Then
-                    theNewHistory.Add(p)
+                If Not theNewHistory.Exists(Function(webPage) webPage.IsSimilarTo(p, True)) Then
+                    UserDataManager.GetInstance().AddInHistory(p)
+                    BrowserForm.URLBox.Items.Add(p.URI.AbsoluteUri)
                 End If
             Next
 
             For Each op As WebPage In theOnlineFavorites
-                If theNewFavorites.ContainsPage(op.GetURL(), op.GetNom()) = False Then
+                If Not theNewFavorites.Exists(Function(webPage) webPage.IsSimilarTo(op)) Then
                     theNewFavorites.Add(op)
-                    BrowserForm.URLBox.Items.Add(op.GetURL())
+                    BrowserForm.URLBox.Items.Add(op.URI.AbsoluteUri)
                 End If
             Next
 
-            For Each q As String In theOnlineSearchHistory
-                If theNewSearchHistory.Contains(q) = False Then
+            For Each q As SearchHistoryItem In theOnlineSearchHistory
+                If Not theNewSearchHistory.Exists(Function(item) item.Query = q.Query) Then
                     theNewSearchHistory.Add(q)
                     BrowserForm.URLBox.Items.Add(q)
                 End If
             Next
-
-            My.Settings.History = theNewHistory.ToStringCollection()
-            My.Settings.Favorites = theNewFavorites.ToStringCollection()
-            My.Settings.SearchHistory = theNewSearchHistory
         End If
 
         Dim synctime As Boolean = Await RefreshSyncTime()

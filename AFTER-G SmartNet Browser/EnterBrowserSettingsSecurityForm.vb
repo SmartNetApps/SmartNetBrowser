@@ -12,17 +12,17 @@ Public Class EnterBrowserSettingsSecurityForm
                 Case "Settings"
                     SettingsForm.Show()
                 Case "History"
-                    NewHistoryForm.TabControl1.SelectTab(0)
-                    NewHistoryForm.Show()
+                    UserDataLibraryForm.TabControl1.SelectTab(0)
+                    UserDataLibraryForm.Show()
                 Case "Favorites"
-                    NewHistoryForm.TabControl1.SelectTab(1)
-                    NewHistoryForm.Show()
+                    UserDataLibraryForm.TabControl1.SelectTab(1)
+                    UserDataLibraryForm.Show()
                 Case "SearchHistory"
-                    NewHistoryForm.TabControl1.SelectTab(2)
-                    NewHistoryForm.Show()
+                    UserDataLibraryForm.TabControl1.SelectTab(2)
+                    UserDataLibraryForm.Show()
                 Case "DownloadHistory"
-                    NewHistoryForm.TabControl1.SelectTab(3)
-                    NewHistoryForm.Show()
+                    UserDataLibraryForm.TabControl1.SelectTab(3)
+                    UserDataLibraryForm.Show()
                 Case Else
                     MsgBox("Un problème est survenu, réessayez.")
             End Select

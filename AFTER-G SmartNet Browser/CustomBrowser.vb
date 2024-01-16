@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Net
-Imports System.Runtime.Serialization.Formatters.Binary
 Imports Gecko
 Imports Gecko.Events
 
@@ -84,8 +83,8 @@ Public Class CustomBrowser
                         EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                         EnterBrowserSettingsSecurityForm.ShowDialog()
                     Else
-                        NewHistoryForm.TabControl1.SelectTab(1)
-                        NewHistoryForm.Show()
+                        UserDataLibraryForm.TabControl1.SelectTab(1)
+                        UserDataLibraryForm.Show()
                     End If
                 Case Keys.BrowserForward
                     GoForward()
