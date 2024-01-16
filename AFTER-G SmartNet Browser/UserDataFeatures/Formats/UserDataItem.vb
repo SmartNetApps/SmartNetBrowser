@@ -14,12 +14,12 @@ Public Class UserDataItem
 
     Public Sub New()
         CreationDate = TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now())
-        DeletionDate = TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now())
+        DeletionDate = Nothing
     End Sub
 
     Public Sub New(NewCreationDate As Double)
         CreationDate = NewCreationDate
-        DeletionDate = TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now())
+        DeletionDate = Nothing
     End Sub
 
     Public Sub New(NewCreationDate As Double, NewDeletionDate As Double)

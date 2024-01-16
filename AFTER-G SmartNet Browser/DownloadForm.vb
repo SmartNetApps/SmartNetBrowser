@@ -75,7 +75,7 @@ Public Class DownloadForm
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
         If My.Settings.PrivateBrowsing = False Then
-            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink))
+            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink, FileNameLabel.Text))
         End If
     End Sub
 
@@ -90,7 +90,7 @@ Public Class DownloadForm
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
         If My.Settings.PrivateBrowsing = False Then
-            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink))
+            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink, FileNameLabel.Text))
         End If
     End Sub
 End Class

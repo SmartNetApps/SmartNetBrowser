@@ -332,4 +332,44 @@ Public Class UserDataManager
 
         Return bookmarks
     End Function
+
+    Public Sub DeleteFromHistory(CreationDate As Double)
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "UPDATE history SET deleted_on = @deleted_on WHERE created_on = @created_on"
+        }
+        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+        command.ExecuteNonQuery()
+    End Sub
+
+    Public Sub DeleteFromBookmarks(CreationDate As Double)
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE created_on = @created_on"
+        }
+        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+        command.ExecuteNonQuery()
+    End Sub
+
+    Public Sub DeleteFromSearchHistory(CreationDate As Double)
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "UPDATE searchquery SET deleted_on = @deleted_on WHERE created_on = @created_on"
+        }
+        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+        command.ExecuteNonQuery()
+    End Sub
+
+    Public Sub DeleteFromDownloadHistory(CreationDate As Double)
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "UPDATE download SET deleted_on = @deleted_on WHERE created_on = @created_on"
+        }
+        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+        command.ExecuteNonQuery()
+    End Sub
 End Class

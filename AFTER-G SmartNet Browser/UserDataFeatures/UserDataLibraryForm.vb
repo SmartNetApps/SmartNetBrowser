@@ -49,13 +49,12 @@
     End Sub
 
     Private Sub ButtonSearchAgain_Click(sender As Object, e As EventArgs) Handles ButtonSearchAgain.Click
-        BrowserForm.OpenSearchResults(ListBoxSearches.SelectedItem.ToString())
+        BrowserForm.OpenSearchResults(SearchHistoryListView.SelectedItems(0).SubItems(0).Text.ToString())
         BrowserForm.BringToFront()
     End Sub
 
     Private Sub ButtonDeleteSearch_Click(sender As Object, e As EventArgs) Handles ButtonDeleteSearch.Click
-        LegacyUserDataManagement.RemoveFromSearchHistory(ListBoxSearches.SelectedIndex)
-        ListBoxSearches.Items.RemoveAt(ListBoxSearches.SelectedIndex)
+        DeleteSelectedSearchHistoryItems()
     End Sub
 
     Private Sub ListViewFavorites_DoubleClick(sender As Object, e As EventArgs) Handles ListViewFavorites.DoubleClick
@@ -73,6 +72,7 @@
             Dim element = HistoryListView.Items.Add(Historique.Current.Title)
             element.SubItems.Add(Historique.Current.URI.AbsoluteUri)
             element.SubItems.Add(Historique.Current.GetCreationDate().ToString())
+            element.Tag = Historique.Current
         End While
         HistoryListView.SmallImageList = HistoryFaviconImageList
         HistoryListView.LargeImageList = HistoryFaviconImageList
@@ -87,6 +87,7 @@
             FavoritesFaviconImageList.Images.Add(Favoris.Current.Icon)
             Dim element = ListViewFavorites.Items.Add(Favoris.Current.Title)
             element.SubItems.Add(Favoris.Current.URI.AbsoluteUri)
+            element.Tag = Favoris.Current
         End While
         ListViewFavorites.SmallImageList = FavoritesFaviconImageList
         ListViewFavorites.LargeImageList = FavoritesFaviconImageList
@@ -94,18 +95,23 @@
     End Sub
 
     Private Sub RefreshSearches()
-        ListBoxSearches.Items.Clear()
+        SearchHistoryListView.Items.Clear()
         Dim SearchHistory = db.GetSearchHistory().GetEnumerator()
         While SearchHistory.MoveNext()
-            ListBoxSearches.Items.Add(SearchHistory.Current.Query)
+            Dim element = SearchHistoryListView.Items.Add(SearchHistory.Current.Query)
+            element.SubItems.Add(SearchHistory.Current.GetCreationDate().ToString())
+            element.Tag = SearchHistory.Current
         End While
     End Sub
 
     Private Sub RefreshDownloads()
-        ListBoxDownloads.Items.Clear()
+        DownloadedItemsListView.Items.Clear()
         Dim DownloadHistory = db.GetDownloadHistory().GetEnumerator()
         While DownloadHistory.MoveNext()
-            ListBoxDownloads.Items.Add(DownloadHistory.Current.URI.AbsoluteUri)
+            Dim element = DownloadedItemsListView.Items.Add(DownloadHistory.Current.URI.AbsoluteUri)
+            element.SubItems.Add(DownloadHistory.Current.Title)
+            element.SubItems.Add(DownloadHistory.Current.GetCreationDate().ToString())
+            element.Tag = DownloadHistory.Current
         End While
     End Sub
 
@@ -115,7 +121,8 @@
         SelectedIndexes = HistoryListView.SelectedIndices
         For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
             indice = SelectedIndexes.Item(i)
-            LegacyUserDataManagement.RemoveFromHistory(indice)
+            Dim item As WebPage = CType(HistoryListView.Items(indice).Tag, WebPage)
+            db.DeleteFromHistory(item.GetRawCreationDate())
         Next
         RefreshHistory()
     End Sub
@@ -126,9 +133,30 @@
         SelectedIndexes = ListViewFavorites.SelectedIndices
         For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
             indice = SelectedIndexes.Item(i)
-            LegacyUserDataManagement.RemoveFromFavorites(indice)
+            Dim item As WebPage = CType(ListViewFavorites.Items(indice).Tag, WebPage)
+            db.DeleteFromBookmarks(item.GetRawCreationDate())
         Next
         RefreshFavorites()
+    End Sub
+
+    Private Sub DeleteSelectedSearchHistoryItems()
+        Dim SelectedIndexes As ListView.SelectedIndexCollection = SearchHistoryListView.SelectedIndices
+        For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
+            Dim index = SelectedIndexes.Item(i)
+            Dim item As SearchHistoryItem = CType(SearchHistoryListView.Items(index).Tag, SearchHistoryItem)
+            db.DeleteFromSearchHistory(item.GetRawCreationDate())
+        Next
+        RefreshSearches()
+    End Sub
+
+    Private Sub DeleteSelectedDownloadedItems()
+        Dim SelectedIndexes As ListView.SelectedIndexCollection = DownloadedItemsListView.SelectedIndices
+        For i As Integer = SelectedIndexes.Count - 1 To 0 Step -1
+            Dim index = SelectedIndexes.Item(i)
+            Dim item As DownloadedItem = CType(DownloadedItemsListView.Items(index).Tag, DownloadedItem)
+            db.DeleteFromDownloadHistory(item.GetRawCreationDate())
+        Next
+        RefreshSearches()
     End Sub
 
     Private Sub FermerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerToolStripMenuItem.Click
@@ -151,7 +179,6 @@
             Case Keys.Delete
                 DeleteSelectedHistory()
             Case Keys.Enter
-                Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
                 For Each Item As ListViewItem In HistoryListView.SelectedItems
                     BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
                 Next
@@ -164,7 +191,6 @@
             Case Keys.Delete
                 DeleteSelectedFavorites()
             Case Keys.Enter
-                Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
                 For Each Item As ListViewItem In ListViewFavorites.SelectedItems
                     BrowserForm.AddTab(Item.SubItems(1).Text.ToString())
                 Next
@@ -172,14 +198,37 @@
         End Select
     End Sub
 
+    Private Sub SearchHistoryListView_KeyDown(sender As Object, e As KeyEventArgs) Handles SearchHistoryListView.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Delete
+                DeleteSelectedSearchHistoryItems()
+            Case Keys.Enter
+                For Each Item As ListViewItem In SearchHistoryListView.SelectedItems
+                    BrowserForm.OpenSearchResults(Item.SubItems(0).Text.ToString())
+                Next
+                BrowserForm.BringToFront()
+        End Select
+    End Sub
+
+    Private Sub DownloadedItemsListView_KeyDown(sender As Object, e As KeyEventArgs) Handles DownloadedItemsListView.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Delete
+                DeleteSelectedSearchHistoryItems()
+            Case Keys.Enter
+                For Each Item As ListViewItem In DownloadedItemsListView.SelectedItems
+                    BrowserForm.AddTab(Item.SubItems(0).Text.ToString())
+                Next
+                BrowserForm.BringToFront()
+        End Select
+    End Sub
+
     Private Sub ButtonDeleteDownload_Click(sender As Object, e As EventArgs) Handles ButtonDeleteDownload.Click
-        LegacyUserDataManagement.RemoveFromDownloads(ListBoxDownloads.SelectedIndex)
-        ListBoxDownloads.Items.RemoveAt(ListBoxDownloads.SelectedIndex)
+        DeleteSelectedDownloadedItems()
     End Sub
 
     Private Sub ButtonDownloadAgain_Click(sender As Object, e As EventArgs) Handles ButtonDownloadAgain.Click
         Dim WB As CustomBrowser = CType(BrowserForm.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        WB.Navigate(ListBoxDownloads.SelectedItem.ToString())
+        WB.Navigate(DownloadedItemsListView.SelectedItems(0).SubItems(0).Text.ToString())
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged

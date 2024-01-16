@@ -40,13 +40,14 @@ Partial Class UserDataLibraryForm
         Me.ColumnHeaderTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPageSearchHistory = New System.Windows.Forms.TabPage()
+        Me.SearchHistoryListView = New System.Windows.Forms.ListView()
+        Me.Query = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.CreationDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ButtonDeleteSearch = New System.Windows.Forms.Button()
         Me.ButtonSearchAgain = New System.Windows.Forms.Button()
-        Me.ListBoxSearches = New System.Windows.Forms.ListBox()
         Me.TabPageDownloads = New System.Windows.Forms.TabPage()
         Me.ButtonDeleteDownload = New System.Windows.Forms.Button()
         Me.ButtonDownloadAgain = New System.Windows.Forms.Button()
-        Me.ListBoxDownloads = New System.Windows.Forms.ListBox()
         Me.FavoritesFaviconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,6 +56,10 @@ Partial Class UserDataLibraryForm
         Me.RafraîchirLesListesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AProposDeSmartNetBrowserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DownloadedItemsListView = New System.Windows.Forms.ListView()
+        Me.DownloadedItemUri = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DownloadedItemTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DownloadedItemCreationDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPageHistory.SuspendLayout()
         Me.TabPageFavorites.SuspendLayout()
@@ -167,12 +172,29 @@ Partial Class UserDataLibraryForm
         '
         'TabPageSearchHistory
         '
+        Me.TabPageSearchHistory.Controls.Add(Me.SearchHistoryListView)
         Me.TabPageSearchHistory.Controls.Add(Me.ButtonDeleteSearch)
         Me.TabPageSearchHistory.Controls.Add(Me.ButtonSearchAgain)
-        Me.TabPageSearchHistory.Controls.Add(Me.ListBoxSearches)
         resources.ApplyResources(Me.TabPageSearchHistory, "TabPageSearchHistory")
         Me.TabPageSearchHistory.Name = "TabPageSearchHistory"
         Me.TabPageSearchHistory.UseVisualStyleBackColor = True
+        '
+        'SearchHistoryListView
+        '
+        resources.ApplyResources(Me.SearchHistoryListView, "SearchHistoryListView")
+        Me.SearchHistoryListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Query, Me.CreationDate})
+        Me.SearchHistoryListView.HideSelection = False
+        Me.SearchHistoryListView.Name = "SearchHistoryListView"
+        Me.SearchHistoryListView.UseCompatibleStateImageBehavior = False
+        Me.SearchHistoryListView.View = System.Windows.Forms.View.Details
+        '
+        'Query
+        '
+        resources.ApplyResources(Me.Query, "Query")
+        '
+        'CreationDate
+        '
+        resources.ApplyResources(Me.CreationDate, "CreationDate")
         '
         'ButtonDeleteSearch
         '
@@ -186,17 +208,11 @@ Partial Class UserDataLibraryForm
         Me.ButtonSearchAgain.Name = "ButtonSearchAgain"
         Me.ButtonSearchAgain.UseVisualStyleBackColor = True
         '
-        'ListBoxSearches
-        '
-        resources.ApplyResources(Me.ListBoxSearches, "ListBoxSearches")
-        Me.ListBoxSearches.FormattingEnabled = True
-        Me.ListBoxSearches.Name = "ListBoxSearches"
-        '
         'TabPageDownloads
         '
+        Me.TabPageDownloads.Controls.Add(Me.DownloadedItemsListView)
         Me.TabPageDownloads.Controls.Add(Me.ButtonDeleteDownload)
         Me.TabPageDownloads.Controls.Add(Me.ButtonDownloadAgain)
-        Me.TabPageDownloads.Controls.Add(Me.ListBoxDownloads)
         resources.ApplyResources(Me.TabPageDownloads, "TabPageDownloads")
         Me.TabPageDownloads.Name = "TabPageDownloads"
         Me.TabPageDownloads.UseVisualStyleBackColor = True
@@ -212,12 +228,6 @@ Partial Class UserDataLibraryForm
         resources.ApplyResources(Me.ButtonDownloadAgain, "ButtonDownloadAgain")
         Me.ButtonDownloadAgain.Name = "ButtonDownloadAgain"
         Me.ButtonDownloadAgain.UseVisualStyleBackColor = True
-        '
-        'ListBoxDownloads
-        '
-        resources.ApplyResources(Me.ListBoxDownloads, "ListBoxDownloads")
-        Me.ListBoxDownloads.FormattingEnabled = True
-        Me.ListBoxDownloads.Name = "ListBoxDownloads"
         '
         'FavoritesFaviconImageList
         '
@@ -266,6 +276,27 @@ Partial Class UserDataLibraryForm
         Me.AProposDeSmartNetBrowserToolStripMenuItem.Name = "AProposDeSmartNetBrowserToolStripMenuItem"
         resources.ApplyResources(Me.AProposDeSmartNetBrowserToolStripMenuItem, "AProposDeSmartNetBrowserToolStripMenuItem")
         '
+        'DownloadedItemsListView
+        '
+        resources.ApplyResources(Me.DownloadedItemsListView, "DownloadedItemsListView")
+        Me.DownloadedItemsListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.DownloadedItemUri, Me.DownloadedItemTitle, Me.DownloadedItemCreationDate})
+        Me.DownloadedItemsListView.HideSelection = False
+        Me.DownloadedItemsListView.Name = "DownloadedItemsListView"
+        Me.DownloadedItemsListView.UseCompatibleStateImageBehavior = False
+        Me.DownloadedItemsListView.View = System.Windows.Forms.View.Details
+        '
+        'DownloadedItemUri
+        '
+        resources.ApplyResources(Me.DownloadedItemUri, "DownloadedItemUri")
+        '
+        'DownloadedItemTitle
+        '
+        resources.ApplyResources(Me.DownloadedItemTitle, "DownloadedItemTitle")
+        '
+        'DownloadedItemCreationDate
+        '
+        resources.ApplyResources(Me.DownloadedItemCreationDate, "DownloadedItemCreationDate")
+        '
         'UserDataLibraryForm
         '
         resources.ApplyResources(Me, "$this")
@@ -303,7 +334,6 @@ Partial Class UserDataLibraryForm
     Friend WithEvents FavoritesFaviconImageList As ImageList
     Friend WithEvents ButtonDeleteFavorite As Button
     Friend WithEvents ButtonOpenFavorite As Button
-    Friend WithEvents ListBoxSearches As ListBox
     Friend WithEvents ButtonSearchAgain As Button
     Friend WithEvents ButtonDeleteSearch As Button
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -315,6 +345,12 @@ Partial Class UserDataLibraryForm
     Friend WithEvents AProposDeSmartNetBrowserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonDeleteDownload As Button
     Friend WithEvents ButtonDownloadAgain As Button
-    Friend WithEvents ListBoxDownloads As ListBox
     Friend WithEvents VisitDateColumnHeader As ColumnHeader
+    Friend WithEvents SearchHistoryListView As ListView
+    Friend WithEvents Query As ColumnHeader
+    Friend WithEvents CreationDate As ColumnHeader
+    Friend WithEvents DownloadedItemsListView As ListView
+    Friend WithEvents DownloadedItemUri As ColumnHeader
+    Friend WithEvents DownloadedItemTitle As ColumnHeader
+    Friend WithEvents DownloadedItemCreationDate As ColumnHeader
 End Class
