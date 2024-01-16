@@ -60,4 +60,12 @@ Public Class WebPage
         URI = New Uri(URL)
         Icon = NewIcon
     End Sub
+
+    Public Function IsSimilarTo(otherWebPage As WebPage, Optional strict As Boolean = False) As Boolean
+        If strict Then
+            Return Title = otherWebPage.Title AndAlso URI.AbsoluteUri = otherWebPage.URI.AbsoluteUri AndAlso CreationDate = otherWebPage.GetRawCreationDate()
+        Else
+            Return Title = otherWebPage.Title AndAlso URI.AbsoluteUri = otherWebPage.URI.AbsoluteUri
+        End If
+    End Function
 End Class

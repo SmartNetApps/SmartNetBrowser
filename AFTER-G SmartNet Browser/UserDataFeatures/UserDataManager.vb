@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SQLite
+Imports System.Security.Policy
 Imports Microsoft.VisualBasic.FileIO
 
 ''' <summary>
@@ -343,13 +344,20 @@ Public Class UserDataManager
         command.ExecuteNonQuery()
     End Sub
 
-    Public Sub DeleteFromBookmarks(CreationDate As Double)
+    Public Sub DeleteFromBookmarks(CreationDate As Double, Optional Url As String = Nothing)
         Dim command As New SQLiteCommand With {
-            .Connection = db,
-            .CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE created_on = @created_on"
+            .Connection = db
         }
+
+        If Url IsNot Nothing Then
+            command.CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE url = @url"
+            command.Parameters.Add(New SQLiteParameter("@url", Url))
+        Else
+            command.CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE created_on = @created_on"
+            command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+        End If
+
         command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
-        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
         command.ExecuteNonQuery()
     End Sub
 
