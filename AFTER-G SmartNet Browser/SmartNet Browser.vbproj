@@ -278,12 +278,6 @@
     </Compile>
     <Compile Include="Settings.vb" />
     <Compile Include="UpdateFeatures\UpdateAgent.vb" />
-    <Compile Include="LicenseForm.Designer.vb">
-      <DependentUpon>LicenseForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="LicenseForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -437,15 +431,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExceptionForm.resx">
       <DependentUpon>ExceptionForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LicenseForm.en.resx">
-      <DependentUpon>LicenseForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LicenseForm.fr.resx">
-      <DependentUpon>LicenseForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LicenseForm.resx">
-      <DependentUpon>LicenseForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
