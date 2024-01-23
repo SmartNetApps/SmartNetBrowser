@@ -190,14 +190,14 @@
     <Compile Include="AboutForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdsBlockerAgent.vb" />
+    <Compile Include="SecurityFeatures\AdsBlockerAgent.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="AppSyncAgent.vb" />
-    <Compile Include="AppSyncException.vb" />
-    <Compile Include="AppSyncLogin.Designer.vb">
+    <Compile Include="SyncFeatures\AppSyncAgent.vb" />
+    <Compile Include="SyncFeatures\AppSyncException.vb" />
+    <Compile Include="SyncFeatures\AppSyncLogin.Designer.vb">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="AppSyncLogin.vb">
+    <Compile Include="SyncFeatures\AppSyncLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BrowserForm.vb">
@@ -207,29 +207,29 @@
       <DependentUpon>BrowserForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
+    <Compile Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.vb">
+    <Compile Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeChildrenProtectionPasswordForm.Designer.vb">
+    <Compile Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.Designer.vb">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="ChangeChildrenProtectionPasswordForm.vb">
+    <Compile Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChildGuardAgent.vb" />
-    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
+    <Compile Include="SecurityFeatures\ChildGuardAgent.vb" />
+    <Compile Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.vb">
+    <Compile Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateChildrenProtectionPasswordForm.Designer.vb">
+    <Compile Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.Designer.vb">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="CreateChildrenProtectionPasswordForm.vb">
+    <Compile Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomBrowser.vb">
@@ -241,16 +241,16 @@
     <Compile Include="DownloadForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnterBrowserSettingsSecurityForm.Designer.vb">
+    <Compile Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.Designer.vb">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="EnterBrowserSettingsSecurityForm.vb">
+    <Compile Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnterChildrenProtectionForm.Designer.vb">
+    <Compile Include="SecurityFeatures\EnterChildrenProtectionForm.Designer.vb">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="EnterChildrenProtectionForm.vb">
+    <Compile Include="SecurityFeatures\EnterChildrenProtectionForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExceptionForm.Designer.vb">
@@ -265,7 +265,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="NetworkChecker.vb" />
+    <Compile Include="Tools\NetworkChecker.vb" />
     <Compile Include="Tools\TimestampConverter.vb" />
     <Compile Include="UserDataFeatures\Formats\DownloadedItem.vb" />
     <Compile Include="UserDataFeatures\Formats\UserDataItem.vb" />
@@ -277,7 +277,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
-    <Compile Include="UpdateAgent.vb" />
+    <Compile Include="UpdateFeatures\UpdateAgent.vb" />
     <Compile Include="LicenseForm.Designer.vb">
       <DependentUpon>LicenseForm.vb</DependentUpon>
     </Compile>
@@ -325,10 +325,10 @@
     <Compile Include="SettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdaterForm.Designer.vb">
+    <Compile Include="UpdateFeatures\UpdaterForm.Designer.vb">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="UpdaterForm.vb">
+    <Compile Include="UpdateFeatures\UpdaterForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tools\IconConverter.vb" />
@@ -348,13 +348,13 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppSyncLogin.en.resx">
+    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.en.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppSyncLogin.fr.resx">
+    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.fr.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppSyncLogin.resx">
+    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BrowserForm.en.resx">
@@ -366,40 +366,40 @@
     <EmbeddedResource Include="BrowserForm.resx">
       <DependentUpon>BrowserForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.en.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.fr.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.en.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.fr.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.en.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.fr.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.en.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.fr.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DownloadForm.en.resx">
@@ -411,22 +411,22 @@
     <EmbeddedResource Include="DownloadForm.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.en.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.fr.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterChildrenProtectionForm.en.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.en.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterChildrenProtectionForm.fr.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.fr.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnterChildrenProtectionForm.resx">
+    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExceptionForm.en.resx">
@@ -507,13 +507,13 @@
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdaterForm.en.resx">
+    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.en.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdaterForm.fr.resx">
+    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.fr.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdaterForm.resx">
+    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -537,52 +537,52 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="404\en.html">
+    <Content Include="StaticPages\404\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="404\fr.html">
+    <Content Include="StaticPages\404\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="404\icon.svg">
+    <Content Include="StaticPages\404\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="404\style.css">
+    <Content Include="StaticPages\404\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AntiMalware\en.html">
+    <Content Include="StaticPages\AntiMalware\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AntiMalware\fr.html">
+    <Content Include="StaticPages\AntiMalware\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AntiMalware\icon.svg">
+    <Content Include="StaticPages\AntiMalware\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AntiMalware\style.css">
+    <Content Include="StaticPages\AntiMalware\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CertificateError\en.html">
+    <Content Include="StaticPages\CertificateError\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CertificateError\fr.html">
+    <Content Include="StaticPages\CertificateError\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CertificateError\icon.svg">
+    <Content Include="StaticPages\CertificateError\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CertificateError\style.css">
+    <Content Include="StaticPages\CertificateError\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ChildGuard\en.html">
+    <Content Include="StaticPages\ChildGuard\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ChildGuard\fr.html">
+    <Content Include="StaticPages\ChildGuard\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ChildGuard\icon.svg">
+    <Content Include="StaticPages\ChildGuard\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ChildGuard\style.css">
+    <Content Include="StaticPages\ChildGuard\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="COPYING.txt">
