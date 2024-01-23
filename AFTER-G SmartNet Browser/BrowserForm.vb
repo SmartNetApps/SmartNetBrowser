@@ -699,7 +699,7 @@ Public Class BrowserForm
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("http://www.clipconverter.cc/?ref=addon&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
+        AddTab("https://www.clipconverter.cc/?ref=bookmarklet&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
     End Sub
 
     Private Sub ShowProperties(sender As Object, e As EventArgs) Handles PropriétésToolStripMenuItem.Click

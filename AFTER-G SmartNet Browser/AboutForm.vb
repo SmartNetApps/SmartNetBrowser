@@ -27,7 +27,7 @@
     End Sub
 
     Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClipconverterLinkLabel.LinkClicked
-        BrowserForm.AddTab("http://www.clipconverter.cc/terms")
+        BrowserForm.AddTab("https://www.clipconverter.cc/terms")
         Me.Close()
     End Sub
 
