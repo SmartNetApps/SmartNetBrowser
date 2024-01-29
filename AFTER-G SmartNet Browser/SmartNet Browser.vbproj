@@ -265,7 +265,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SyncFeatures\MajestiCloudAgent.vb" />
+    <Compile Include="SyncFeatures\MajestiCloudLoginForm.Designer.vb">
+      <DependentUpon>MajestiCloudLoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SyncFeatures\MajestiCloudLoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyncFeatures\MajestiCloudSession.vb" />
     <Compile Include="Tools\NetworkChecker.vb" />
+    <Compile Include="Tools\RandomString.vb" />
     <Compile Include="Tools\TimestampConverter.vb" />
     <Compile Include="UserDataFeatures\Formats\DownloadedItem.vb" />
     <Compile Include="UserDataFeatures\Formats\UserDataItem.vb" />
@@ -437,6 +446,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyncFeatures\MajestiCloudLoginForm.resx">
+      <DependentUpon>MajestiCloudLoginForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.en.resx">
       <DependentUpon>UserDataLibraryForm.vb</DependentUpon>

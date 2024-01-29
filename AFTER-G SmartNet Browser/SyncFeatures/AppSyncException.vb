@@ -3,6 +3,7 @@
 ''' <summary>
 ''' Représente les erreurs qui se produisent lors de l'exécution de l'agent SmartNet AppSync.
 ''' </summary>
+<Obsolete("Migré vers MajestiCloud v3.")>
 Public Class AppSyncException
     Inherits Exception
 

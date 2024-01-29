@@ -103,5 +103,11 @@
   &lt;string xsi:nil="true" /&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="MajestiCloudClientUuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">847d0e2a-bbb1-11ee-a555-0242ac110009</Value>
+    </Setting>
+    <Setting Name="MajestiCloudRedirectUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://browser-api.lesmajesticiels.org/majesticloud/callback.php</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
