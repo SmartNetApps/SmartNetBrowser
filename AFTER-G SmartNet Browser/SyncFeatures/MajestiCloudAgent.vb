@@ -46,7 +46,7 @@ Public Class MajestiCloudAgent
         End Using
     End Function
 
-    Private Async Function CheckSessionStatus() As Task(Of Boolean)
+    Private Async Sub CheckSessionStatus()
         If CurrentSession IsNot Nothing AndAlso NetworkChecker.IsInternetAvailable() Then
             Try
                 Dim sessionFullData = Await GetRequest("/session/current.php")
@@ -65,12 +65,9 @@ Public Class MajestiCloudAgent
                 If MessageBox.Show(String.Concat("Nous avons dû vous déconnecter de MajestiCloud. Votre session a probablement été révoquée. Voulez-vous essayer de vous reconnecter maintenant ? (", ex.Message, ")"), "MajestiCloud", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                     TriggerLogin()
                 End If
-                Return False
             End Try
         End If
-
-        Return True
-    End Function
+    End Sub
 
     Public Async Sub TriggerLogin()
         If CurrentSession IsNot Nothing Then
