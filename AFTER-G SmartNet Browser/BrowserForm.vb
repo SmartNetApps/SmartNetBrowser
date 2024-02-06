@@ -5,7 +5,8 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 
 Public Class BrowserForm
-    Private ReadOnly userData As UserDataManager = UserDataManager.GetInstance()
+    Private ReadOnly UserData As UserDataManager = UserDataManager.GetInstance()
+    Private WithEvents CloudAgent As MajestiCloudAgent = MajestiCloudAgent.GetInstance()
     Public msgBar As MessageBar
     Dim tabPageIndex As Integer = 0
     Public lastClosedTabURL As String
@@ -276,6 +277,14 @@ Public Class BrowserForm
         Else
             URLBoxLabel.Visible = False
         End If
+
+        If cloudAgent.CurrentSession IsNot Nothing Then
+            SeConnecterÀAppSyncToolStripMenuItem.Text = cloudAgent.CurrentSession.UserName
+            SeConnecterÀAppSyncToolStripMenuItem.Image = cloudAgent.CurrentSession.UserPictureAsImage()
+        Else
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à MajestiCloud..."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+        End If
     End Sub
 
     Private Sub BrowserForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
@@ -302,35 +311,11 @@ Public Class BrowserForm
             My.Settings.FirstStart = False
         End If
 
-        Try
-            If AppSyncAgent.IsDeviceRegistered() Then
-                SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
-                SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
-
-                If Not NetworkChecker.IsInternetAvailable Then
-                    SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
-                End If
-            Else
-                If My.Settings.AppSyncDeviceNumber <> "" Then
-                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                    DisplayMessageBar()
-                End If
-                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-                My.Settings.AppSyncDeviceNumber = ""
-                SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-                SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-            End If
-        Catch ex As AppSyncException
-            SeConnecterÀAppSyncToolStripMenuItem.Text = "Échec de l'ouverture de votre session AppSync."
-            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+        If Not NetworkChecker.IsInternetAvailable Then
             SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
-            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "https://www.lesmajesticiels.org/support/kb/product/browser")
-            DisplayMessageBar()
-        End Try
-
-        If AppSyncAgent.IsDeviceRegistered() Then
-            AppSyncSyncNowAsync()
         End If
+
+        cloudAgent.TriggerSynchonization()
 
         Dim Favoris As List(Of WebPage) = userData.GetBookmarks()
         Dim Historique As List(Of WebPage) = userData.GetHistory()
@@ -354,6 +339,16 @@ Public Class BrowserForm
         My.Settings.CorrectlyClosed = False
 
         AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
+    End Sub
+
+    Private Sub MajestiCloudAgent_SessionOpened() Handles cloudAgent.SessionOpened
+        SeConnecterÀAppSyncToolStripMenuItem.Text = cloudAgent.CurrentSession.UserName
+        SeConnecterÀAppSyncToolStripMenuItem.Image = cloudAgent.CurrentSession.UserPictureAsImage()
+    End Sub
+
+    Private Sub MajestiCloudAgent_SessionClosed() Handles cloudAgent.SessionClosed
+        SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à MajestiCloud..."
+        SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
     End Sub
 
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent) 'Handles Gecko.LauncherDialog.Download
@@ -1101,7 +1096,8 @@ Public Class BrowserForm
             Case MessageBar.MessageBarAction.OpenInternetSettings
                 Process.Start("inetcpl.cpl")
             Case MessageBar.MessageBarAction.DisplayAppSyncLogin
-                AppSyncLogin.ShowDialog()
+                cloudAgent.TriggerLogin()
+                UpdateInterface()
             Case Else
                 MsgBox("Ce bouton ne peut rien faire. Voir le support pour plus de détails.", MsgBoxStyle.Information, "SmartNet Browser")
         End Select
@@ -1201,41 +1197,22 @@ Public Class BrowserForm
     End Sub
 
     Private Sub SeConnecterÀAppSyncToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeConnecterÀAppSyncToolStripMenuItem.Click
-        If My.Settings.AppSyncDeviceNumber = "" Then
-            AppSyncLogin.ShowDialog()
+        If cloudAgent.CurrentSession Is Nothing Then
+            MajestiCloudLoginForm.ShowDialog()
         Else
-            Try
-                AddTab("https://appsync.lesmajesticiels.org/login.php?action=oneclick&token=" + AppSyncAgent.GenerateToken())
-            Catch ex As Exception
-                msgBar = New MessageBar(ex)
-                DisplayMessageBar()
-            End Try
+            SettingsForm.TabControl1.SelectTab(4)
+            If My.Settings.BrowserSettingsSecurity = True Then
+                EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
+                EnterBrowserSettingsSecurityForm.ShowDialog()
+            Else
+                SettingsForm.Show()
+        End If
         End If
     End Sub
 
     Private Sub AppSyncTimer_Tick(sender As Object, e As EventArgs) Handles AppSyncTimer.Tick
-        If AppSyncAgent.IsDeviceRegistered() Then
-            AppSyncSyncNowAsync()
-        Else
-            If My.Settings.AppSyncDeviceNumber <> "" Then
-                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
-                DisplayMessageBar()
-            End If
-            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-            My.Settings.AppSyncDeviceNumber = ""
-            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
-            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-        End If
+        cloudAgent.TriggerSynchonization()
     End Sub
-
-    Private Async Function AppSyncSyncNowAsync() As Task(Of Boolean)
-        Try
-            Return Await AppSyncAgent.SyncNow()
-        Catch ex As Exception
-            msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
-            Return False
-        End Try
-    End Function
 
     Private Sub URLBox_GotFocus(sender As Object, e As EventArgs) Handles URLBox.GotFocus
         GoButton.Visible = True

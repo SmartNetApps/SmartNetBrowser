@@ -3,6 +3,8 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Public Class MajestiCloudAgent
+    Public Event SessionOpened()
+    Public Event SessionClosed()
     Private Shared ReadOnly APIBase As String = "https://api.cloud.lesmajesticiels.org"
     Private Shared CurrentInstance As MajestiCloudAgent
     Public CurrentSession As MajestiCloudSession
@@ -48,10 +50,14 @@ Public Class MajestiCloudAgent
         If CurrentSession IsNot Nothing AndAlso NetworkChecker.IsInternetAvailable() Then
             Try
                 Dim sessionFullData = Await GetRequest("/session/current.php")
+                Await InitWebClient().DownloadFileTaskAsync(
+                    String.Concat(APIBase, "/user/profile_picture.php"),
+                    String.Concat(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\MajestiCloudPicture.pic")
+                )
                 CurrentSession.UserUUID = sessionFullData("data")("user")("uuid").ToString()
                 CurrentSession.UserName = sessionFullData("data")("user")("name").ToString()
                 CurrentSession.UserEmail = sessionFullData("data")("user")("primary_email").ToString()
-                CurrentSession.UserPicture = IconConverter.ImageToBase64(My.Resources.Person)
+                CurrentSession.UserPicture = ImageToBase64(Image.FromFile(String.Concat(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\MajestiCloudPicture.pic")))
                 CurrentSession.DeviceName = sessionFullData("data")("device_name").ToString()
                 CurrentSession.SaveAsFile()
             Catch ex As Exception
@@ -88,12 +94,17 @@ Public Class MajestiCloudAgent
                 CurrentSession = New MajestiCloudSession(parsedResponse.Property("access_token").Value.ToString())
 
                 Dim sessionFullData = Await GetRequest("/session/current.php")
+                Await InitWebClient().DownloadFileTaskAsync(
+                    String.Concat(APIBase, "/user/profile_picture.php"),
+                    String.Concat(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\MajestiCloudPicture.pic")
+                )
                 CurrentSession.UserUUID = sessionFullData("data")("user")("uuid").ToString()
                 CurrentSession.UserName = sessionFullData("data")("user")("name").ToString()
                 CurrentSession.UserEmail = sessionFullData("data")("user")("primary_email").ToString()
-                CurrentSession.UserPicture = IconConverter.ImageToBase64(My.Resources.Person)
+                CurrentSession.UserPicture = ImageToBase64(Image.FromFile(String.Concat(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\MajestiCloudPicture.pic")))
                 CurrentSession.DeviceName = sessionFullData("data")("device_name").ToString()
                 CurrentSession.SaveAsFile()
+                RaiseEvent SessionOpened()
             Catch ex As Exception
                 Select Case MessageBox.Show(ex.ToString(), "MajestiCloud", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error)
                     Case DialogResult.Abort
@@ -105,15 +116,22 @@ Public Class MajestiCloudAgent
         End If
     End Sub
 
-    Public Sub TriggerLogout(Optional force As Boolean = False)
-        If force OrElse MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "SmartNet AppSync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+    Public Function TriggerLogout(Optional force As Boolean = False) As Boolean
+        If CurrentSession Is Nothing Then
+            Return True
+        End If
+
+        If force OrElse MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "MajestiCloud", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
             CurrentSession.Destroy()
             CurrentSession = Nothing
+            RaiseEvent SessionClosed()
+            Return True
         End If
-    End Sub
+        Return False
+    End Function
 
     Public Async Sub TriggerSynchonization()
-        If Not Await CheckSessionStatus() Then
+        If CurrentSession Is Nothing OrElse Not NetworkChecker.IsInternetAvailable() Then
             Return
         End If
     End Sub

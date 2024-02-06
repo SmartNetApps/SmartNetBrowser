@@ -5,8 +5,11 @@ Imports Microsoft.VisualBasic.Devices
 Imports Microsoft.Win32
 
 Public Class SettingsForm
+    Private WithEvents CloudAgent As MajestiCloudAgent
+
     Public Sub New()
         InitializeComponent()
+        CloudAgent = MajestiCloudAgent.GetInstance()
     End Sub
 
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -126,7 +129,7 @@ Public Class SettingsForm
                 RadioButtonBlockAllCookies.Checked = True
         End Select
 
-        If MajestiCloudAgent.GetInstance().CurrentSession Is Nothing Then
+        If CloudAgent.CurrentSession Is Nothing Then
             ButtonManageAccount.Enabled = False
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
@@ -134,35 +137,22 @@ Public Class SettingsForm
             LabelUsername.Text = "Déconnecté.e"
             PictureBoxUserProfilePic.Image = My.Resources.Person
         Else
-            Try
-                If Not NetworkChecker.IsInternetAvailable Then
-                    ButtonManageAccount.Enabled = False
-                    ButtonManageAccount.Visible = True
-                    ButtonLoginLogout.Text = "Se déconnecter..."
-                    ButtonLoginLogout.Enabled = False
-                    LabelUsername.Text = MajestiCloudAgent.GetInstance().CurrentSession.UserName
-                    PictureBoxUserProfilePic.Image = MajestiCloudAgent.GetInstance().CurrentSession.UserPictureAsImage()
-                Else
-                    ButtonManageAccount.Enabled = True
-                    ButtonManageAccount.Visible = True
-                    ButtonLoginLogout.Text = "Se déconnecter..."
-                    ButtonLoginLogout.Enabled = True
-                    LabelUsername.Text = MajestiCloudAgent.GetInstance().CurrentSession.UserName
-                    PictureBoxUserProfilePic.Image = MajestiCloudAgent.GetInstance().CurrentSession.UserPictureAsImage()
-                End If
-            Catch ex As Exception
+            If Not NetworkChecker.IsInternetAvailable Then
                 ButtonManageAccount.Enabled = False
-                ButtonManageAccount.Visible = True
-                ButtonLoginLogout.Text = "Se déconnecter..."
-                ButtonLoginLogout.Enabled = False
-                LabelUsername.Text = "Échec de l'ouverture de session. (" + ex.Message + ")"
-                PictureBoxUserProfilePic.Image = My.Resources.Person
-            End Try
+            Else
+                ButtonManageAccount.Enabled = True
+            End If
+
+            ButtonManageAccount.Visible = True
+            ButtonLoginLogout.Text = "Se déconnecter..."
+            ButtonLoginLogout.Enabled = True
+            LabelUsername.Text = CloudAgent.CurrentSession.UserName
+            PictureBoxUserProfilePic.Image = CloudAgent.CurrentSession.UserPictureAsImage()
         End If
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "https://homepage.lesmajesticiels.org/"
+        HomepageURLBox.Text = "https://start.lesmajesticiels.org/"
     End Sub
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
@@ -429,20 +419,27 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonLoginLogout_Click(sender As Object, e As EventArgs) Handles ButtonLoginLogout.Click
-        If MajestiCloudAgent.GetInstance().CurrentSession Is Nothing Then
-            MajestiCloudAgent.GetInstance().TriggerLogin()
+        If CloudAgent.CurrentSession Is Nothing Then
+            CloudAgent.TriggerLogin()
         Else
-            MajestiCloudAgent.GetInstance().TriggerLogout()
-            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
-            My.Settings.AppSyncDeviceNumber = ""
-            ButtonManageAccount.Enabled = False
-            ButtonManageAccount.Visible = False
-            ButtonLoginLogout.Text = "Se connecter..."
-            LabelUsername.Text = "Déconnecté.e"
-            PictureBoxUserProfilePic.Image = My.Resources.Person
-            BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à MajestiCloud..."
-            BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            CloudAgent.TriggerLogout()
         End If
+    End Sub
+
+    Private Sub MajestiCloudAgent_SessionOpened() Handles CloudAgent.SessionOpened
+        ButtonManageAccount.Enabled = True
+        ButtonManageAccount.Visible = True
+        ButtonLoginLogout.Text = "Se déconnecter..."
+        LabelUsername.Text = CloudAgent.CurrentSession.UserName
+        PictureBoxUserProfilePic.Image = CloudAgent.CurrentSession.UserPictureAsImage()
+    End Sub
+
+    Private Sub MajestiCloudAgent_SessionClosed() Handles CloudAgent.SessionClosed
+        ButtonManageAccount.Enabled = False
+        ButtonManageAccount.Visible = False
+        ButtonLoginLogout.Text = "Se connecter..."
+        LabelUsername.Text = "Déconnecté.e"
+        PictureBoxUserProfilePic.Image = My.Resources.Person
     End Sub
 
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
@@ -522,6 +519,6 @@ Public Class SettingsForm
     End Sub
 
     Private Sub MajestiCloudLoginButton_Click(sender As Object, e As EventArgs)
-        MajestiCloudAgent.GetInstance().TriggerLogin()
+        CloudAgent.TriggerLogin()
     End Sub
 End Class
