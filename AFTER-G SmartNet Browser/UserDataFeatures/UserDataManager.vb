@@ -313,7 +313,7 @@ Public Class UserDataManager
     Public Function SearchInBookmarks(url As String) As List(Of WebPage)
         Dim command As New SQLiteCommand With {
             .Connection = db,
-            .CommandText = "SELECT * FROM bookmark WHERE url LIKE @url ORDER BY created_on DESC"
+            .CommandText = "SELECT title, url, icon, created_on, deleted_on FROM bookmark WHERE url LIKE @url ORDER BY created_on DESC"
         }
 
         command.Parameters.Add(New SQLiteParameter("@url", "%" & url & "%"))

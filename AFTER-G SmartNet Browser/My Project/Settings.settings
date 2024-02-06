@@ -48,7 +48,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Homepage" Type="(Web Service URL)" Scope="User">
-      <Value Profile="(Default)">https://homepage.lesmajesticiels.org/</Value>
+      <Value Profile="(Default)">https://start.lesmajesticiels.org/</Value>
     </Setting>
     <Setting Name="UserAgentLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">fr</Value>
@@ -84,9 +84,7 @@
     </Setting>
     <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;string&gt;Portail SmartNet Browser&amp;gt;https://homepage.lesmajesticiels.org/&amp;gt;01/01/1900&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" /&gt;</Value>
     </Setting>
     <Setting Name="AdBlockerWhitelist" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
