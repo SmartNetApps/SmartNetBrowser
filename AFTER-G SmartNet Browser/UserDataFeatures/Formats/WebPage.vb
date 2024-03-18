@@ -47,14 +47,14 @@ Public Class WebPage
         Icon = NewIcon
     End Sub
 
-    Public Sub New(NewTitle As String, URL As String, NewIcon As Image, NewCreationDate As Double)
+    Public Sub New(NewTitle As String, URL As String, NewIcon As Image, NewCreationDate As Long)
         MyBase.New(NewCreationDate)
         Title = NewTitle
         URI = New Uri(URL)
         Icon = NewIcon
     End Sub
 
-    Public Sub New(NewTitle As String, URL As String, NewIcon As Image, NewCreationDate As Double, NewDeletionDate As Double)
+    Public Sub New(NewTitle As String, URL As String, NewIcon As Image, NewCreationDate As Long, NewDeletionDate As Long?)
         MyBase.New(NewCreationDate, NewDeletionDate)
         Title = NewTitle
         URI = New Uri(URL)
@@ -67,5 +67,9 @@ Public Class WebPage
         Else
             Return Title = otherWebPage.Title AndAlso URI.AbsoluteUri = otherWebPage.URI.AbsoluteUri
         End If
+    End Function
+
+    Public Function ToSerializable() As SerializableWebPage
+        Return New SerializableWebPage(Title, URI.AbsoluteUri, ImageToBase64(Icon), CreationDate, DeletionDate)
     End Function
 End Class

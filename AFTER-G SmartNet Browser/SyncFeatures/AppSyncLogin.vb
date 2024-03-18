@@ -1,4 +1,6 @@
-﻿Public Class AppSyncLogin
+﻿
+<Obsolete("Migré vers MajestiCloud v3.")>
+Public Class AppSyncLogin
     Public Sub New()
         InitializeComponent()
     End Sub

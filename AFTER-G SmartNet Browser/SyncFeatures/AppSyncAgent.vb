@@ -9,6 +9,7 @@ Imports Gecko
 ''' <summary>
 ''' Agent de connexion de SmartNet AppSync
 ''' </summary>
+<Obsolete("Migré vers MajestiCloud v3.")>
 Public Class AppSyncAgent
     Structure Connection
         Dim idUtilisateur As Integer
@@ -552,9 +553,6 @@ Public Class AppSyncAgent
     ''' </summary>
     ''' <returns>Vrai si réussite, Faux en cas d'échec.</returns>
     Public Shared Async Function SyncNow() As Task(Of Boolean)
-        SettingsForm.ButtonSyncNow.Text = "Synchronisation en cours..."
-        SettingsForm.ButtonSyncNow.Enabled = False
-
         Dim config As Boolean
         'Dim history As Boolean
         'Dim searchHistory As Boolean
@@ -653,8 +651,6 @@ Public Class AppSyncAgent
         End If
 
         Dim synctime As Boolean = Await RefreshSyncTime()
-        SettingsForm.ButtonSyncNow.Text = "Synchroniser maintenant"
-        SettingsForm.ButtonSyncNow.Enabled = True
         Return (config And synctime)
     End Function
 

@@ -5,24 +5,24 @@ Public Class UserDataItem
     ''' <summary>
     ''' Date de création de l'objet
     ''' </summary>
-    Protected ReadOnly CreationDate As Double
+    Protected ReadOnly CreationDate As Long
 
     ''' <summary>
     ''' Date de suppression de l'objet
     ''' </summary>
-    Protected DeletionDate As Double?
+    Protected DeletionDate As Long?
 
     Public Sub New()
         CreationDate = TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now())
         DeletionDate = Nothing
     End Sub
 
-    Public Sub New(NewCreationDate As Double)
+    Public Sub New(NewCreationDate As Long)
         CreationDate = NewCreationDate
         DeletionDate = Nothing
     End Sub
 
-    Public Sub New(NewCreationDate As Double, NewDeletionDate As Double)
+    Public Sub New(NewCreationDate As Long, NewDeletionDate As Long?)
         CreationDate = NewCreationDate
         DeletionDate = NewDeletionDate
     End Sub
@@ -31,7 +31,7 @@ Public Class UserDataItem
         Return TimestampConverter.UnixTimestampToDateTime(CreationDate)
     End Function
 
-    Public Function GetRawCreationDate() As Double
+    Public Function GetRawCreationDate() As Long
         Return CreationDate
     End Function
 
@@ -39,7 +39,7 @@ Public Class UserDataItem
         Return TimestampConverter.UnixTimestampToDateTime(If(DeletionDate, 0))
     End Function
 
-    Public Function GetRawDeletionDate() As Double?
+    Public Function GetRawDeletionDate() As Long?
         Return DeletionDate
     End Function
 
