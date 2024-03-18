@@ -315,8 +315,6 @@ Public Class BrowserForm
             SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
         End If
 
-        cloudAgent.TriggerSynchonization()
-
         Dim Favoris As List(Of WebPage) = userData.GetBookmarks()
         Dim Historique As List(Of WebPage) = userData.GetHistory()
 
@@ -1198,7 +1196,7 @@ Public Class BrowserForm
 
     Private Sub SeConnecterÀAppSyncToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeConnecterÀAppSyncToolStripMenuItem.Click
         If cloudAgent.CurrentSession Is Nothing Then
-            MajestiCloudLoginForm.ShowDialog()
+            CloudAgent.TriggerLogin()
         Else
             SettingsForm.TabControl1.SelectTab(4)
             If My.Settings.BrowserSettingsSecurity = True Then

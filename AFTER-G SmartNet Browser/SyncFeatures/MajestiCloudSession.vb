@@ -25,6 +25,18 @@ Public Class MajestiCloudSession
         IO.File.WriteAllText(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\MajestiCloudSession.json", JsonConvert.SerializeObject(Me))
     End Sub
 
+    Public Function GetLastSynchronizationTime() As Integer
+        If IO.File.Exists(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\" + UserUUID + ".int") Then
+            Return CInt(IO.File.ReadAllText(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\" + UserUUID + ".int"))
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Sub SetLastSynchronizationTime(newValue As Double)
+        IO.File.WriteAllText(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData + "\" + UserUUID + ".int", newValue.ToString())
+    End Sub
+
     Public Function UserPictureAsImage() As Image
         Return Base64ToImage(UserPicture)
     End Function

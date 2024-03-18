@@ -1,5 +1,5 @@
-﻿Public Class SearchHistoryItem
-    Inherits UserDataItem
+﻿Public Class SerializableSearchHistoryItem
+    Inherits SerializableUserDataItem
 
     Public Query As String
 
@@ -18,7 +18,7 @@
         Query = NewQuery
     End Sub
 
-    Public Function ToSerializable() As SerializableSearchHistoryItem
-        Return New SerializableSearchHistoryItem(Query, CreationDate, DeletionDate)
+    Public Function ToRegularObject() As SearchHistoryItem
+        Return New SearchHistoryItem(Query, CreationDate, DeletionDate)
     End Function
 End Class

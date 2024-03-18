@@ -140,10 +140,10 @@ Public Class UserDataManager
 #Enable Warning BC40000
     End Sub
 
-    Public Function GetHistory(Optional WithDeletedItems As Boolean = False) As List(Of WebPage)
+    Public Function GetHistory(Optional WithDeletedItems As Boolean = False, Optional CreatedSince As Integer = 0, Optional DeletedSince As Integer? = Nothing) As List(Of WebPage)
         Dim command As New SQLiteCommand With {
             .Connection = db,
-            .CommandText = "SELECT title, url, icon, created_on, deleted_on FROM history" & If(Not WithDeletedItems, " WHERE deleted_on IS NULL", "") & " ORDER BY created_on DESC"
+            .CommandText = "SELECT title, url, icon, created_on, deleted_on FROM history WHERE created_on >= " & CreatedSince & If(Not WithDeletedItems, " AND deleted_on IS NULL", "") & If(DeletedSince IsNot Nothing, " AND deleted_on IS NOT NULL AND deleted_on >= " & DeletedSince, "") & " ORDER BY created_on DESC"
         }
         Dim reader = command.ExecuteReader()
         Dim history As New List(Of WebPage)
@@ -154,8 +154,8 @@ Public Class UserDataManager
                     reader.GetString(0),
                     reader.GetString(1),
                     IconConverter.Base64ToImage(reader.GetString(2)),
-                    reader.GetDouble(3),
-                    If(Not reader.IsDBNull(4), reader.GetDouble(4), Nothing)
+                    reader.GetInt64(3),
+                    If(Not reader.IsDBNull(4), reader.GetInt64(4), Nothing)
                 )
             )
         End While
@@ -163,10 +163,10 @@ Public Class UserDataManager
         Return history
     End Function
 
-    Public Function GetBookmarks(Optional WithDeletedItems As Boolean = False) As List(Of WebPage)
+    Public Function GetBookmarks(Optional WithDeletedItems As Boolean = False, Optional CreatedSince As Integer = 0, Optional DeletedSince As Integer? = Nothing) As List(Of WebPage)
         Dim command As New SQLiteCommand With {
             .Connection = db,
-            .CommandText = "SELECT title, url, icon, created_on, deleted_on FROM bookmark" & If(Not WithDeletedItems, " WHERE deleted_on IS NULL", "") & " ORDER BY created_on DESC"
+            .CommandText = "SELECT title, url, icon, created_on, deleted_on FROM bookmark WHERE created_on >= " & CreatedSince & If(Not WithDeletedItems, " AND deleted_on IS NULL", "") & If(DeletedSince IsNot Nothing, " AND deleted_on IS NOT NULL AND deleted_on >= " & DeletedSince, "") & " ORDER BY created_on DESC"
         }
         Dim reader = command.ExecuteReader()
         Dim bookmarks As New List(Of WebPage)
@@ -177,8 +177,8 @@ Public Class UserDataManager
                     reader.GetString(0),
                     reader.GetString(1),
                     IconConverter.Base64ToImage(reader.GetString(2)),
-                    reader.GetDouble(3),
-                    If(Not reader.IsDBNull(4), reader.GetDouble(4), Nothing)
+                    reader.GetInt64(3),
+                    If(Not reader.IsDBNull(4), reader.GetInt64(4), Nothing)
                 )
             )
         End While
@@ -186,10 +186,10 @@ Public Class UserDataManager
         Return bookmarks
     End Function
 
-    Public Function GetSearchHistory(Optional WithDeletedItems As Boolean = False) As List(Of SearchHistoryItem)
+    Public Function GetSearchHistory(Optional WithDeletedItems As Boolean = False, Optional CreatedSince As Integer = 0, Optional DeletedSince As Integer? = Nothing) As List(Of SearchHistoryItem)
         Dim command As New SQLiteCommand With {
             .Connection = db,
-            .CommandText = "SELECT query, created_on, deleted_on FROM searchquery" & If(Not WithDeletedItems, " WHERE deleted_on IS NULL", "") & " ORDER BY created_on DESC"
+            .CommandText = "SELECT query, created_on, deleted_on FROM searchquery WHERE created_on >= " & CreatedSince & If(Not WithDeletedItems, " AND deleted_on IS NULL", "") & If(DeletedSince IsNot Nothing, " AND deleted_on IS NOT NULL AND deleted_on >= " & DeletedSince, "") & " ORDER BY created_on DESC"
         }
         Dim reader = command.ExecuteReader()
         Dim searchHistory As New List(Of SearchHistoryItem)
@@ -198,8 +198,8 @@ Public Class UserDataManager
             searchHistory.Add(
                 New SearchHistoryItem(
                     reader.GetString(0),
-                    reader.GetDouble(1),
-                    If(Not reader.IsDBNull(2), reader.GetDouble(2), Nothing)
+                    reader.GetInt64(1),
+                    If(Not reader.IsDBNull(2), reader.GetInt64(2), Nothing)
                 )
             )
         End While
@@ -207,10 +207,10 @@ Public Class UserDataManager
         Return searchHistory
     End Function
 
-    Public Function GetDownloadHistory(Optional WithDeletedItems As Boolean = False) As List(Of DownloadedItem)
+    Public Function GetDownloadHistory(Optional WithDeletedItems As Boolean = False, Optional CreatedSince As Integer = 0, Optional DeletedSince As Integer? = Nothing) As List(Of DownloadedItem)
         Dim command As New SQLiteCommand With {
             .Connection = db,
-            .CommandText = "SELECT url, title, created_on, deleted_on FROM download" & If(Not WithDeletedItems, " WHERE deleted_on IS NULL", "") & " ORDER BY created_on DESC"
+            .CommandText = "SELECT url, title, created_on, deleted_on FROM download WHERE created_on >= " & CreatedSince & If(Not WithDeletedItems, " AND deleted_on IS NULL", "") & If(DeletedSince IsNot Nothing, " AND deleted_on IS NOT NULL AND deleted_on >= " & DeletedSince, "") & " ORDER BY created_on DESC"
         }
         Dim reader = command.ExecuteReader()
         Dim downloadHistory As New List(Of DownloadedItem)
@@ -220,8 +220,8 @@ Public Class UserDataManager
                 New DownloadedItem(
                     reader.GetString(0),
                     If(Not reader.IsDBNull(1), reader.GetString(1), Nothing),
-                    reader.GetDouble(2),
-                    If(Not reader.IsDBNull(3), reader.GetDouble(3), Nothing)
+                    reader.GetInt64(2),
+                    If(Not reader.IsDBNull(3), reader.GetInt64(3), Nothing)
                 )
             )
         End While
@@ -326,58 +326,70 @@ Public Class UserDataManager
                 reader.GetString(0),
                 reader.GetString(1),
                 IconConverter.Base64ToImage(reader.GetString(2)),
-                reader.GetDouble(3),
-                If(Not reader.IsDBNull(4), reader.GetDouble(4), Nothing)
+                reader.GetInt64(3),
+                If(Not reader.IsDBNull(4), reader.GetInt64(4), Nothing)
             ))
         End While
 
         Return bookmarks
     End Function
 
-    Public Sub DeleteFromHistory(CreationDate As Double)
-        Dim command As New SQLiteCommand With {
-            .Connection = db,
-            .CommandText = "UPDATE history SET deleted_on = @deleted_on WHERE created_on = @created_on"
-        }
-        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
-        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
-        command.ExecuteNonQuery()
-    End Sub
-
-    Public Sub DeleteFromBookmarks(CreationDate As Double, Optional Url As String = Nothing)
-        Dim command As New SQLiteCommand With {
-            .Connection = db
-        }
-
-        If Url IsNot Nothing Then
-            command.CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE url = @url"
-            command.Parameters.Add(New SQLiteParameter("@url", Url))
-        Else
-            command.CommandText = "UPDATE bookmark SET deleted_on = @deleted_on WHERE created_on = @created_on"
+    Public Sub DeleteFromHistory(ParamArray CreationDates() As Long)
+        For Each CreationDate In CreationDates
+            Dim command As New SQLiteCommand With {
+                .Connection = db,
+                .CommandText = "UPDATE history SET title = '', url = '', icon = '', deleted_on = @deleted_on WHERE created_on = @created_on"
+            }
+            command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
             command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
-        End If
+            command.ExecuteNonQuery()
+        Next
+    End Sub
 
+    Public Sub DeleteFromBookmarks(ParamArray CreationDates() As Long)
+        For Each CreationDate In CreationDates
+            Dim command As New SQLiteCommand With {
+                .Connection = db
+            }
+
+            command.CommandText = "UPDATE bookmark SET SET title = '', url = '', icon = '' deleted_on = @deleted_on WHERE created_on = @created_on"
+            command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+            command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+            command.ExecuteNonQuery()
+        Next
+    End Sub
+
+    Public Sub DeleteFromBookmarks(Url As String)
+        Dim command As New SQLiteCommand With {
+            .Connection = db,
+            .CommandText = "UPDATE bookmark SET SET title = '', url = '', icon = '' deleted_on = @deleted_on WHERE url = @url"
+        }
+        command.Parameters.Add(New SQLiteParameter("@url", Url))
         command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
         command.ExecuteNonQuery()
     End Sub
 
-    Public Sub DeleteFromSearchHistory(CreationDate As Double)
-        Dim command As New SQLiteCommand With {
-            .Connection = db,
-            .CommandText = "UPDATE searchquery SET deleted_on = @deleted_on WHERE created_on = @created_on"
-        }
-        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
-        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
-        command.ExecuteNonQuery()
+    Public Sub DeleteFromSearchHistory(ParamArray CreationDates() As Long)
+        For Each CreationDate In CreationDates
+            Dim command As New SQLiteCommand With {
+                .Connection = db,
+                .CommandText = "UPDATE searchquery SET query = '', deleted_on = @deleted_on WHERE created_on = @created_on"
+            }
+            command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+            command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+            command.ExecuteNonQuery()
+        Next
     End Sub
 
-    Public Sub DeleteFromDownloadHistory(CreationDate As Double)
-        Dim command As New SQLiteCommand With {
-            .Connection = db,
-            .CommandText = "UPDATE download SET deleted_on = @deleted_on WHERE created_on = @created_on"
-        }
-        command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
-        command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
-        command.ExecuteNonQuery()
+    Public Sub DeleteFromDownloadHistory(ParamArray CreationDates() As Long)
+        For Each CreationDate In CreationDates
+            Dim command As New SQLiteCommand With {
+                .Connection = db,
+                .CommandText = "UPDATE download SET title = '', url = '', deleted_on = @deleted_on WHERE created_on = @created_on"
+            }
+            command.Parameters.Add(New SQLiteParameter("@deleted_on", TimestampConverter.DateTimeToUnixTimestamp(DateTime.Now)))
+            command.Parameters.Add(New SQLiteParameter("@created_on", CreationDate))
+            command.ExecuteNonQuery()
+        Next
     End Sub
 End Class

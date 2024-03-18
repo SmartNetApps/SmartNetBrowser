@@ -276,9 +276,13 @@
     <Compile Include="Tools\NetworkChecker.vb" />
     <Compile Include="Tools\RandomString.vb" />
     <Compile Include="Tools\TimestampConverter.vb" />
+    <Compile Include="UserDataFeatures\Formats\SerializableDownloadedItem.vb" />
     <Compile Include="UserDataFeatures\Formats\DownloadedItem.vb" />
+    <Compile Include="UserDataFeatures\Formats\SerializableSearchHistoryItem.vb" />
+    <Compile Include="UserDataFeatures\Formats\SerializableUserDataItem.vb" />
     <Compile Include="UserDataFeatures\Formats\UserDataItem.vb" />
     <Compile Include="UserDataFeatures\Formats\SearchHistoryItem.vb" />
+    <Compile Include="UserDataFeatures\Formats\SerializableWebPage.vb" />
     <Compile Include="UserDataFeatures\UserDataLibraryForm.Designer.vb">
       <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
     </Compile>
