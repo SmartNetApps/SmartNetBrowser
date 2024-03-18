@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -121,18 +120,12 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Geckofx-Core, Version=60.0.55.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx60.32.60.0.55\lib\net45\Geckofx-Core.dll</HintPath>
     </Reference>
@@ -148,21 +141,10 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -190,14 +172,14 @@
     <Compile Include="AboutForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\AdsBlockerAgent.vb" />
+    <Compile Include="AdsBlockerAgent.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="SyncFeatures\AppSyncAgent.vb" />
-    <Compile Include="SyncFeatures\AppSyncException.vb" />
-    <Compile Include="SyncFeatures\AppSyncLogin.Designer.vb">
+    <Compile Include="AppSyncAgent.vb" />
+    <Compile Include="AppSyncException.vb" />
+    <Compile Include="AppSyncLogin.Designer.vb">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="SyncFeatures\AppSyncLogin.vb">
+    <Compile Include="AppSyncLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BrowserForm.vb">
@@ -207,29 +189,29 @@
       <DependentUpon>BrowserForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
+    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.vb">
+    <Compile Include="ChangeBrowserSettingsSecurityPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.Designer.vb">
+    <Compile Include="ChangeChildrenProtectionPasswordForm.Designer.vb">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.vb">
+    <Compile Include="ChangeChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\ChildGuardAgent.vb" />
-    <Compile Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
+    <Compile Include="ChildGuardAgent.vb" />
+    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.Designer.vb">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.vb">
+    <Compile Include="CreateBrowserSettingsSecurityPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.Designer.vb">
+    <Compile Include="CreateChildrenProtectionPasswordForm.Designer.vb">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.vb">
+    <Compile Include="CreateChildrenProtectionPasswordForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomBrowser.vb">
@@ -241,16 +223,16 @@
     <Compile Include="DownloadForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.Designer.vb">
+    <Compile Include="EnterBrowserSettingsSecurityForm.Designer.vb">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.vb">
+    <Compile Include="EnterBrowserSettingsSecurityForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecurityFeatures\EnterChildrenProtectionForm.Designer.vb">
+    <Compile Include="EnterChildrenProtectionForm.Designer.vb">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFeatures\EnterChildrenProtectionForm.vb">
+    <Compile Include="EnterChildrenProtectionForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExceptionForm.Designer.vb">
@@ -265,32 +247,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SyncFeatures\MajestiCloudAgent.vb" />
-    <Compile Include="SyncFeatures\MajestiCloudLoginForm.Designer.vb">
-      <DependentUpon>MajestiCloudLoginForm.vb</DependentUpon>
+    <Compile Include="NetworkChecker.vb" />
+    <Compile Include="NewHistoryForm.Designer.vb">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="SyncFeatures\MajestiCloudLoginForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SyncFeatures\MajestiCloudSession.vb" />
-    <Compile Include="Tools\NetworkChecker.vb" />
-    <Compile Include="Tools\RandomString.vb" />
-    <Compile Include="Tools\TimestampConverter.vb" />
-    <Compile Include="UserDataFeatures\Formats\SerializableDownloadedItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\DownloadedItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\SerializableSearchHistoryItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\SerializableUserDataItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\UserDataItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\SearchHistoryItem.vb" />
-    <Compile Include="UserDataFeatures\Formats\SerializableWebPage.vb" />
-    <Compile Include="UserDataFeatures\UserDataLibraryForm.Designer.vb">
-      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserDataFeatures\UserDataLibraryForm.vb">
+    <Compile Include="NewHistoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
-    <Compile Include="UpdateFeatures\UpdateAgent.vb" />
+    <Compile Include="UpdateAgent.vb" />
+    <Compile Include="LicenseForm.Designer.vb">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -332,18 +303,14 @@
     <Compile Include="SettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateFeatures\UpdaterForm.Designer.vb">
+    <Compile Include="UpdaterForm.Designer.vb">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="UpdateFeatures\UpdaterForm.vb">
+    <Compile Include="UpdaterForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tools\IconConverter.vb" />
-    <Compile Include="UserDataFeatures\LegacyUserDataManagement.vb" />
-    <Compile Include="UserDataFeatures\UserDataManager.vb" />
-    <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPage.vb" />
-    <Compile Include="UserDataFeatures\LegacyFormats\LegacyWebPageList.vb" />
-    <Compile Include="UserDataFeatures\Formats\WebPage.vb" />
+    <Compile Include="WebPage.vb" />
+    <Compile Include="WebpageList.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutForm.en.resx">
@@ -355,13 +322,13 @@
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.en.resx">
+    <EmbeddedResource Include="AppSyncLogin.en.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.fr.resx">
+    <EmbeddedResource Include="AppSyncLogin.fr.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SyncFeatures\AppSyncLogin.resx">
+    <EmbeddedResource Include="AppSyncLogin.resx">
       <DependentUpon>AppSyncLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BrowserForm.en.resx">
@@ -373,40 +340,40 @@
     <EmbeddedResource Include="BrowserForm.resx">
       <DependentUpon>BrowserForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.en.resx">
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.en.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.fr.resx">
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.fr.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeBrowserSettingsSecurityPasswordForm.resx">
+    <EmbeddedResource Include="ChangeBrowserSettingsSecurityPasswordForm.resx">
       <DependentUpon>ChangeBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.en.resx">
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.en.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.fr.resx">
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.fr.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\ChangeChildrenProtectionPasswordForm.resx">
+    <EmbeddedResource Include="ChangeChildrenProtectionPasswordForm.resx">
       <DependentUpon>ChangeChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.en.resx">
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.en.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.fr.resx">
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.fr.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateBrowserSettingsSecurityPasswordForm.resx">
+    <EmbeddedResource Include="CreateBrowserSettingsSecurityPasswordForm.resx">
       <DependentUpon>CreateBrowserSettingsSecurityPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.en.resx">
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.en.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.fr.resx">
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.fr.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\CreateChildrenProtectionPasswordForm.resx">
+    <EmbeddedResource Include="CreateChildrenProtectionPasswordForm.resx">
       <DependentUpon>CreateChildrenProtectionPasswordForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DownloadForm.en.resx">
@@ -418,22 +385,22 @@
     <EmbeddedResource Include="DownloadForm.resx">
       <DependentUpon>DownloadForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.en.resx">
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.en.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.fr.resx">
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.fr.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterBrowserSettingsSecurityForm.resx">
+    <EmbeddedResource Include="EnterBrowserSettingsSecurityForm.resx">
       <DependentUpon>EnterBrowserSettingsSecurityForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.en.resx">
+    <EmbeddedResource Include="EnterChildrenProtectionForm.en.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.fr.resx">
+    <EmbeddedResource Include="EnterChildrenProtectionForm.fr.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SecurityFeatures\EnterChildrenProtectionForm.resx">
+    <EmbeddedResource Include="EnterChildrenProtectionForm.resx">
       <DependentUpon>EnterChildrenProtectionForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExceptionForm.en.resx">
@@ -445,23 +412,29 @@
     <EmbeddedResource Include="ExceptionForm.resx">
       <DependentUpon>ExceptionForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.en.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.fr.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseForm.resx">
+      <DependentUpon>LicenseForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SyncFeatures\MajestiCloudLoginForm.resx">
-      <DependentUpon>MajestiCloudLoginForm.vb</DependentUpon>
+    <EmbeddedResource Include="NewHistoryForm.en.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.en.resx">
-      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
+    <EmbeddedResource Include="NewHistoryForm.fr.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.fr.resx">
-      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserDataFeatures\UserDataLibraryForm.resx">
-      <DependentUpon>UserDataLibraryForm.vb</DependentUpon>
+    <EmbeddedResource Include="NewHistoryForm.resx">
+      <DependentUpon>NewHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreventTabsCloseForm.en.resx">
       <DependentUpon>PreventTabsCloseForm.vb</DependentUpon>
@@ -508,13 +481,13 @@
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.en.resx">
+    <EmbeddedResource Include="UpdaterForm.en.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.fr.resx">
+    <EmbeddedResource Include="UpdaterForm.fr.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateFeatures\UpdaterForm.resx">
+    <EmbeddedResource Include="UpdaterForm.resx">
       <DependentUpon>UpdaterForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -538,52 +511,52 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StaticPages\404\en.html">
+    <Content Include="404\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\404\fr.html">
+    <Content Include="404\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\404\icon.svg">
+    <Content Include="404\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\404\style.css">
+    <Content Include="404\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\AntiMalware\en.html">
+    <Content Include="AntiMalware\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\AntiMalware\fr.html">
+    <Content Include="AntiMalware\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\AntiMalware\icon.svg">
+    <Content Include="AntiMalware\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\AntiMalware\style.css">
+    <Content Include="AntiMalware\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\CertificateError\en.html">
+    <Content Include="CertificateError\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\CertificateError\fr.html">
+    <Content Include="CertificateError\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\CertificateError\icon.svg">
+    <Content Include="CertificateError\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\CertificateError\style.css">
+    <Content Include="CertificateError\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\ChildGuard\en.html">
+    <Content Include="ChildGuard\en.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\ChildGuard\fr.html">
+    <Content Include="ChildGuard\fr.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\ChildGuard\icon.svg">
+    <Content Include="ChildGuard\icon.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="StaticPages\ChildGuard\style.css">
+    <Content Include="ChildGuard\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="COPYING.txt">
@@ -730,14 +703,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Geckofx60.32.60.0.55\build\Geckofx60.32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx60.32.60.0.55\build\Geckofx60.32.targets'))" />
     <Error Condition="!Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.4\build\Baseclass.Contrib.Nuget.Output.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Baseclass.Contrib.Nuget.Output.2.4.4\build\Baseclass.Contrib.Nuget.Output.targets'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\Geckofx60.32.60.0.55\build\Geckofx60.32.targets" Condition="Exists('..\packages\Geckofx60.32.60.0.55\build\Geckofx60.32.targets')" />
   <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.4.4\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.4\build\Baseclass.Contrib.Nuget.Output.targets')" />
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -102,6 +102,12 @@ Partial Class SettingsForm
         Me.AdBlockerCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TabPageAppSync = New System.Windows.Forms.TabPage()
+        Me.ButtonSyncNow = New System.Windows.Forms.Button()
+        Me.GroupBoxAppSyncDevice = New System.Windows.Forms.GroupBox()
+        Me.ButtonChangeAppSyncDeviceName = New System.Windows.Forms.Button()
+        Me.TextBoxAppSyncDeviceName = New System.Windows.Forms.TextBox()
+        Me.LabelAppSyncDeviceName = New System.Windows.Forms.Label()
+        Me.PictureBoxAppSyncDevice = New System.Windows.Forms.PictureBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.LabelUsername = New System.Windows.Forms.Label()
         Me.PictureBoxUserProfilePic = New System.Windows.Forms.PictureBox()
@@ -167,6 +173,8 @@ Partial Class SettingsForm
         Me.GroupBox_AdsBlockerActivation.SuspendLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPageAppSync.SuspendLayout()
+        Me.GroupBoxAppSyncDevice.SuspendLayout()
+        CType(Me.PictureBoxAppSyncDevice, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBoxUserProfilePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MisesàJour.SuspendLayout()
@@ -767,11 +775,51 @@ Partial Class SettingsForm
         '
         'TabPageAppSync
         '
+        Me.TabPageAppSync.Controls.Add(Me.ButtonSyncNow)
+        Me.TabPageAppSync.Controls.Add(Me.GroupBoxAppSyncDevice)
         Me.TabPageAppSync.Controls.Add(Me.GroupBox3)
         Me.TabPageAppSync.Controls.Add(Me.Label2)
         resources.ApplyResources(Me.TabPageAppSync, "TabPageAppSync")
         Me.TabPageAppSync.Name = "TabPageAppSync"
         Me.TabPageAppSync.UseVisualStyleBackColor = True
+        '
+        'ButtonSyncNow
+        '
+        resources.ApplyResources(Me.ButtonSyncNow, "ButtonSyncNow")
+        Me.ButtonSyncNow.Name = "ButtonSyncNow"
+        Me.ButtonSyncNow.UseVisualStyleBackColor = True
+        '
+        'GroupBoxAppSyncDevice
+        '
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.ButtonChangeAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.TextBoxAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.LabelAppSyncDeviceName)
+        Me.GroupBoxAppSyncDevice.Controls.Add(Me.PictureBoxAppSyncDevice)
+        resources.ApplyResources(Me.GroupBoxAppSyncDevice, "GroupBoxAppSyncDevice")
+        Me.GroupBoxAppSyncDevice.Name = "GroupBoxAppSyncDevice"
+        Me.GroupBoxAppSyncDevice.TabStop = False
+        '
+        'ButtonChangeAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.ButtonChangeAppSyncDeviceName, "ButtonChangeAppSyncDeviceName")
+        Me.ButtonChangeAppSyncDeviceName.Name = "ButtonChangeAppSyncDeviceName"
+        Me.ButtonChangeAppSyncDeviceName.UseVisualStyleBackColor = True
+        '
+        'TextBoxAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.TextBoxAppSyncDeviceName, "TextBoxAppSyncDeviceName")
+        Me.TextBoxAppSyncDeviceName.Name = "TextBoxAppSyncDeviceName"
+        '
+        'LabelAppSyncDeviceName
+        '
+        resources.ApplyResources(Me.LabelAppSyncDeviceName, "LabelAppSyncDeviceName")
+        Me.LabelAppSyncDeviceName.Name = "LabelAppSyncDeviceName"
+        '
+        'PictureBoxAppSyncDevice
+        '
+        resources.ApplyResources(Me.PictureBoxAppSyncDevice, "PictureBoxAppSyncDevice")
+        Me.PictureBoxAppSyncDevice.Name = "PictureBoxAppSyncDevice"
+        Me.PictureBoxAppSyncDevice.TabStop = False
         '
         'GroupBox3
         '
@@ -1030,6 +1078,9 @@ Partial Class SettingsForm
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPageAppSync.ResumeLayout(False)
         Me.TabPageAppSync.PerformLayout()
+        Me.GroupBoxAppSyncDevice.ResumeLayout(False)
+        Me.GroupBoxAppSyncDevice.PerformLayout()
+        CType(Me.PictureBoxAppSyncDevice, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.PictureBoxUserProfilePic, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1164,4 +1215,10 @@ Partial Class SettingsForm
     Friend WithEvents TextBoxNewPageInAdsBlockerWhitelist As TextBox
     Friend WithEvents PictureBoxAdsBlockerWhitelist As PictureBox
     Friend WithEvents ButtonRemovePageFromAdsBlockerWhitelist As Button
+    Friend WithEvents GroupBoxAppSyncDevice As GroupBox
+    Friend WithEvents PictureBoxAppSyncDevice As PictureBox
+    Friend WithEvents LabelAppSyncDeviceName As Label
+    Friend WithEvents ButtonChangeAppSyncDeviceName As Button
+    Friend WithEvents TextBoxAppSyncDeviceName As TextBox
+    Friend WithEvents ButtonSyncNow As Button
 End Class

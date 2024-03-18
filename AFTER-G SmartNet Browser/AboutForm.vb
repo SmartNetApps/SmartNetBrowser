@@ -22,12 +22,11 @@
     End Sub
 
     Private Sub LinkLabel3_LinkClicked(sender As Object, e As EventArgs) Handles LicenseLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://www.gnu.org/licenses/gpl-3.0.fr.html")
-        Me.Close()
+        LicenseForm.ShowDialog()
     End Sub
 
     Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles ClipconverterLinkLabel.LinkClicked
-        BrowserForm.AddTab("https://www.clipconverter.cc/terms")
+        BrowserForm.AddTab("http://www.clipconverter.cc/terms")
         Me.Close()
     End Sub
 

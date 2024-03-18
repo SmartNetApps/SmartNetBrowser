@@ -5,8 +5,6 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 
 Public Class BrowserForm
-    Private ReadOnly UserData As UserDataManager = UserDataManager.GetInstance()
-    Private WithEvents CloudAgent As MajestiCloudAgent = MajestiCloudAgent.GetInstance()
     Public msgBar As MessageBar
     Dim tabPageIndex As Integer = 0
     Public lastClosedTabURL As String
@@ -22,8 +20,11 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInHistory(page As WebPage)
-        userData.AddInHistory(page)
-        URLBox.Items.Add(page.URI.AbsoluteUri)
+        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
+        Historique.Add(page)
+        My.Settings.History = Historique.ToStringCollection()
+        My.Settings.Save()
+        URLBox.Items.Add(page.GetURL())
     End Sub
 
     ''' <summary>
@@ -31,8 +32,11 @@ Public Class BrowserForm
     ''' </summary>
     ''' <param name="page">Page à ajouter</param>
     Public Sub AddInFavorites(page As WebPage)
-        userData.AddInBookmarks(page)
-        URLBox.Items.Add(page.URI.AbsoluteUri)
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Favoris.Add(page)
+        My.Settings.Favorites = Favoris.ToStringCollection()
+        My.Settings.Save()
+        URLBox.Items.Add(page.GetURL())
         UpdateInterface()
     End Sub
 
@@ -183,7 +187,7 @@ Public Class BrowserForm
 
         If My.Settings.PrivateBrowsing = False Then
             URLBox.Items.Add(keywords)
-            userData.AddInSearchHistory(New SearchHistoryItem(keywords))
+            My.Settings.SearchHistory.Add(keywords)
         End If
     End Sub
 
@@ -220,7 +224,8 @@ Public Class BrowserForm
             AdBlockerButton.Image = My.Resources.AdsBlockerButton_enabled
         End If
 
-        If userData.SearchInBookmarks(WB.Url.ToString()).Count > 0 Then
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        If Favoris.ContainsPage(WB.Url.ToString()) Then
             FavoritesButton.Image = My.Resources.FavoritesBlue
             ToolTip_BrowserForm.SetToolTip(FavoritesButton, "Afficher le marque-page dans la bibliothèque")
         Else
@@ -277,14 +282,6 @@ Public Class BrowserForm
         Else
             URLBoxLabel.Visible = False
         End If
-
-        If cloudAgent.CurrentSession IsNot Nothing Then
-            SeConnecterÀAppSyncToolStripMenuItem.Text = cloudAgent.CurrentSession.UserName
-            SeConnecterÀAppSyncToolStripMenuItem.Image = cloudAgent.CurrentSession.UserPictureAsImage()
-        Else
-            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à MajestiCloud..."
-            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
-        End If
     End Sub
 
     Private Sub BrowserForm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
@@ -311,23 +308,49 @@ Public Class BrowserForm
             My.Settings.FirstStart = False
         End If
 
-        If Not NetworkChecker.IsInternetAvailable Then
+        Try
+            If AppSyncAgent.IsDeviceRegistered() Then
+                SeConnecterÀAppSyncToolStripMenuItem.Text = AppSyncAgent.GetUserName()
+                SeConnecterÀAppSyncToolStripMenuItem.Image = AppSyncAgent.GetUserProfilePicture()
+
+                If Not NetworkChecker.IsInternetAvailable Then
+                    SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
+                End If
+            Else
+                If My.Settings.AppSyncDeviceNumber <> "" Then
+                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                    DisplayMessageBar()
+                End If
+                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+                My.Settings.AppSyncDeviceNumber = ""
+                SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+                SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            End If
+        Catch ex As AppSyncException
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Échec de l'ouverture de votre session AppSync."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
             SeConnecterÀAppSyncToolStripMenuItem.Enabled = False
+            msgBar = New MessageBar(MessageBar.MessageBarLevel.Critical, "Un problème est survenu lors de l'ouverture de votre session SmartNet AppSync. (" + ex.Message + ", " + ex.GetBaseException().Message + ")", MessageBar.MessageBarAction.OpenPopup, "Obtenir de l'aide", "https://www.lesmajesticiels.org/support/kb/product/browser")
+            DisplayMessageBar()
+        End Try
+
+        If AppSyncAgent.IsDeviceRegistered() Then
+            AppSyncSyncNowAsync()
         End If
 
-        Dim Favoris As List(Of WebPage) = userData.GetBookmarks()
-        Dim Historique As List(Of WebPage) = userData.GetHistory()
+        Dim Favoris As WebPageList = WebPageList.FromStringCollection(My.Settings.Favorites)
+        Dim Historique As WebPageList = WebPageList.FromStringCollection(My.Settings.History)
 
         For Each favorite In Favoris
-            URLBox.Items.Add(favorite.URI.AbsoluteUri)
+            URLBox.Items.Add(favorite.GetURL())
         Next
 
         For Each HistoryEntry In Historique
-            URLBox.Items.Add(HistoryEntry.URI.AbsoluteUri)
+            URLBox.Items.Add(HistoryEntry.GetURL())
         Next
 
-        For Each SearchHistoryEntry In userData.GetSearchHistory()
-            URLBox.Items.Add(SearchHistoryEntry.Query)
+        For Each SearchHistoryEntry In My.Settings.SearchHistory
+            URLBox.Items.Add(SearchHistoryEntry)
         Next
 
         If My.Settings.CorrectlyClosed = False Then
@@ -337,16 +360,6 @@ Public Class BrowserForm
         My.Settings.CorrectlyClosed = False
 
         AddHandler Gecko.LauncherDialog.Download, AddressOf LauncherDialog_Download
-    End Sub
-
-    Private Sub MajestiCloudAgent_SessionOpened() Handles cloudAgent.SessionOpened
-        SeConnecterÀAppSyncToolStripMenuItem.Text = cloudAgent.CurrentSession.UserName
-        SeConnecterÀAppSyncToolStripMenuItem.Image = cloudAgent.CurrentSession.UserPictureAsImage()
-    End Sub
-
-    Private Sub MajestiCloudAgent_SessionClosed() Handles cloudAgent.SessionClosed
-        SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à MajestiCloud..."
-        SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
     End Sub
 
     Private Sub LauncherDialog_Download(ByVal sender As Object, ByVal e As Gecko.LauncherDialogEvent) 'Handles Gecko.LauncherDialog.Download
@@ -515,8 +528,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            UserDataLibraryForm.TabControl1.SelectTab(1)
-            UserDataLibraryForm.Show()
+            NewHistoryForm.TabControl1.SelectTab(1)
+            NewHistoryForm.Show()
         End If
     End Sub
 
@@ -692,7 +705,7 @@ Public Class BrowserForm
 
     Private Sub TéléchargerCetteVidéoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TéléchargerCetteVidéoToolStripMenuItem.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        AddTab("https://www.clipconverter.cc/?ref=bookmarklet&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
+        AddTab("http://www.clipconverter.cc/?ref=addon&url=" + WebUtility.UrlEncode(WB.Url.ToString()))
     End Sub
 
     Private Sub ShowProperties(sender As Object, e As EventArgs) Handles PropriétésToolStripMenuItem.Click
@@ -815,7 +828,14 @@ Public Class BrowserForm
                         lnk = WB.PointedElement.ParentElement.GetAttribute("HREF")
                     End If
                 End If
-                AddInFavorites(New WebPage(lnk, lnk))
+                AddInFavorites(New WebPage(lnk))
+                If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(lnk) Then
+                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Favori enregistré !")
+                    DisplayMessageBar()
+                Else
+                    msgBar = New MessageBar(MessageBar.MessageBarLevel.Warning, "Oups, le favori ne s'est pas enregistré...")
+                    DisplayMessageBar()
+                End If
             End If
         Catch ex As Exception
             msgBar = New MessageBar(ex)
@@ -920,13 +940,13 @@ Public Class BrowserForm
 
     Private Sub FavoritesButton_Click(sender As Object, e As EventArgs) Handles FavoritesButton.Click
         Dim WB As CustomBrowser = CType(Me.BrowserTabs.SelectedTab.Tag, CustomBrowser)
-        If userData.SearchInBookmarks(WB.Url.ToString).Count > 0 Then
+        If WebPageList.FromStringCollection(My.Settings.Favorites).ContainsPage(WB.Url.ToString) Then
             If My.Settings.HistoryFavoritesSecurity = True Then
                 EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                 EnterBrowserSettingsSecurityForm.ShowDialog()
             Else
-                UserDataLibraryForm.TabControl1.SelectTab(1)
-                UserDataLibraryForm.Show()
+                NewHistoryForm.TabControl1.SelectTab(1)
+                NewHistoryForm.Show()
             End If
         Else
             AddInFavorites(New WebPage(WB.DocumentTitle, WB.Url.ToString()))
@@ -1003,8 +1023,8 @@ Public Class BrowserForm
                         EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                         EnterBrowserSettingsSecurityForm.ShowDialog()
                     Else
-                        UserDataLibraryForm.TabControl1.SelectTab(1)
-                        UserDataLibraryForm.Show()
+                        NewHistoryForm.TabControl1.SelectTab(1)
+                        NewHistoryForm.Show()
                     End If
                 Case Keys.BrowserForward
                     WB.GoForward()
@@ -1094,8 +1114,7 @@ Public Class BrowserForm
             Case MessageBar.MessageBarAction.OpenInternetSettings
                 Process.Start("inetcpl.cpl")
             Case MessageBar.MessageBarAction.DisplayAppSyncLogin
-                cloudAgent.TriggerLogin()
-                UpdateInterface()
+                AppSyncLogin.ShowDialog()
             Case Else
                 MsgBox("Ce bouton ne peut rien faire. Voir le support pour plus de détails.", MsgBoxStyle.Information, "SmartNet Browser")
         End Select
@@ -1169,8 +1188,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "History"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            UserDataLibraryForm.TabControl1.SelectTab(0)
-            UserDataLibraryForm.Show()
+            NewHistoryForm.TabControl1.SelectTab(0)
+            NewHistoryForm.Show()
         End If
     End Sub
 
@@ -1179,8 +1198,8 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "SearchHistory"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            UserDataLibraryForm.TabControl1.SelectTab(2)
-            UserDataLibraryForm.Show()
+            NewHistoryForm.TabControl1.SelectTab(2)
+            NewHistoryForm.Show()
         End If
     End Sub
 
@@ -1189,28 +1208,47 @@ Public Class BrowserForm
             EnterBrowserSettingsSecurityForm.SecurityMode = "DownloadHistory"
             EnterBrowserSettingsSecurityForm.ShowDialog()
         Else
-            UserDataLibraryForm.TabControl1.SelectTab(3)
-            UserDataLibraryForm.Show()
+            NewHistoryForm.TabControl1.SelectTab(3)
+            NewHistoryForm.Show()
         End If
     End Sub
 
     Private Sub SeConnecterÀAppSyncToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeConnecterÀAppSyncToolStripMenuItem.Click
-        If cloudAgent.CurrentSession Is Nothing Then
-            CloudAgent.TriggerLogin()
+        If My.Settings.AppSyncDeviceNumber = "" Then
+            AppSyncLogin.ShowDialog()
         Else
-            SettingsForm.TabControl1.SelectTab(4)
-            If My.Settings.BrowserSettingsSecurity = True Then
-                EnterBrowserSettingsSecurityForm.SecurityMode = "Settings"
-                EnterBrowserSettingsSecurityForm.ShowDialog()
-            Else
-                SettingsForm.Show()
-        End If
+            Try
+                AddTab("https://appsync.lesmajesticiels.org/login.php?action=oneclick&token=" + AppSyncAgent.GenerateToken())
+            Catch ex As Exception
+                msgBar = New MessageBar(ex)
+                DisplayMessageBar()
+            End Try
         End If
     End Sub
 
     Private Sub AppSyncTimer_Tick(sender As Object, e As EventArgs) Handles AppSyncTimer.Tick
-        cloudAgent.TriggerSynchonization()
+        If AppSyncAgent.IsDeviceRegistered() Then
+            AppSyncSyncNowAsync()
+        Else
+            If My.Settings.AppSyncDeviceNumber <> "" Then
+                msgBar = New MessageBar(MessageBar.MessageBarLevel.Info, "Cet appareil a été déconnecté de SmartNet AppSync.", MessageBar.MessageBarAction.DisplayAppSyncLogin, "Se reconnecter...")
+                DisplayMessageBar()
+            End If
+            My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+            My.Settings.AppSyncDeviceNumber = ""
+            SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+            SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+        End If
     End Sub
+
+    Private Async Function AppSyncSyncNowAsync() As Task(Of Boolean)
+        Try
+            Return Await AppSyncAgent.SyncNow()
+        Catch ex As Exception
+            msgBar = New MessageBar(ex, "AppSync : Échec de la synchronisation périodique.")
+            Return False
+        End Try
+    End Function
 
     Private Sub URLBox_GotFocus(sender As Object, e As EventArgs) Handles URLBox.GotFocus
         GoButton.Visible = True
