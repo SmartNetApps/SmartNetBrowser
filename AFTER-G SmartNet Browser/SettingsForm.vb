@@ -5,12 +5,35 @@ Imports Microsoft.VisualBasic.Devices
 Imports Microsoft.Win32
 
 Public Class SettingsForm
-    Private WithEvents CloudAgent As MajestiCloudAgent
-
     Public Sub New()
         InitializeComponent()
-        CloudAgent = MajestiCloudAgent.GetInstance()
     End Sub
+
+    Private Async Function AppSyncSyncNowAsync() As Task(Of Boolean)
+        Try
+            ButtonSyncNow.Text = "Synchronisation en cours..."
+            ButtonSyncNow.Enabled = False
+            Return Await AppSyncAgent.SyncNow()
+            ButtonSyncNow.Text = "Synchroniser maintenant"
+            ButtonSyncNow.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ButtonSyncNow.Text = "Échec de la synchronisation."
+            ButtonSyncNow.Enabled = False
+            Return False
+        End Try
+    End Function
+
+    Private Async Function AppSyncSendConfigAsync() As Task(Of Boolean)
+        If Not NetworkChecker.IsInternetAvailable Then Return False
+        Try
+            Return Await AppSyncAgent.SendConfig()
+        Catch ex As Exception
+            BrowserForm.msgBar = New MessageBar(ex, "Malheureusement, nous n'avons pas pu envoyer votre configuration à SmartNet AppSync.")
+            BrowserForm.DisplayMessageBar()
+            Return False
+        End Try
+    End Function
 
     Private Sub SettingsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         HomepageURLBox.Text = My.Settings.Homepage
@@ -129,30 +152,61 @@ Public Class SettingsForm
                 RadioButtonBlockAllCookies.Checked = True
         End Select
 
-        If CloudAgent.CurrentSession Is Nothing Then
+        If My.Settings.AppSyncDeviceNumber = "" Then
             ButtonManageAccount.Enabled = False
             ButtonManageAccount.Visible = False
             ButtonLoginLogout.Text = "Se connecter..."
             ButtonLoginLogout.Enabled = True
             LabelUsername.Text = "Déconnecté.e"
             PictureBoxUserProfilePic.Image = My.Resources.Person
+            GroupBoxAppSyncDevice.Visible = False
+            ButtonChangeAppSyncDeviceName.Enabled = False
+            ButtonSyncNow.Enabled = False
+            ButtonSyncNow.Visible = False
         Else
-            If Not NetworkChecker.IsInternetAvailable Then
+            Try
+                If Not NetworkChecker.IsInternetAvailable Then
+                    ButtonManageAccount.Enabled = False
+                    ButtonManageAccount.Visible = True
+                    ButtonLoginLogout.Text = "Se déconnecter..."
+                    ButtonLoginLogout.Enabled = False
+                    LabelUsername.Text = AppSyncAgent.GetUserName()
+                    PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
+                    GroupBoxAppSyncDevice.Visible = True
+                    TextBoxAppSyncDeviceName.Text = ""
+                    ButtonChangeAppSyncDeviceName.Enabled = False
+                    ButtonSyncNow.Visible = True
+                    ButtonSyncNow.Enabled = False
+                Else
+                    ButtonManageAccount.Enabled = True
+                    ButtonManageAccount.Visible = True
+                    ButtonLoginLogout.Text = "Se déconnecter..."
+                    ButtonLoginLogout.Enabled = True
+                    LabelUsername.Text = AppSyncAgent.GetUserName()
+                    PictureBoxUserProfilePic.Image = New Bitmap(AppSyncAgent.GetUserProfilePicture(), 54, 54)
+                    GroupBoxAppSyncDevice.Visible = True
+                    TextBoxAppSyncDeviceName.Text = AppSyncAgent.GetDeviceName()
+                    ButtonChangeAppSyncDeviceName.Enabled = False
+                    ButtonSyncNow.Visible = True
+                    ButtonSyncNow.Enabled = True
+                End If
+            Catch ex As Exception
                 ButtonManageAccount.Enabled = False
-            Else
-                ButtonManageAccount.Enabled = True
-            End If
-
-            ButtonManageAccount.Visible = True
-            ButtonLoginLogout.Text = "Se déconnecter..."
-            ButtonLoginLogout.Enabled = True
-            LabelUsername.Text = CloudAgent.CurrentSession.UserName
-            PictureBoxUserProfilePic.Image = CloudAgent.CurrentSession.UserPictureAsImage()
+                ButtonManageAccount.Visible = True
+                ButtonLoginLogout.Text = "Se déconnecter..."
+                ButtonLoginLogout.Enabled = False
+                LabelUsername.Text = "Échec de l'ouverture de session. (" + ex.Message + ")"
+                PictureBoxUserProfilePic.Image = My.Resources.Person
+                GroupBoxAppSyncDevice.Visible = True
+                TextBoxAppSyncDeviceName.Text = ""
+                ButtonChangeAppSyncDeviceName.Enabled = False
+                ButtonSyncNow.Enabled = False
+            End Try
         End If
     End Sub
 
     Private Sub MenuURLHomepageButton_Click(sender As Object, e As EventArgs) Handles MenuURLHomepageButton.Click
-        HomepageURLBox.Text = "https://start.lesmajesticiels.org/"
+        HomepageURLBox.Text = "https://homepage.lesmajesticiels.org/"
     End Sub
     Private Sub WhitePageHomepageButton_Click(sender As Object, e As EventArgs) Handles WhitePageHomepageButton.Click
         HomepageURLBox.Text = "about:blank"
@@ -419,31 +473,26 @@ Public Class SettingsForm
     End Sub
 
     Private Sub ButtonLoginLogout_Click(sender As Object, e As EventArgs) Handles ButtonLoginLogout.Click
-        If CloudAgent.CurrentSession Is Nothing Then
-            CloudAgent.TriggerLogin()
+        If My.Settings.AppSyncDeviceNumber = "" Then
+            AppSyncLogin.ShowDialog()
         Else
-            CloudAgent.TriggerLogout()
+            If MessageBox.Show("Êtes-vous sûr.e de vouloir vous déconnecter de cet appareil ?", "SmartNet AppSync", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
+                My.Settings.AppSyncLastSyncTime = New Date(1, 1, 1)
+                My.Settings.AppSyncDeviceNumber = ""
+                ButtonManageAccount.Enabled = False
+                ButtonManageAccount.Visible = False
+                ButtonLoginLogout.Text = "Se connecter..."
+                LabelUsername.Text = "Déconnecté.e"
+                PictureBoxUserProfilePic.Image = My.Resources.Person
+                BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Text = "Se connecter à AppSync..."
+                BrowserForm.SeConnecterÀAppSyncToolStripMenuItem.Image = My.Resources.Person
+            End If
         End If
     End Sub
 
-    Private Sub MajestiCloudAgent_SessionOpened() Handles CloudAgent.SessionOpened
-        ButtonManageAccount.Enabled = True
-        ButtonManageAccount.Visible = True
-        ButtonLoginLogout.Text = "Se déconnecter..."
-        LabelUsername.Text = CloudAgent.CurrentSession.UserName
-        PictureBoxUserProfilePic.Image = CloudAgent.CurrentSession.UserPictureAsImage()
-    End Sub
-
-    Private Sub MajestiCloudAgent_SessionClosed() Handles CloudAgent.SessionClosed
-        ButtonManageAccount.Enabled = False
-        ButtonManageAccount.Visible = False
-        ButtonLoginLogout.Text = "Se connecter..."
-        LabelUsername.Text = "Déconnecté.e"
-        PictureBoxUserProfilePic.Image = My.Resources.Person
-    End Sub
-
     Private Sub ButtonManageAccount_Click(sender As Object, e As EventArgs) Handles ButtonManageAccount.Click
-        BrowserForm.AddTab("https://cloud.lesmajesticiels.org/")
+        Dim token As String = AppSyncAgent.GenerateToken()
+        BrowserForm.AddTab("https://appsync.lesmajesticiels.org/login.php?action=oneclick&token=" + token)
         Me.Close()
     End Sub
 
@@ -480,6 +529,24 @@ Public Class SettingsForm
         Next
     End Sub
 
+    Private Sub TextBoxAppSyncDeviceName_TextChanged(sender As Object, e As EventArgs) Handles TextBoxAppSyncDeviceName.TextChanged
+        If TextBoxAppSyncDeviceName.Text.Length > 0 Then
+            ButtonChangeAppSyncDeviceName.Enabled = True
+        Else
+            ButtonChangeAppSyncDeviceName.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ButtonChangeAppSyncDeviceName_Click(sender As Object, e As EventArgs) Handles ButtonChangeAppSyncDeviceName.Click
+        Try
+            If AppSyncAgent.SetDeviceName(TextBoxAppSyncDeviceName.Text) Then
+                ButtonChangeAppSyncDeviceName.Enabled = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Une erreur est survenue lors du changement du nom de votre appareil." + vbCrLf + ex.Message, "SmartNet AppSync", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
     Private Sub SettingsForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         My.Settings.BrowserSettingsSecurity = BrowserSettingsSecurityCheckBox.Checked
         My.Settings.ChildrenProtection = ChildrenProtectionCheckBox.Checked
@@ -487,6 +554,9 @@ Public Class SettingsForm
         Gecko.GeckoPreferences.User("intl.accept_languages") = My.Settings.UserAgentLanguage
         Gecko.GeckoPreferences.User("general.useragent.locale") = My.Settings.UserAgentLanguage
         My.Settings.Save()
+        If My.Settings.AppSyncDeviceNumber <> "" Then
+            AppSyncSendConfigAsync()
+        End If
     End Sub
 
     Private Sub DoNotTrackCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DoNotTrackCheckBox.CheckedChanged
@@ -518,7 +588,7 @@ Public Class SettingsForm
         My.Settings.DefaultDownloadFolder = DefaultDownloadFolderTextBox.Text
     End Sub
 
-    Private Sub MajestiCloudLoginButton_Click(sender As Object, e As EventArgs)
-        CloudAgent.TriggerLogin()
+    Private Sub ButtonSyncNow_Click(sender As Object, e As EventArgs) Handles ButtonSyncNow.Click
+        AppSyncSyncNowAsync()
     End Sub
 End Class

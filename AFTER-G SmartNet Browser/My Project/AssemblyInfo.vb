@@ -11,9 +11,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("SmartNet Browser")>
 <Assembly: AssemblyDescription("Un navigateur simple, rapide et respectueux de vos données.")>
-<Assembly: AssemblyCompany("Les Majesticiels")>
+<Assembly: AssemblyCompany("Quentin Pugeat")>
 <Assembly: AssemblyProduct("SmartNet Browser")>
-<Assembly: AssemblyCopyright("© 2015-2024 Quentin Pugeat")>
+<Assembly: AssemblyCopyright("© Quentin Pugeat 2015-2023")>
 <Assembly: AssemblyTrademark("Les Majesticiels")>
 
 <Assembly: ComVisible(False)>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' en utilisant '*', comme indiqué ci-dessous :
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("0.17.3.0")>
+<Assembly: AssemblyFileVersion("0.17.3.0")>
 <Assembly: NeutralResourcesLanguage("fr")>
