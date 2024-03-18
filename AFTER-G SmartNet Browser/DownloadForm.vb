@@ -6,6 +6,7 @@ Public Class DownloadForm
         InitializeComponent()
     End Sub
 
+    Private userData As UserDataManager = UserDataManager.GetInstance()
     Public DownloadLink As String
     Public DownloadFolder As String
     Dim Downloader As New WebClient
@@ -28,7 +29,7 @@ Public Class DownloadForm
             AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
             Downloader.DownloadFileAsync(New Uri(DownloadLink), SaveAsDialog.FileName)
             If My.Settings.PrivateBrowsing = False Then
-                My.Settings.DownloadHistory.Add(DownloadLink)
+                userData.AddInDownloadHistory(New DownloadedItem(DownloadLink))
             End If
         End If
     End Sub
@@ -74,7 +75,7 @@ Public Class DownloadForm
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
         If My.Settings.PrivateBrowsing = False Then
-            My.Settings.DownloadHistory.Add(DownloadLink)
+            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink, FileNameLabel.Text))
         End If
     End Sub
 
@@ -89,7 +90,7 @@ Public Class DownloadForm
         AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_DownloadProgressChanged
         Downloader.DownloadFileAsync(New Uri(DownloadLink), DownloadFolder + "\" + FileNameLabel.Text)
         If My.Settings.PrivateBrowsing = False Then
-            My.Settings.DownloadHistory.Add(DownloadLink)
+            userData.AddInDownloadHistory(New DownloadedItem(DownloadLink, FileNameLabel.Text))
         End If
     End Sub
 End Class

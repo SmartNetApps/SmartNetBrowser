@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Net
-Imports System.Runtime.Serialization.Formatters.Binary
 Imports Gecko
 Imports Gecko.Events
 
@@ -84,8 +83,8 @@ Public Class CustomBrowser
                         EnterBrowserSettingsSecurityForm.SecurityMode = "Favorites"
                         EnterBrowserSettingsSecurityForm.ShowDialog()
                     Else
-                        NewHistoryForm.TabControl1.SelectTab(1)
-                        NewHistoryForm.Show()
+                        UserDataLibraryForm.TabControl1.SelectTab(1)
+                        UserDataLibraryForm.Show()
                     End If
                 Case Keys.BrowserForward
                     GoForward()
@@ -122,10 +121,10 @@ Public Class CustomBrowser
             If isAdultContent Then
                 e.Cancel = True
                 Dim Language As String = Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName
-                If File.Exists(My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html") Then
-                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\" + Language + ".html")
+                If File.Exists(My.Application.Info.DirectoryPath + "\StaticPages\ChildGuard\" + Language + ".html") Then
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\StaticPages\ChildGuard\" + Language + ".html")
                 Else
-                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\ChildGuard\en.html")
+                    Me.Navigate("file:///" + My.Application.Info.DirectoryPath + "\StaticPages\ChildGuard\en.html")
                 End If
             End If
         End If
@@ -322,10 +321,10 @@ FaviconFound:
             '    BrowserForm.StopButton.Visible = False
             '    BrowserForm.RefreshButton.Visible = True
             Case -2142568418
-                If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
-                    LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html"), e.Uri, "text/html")
+                If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/StaticPages/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
+                    LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/StaticPages/404/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html"), e.Uri, "text/html")
                 Else
-                    LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/404/en.html"), e.Uri, "text/html")
+                    LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/StaticPages/404/en.html"), e.Uri, "text/html")
                 End If
             Case -2142568435
                 Console.WriteLine("Refus de connexion sur " + e.Uri + " (Code d'erreur " + e.ErrorCode.ToString() + ")")
@@ -337,10 +336,10 @@ FaviconFound:
     End Sub
 
     Private Sub CustomBrowser_NSSError(sender As Object, e As GeckoNSSErrorEventArgs) Handles MyBase.NSSError
-        If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/CertificateError/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
-            LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/CertificateError/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html"), e.Uri.ToString(), "text/html")
+        If System.IO.File.Exists(My.Application.Info.DirectoryPath + "/StaticPages/CertificateError/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html") Then
+            LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/StaticPages/CertificateError/" + My.Computer.Info.InstalledUICulture.TwoLetterISOLanguageName + ".html"), e.Uri.ToString(), "text/html")
         Else
-            LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/CertificateError/en.html"), e.Uri.ToString(), "text/html")
+            LoadContent(File.ReadAllText(My.Application.Info.DirectoryPath + "/StaticPages/CertificateError/en.html"), e.Uri.ToString(), "text/html")
         End If
         Console.WriteLine("Erreur de certificat non identifiée. Code d'erreur : " + e.ErrorCode.ToString())
     End Sub
