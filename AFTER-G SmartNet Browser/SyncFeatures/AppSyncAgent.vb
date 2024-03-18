@@ -618,7 +618,7 @@ Public Class AppSyncAgent
 
             For Each p As WebPage In theFavorites
                 If Not theOnlineFavorites.Exists(Function(webPage) webPage.IsSimilarTo(p)) Then
-                    UserDataManager.GetInstance().DeleteFromBookmarks(p.GetRawCreationDate(), p.URI.AbsoluteUri)
+                    UserDataManager.GetInstance().DeleteFromBookmarks(p.URI.AbsoluteUri)
                 End If
             Next
 
