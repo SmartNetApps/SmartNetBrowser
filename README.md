@@ -2,6 +2,12 @@
 
 SmartNet Browser est un navigateur construit en Visual Basic sur le framework Microsoft .NET. Il est léger et simple à utiliser. Il utilise le moteur de rendu Gecko, fourni par Mozilla.
 
+## Développement interrompu
+
+Cette application a été abandonnée au profit d'une refonte sur une technologie nouvelle.
+
+https://www.lesmajesticiels.org/blog/article/SmartNet-Browser-1-0-est-arrive
+
 ## Besoin d'aide ?
 
 Vous trouverez de l'aide pour SmartNet Browser :
